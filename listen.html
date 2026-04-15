@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch.7 Teaching Listening 퀴즈</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+:root {
+–bg: #0f1117;
+–surface: #1a1d27;
+–surface2: #232636;
+–accent: #7c6af7;
+–accent2: #4fc3f7;
+–correct: #4caf7d;
+–wrong: #f7706a;
+–text: #e8eaf6;
+–text-muted: #8b90b0;
+–border: #2e3250;
+}
+
+- { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+font-family: ‘Noto Sans KR’, sans-serif;
+background: var(–bg);
+color: var(–text);
+min-height: 100vh;
+padding: 20px;
+}
+
+.header {
+text-align: center;
+padding: 40px 20px 30px;
+}
+
+.header .tag {
+display: inline-block;
+font-family: ‘JetBrains Mono’, monospace;
+font-size: 11px;
+color: var(–accent);
+background: rgba(124,106,247,0.12);
+border: 1px solid rgba(124,106,247,0.3);
+padding: 4px 12px;
+border-radius: 20px;
+letter-spacing: 2px;
+text-transform: uppercase;
+margin-bottom: 16px;
+}
+
+.header h1 {
+font-size: clamp(20px, 4vw, 32px);
+font-weight: 700;
+background: linear-gradient(135deg, var(–accent) 0%, var(–accent2) 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+margin-bottom: 8px;
+}
+
+.header p { color: var(–text-muted); font-size: 14px; }
+
+.progress-bar {
+max-width: 720px;
+margin: 0 auto 30px;
+padding: 0 10px;
+}
+
+.progress-info {
+display: flex;
+justify-content: space-between;
+font-size: 12px;
+color: var(–text-muted);
+margin-bottom: 8px;
+font-family: ‘JetBrains Mono’, monospace;
+}
+
+.bar { height: 4px; background: var(–surface2); border-radius: 2px; overflow: hidden; }
+.bar-fill {
+height: 100%;
+background: linear-gradient(90deg, var(–accent), var(–accent2));
+border-radius: 2px;
+transition: width 0.5s ease;
+}
+
+.quiz-container { max-width: 720px; margin: 0 auto; }
+
+.card {
+background: var(–surface);
+border: 1px solid var(–border);
+border-radius: 16px;
+padding: 28px;
+margin-bottom: 16px;
+animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+from { opacity: 0; transform: translateY(20px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+.question-meta {
+display: flex;
+align-items: center;
+gap: 8px;
+margin-bottom: 18px;
+flex-wrap: wrap;
+}
+
+.q-number {
+font-family: ‘JetBrains Mono’, monospace;
+font-size: 11px;
+color: var(–accent);
+background: rgba(124,106,247,0.12);
+padding: 3px 10px;
+border-radius: 10px;
+}
+
+.q-year { font-size: 12px; color: var(–text-muted); }
+
+.q-category {
+font-size: 11px;
+color: var(–accent2);
+background: rgba(79,195,247,0.1);
+padding: 3px 10px;
+border-radius: 10px;
+margin-left: auto;
+}
+
+.question-text {
+font-size: clamp(14px, 2.2vw, 16px);
+line-height: 1.75;
+margin-bottom: 22px;
+color: var(–text);
+}
+
+.question-text .kw {
+color: var(–accent2);
+font-weight: 600;
+font-family: ‘JetBrains Mono’, monospace;
+font-size: 0.88em;
+}
+
+.options { display: flex; flex-direction: column; gap: 9px; }
+
+.option {
+display: flex;
+align-items: flex-start;
+gap: 12px;
+padding: 13px 16px;
+background: var(–surface2);
+border: 1.5px solid var(–border);
+border-radius: 11px;
+cursor: pointer;
+transition: all 0.2s ease;
+text-align: left;
+font-family: ‘Noto Sans KR’, sans-serif;
+font-size: 13.5px;
+color: var(–text);
+line-height: 1.6;
+width: 100%;
+}
+
+.option:hover:not(:disabled) {
+border-color: var(–accent);
+background: rgba(124,106,247,0.08);
+transform: translateX(3px);
+}
+
+.opt-label {
+font-family: ‘JetBrains Mono’, monospace;
+font-size: 11px;
+font-weight: 600;
+color: var(–accent);
+background: rgba(124,106,247,0.15);
+width: 24px;
+height: 24px;
+border-radius: 7px;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-shrink: 0;
+margin-top: 1px;
+}
+
+.option.correct { border-color: var(–correct); background: rgba(76,175,125,0.1); }
+.option.correct .opt-label { background: var(–correct); color: white; }
+.option.wrong { border-color: var(–wrong); background: rgba(247,112,106,0.1); }
+.option.wrong .opt-label { background: var(–wrong); color: white; }
+.option:disabled { cursor: default; }
+
+.explanation {
+margin-top: 18px;
+padding: 16px;
+background: rgba(124,106,247,0.06);
+border: 1px solid rgba(124,106,247,0.2);
+border-radius: 11px;
+font-size: 13px;
+line-height: 1.75;
+color: var(–text-muted);
+display: none;
+animation: fadeIn 0.3s ease;
+}
+
+.explanation.show { display: block; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.explanation strong {
+color: var(–accent2);
+display: block;
+margin-bottom: 6px;
+font-size: 11px;
+text-transform: uppercase;
+letter-spacing: 1px;
+}
+
+.next-btn {
+display: none;
+width: 100%;
+margin-top: 18px;
+padding: 13px;
+background: linear-gradient(135deg, var(–accent), var(–accent2));
+border: none;
+border-radius: 11px;
+color: white;
+font-family: ‘Noto Sans KR’, sans-serif;
+font-size: 14px;
+font-weight: 700;
+cursor: pointer;
+transition: opacity 0.2s, transform 0.2s;
+}
+
+.next-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+.next-btn.show { display: block; animation: fadeIn 0.3s ease; }
+
+.score-card {
+display: none;
+text-align: center;
+padding: 50px 30px;
+}
+
+.score-card.show { display: block; animation: slideUp 0.5s ease; }
+
+.score-circle {
+width: 130px;
+height: 130px;
+border-radius: 50%;
+background: linear-gradient(135deg, var(–accent), var(–accent2));
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+margin: 0 auto 24px;
+box-shadow: 0 0 50px rgba(124,106,247,0.4);
+}
+
+.score-num { font-size: 42px; font-weight: 700; line-height: 1; }
+.score-total { font-size: 14px; opacity: 0.8; }
+
+.score-card h2 { font-size: 24px; margin-bottom: 8px; }
+.score-card p { color: var(–text-muted); margin-bottom: 30px; }
+
+.btn-group { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+.restart-btn {
+padding: 13px 32px;
+background: var(–surface2);
+border: 1.5px solid var(–accent);
+border-radius: 11px;
+color: var(–accent);
+font-family: ‘Noto Sans KR’, sans-serif;
+font-size: 14px;
+font-weight: 700;
+cursor: pointer;
+transition: all 0.2s;
+}
+
+.restart-btn:hover { background: rgba(124,106,247,0.1); }
+
+.chapter-badge {
+display: inline-block;
+background: linear-gradient(135deg, var(–accent), var(–accent2));
+color: white;
+font-size: 12px;
+font-weight: 700;
+padding: 4px 14px;
+border-radius: 20px;
+margin-bottom: 12px;
+font-family: ‘JetBrains Mono’, monospace;
+}
+</style>
+
+</head>
+<body>
+
+<div class="header">
+  <div class="tag">임용고시 대비</div>
+  <div class="chapter-badge">Chapter 7</div>
+  <h1>Teaching Listening 퀴즈</h1>
+  <p>듣기 지도 핵심 개념 · 기출 출제 포인트 완벽 정리</p>
+</div>
+
+<div class="progress-bar">
+  <div class="progress-info">
+    <span id="prog-text">1 / 10</span>
+    <span id="prog-score">정답 0개</span>
+  </div>
+  <div class="bar"><div class="bar-fill" id="bar-fill" style="width:10%"></div></div>
+</div>
+
+<div class="quiz-container">
+  <div id="quiz-area"></div>
+  <div class="score-card" id="score-card">
+    <div class="score-circle">
+      <span class="score-num" id="final-score">0</span>
+      <span class="score-total">/10</span>
+    </div>
+    <h2 id="result-msg">수고하셨습니다!</h2>
+    <p id="result-sub"></p>
+    <div class="btn-group">
+      <button class="restart-btn" onclick="restart()">🔄 다시 풀기</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const questions = [
+  {
+    year: "기본개념",
+    category: "Bottom-up / Top-down",
+    question: "Bottom-up processing과 Top-down processing에 대한 설명으로 <strong>옳지 않은</strong> 것은?",
+    options: [
+      { label: "①", text: "Bottom-up processing은 개별 소리와 단어를 순차적으로 해독하여 의미를 파악하는 방식이다." },
+      { label: "②", text: "Top-down processing에서 학습자는 배경지식과 맥락을 활용하여 의미를 재구성한다." },
+      { label: "③", text: "Interactive processing은 bottom-up과 top-down이 동시에 사용되며, 다양한 학습 스타일에 적합하다." },
+      { label: "④", text: "Bottom-up processing 활동의 예로는 global listening strategies를 활용한 의미 파악 활동이 있다." },
+      { label: "⑤", text: "Top-down processing 활동은 extralinguistic skills에 의존하는 경향이 있다." },
+    ],
+    answer: 3,
+    explanation: "④는 Top-down processing에 대한 설명입니다. Bottom-up processing 활동은 form에 초점을 두고 영어의 구조적 시스템을 다루거나, 세부 정보를 청취하는 것처럼 개별적인 언어 요소를 선택하는 활동입니다. Global listening strategies를 활용한 의미 파악은 top-down processing에 해당합니다."
+  },
+  {
+    year: "2012.20 / 2022",
+    category: "Listening Processing",
+    question: "다음 중 <span class='kw'>top-down processing</span>을 활용한 듣기 활동으로 가장 적절한 것은?",
+    options: [
+      { label: "①", text: "받아쓰기(dictation)를 통해 정확한 발음과 철자를 훈련한다." },
+      { label: "②", text: "녹음을 반복 재생하며 특정 문법 구조를 분석하고 연습한다." },
+      { label: "③", text: "제목과 그림을 보고 내용을 예측한 후 들으며 예측이 맞는지 확인한다." },
+      { label: "④", text: "특정 단어와 구문을 집중적으로 듣고 받아 적는 세부 청취 활동을 한다." },
+      { label: "⑤", text: "짧은 구 단위로 끊어 읽어주는 내용을 그대로 따라 말한다." },
+    ],
+    answer: 2,
+    explanation: "Top-down processing은 배경지식, 상황, 맥락을 활용하여 의미를 재구성하는 방식입니다. 제목과 그림으로 내용을 예측하는 것은 prior knowledge를 활용하는 전형적인 top-down 활동입니다. ①④는 bottom-up, ②⑤는 form에 초점을 둔 활동입니다."
+  },
+  {
+    year: "2013.19",
+    category: "Pre-listening",
+    question: "Pre-listening 단계에서 교사가 학생들에게 제목을 주고 가능한 많은 질문을 스스로 만들게 하는 활동은?",
+    options: [
+      { label: "①", text: "Signposting questions — 학생들을 올바른 방향으로 안내하는 미리 제시된 질문" },
+      { label: "②", text: "Generating questions — 제목을 주고 학생들이 스스로 질문을 만드는 활동" },
+      { label: "③", text: "Schema activation — 브레인스토밍이나 시각 자료로 배경지식을 활성화" },
+      { label: "④", text: "Pre-teaching vocabulary — 핵심 어휘를 미리 가르쳐 이해를 돕는 활동" },
+      { label: "⑤", text: "Establishing context — 듣기 내용과 관련된 맥락 정보를 제공하는 활동" },
+    ],
+    answer: 1,
+    explanation: "Generating questions는 학생들이 제목을 받고 스스로 최대한 많은 질문을 생성하는 활동으로, 듣기의 목적의식을 높이고 동기를 유발합니다. Signposting questions는 교사가 미리 제시하여 학생들을 올바른 방향으로 안내하는 질문입니다. 두 활동 모두 pre-listening의 동기 유발 기법이지만 누가 질문을 만드느냐가 다릅니다."
+  },
+  {
+    year: "2010.22",
+    category: "Listening Types",
+    question: "<span class='kw'>Selective listening</span>에 대한 설명으로 옳은 것을 모두 고른 것은?<br><br>ㄱ. 사전에 계획된 목적을 가지고 특정 정보를 수집하기 위해 듣는다.<br>ㄴ. Field independent 학습자에게 적합한 활동이다.<br>ㄷ. Intensive listening과 달리 담화가 더 긴 편이다.<br>ㄹ. Scanning과 유사한 특성을 가진다.",
+    options: [
+      { label: "①", text: "ㄱ, ㄴ" },
+      { label: "②", text: "ㄱ, ㄷ" },
+      { label: "③", text: "ㄴ, ㄹ" },
+      { label: "④", text: "ㄱ, ㄴ, ㄷ" },
+      { label: "⑤", text: "ㄱ, ㄴ, ㄷ, ㄹ" },
+    ],
+    answer: 4,
+    explanation: "Selective listening의 특징: ㄱ. 사전에 계획된 목적을 가지고 특정 정보 수집 (O) ㄴ. Field independent 학습자에게 적합 (O) ㄷ. Intensive listening과 달리 담화가 더 긴 편 (O) ㄹ. Scanning과 유사 (O). 따라서 ㄱㄴㄷㄹ 모두 옳습니다."
+  },
+  {
+    year: "2011.22",
+    category: "Product vs Process",
+    question: "<span class='kw'>Process-oriented listening</span>과 <span class='kw'>Product-oriented listening</span>에 대한 설명으로 <strong>옳지 않은</strong> 것은?",
+    options: [
+      { label: "①", text: "Product-oriented listening은 'Listen to learn'으로, 이해한 내용을 다른 언어 활동에 활용한다." },
+      { label: "②", text: "Process-oriented listening은 'Learn to listen'으로, 이해가 이루어지는 과정 자체에 초점을 맞춘다." },
+      { label: "③", text: "Process-oriented listening은 metacognitive awareness를 향상시키고 자기 조절 능력을 개발하는 데 도움이 된다." },
+      { label: "④", text: "Product-oriented listening 수업에서 교사는 학생들이 듣기 과정을 거치도록 안내하고 과정에 대한 생각과 느낌을 토론하게 한다." },
+      { label: "⑤", text: "Product-oriented listening은 들은 내용을 보고서 작성이나 발표 등 후속 활동에 연결하는 방식으로 진행될 수 있다." },
+    ],
+    answer: 3,
+    explanation: "④는 Process-oriented listening에 대한 설명입니다. Process-oriented listening에서 교사는 학생들이 듣기 과정을 거치도록 안내하고, 그 과정에서의 생각과 느낌을 토론하게 합니다. Product-oriented listening은 이해한 결과물(what was understood)에 초점을 두어 그 내용을 다른 활동에 활용합니다."
+  },
+  {
+    year: "기본개념",
+    category: "Authentic Materials",
+    question: "듣기 수업에서 authentic materials 사용 시 <span class='kw'>concocted texts</span>의 문제점으로 가장 적절한 것은?",
+    options: [
+      { label: "①", text: "학습자의 수준에 비해 너무 어렵기 때문에 이해를 방해한다." },
+      { label: "②", text: "실제 영어 사용에 대한 잘못된 기대를 심어주어, 교실 밖 실제 듣기 상황으로의 전이가 어렵다." },
+      { label: "③", text: "문법 구조가 너무 복잡하여 초급 학습자가 이해하기 어렵다." },
+      { label: "④", text: "원어민 화자의 자연스러운 발화 속도를 그대로 유지하기 때문에 부담이 된다." },
+      { label: "⑤", text: "어휘가 너무 단순하여 고급 학습자에게 도전이 되지 않는다." },
+    ],
+    answer: 1,
+    explanation: "Concocted texts(인위적으로 만들어진 텍스트)의 핵심 문제는 실제 생활에 대한 잘못된 기대(false expectation)를 심어준다는 것입니다. 학생들이 교실에서 배운 것을 교실 밖 실제 듣기 경험(genuine experience outside the classroom)에 전이(transfer)하려 할 때 문제가 발생합니다. 반면 authentic texts는 자연스러운 언어 사용과 실제 생활 듣기 경험을 제공합니다."
+  },
+  {
+    year: "기본개념",
+    category: "Dictogloss",
+    question: "<span class='kw'>Dictogloss</span>에 대한 설명으로 옳은 것은?",
+    options: [
+      { label: "①", text: "교사가 짧은 구 단위로 끊어 읽어주면 학습자가 그대로 받아쓰는 활동이다." },
+      { label: "②", text: "학습자들이 협력하여 구두로 제시된 텍스트를 재구성하는 협동 활동이다." },
+      { label: "③", text: "Bottom-up processing만 활용하여 정확한 언어 형태를 훈련하는 활동이다." },
+      { label: "④", text: "개인 활동으로, 원문의 정확한 복제를 목표로 한다." },
+      { label: "⑤", text: "읽기와 듣기를 통합한 활동으로, 시각적 지원을 필수적으로 제공한다." },
+    ],
+    answer: 1,
+    explanation: "Dictogloss는 학습자들이 협력하여(collaboratively) 구두로 제시된 텍스트를 재구성(reconstruct)하는 collaborative outcome task입니다. 단계는 ① 준비 단계 → ② 받아쓰기 단계(의미와 세부사항을 위한 노트 테이킹) → ③ 재구성 단계 → ④ 분석 및 수정 단계로 이루어지며, bottom-up과 top-down 전략을 모두 활용합니다. ①은 일반 dictation에 대한 설명입니다."
+  },
+  {
+    year: "2013.19 / 기본",
+    category: "Listening Strategies",
+    question: "While-listening 단계에서 학생들이 핵심 단어를 들으며 받아 적고, 스크립트와 비교하여 자신이 들은 것과 원문 사이의 차이를 인식한 후, 이를 말하기에 적용하는 활동은?",
+    options: [
+      { label: "①", text: "Predicting — 들을 내용을 미리 예측하여 스키마를 활성화하는 전략" },
+      { label: "②", text: "Monitoring — 들으면서 자신의 이해 여부를 확인하고 예측을 검증하는 전략" },
+      { label: "③", text: "Notice the gap — 들은 것과 원문 스크립트를 비교하여 차이를 인식하는 전략" },
+      { label: "④", text: "Inferencing — 불완전한 정보를 바탕으로 행간의 의미를 추론하는 전략" },
+      { label: "⑤", text: "Evaluating — 사후 단계에서 자신의 이해도를 점검하는 전략" },
+    ],
+    answer: 2,
+    explanation: "Notice the gap은 학생들이 핵심 단어를 들으며 메모(while-listening) → 스크립트와 비교 → 자신이 들은 것과 원문 스크립트 사이의 gap(차이)을 인식 → 이를 말하기에 적용(reconstructing activity)하는 전략입니다. (2013.19 기출 포인트)"
+  },
+  {
+    year: "기본개념",
+    category: "Authentic Materials 전략",
+    question: "Authentic materials를 듣기 수업에 활용할 때, 언어 자체를 단순화하는 대신 <strong>학습자에게 요구되는 과제를 단순화</strong>하는 전략은?",
+    options: [
+      { label: "①", text: "Grading the texts — 접근성이 높은 것부터 고급 순으로 텍스트를 배열하는 전략" },
+      { label: "②", text: "Staging the listening — 점진적으로 이해를 쌓아가도록 활동을 구성하는 전략" },
+      { label: "③", text: "Simplifying the tasks — 언어 대신 과제를 단순화하여 자신감과 동기를 높이는 전략" },
+      { label: "④", text: "Pre-teaching vocabulary — 핵심 어휘를 사전에 지도하여 이해를 촉진하는 전략" },
+      { label: "⑤", text: "Finely-tuned input — 학습자 수준에 맞게 구조와 어휘를 통제한 입력을 제공하는 전략" },
+    ],
+    answer: 2,
+    explanation: "Simplifying the tasks는 authentic material의 언어(input)를 단순화하는 것이 아니라, 학습자에게 요구하는 과제(task)를 단순화하는 전략입니다. 이를 통해 학습자는 자신감을 키우고 동기 부여가 됩니다. Grading the texts는 텍스트를 난이도 순으로 배열하고, Staging the listening은 점진적 이해를 위한 활동 구성입니다."
+  },
+  {
+    year: "기본개념",
+    category: "Back-channeling / Metacognition",
+    question: "다음 중 <span class='kw'>metacognitive strategy</span>에 해당하는 듣기 전략을 모두 고른 것은?<br><br>ㄱ. Predicting — 들을 내용을 미리 예측<br>ㄴ. Monitoring — 들으면서 이해 여부 확인<br>ㄷ. Note-taking — 중요 정보를 선택적으로 기록<br>ㄹ. Evaluating — 사후에 이해도 점검<br>ㅁ. Inferencing — 불완전 정보로 의미 추론",
+    options: [
+      { label: "①", text: "ㄱ, ㄴ, ㄹ" },
+      { label: "②", text: "ㄱ, ㄴ, ㄷ, ㄹ" },
+      { label: "③", text: "ㄴ, ㄷ, ㄹ, ㅁ" },
+      { label: "④", text: "ㄱ, ㄴ, ㄹ, ㅁ" },
+      { label: "⑤", text: "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ" },
+    ],
+    answer: 0,
+    explanation: "Metacognitive strategies는 학습의 계획(planning), 모니터링(monitoring), 평가(evaluating)와 관련된 고차원 전략입니다. ㄱ. Predicting(계획/준비) ✅ ㄴ. Monitoring(들으면서 이해 확인) ✅ ㄹ. Evaluating(사후 점검) ✅ — 이 세 가지가 metacognitive strategy의 핵심입니다. ㄷ. Note-taking은 cognitive strategy(selective listening)이고, ㅁ. Inferencing도 cognitive strategy에 해당합니다."
+  }
+];
+
+let current = 0;
+let score = 0;
+let answered = false;
+
+function render() {
+  if (current >= questions.length) {
+    document.getElementById('quiz-area').style.display = 'none';
+    const sc = document.getElementById('score-card');
+    sc.classList.add('show');
+    document.getElementById('final-score').textContent = score;
+    const pct = score / questions.length;
+    document.getElementById('result-msg').textContent =
+      pct === 1 ? '🎉 완벽합니다!' : pct >= 0.8 ? '👏 훌륭해요!' : pct >= 0.6 ? '😊 잘 하셨어요!' : '💪 다시 도전해보세요!';
+    document.getElementById('result-sub').textContent =
+      `10문제 중 ${score}문제 정답 (${Math.round(pct*100)}%)`;
+    return;
+  }
+
+  const q = questions[current];
+  const pct = ((current + 1) / questions.length * 100).toFixed(0);
+  document.getElementById('bar-fill').style.width = pct + '%';
+  document.getElementById('prog-text').textContent = `${current + 1} / ${questions.length}`;
+  document.getElementById('prog-score').textContent = `정답 ${score}개`;
+  answered = false;
+
+  const html = `
+    <div class="card">
+      <div class="question-meta">
+        <span class="q-number">Q${current + 1}</span>
+        <span class="q-year">${q.year}</span>
+        <span class="q-category">${q.category}</span>
+      </div>
+      <div class="question-text">${q.question}</div>
+      <div class="options">
+        ${q.options.map((opt, i) => `
+          <button class="option" onclick="select(${i})" id="opt-${i}">
+            <span class="opt-label">${opt.label}</span>
+            <span>${opt.text}</span>
+          </button>
+        `).join('')}
+      </div>
+      <div class="explanation" id="explanation">
+        <strong>💡 해설</strong>
+        ${q.explanation}
+      </div>
+      <button class="next-btn" id="next-btn" onclick="next()">
+        ${current < questions.length - 1 ? '다음 문제 →' : '결과 보기 →'}
+      </button>
+    </div>
+  `;
+  document.getElementById('quiz-area').innerHTML = html;
+}
+
+function select(idx) {
+  if (answered) return;
+  answered = true;
+
+  const q = questions[current];
+  const opts = document.querySelectorAll('.option');
+  opts.forEach(o => o.disabled = true);
+
+  if (idx === q.answer) {
+    opts[idx].classList.add('correct');
+    score++;
+  } else {
+    opts[idx].classList.add('wrong');
+    opts[q.answer].classList.add('correct');
+  }
+
+  document.getElementById('explanation').classList.add('show');
+  document.getElementById('next-btn').classList.add('show');
+  document.getElementById('prog-score').textContent = `정답 ${score}개`;
+}
+
+function next() {
+  current++;
+  render();
+}
+
+function restart() {
+  current = 0;
+  score = 0;
+  document.getElementById('score-card').classList.remove('show');
+  document.getElementById('quiz-area').style.display = 'block';
+  render();
+}
+
+render();
+</script>
+
+</body>
+</html>
