@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="ko" style="background:#f0faf4;color:#1a3326;">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch.1 SLA Theory — 개념정리</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans KR',sans-serif;background:#f0faf4;color:#1a3326;min-height:100vh;padding:16px}
+.header{text-align:center;padding:40px 16px 28px}
+.tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11px;color:#2e7d52;background:rgba(46,125,82,.1);border:1px solid rgba(46,125,82,.3);padding:4px 12px;border-radius:20px;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+.ch-badge{display:inline-block;background:linear-gradient(135deg,#2e7d52,#26a69a);color:#fff;font-size:12px;font-weight:700;padding:4px 14px;border-radius:20px;margin-bottom:10px;font-family:'JetBrains Mono',monospace}
+h1{font-size:clamp(24px,4vw,34px);font-weight:700;background:linear-gradient(135deg,#2e7d52,#26a69a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px}
+.sub{color:#4a7a62;font-size:14px}
+.wrap{max-width:820px;margin:0 auto}
+.sec{background:#fff;border:1.5px solid #b2dfcc;border-radius:16px;margin-bottom:20px;overflow:hidden;box-shadow:0 2px 8px rgba(46,125,82,.08)}
+.sec-header{background:linear-gradient(135deg,rgba(46,125,82,.08),rgba(38,166,154,.05));border-bottom:1.5px solid #b2dfcc;padding:16px 22px;display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none}
+.sec-icon{font-size:20px}
+.sec-title{font-size:16px;font-weight:700;color:#1b5e3a;font-family:'JetBrains Mono',monospace}
+.sec-tag{font-size:11px;color:#2e7d52;background:rgba(46,125,82,.1);padding:3px 10px;border-radius:6px;margin-left:auto;font-weight:600}
+.sec-tag.red{background:rgba(183,28,28,.12);color:#b71c1c;border:1px solid rgba(183,28,28,.2)}
+.sec-tag.orange{background:rgba(230,119,0,.12);color:#bf6000;border:1px solid rgba(230,119,0,.2)}
+.sec-arrow{font-size:13px;color:#4a7a62;transition:transform .3s;margin-left:6px}
+.sec.open .sec-arrow{transform:rotate(180deg)}
+.sec-body{display:none;padding:22px}
+.sec.open .sec-body{display:block}
+.concept{margin-bottom:22px}
+.concept:last-child{margin-bottom:0}
+.c-title{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;color:#1b5e3a;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.badge-ex{font-size:10px;background:rgba(230,119,0,.12);color:#e67c00;border:1px solid rgba(230,119,0,.3);padding:2px 7px;border-radius:4px;letter-spacing:0;text-transform:none;font-weight:700}
+.def{background:rgba(46,125,82,.06);border-left:4px solid #2e7d52;padding:12px 16px;border-radius:0 10px 10px 0;margin-bottom:10px;font-size:15px;line-height:1.8;color:#1a3326}
+.note{font-size:14px;color:#3a6b51;line-height:1.75;margin-bottom:6px;padding-left:6px}
+.note::before{content:"• ";color:#26a69a;font-weight:700}
+.kw1{background:rgba(46,125,82,.15);color:#1b5e3a;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(46,125,82,.25)}
+.kw2{color:#00796b;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border-bottom:2px solid rgba(0,121,107,.45)}
+.kw3{background:rgba(230,119,0,.13);color:#bf6000;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(230,119,0,.3)}
+.kw4{background:rgba(183,28,28,.11);color:#b71c1c;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(183,28,28,.25)}
+.grid{display:grid;gap:10px;margin-top:12px}
+.grid.col2{grid-template-columns:1fr 1fr}
+.grid.col3{grid-template-columns:1fr 1fr 1fr}
+.grid-item{background:#f5fdf8;border:1.5px solid #b2dfcc;border-radius:10px;padding:14px 16px}
+.gi-title{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#2e7d52;margin-bottom:7px}
+.gi-body{font-size:13px;color:#3a6b51;line-height:1.7}
+.gi-body span{display:block}
+.flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px}
+.flow-item{background:#f5fdf8;border:1.5px solid #b2dfcc;border-radius:8px;padding:10px 16px;font-size:13px;color:#1a3326;text-align:center;line-height:1.5}
+.flow-arrow{color:#26a69a;font-size:18px;font-weight:700}
+.stage-wrap{margin-top:12px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{background:rgba(46,125,82,.1);color:#1b5e3a;font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;padding:10px 14px;border:1.5px solid #b2dfcc;text-align:left;font-weight:700}
+td{padding:10px 14px;border:1.5px solid #b2dfcc;color:#2a5040;vertical-align:top;line-height:1.65}
+tr:nth-child(even) td{background:rgba(46,125,82,.04)}
+.exam{background:rgba(230,119,0,.06);border:1.5px solid rgba(230,119,0,.25);border-radius:10px;padding:14px 16px;margin-top:14px}
+.exam-label{font-size:11px;font-family:'JetBrains Mono',monospace;color:#e67c00;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;font-weight:700}
+.exam p{font-size:13.5px;color:#6b4400;line-height:1.75;margin-bottom:4px}
+.div{height:1px;background:rgba(38,166,154,.2);margin:18px 0}
+.toc{max-width:820px;margin:0 auto 20px;background:#fff;border:1.5px solid #b2dfcc;border-radius:12px;padding:16px 20px;box-shadow:0 2px 8px rgba(46,125,82,.06)}
+.toc-title{font-size:11px;font-family:'JetBrains Mono',monospace;color:#4a7a62;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;font-weight:700}
+.toc-list{display:flex;flex-wrap:wrap;gap:7px}
+.toc-item{font-size:12px;color:#2e7d52;background:rgba(46,125,82,.08);border:1.5px solid rgba(46,125,82,.2);padding:5px 12px;border-radius:8px;cursor:pointer;transition:all .15s;font-family:'JetBrains Mono',monospace;font-weight:600}
+.toc-item:hover{background:rgba(46,125,82,.18)}
+.legend{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 16px;padding:10px 14px;background:#fff;border:1.5px solid #b2dfcc;border-radius:10px;align-items:center}
+.legend-title{font-size:10px;font-family:'JetBrains Mono',monospace;color:#4a7a62;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-right:4px}
+.legend-item{display:flex;align-items:center;gap:5px;font-size:11px;color:#3a6b51}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="tag">임용고시 대비</div><br>
+  <div class="ch-badge">Chapter 1</div>
+  <h1>SLA Theory</h1>
+  <p class="sub">서브노트 순서 기반 개념정리 · 기출 포인트 · 비교 도식</p>
+  <div style="margin-top:14px;display:inline-block;background:rgba(183,28,28,.1);border:1.5px solid rgba(183,28,28,.3);border-radius:10px;padding:10px 20px;text-align:left">
+    <p style="color:#b71c1c;font-size:14px;font-weight:700;line-height:1.8;margin:0">
+      📌 아래 목차 버튼을 누르면 해당 섹션으로 이동합니다.<br>
+      ▼ 각 섹션 제목을 누르면 내용을 열고 닫을 수 있습니다.
+    </p>
+  </div>
+</div>
+
+<div class="wrap">
+<!-- TOC -->
+<div class="toc">
+  <div class="toc-title">📋 목차</div>
+  <div class="toc-list">
+    <div class="toc-item" onclick="openSec('s1')">① Behaviorism</div>
+    <div class="toc-item" onclick="openSec('s2')">② Universal Grammar</div>
+    <div class="toc-item" onclick="openSec('s3')">③ Krashen's 5 Hypotheses</div>
+    <div class="toc-item" onclick="openSec('s4')">④ Output Hypothesis</div>
+    <div class="toc-item" onclick="openSec('s5')">⑤ Noticing / HIG·LIG</div>
+    <div class="toc-item" onclick="openSec('s6')">⑥ Information Processing</div>
+    <div class="toc-item" onclick="openSec('s7')">⑦ Processability</div>
+    <div class="toc-item" onclick="openSec('s8')">⑧ Interaction Hypothesis</div>
+    <div class="toc-item" onclick="openSec('s9')">⑨ Sociocultural Theory</div>
+  </div>
+</div>
+
+<!-- 범례 -->
+<div class="legend">
+  <span class="legend-title">키워드</span>
+  <span class="legend-item"><span class="kw4">★★★ 최빈출</span></span>
+  <span class="legend-item"><span class="kw3">★★ 빈출</span></span>
+  <span class="legend-item"><span class="kw1">★ 기본개념</span></span>
+  <span class="legend-item"><span class="kw2">부키워드</span></span>
+</div>
+
+<!-- 기출분석 -->
+<div class="exam" style="margin-bottom:20px">
+  <div class="exam-label">📝 기출분석 포인트</div>
+  <p>① <span class='kw4'>Input H · Interaction H · Output H</span> 3대 가설 → 최빈출</p>
+  <p>② <span class='kw4'>Interaction H</span>: <span class='kw3'>original version</span>(input comprehensible하게) vs <span class='kw3'>updated version</span>(output comprehensible하게) 구분 필수</p>
+  <p>③ <span class='kw4'>Negotiation of meaning</span>에서 가장 효과적 전략 = <span class='kw3'>clarification request</span></p>
+  <p>④ <span class='kw3'>Scaffolding</span> 두 가지 정의 구분 (supportive environment vs interactional supports)</p>
+  <p>⑤ <span class='kw3'>Non-interface position</span>(Krashen) vs <span class='kw3'>Interface position</span>(Bialystok) 대비</p>
+  <p>⑥ <span class='kw3'>Teachability Hypothesis</span> vs Krashen's <span class='kw2'>zero option</span> 대비</p>
+</div>
+
+<!-- ① Behaviorism -->
+<div class="sec open" id="s1">
+  <div class="sec-header" onclick="toggle('s1')">
+    <span class="sec-icon">🔨</span>
+    <span class="sec-title">① Behaviorism</span>
+    <span class="sec-tag">Structuralism · ALM · Rote Learning</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="concept">
+      <div class="c-title">Structuralism</div>
+      <div class="def">Language can be <span class='kw2'>dismantled into small units</span> and added up again to form the whole. → <span class='kw2'>discrete point</span> view of language.</div>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">Audiolingual Method (ALM)</div>
+      <div class="def">Emphasizes lg acquisition through <span class='kw2'>continuous decontextualized drills</span> to form <span class='kw2'>lg habits</span>. Form-focused, spoken language, memorization of dialogue.</div>
+      <p class="note"><span class='kw1'>Pattern drills</span>: rote, intensive, controlled practice — repetition <span class='kw2'>without understanding of meaning</span></p>
+      <p class="note"><span class='kw1'>Rote learning</span>: mental storage of <span class='kw2'>isolated items with no association to existing cognitive structure</span></p>
+      <p class="note">↔ <span class='kw3'>Meaningful learning (Subsumption)</span>: relates new info to existing cognitive structure → <span class='kw2'>strong retention</span></p>
+    </div>
+    <div class="grid col2">
+      <div class="grid-item">
+        <div class="gi-title"><span class='kw1'>Rote learning</span></div>
+        <div class="gi-body">
+          <span>isolated · no cognitive connection</span>
+          <span>weak retention · mechanical</span>
+        </div>
+      </div>
+      <div class="grid-item">
+        <div class="gi-title"><span class='kw3'>Meaningful learning</span></div>
+        <div class="gi-body">
+          <span><span class='kw2'>anchoring</span> to existing structure</span>
+          <span>strong retention · Ausubel</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ② Universal Grammar -->
+<div class="sec" id="s2">
+  <div class="sec-header" onclick="toggle('s2')">
+    <span class="sec-icon">🧬</span>
+    <span class="sec-title">② Universal Grammar Model</span>
+    <span class="sec-tag">Innatism · LAD</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="concept">
+      <div class="def">Grammar consists of <span class='kw2'>principles and parameters</span>. <span class='kw2'>FLA</span> = parameter <span class='kw2'>setting</span>. <span class='kw2'>SLA</span> = parameter <span class='kw2'>re-setting</span>.</div>
+      <p class="note"><span class='kw1'>LAD (Language Acquisition Device)</span>: 모든 인간에게 보편적으로 존재하는 언어습득 장치</p>
+      <p class="note">Natural communication 노출을 통해 언어 체계 구축 → <span class='kw2'>comprehensible input</span> 중요 (i+1)</p>
+    </div>
+  </div>
+</div>
+
+<!-- ③ Krashen -->
+<div class="sec" id="s3">
+  <div class="sec-header" onclick="toggle('s3')">
+    <span class="sec-icon">📥</span>
+    <span class="sec-title">③ Krashen's 5 Hypotheses</span>
+    <span class="sec-tag red">★★★ 최빈출</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="concept">
+      <div class="c-title">1. Acquisition / Learning Hypothesis <span class="badge-ex">★★★</span></div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw4'>Acquisition</span></div>
+          <div class="gi-body">
+            <span><span class='kw2'>unconscious</span> · naturalistic</span>
+            <span>natural communication · meaning focus</span>
+            <span>comprehensible input 조건</span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw4'>Learning</span></div>
+          <div class="gi-body">
+            <span><span class='kw2'>conscious</span> · explicit knowledge</span>
+            <span>formal instruction · form focus</span>
+            <span>monitor로만 사용 가능</span>
+          </div>
+        </div>
+      </div>
+      <p class="note" style="margin-top:10px"><span class='kw4'>Non-interface position</span>: acquired ≠ learnt — <span class='kw2'>separated and unrelated</span> (↔ Bialystok's interface position)</p>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">2. Input Hypothesis (i+1) <span class="badge-ex">★★★</span></div>
+      <div class="def">Exposure to <span class='kw4'>comprehensible input</span> is the necessary and sufficient cause of SLA.</div>
+      <p class="note">Optimum input 조건: <span class='kw2'>comprehensible, interesting/relevant, not grammatically sequenced, sufficient amount, low affective filter</span></p>
+      <p class="note"><span class='kw3'>Silent period</span>: Ss should never be required to produce speech unless ready</p>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">3. Affective Filter Hypothesis <span class="badge-ex">★★</span></div>
+      <div class="def"><span class='kw4'>Affective filter</span>: a <span class='kw2'>mental block</span> which prevents L from fully utilizing comprehensible input.</div>
+      <p class="note">Filter ↓ (좋음): <span class='kw2'>low anxiety · high motivation · high self-esteem</span> → acquisition↑</p>
+      <p class="note">Filter ↑ (나쁨): high anxiety → input blocked</p>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">4. Natural Order Hypothesis</div>
+      <div class="def">Grammatical structures in SL follow a <span class='kw2'>predictable natural order</span>.</div>
+      <p class="note"><span class='kw3'>Zero option for grammar instruction</span> — 문법 교수 불필요 (↔ Teachability Hypothesis)</p>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">5. Monitor Hypothesis <span class="badge-ex">★★</span></div>
+      <div class="def">Conscious learning functions only as a <span class='kw2'>monitor/editor</span> that checks and repairs output.</div>
+      <p class="note">성공적 작동 3조건: ① <span class='kw2'>sufficient time</span> ② <span class='kw2'>know the rule</span> ③ <span class='kw2'>focus on form/accuracy</span></p>
+      <p class="note">→ spontaneous conversation에서는 monitor 작동 어려움</p>
+    </div>
+    <div class="exam">
+      <div class="exam-label">⚠️ Krashen 비판점</div>
+      <p>① Acquisition & Learning <span class='kw2'>both beneficial</span> (interface position)</p>
+      <p>② <span class='kw3'>HIGs/LIGs</span> — output 생성의 중요성 간과</p>
+      <p>③ <span class='kw2'>Silent period forever</span> 문제</p>
+      <p>④ Output(learner production)의 중요성 간과</p>
+    </div>
+  </div>
+</div>
+
+<!-- ④ Output Hypothesis -->
+<div class="sec" id="s4">
+  <div class="sec-header" onclick="toggle('s4')">
+    <span class="sec-icon">📤</span>
+    <span class="sec-title">④ Output Hypothesis (Swain)</span>
+    <span class="sec-tag red">★★★ 최빈출</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="concept">
+      <div class="def"><span class='kw4'>Output Hypothesis</span>: Output requires <span class='kw2'>syntactic processing</span>, whereas input only requires <span class='kw2'>semantic processing</span>.</div>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">3 Functions of Output <span class="badge-ex">★★★</span></div>
+      <div class="grid col3">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>① Noticing / Triggering</span></div>
+          <div class="gi-body">
+            <span>gap between what S</span>
+            <span><span class='kw2'>can say vs wants to say</span></span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>② Hypothesis Testing</span></div>
+          <div class="gi-body">
+            <span>try new rules</span>
+            <span>get feedback → <span class='kw2'>modify</span></span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>③ Metalinguistic</span></div>
+          <div class="gi-body">
+            <span>reflect on own/</span>
+            <span>others' language</span>
+          </div>
+        </div>
+      </div>
+      <p class="note" style="margin-top:10px"><span class='kw3'>Pushed output</span>: pushed to produce syntactically <span class='kw2'>more advanced structure</span> than normally would</p>
+    </div>
+  </div>
+</div>
+
+<!-- ⑤ Noticing / HIG·LIG -->
+<div class="sec" id="s5">
+  <div class="sec-header" onclick="toggle('s5')">
+    <span class="sec-icon">🔍</span>
+    <span class="sec-title">⑤ Noticing Hypothesis · HIG/LIG</span>
+    <span class="sec-tag orange">★★ 빈출</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="concept">
+      <div class="c-title">Schmidt's Noticing Hypothesis <span class="badge-ex">★★</span></div>
+      <div class="def"><span class='kw4'>Noticing</span>: an essential prerequisite for <span class='kw2'>input → intake</span> conversion and integration into interlanguage.</div>
+      <p class="note"><span class='kw3'>Noticing the gap</span>: cognitively comparing own interlanguage vs TL</p>
+      <p class="note">→ <span class='kw2'>recast</span>, <span class='kw2'>dictogloss</span>가 noticing the gap을 유도</p>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">HIG / LIG (Krashen 비판)</div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>HIG (High Input Generator)</span></div>
+          <div class="gi-body">
+            <span>active · initiate & sustain turns</span>
+            <span>try more hypotheses</span>
+            <span><span class='kw2'>more input → intake</span> conversion</span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>LIG (Low Input Generator)</span></div>
+          <div class="gi-body">
+            <span>passive · receive input only</span>
+            <span>less output production</span>
+            <span>less intake conversion</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ⑥ Information Processing -->
+<div class="sec" id="s6">
+  <div class="sec-header" onclick="toggle('s6')">
+    <span class="sec-icon">⚙️</span>
+    <span class="sec-title">⑥ Information Processing Theories</span>
+    <span class="sec-tag orange">★★ 빈출</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="concept">
+      <div class="c-title">McLaughlin's Information Processing Model</div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw1'>Controlled processing</span></div>
+          <div class="gi-body">
+            <span>conscious effort · unfamiliar</span>
+            <span><span class='kw2'>short-term memory</span></span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw1'>Automatic processing</span></div>
+          <div class="gi-body">
+            <span>without conscious · well-trained</span>
+            <span><span class='kw2'>long-term memory</span></span>
+          </div>
+        </div>
+      </div>
+      <!-- SVG flow -->
+      <div class="flow" style="margin-top:12px">
+        <div class="flow-item"><span class='kw1'>Controlled</span><br><small>conscious</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-item"><span class='kw2'>meaningful practice</span></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-item"><span class='kw1'>Automatic</span><br><small>unconscious</small></div>
+        <div class="flow-arrow">=</div>
+        <div class="flow-item" style="border-color:rgba(183,28,28,.3)"><span class='kw4'>Automatization</span></div>
+      </div>
+      <p class="note" style="margin-top:10px"><span class='kw1'>Restructuring</span>: adjusts existing knowledge to accommodate new info in long-term memory</p>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">Bialystok's Implicit / Explicit Model <span class="badge-ex">★★</span></div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw1'>Explicit knowledge</span></div>
+          <div class="gi-body">
+            <span>knowledge <span class='kw2'>about</span> lg</span>
+            <span>can articulate · declarative</span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw1'>Implicit knowledge</span></div>
+          <div class="gi-body">
+            <span><span class='kw2'>automatically</span> used</span>
+            <span>procedural · spontaneous</span>
+          </div>
+        </div>
+      </div>
+      <div class="flow" style="margin-top:10px">
+        <div class="flow-item"><span class='kw1'>Explicit</span><br><small>declarative</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-item"><span class='kw2'>practice + feedback</span></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-item"><span class='kw1'>Implicit</span><br><small>procedural</small></div>
+        <div class="flow-arrow">=</div>
+        <div class="flow-item" style="border-color:rgba(183,28,28,.3)"><span class='kw4'>Proceduralization</span></div>
+      </div>
+      <p class="note" style="margin-top:10px"><span class='kw3'>Interface position</span>: explicit → implicit through practice (↔ Krashen's <span class='kw4'>non-interface position</span>)</p>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">Skill-acquisition Theory</div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw1'>Declarative knowledge</span></div>
+          <div class="gi-body"><span>knowledge that can be <span class='kw2'>stated/declared</span></span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw1'>Procedural knowledge</span></div>
+          <div class="gi-body"><span>ability to <span class='kw2'>use</span> the knowledge</span></div>
+        </div>
+      </div>
+      <p class="note" style="margin-top:8px">Declarative → procedural through <span class='kw2'>practice</span> → reduces <span class='kw2'>working memory</span> load</p>
+    </div>
+  </div>
+</div>
+
+<!-- ⑦ Processability -->
+<div class="sec" id="s7">
+  <div class="sec-header" onclick="toggle('s7')">
+    <span class="sec-icon">🏗️</span>
+    <span class="sec-title">⑦ Processability / Teachability</span>
+    <span class="sec-tag">Pienemann</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="concept">
+      <div class="c-title">Processability Model</div>
+      <p class="note"><span class='kw1'>Developmental readiness</span>: L2 structure acquired only if L is developmentally ready</p>
+      <p class="note"><span class='kw2'>Bottom-up approach</span>: simpler elements → complex ones</p>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">Teachability Hypothesis <span class="badge-ex">기출 포인트</span></div>
+      <div class="def"><span class='kw3'>Teachability Hypothesis</span>: formal instruction is effective only when Ls' interlanguage approximates the <span class='kw2'>point of natural acquisition</span>.</div>
+      <div class="grid col2" style="margin-top:10px">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw4'>Krashen</span></div>
+          <div class="gi-body"><span><span class='kw2'>zero option</span> for grammar instruction · natural order only</span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>Teachability Hypo.</span></div>
+          <div class="gi-body"><span>grammar works if <span class='kw2'>developmentally compatible</span></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ⑧ Interaction Hypothesis -->
+<div class="sec" id="s8">
+  <div class="sec-header" onclick="toggle('s8')">
+    <span class="sec-icon">🤝</span>
+    <span class="sec-title">⑧ Interaction Hypothesis (Long)</span>
+    <span class="sec-tag red">★★★ 최빈출</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="concept">
+      <div class="c-title">Original vs Updated Version <span class="badge-ex">★★★</span></div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw4'>Original version</span></div>
+          <div class="gi-body">
+            <span>comprehensible input 필요</span>
+            <span>→ <span class='kw2'>interactional modification</span> 선행 필요</span>
+            <span>input을 comprehensible하게 만듦</span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>Updated version</span></div>
+          <div class="gi-body">
+            <span>+ <span class='kw2'>comprehensible output</span> 중요</span>
+            <span>corrective feedback 제공</span>
+            <span>output 생성 기회</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">Negotiation of Meaning <span class="badge-ex">★★★</span></div>
+      <div class="def"><span class='kw4'>Negotiation of meaning</span>: interlocutors modify interaction to achieve <span class='kw2'>mutual comprehension</span>.</div>
+      <div class="stage-wrap">
+        <table>
+          <tr><th>Strategy</th><th>Who</th><th>Purpose</th></tr>
+          <tr><td><span class='kw4'>Clarification request</span></td><td>listener</td><td>ask for more info · most effective</td></tr>
+          <tr><td><span class='kw3'>Confirmation check</span></td><td>listener</td><td>confirm own understanding</td></tr>
+          <tr><td><span class='kw3'>Comprehension check</span></td><td>speaker</td><td>check listener's understanding</td></tr>
+        </table>
+      </div>
+      <p class="note" style="margin-top:10px">Ls modify speech more when facing <span class='kw4'>clarification request</span> than confirmation check or recast</p>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">Positive vs Negative Evidence</div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw2'>Positive evidence</span></div>
+          <div class="gi-body"><span>model of <span class='kw2'>correct form</span></span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw2'>Negative evidence</span></div>
+          <div class="gi-body"><span>negative / <span class='kw2'>corrective feedback</span></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ⑨ Sociocultural Theory -->
+<div class="sec" id="s9">
+  <div class="sec-header" onclick="toggle('s9')">
+    <span class="sec-icon">🌱</span>
+    <span class="sec-title">⑨ Sociocultural Theory (Vygotsky)</span>
+    <span class="sec-tag orange">★★ 빈출</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="concept">
+      <div class="c-title">Zone of Proximal Development (ZPD) <span class="badge-ex">★★</span></div>
+      <div class="def"><span class='kw4'>ZPD</span>: the distance between <span class='kw2'>actual development</span> (independent) and <span class='kw2'>potential development</span> (with guidance/peers).</div>
+      <p class="note">Adult guidance / collaboration with <span class='kw2'>capable peers</span></p>
+      <p class="note">Mixed-level grouping → ZPD 활용</p>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">Scaffolding <span class="badge-ex">★★ 두 정의 필수!</span></div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title">Definition ①</div>
+          <div class="gi-body"><span>supportive environment through <span class='kw2'>guidance/feedback</span> during collaboration</span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title">Definition ②</div>
+          <div class="gi-body"><span><span class='kw2'>interactional supports</span> enabling L to perform what one cannot do independently</span></div>
+        </div>
+      </div>
+      <p class="note" style="margin-top:8px"><span class='kw1'>Verbal guidance</span>: supportive behaviors from T/capable Ls → complete task beyond independent means</p>
+      <p class="note"><span class='kw1'>Peer scaffolding</span>: among peers → task too difficult for any one individually</p>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">Regulation <span class="badge-ex">기출 포인트</span></div>
+      <!-- SVG flow -->
+      <div class="flow">
+        <div class="flow-item"><span class='kw1'>Object-regulation</span><br><small>dictionary 등 물리적 도구</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-item"><span class='kw1'>Other-regulation</span><br><small>타인 언어적 안내</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-item" style="border-color:rgba(183,28,28,.3)"><span class='kw4'>Self-regulation</span><br><small>자율·독립적 수행</small></div>
+      </div>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">Imitation & Internalization</div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw2'>Behaviorism</span>: imitation</div>
+          <div class="gi-body"><span><span class='kw2'>non-creative, mechanical</span> mimicry · habit formation</span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>Sociocultural</span>: imitation</div>
+          <div class="gi-body"><span><span class='kw2'>creative, transformative</span> → internalization</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">Cooperative vs Collaborative Learning</div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw1'>Cooperative learning</span></div>
+          <div class="gi-body"><span>pairs/groups · share info · <span class='kw2'>common goals</span> · socially structured exchange</span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw1'>Collaborative learning</span></div>
+          <div class="gi-body"><span>engages with <span class='kw2'>more capable peers</span> · assistance/guidance</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /wrap -->
+<script>
+function toggle(id){document.getElementById(id).classList.toggle('open')}
+function openSec(id){const s=document.getElementById(id);s.classList.add('open');s.scrollIntoView({behavior:'smooth',block:'start'})}
+</script>
+</body>
+</html>
