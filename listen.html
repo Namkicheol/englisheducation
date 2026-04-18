@@ -83,6 +83,12 @@ h1{font-size:clamp(22px,4vw,32px);font-weight:700;background:linear-gradient(135
   <div class="prog-info"><span id="pt">1 / 26</span><span id="ps">정답 0개</span></div>
   <div class="bar"><div class="bar-fill" id="bf" style="width:6.7%"></div></div>
 </div>
+<div id="rb" style="display:none;max-width:720px;margin:0 auto 14px;padding:0 8px">
+  <div style="background:rgba(46,125,82,.08);border:1.5px solid rgba(46,125,82,.3);border-radius:12px;padding:13px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+    <span id="rb-msg" style="font-size:13px;color:#1a3326;font-family:'JetBrains Mono',monospace;line-height:1.5"></span>
+    <button onclick="freshStart()" style="padding:7px 16px;background:#f5fdf8;border:1.5px solid #b2dfcc;border-radius:8px;color:#4a7a62;font-size:12px;font-family:'Noto Sans KR',sans-serif;cursor:pointer;white-space:nowrap;flex-shrink:0">처음부터</button>
+  </div>
+</div>
 <div class="wrap">
   <div id="qa"></div>
   <div class="score-card" id="sc">
@@ -304,6 +310,17 @@ const Q=[
 
 let cur=0,score=0;
 const TOTAL=Q.length;
+const SAVE_KEY='ox_listen_v1';
+
+function saveProgress(){localStorage.setItem(SAVE_KEY,JSON.stringify({cur,score}));}
+function clearProgress(){localStorage.removeItem(SAVE_KEY);}
+
+function freshStart(){
+  cur=0;score=0;clearProgress();
+  document.getElementById('rb').style.display='none';
+  document.getElementById('qa').style.display='block';
+  render();
+}
 
 function renderExp(q,isCorrect){
   const three=q.compare&&q.compare.length===3;
@@ -372,9 +389,24 @@ function pick(val){
   document.getElementById('ps').textContent=`정답 ${score}개`;
 }
 
-function next(){cur++;render();}
-function restart(){cur=0;score=0;document.getElementById('sc').classList.remove('show');document.getElementById('qa').style.display='block';render();}
-render();
+function next(){
+  cur++;
+  if(cur>=TOTAL){clearProgress();}else{saveProgress();}
+  render();
+}
+function restart(){cur=0;score=0;clearProgress();document.getElementById('sc').classList.remove('show');document.getElementById('rb').style.display='none';document.getElementById('qa').style.display='block';render();}
+
+// 저장된 진행 상태 복원
+(function(){
+  const saved=JSON.parse(localStorage.getItem(SAVE_KEY)||'null');
+  if(saved&&saved.cur>0&&saved.cur<TOTAL){
+    cur=saved.cur;score=saved.score;
+    const rb=document.getElementById('rb');
+    document.getElementById('rb-msg').textContent=`이어서 풀기 중 · ${cur}/${TOTAL} 문제 완료 (정답 ${score}개)`;
+    rb.style.display='block';
+  }
+  render();
+})();
 </script>
 </body>
 </html>
