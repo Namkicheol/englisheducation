@@ -72,6 +72,12 @@ h1{font-size:clamp(22px,4vw,32px);font-weight:700;background:linear-gradient(135
 .score-card p{color:#4a7a62;margin-bottom:24px;font-size:15px}
 .restart-btn{padding:13px 32px;background:#f5fdf8;border:2px solid #2e7d52;border-radius:10px;color:#2e7d52;font-family:'Noto Sans KR',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:all .2s}
 .restart-btn:hover{background:rgba(46,125,82,.1)}
+.nd{width:28px;height:28px;border-radius:6px;border:1.5px solid #b2dfcc;background:#f5fdf8;font-size:11px;font-family:'JetBrains Mono',monospace;cursor:pointer;color:#4a7a62;transition:all .15s;display:inline-flex;align-items:center;justify-content:center;font-weight:600}
+.nd.cur{border-color:#2e7d52;background:#2e7d52;color:white}
+.nd.ok{border-color:#2e7d52;background:rgba(46,125,82,.15);color:#1b5e3a}
+.nd.ng{border-color:#c62828;background:rgba(198,40,40,.1);color:#c62828}
+.nd:hover:not(.cur){opacity:.7}
+#nav{display:flex;flex-wrap:wrap;gap:5px;max-width:720px;margin:0 auto 16px;padding:0 8px}
 </style>
 </head>
 <body>
@@ -91,6 +97,7 @@ h1{font-size:clamp(22px,4vw,32px);font-weight:700;background:linear-gradient(135
     <button onclick="freshStart()" style="padding:7px 16px;background:#f5fdf8;border:1.5px solid #b2dfcc;border-radius:8px;color:#4a7a62;font-size:12px;font-family:'Noto Sans KR',sans-serif;cursor:pointer;white-space:nowrap;flex-shrink:0">처음부터</button>
   </div>
 </div>
+<div id="nav"></div>
 <div class="wrap">
   <div id="qa"></div>
   <div class="score-card" id="sc">
@@ -273,19 +280,31 @@ const Q=[
    compare:[{title:"<span class='kw4'>Krashen</span>",desc:"comprehensible input · natural comm. · no grammar drill"},{title:"<span class='kw2'>Behaviorism</span>",desc:"explicit grammar · pattern drill · form-focused"}]}
 ];
 
-let cur=0,score=0;
+let cur=0;
 const TOTAL=Q.length;
 const SAVE_KEY='ox_sla_v1';
+let answers=new Array(TOTAL).fill(null);
 
-function saveProgress(){localStorage.setItem(SAVE_KEY,JSON.stringify({cur,score}));}
+function getScore(){return answers.filter(a=>a&&a.correct).length;}
+function saveProgress(){localStorage.setItem(SAVE_KEY,JSON.stringify({cur,answers}));}
 function clearProgress(){localStorage.removeItem(SAVE_KEY);}
 
 function freshStart(){
-  cur=0;score=0;clearProgress();
+  cur=0;answers=new Array(TOTAL).fill(null);clearProgress();
   document.getElementById('rb').style.display='none';
   document.getElementById('qa').style.display='block';
-  render();
+  renderNav();render();
 }
+
+function renderNav(){
+  document.getElementById('nav').innerHTML=Array.from({length:TOTAL},(_,i)=>{
+    const a=answers[i];
+    const cls=i===cur?'nd cur':a===null?'nd':a.correct?'nd ok':'nd ng';
+    return `<button class="${cls}" onclick="jumpTo(${i})">${i+1}</button>`;
+  }).join('');
+}
+
+function jumpTo(i){cur=i;render();}
 
 function renderExp(q,isCorrect){
   const three=q.compare&&q.compare.length===3;
@@ -310,32 +329,51 @@ function render(){
   if(cur>=TOTAL){
     document.getElementById('qa').style.display='none';
     document.getElementById('sc').classList.add('show');
-    document.getElementById('fs').textContent=score;
-    const p=score/TOTAL;
+    const s=getScore();
+    document.getElementById('fs').textContent=s;
+    const p=s/TOTAL;
     document.getElementById('rm').textContent=p===1?'🎉 Perfect!':p>=.8?'👏 Great!':p>=.6?'😊 Good!':'💪 Keep going!';
-    document.getElementById('rs').textContent=`${TOTAL}문제 중 ${score}문제 정답 (${Math.round(p*100)}%)`;
-    return;
+    document.getElementById('rs').textContent=`${TOTAL}문제 중 ${s}문제 정답 (${Math.round(p*100)}%)`;
+    renderNav();return;
   }
+  document.getElementById('sc').classList.remove('show');
+  document.getElementById('qa').style.display='block';
+  renderNav();
   const q=Q[cur];
   document.getElementById('bf').style.width=((cur+1)/TOTAL*100).toFixed(1)+'%';
   document.getElementById('pt').textContent=`${cur+1} / ${TOTAL}`;
-  document.getElementById('ps').textContent=`정답 ${score}개`;
-  document.getElementById('qa').innerHTML=`
-    <div class="card">
-      <div class="q-meta">
-        <span class="q-num">Q${cur+1}</span>
-        <span class="q-src">${q.src}</span>
-        <span class="q-cat">${q.cat}</span>
-      </div>
-      <div class="q-text">${q.text}</div>
-      <div class="ox-btns">
-        <button class="ox-btn o-btn" onclick="pick(true)" id="ob">⭕<span class="lb">CORRECT</span></button>
-        <button class="ox-btn x-btn" onclick="pick(false)" id="xb">❌<span class="lb">WRONG</span></button>
-      </div>
-      <div id="bd" class="badge"></div>
-      <div id="ep"></div>
-      <button class="next-btn" id="nb" onclick="next()">${cur<TOTAL-1?'Next →':'결과 보기 →'}</button>
-    </div>`;
+  document.getElementById('ps').textContent=`정답 ${getScore()}개`;
+  const a=answers[cur];
+  if(a!==null){
+    let oBtnCls='',xBtnCls='';
+    if(a.picked===true){oBtnCls=a.correct?'co':'wp';if(!a.correct)xBtnCls='cx';}
+    else{xBtnCls=a.correct?'cx':'wp';if(!a.correct)oBtnCls='co';}
+    document.getElementById('qa').innerHTML=`
+      <div class="card">
+        <div class="q-meta"><span class="q-num">Q${cur+1}</span><span class="q-src">${q.src}</span><span class="q-cat">${q.cat}</span></div>
+        <div class="q-text">${q.text}</div>
+        <div class="ox-btns">
+          <button class="ox-btn o-btn ${oBtnCls}" disabled>⭕<span class="lb">CORRECT</span></button>
+          <button class="ox-btn x-btn ${xBtnCls}" disabled>❌<span class="lb">WRONG</span></button>
+        </div>
+        <div class="badge ${a.correct?'ok':'ng'}">${a.correct?'✅ 정답!':'❌ 오답! 정답은 '+(q.ans?'O':'X')}</div>
+        <div>${renderExp(q,a.correct)}</div>
+        <button class="next-btn show" onclick="next()">${cur<TOTAL-1?'Next →':'결과 보기 →'}</button>
+      </div>`;
+  }else{
+    document.getElementById('qa').innerHTML=`
+      <div class="card">
+        <div class="q-meta"><span class="q-num">Q${cur+1}</span><span class="q-src">${q.src}</span><span class="q-cat">${q.cat}</span></div>
+        <div class="q-text">${q.text}</div>
+        <div class="ox-btns">
+          <button class="ox-btn o-btn" onclick="pick(true)" id="ob">⭕<span class="lb">CORRECT</span></button>
+          <button class="ox-btn x-btn" onclick="pick(false)" id="xb">❌<span class="lb">WRONG</span></button>
+        </div>
+        <div id="bd" class="badge"></div>
+        <div id="ep"></div>
+        <button class="next-btn" id="nb" onclick="next()">${cur<TOTAL-1?'Next →':'결과 보기 →'}</button>
+      </div>`;
+  }
 }
 
 function pick(val){
@@ -343,7 +381,7 @@ function pick(val){
   document.getElementById('ob').disabled=true;
   document.getElementById('xb').disabled=true;
   const ok=val===q.ans;
-  if(ok)score++;
+  answers[cur]={picked:val,correct:ok};
   const bd=document.getElementById('bd');
   bd.textContent=ok?'✅ 정답!':`❌ 오답! 정답은 ${q.ans?'O':'X'}`;
   bd.className='badge '+(ok?'ok':'ng');
@@ -351,7 +389,8 @@ function pick(val){
   if(!ok)document.getElementById(q.ans?'ob':'xb').classList.add(q.ans?'co':'cx');
   document.getElementById('ep').innerHTML=renderExp(q,ok);
   document.getElementById('nb').classList.add('show');
-  document.getElementById('ps').textContent=`정답 ${score}개`;
+  document.getElementById('ps').textContent=`정답 ${getScore()}개`;
+  renderNav();
 }
 
 function next(){
@@ -359,18 +398,19 @@ function next(){
   if(cur>=TOTAL){clearProgress();}else{saveProgress();}
   render();
 }
-function restart(){cur=0;score=0;clearProgress();document.getElementById('sc').classList.remove('show');document.getElementById('rb').style.display='none';document.getElementById('qa').style.display='block';render();}
+function restart(){cur=0;answers=new Array(TOTAL).fill(null);clearProgress();document.getElementById('sc').classList.remove('show');document.getElementById('rb').style.display='none';document.getElementById('qa').style.display='block';renderNav();render();}
 
-// 저장된 진행 상태 복원
 (function(){
   const saved=JSON.parse(localStorage.getItem(SAVE_KEY)||'null');
-  if(saved&&saved.cur>0&&saved.cur<TOTAL){
-    cur=saved.cur;score=saved.score;
-    const rb=document.getElementById('rb');
-    document.getElementById('rb-msg').textContent=`이어서 풀기 중 · ${cur}/${TOTAL} 문제 완료 (정답 ${score}개)`;
-    rb.style.display='block';
+  if(saved&&saved.answers&&saved.cur>=0&&saved.cur<TOTAL){
+    cur=saved.cur;answers=saved.answers;
+    const done=answers.filter(a=>a!==null).length;
+    if(done>0){
+      document.getElementById('rb-msg').textContent=`이어서 풀기 중 · ${done}/${TOTAL} 문제 완료 (정답 ${getScore()}개)`;
+      document.getElementById('rb').style.display='block';
+    }
   }
-  render();
+  renderNav();render();
 })();
 </script>
 </body>
