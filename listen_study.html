@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="ko" style="background:#f0faf4;color:#1a3326;">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch.7 Teaching Listening — 개념정리</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans KR',sans-serif;background:#f0faf4;color:#1a3326;min-height:100vh;padding:16px}
+
+/* ── header ── */
+.header{text-align:center;padding:40px 16px 32px}
+.tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11px;color:#2e7d52;background:rgba(46,125,82,.1);border:1px solid rgba(46,125,82,.3);padding:4px 12px;border-radius:20px;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+.ch-badge{display:inline-block;background:linear-gradient(135deg,#2e7d52,#26a69a);color:#fff;font-size:12px;font-weight:700;padding:4px 14px;border-radius:20px;margin-bottom:10px;font-family:'JetBrains Mono',monospace}
+h1{font-size:clamp(24px,4vw,34px);font-weight:700;background:linear-gradient(135deg,#2e7d52,#26a69a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px}
+.sub{color:#4a7a62;font-size:14px}
+
+/* ── layout ── */
+.wrap{max-width:820px;margin:0 auto}
+
+/* ── section card ── */
+.sec{background:#fff;border:1.5px solid #b2dfcc;border-radius:16px;margin-bottom:20px;overflow:hidden;box-shadow:0 2px 8px rgba(46,125,82,.08)}
+.sec-header{background:linear-gradient(135deg,rgba(46,125,82,.08),rgba(38,166,154,.05));border-bottom:1.5px solid #b2dfcc;padding:16px 22px;display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none}
+.sec-icon{font-size:20px}
+.sec-title{font-size:16px;font-weight:700;color:#1b5e3a;font-family:'JetBrains Mono',monospace}
+.sec-tag{font-size:11px;color:#2e7d52;background:rgba(46,125,82,.1);padding:3px 10px;border-radius:6px;margin-left:auto;font-weight:600}
+.sec-arrow{font-size:13px;color:#4a7a62;transition:transform .3s;margin-left:6px}
+.sec.open .sec-arrow{transform:rotate(180deg)}
+.sec-body{display:none;padding:22px}
+.sec.open .sec-body{display:block}
+
+/* ── concept block ── */
+.concept{margin-bottom:22px}
+.concept:last-child{margin-bottom:0}
+.c-title{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;color:#1b5e3a;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.c-title .badge-ex{font-size:10px;background:rgba(230,119,0,.12);color:#e67c00;border:1px solid rgba(230,119,0,.3);padding:2px 7px;border-radius:4px;letter-spacing:0;text-transform:none;font-weight:700}
+.def{background:rgba(46,125,82,.06);border-left:4px solid #2e7d52;padding:12px 16px;border-radius:0 10px 10px 0;margin-bottom:10px;font-size:15px;line-height:1.8;color:#1a3326}
+.note{font-size:14px;color:#3a6b51;line-height:1.75;margin-bottom:6px;padding-left:6px}
+.note::before{content:"• ";color:#26a69a;font-weight:700}
+
+/* ── keyword spans ── */
+.kw1{background:rgba(46,125,82,.18);color:#1b5e3a;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em}
+.kw2{color:#00796b;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border-bottom:2px solid rgba(0,121,107,.4)}
+
+/* ── compare grid ── */
+.grid{display:grid;gap:10px;margin-top:12px}
+.grid.col2{grid-template-columns:1fr 1fr}
+.grid.col3{grid-template-columns:1fr 1fr 1fr}
+.grid-item{background:#f5fdf8;border:1.5px solid #b2dfcc;border-radius:10px;padding:14px 16px}
+.gi-title{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#2e7d52;margin-bottom:7px}
+.gi-body{font-size:13px;color:#3a6b51;line-height:1.7}
+.gi-body span{display:block}
+
+/* ── flow diagram ── */
+.flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px}
+.flow-item{background:#f5fdf8;border:1.5px solid #b2dfcc;border-radius:8px;padding:10px 16px;font-size:13px;color:#1a3326;text-align:center}
+.flow-arrow{color:#26a69a;font-size:18px;font-weight:700}
+
+/* ── stage table ── */
+.stage-wrap{margin-top:12px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{background:rgba(46,125,82,.1);color:#1b5e3a;font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;padding:10px 14px;border:1.5px solid #b2dfcc;text-align:left;font-weight:700}
+td{padding:10px 14px;border:1.5px solid #b2dfcc;color:#2a5040;vertical-align:top;line-height:1.65}
+tr:nth-child(even) td{background:rgba(46,125,82,.04)}
+
+/* ── exam point ── */
+.exam{background:rgba(230,119,0,.06);border:1.5px solid rgba(230,119,0,.25);border-radius:10px;padding:14px 16px;margin-top:14px}
+.exam-label{font-size:11px;font-family:'JetBrains Mono',monospace;color:#e67c00;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;font-weight:700}
+.exam p{font-size:13.5px;color:#6b4400;line-height:1.75;margin-bottom:4px}
+
+/* ── divider ── */
+.div{height:1px;background:rgba(38,166,154,.2);margin:18px 0}
+
+/* ── top nav ── */
+.toc{max-width:820px;margin:0 auto 20px;background:#fff;border:1.5px solid #b2dfcc;border-radius:12px;padding:16px 20px;box-shadow:0 2px 8px rgba(46,125,82,.06)}
+.toc-title{font-size:11px;font-family:'JetBrains Mono',monospace;color:#4a7a62;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;font-weight:700}
+.toc-list{display:flex;flex-wrap:wrap;gap:7px}
+.toc-item{font-size:12px;color:#2e7d52;background:rgba(46,125,82,.08);border:1.5px solid rgba(46,125,82,.2);padding:5px 12px;border-radius:8px;cursor:pointer;transition:all .15s;font-family:'JetBrains Mono',monospace;font-weight:600}
+.toc-item:hover{background:rgba(46,125,82,.18)}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="tag">임용고시 대비</div><br>
+  <div class="ch-badge">Chapter 7</div>
+  <h1>Teaching Listening</h1>
+  <p class="sub">서브노트 순서 기반 개념정리 · 기출 포인트 · 비교 도식</p>
+</div>
+
+<div class="wrap">
+
+<!-- TOC -->
+<div class="toc">
+  <div class="toc-title">📋 목차</div>
+  <div class="toc-list">
+    <div class="toc-item" onclick="openSec('s1')">① Background</div>
+    <div class="toc-item" onclick="openSec('s2')">② Input</div>
+    <div class="toc-item" onclick="openSec('s3')">③ Authentic Materials</div>
+    <div class="toc-item" onclick="openSec('s4')">④ Functions</div>
+    <div class="toc-item" onclick="openSec('s5')">⑤ Processing</div>
+    <div class="toc-item" onclick="openSec('s6')">⑥ Practice Types</div>
+    <div class="toc-item" onclick="openSec('s7')">⑦ Strategies</div>
+    <div class="toc-item" onclick="openSec('s8')">⑧ Lesson Format</div>
+    <div class="toc-item" onclick="openSec('s9')">⑨ Activities</div>
+    <div class="toc-item" onclick="openSec('s10')">⑩ Principles</div>
+  </div>
+</div>
+
+<!-- ① Background -->
+<div class="sec open" id="s1">
+  <div class="sec-header" onclick="toggle('s1')">
+    <span class="sec-icon">🧠</span>
+    <span class="sec-title">① Background Knowledge in Listening</span>
+    <span class="sec-tag">Schematic Knowledge</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="concept">
+      <div class="c-title">Core Principle</div>
+      <div class="def">The lack of shared <span class='kw1'>schematic information</span> makes comprehension <span class='kw2'>difficult or even impossible</span>.</div>
+    </div>
+    <div class="concept">
+      <div class="c-title">Paused Listening Tasks <span class="badge-ex">기출 포인트</span></div>
+      <div class="def"><span class='kw1'>Paused listening tasks</span>: An effective technique that shows the presence of relevant <span class='kw2'>schematic knowledge</span> facilitates comprehension.</div>
+      <p class="note">T divides recordings into segments → plays at regular intervals of <span class='kw2'>pauses</span></p>
+      <p class="note">During each pause: Ss write the topic they believe + words/phrases that made them think so</p>
+      <p class="note">Pausing = a kind of <span class='kw1'>scaffolding</span> → enhances <span class='kw1'>metacognitive awareness</span></p>
+      <p class="note">Clues activate <span class='kw2'>competing content schemata</span></p>
+      <p class="note">→ <span class='kw2'>Process-oriented listening</span>: develops effective self-regulating skills</p>
+    </div>
+    <div class="grid col2">
+      <div class="grid-item"><div class="gi-title"><span class='kw1'>Content schemata</span></div><div class="gi-body"><span>world / topic knowledge</span><span>sociocultural knowledge</span></div></div>
+      <div class="grid-item"><div class="gi-title"><span class='kw1'>Formal schemata</span></div><div class="gi-body"><span>rhetorical / discourse structure</span><span>글의 형식에 대한 사전 지식</span></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ② Input -->
+<div class="sec" id="s2">
+  <div class="sec-header" onclick="toggle('s2')">
+    <span class="sec-icon">📥</span>
+    <span class="sec-title">② Input</span>
+    <span class="sec-tag">Roughly / Finely-tuned · Authentic</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="concept">
+      <div class="c-title">Roughly-tuned vs Finely-tuned Input</div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw1'>Roughly-tuned input</span></div>
+          <div class="gi-body">
+            <span>학습자 숙달도에 <span class='kw2'>대략적으로</span> 맞춤</span>
+            <span>≈ <span class='kw2'>natural usage</span> of language</span>
+            <span>authentic material · focus on meaning</span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw1'>Finely-tuned input</span></div>
+          <div class="gi-body">
+            <span>학습자가 배운 구조·어휘만 포함</span>
+            <span><span class='kw2'>carefully controlled</span></span>
+            <span>graded readers · target grammar 예시</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">Concocted Texts vs Authentic Texts <span class="badge-ex">기출 포인트</span></div>
+      <div class="def"><span class='kw1'>Concocted texts</span>: give <span class='kw2'>false expectation</span> about real-life listening experiences → transfer 방해</div>
+      <p class="note">Unnaturally lower speed → <span class='kw2'>damages text authenticity</span></p>
+      <p class="note">✅ Better: <span class='kw1'>pauses between phrases and sentences</span></p>
+      <p class="note"><span class='kw1'>Authentic texts</span>: expose Ss to <span class='kw2'>naturalness of lg</span> · real-life listening experience</p>
+    </div>
+  </div>
+</div>
+
+<!-- ③ Authentic Materials -->
+<div class="sec" id="s3">
+  <div class="sec-header" onclick="toggle('s3')">
+    <span class="sec-icon">🎯</span>
+    <span class="sec-title">③ Strategies for Authentic Materials</span>
+    <span class="sec-tag">3 Strategies</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="grid col3">
+      <div class="grid-item">
+        <div class="gi-title"><span class='kw1'>Simplifying the tasks</span></div>
+        <div class="gi-body">
+          <span>언어(lg) 유지</span>
+          <span><span class='kw2'>task</span>를 단순화</span>
+          <span>self-confidence↑ · motivation↑</span>
+        </div>
+      </div>
+      <div class="grid-item">
+        <div class="gi-title"><span class='kw1'>Grading the texts</span></div>
+        <div class="gi-body">
+          <span>텍스트 자체를</span>
+          <span><span class='kw2'>난이도 순</span>으로 배열</span>
+          <span>lower-level → advanced</span>
+        </div>
+      </div>
+      <div class="grid-item">
+        <div class="gi-title"><span class='kw1'>Staging the listening</span></div>
+        <div class="gi-body">
+          <span>활동을</span>
+          <span><span class='kw2'>점진적으로</span> 구성</span>
+          <span>simple → demanding</span>
+        </div>
+      </div>
+    </div>
+    <div class="exam">
+      <div class="exam-label">🔑 핵심 구분</div>
+      <p>Simplifying = <span class='kw2'>task</span> 단순화 (≠ language 단순화)</p>
+      <p>Grading = <span class='kw2'>텍스트</span> 수준별 배열</p>
+      <p>Staging = <span class='kw2'>활동</span> 점진적 구성 (같은 텍스트 가능)</p>
+    </div>
+  </div>
+</div>
+
+<!-- ④ Functions -->
+<div class="sec" id="s4">
+  <div class="sec-header" onclick="toggle('s4')">
+    <span class="sec-icon">🗣️</span>
+    <span class="sec-title">④ Functions of Listening</span>
+    <span class="sec-tag">Transactional · Interactional</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="grid col2">
+      <div class="grid-item">
+        <div class="gi-title"><span class='kw1'>Transactional function</span></div>
+        <div class="gi-body">
+          <span><span class='kw2'>message-oriented</span></span>
+          <span>propositional / factual information 전달</span>
+          <span>confirmation checks 사용</span>
+          <span>giving & obtaining goods/services</span>
+        </div>
+      </div>
+      <div class="grid-item">
+        <div class="gi-title"><span class='kw1'>Interactional function</span></div>
+        <div class="gi-body">
+          <span><span class='kw2'>person-oriented</span></span>
+          <span>social relationship 형성·유지</span>
+          <span><span class='kw2'>phatic communion</span></span>
+          <span>e.g. "Nice day, isn't it?"</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ⑤ Processing -->
+<div class="sec" id="s5">
+  <div class="sec-header" onclick="toggle('s5')">
+    <span class="sec-icon">⚙️</span>
+    <span class="sec-title">⑤ Comprehension Processing</span>
+    <span class="sec-tag">★★★ 최빈출</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="concept">
+      <div class="c-title">Bottom-up Processing</div>
+      <div class="def">Listening is a process of <span class='kw2'>decoding the sounds</span> that one hears in a <span class='kw2'>linear fashion</span>. Moving from the <span class='kw2'>parts to the whole</span>.</div>
+      <p class="note">Focus on <span class='kw2'>linguistic form</span></p>
+      <p class="note">Exercises: a) structural system of English 다루기  b) <span class='kw1'>listening for details</span> — discrete items 선택</p>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">Top-down Processing</div>
+      <div class="def">Ls actively <span class='kw2'>reconstruct</span> the original meaning using incoming sounds as clues + <span class='kw1'>prior knowledge</span> of context and situation.</div>
+      <p class="note">Focus on <span class='kw2'>meaning</span> · <span class='kw2'>global listening strategies</span></p>
+      <p class="note">Relies on <span class='kw2'>extralinguistic skills</span></p>
+      <p class="note">Contextual clue + Schemata = Reconstruct meaning</p>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">Interactive Processing <span class="badge-ex">기출 포인트</span></div>
+      <div class="def">Top-down and bottom-up processing are <span class='kw2'>simultaneously used</span>. Caters to individual learning styles.</div>
+      <p class="note">Level-differentiated lesson: <span class='kw1'>beginners</span> → <span class='kw2'>bottom-up</span> focus</p>
+      <p class="note">Level-differentiated lesson: <span class='kw1'>advanced Ls</span> → <span class='kw2'>top-down</span> focus</p>
+    </div>
+
+    <!-- SVG diagram -->
+    <svg viewBox="0 0 680 120" style="width:100%;margin-top:16px;font-family:'JetBrains Mono',monospace" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="20" width="190" height="80" rx="10" fill="rgba(46,125,82,.1)" stroke="rgba(46,125,82,.4)" stroke-width="1.5"/>
+      <text x="105" y="50" text-anchor="middle" fill="#1b5e3a" font-size="12" font-weight="bold">Bottom-up</text>
+      <text x="105" y="68" text-anchor="middle" fill="#3a6b51" font-size="10">parts → whole</text>
+      <text x="105" y="84" text-anchor="middle" fill="#3a6b51" font-size="10">linear · form focus</text>
+      <text x="215" y="65" text-anchor="middle" fill="#26a69a" font-size="22">⇄</text>
+      <rect x="240" y="10" width="200" height="100" rx="10" fill="rgba(38,166,154,.1)" stroke="rgba(38,166,154,.4)" stroke-width="1.5"/>
+      <text x="340" y="45" text-anchor="middle" fill="#00796b" font-size="12" font-weight="bold">Interactive</text>
+      <text x="340" y="63" text-anchor="middle" fill="#3a6b51" font-size="10">B-U + T-D 동시</text>
+      <text x="340" y="79" text-anchor="middle" fill="#3a6b51" font-size="10">Dictogloss</text>
+      <text x="340" y="97" text-anchor="middle" fill="#3a6b51" font-size="10">level-differentiated</text>
+      <text x="455" y="65" text-anchor="middle" fill="#26a69a" font-size="22">⇄</text>
+      <rect x="480" y="20" width="190" height="80" rx="10" fill="rgba(46,125,82,.1)" stroke="rgba(46,125,82,.4)" stroke-width="1.5"/>
+      <text x="575" y="50" text-anchor="middle" fill="#1b5e3a" font-size="12" font-weight="bold">Top-down</text>
+      <text x="575" y="68" text-anchor="middle" fill="#3a6b51" font-size="10">prior knowledge</text>
+      <text x="575" y="84" text-anchor="middle" fill="#3a6b51" font-size="10">reconstruct meaning</text>
+    </svg>
+  </div>
+</div>
+
+<!-- ⑥ Practice Types -->
+<div class="sec" id="s6">
+  <div class="sec-header" onclick="toggle('s6')">
+    <span class="sec-icon">🎧</span>
+    <span class="sec-title">⑥ Types of Listening Practice</span>
+    <span class="sec-tag">6 Types</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="stage-wrap">
+      <table>
+        <tr><th>Type</th><th>Definition</th><th>Key Feature</th></tr>
+        <tr><td><span class='kw1'>Reactive</span></td><td>Surface structure 듣고 repeat back to T</td><td>pronunciation drill</td></tr>
+        <tr><td><span class='kw1'>Intensive</span></td><td>Repeatedly decode input for lg analysis / specific strategies</td><td>bottom-up · shorter text · repeated replay</td></tr>
+        <tr><td><span class='kw1'>Responsive</span></td><td>T's short utterance → Ss make appropriate response</td><td>T '<span class='kw2'>pushes</span>' output</td></tr>
+        <tr><td><span class='kw1'>Selective</span></td><td>Planned purpose → gather specific info (signaled prior)</td><td>scanning 유사 · <span class='kw2'>longer</span> discourse · field-independent</td></tr>
+        <tr><td><span class='kw1'>Extensive</span></td><td>Longer stretch of speech · long-term goal</td><td><span class='kw2'>top-down skills</span> · unfamiliar/variety of speakers</td></tr>
+        <tr><td><span class='kw1'>Interactive</span></td><td>Speaking과 통합 · authentic give and take</td><td>Ls take a <span class='kw2'>leading role</span></td></tr>
+      </table>
+    </div>
+    <div class="exam">
+      <div class="exam-label">⚠️ 혼동 주의</div>
+      <p><span class='kw1'>Reactive</span> = repeat back (≠ Responsive)</p>
+      <p><span class='kw1'>Selective</span> = longer discourse (≠ Intensive = shorter)</p>
+      <p><span class='kw1'>Extensive</span> = top-down skills (≠ Intensive = bottom-up)</p>
+    </div>
+  </div>
+</div>
+
+<!-- ⑦ Strategies -->
+<div class="sec" id="s7">
+  <div class="sec-header" onclick="toggle('s7')">
+    <span class="sec-icon">🗺️</span>
+    <span class="sec-title">⑦ Listening Strategies</span>
+    <span class="sec-tag">★★ 기출 빈출</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="stage-wrap">
+      <table>
+        <tr><th>Strategy</th><th>Definition</th><th>Stage</th></tr>
+        <tr><td><span class='kw1'>Predicting</span></td><td>Talk about content about to hear → activates <span class='kw2'>schemata</span></td><td>Pre</td></tr>
+        <tr><td><span class='kw1'>Gist listening</span></td><td>Understand only a topic (global)</td><td>While</td></tr>
+        <tr><td><span class='kw1'>Scanning</span></td><td>1~2 pieces of specific info without every word</td><td>While</td></tr>
+        <tr><td><span class='kw1'>Listening for detail</span></td><td>Several pieces of detailed info · intensively</td><td>While</td></tr>
+        <tr><td><span class='kw1'>Inferencing</span></td><td>Between the lines · analyze/interpret/evaluate beyond factual info</td><td>While</td></tr>
+        <tr><td><span class='kw1'>Monitoring</span></td><td>Notice what understood/not · confirm predictions</td><td><span class='kw2'>While</span></td></tr>
+        <tr><td><span class='kw1'>Clarifying</span></td><td>Ask Qs + feedback to speaker to enhance understanding</td><td>While</td></tr>
+        <tr><td><span class='kw1'>Evaluating</span></td><td>Check how well understood</td><td><span class='kw2'>Post</span></td></tr>
+        <tr><td><span class='kw1'>Responding</span></td><td>Personal, relevant response to information presented</td><td>Post</td></tr>
+      </table>
+    </div>
+    <div class="exam">
+      <div class="exam-label">🔑 Metacognitive strategies (기출 포인트)</div>
+      <p><span class='kw1'>Predicting</span>(pre) · <span class='kw1'>Monitoring</span>(while) · <span class='kw1'>Evaluating</span>(post) = <span class='kw2'>metacognitive</span></p>
+      <p>Note-taking = <span class='kw2'>cognitive strategy</span> (selective listening)</p>
+      <p>Inferencing ≠ Scanning: Inferencing = <span class='kw2'>between the lines</span> / Scanning = pick out specific info</p>
+    </div>
+  </div>
+</div>
+
+<!-- ⑧ Lesson Format -->
+<div class="sec" id="s8">
+  <div class="sec-header" onclick="toggle('s8')">
+    <span class="sec-icon">📋</span>
+    <span class="sec-title">⑧ Format of Listening Lesson</span>
+    <span class="sec-tag">★★ Pre / While / Post</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+
+    <!-- flow -->
+    <div class="flow">
+      <div class="flow-item" style="border-color:rgba(124,106,247,.4)"><span class='kw1'>Pre-listening</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-item" style="border-color:rgba(79,195,247,.4)"><span class='kw1'>While-listening</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-item" style="border-color:rgba(76,175,125,.4)"><span class='kw1'>Post-listening</span></div>
+    </div>
+
+    <div class="div"></div>
+
+    <!-- Pre-listening -->
+    <div class="concept">
+      <div class="c-title" style="color:#c4baff">① Pre-listening <span class="badge-ex">★★ 기출 포인트</span></div>
+      <p class="note"><span class='kw1'>Pre-teaching critical vocabulary</span>: facilitates comprehension · <span class='kw2'>do NOT pre-teach ALL</span> unknown words · teach <span class='kw2'>lexical chunks</span> too</p>
+      <p class="note"><span class='kw1'>Establishing context</span>: provide contextual info related to excerpt</p>
+      <p class="note"><span class='kw1'>Creating motivation</span>:</p>
+      <div class="grid col2" style="margin-top:6px;margin-left:12px">
+        <div class="grid-item"><div class="gi-title"><span class='kw1'>Signposting Qs</span></div><div class="gi-body"><span><span class='kw2'>T-provided</span> · guide direction</span></div></div>
+        <div class="grid-item"><div class="gi-title"><span class='kw1'>Generating Qs</span></div><div class="gi-body"><span><span class='kw2'>S-created</span> · title 제공 → S가 질문 생성</span></div></div>
+      </div>
+      <p class="note" style="margin-top:8px"><span class='kw1'>Activating schemata</span>: brainstorming / visuals</p>
+    </div>
+
+    <div class="div"></div>
+
+    <!-- While-listening -->
+    <div class="concept">
+      <div class="c-title" style="color:#4fc3f7">② While-listening</div>
+      <p class="note"><span class='kw1'>Extensive phase</span> (1st): general idea 파악 · <span class='kw2'>confirm predictions</span></p>
+      <p class="note"><span class='kw1'>Intensive phase</span> (2nd+): T provides <span class='kw2'>pre-set Qs</span> → Ss find specific info · submit answers</p>
+      <p class="note">Comprehension checking: Doing · Choosing/matching · <span class='kw2'>Transferring</span> · Transcribing · Answering · <span class='kw2'>Condensing</span> · Extending</p>
+    </div>
+
+    <div class="div"></div>
+
+    <!-- Post-listening -->
+    <div class="concept">
+      <div class="c-title" style="color:#4caf7d">③ Post-listening <span class="badge-ex">기출 포인트</span></div>
+      <p class="note"><span class='kw1'>Skill integration</span>: integrate other skills (speaking/writing/reading) <span class='kw2'>with listening</span></p>
+      <p class="note"><span class='kw1'>Functional lg</span>: T draws attention to functional uses (refusing, apologizing...)</p>
+      <p class="note"><span class='kw1'>Inferring unfamiliar vocabulary</span>: controlled practice</p>
+      <p class="note"><span class='kw1'>Reflection</span>: reflect on learning · plan for next listening</p>
+      <p class="note">Checking comprehension / summarizing / discussion</p>
+    </div>
+
+    <!-- Product vs Process -->
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">Product vs Process Oriented Listening</div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw1'>Product-oriented</span></div>
+          <div class="gi-body">
+            <span>'<span class='kw2'>Listen to learn</span>'</span>
+            <span>use what Ss comprehend → complete another activity</span>
+            <span>write a report · give a speech</span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw1'>Process-oriented</span></div>
+          <div class="gi-body">
+            <span>'<span class='kw2'>Learn to listen</span>'</span>
+            <span>focus on <span class='kw2'>how</span> understanding takes place</span>
+            <span>metacognitive awareness↑ · self-regulation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ⑨ Activities -->
+<div class="sec" id="s9">
+  <div class="sec-header" onclick="toggle('s9')">
+    <span class="sec-icon">✏️</span>
+    <span class="sec-title">⑨ Listening Activities</span>
+    <span class="sec-tag">Dictation · Dictogloss · Info Transfer</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="concept">
+      <div class="c-title">Dictation</div>
+      <div class="def"><span class='kw1'>Dictation</span>: an <span class='kw2'>imitative writing activity</span> — T reads aloud in short phrase units with pauses → Ss write exactly what they heard.</div>
+      <p class="note">Purpose: generate an <span class='kw2'>exact/accurate replica</span></p>
+      <p class="note">Unnatural · <span class='kw2'>no regard in meaning</span></p>
+      <p class="note">Variation: <span class='kw2'>Cloze type of dictation</span></p>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">Dictogloss <span class="badge-ex">기출 포인트</span></div>
+      <div class="def"><span class='kw1'>Dictogloss</span>: A <span class='kw2'>collaborative outcome task</span> where Ls work together to <span class='kw2'>reconstruct a text</span> presented orally.</div>
+      <!-- Dictogloss flow -->
+      <div class="flow" style="margin-top:10px">
+        <div class="flow-item">Preparatory</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-item"><span class='kw2'>Dictation</span><br><small>meaning + details + note-taking</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-item"><span class='kw2'>Reconstruction</span></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-item">Analysis & Correction</div>
+      </div>
+      <p class="note" style="margin-top:10px">Ss utilize both <span class='kw1'>bottom-up</span> AND <span class='kw1'>top-down</span> strategies → <span class='kw2'>interactive processing</span></p>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">Jigsaw Listening</div>
+      <div class="def">Based on <span class='kw2'>information-gap principle</span>: different groups listen to different recordings → share information to complete the whole picture.</div>
+      <p class="note"><span class='kw2'>Cooperative learning</span> 촉진</p>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">Information Transfer</div>
+      <div class="def"><span class='kw1'>Information Transfer</span>: reinterpret and transform information from <span class='kw2'>one mode to another</span> (aural → visual representation).</div>
+      <p class="note">Visual support → <span class='kw2'>deep processing</span> · more mental effort</p>
+      <p class="note">Designed for <span class='kw2'>scanning / selective listening</span> → <span class='kw2'>integrative activity</span></p>
+    </div>
+
+    <!-- Compare table -->
+    <div class="div"></div>
+    <div class="stage-wrap">
+      <table>
+        <tr><th>Activity</th><th>Type</th><th>Processing</th><th>Key Feature</th></tr>
+        <tr><td><span class='kw1'>Dictation</span></td><td>Individual</td><td>bottom-up</td><td>exact replica · no meaning</td></tr>
+        <tr><td><span class='kw1'>Dictogloss</span></td><td>Collaborative</td><td>B-U + T-D</td><td>reconstruct · cooperative</td></tr>
+        <tr><td><span class='kw1'>Jigsaw</span></td><td>Group</td><td>T-D</td><td>info-gap · cooperative</td></tr>
+        <tr><td><span class='kw1'>Info Transfer</span></td><td>Individual/Group</td><td>scanning</td><td>aural→visual · deep processing</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ⑩ Principles -->
+<div class="sec" id="s10">
+  <div class="sec-header" onclick="toggle('s10')">
+    <span class="sec-icon">📌</span>
+    <span class="sec-title">⑩ Principles + ETC</span>
+    <span class="sec-tag">Level-based · Back-channeling</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="grid col3">
+      <div class="grid-item">
+        <div class="gi-title"><span class='kw1'>Beginning Ls</span></div>
+        <div class="gi-body">
+          <span>Use a <span class='kw2'>variety of tasks</span></span>
+          <span><span class='kw2'>Build on success</span></span>
+          <span><span class='kw2'>Do NOT</span> teach strategies</span>
+          <span style="color:#f7706a;font-size:11px">cf. threshold hypothesis</span>
+        </div>
+      </div>
+      <div class="grid-item">
+        <div class="gi-title"><span class='kw1'>Intermediate Ls</span></div>
+        <div class="gi-body">
+          <span><span class='kw2'>Teach listening strategies</span></span>
+          <span>Balance: comprehension practice</span>
+          <span>+ listening for acquisition</span>
+        </div>
+      </div>
+      <div class="grid-item">
+        <div class="gi-title"><span class='kw1'>Advanced Ls</span></div>
+        <div class="gi-body">
+          <span>Teach <span class='kw2'>culture</span> as well as lg</span>
+          <span>Help understand structure of <span class='kw2'>longer texts</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <div class="concept">
+      <div class="c-title">Back-channeling</div>
+      <div class="def"><span class='kw1'>Back-channeling</span>: Signals that listeners give to speakers to let them know that they are <span class='kw2'>attending</span>.</div>
+      <div class="grid col2" style="margin-top:8px">
+        <div class="grid-item"><div class="gi-title"><span class='kw2'>Verbal</span></div><div class="gi-body"><span>yeah · um · ah · uh-huh</span></div></div>
+        <div class="grid-item"><div class="gi-title"><span class='kw2'>Non-verbal</span></div><div class="gi-body"><span>nodding · shrugging · facial gestures</span></div></div>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <!-- 기출 소감평 -->
+    <div class="exam">
+      <div class="exam-label">📝 기출분석 포인트 (서브노트)</div>
+      <p>① <span class='kw1'>Bottom-up / Top-down</span> 특징 구분 → 최빈출</p>
+      <p>② <span class='kw1'>Pre-listening</span>: schemata 활성화 · signpost Qs · critical vocabulary</p>
+      <p>③ <span class='kw1'>Predicting-Monitoring</span>, <span class='kw1'>Inferencing</span>, <span class='kw1'>Selective listening</span> 강조</p>
+      <p>④ Note-taking = <span class='kw2'>cognitive strategy</span> (listening practice는 기출 많지 않음)</p>
+      <p>⑤ Post-listening <span class='kw1'>skill integration</span> 출제 가능</p>
+    </div>
+  </div>
+</div>
+
+</div><!-- /wrap -->
+
+<script>
+function toggle(id){
+  const s=document.getElementById(id);
+  s.classList.toggle('open');
+}
+function openSec(id){
+  const s=document.getElementById(id);
+  s.classList.add('open');
+  s.scrollIntoView({behavior:'smooth',block:'start'});
+}
+</script>
+</body>
+</html>
