@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ko" style="background:#f0faf4;color:#1a3326;">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch.2 Linguistic Aspects of SLA OX Quiz</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans KR',sans-serif;background:#f0faf4;color:#1a3326;min-height:100vh;padding:16px}
+.header{text-align:center;padding:36px 16px 24px}
+.tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11px;color:#2e7d52;background:rgba(46,125,82,.1);border:1px solid rgba(46,125,82,.3);padding:4px 12px;border-radius:20px;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+.ch-badge{display:inline-block;background:linear-gradient(135deg,#2e7d52,#26a69a);color:white;font-size:12px;font-weight:700;padding:4px 14px;border-radius:20px;margin-bottom:10px;font-family:'JetBrains Mono',monospace}
+h1{font-size:clamp(22px,4vw,32px);font-weight:700;background:linear-gradient(135deg,#2e7d52,#26a69a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px}
+.sub{color:#4a7a62;font-size:14px}
+.prog-wrap{max-width:720px;margin:0 auto 24px;padding:0 8px}
+.prog-info{display:flex;justify-content:space-between;font-size:12px;color:#4a7a62;font-family:'JetBrains Mono',monospace;margin-bottom:6px}
+.bar{height:4px;background:#b2dfcc;border-radius:2px;overflow:hidden}
+.bar-fill{height:100%;background:linear-gradient(90deg,#2e7d52,#26a69a);border-radius:2px;transition:width .5s ease}
+.wrap{max-width:720px;margin:0 auto}
+.card{background:#fff;border:1.5px solid #b2dfcc;border-radius:14px;padding:26px;animation:up .35s ease;box-shadow:0 2px 8px rgba(46,125,82,.08)}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.q-meta{display:flex;align-items:center;gap:7px;margin-bottom:14px;flex-wrap:wrap}
+.q-num{font-family:'JetBrains Mono',monospace;font-size:11px;color:#2e7d52;background:rgba(46,125,82,.1);padding:3px 10px;border-radius:8px;font-weight:700}
+.q-src{font-size:11px;color:#4a7a62;font-family:'JetBrains Mono',monospace}
+.q-cat{font-size:11px;color:#00796b;background:rgba(38,166,154,.1);padding:3px 10px;border-radius:8px;margin-left:auto;font-weight:600}
+.kw1{background:rgba(46,125,82,.15);color:#1b5e3a;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(46,125,82,.25)}
+.kw2{color:#00796b;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border-bottom:2px solid rgba(0,121,107,.45)}
+.kw3{background:rgba(230,119,0,.13);color:#bf6000;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(230,119,0,.3)}
+.kw4{background:rgba(183,28,28,.11);color:#b71c1c;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(183,28,28,.25)}
+.q-text{font-size:clamp(15px,2.2vw,16.5px);line-height:1.9;margin-bottom:24px;color:#1a3326}
+.ox-btns{display:flex;gap:12px}
+.ox-btn{flex:1;padding:20px 10px;border-radius:12px;border:2px solid #b2dfcc;background:#f5fdf8;color:#1a3326;font-size:30px;cursor:pointer;transition:all .18s ease;display:flex;flex-direction:column;align-items:center;gap:5px}
+.lb{font-size:11px;font-family:'JetBrains Mono',monospace;color:#4a7a62;letter-spacing:1px;font-weight:600}
+.ox-btn:hover:not(:disabled){transform:translateY(-2px)}
+.o-btn:hover:not(:disabled){border-color:#2e7d52;background:rgba(46,125,82,.08)}
+.x-btn:hover:not(:disabled){border-color:#c62828;background:rgba(198,40,40,.06)}
+.co,.cx{border-color:#2e7d52!important;background:rgba(46,125,82,.1)!important}
+.wp{border-color:#c62828!important;background:rgba(198,40,40,.08)!important}
+.ox-btn:disabled{cursor:default}
+.badge{display:none;margin-top:14px;padding:9px 16px;border-radius:8px;font-size:14px;font-weight:700;font-family:'JetBrains Mono',monospace}
+.badge.ok{display:inline-block;background:rgba(46,125,82,.1);color:#2e7d52;border:1.5px solid rgba(46,125,82,.3)}
+.badge.ng{display:inline-block;background:rgba(198,40,40,.08);color:#c62828;border:1.5px solid rgba(198,40,40,.25)}
+.exp{display:none;margin-top:18px;border-radius:12px;overflow:hidden;animation:fade .3s ease}
+.exp.show{display:block}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.exp-header{background:linear-gradient(135deg,rgba(46,125,82,.12),rgba(38,166,154,.06));border:1.5px solid rgba(46,125,82,.25);border-bottom:none;padding:11px 16px}
+.exp-header span{font-size:11px;font-family:'JetBrains Mono',monospace;color:#1b5e3a;letter-spacing:1.5px;text-transform:uppercase;font-weight:700}
+.exp-answer{background:rgba(46,125,82,.05);border:1.5px solid rgba(46,125,82,.2);border-top:none;border-bottom:none;padding:14px 16px}
+.ans-label{font-size:11px;font-family:'JetBrains Mono',monospace;color:#4a7a62;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;font-weight:700}
+.ans-text{font-size:15px;color:#1a3326;line-height:1.75;font-weight:500}
+.exp-body{background:rgba(46,125,82,.03);border:1.5px solid rgba(46,125,82,.15);border-top:1px solid rgba(46,125,82,.1);padding:14px 16px}
+.sec-label{font-size:11px;font-family:'JetBrains Mono',monospace;color:#00796b;text-transform:uppercase;letter-spacing:1px;margin-bottom:7px;margin-top:13px;font-weight:700}
+.sec-label:first-child{margin-top:0}
+.exp-body p{font-size:14px;color:#2a5040;line-height:1.8;margin-bottom:5px}
+.def-box{background:rgba(38,166,154,.06);border-left:4px solid #26a69a;padding:10px 14px;border-radius:0 8px 8px 0;margin:8px 0}
+.def-box p{color:#004d40;font-size:13.5px;font-style:italic;line-height:1.75}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.compare.three{grid-template-columns:1fr 1fr 1fr}
+.compare-item{background:#f5fdf8;border:1.5px solid #b2dfcc;border-radius:8px;padding:11px 14px}
+.ci-title{font-size:11px;font-family:'JetBrains Mono',monospace;color:#1b5e3a;font-weight:700;margin-bottom:5px}
+.compare-item p{font-size:13px;color:#3a6b51;line-height:1.65}
+.next-btn{display:none;width:100%;margin-top:16px;padding:14px;background:linear-gradient(135deg,#2e7d52,#26a69a);border:none;border-radius:10px;color:white;font-family:'Noto Sans KR',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:opacity .2s,transform .2s}
+.next-btn:hover{opacity:.88;transform:translateY(-1px)}
+.next-btn.show{display:block;animation:fade .3s ease}
+.score-card{display:none;text-align:center;padding:48px 24px}
+.score-card.show{display:block;animation:up .5s ease}
+.score-circle{width:130px;height:130px;border-radius:50%;background:linear-gradient(135deg,#2e7d52,#26a69a);display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 0 40px rgba(46,125,82,.3)}
+.s-num{font-size:42px;font-weight:700;line-height:1;color:#fff}
+.s-total{font-size:14px;opacity:.85;color:#fff}
+.score-card h2{font-size:24px;margin-bottom:7px;color:#1a3326}
+.score-card p{color:#4a7a62;margin-bottom:24px;font-size:15px}
+.restart-btn{padding:13px 32px;background:#f5fdf8;border:2px solid #2e7d52;border-radius:10px;color:#2e7d52;font-family:'Noto Sans KR',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:all .2s}
+.restart-btn:hover{background:rgba(46,125,82,.1)}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="tag">임용고시 대비</div><br>
+  <div class="ch-badge">Chapter 2</div>
+  <h1>Linguistic Aspects of SLA OX Quiz</h1>
+  <p class="sub">O if the statement is correct · X if it is wrong</p>
+</div>
+<div class="prog-wrap">
+  <div class="prog-info"><span id="pt">1 / 20</span><span id="ps">정답 0개</span></div>
+  <div class="bar"><div class="bar-fill" id="bf" style="width:5%"></div></div>
+</div>
+<div class="wrap">
+  <div id="qa"></div>
+  <div class="score-card" id="sc">
+    <div class="score-circle"><span class="s-num" id="fs">0</span><span class="s-total">/20</span></div>
+    <h2 id="rm"></h2><p id="rs"></p>
+    <button class="restart-btn" onclick="restart()">🔄 다시 풀기</button>
+  </div>
+</div>
+<script>
+const Q=[
+  // ── 1. Transfer / CAH ───────────────────────────────────────────────
+  {src:"Contrastive Analysis",cat:"Types of Transfer",
+   text:"<span class='kw1'>Interference</span> is a type of <span class='kw2'>intralingual</span> transfer where a learner overgeneralizes a rule within the target language itself.",
+   ans:false,
+   correct:"<span class='kw1'>Interference</span> is <span class='kw2'>interlingual</span> transfer (L1 → L2). <span class='kw1'>Overgeneralization</span> is <span class='kw2'>intralingual</span> transfer (within L2).",
+   why:"Transfer의 방향이 핵심입니다. Interference(= interlingual transfer)는 L1의 규칙이 L2에 잘못 적용되는 것이고, Overgeneralization(= intralingual transfer)은 L2 내에서 특정 규칙을 허용 범위 이상으로 일반화하는 것입니다. (e.g. 'I goed' — L2 규칙의 과잉 적용)",
+   source:"\"<span class='kw1'>Interference</span>: A type of <span class='kw2'>negative transfer</span> where a previous item is incorrectly transferred to or incorrectly associated with an item to be learned (= <span class='kw2'>interlingual</span>). <span class='kw1'>Overgeneralization</span>: A type of <span class='kw2'>intralingual</span> transfer generalizing a particular rule or item.\"",
+   compare:[{title:"<span class='kw4'>Interference</span>",desc:"<span class='kw2'>interlingual</span> · L1 → L2 · e.g. 'see an exam'"},{title:"<span class='kw4'>Overgeneralization</span>",desc:"<span class='kw2'>intralingual</span> · L2 내 · e.g. 'I goed'"}]},
+
+  {src:"Contrastive Analysis",cat:"Avoidance & Overuse",
+   text:"<span class='kw1'>Avoidance</span> occurs when a learner overuses a certain expression in the target language even when it sounds unnatural, because the same expression exists in their L1.",
+   ans:false,
+   correct:"That describes <span class='kw1'>overuse</span>. <span class='kw1'>Avoidance</span> = learner <span class='kw2'>avoids</span> a structure because their L1 <span class='kw2'>lacks</span> that structure.",
+   why:"두 개념의 혼동이 자주 일어납니다. Avoidance는 L1에 없는 구조를 TL에서 사용하지 않으려는 것이고, Overuse는 L1에 있는 표현을 TL에서 부자연스럽게 과용하는 것입니다.",
+   source:"\"<span class='kw1'>Avoidance</span>: A type of L1 transfer where a L <span class='kw2'>avoids using</span> a certain grammatical structure in the TL because his/her native lg does not have such structure. <span class='kw1'>Overuse</span>: A type of L1 transfer where L <span class='kw2'>overuses</span> a certain expression in TL even if it sounds unnatural.\"",
+   compare:[{title:"<span class='kw1'>Avoidance</span>",desc:"L1에 <span class='kw2'>없어서</span> 안 씀 · avoids structure"},{title:"<span class='kw1'>Overuse</span>",desc:"L1에 <span class='kw2'>있어서</span> 과용 · unnatural in L2"}]},
+
+  {src:"Contrastive Analysis",cat:"Strong vs Weak CAH",
+   text:"The <span class='kw3'>strong version</span> of the Contrastive Analysis Hypothesis analyzes errors <span class='kw2'>after</span> they occur to identify L1 influence, while the <span class='kw3'>weak version</span> predicts errors <span class='kw2'>before</span> they occur.",
+   ans:false,
+   correct:"Reversed. <span class='kw3'>Strong version</span>: <span class='kw2'>predicts</span> errors BEFORE by comparing L1–L2. <span class='kw3'>Weak version</span>: analyzes errors <span class='kw2'>after</span> they occur.",
+   why:"Strong version(강버전)은 L1-L2 대조 분석을 통해 오류를 사전에 예측하고 어려운 항목을 가르칩니다. Weak version(약버전)은 오류 발생 후 L1 영향을 파악하는 사후 분석 방식으로, cross-linguistic influence를 강조합니다.",
+   source:"\"<span class='kw3'>Strong version</span>: Description → Contrast → <span class='kw2'>Prediction</span> (before error) — L1 error only. <span class='kw3'>Weak version</span>: Contrast <span class='kw2'>after error</span> / L1, L2 error contrast — emphasizes cross-linguistic influence.\"",
+   compare:[{title:"<span class='kw3'>Strong CAH</span>",desc:"<span class='kw2'>predicts</span> errors BEFORE · L1 diff → teach"},{title:"<span class='kw3'>Weak CAH</span>",desc:"analyzes errors <span class='kw2'>after</span> · cross-linguistic influence"}]},
+
+  // ── 2. Interlanguage ─────────────────────────────────────────────────
+  {src:"Interlanguage",cat:"Characteristics",
+   text:"<span class='kw4'>Interlanguage</span> is a fixed, static system that reflects only the learner's L1 without any influence from the target language.",
+   ans:false,
+   correct:"<span class='kw4'>Interlanguage</span> is <span class='kw2'>systematic, variable, and dynamic</span> — an intermediate system between L1 and TL that evolves over time.",
+   why:"Interlanguage는 학습자의 L1과 TL 사이의 중간 체계로, 고정되어 있지 않고 체계적(systematic)이면서 가변적(variable)이고 역동적(dynamic)으로 발달합니다. 학습자만의 독자적인 규칙 체계를 가집니다.",
+   source:"\"<span class='kw4'>Interlanguage</span>: An intermediate system located somewhere between a L's native lg and his/her TL. <span class='kw2'>Systematic, Variable, Dynamic</span>.\"",
+   compare:[{title:"<span class='kw2'>Systematic</span>",desc:"own unique, coherent rule system"},{title:"<span class='kw2'>Variable</span>",desc:"varies across contexts/tasks"},{title:"<span class='kw2'>Dynamic</span>",desc:"changes and develops over time"}]},
+
+  {src:"Interlanguage",cat:"Developmental Stages",
+   text:"In the <span class='kw3'>emergent stage</span> of interlanguage development, learners can self-correct when given feedback, and their production shows consistent rule application.",
+   ans:false,
+   correct:"<span class='kw3'>Emergent stage</span>: some consistency but <span class='kw2'>NO self-correction</span> with feedback (<span class='kw2'>backsliding</span> occurs). Self-correction appears in the <span class='kw3'>systematic stage</span>.",
+   why:"발달 단계별 특징: Presystematic(random errors) → Emergent(일부 일관성, backsliding, self-correction X) → Systematic(self-correction O, feedback uptake O) → Stabilization(few errors, self-correction before feedback). Emergent stage에서 학생이 피드백에도 불구하고 이전 단계로 퇴행하는 backsliding이 일어납니다.",
+   source:"\"<span class='kw3'>Emergent stage</span>: Some consistency; <span class='kw2'>Backsliding</span>; <span class='kw2'>No self-correction</span>. <span class='kw3'>Systematic stage</span>: More consistency; <span class='kw2'>Ability to self-correct</span>.\"",
+   compare:[{title:"<span class='kw3'>Emergent</span>",desc:"some consistency · <span class='kw2'>backsliding</span> · NO self-correct"},{title:"<span class='kw3'>Systematic</span>",desc:"self-correct <span class='kw2'>with feedback</span> · uptake O"},{title:"<span class='kw3'>Stabilization</span>",desc:"few errors · self-correct <span class='kw2'>without</span> feedback"}]},
+
+  {src:"Interlanguage",cat:"Fossilization",
+   text:"<span class='kw3'>Fossilization</span> is a temporary stage in interlanguage development where learners make consistent errors that can be easily corrected through explicit feedback.",
+   ans:false,
+   correct:"<span class='kw3'>Fossilization</span> is a <span class='kw2'>relatively permanent</span> incorporation of incorrect forms — caused by lack of negative feedback, insensitivity to feedback, or excessive automatization.",
+   why:"Fossilization은 학습자의 interlanguage에 잘못된 언어 형식이 상대적으로 영구적으로 굳어지는 현상입니다. 원인: ① lack of negative feedback & self-monitor ② insensitivity to negative feedback ③ positive feedback이 오류를 강화 ④ 과도한 automatization. 예방을 위해 explicit corrective feedback이 필요합니다.",
+   source:"\"<span class='kw3'>Fossilization</span>: A <span class='kw2'>relative permanent</span> incorporation of incorrect linguistic forms into a Ls' second language competence. Caused by: <span class='kw2'>lack of negative feedback, insensitivity to feedback, too much automatic processing</span>.\"",
+   compare:[{title:"<span class='kw3'>Fossilization</span>",desc:"<span class='kw2'>permanent</span> · no negative feedback · automatic"},{title:"Prevention",desc:"<span class='kw2'>explicit corrective feedback</span> · raise awareness"}]},
+
+  {src:"Interlanguage",cat:"U-shaped Learning",
+   text:"<span class='kw3'>U-shaped learning</span> refers to a pattern where learners produce correct forms initially, then begin making errors, and eventually return to correct production.",
+   ans:true,
+   correct:"<span class='kw3'>U-shaped learning</span>: correct (imitation/lexical item) → <span class='kw2'>overgeneralization/backsliding</span> (incorrect) → correct (rule internalized). 처음 정확한 형태는 모방이나 어휘 단위로 인식한 결과입니다.",
+   why:"초기 정확한 생산은 규칙을 알아서가 아니라 imitation 또는 별도의 어휘 항목으로 인식한 결과입니다. 이후 L2 규칙을 일반화하는 과정에서 overgeneralization으로 오류가 발생하고, 결국 올바른 형태로 돌아옵니다. (e.g. went → goed → went)",
+   source:"\"<span class='kw3'>U-shaped learning</span>: A phenomenon moving from a correct form to an incorrect form and then back to the correct form. Regression is caused by <span class='kw2'>overgeneralization</span>. Correct production in the beginning may be the result of <span class='kw2'>imitation or Ls' perceiving it as a separate lexical item</span>.\"",
+   compare:[{title:"Phase 1 (correct)",desc:"imitation · lexical item으로 인식"},{title:"Phase 2 (incorrect)",desc:"<span class='kw2'>overgeneralization</span> · backsliding"},{title:"Phase 3 (correct)",desc:"rule <span class='kw2'>internalized</span>"}]},
+
+  // ── 3. Error Types ───────────────────────────────────────────────────
+  {src:"Error Analysis",cat:"Global vs Local Errors",
+   text:"<span class='kw3'>Local errors</span> are errors that hinder communication and must be corrected, while <span class='kw3'>global errors</span> do not prevent a message from being understood.",
+   ans:false,
+   correct:"Reversed. <span class='kw3'>Global errors</span> = <span class='kw2'>hinder communication</span> → must correct. <span class='kw3'>Local errors</span> = <span class='kw2'>message still understood</span> → not necessarily correct.",
+   why:"Global errors는 의사소통을 방해하는 오류로 반드시 수정이 필요합니다. Local errors는 의미 전달은 되지만 형식적 오류가 있는 경우로, 유창성 중심 수업에서는 수정하지 않을 수 있습니다. 수업 목표(fluency vs accuracy)에 따라 교정 범위가 다릅니다.",
+   source:"\"<span class='kw3'>Global errors</span>: Errors that <span class='kw2'>hinder communication</span>. <span class='kw3'>Local errors</span>: Errors that <span class='kw2'>does not prevent</span> a message to be understood.\"",
+   compare:[{title:"<span class='kw3'>Global error</span>",desc:"<span class='kw2'>hinders</span> communication · must correct"},{title:"<span class='kw3'>Local error</span>",desc:"message <span class='kw2'>delivered</span> · not necessarily correct"}]},
+
+  {src:"Error Analysis",cat:"Overt vs Covert Errors",
+   text:"<span class='kw1'>Covert errors</span> are errors that are clearly ungrammatical at the sentence level and can be easily identified by looking at the sentence structure alone.",
+   ans:false,
+   correct:"That describes <span class='kw1'>overt errors</span>. <span class='kw1'>Covert errors</span> are grammatically <span class='kw2'>well-formed at sentence level</span> but not interpretable in the <span class='kw2'>context of communication</span>.",
+   why:"Overt errors는 문장 차원에서 명백히 비문법적인 오류(= sentence level error)입니다. Covert errors는 문장 자체는 문법적이지만 의사소통 맥락에서 해석이 불가능한 오류(= discourse level error)입니다.",
+   source:"\"<span class='kw1'>Overt errors</span>: Errors that can be noticed on the <span class='kw2'>sentence level</span>. <span class='kw1'>Covert errors</span>: Errors that are <span class='kw2'>grammatically well formed</span> at sentence level, but not interpretable within the <span class='kw2'>context of communication</span>.\"",
+   compare:[{title:"<span class='kw1'>Overt error</span>",desc:"sentence level · <span class='kw2'>ungrammatical</span> → easy to spot"},{title:"<span class='kw1'>Covert error</span>",desc:"grammatically OK · <span class='kw2'>discourse level</span> issue"}]},
+
+  // ── 4. Corrective Feedback ───────────────────────────────────────────
+  {src:"Corrective Feedback",cat:"Recast",
+   text:"<span class='kw4'>Recast</span> is an explicit type of corrective feedback that interrupts the flow of communication to directly indicate the error and provide the correct form.",
+   ans:false,
+   correct:"<span class='kw4'>Recast</span> is <span class='kw2'>implicit</span> feedback — it <span class='kw2'>maintains communicative flow</span> by reformulating the erroneous utterance without overtly signaling it as an error.",
+   why:"Recast의 핵심 특징: ① implicit (오류 직접 지적 안 함) ② maintains communicative flow ③ positive + negative evidence 모두 포함 ④ 학습자가 confirmation으로 오해할 수 있음. Explicit correction은 오류를 직접 명시하고 올바른 형태를 제공하는 방식입니다.",
+   source:"\"<span class='kw4'>Recast</span>: Reformulation of the whole or part of a Ls' erroneous utterance into a correct form while <span class='kw2'>maintaining the overall focus on meaning</span> without altering the central meaning. Contains both <span class='kw2'>positive and negative evidence</span>.\"",
+   compare:[{title:"<span class='kw4'>Recast</span> (implicit)",desc:"<span class='kw2'>communicative flow 유지</span> · positive+negative evidence"},{title:"<span class='kw2'>Explicit correction</span>",desc:"directly indicate error + correct form · <span class='kw2'>interrupts flow</span>"}]},
+
+  {src:"Corrective Feedback",cat:"Metalinguistic Feedback",
+   text:"<span class='kw3'>Metalinguistic feedback</span> provides both a comment about the error AND the correct form, helping learners immediately understand what the correct structure should be.",
+   ans:false,
+   correct:"<span class='kw3'>Metalinguistic feedback</span> provides comments/questions about the error but does <span class='kw2'>NOT explicitly provide the correct form</span>.",
+   why:"Metalinguistic feedback는 오류의 성격에 대한 언어적 설명(comment, information, question)을 제공하지만 올바른 형태를 직접 제시하지 않습니다. (e.g. 'Can you find the error?', 'What is the past tense of this verb?') 이 점에서 올바른 형태를 직접 제공하는 explicit correction과 구별됩니다.",
+   source:"\"<span class='kw3'>Metalinguistic feedback</span>: Points out the nature of the Ls' error using metalinguistic comment/information/questions <span class='kw2'>without explicitly providing the correct form</span>.\"",
+   compare:[{title:"<span class='kw3'>Metalinguistic feedback</span>",desc:"comment/question about error · <span class='kw2'>NO correct form</span>"},{title:"<span class='kw2'>Explicit correction</span>",desc:"directly indicate error + <span class='kw2'>provides correct form</span>"}]},
+
+  {src:"Corrective Feedback",cat:"Elicitation",
+   text:"<span class='kw3'>Elicitation</span> is a technique that provides the correct form directly to the learner in response to their error, without requiring any learner participation.",
+   ans:false,
+   correct:"<span class='kw3'>Elicitation</span> <span class='kw2'>directly elicits the correct form FROM the learner</span> — pushes L to <span class='kw2'>self-correct</span> using incomplete sentences, questions, or requests for reformulation.",
+   why:"Elicitation은 교사가 정답을 주는 것이 아니라 학습자가 스스로 올바른 형태를 생산하도록 유도하는 기법입니다. (e.g. 'He comes...' / 'How do you say X in French?' / 'Can you say it again?') 학습자의 self-correction을 목표로 합니다.",
+   source:"\"<span class='kw3'>Elicitation</span>: directly elicit the correct form <span class='kw2'>from the L</span> by incomplete sentences, questions, or request for reformulation. Pushes L to <span class='kw2'>self-correct</span>.\"",
+   compare:[{title:"<span class='kw3'>Elicitation</span>",desc:"L이 <span class='kw2'>self-correct</span>하도록 유도 · incomplete sentence"},{title:"<span class='kw3'>Metalinguistic</span>",desc:"error 성격 설명 · no correct form 제공"}]},
+
+  {src:"Corrective Feedback",cat:"Uptake",
+   text:"<span class='kw3'>Uptake</span> refers to any learner utterance that immediately follows the teacher's corrective feedback, regardless of whether the error has been successfully repaired.",
+   ans:true,
+   correct:"<span class='kw3'>Uptake</span> = utterance that <span class='kw2'>immediately follows</span> teacher's feedback and constitutes a reaction — can be <span class='kw2'>successful</span> (error repaired) or <span class='kw2'>unsuccessful</span> (error remains).",
+   why:"Uptake는 교사의 피드백에 즉각적으로 반응하는 학습자의 발화입니다. 성공적 uptake(successful uptake), 실패한 uptake(unsuccessful uptake), 무시(no uptake), 단순 인정(acknowledgement: 'yes')으로 구분됩니다. Modified output과 구별: modified output은 수정 여부에 초점, uptake는 피드백 이후 즉각 반응에 초점.",
+   source:"\"<span class='kw3'>Uptake</span>: A student utterance that <span class='kw2'>immediately follows</span> a teacher's feedback and constitutes a reaction to the teacher's intention to draw attention to some aspect of the student's initial utterance. <span class='kw2'>Successful / Unsuccessful</span>.\"",
+   compare:[{title:"<span class='kw3'>Successful uptake</span>",desc:"error <span class='kw2'>repaired</span> after feedback"},{title:"<span class='kw3'>Unsuccessful uptake</span>",desc:"attempts but <span class='kw2'>still incorrect</span>"},{title:"<span class='kw2'>No uptake</span>",desc:"ignores or simply acknowledges"}]},
+
+  {src:"Corrective Feedback",cat:"Implicit vs Explicit Feedback",
+   text:"<span class='kw4'>Recast</span> is categorized as explicit negative feedback because it clearly signals to learners that their utterance contained an error.",
+   ans:false,
+   correct:"<span class='kw4'>Recast</span> is <span class='kw2'>implicit</span> negative feedback — it does not <span class='kw2'>overtly draw attention</span> to the error, which is why learners may miss it.",
+   why:"Implicit feedback(recast, repetition with intonation)는 오류에 대한 직접적 언급 없이 의사소통 흐름 안에서 제공됩니다. Explicit feedback(explicit correction, metalinguistic feedback)는 오류를 명시적으로 지적합니다. Recast의 한계: 학습자가 confirmation으로 오해하거나, meaning에 집중하느라 form 수정을 알아채지 못할 수 있습니다.",
+   source:"\"<span class='kw2'>Implicit feedback</span>: A response to a Ls' error that does <span class='kw2'>not draw overt attention</span> to the error and is provided during communicative interactions. <span class='kw4'>Recast</span> = implicit feedback.\"",
+   compare:[{title:"<span class='kw2'>Implicit</span> (recast)",desc:"no overt attention · <span class='kw2'>communicative flow 유지</span>"},{title:"<span class='kw2'>Explicit</span> correction",desc:"overt attention to error · <span class='kw2'>interrupts flow</span>"}]},
+
+  // ── 5. Modified Input ────────────────────────────────────────────────
+  {src:"Modified Input",cat:"Foreigner Talk vs Teacher Talk",
+   text:"<span class='kw3'>Foreigner talk</span> and <span class='kw3'>teacher talk</span> refer to the same type of modified input, as both involve simplification of speech for non-proficient speakers in a classroom context.",
+   ans:false,
+   correct:"<span class='kw3'>Foreigner talk</span> = used by <span class='kw2'>native speakers</span> speaking to non-proficient foreigners. <span class='kw3'>Teacher talk</span> = input provided by the <span class='kw2'>teacher</span> in classroom.",
+   why:"두 개념은 다른 화자를 전제합니다. Foreigner talk는 교실 밖에서 원어민이 외국인에게 사용하는 변형된 발화이고, Teacher talk는 교실 내 교사가 학습자에게 제공하는 입력입니다. Care-taker talk는 부모/보모가 어린이에게 사용하는 발화입니다.",
+   source:"\"<span class='kw3'>Foreigner Talk</span>: Modified speech used by <span class='kw2'>native speakers</span> when they speak to foreigners. <span class='kw3'>Teacher Talk</span>: Input provided by the <span class='kw2'>T</span> which S in classroom are exposed to.\"",
+   compare:[{title:"<span class='kw2'>Care-taker talk</span>",desc:"parents/babysitters → young children"},{title:"<span class='kw3'>Foreigner talk</span>",desc:"native speakers → non-proficient foreigners"},{title:"<span class='kw3'>Teacher talk</span>",desc:"teacher → classroom learners"}]},
+
+  {src:"Modified Input",cat:"Types of Input Modification",
+   text:"<span class='kw1'>Elaboration</span> involves replacing complex vocabulary and grammar with simpler forms to make input more comprehensible.",
+   ans:false,
+   correct:"That describes <span class='kw1'>simplification</span>. <span class='kw1'>Elaboration</span> = <span class='kw2'>restating ideas in different ways</span> or repeating segments — has a <span class='kw2'>positive effect</span> on SLA.",
+   why:"Simplification은 어휘·문법을 더 단순한 형태로 교체하는 것이고, Elaboration은 원본 내용을 다른 방식으로 재진술하거나 반복하는 것입니다. Elaboration은 SLA에 긍정적 효과가 있는 것으로 알려져 있습니다. Regularization은 더 기본적이거나 명시적인 형태를 선택하는 것입니다.",
+   source:"\"<span class='kw1'>Simplification</span>: Lexical/Grammatical modification/simplification. <span class='kw1'>Elaboration</span>: <span class='kw2'>Restating ideas</span> of the original input in different ways; Repeating segments; <span class='kw2'>Positive effect</span> on SLA.\"",
+   compare:[{title:"<span class='kw1'>Simplification</span>",desc:"replace complex → simple form"},{title:"<span class='kw1'>Elaboration</span>",desc:"<span class='kw2'>restate/repeat</span> in different ways → SLA↑"},{title:"<span class='kw1'>Regularization</span>",desc:"more basic/explicit forms · lexical coverage"}]},
+
+  // ── 6. IRE / IRF / Display Q ─────────────────────────────────────────
+  {src:"Corrective Feedback",cat:"Display Q vs Referential Q",
+   text:"A <span class='kw4'>referential question</span> is one to which the teacher already knows the answer and uses it to check students' comprehension of course content.",
+   ans:false,
+   correct:"That describes a <span class='kw4'>display question</span>. A <span class='kw4'>referential question</span> is one where the <span class='kw2'>teacher/questioner does NOT know</span> the answer beforehand.",
+   why:"Display question은 교사가 이미 답을 알고 학생의 이해도를 확인하는 질문(e.g. 'What is the past tense of go?')입니다. Referential question은 교사도 답을 모르는 진짜 정보 요청 질문(e.g. 'What did you do last weekend?')으로 authentic communication을 촉진합니다.",
+   source:"\"<span class='kw4'>Display question</span>: An attempt to elicit information <span class='kw2'>already known by the teacher</span>. <span class='kw4'>Referential question</span>: T or the questioner does <span class='kw2'>not know beforehand</span> the response information.\"",
+   compare:[{title:"<span class='kw4'>Display Q</span>",desc:"T <span class='kw2'>already knows</span> answer · comprehension check"},{title:"<span class='kw4'>Referential Q</span>",desc:"T does <span class='kw2'>NOT know</span> answer · authentic communication"}]},
+
+  {src:"Corrective Feedback",cat:"Pushed / Modified Output",
+   text:"<span class='kw3'>Modified output</span> and <span class='kw3'>pushed output</span> refer to the same concept — any learner utterance that has been corrected following teacher feedback.",
+   ans:false,
+   correct:"<span class='kw2'>Not all pushed output is modified output</span>. <span class='kw3'>Pushed output</span> = T pushes S toward correct form. <span class='kw3'>Modified output</span> = focuses on whether the output was <span class='kw2'>actually corrected</span>.",
+   why:"Pushed output은 교사가 학생의 발화를 올바른 방향으로 밀어붙이는 과정을 말하고, Modified output은 그 결과 실제로 수정이 이루어졌는지에 초점을 맞춥니다. Uptake는 피드백 직후의 즉각적 반응을 가리킵니다.",
+   source:"\"Not all pushed output is modified output. <span class='kw3'>Pushed output</span>: T pushes S to the correct form. <span class='kw3'>Modified output</span>: whether the output was actually <span class='kw2'>corrected</span>. <span class='kw3'>Uptake</span>: utterance that <span class='kw2'>immediately follows</span> T's corrective feedback.\"",
+   compare:[{title:"<span class='kw3'>Pushed output</span>",desc:"T pushes toward correct form · process"},{title:"<span class='kw3'>Modified output</span>",desc:"actually <span class='kw2'>corrected</span> or not · result"},{title:"<span class='kw3'>Uptake</span>",desc:"<span class='kw2'>immediately follows</span> T feedback"}]},
+
+  // ── 7. Sociocultural implication ────────────────────────────────────
+  {src:"Corrective Feedback",cat:"Sociocultural Implication",
+   text:"From a Sociocultural Theory perspective, corrective feedback should be delivered all at once for maximum effect, as gradual correction may confuse learners.",
+   ans:false,
+   correct:"Sociocultural Theory: corrective feedback should be provided <span class='kw2'>step by step as scaffolding</span>, taking the form of <span class='kw2'>other-regulation</span> to help L achieve <span class='kw2'>self-regulation</span>.",
+   why:"사회문화 이론의 관점에서 corrective feedback은: ① other-regulation의 형태로 self-regulation 달성을 돕고 ② ZPD 내에서 scaffolding으로 단계적으로 제공되어야 합니다. 한꺼번에 모든 오류를 수정하면 학습자가 부담을 느끼고 ZPD를 벗어날 수 있습니다.",
+   source:"\"Pedagogical Implication of Corrective Feedback from Sociocultural Theory: 1) Error correction takes form of <span class='kw2'>other-regulation</span> to help L achieve <span class='kw2'>self-regulation</span>. 2) Corrective feedback needs to be provided <span class='kw2'>step by step as scaffolding</span>. 3) It facilitates Ls' <span class='kw2'>ZPD</span>.\"",
+   compare:[{title:"<span class='kw2'>Other-regulation</span>",desc:"feedback → towards self-regulation"},{title:"<span class='kw2'>Step by step</span>",desc:"scaffolding · within ZPD"}]}
+];
+
+let cur=0,score=0;
+const TOTAL=Q.length;
+
+function renderExp(q,isCorrect){
+  const three=q.compare&&q.compare.length===3;
+  const cmp=q.compare?`
+    <div class="sec-label">📊 비교 정리</div>
+    <div class="compare${three?' three':''}">
+      ${q.compare.map(c=>`<div class="compare-item"><div class="ci-title">${c.title}</div><p>${c.desc}</p></div>`).join('')}
+    </div>`:'';
+  return `<div class="exp show">
+    <div class="exp-header"><span>${isCorrect?'✅ 정답':'❌ 오답'} · 해설</span></div>
+    <div class="exp-answer"><div class="ans-label">핵심 정정</div><div class="ans-text">${q.correct}</div></div>
+    <div class="exp-body">
+      <div class="sec-label">📖 상세 설명</div><p>${q.why}</p>
+      <div class="sec-label">📌 Source</div>
+      <div class="def-box"><p>${q.source}</p></div>
+      ${cmp}
+    </div>
+  </div>`;
+}
+
+function render(){
+  if(cur>=TOTAL){
+    document.getElementById('qa').style.display='none';
+    document.getElementById('sc').classList.add('show');
+    document.getElementById('fs').textContent=score;
+    const p=score/TOTAL;
+    document.getElementById('rm').textContent=p===1?'🎉 Perfect!':p>=.8?'👏 Great!':p>=.6?'😊 Good!':'💪 Keep going!';
+    document.getElementById('rs').textContent=`${TOTAL}문제 중 ${score}문제 정답 (${Math.round(p*100)}%)`;
+    return;
+  }
+  const q=Q[cur];
+  document.getElementById('bf').style.width=((cur+1)/TOTAL*100).toFixed(1)+'%';
+  document.getElementById('pt').textContent=`${cur+1} / ${TOTAL}`;
+  document.getElementById('ps').textContent=`정답 ${score}개`;
+  document.getElementById('qa').innerHTML=`
+    <div class="card">
+      <div class="q-meta">
+        <span class="q-num">Q${cur+1}</span>
+        <span class="q-src">${q.src}</span>
+        <span class="q-cat">${q.cat}</span>
+      </div>
+      <div class="q-text">${q.text}</div>
+      <div class="ox-btns">
+        <button class="ox-btn o-btn" onclick="pick(true)" id="ob">⭕<span class="lb">CORRECT</span></button>
+        <button class="ox-btn x-btn" onclick="pick(false)" id="xb">❌<span class="lb">WRONG</span></button>
+      </div>
+      <div id="bd" class="badge"></div>
+      <div id="ep"></div>
+      <button class="next-btn" id="nb" onclick="next()">${cur<TOTAL-1?'Next →':'결과 보기 →'}</button>
+    </div>`;
+}
+
+function pick(val){
+  const q=Q[cur];
+  document.getElementById('ob').disabled=true;
+  document.getElementById('xb').disabled=true;
+  const ok=val===q.ans;
+  if(ok)score++;
+  const bd=document.getElementById('bd');
+  bd.textContent=ok?'✅ 정답!':`❌ 오답! 정답은 ${q.ans?'O':'X'}`;
+  bd.className='badge '+(ok?'ok':'ng');
+  document.getElementById(val?'ob':'xb').classList.add(ok?(val?'co':'cx'):'wp');
+  if(!ok)document.getElementById(q.ans?'ob':'xb').classList.add(q.ans?'co':'cx');
+  document.getElementById('ep').innerHTML=renderExp(q,ok);
+  document.getElementById('nb').classList.add('show');
+  document.getElementById('ps').textContent=`정답 ${score}개`;
+}
+
+function next(){cur++;render();}
+function restart(){cur=0;score=0;document.getElementById('sc').classList.remove('show');document.getElementById('qa').style.display='block';render();}
+render();
+</script>
+</body>
+</html>
