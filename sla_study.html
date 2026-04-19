@@ -1,18 +1,23 @@
 <!DOCTYPE html>
-<html lang="ko" style="background:#f0faf4;color:#1a3326;">
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ch.1 SLA Theory — 개념정리</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=JetBrains+Mono:wght@400;600&family=Caveat:wght@600&display=swap');
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Noto Sans KR',sans-serif;background:#f0faf4;color:#1a3326;min-height:100vh;padding:16px}
-.header{text-align:center;padding:40px 16px 28px}
-.tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11px;color:#2e7d52;background:rgba(46,125,82,.1);border:1px solid rgba(46,125,82,.3);padding:4px 12px;border-radius:20px;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
-.ch-badge{display:inline-block;background:linear-gradient(135deg,#2e7d52,#26a69a);color:#fff;font-size:12px;font-weight:700;padding:4px 14px;border-radius:20px;margin-bottom:10px;font-family:'JetBrains Mono',monospace}
-h1{font-size:clamp(24px,4vw,34px);font-weight:700;background:linear-gradient(135deg,#2e7d52,#26a69a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px}
-.sub{color:#4a7a62;font-size:14px}
+body{font-family:'Noto Sans KR',sans-serif;background:#f4f3ed;background-image:repeating-linear-gradient(transparent,transparent 27px,#d5d8cf 28px);color:#1a1a1a;min-height:100vh;padding:16px}
+.header-wrap{max-width:820px;margin:0 auto;padding:24px 8px 0}
+.header-topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.header-sticker{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;background:#1a3326;color:#e8f5e9;padding:5px 13px;border-radius:3px;letter-spacing:2px;text-transform:uppercase}
+.header-chapter{font-family:'JetBrains Mono',monospace;font-size:12px;color:#4a5a44;letter-spacing:.5px}
+.header-title{font-size:clamp(30px,7vw,46px);font-weight:900;color:#1a1a1a;line-height:1.1;margin-bottom:5px;letter-spacing:-1px}
+.title-hl{background:#00695c;color:#fff;padding:1px 6px}
+.header-script{font-family:'Caveat',cursive;font-size:21px;color:#00695c;margin-bottom:4px;font-weight:600}
+.header-sub{font-size:13px;color:#555;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#aaa;margin-bottom:10px}
+.header-divider{border:none;border-top:2px dashed #888;margin-bottom:10px}
+.header-tip{font-size:12px;color:#2e4a3a;font-family:'JetBrains Mono',monospace;margin-bottom:20px;background:rgba(0,105,92,.06);border:1px solid rgba(0,105,92,.2);border-radius:8px;padding:9px 14px;line-height:1.7}
 .wrap{max-width:820px;margin:0 auto}
 .sec{background:#fff;border:1.5px solid #b2dfcc;border-radius:16px;margin-bottom:20px;overflow:hidden;box-shadow:0 2px 8px rgba(46,125,82,.08)}
 .sec-header{background:linear-gradient(135deg,rgba(46,125,82,.08),rgba(38,166,154,.05));border-bottom:1.5px solid #b2dfcc;padding:16px 22px;display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none}
@@ -66,17 +71,16 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 </style>
 </head>
 <body>
-<div class="header">
-  <div class="tag">임용고시 대비</div><br>
-  <div class="ch-badge">Chapter 1</div>
-  <h1>SLA Theory</h1>
-  <p class="sub">서브노트 순서 기반 개념정리 · 기출 포인트 · 비교 도식</p>
-  <div style="margin-top:14px;display:inline-block;background:rgba(183,28,28,.1);border:1.5px solid rgba(183,28,28,.3);border-radius:10px;padding:10px 20px;text-align:left">
-    <p style="color:#b71c1c;font-size:14px;font-weight:700;line-height:1.8;margin:0">
-      📌 아래 목차 버튼을 누르면 해당 섹션으로 이동합니다.<br>
-      ▼ 각 섹션 제목을 누르면 내용을 열고 닫을 수 있습니다.
-    </p>
+<div class="header-wrap">
+  <div class="header-topbar">
+    <span class="header-sticker">STUDY NOTE</span>
+    <span class="header-chapter">Ch.01 · SLA Theory</span>
   </div>
+  <h1 class="header-title"><span class="title-hl">개념 정리</span> 노트</h1>
+  <div class="header-script">Concept Notes · SLA Theory</div>
+  <p class="header-sub">서브노트 순서 기반 · 기출 포인트 · 비교 도식</p>
+  <div class="header-divider"></div>
+  <p class="header-tip">📌 목차 버튼 클릭 → 해당 섹션으로 이동 &nbsp;·&nbsp; ▼ 섹션 제목 클릭 → 열고 닫기</p>
 </div>
 
 <div class="wrap">
