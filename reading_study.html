@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="ko" style="background:#f0faf4;color:#1a3326;">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch.6 Teaching Reading | 개념정리</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #f0faf4; color: #1a3326; font-family: 'Segoe UI', 'Noto Sans KR', sans-serif; line-height: 1.7; padding-bottom: 80px; }
+
+  /* 키워드 */
+  .kw1 { background: rgba(46,125,82,.15); color: #1b5e3a; border-radius: 3px; padding: 1px 5px; font-weight: 700; }
+  .kw2 { color: #00796b; border-bottom: 2px solid #00796b; font-weight: 500; }
+  .kw3 { background: rgba(230,119,0,.13); color: #bf6000; border-radius: 3px; padding: 1px 5px; font-weight: 700; }
+  .kw4 { background: rgba(183,28,28,.11); color: #b71c1c; border-radius: 3px; padding: 1px 5px; font-weight: 700; }
+
+  /* 헤더 */
+  .hero { background: linear-gradient(135deg, #1b5e3a 0%, #2e7d52 50%, #26a69a 100%); color: white; padding: 38px 20px 30px; text-align: center; }
+  .hero .badge { display: inline-block; background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.3); border-radius: 20px; padding: 4px 16px; font-size: 0.78em; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
+  .hero h1 { font-size: 1.8em; font-weight: 800; margin-bottom: 8px; }
+  .hero p { font-size: 0.9em; opacity: 0.88; }
+
+  /* 안내문 */
+  .alert-red { background: #fde8e8; border: 1.5px solid #e57373; border-radius: 10px; padding: 14px 18px; margin: 20px 16px 0; font-size: 0.88em; color: #c62828; line-height: 1.8; }
+  .alert-red strong { display: block; margin-bottom: 4px; font-size: 1em; }
+
+  /* 범례 */
+  .legend { display: flex; gap: 10px; flex-wrap: wrap; padding: 12px 16px; background: white; border-radius: 10px; margin: 16px 16px 0; border: 1px solid #c8e6c9; font-size: 0.8em; }
+  .legend span { display: flex; align-items: center; gap: 4px; }
+
+  /* 기출 분석 박스 */
+  .exam-box { background: #fff8e1; border: 1.5px solid #f9a825; border-radius: 12px; margin: 16px 16px 0; padding: 16px 18px; }
+  .exam-box h3 { color: #e65100; font-size: 0.92em; font-weight: 700; margin-bottom: 10px; }
+  .exam-row { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; font-size: 0.84em; margin-bottom: 4px; align-items: start; }
+  .exam-year { color: #bf6000; font-weight: 700; white-space: nowrap; }
+
+  /* TOC */
+  .toc { background: white; border-radius: 14px; margin: 20px 16px 0; padding: 18px 20px; box-shadow: 0 2px 10px rgba(46,125,82,.08); border: 1px solid #c8e6c9; }
+  .toc h3 { color: #2e7d52; font-size: 0.9em; font-weight: 700; margin-bottom: 12px; border-bottom: 1px solid #e8f5e9; padding-bottom: 8px; }
+  .toc-list { list-style: none; display: grid; gap: 4px; }
+  .toc-list li a { color: #1a3326; text-decoration: none; font-size: 0.88em; padding: 5px 10px; display: block; border-radius: 6px; transition: background .15s; }
+  .toc-list li a:hover { background: #e8f5e9; color: #2e7d52; }
+  .toc-list li a .toc-num { color: #26a69a; font-weight: 700; margin-right: 6px; }
+
+  /* 섹션 */
+  .content { max-width: 860px; margin: 0 auto; padding: 0 16px; }
+  .section { margin-top: 28px; }
+
+  /* 아코디언 */
+  .accordion { background: white; border-radius: 14px; box-shadow: 0 2px 10px rgba(46,125,82,.08); border: 1.5px solid #c8e6c9; overflow: hidden; margin-bottom: 16px; }
+  .acc-header { background: #f1faf5; padding: 16px 20px; cursor: pointer; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #e8f5e9; user-select: none; }
+  .acc-header:hover { background: #e8f5e9; }
+  .acc-title { font-weight: 700; font-size: 0.97em; color: #1b5e3a; display: flex; align-items: center; gap: 10px; }
+  .acc-title .sec-num { background: #2e7d52; color: white; border-radius: 6px; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; font-size: 0.82em; font-weight: 700; flex-shrink: 0; }
+  .acc-arrow { color: #26a69a; font-size: 1.1em; transition: transform .25s; }
+  .acc-arrow.open { transform: rotate(180deg); }
+  .acc-body { display: none; padding: 18px 22px; }
+  .acc-body.open { display: block; animation: fadeIn .25s ease; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:translateY(0);} }
+
+  /* 정의 카드 */
+  .def-card { background: #f8fff8; border-left: 4px solid #2e7d52; border-radius: 0 10px 10px 0; padding: 12px 16px; margin-bottom: 12px; }
+  .def-card .def-term { font-weight: 700; font-size: 0.95em; margin-bottom: 4px; }
+  .def-card .def-body { font-size: 0.88em; color: #2d4a3e; line-height: 1.65; }
+
+  .def-card-orange { border-left-color: #ef6c00; background: #fff8f0; }
+  .def-card-red { border-left-color: #c62828; background: #fff5f5; }
+  .def-card-teal { border-left-color: #00796b; background: #f0fdfc; }
+
+  /* 비교 테이블 */
+  .cmp-table { width: 100%; border-collapse: collapse; font-size: 0.86em; margin: 12px 0; border-radius: 10px; overflow: hidden; }
+  .cmp-table th { background: #2e7d52; color: white; padding: 9px 14px; text-align: left; }
+  .cmp-table td { padding: 8px 14px; border-bottom: 1px solid #e8f5e9; vertical-align: top; }
+  .cmp-table tr:last-child td { border-bottom: none; }
+  .cmp-table tr:nth-child(even) td { background: #f1faf5; }
+
+  /* SVG 도식 */
+  .svg-wrap { background: white; border-radius: 12px; padding: 16px; margin: 14px 0; border: 1px solid #c8e6c9; overflow-x: auto; }
+  .svg-wrap svg { display: block; max-width: 100%; height: auto; }
+
+  /* 기출 포인트 */
+  .exam-point { background: #fff8e1; border-radius: 8px; padding: 10px 14px; margin: 10px 0; border-left: 3px solid #f9a825; font-size: 0.87em; }
+  .exam-point strong { color: #e65100; }
+
+  /* 불릿 */
+  ul.kw-list { padding-left: 18px; margin: 8px 0; }
+  ul.kw-list li { margin-bottom: 5px; font-size: 0.88em; }
+
+  /* 5단계 comprehension 시각화 */
+  .level-bar { display: flex; flex-direction: column; gap: 6px; margin: 12px 0; }
+  .level-item { display: flex; align-items: center; gap: 10px; }
+  .level-num { background: #2e7d52; color: white; border-radius: 50%; width: 24px; height: 24px; font-size: 0.75em; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .level-content { font-size: 0.87em; }
+
+  @media(max-width:520px){
+    .cmp-table { font-size: 0.8em; }
+    .acc-body { padding: 14px 14px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="badge">Ch. 06 · Teaching Reading · 개념정리</div>
+  <h1>📖 Teaching Reading</h1>
+  <p>서브노트 기반 핵심 개념 정리 | 기출 포인트 반영</p>
+</div>
+
+<!-- 안내문 -->
+<div class="alert-red">
+  <strong>📌 학습 안내</strong>
+  ▼ 클릭하면 각 섹션이 열리고 닫힙니다. | 목차를 클릭하면 해당 섹션으로 이동합니다.<br>
+  기출 연도 표기 있는 항목은 ★ 우선 학습 권장 | 범례 참고: 색상 = 출제 빈도
+</div>
+
+<!-- 범례 -->
+<div class="legend">
+  <span><span class="kw4">■</span> ★★★ 최빈출 (반드시 암기)</span>
+  <span><span class="kw3">■</span> ★★ 빈출</span>
+  <span><span class="kw1">■</span> ★ 기본개념</span>
+  <span><span class="kw2">■</span> 부키워드</span>
+</div>
+
+<!-- 기출 분석 박스 -->
+<div class="exam-box">
+  <h3>🎯 Ch.6 Teaching Reading 기출 분석 포인트</h3>
+  <div class="exam-row"><span class="exam-year">2009모의.23</span><span>Bottom-up / Top-down processing + content / formal schema (★★★)</span></div>
+  <div class="exam-row"><span class="exam-year">2009.15</span><span>Analysis activity → Graphic organizer, top-down processing (★★)</span></div>
+  <div class="exam-row"><span class="exam-year">2009.25</span><span>Think-aloud protocol + metacognitive awareness + extensive reading (★★★)</span></div>
+  <div class="exam-row"><span class="exam-year">2011.17</span><span>Reconstruction activity → Prediction, cohesion / coherence (★★)</span></div>
+  <div class="exam-row"><span class="exam-year">2012.27</span><span>Analysis activity + integrative lesson (★★)</span></div>
+  <div class="exam-row"><span class="exam-year">2013.22</span><span>Reconstruction activity → Sequencing, coherence (★★)</span></div>
+  <div class="exam-row"><span class="exam-year">2014.10</span><span>Think-aloud protocol + inferencing (★★★)</span></div>
+  <div class="exam-row"><span class="exam-year">2015.A.기입5</span><span>Extensive reading 특징 (★★★)</span></div>
+  <div class="exam-row"><span class="exam-year">2017.A.6</span><span>Skimming / Scanning reading strategies (★★★)</span></div>
+  <div class="exam-row"><span class="exam-year">2020.A.10</span><span>Outlining, prediction technique (★★)</span></div>
+  <div class="exam-row"><span class="exam-year">2021.A.9</span><span>Analysis activity + integrative lesson + achievement standards (★★)</span></div>
+</div>
+
+<!-- TOC -->
+<div class="toc" id="toc-top">
+  <h3>📋 목 차</h3>
+  <ul class="toc-list">
+    <li><a href="#sec1"><span class="toc-num">01</span> Schema Theory</a></li>
+    <li><a href="#sec2"><span class="toc-num">02</span> Process of Reading (Bottom-up / Top-down / Interactive)</a></li>
+    <li><a href="#sec3"><span class="toc-num">03</span> Types of Reading (Intensive / Extensive)</a></li>
+    <li><a href="#sec4"><span class="toc-num">04</span> Input Materials (Authentic / Simplified / Modified)</a></li>
+    <li><a href="#sec5"><span class="toc-num">05</span> Reconstruction vs Analysis Activities (DARTs)</a></li>
+    <li><a href="#sec6"><span class="toc-num">06</span> Reading Strategies</a></li>
+    <li><a href="#sec7"><span class="toc-num">07</span> Comprehension Levels (5단계)</a></li>
+    <li><a href="#sec8"><span class="toc-num">08</span> Format of Reading Lesson (Pre / While / Post)</a></li>
+  </ul>
+</div>
+
+<div class="content">
+
+  <!-- SEC 1: Schema Theory -->
+  <div class="section" id="sec1">
+    <div class="accordion">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-title"><div class="sec-num">01</div> Schema Theory</div>
+        <span class="acc-arrow">▼</span>
+      </div>
+      <div class="acc-body open">
+        <div class="def-card">
+          <div class="def-term"><span class="kw1">Schema Theory</span></div>
+          <div class="def-body">Text comprehension is an <em>interactive process</em> requiring simultaneous interaction of two modes of information processing. Past experiences, prior knowledge, and expectations help make sense of new experiences.</div>
+        </div>
+
+        <!-- SVG: Schema 2분류 도식 -->
+        <div class="svg-wrap">
+          <svg viewBox="0 0 620 180" xmlns="http://www.w3.org/2000/svg">
+            <!-- 중앙 -->
+            <rect x="220" y="15" width="180" height="44" rx="10" fill="#2e7d52"/>
+            <text x="310" y="42" text-anchor="middle" fill="white" font-size="14" font-weight="bold">Schemata (배경지식)</text>
+            <!-- 왼쪽 선 -->
+            <line x1="220" y1="37" x2="135" y2="90" stroke="#2e7d52" stroke-width="2"/>
+            <!-- 오른쪽 선 -->
+            <line x1="400" y1="37" x2="485" y2="90" stroke="#26a69a" stroke-width="2"/>
+            <!-- Content 박스 -->
+            <rect x="20" y="90" width="230" height="75" rx="10" fill="#e8f5e9" stroke="#2e7d52" stroke-width="1.5"/>
+            <text x="135" y="112" text-anchor="middle" fill="#1b5e3a" font-size="12" font-weight="bold">Content Schemata ★★★</text>
+            <text x="135" y="130" text-anchor="middle" fill="#2d4a3e" font-size="10">general world knowledge</text>
+            <text x="135" y="145" text-anchor="middle" fill="#2d4a3e" font-size="10">sociocultural knowledge</text>
+            <text x="135" y="160" text-anchor="middle" fill="#2d4a3e" font-size="10">topic knowledge</text>
+            <!-- Formal 박스 -->
+            <rect x="370" y="90" width="230" height="75" rx="10" fill="#e0f2f1" stroke="#26a69a" stroke-width="1.5"/>
+            <text x="485" y="112" text-anchor="middle" fill="#00695c" font-size="12" font-weight="bold">Formal Schemata ★★</text>
+            <text x="485" y="130" text-anchor="middle" fill="#2d4a3e" font-size="10">organizational forms</text>
+            <text x="485" y="145" text-anchor="middle" fill="#2d4a3e" font-size="10">discourse structures</text>
+            <text x="485" y="160" text-anchor="middle" fill="#2d4a3e" font-size="10">rhetorical patterns / genre knowledge</text>
+          </svg>
+        </div>
+
+        <div class="exam-point"><strong>기출 포인트 (2009모의.23):</strong> 같은 글을 읽어도 전공이 다른 두 집단이 다르게 추론 → content schemata의 차이. 직접적 사실 파악은 bottom-up, 배경지식 활용 추론은 top-down + content schema.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEC 2: Process of Reading -->
+  <div class="section" id="sec2">
+    <div class="accordion">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-title"><div class="sec-num">02</div> Process of Reading</div>
+        <span class="acc-arrow">▼</span>
+      </div>
+      <div class="acc-body open">
+
+        <!-- SVG: 3가지 처리 방식 -->
+        <div class="svg-wrap">
+          <svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg">
+            <!-- Bottom-up -->
+            <rect x="10" y="10" width="195" height="180" rx="12" fill="#e8f5e9" stroke="#2e7d52" stroke-width="2"/>
+            <text x="107" y="36" text-anchor="middle" fill="#1b5e3a" font-size="12" font-weight="bold">Bottom-up Processing ★★★</text>
+            <text x="107" y="56" text-anchor="middle" fill="#2d4a3e" font-size="10">글자 → 단어 → 문장 → 텍스트</text>
+            <text x="107" y="74" text-anchor="middle" fill="#2d4a3e" font-size="10">data-driven / text-based</text>
+            <text x="107" y="92" text-anchor="middle" fill="#2d4a3e" font-size="10">Phonics approach</text>
+            <text x="107" y="110" text-anchor="middle" fill="#2d4a3e" font-size="10">Intensive reading</text>
+            <text x="107" y="128" text-anchor="middle" fill="#2d4a3e" font-size="10">Lower-level skill</text>
+            <text x="107" y="146" text-anchor="middle" fill="#2d4a3e" font-size="10">(word recognition)</text>
+            <text x="107" y="165" text-anchor="middle" fill="#bf6000" font-size="9">명시적 정보 파악 → 사실적 질문</text>
+            <!-- Top-down -->
+            <rect x="243" y="10" width="195" height="180" rx="12" fill="#e0f2f1" stroke="#26a69a" stroke-width="2"/>
+            <text x="340" y="36" text-anchor="middle" fill="#00695c" font-size="12" font-weight="bold">Top-down Processing ★★★</text>
+            <text x="340" y="56" text-anchor="middle" fill="#2d4a3e" font-size="10">배경지식 → 예측 → 샘플링</text>
+            <text x="340" y="74" text-anchor="middle" fill="#2d4a3e" font-size="10">conceptually-driven</text>
+            <text x="340" y="92" text-anchor="middle" fill="#2d4a3e" font-size="10">Whole Language Approach</text>
+            <text x="340" y="110" text-anchor="middle" fill="#2d4a3e" font-size="10">Extensive reading</text>
+            <text x="340" y="128" text-anchor="middle" fill="#2d4a3e" font-size="10">Higher-level skill</text>
+            <text x="340" y="146" text-anchor="middle" fill="#2d4a3e" font-size="10">Predicting→Sampling→</text>
+            <text x="340" y="158" text-anchor="middle" fill="#2d4a3e" font-size="10">Confirming→Correcting</text>
+            <text x="340" y="176" text-anchor="middle" fill="#bf6000" font-size="9">추론 필요 → inferencing</text>
+            <!-- Interactive -->
+            <rect x="476" y="10" width="195" height="180" rx="12" fill="#fff3e0" stroke="#ef6c00" stroke-width="2"/>
+            <text x="573" y="36" text-anchor="middle" fill="#bf6000" font-size="12" font-weight="bold">Interactive ★★</text>
+            <text x="573" y="56" text-anchor="middle" fill="#2d4a3e" font-size="10">Bottom-up + Top-down 동시 작동</text>
+            <text x="573" y="78" text-anchor="middle" fill="#2d4a3e" font-size="10">Interactive-compensatory:</text>
+            <text x="573" y="96" text-anchor="middle" fill="#2d4a3e" font-size="10">한 수준 결핍 →</text>
+            <text x="573" y="114" text-anchor="middle" fill="#2d4a3e" font-size="10">다른 수준으로 보완</text>
+            <text x="573" y="144" text-anchor="middle" fill="#bf6000" font-size="9">word recognition 약 →</text>
+            <text x="573" y="160" text-anchor="middle" fill="#bf6000" font-size="9">contextual info로 보완</text>
+          </svg>
+        </div>
+
+        <table class="cmp-table">
+          <tr><th>구분</th><th>Bottom-up</th><th>Top-down</th></tr>
+          <tr><td>출발점</td><td>글자·단어(소단위)</td><td>배경지식·예측</td></tr>
+          <tr><td>처리 방향</td><td>letter → text (상향)</td><td>schemata → text (하향)</td></tr>
+          <tr><td>특성</td><td><span class="kw2">data-driven</span>, text-based</td><td><span class="kw2">conceptually-driven</span>, knowledge-based</td></tr>
+          <tr><td>관련 접근법</td><td>Phonics, Intensive reading</td><td>Whole Language, Extensive reading</td></tr>
+          <tr><td>이해 질문</td><td>사실적 정보(factual)</td><td>추론(inferencing) 필요</td></tr>
+        </table>
+
+        <div class="def-card def-card-orange">
+          <div class="def-term"><span class="kw2">Interactive-compensatory Model</span></div>
+          <div class="def-body">Language processing is organized into levels from letter recognition to high-level schemata. A deficiency at one level can be <em>compensated</em> by reliance on another level. (e.g. word recognition 약 → contextual info 활용)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEC 3: Types of Reading -->
+  <div class="section" id="sec3">
+    <div class="accordion">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-title"><div class="sec-num">03</div> Types of Reading — Intensive vs Extensive</div>
+        <span class="acc-arrow">▼</span>
+      </div>
+      <div class="acc-body">
+        <table class="cmp-table">
+          <tr><th>구분</th><th><span class="kw3">Intensive Reading</span></th><th><span class="kw4">Extensive Reading</span></th></tr>
+          <tr><td>텍스트 길이</td><td>짧은 텍스트</td><td>긴 텍스트 (책, 잡지 등)</td></tr>
+          <tr><td>목적</td><td>reading skill, vocabulary, 명시적 학습</td><td>즐거움, 실생활 목적 (pleasure & real-world)</td></tr>
+          <tr><td>텍스트 선택</td><td>교사 선택</td><td>학생 스스로 선택</td></tr>
+          <tr><td>처리 방식</td><td>Bottom-up approach</td><td>Top-down approach</td></tr>
+          <tr><td>후속 활동</td><td>Comprehension exercises 포함</td><td>교실 comprehension 연습 없음</td></tr>
+          <tr><td>학습 유형</td><td>Explicit, mastery learning</td><td>Implicit learning, automatization</td></tr>
+          <tr><td>관련 활동</td><td>reading comprehension exercise</td><td>book-conferencing, sustained silent reading</td></tr>
+        </table>
+
+        <div class="exam-point"><strong>기출 포인트 (2015.A.기입5):</strong> 방과 후 reading club에서의 지도 방식 → extensive reading. 학생들이 책을 선택하고 즐거움을 위해 읽는 것이 핵심. ★★★</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEC 4: Input Materials -->
+  <div class="section" id="sec4">
+    <div class="accordion">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-title"><div class="sec-num">04</div> Input Materials & 선택 기준</div>
+        <span class="acc-arrow">▼</span>
+      </div>
+      <div class="acc-body">
+        <div class="def-card">
+          <div class="def-term"><span class="kw3">Authentic Material</span></div>
+          <div class="def-body">Written texts taken from real life and not specifically manipulated for the purpose of language teaching and learning. (실제 생활에서 가져온, 교수 목적으로 조작되지 않은 텍스트)</div>
+        </div>
+        <div class="def-card def-card-teal">
+          <div class="def-term"><span class="kw1">Simulated Authentic Materials</span></div>
+          <div class="def-body">Teacher-created written texts which mimic the content, format and tone of authentic materials with simpler language.</div>
+        </div>
+        <div class="def-card">
+          <div class="def-term"><span class="kw1">Modified Materials</span></div>
+          <div class="def-body">Adapted texts in which language and cultural references have been changed to provide Ss with comprehensible input. → 수준 낮은 학습자의 자신감 구축에 도움.</div>
+        </div>
+
+        <p style="font-weight:700; color:#2e7d52; margin: 16px 0 8px; font-size:0.92em;">📌 Criteria for Choosing Reading Materials <span class="kw3">★★★</span></p>
+        <table class="cmp-table">
+          <tr><th>기준</th><th>정의</th></tr>
+          <tr><td><span class="kw3">Suitability of content</span></td><td>텍스트가 학생에게 흥미롭고, 즐겁고, 도전적인 내용을 담고 있는가</td></tr>
+          <tr><td><span class="kw3">Exploitability</span></td><td>텍스트가 교수 목표에 부합하는 활용 가능한 내용을 담고 있는가</td></tr>
+          <tr><td><span class="kw3">Readability</span></td><td>텍스트의 어휘·구조적 난이도가 학생 수준에 적합한가</td></tr>
+          <tr><td><span class="kw3">Presentation</span></td><td>텍스트의 시각적 레이아웃이 학습에 적합하고 눈길을 끄는가</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEC 5: DARTs -->
+  <div class="section" id="sec5">
+    <div class="accordion">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-title"><div class="sec-num">05</div> Reconstruction vs Analysis Activities (DARTs)</div>
+        <span class="acc-arrow">▼</span>
+      </div>
+      <div class="acc-body">
+        <div class="def-card def-card-red">
+          <div class="def-term"><span class="kw3">DARTs</span> (Directed Activities Related to Texts)</div>
+          <div class="def-body">Activities which get students to interact with texts. Their aim is to improve students' reading comprehension and to make them critical readers. (Nunan)</div>
+        </div>
+
+        <!-- SVG: DARTs 분류 도식 -->
+        <div class="svg-wrap">
+          <svg viewBox="0 0 640 230" xmlns="http://www.w3.org/2000/svg">
+            <!-- 상단 DARTs -->
+            <rect x="220" y="5" width="200" height="40" rx="8" fill="#2e7d52"/>
+            <text x="320" y="29" text-anchor="middle" fill="white" font-weight="bold" font-size="13">DARTs</text>
+            <!-- 선 -->
+            <line x1="270" y1="45" x2="160" y2="90" stroke="#2e7d52" stroke-width="2"/>
+            <line x1="370" y1="45" x2="480" y2="90" stroke="#26a69a" stroke-width="2"/>
+            <!-- Reconstruction -->
+            <rect x="20" y="90" width="280" height="130" rx="10" fill="#e8f5e9" stroke="#2e7d52" stroke-width="1.5"/>
+            <text x="160" y="112" text-anchor="middle" fill="#1b5e3a" font-weight="bold" font-size="12">Reconstruction Activities ★★</text>
+            <text x="160" y="130" text-anchor="middle" fill="#555" font-size="10">Modified text / Top-down 기반</text>
+            <text x="160" y="148" text-anchor="middle" fill="#2d4a3e" font-size="10">· Cloze (text completion)</text>
+            <text x="160" y="164" text-anchor="middle" fill="#2d4a3e" font-size="10">· Sequencing</text>
+            <text x="160" y="180" text-anchor="middle" fill="#2d4a3e" font-size="10">· Prediction</text>
+            <text x="160" y="196" text-anchor="middle" fill="#2d4a3e" font-size="10">· Table completion</text>
+            <text x="160" y="212" text-anchor="middle" fill="#bf6000" font-size="9">→ text type 구조 이해 발달</text>
+            <!-- Analysis -->
+            <rect x="340" y="90" width="280" height="130" rx="10" fill="#e0f2f1" stroke="#26a69a" stroke-width="1.5"/>
+            <text x="480" y="112" text-anchor="middle" fill="#00695c" font-weight="bold" font-size="12">Analysis Activities ★★</text>
+            <text x="480" y="130" text-anchor="middle" fill="#555" font-size="10">Unmodified text / Critical reading 기반</text>
+            <text x="480" y="148" text-anchor="middle" fill="#2d4a3e" font-size="10">· Underlining</text>
+            <text x="480" y="164" text-anchor="middle" fill="#2d4a3e" font-size="10">· Segmenting</text>
+            <text x="480" y="180" text-anchor="middle" fill="#2d4a3e" font-size="10">· Diagrammatic representation</text>
+            <text x="480" y="196" text-anchor="middle" fill="#2d4a3e" font-size="10">· Summary / Labelling</text>
+            <text x="480" y="212" text-anchor="middle" fill="#bf6000" font-size="9">→ 분석 능력 발달</text>
+          </svg>
+        </div>
+
+        <div class="exam-point"><strong>기출 포인트:</strong> Reconstruction(2011.17 Prediction / 2013.22 Sequencing) vs Analysis(2009.15 Graphic organizer / 2012.27, 2021.A.9 integrative lesson). 두 유형의 <em>텍스트 변형 여부</em>와 <em>학습 목표</em>를 구별하는 것이 핵심.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEC 6: Reading Strategies -->
+  <div class="section" id="sec6">
+    <div class="accordion">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-title"><div class="sec-num">06</div> Reading Strategies</div>
+        <span class="acc-arrow">▼</span>
+      </div>
+      <div class="acc-body">
+
+        <table class="cmp-table">
+          <tr><th>전략</th><th>정의</th><th>특징</th></tr>
+          <tr>
+            <td><span class="kw4">Skimming</span> ★★★</td>
+            <td>Glancing rapidly to get a <em>general idea</em></td>
+            <td>~30초 / 매 단어 불필요 / 주제·요지 파악</td>
+          </tr>
+          <tr>
+            <td><span class="kw4">Scanning</span> ★★★</td>
+            <td>Glancing rapidly to locate <em>specific information</em></td>
+            <td>특정 단어·숫자·discourse markers 탐색</td>
+          </tr>
+          <tr>
+            <td><span class="kw3">Inferencing</span> ★★★</td>
+            <td>Identify ideas <em>not explicitly stated</em></td>
+            <td>맥락 단서 활용 / inferential comprehension level</td>
+          </tr>
+          <tr>
+            <td><span class="kw3">Graphic Organizer</span> ★★</td>
+            <td>Visual representation of relationships among ideas</td>
+            <td>Analysis activity / top-down / 텍스트 후 쓰기·말하기 연계</td>
+          </tr>
+          <tr>
+            <td><span class="kw3">Outlining</span> ★★</td>
+            <td>Distinguish and list main ideas & supporting details</td>
+            <td>계층적 구조 파악 / organized representation</td>
+          </tr>
+          <tr>
+            <td><span class="kw2">Semantic Mapping</span></td>
+            <td>Grouping ideas into meaningful clusters</td>
+            <td>Visual strategy / 지식 확장 / 쓰기 전 활동</td>
+          </tr>
+          <tr>
+            <td><span class="kw2">Guessing</span></td>
+            <td>Using contextual clues to fill gaps in competence</td>
+            <td>Inferencing 포함 / 사전 없이 단어 추측</td>
+          </tr>
+          <tr>
+            <td><span class="kw2">Critical reading</span></td>
+            <td>React critically through personal standards, values, beliefs</td>
+            <td>텍스트 이데올로기·문화적 메시지 분석</td>
+          </tr>
+        </table>
+
+        <div class="def-card def-card-red" style="margin-top:14px;">
+          <div class="def-term"><span class="kw4">Think-aloud Protocol</span> ★★★ <small>(기출 2009.25, 2014.10)</small></div>
+          <div class="def-body">T encourages Ss to monitor their comprehension process while reading and report on what they are doing. → Ss verify strategies assisting in getting meaning. <em>metacognitive awareness</em> 함양에 핵심.</div>
+        </div>
+
+        <div class="def-card def-card-red">
+          <div class="def-term"><span class="kw4">Metacognitive Awareness</span> ★★★</div>
+          <div class="def-body">
+            Learning process where learners become aware of their own mental processes.<br>
+            <ul style="padding-left:16px; margin-top:6px; font-size:0.93em;">
+              <li><b>Before reading</b>: plan successful reading → select strategies for particular task</li>
+              <li><b>While reading</b>: monitor strategy use → ask if strategies are effective</li>
+              <li><b>After reading</b>: evaluate effectiveness</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exam-point"><strong>기출 포인트 (2017.A.6):</strong> Skimming = 주제·요지 (general idea) / Scanning = 특정 정보 (specific information) — 이 둘을 혼동하는 오답 선지가 자주 출제됨. ★★★</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEC 7: Comprehension Levels -->
+  <div class="section" id="sec7">
+    <div class="accordion">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-title"><div class="sec-num">07</div> Comprehension Levels — 5단계</div>
+        <span class="acc-arrow">▼</span>
+      </div>
+      <div class="acc-body">
+
+        <!-- SVG: 5단계 피라미드 -->
+        <div class="svg-wrap">
+          <svg viewBox="0 0 560 220" xmlns="http://www.w3.org/2000/svg">
+            <!-- 피라미드 형태 5단계 가로 막대 -->
+            <!-- Level 1 -->
+            <rect x="10" y="10" width="540" height="34" rx="6" fill="#e8f5e9" stroke="#2e7d52" stroke-width="1.5"/>
+            <text x="290" y="32" text-anchor="middle" fill="#1b5e3a" font-weight="bold" font-size="12">① Literal Comprehension Level — 명시적 정보 이해·기억</text>
+            <!-- Level 2 -->
+            <rect x="30" y="50" width="500" height="34" rx="6" fill="#c8e6c9" stroke="#2e7d52" stroke-width="1.5"/>
+            <text x="280" y="72" text-anchor="middle" fill="#1b5e3a" font-weight="bold" font-size="12">② Reorganization Level — 텍스트 재조직·재해석 / 기초 추론</text>
+            <!-- Level 3 -->
+            <rect x="60" y="90" width="440" height="34" rx="6" fill="#fff9c4" stroke="#f9a825" stroke-width="1.5"/>
+            <text x="280" y="112" text-anchor="middle" fill="#bf6000" font-weight="bold" font-size="12">③ Inferential Level ★★★ — 함의 파악 / 독자 경험·직관 추론</text>
+            <!-- Level 4 -->
+            <rect x="90" y="130" width="380" height="34" rx="6" fill="#ffe0b2" stroke="#ef6c00" stroke-width="1.5"/>
+            <text x="280" y="152" text-anchor="middle" fill="#bf6000" font-weight="bold" font-size="12">④ Evaluative Level ★★★ — 개인적 판단 / 저자 편견·사실성 평가</text>
+            <!-- Level 5 -->
+            <rect x="130" y="170" width="300" height="34" rx="6" fill="#ffccbc" stroke="#e64a19" stroke-width="1.5"/>
+            <text x="280" y="192" text-anchor="middle" fill="#bf3600" font-weight="bold" font-size="12">⑤ Creative Level — 정서·미적 반응 / 결말 상상</text>
+          </svg>
+        </div>
+
+        <table class="cmp-table">
+          <tr><th>#</th><th>수준</th><th>설명</th></tr>
+          <tr><td>①</td><td><span class="kw1">Literal</span></td><td>텍스트에 명시적으로 표현된 정보 이해·기억·회상</td></tr>
+          <tr><td>②</td><td><span class="kw1">Reorganization</span></td><td>텍스트 일부를 재조직·재해석 / 초보적 추론</td></tr>
+          <tr><td>③</td><td><span class="kw4">Inferential</span></td><td>명시되지 않은 의도 파악 / 독자 경험·직관 활용 추론</td></tr>
+          <tr><td>④</td><td><span class="kw4">Evaluative</span></td><td>저자 의도 수용 대신 개인적 판단 / 편견·가치·사실성 평가</td></tr>
+          <tr><td>⑤</td><td><span class="kw1">Creative</span></td><td>정서적·미적 반응 / 결말 상상 / 독서록 작성</td></tr>
+        </table>
+        <div class="exam-point"><strong>기출 포인트 (2021.A.9):</strong> Inferential vs Evaluative 수준 구별. Inferential = implied meaning 추론, Evaluative = 독자의 주관적 판단·비평.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEC 8: Format -->
+  <div class="section" id="sec8">
+    <div class="accordion">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-title"><div class="sec-num">08</div> Format of Reading Lesson (Pre / While / Post)</div>
+        <span class="acc-arrow">▼</span>
+      </div>
+      <div class="acc-body">
+
+        <div class="svg-wrap">
+          <svg viewBox="0 0 620 120" xmlns="http://www.w3.org/2000/svg">
+            <!-- Pre -->
+            <rect x="10" y="20" width="175" height="80" rx="10" fill="#e8f5e9" stroke="#2e7d52" stroke-width="1.5"/>
+            <text x="97" y="44" text-anchor="middle" fill="#1b5e3a" font-weight="bold" font-size="12">Pre-reading</text>
+            <text x="97" y="62" text-anchor="middle" fill="#2d4a3e" font-size="10">Schema 활성화</text>
+            <text x="97" y="78" text-anchor="middle" fill="#2d4a3e" font-size="10">어휘 사전 학습</text>
+            <text x="97" y="94" text-anchor="middle" fill="#2d4a3e" font-size="10">목적 설정 / 예측</text>
+            <!-- 화살표 -->
+            <text x="200" y="65" text-anchor="middle" fill="#26a69a" font-size="20">→</text>
+            <!-- While -->
+            <rect x="220" y="20" width="175" height="80" rx="10" fill="#e0f2f1" stroke="#26a69a" stroke-width="1.5"/>
+            <text x="307" y="44" text-anchor="middle" fill="#00695c" font-weight="bold" font-size="12">While-reading</text>
+            <text x="307" y="62" text-anchor="middle" fill="#2d4a3e" font-size="10">전략 사용 (skimming, scanning)</text>
+            <text x="307" y="78" text-anchor="middle" fill="#2d4a3e" font-size="10">이해 점검 / inferencing</text>
+            <text x="307" y="94" text-anchor="middle" fill="#2d4a3e" font-size="10">comprehension Qs</text>
+            <!-- 화살표 -->
+            <text x="410" y="65" text-anchor="middle" fill="#26a69a" font-size="20">→</text>
+            <!-- Post -->
+            <rect x="430" y="20" width="175" height="80" rx="10" fill="#fff3e0" stroke="#ef6c00" stroke-width="1.5"/>
+            <text x="517" y="44" text-anchor="middle" fill="#bf6000" font-weight="bold" font-size="12">Post-reading</text>
+            <text x="517" y="62" text-anchor="middle" fill="#2d4a3e" font-size="10">타 기능 통합 (쓰기·말하기)</text>
+            <text x="517" y="78" text-anchor="middle" fill="#2d4a3e" font-size="10">보충 연습 (remedial)</text>
+            <text x="517" y="94" text-anchor="middle" fill="#2d4a3e" font-size="10">새 정보 + 기존 지식 통합</text>
+          </svg>
+        </div>
+
+        <p style="font-weight:700; color:#2e7d52; font-size:0.92em; margin:12px 0 8px;">Pre-reading 주요 활동</p>
+        <ul class="kw-list">
+          <li><span class="kw3">Mobilizing schemata</span>: 기존 지식 활성화 or content/formal schemata 구축</li>
+          <li><span class="kw1">Pre-teaching critical vocabulary</span>: 핵심 어휘 사전 학습</li>
+          <li><span class="kw1">Establishing a purpose for reading</span>: 제목 보고 주제 추측, 예측 질문 작성, 사전 질문 제공</li>
+          <li><span class="kw1">Semantic mapping</span>: brainstorm → 의미 범주화 → 아이디어 시각화</li>
+        </ul>
+
+        <p style="font-weight:700; color:#2e7d52; font-size:0.92em; margin:12px 0 8px;">While-reading 주요 활동</p>
+        <ul class="kw-list">
+          <li>전략 적용: <span class="kw4">skimming</span>, <span class="kw4">scanning</span>, <span class="kw3">inferencing</span>, guessing</li>
+          <li>Comprehension questions: literal → inferential level 순서로</li>
+          <li>Flow chart / KWL Chart: Know - Want - Learned 구조</li>
+        </ul>
+
+        <p style="font-weight:700; color:#2e7d52; font-size:0.92em; margin:12px 0 8px;">Post-reading 주요 활동</p>
+        <ul class="kw-list">
+          <li>Discussion, summarizing → 기능 통합</li>
+          <li>Further practice (remedial exercise): 부족한 부분 보완</li>
+          <li>텍스트 기반 쓰기·말하기 활동으로 확장</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align:center; margin-top:36px;">
+    <a href="#toc-top" style="background:#2e7d52; color:white; padding:10px 28px; border-radius:10px; text-decoration:none; font-weight:700; font-size:0.9em;">⬆️ 목차로 돌아가기</a>
+  </div>
+
+</div>
+
+<script>
+function toggleAcc(header) {
+  const body = header.nextElementSibling;
+  const arrow = header.querySelector('.acc-arrow');
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  arrow.classList.toggle('open', !isOpen);
+}
+</script>
+</body>
+</html>
