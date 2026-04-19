@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="ko" style="background:#f0faf4;color:#1a3326;">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch.2 Linguistic Aspects of SLA — 개념정리</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans KR',sans-serif;background:#f0faf4;color:#1a3326;min-height:100vh;padding:16px}
+.header{text-align:center;padding:40px 16px 28px}
+.tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11px;color:#2e7d52;background:rgba(46,125,82,.1);border:1px solid rgba(46,125,82,.3);padding:4px 12px;border-radius:20px;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+.ch-badge{display:inline-block;background:linear-gradient(135deg,#2e7d52,#26a69a);color:#fff;font-size:12px;font-weight:700;padding:4px 14px;border-radius:20px;margin-bottom:10px;font-family:'JetBrains Mono',monospace}
+h1{font-size:clamp(24px,4vw,34px);font-weight:700;background:linear-gradient(135deg,#2e7d52,#26a69a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px}
+.sub{color:#4a7a62;font-size:14px}
+.wrap{max-width:820px;margin:0 auto}
+.sec{background:#fff;border:1.5px solid #b2dfcc;border-radius:16px;margin-bottom:20px;overflow:hidden;box-shadow:0 2px 8px rgba(46,125,82,.08)}
+.sec-header{background:linear-gradient(135deg,rgba(46,125,82,.08),rgba(38,166,154,.05));border-bottom:1.5px solid #b2dfcc;padding:16px 22px;display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none}
+.sec-icon{font-size:20px}
+.sec-title{font-size:16px;font-weight:700;color:#1b5e3a;font-family:'JetBrains Mono',monospace}
+.sec-tag{font-size:11px;color:#2e7d52;background:rgba(46,125,82,.1);padding:3px 10px;border-radius:6px;margin-left:auto;font-weight:600}
+.sec-tag.red{background:rgba(183,28,28,.12);color:#b71c1c;border:1px solid rgba(183,28,28,.2)}
+.sec-tag.orange{background:rgba(230,119,0,.12);color:#bf6000;border:1px solid rgba(230,119,0,.2)}
+.sec-arrow{font-size:13px;color:#4a7a62;transition:transform .3s;margin-left:6px}
+.sec.open .sec-arrow{transform:rotate(180deg)}
+.sec-body{display:none;padding:22px}
+.sec.open .sec-body{display:block}
+.concept{margin-bottom:22px}
+.concept:last-child{margin-bottom:0}
+.c-title{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;color:#1b5e3a;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.badge-ex{font-size:10px;background:rgba(230,119,0,.12);color:#e67c00;border:1px solid rgba(230,119,0,.3);padding:2px 7px;border-radius:4px;letter-spacing:0;text-transform:none;font-weight:700}
+.def{background:rgba(46,125,82,.06);border-left:4px solid #2e7d52;padding:12px 16px;border-radius:0 10px 10px 0;margin-bottom:10px;font-size:15px;line-height:1.8;color:#1a3326}
+.note{font-size:14px;color:#3a6b51;line-height:1.75;margin-bottom:6px;padding-left:6px}
+.note::before{content:"• ";color:#26a69a;font-weight:700}
+.kw1{background:rgba(46,125,82,.15);color:#1b5e3a;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(46,125,82,.25)}
+.kw2{color:#00796b;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border-bottom:2px solid rgba(0,121,107,.45)}
+.kw3{background:rgba(230,119,0,.13);color:#bf6000;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(230,119,0,.3)}
+.kw4{background:rgba(183,28,28,.11);color:#b71c1c;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(183,28,28,.25)}
+.grid{display:grid;gap:10px;margin-top:12px}
+.grid.col2{grid-template-columns:1fr 1fr}
+.grid.col3{grid-template-columns:1fr 1fr 1fr}
+.grid.col4{grid-template-columns:1fr 1fr 1fr 1fr}
+.grid-item{background:#f5fdf8;border:1.5px solid #b2dfcc;border-radius:10px;padding:14px 16px}
+.gi-title{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#2e7d52;margin-bottom:7px}
+.gi-body{font-size:13px;color:#3a6b51;line-height:1.7}
+.gi-body span{display:block}
+.flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px}
+.flow-item{background:#f5fdf8;border:1.5px solid #b2dfcc;border-radius:8px;padding:10px 16px;font-size:13px;color:#1a3326;text-align:center;line-height:1.5}
+.flow-arrow{color:#26a69a;font-size:18px;font-weight:700}
+.stage-wrap{margin-top:12px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{background:rgba(46,125,82,.1);color:#1b5e3a;font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;padding:10px 14px;border:1.5px solid #b2dfcc;text-align:left;font-weight:700}
+td{padding:10px 14px;border:1.5px solid #b2dfcc;color:#2a5040;vertical-align:top;line-height:1.65}
+tr:nth-child(even) td{background:rgba(46,125,82,.04)}
+.exam{background:rgba(230,119,0,.06);border:1.5px solid rgba(230,119,0,.25);border-radius:10px;padding:14px 16px;margin-top:14px}
+.exam-label{font-size:11px;font-family:'JetBrains Mono',monospace;color:#e67c00;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;font-weight:700}
+.exam p{font-size:13.5px;color:#6b4400;line-height:1.75;margin-bottom:4px}
+.div{height:1px;background:rgba(38,166,154,.2);margin:18px 0}
+.toc{max-width:820px;margin:0 auto 20px;background:#fff;border:1.5px solid #b2dfcc;border-radius:12px;padding:16px 20px;box-shadow:0 2px 8px rgba(46,125,82,.06)}
+.toc-title{font-size:11px;font-family:'JetBrains Mono',monospace;color:#4a7a62;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;font-weight:700}
+.toc-list{display:flex;flex-wrap:wrap;gap:7px}
+.toc-item{font-size:12px;color:#2e7d52;background:rgba(46,125,82,.08);border:1.5px solid rgba(46,125,82,.2);padding:5px 12px;border-radius:8px;cursor:pointer;transition:all .15s;font-family:'JetBrains Mono',monospace;font-weight:600}
+.toc-item:hover{background:rgba(46,125,82,.18)}
+.legend{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 16px;padding:10px 14px;background:#fff;border:1.5px solid #b2dfcc;border-radius:10px;align-items:center}
+.legend-title{font-size:10px;font-family:'JetBrains Mono',monospace;color:#4a7a62;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-right:4px}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="tag">임용고시 대비</div><br>
+  <div class="ch-badge">Chapter 2</div>
+  <h1>Linguistic Aspects of SLA</h1>
+  <p class="sub">서브노트 순서 기반 개념정리 · 기출 포인트 · 비교 도식</p>
+  <div style="margin-top:14px;display:inline-block;background:rgba(183,28,28,.1);border:1.5px solid rgba(183,28,28,.3);border-radius:10px;padding:10px 20px;text-align:left">
+    <p style="color:#b71c1c;font-size:14px;font-weight:700;line-height:1.8;margin:0">
+      📌 아래 목차 버튼을 누르면 해당 섹션으로 이동합니다.<br>
+      ▼ 각 섹션 제목을 누르면 내용을 열고 닫을 수 있습니다.
+    </p>
+  </div>
+</div>
+
+<div class="wrap">
+<!-- TOC -->
+<div class="toc">
+  <div class="toc-title">📋 목차</div>
+  <div class="toc-list">
+    <div class="toc-item" onclick="openSec('s1')">① CAH & Transfer</div>
+    <div class="toc-item" onclick="openSec('s2')">② Interlanguage</div>
+    <div class="toc-item" onclick="openSec('s3')">③ Error Types</div>
+    <div class="toc-item" onclick="openSec('s4')">④ Corrective Feedback</div>
+    <div class="toc-item" onclick="openSec('s5')">⑤ Uptake & Output</div>
+    <div class="toc-item" onclick="openSec('s6')">⑥ Modified Input</div>
+    <div class="toc-item" onclick="openSec('s7')">⑦ Display Q / IRE·IRF</div>
+  </div>
+</div>
+
+<!-- 범례 -->
+<div class="legend">
+  <span style="font-size:10px;font-family:'JetBrains Mono',monospace;color:#4a7a62;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-right:4px">키워드</span>
+  <span style="font-size:11px;color:#3a6b51"><span class="kw4">★★★ 최빈출</span></span>
+  <span style="font-size:11px;color:#3a6b51"><span class="kw3">★★ 빈출</span></span>
+  <span style="font-size:11px;color:#3a6b51"><span class="kw1">★ 기본개념</span></span>
+  <span style="font-size:11px;color:#3a6b51"><span class="kw2">부키워드</span></span>
+</div>
+
+<!-- 기출분석 -->
+<div class="exam" style="margin-bottom:20px">
+  <div class="exam-label">📝 기출분석 포인트</div>
+  <p>① <span class='kw4'>Recast</span> — 엄청 빈출! implicit 특성, communicative flow 유지, positive+negative evidence, 학습자가 오해 가능</p>
+  <p>② <span class='kw4'>Source of error</span>: <span class='kw3'>intralingual(overgeneralization)</span> vs <span class='kw3'>interlingual(interference)</span> 구분 필수</p>
+  <p>③ <span class='kw3'>Interlanguage</span> 발달단계 4단계 + <span class='kw3'>fossilization</span> 조건 알기</p>
+  <p>④ <span class='kw3'>Clarification request</span> — self-repair 유도, communication breakdown 가능, 가장 효과적</p>
+  <p>⑤ <span class='kw3'>Metalinguistic feedback</span> = correct form 포함 <span class='kw2'>X</span> / <span class='kw3'>Elicitation</span> = 'We are...?' 형태 대표적</p>
+  <p>⑥ <span class='kw4'>Display Q</span> vs <span class='kw4'>Referential Q</span> 빈출 / <span class='kw3'>Uptake</span> successful/unsuccessful 구분</p>
+</div>
+
+<!-- ① CAH & Transfer -->
+<div class="sec open" id="s1">
+  <div class="sec-header" onclick="toggle('s1')">
+    <span class="sec-icon">🔀</span>
+    <span class="sec-title">① Contrastive Analysis & Transfer</span>
+    <span class="sec-tag orange">★★ 빈출</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="concept">
+      <div class="c-title">Types of Transfer</div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw1'>Positive transfer</span></div>
+          <div class="gi-body"><span>L1 <span class='kw2'>facilitates</span> L2 learning</span><span>L1/L2 similar → easy</span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw1'>Negative transfer</span></div>
+          <div class="gi-body"><span>L1 <span class='kw2'>interferes</span> with L2</span><span>interference + overgeneralization</span></div>
+        </div>
+      </div>
+      <div class="grid col2" style="margin-top:10px">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw4'>Interference</span> = Interlingual</div>
+          <div class="gi-body"><span>L1 규칙 → L2에 잘못 적용</span><span>e.g. 'see an exam'</span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw4'>Overgeneralization</span> = Intralingual</div>
+          <div class="gi-body"><span>L2 규칙을 과잉 일반화</span><span>e.g. 'I goed to school'</span></div>
+        </div>
+      </div>
+      <div class="grid col2" style="margin-top:10px">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw1'>Avoidance</span></div>
+          <div class="gi-body"><span>L1에 <span class='kw2'>없는</span> 구조 → 사용 회피</span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw1'>Overuse</span></div>
+          <div class="gi-body"><span>L1에 <span class='kw2'>있는</span> 표현 → 부자연스럽게 과용</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">Strong vs Weak CAH <span class="badge-ex">기출 포인트</span></div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>Strong version</span></div>
+          <div class="gi-body">
+            <span>L1–L2 대조 → 오류 <span class='kw2'>사전 예측</span></span>
+            <span>어려운 항목 중심 교수</span>
+            <span>L1 오류만 설명 가능</span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>Weak version</span></div>
+          <div class="gi-body">
+            <span>오류 <span class='kw2'>사후 분석</span></span>
+            <span>cross-linguistic influence 강조</span>
+            <span>L1, L2 오류 모두 설명</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ② Interlanguage -->
+<div class="sec" id="s2">
+  <div class="sec-header" onclick="toggle('s2')">
+    <span class="sec-icon">🔄</span>
+    <span class="sec-title">② Interlanguage</span>
+    <span class="sec-tag red">★★★ 최빈출</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="concept">
+      <div class="c-title">특징</div>
+      <div class="def"><span class='kw4'>Interlanguage</span>: An intermediate system between L1 and TL — <span class='kw2'>systematic, variable, dynamic</span>. Own unique, coherent rule system.</div>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">Developmental Stages <span class="badge-ex">★★★</span></div>
+      <div class="stage-wrap">
+        <table>
+          <tr><th>Stage</th><th>특징</th><th>Self-correction</th></tr>
+          <tr><td><span class='kw3'>Presystematic</span></td><td>random errors · vague rule awareness</td><td>❌</td></tr>
+          <tr><td><span class='kw3'>Emergent</span></td><td>some consistency · <span class='kw2'>backsliding</span> · uptake ❌</td><td>❌ (with feedback)</td></tr>
+          <tr><td><span class='kw3'>Systematic</span></td><td>consistent · uptake ✅</td><td>✅ (with feedback)</td></tr>
+          <tr><td><span class='kw3'>Stabilization</span></td><td>few errors · <span class='kw2'>fossilization</span> 가능</td><td>✅ (without feedback)</td></tr>
+        </table>
+      </div>
+      <p class="note" style="margin-top:10px"><span class='kw3'>Backsliding</span>: 규칙을 이해한 것 같지만 이전 단계로 퇴행하는 현상 (emergent stage)</p>
+      <p class="note"><span class='kw3'>Restructuring</span>: interlanguage 발달 과정에서의 <span class='kw2'>질적 변화</span></p>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">Fossilization <span class="badge-ex">기출 포인트</span></div>
+      <div class="def"><span class='kw3'>Fossilization</span>: <span class='kw2'>relatively permanent</span> incorporation of incorrect linguistic forms into L2 competence.</div>
+      <p class="note">원인: ① <span class='kw2'>lack of negative feedback</span> ② insensitivity to feedback ③ positive feedback이 오류 강화 ④ too much automatization</p>
+      <p class="note">예방: <span class='kw2'>explicit corrective feedback</span>으로 오류 인식 유도</p>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">U-shaped Learning</div>
+      <div class="flow">
+        <div class="flow-item">Phase 1<br><small style="color:#2e7d52">correct</small><br><small>(imitation/lexical item)</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-item">Phase 2<br><small style="color:#c62828">incorrect</small><br><small>(overgeneralization)</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-item">Phase 3<br><small style="color:#2e7d52">correct</small><br><small>(rule internalized)</small></div>
+      </div>
+      <p class="note" style="margin-top:10px">e.g. went → <span class='kw2'>goed</span> → went (overgeneralization 후 회복)</p>
+    </div>
+  </div>
+</div>
+
+<!-- ③ Error Types -->
+<div class="sec" id="s3">
+  <div class="sec-header" onclick="toggle('s3')">
+    <span class="sec-icon">❗</span>
+    <span class="sec-title">③ Error Types</span>
+    <span class="sec-tag orange">★★ 빈출</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="concept">
+      <div class="c-title">Source of Error <span class="badge-ex">★★★ 구분 필수</span></div>
+      <div class="stage-wrap">
+        <table>
+          <tr><th>Source</th><th>Type</th><th>예시</th></tr>
+          <tr><td><span class='kw4'>Interference</span></td><td><span class='kw2'>Interlingual</span> (L1→L2)</td><td>'see an exam', 'do a shower'</td></tr>
+          <tr><td><span class='kw4'>Overgeneralization</span></td><td><span class='kw2'>Intralingual</span> (L2 내)</td><td>'I goed', 'She cried-ed'</td></tr>
+          <tr><td><span class='kw1'>Induced error</span></td><td>Context of learning</td><td>teacher 잘못된 설명, textbook</td></tr>
+          <tr><td><span class='kw1'>Communication-based</span></td><td>Communication strategies</td><td>'airball' for 'balloon'</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">Error Classification</div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>Global error</span></div>
+          <div class="gi-body"><span><span class='kw2'>hinders communication</span></span><span>→ must correct</span><span>wrong word order, inappropriate lexis</span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>Local error</span></div>
+          <div class="gi-body"><span>message <span class='kw2'>still delivered</span></span><span>→ not necessarily correct</span><span>morphological markers 누락</span></div>
+        </div>
+      </div>
+      <div class="grid col2" style="margin-top:10px">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw1'>Overt error</span></div>
+          <div class="gi-body"><span><span class='kw2'>sentence level</span></span><span>clearly ungrammatical</span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw1'>Covert error</span></div>
+          <div class="gi-body"><span>grammatically OK</span><span><span class='kw2'>discourse level</span> — context에서 해석 불가</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">Correction 범위 (학습 목표별)</div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title">Fluency 목표</div>
+          <div class="gi-body"><span><span class='kw2'>Global error</span>만 교정</span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title">Accuracy 목표</div>
+          <div class="gi-body"><span><span class='kw2'>Global + Local</span> 모두 교정</span><span>fossilization 예방</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ④ Corrective Feedback -->
+<div class="sec" id="s4">
+  <div class="sec-header" onclick="toggle('s4')">
+    <span class="sec-icon">💬</span>
+    <span class="sec-title">④ Corrective Feedback Types</span>
+    <span class="sec-tag red">★★★ 최빈출</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <!-- Implicit vs Explicit 구분 SVG -->
+    <svg viewBox="0 0 700 80" style="width:100%;margin-bottom:14px" xmlns="http://www.w3.org/2000/svg">
+      <rect x="5" y="10" width="330" height="60" rx="10" fill="rgba(46,125,82,.08)" stroke="rgba(46,125,82,.3)" stroke-width="1.5"/>
+      <text x="170" y="35" text-anchor="middle" fill="#1b5e3a" font-size="13" font-weight="bold" font-family="monospace">Implicit Feedback</text>
+      <text x="170" y="55" text-anchor="middle" fill="#3a6b51" font-size="11" font-family="monospace">communicative flow 유지</text>
+      <rect x="365" y="10" width="330" height="60" rx="10" fill="rgba(183,28,28,.07)" stroke="rgba(183,28,28,.25)" stroke-width="1.5"/>
+      <text x="530" y="35" text-anchor="middle" fill="#b71c1c" font-size="13" font-weight="bold" font-family="monospace">Explicit Feedback</text>
+      <text x="530" y="55" text-anchor="middle" fill="#6b4400" font-size="11" font-family="monospace">오류 직접 지적 · flow 끊김</text>
+    </svg>
+
+    <div class="stage-wrap">
+      <table>
+        <tr><th>Type</th><th>Implicit/Explicit</th><th>특징</th><th>예시</th></tr>
+        <tr>
+          <td><span class='kw4'>Recast</span></td>
+          <td><span class='kw2'>Implicit</span></td>
+          <td>erroneous utterance 재구성 · <span class='kw2'>flow 유지</span> · positive+negative evidence · 학습자가 confirmation으로 오해 가능</td>
+          <td>S: "I goed." T: "Oh, you <span class='kw2'>went</span>?"</td>
+        </tr>
+        <tr>
+          <td><span class='kw3'>Clarification request</span></td>
+          <td><span class='kw2'>Implicit</span></td>
+          <td><span class='kw2'>self-repair 유도</span> · communication breakdown 가능 · 가장 효과적</td>
+          <td>"I'm sorry?" / "Pardon?"</td>
+        </tr>
+        <tr>
+          <td><span class='kw3'>Metalinguistic feedback</span></td>
+          <td>Implicit/Explicit</td>
+          <td>오류 성격 설명 · <span class='kw2'>correct form 제공 X</span></td>
+          <td>"What is the past tense?"</td>
+        </tr>
+        <tr>
+          <td><span class='kw3'>Elicitation</span></td>
+          <td>Implicit/Explicit</td>
+          <td>incomplete sentence/question → <span class='kw2'>self-correct 유도</span></td>
+          <td>"He comes... / We are...?"</td>
+        </tr>
+        <tr>
+          <td><span class='kw2'>Explicit correction</span></td>
+          <td><span class='kw2'>Explicit</span></td>
+          <td>오류 직접 명시 + <span class='kw2'>correct form 제공</span></td>
+          <td>"No, not 'goed', say 'went'."</td>
+        </tr>
+        <tr>
+          <td><span class='kw2'>Repetition</span></td>
+          <td>Implicit</td>
+          <td>오류 부분만 반복 · <span class='kw2'>intonation 변화</span></td>
+          <td>S: "I goed." T: "<span class='kw2'>Goed</span>?"</td>
+        </tr>
+      </table>
+    </div>
+    <div class="exam" style="margin-top:14px">
+      <div class="exam-label">⚠️ Recast 핵심 정리 (★★★ 최빈출)</div>
+      <p>① <span class='kw4'>Implicit</span> · communicative flow <span class='kw2'>유지</span></p>
+      <p>② <span class='kw2'>Positive evidence</span>(correct form) + <span class='kw2'>Negative evidence</span>(오류 암시) 동시 포함</p>
+      <p>③ 학습자가 <span class='kw2'>confirmation check</span>로 오해 가능 → unsuccessful uptake</p>
+      <p>④ Meaning에 집중하느라 form 수정 인식 못할 수 있음</p>
+      <p>⑤ Intonational signal 추가 → <span class='kw2'>explicitness↑</span></p>
+    </div>
+  </div>
+</div>
+
+<!-- ⑤ Uptake & Output -->
+<div class="sec" id="s5">
+  <div class="sec-header" onclick="toggle('s5')">
+    <span class="sec-icon">🔁</span>
+    <span class="sec-title">⑤ Uptake · Modified Output · Pushed Output</span>
+    <span class="sec-tag red">★★★ 최빈출</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="stage-wrap">
+      <table>
+        <tr><th>개념</th><th>정의</th><th>핵심</th></tr>
+        <tr>
+          <td><span class='kw4'>Uptake</span></td>
+          <td>T's corrective feedback에 <span class='kw2'>즉각적으로 뒤따르는</span> 학습자 발화</td>
+          <td>successful / unsuccessful / no uptake / acknowledgement</td>
+        </tr>
+        <tr>
+          <td><span class='kw3'>Modified output</span></td>
+          <td>피드백 이후 실제로 <span class='kw2'>수정이 이루어졌는지</span> 여부</td>
+          <td>수정 여부 focus · not all uptake = modified</td>
+        </tr>
+        <tr>
+          <td><span class='kw3'>Pushed output</span></td>
+          <td>T가 학습자를 올바른 형태로 <span class='kw2'>push</span>하는 과정</td>
+          <td>not all pushed = modified output</td>
+        </tr>
+      </table>
+    </div>
+    <div class="exam" style="margin-top:14px">
+      <div class="exam-label">🔑 3개념 구분 공식</div>
+      <p><span class='kw4'>Uptake</span> = feedback 직후 <span class='kw2'>즉각 반응</span> (수정 여부 무관)</p>
+      <p><span class='kw3'>Modified output</span> = 수정 <span class='kw2'>결과</span>에 focus (successful / unsuccessful)</p>
+      <p><span class='kw3'>Pushed output</span> = T가 push하는 <span class='kw2'>과정</span> → 반드시 modified는 아님</p>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">Positive vs Negative Evidence</div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw2'>Positive evidence</span></div>
+          <div class="gi-body"><span>model of <span class='kw2'>correct form</span></span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw2'>Negative evidence</span></div>
+          <div class="gi-body"><span><span class='kw2'>corrective feedback</span></span><span>pre-emptive / reactive</span><span>explicit / implicit</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ⑥ Modified Input -->
+<div class="sec" id="s6">
+  <div class="sec-header" onclick="toggle('s6')">
+    <span class="sec-icon">🔧</span>
+    <span class="sec-title">⑥ Modified Input</span>
+    <span class="sec-tag">Foreigner Talk · Teacher Talk</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="concept">
+      <div class="c-title">Types of Modified Input</div>
+      <div class="grid col3">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw1'>Care-taker talk</span></div>
+          <div class="gi-body">
+            <span>parents/babysitters → 아이</span>
+            <span>simplification · slow pronunciation</span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>Foreigner talk</span></div>
+          <div class="gi-body">
+            <span><span class='kw2'>native speakers</span> → 외국인</span>
+            <span>louder · simple vocab/grammar</span>
+            <span>topicalization · repetition</span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>Teacher talk</span></div>
+          <div class="gi-body">
+            <span><span class='kw2'>T</span> → classroom Ss</span>
+            <span>교실 내 제공 input</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">Types of Input Modification</div>
+      <div class="grid col3">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw1'>Simplification</span></div>
+          <div class="gi-body"><span>complex → <span class='kw2'>simple</span> form</span><span>lexical / grammatical</span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw1'>Elaboration</span></div>
+          <div class="gi-body"><span><span class='kw2'>restate/repeat</span> differently</span><span><span class='kw2'>positive effect</span> on SLA</span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw1'>Regularization</span></div>
+          <div class="gi-body"><span>더 basic/explicit 형태 선택</span><span>wide coverage lexical items</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">Sociocultural Implication of CF</div>
+      <p class="note">Error correction = <span class='kw2'>other-regulation</span> → help L achieve <span class='kw2'>self-regulation</span></p>
+      <p class="note">Corrective feedback → <span class='kw2'>step by step as scaffolding</span></p>
+      <p class="note">Facilitates Ls' <span class='kw2'>ZPD</span></p>
+    </div>
+  </div>
+</div>
+
+<!-- ⑦ Display Q / IRE·IRF -->
+<div class="sec" id="s7">
+  <div class="sec-header" onclick="toggle('s7')">
+    <span class="sec-icon">❓</span>
+    <span class="sec-title">⑦ Display Q · Referential Q · IRE · IRF</span>
+    <span class="sec-tag red">★★★ 최빈출</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="concept">
+      <div class="c-title">Display Q vs Referential Q <span class="badge-ex">★★★</span></div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw4'>Display question</span></div>
+          <div class="gi-body">
+            <span>T <span class='kw2'>already knows</span> the answer</span>
+            <span>학습자 이해도 확인 목적</span>
+            <span>e.g. "What is the past tense of go?"</span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw4'>Referential question</span></div>
+          <div class="gi-body">
+            <span>T does <span class='kw2'>NOT know</span> the answer</span>
+            <span>authentic communication 촉진</span>
+            <span>e.g. "What did you do last weekend?"</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">IRE vs IRF <span class="badge-ex">기출 포인트</span></div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>IRE</span> (Initiation–Response–Evaluation)</div>
+          <div class="gi-body">
+            <span>T initiates → S responds → T <span class='kw2'>evaluates</span></span>
+            <span>display question 중심</span>
+            <span>teacher-centered · form check</span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>IRF</span> (Initiation–Response–Feedback)</div>
+          <div class="gi-body">
+            <span>T initiates → S responds → T <span class='kw2'>gives feedback</span></span>
+            <span>referential question 가능</span>
+            <span>더 authentic한 interaction</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /wrap -->
+<script>
+function toggle(id){document.getElementById(id).classList.toggle('open')}
+function openSec(id){const s=document.getElementById(id);s.classList.add('open');s.scrollIntoView({behavior:'smooth',block:'start'})}
+</script>
+</body>
+</html>
