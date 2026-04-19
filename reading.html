@@ -289,7 +289,7 @@ function renderNav(){
     return `<button class="${cls}" onclick="jumpTo(${i})">${i+1}</button>`;
   }).join('');
 }
-function jumpTo(i){if(i===cur||!answers[i])return; cur=i; render();}
+function jumpTo(i){cur=i; render();}
 function render(){
   if(cur>=TOTAL){showScore();return;}
   const q=Q[cur], a=answers[cur];
