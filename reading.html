@@ -95,7 +95,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f5f4ee;background-image:r
   <div class="header-divider"></div>
 </div>
 <div class="prog-wrap">
-  <div class="prog-info"><span id="pt">1 / 10</span><span id="ps">정답 0개</span></div>
+  <div class="prog-info"><span id="pt">1 / 20</span><span id="ps">정답 0개</span></div>
   <div class="bar"><div class="bar-fill" id="bf" style="width:10%"></div></div>
 </div>
 <div id="rb" style="display:none;max-width:720px;margin:0 auto 14px;padding:0 8px">
@@ -108,13 +108,13 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f5f4ee;background-image:r
 <div class="wrap">
   <div id="qa"></div>
   <div class="score-card" id="sc">
-    <div class="score-circle"><span class="s-num" id="fs">0</span><span class="s-total">/10</span></div>
+    <div class="score-circle"><span class="s-num" id="fs">0</span><span class="s-total">/20</span></div>
     <h2 id="rm"></h2><p id="rs"></p>
     <button class="restart-btn" onclick="restart()">🔄 다시 풀기</button>
   </div>
 </div>
 <script>
-const SAVE_KEY='ox_reading_v1', TOTAL=10;
+const SAVE_KEY='ox_reading_v1', TOTAL=20;
 const Q=[
   {src:"기출 2009모의.23",cat:"Bottom-up / Top-down Processing",
    text:"<span class='kw4'>Bottom-up processing</span> begins with the reader's background knowledge and expectations, using prior experience to predict text meaning before decoding individual words.",
@@ -186,6 +186,70 @@ const Q=[
    why:"읽기 이해 수준 5단계:<br>① <span class='kw1'>Literal</span>: 명시적 정보 이해·기억<br>② <span class='kw1'>Reorganization</span>: 텍스트 재조직·재해석<br>③ <span class='kw3'>Inferential</span>: 함의 파악 / 독자 경험·직관 추론<br>④ <span class='kw3'>Evaluative</span>: 개인적 판단 / 저자 편견·사실성 평가<br>⑤ <span class='kw1'>Creative</span>: 정서·미적 반응 / 결말 상상",
    source:"Inferential level: find intention not explicitly stated, using reader's experience and intuition. / Evaluative level: make personal judgment instead of accepting the author's intention.",
    compare:[{t:"Inferential",b:"implied meaning 추론 / 독자 경험·직관"},{t:"Evaluative",b:"개인적 판단 / 저자 편견·사실성 평가"}]}
+  ,
+  {src:"기출 2011.17",cat:"Cohesion / Coherence",
+   text:"<span class='kw3'>Cohesion</span> refers to the overall logical organization of discourse with all elements fitting together meaningfully, while <span class='kw3'>coherence</span> refers to text-forming devices such as pronouns and conjunctions that link sentences together.",
+   ans:false,
+   correct:"설명이 뒤바뀌었습니다. <span class='kw3'>Cohesion</span>은 문장들을 연결하는 언어적 장치(text-forming devices)이고, <span class='kw3'>Coherence</span>는 담화 전체의 논리적 구성입니다.",
+   why:"<span class='kw3'>Cohesion</span>: Text-forming devices — words and phrases that establish relationships across sentences. 유형: Reference (he, this), Substitution, Ellipsis, Conjunction (however, because), Lexical cohesion (repetition, synonym).<br><br><span class='kw3'>Coherence</span>: The organization of discourse with all elements fitting together logically. 텍스트 장르 구조 지식 + 통합 단서 지식 + 인과·시간 연결 파악 능력.",
+   source:"Cohesion: text-forming devices, words and phrases that enable the writer or speaker to establish relationships across sentence and help to tie the sentences in a text together. / Coherence: the organization of discourse with all elements present and fitting together logically.",
+   compare:[{t:"Cohesion",b:"문장 간 연결 장치 / Reference, Conjunction, Lexical cohesion"},{t:"Coherence",b:"담화 전체 논리적 구성 / 장르 구조 + 인과·시간 연결"}]},
+  {src:"기출 2011.17",cat:"Discourse Markers",
+   text:"<span class='kw2'>Discourse markers</span> are a class of expressions consisting of words, phrases, or clauses that serve to monitor or organize ongoing discourse, and comprehending them can enhance students' reading efficiency.",
+   ans:true,
+   correct:"정확한 설명입니다. <span class='kw2'>Discourse markers</span>는 담화의 흐름을 조직·신호하는 표현으로, 이해하면 읽기 효율이 높아집니다.",
+   why:"<span class='kw2'>Discourse markers</span>: 담화 내 아이디어들 간의 관계를 신호하여 읽기 효율을 높임. Pre-reading 단계에서 discourse markers를 scanning하면 학생들의 cohesion에 대한 <span class='kw2'>noticing</span>을 유도할 수 있음 (기출 2011.17).",
+   source:"Discourse markers: a class of expressions consisting of words, phrases, or clauses that serve to monitor or organize ongoing discourse. Comprehending discourse markers can enhance Ss' reading efficiency as they signal the relationship among ideas.",
+   compare:[]},
+  {src:"기출 2013.22",cat:"Passive / Active Vocabulary",
+   text:"<span class='kw2'>Passive vocabulary</span> refers to words that a learner can recall and actively use at will in speaking or writing, while <span class='kw2'>active vocabulary</span> refers to words the learner can understand when encountered in reading or listening.",
+   ans:false,
+   correct:"설명이 뒤바뀌었습니다. <span class='kw2'>Passive vocabulary</span>는 듣거나 읽을 때 이해할 수 있는 어휘이고, <span class='kw2'>Active vocabulary</span>는 말하거나 쓸 때 스스로 사용할 수 있는 어휘입니다.",
+   why:"<span class='kw2'>Passive vocabulary</span>: You can listen and understand. Hearing the vocabulary prompts you to recall its meaning. 대략적인 뜻을 이해하지만 스스로 생산하지는 못함.<br><br><span class='kw2'>Active vocabulary</span>: Vocabulary you can recall and use at will when the situation requires. 스스로 선택하여 능동적으로 사용 가능.",
+   source:"Passive vocabulary: You can listen and understand. Hearing the vocabulary used prompts you to recall its meaning. / Active vocabulary: vocabulary that you can recall and use at will when the situation requires it.",
+   compare:[{t:"Passive vocabulary",b:"이해 가능 / 수동적 인식 / 읽기·듣기에서 작동"},{t:"Active vocabulary",b:"생산 가능 / 능동적 사용 / 말하기·쓰기에서 작동"}]},
+  {src:"기출 2009.15",cat:"Authentic Material",
+   text:"<span class='kw3'>Authentic materials</span> are language teaching materials specifically designed and simplified for L2 learners to provide comprehensible input at an appropriate level.",
+   ans:false,
+   correct:"위 설명은 <span class='kw1'>modified materials</span> 또는 <span class='kw1'>simplified materials</span>의 설명입니다. <span class='kw3'>Authentic materials</span>는 실제 생활에서 가져온, 교수 목적으로 조작되지 않은 텍스트입니다.",
+   why:"<span class='kw3'>Authentic materials</span>: Language teaching materials which have the qualities of natural speech or writing — <em>not specifically manipulated</em> for the purpose of language teaching and learning. CLT·Krashen의 input hypothesis·Whole Language Approach과 연결.<br><br>너무 어려울 때 → texts를 simplify하지 말고 <b>tasks를 simplify</b>하는 것이 원칙.",
+   source:"Authentic material: Written texts taken from real life and not specifically manipulated for the purpose of lg teaching and learning.",
+   compare:[{t:"Authentic material",b:"실제 생활 텍스트 / 조작 없음 / CLT 기반"},{t:"Modified material",b:"언어·문화 참조 변경 / comprehensible input 제공"}]},
+  {src:"기출 2012.27",cat:"Integrated Skills / Personalization",
+   text:"<span class='kw2'>Personalization</span> in reading instruction allows students to apply what they have learned to their own lives and express their own ideas, feelings, preferences, and opinions.",
+   ans:true,
+   correct:"정확한 설명입니다. <span class='kw2'>Personalization</span>은 학습한 내용을 자신의 삶에 연결하고 개인적 의견을 표현하게 하는 활동입니다.",
+   why:"<span class='kw2'>Personalization</span>: Allow Ss to apply something they have learned to their own lives and to express their own ideas, feelings, preferences and opinions. Post-reading 단계에서 텍스트 내용을 학생 개인 경험과 연결하는 활동으로 활용.<br><br><span class='kw2'>Integrated skills</span>: Developing several language skills together. Reading 후 writing·speaking으로 연계하는 것이 대표적 예시.",
+   source:"Personalization: allow Ss to apply something they have learned to their own lives and to express their own ideas, feeling, preferences and opinions.",
+   compare:[]},
+  {src:"기출 2009모의.23",cat:"Reading as a Complex / Interactive Process",
+   text:"Reading as a complex, interactive process means that an individual constructs meaning through a transaction with written text, influenced by the reader's past experience, language background, cultural framework, and purpose for reading.",
+   ans:true,
+   correct:"정확한 설명입니다. 읽기는 독자와 텍스트 간의 상호작용을 통해 의미를 구성하는 복합적 과정입니다.",
+   why:"<span class='kw1'>Reading as a complex/interactive process</span>: 독자가 written text와의 transaction을 통해 의미를 구성. 독자의 과거 경험, 언어적 배경, 문화적 틀, 읽기 목적 모두가 의미 구성에 영향. → bottom-up과 top-down processing이 동시에 작동하는 interactive model의 근거.",
+   source:"Reading as a complex/interactive process: an individual constructs meaning through a transaction with written text, which is influenced by the reader's past experience, language background, cultural framework, and the reader's purpose for reading.",
+   compare:[]},
+  {src:"기출 2009.25",cat:"Extensive Reading / Fluency",
+   text:"In <span class='kw4'>extensive reading</span>, implicit learning and automatization of learners' bottom-up reading skills occur because students read large quantities of text without focusing on individual language items.",
+   ans:true,
+   correct:"정확한 설명입니다. <span class='kw4'>Extensive reading</span>은 대량 읽기를 통해 bottom-up 기능의 자동화(automatization)와 묵시적 학습(implicit learning)을 유도합니다.",
+   why:"<span class='kw4'>Extensive reading</span>의 효과: ① implicit learning 유도 ② bottom-up reading skills의 automatization ③ 읽기 속도·유창성(fluency) 향상 ④ 어휘·문법 지식 확장. 학생이 스스로 텍스트를 선택하고 즐거움을 위해 읽는 것이 핵심.",
+   source:"Extensive reading: This elicits implicit learning and automatization of Ls' bottom-up reading skills. This involves book-conferencing and sustained silent reading.",
+   compare:[]},
+  {src:"기출 2020.A.10",cat:"Prediction / Semantic Mapping",
+   text:"<span class='kw2'>Semantic mapping</span> is a pre-reading strategy that randomly gathers information on certain criteria such as characters, events, and time lines, helping students provide some order to the chaos of ideas.",
+   ans:true,
+   correct:"정확한 설명입니다. <span class='kw2'>Semantic mapping</span>은 아이디어를 의미 있는 클러스터로 묶어 정리하는 시각적 전략입니다.",
+   why:"<span class='kw2'>Semantic mapping (clustering)</span>: Grouping ideas into meaningful clusters, helps Ss to provide some order to the chaos. Pre-reading 단계에서 배경지식 활성화 + 어휘 학습 + 브레인스토밍 결과 정리에 활용.<br><br><span class='kw1'>Brainstorm</span>과 구별: brainstorm은 제약 없이 아이디어 생성, semantic mapping은 의미 범주화까지 포함.",
+   source:"Semantic mapping (clustering): grouping ideas into meaningful clusters, helps the Ss to provide some order to the chaos.",
+   compare:[{t:"Semantic mapping",b:"아이디어 범주화·시각화 / Pre-reading / 구조화 강조"},{t:"Brainstorm",b:"자유 아이디어 생성 / 평가 없음 / 의미 범주화 없음"}]},
+  {src:"기출 2017.A.6",cat:"SQ3R Technique",
+   text:"The <span class='kw1'>SQ3R technique</span> is a metacognitive reading strategy that stands for Survey, Question, Read, Recite, and Review, guiding students through systematic text processing.",
+   ans:true,
+   correct:"정확한 설명입니다. <span class='kw1'>SQ3R technique</span>은 Survey-Question-Read-Recite-Review의 5단계로 구성된 체계적 읽기 전략입니다.",
+   why:"<span class='kw1'>SQ3R technique</span>: Survey(훑기) → Question(질문 생성) → Read(읽기) → Recite(요약·암송) → Review(복습). 읽기 전반에 걸쳐 <span class='kw4'>metacognitive awareness</span>를 높이는 전략적 읽기 지도 기법.",
+   source:"SQ3R technique: Survey, Question, Read, Recite, Review.",
+   compare:[]}
 ];
 
 let cur=0, answers=new Array(TOTAL).fill(null);
