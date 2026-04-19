@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="ko" style="background:#f0faf4;color:#1a3326;">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch.6 Teaching Reading | OX Quiz</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #f0faf4; color: #1a3326; font-family: 'Segoe UI', 'Noto Sans KR', sans-serif; min-height: 100vh; padding-bottom: 60px; }
+
+  /* 키워드 하이라이트 */
+  .kw1 { background: rgba(46,125,82,.15); color: #1b5e3a; border-radius: 3px; padding: 1px 4px; font-weight: 600; }
+  .kw2 { color: #00796b; border-bottom: 2px solid #00796b; font-weight: 500; }
+  .kw3 { background: rgba(230,119,0,.13); color: #bf6000; border-radius: 3px; padding: 1px 4px; font-weight: 600; }
+  .kw4 { background: rgba(183,28,28,.11); color: #b71c1c; border-radius: 3px; padding: 1px 4px; font-weight: 700; }
+
+  /* 헤더 */
+  .hero { background: linear-gradient(135deg, #2e7d52 0%, #26a69a 100%); color: white; padding: 36px 20px 28px; text-align: center; }
+  .hero .badge { display: inline-block; background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.3); border-radius: 20px; padding: 4px 16px; font-size: 0.78em; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
+  .hero h1 { font-size: 1.7em; font-weight: 800; margin-bottom: 6px; }
+  .hero p { font-size: 0.92em; opacity: 0.88; }
+  .score-bar { background: rgba(255,255,255,.15); border-radius: 30px; padding: 10px 22px; display: inline-flex; gap: 28px; margin-top: 16px; font-size: 0.9em; }
+  .score-bar span b { font-size: 1.2em; }
+
+  /* 진행 바 */
+  .progress-wrap { background: #d8ede3; height: 6px; }
+  .progress-fill { background: linear-gradient(90deg, #2e7d52, #26a69a); height: 6px; transition: width .4s ease; width: 0%; }
+
+  /* 퀴즈 컨테이너 */
+  .quiz-wrap { max-width: 780px; margin: 0 auto; padding: 24px 16px; }
+
+  /* 퀴즈 카드 */
+  .q-card { background: white; border-radius: 16px; box-shadow: 0 2px 12px rgba(46,125,82,.10); margin-bottom: 28px; overflow: hidden; border: 1.5px solid #c8e6c9; transition: box-shadow .2s; }
+  .q-card:hover { box-shadow: 0 4px 20px rgba(46,125,82,.15); }
+  .q-header { background: #f1faf5; border-bottom: 1.5px solid #c8e6c9; padding: 14px 20px; display: flex; align-items: center; gap: 12px; }
+  .q-num { background: #2e7d52; color: white; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85em; flex-shrink: 0; }
+  .q-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tag { font-size: 0.72em; padding: 2px 9px; border-radius: 12px; font-weight: 600; }
+  .tag-ex { background: rgba(183,28,28,.11); color: #b71c1c; }
+  .tag-topic { background: rgba(46,125,82,.12); color: #2e7d52; }
+
+  .q-body { padding: 20px 22px 16px; }
+  .q-eng { font-size: 1.06em; line-height: 1.7; color: #1a3326; font-style: italic; margin-bottom: 18px; border-left: 3px solid #26a69a; padding-left: 14px; }
+
+  /* OX 버튼 */
+  .btn-group { display: flex; gap: 14px; margin-bottom: 6px; }
+  .btn-ox { flex: 1; padding: 13px; border: 2px solid #c8e6c9; border-radius: 10px; background: white; font-size: 1.5em; font-weight: 700; cursor: pointer; transition: all .18s; color: #1a3326; }
+  .btn-ox:hover { transform: scale(1.04); }
+  .btn-ox.selected-O { background: #e8f5e9; border-color: #2e7d52; color: #2e7d52; }
+  .btn-ox.selected-X { background: #fde8e8; border-color: #c62828; color: #c62828; }
+  .btn-ox.correct { background: #c8e6c9; border-color: #2e7d52; color: #1b5e20; }
+  .btn-ox.wrong { background: #ffcdd2; border-color: #b71c1c; color: #b71c1c; }
+
+  /* 해설 패널 */
+  .explanation { display: none; margin-top: 16px; border-top: 1.5px dashed #a5d6a7; padding-top: 16px; }
+  .explanation.show { display: block; animation: fadeIn .3s ease; }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(6px);} to { opacity:1; transform:translateY(0);} }
+
+  .result-badge { display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: 20px; font-weight: 700; font-size: 0.9em; margin-bottom: 12px; }
+  .result-badge.correct-badge { background: #e8f5e9; color: #2e7d52; }
+  .result-badge.wrong-badge { background: #fde8e8; color: #c62828; }
+
+  .exp-section { margin-bottom: 12px; }
+  .exp-label { font-size: 0.78em; font-weight: 700; color: #26a69a; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 5px; }
+  .correction { background: #fff8e1; border-left: 3px solid #f9a825; border-radius: 0 8px 8px 0; padding: 10px 14px; font-size: 0.95em; line-height: 1.65; margin-bottom: 10px; }
+  .detail { background: #f1faf5; border-radius: 8px; padding: 11px 14px; font-size: 0.9em; line-height: 1.7; color: #1a3326; margin-bottom: 10px; }
+  .source-box { background: #e8f5e9; border-radius: 8px; padding: 10px 14px; font-size: 0.85em; color: #2e7d52; line-height: 1.6; }
+  .source-box::before { content: "📌 "; }
+  .compare-box { background: #e0f2f1; border-radius: 8px; padding: 12px 16px; margin-top: 10px; }
+  .compare-box .cmp-title { font-size: 0.8em; font-weight: 700; color: #00796b; margin-bottom: 8px; }
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .cmp-item { background: white; border-radius: 6px; padding: 8px 10px; font-size: 0.82em; line-height: 1.55; }
+  .cmp-item .cmp-head { font-weight: 700; color: #2e7d52; margin-bottom: 3px; }
+
+  /* 결과 패널 */
+  .result-panel { display: none; background: white; border-radius: 20px; box-shadow: 0 4px 24px rgba(46,125,82,.15); padding: 36px 28px; text-align: center; margin-top: 20px; }
+  .result-panel.show { display: block; animation: fadeIn .4s ease; }
+  .result-score { font-size: 3.5em; font-weight: 800; color: #2e7d52; }
+  .result-msg { font-size: 1.1em; color: #555; margin: 10px 0 24px; }
+  .retry-btn { background: linear-gradient(135deg, #2e7d52, #26a69a); color: white; border: none; border-radius: 12px; padding: 13px 36px; font-size: 1em; font-weight: 700; cursor: pointer; }
+  .retry-btn:hover { opacity: .9; }
+
+  /* 범례 */
+  .legend { display: flex; gap: 10px; flex-wrap: wrap; padding: 12px 16px; background: white; border-radius: 10px; margin-bottom: 20px; border: 1px solid #c8e6c9; font-size: 0.8em; }
+  .legend span { display: flex; align-items: center; gap: 4px; }
+
+  @media(max-width:520px){
+    .compare-grid { grid-template-columns: 1fr; }
+    .btn-ox { font-size: 1.2em; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="badge">Ch. 06 · Teaching Reading</div>
+  <h1>📖 OX Quiz — Teaching Reading</h1>
+  <p>2026 중등 임용 영어교육론 | 기출 포함 10문항</p>
+  <div class="score-bar">
+    <span>맞춤 <b id="correct-cnt">0</b></span>
+    <span>틀림 <b id="wrong-cnt">0</b></span>
+    <span>남음 <b id="remain-cnt">10</b></span>
+  </div>
+</div>
+<div class="progress-wrap"><div class="progress-fill" id="prog"></div></div>
+
+<div class="quiz-wrap">
+
+  <div class="legend">
+    <span><span class="kw4">■</span> ★★★ 최빈출</span>
+    <span><span class="kw3">■</span> ★★ 빈출</span>
+    <span><span class="kw1">■</span> ★ 기본개념</span>
+    <span><span class="kw2">■</span> 부키워드</span>
+  </div>
+
+  <!-- Q1 -->
+  <div class="q-card" id="qcard-1">
+    <div class="q-header">
+      <div class="q-num">1</div>
+      <div class="q-tags">
+        <span class="tag tag-ex">기출 2009모의.23</span>
+        <span class="tag tag-topic">Bottom-up / Top-down</span>
+      </div>
+    </div>
+    <div class="q-body">
+      <div class="q-eng">Bottom-up processing begins with the reader's background knowledge and expectations, using prior experience to predict text meaning before decoding individual words.</div>
+      <div class="btn-group">
+        <button class="btn-ox" onclick="answer(1,'O')">⭕ O</button>
+        <button class="btn-ox" onclick="answer(1,'X')">❌ X</button>
+      </div>
+      <div class="explanation" id="exp-1">
+        <div class="result-badge" id="badge-1"></div>
+        <div class="exp-section">
+          <div class="exp-label">🔧 핵심 정정</div>
+          <div class="correction">
+            위 설명은 <span class="kw4">top-down processing</span>의 정의입니다. <span class="kw4">Bottom-up processing</span>은 가장 작은 언어 단위(글자 → 단어 → 문장 → 텍스트)를 해독하는 데서 출발하는 처리 방식입니다.
+          </div>
+        </div>
+        <div class="exp-section">
+          <div class="exp-label">📖 상세 설명</div>
+          <div class="detail">
+            <span class="kw4">Bottom-up processing</span>: 가장 작은 언어 단위(글자 → 단어 → 문장 → 전체 텍스트)를 순차적으로 해독하여 의미를 구성하는 <span class="kw2">data-driven</span>, <span class="kw2">text-based</span> 방식. 독자의 배경지식보다는 텍스트 자체에 집중하며, <span class="kw1">phonics approach</span>나 <span class="kw1">intensive reading</span>과 연결됩니다.<br><br>
+            <span class="kw4">Top-down processing</span>은 반대로 독자의 <span class="kw3">schematic knowledge</span>(배경지식)를 활용해 텍스트를 예측하고 의미를 재구성하는 <span class="kw2">conceptually-driven</span>, <span class="kw2">knowledge-based</span> 방식으로 <span class="kw1">whole language approach</span>·<span class="kw1">extensive reading</span>과 연결됩니다.
+          </div>
+        </div>
+        <div class="source-box">
+          Bottom-up processing: Decoding process in which meaning is decoded and built up from the smallest units of the given input to a complete text. (lower-level skill; data-driven; text-based; focuses on lg itself)
+        </div>
+        <div class="compare-box">
+          <div class="cmp-title">📊 비교 정리 — Bottom-up vs Top-down</div>
+          <div class="compare-grid">
+            <div class="cmp-item"><div class="cmp-head kw4">Bottom-up</div>글자 → 단어 → 문장 → 텍스트 / data-driven / Phonics / Intensive reading</div>
+            <div class="cmp-item"><div class="cmp-head kw4">Top-down</div>배경지식 → 예측 → 확인 / conceptually-driven / Whole Language / Extensive reading</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="q-card" id="qcard-2">
+    <div class="q-header">
+      <div class="q-num">2</div>
+      <div class="q-tags">
+        <span class="tag tag-ex">기출 2009모의.23</span>
+        <span class="tag tag-topic">Content / Formal Schema</span>
+      </div>
+    </div>
+    <div class="q-body">
+      <div class="q-eng">Content schemata include a reader's background knowledge about organizational forms, discourse structures, and rhetorical patterns of different text types.</div>
+      <div class="btn-group">
+        <button class="btn-ox" onclick="answer(2,'O')">⭕ O</button>
+        <button class="btn-ox" onclick="answer(2,'X')">❌ X</button>
+      </div>
+      <div class="explanation" id="exp-2">
+        <div class="result-badge" id="badge-2"></div>
+        <div class="exp-section">
+          <div class="exp-label">🔧 핵심 정정</div>
+          <div class="correction">
+            위 설명은 <span class="kw3">formal schemata</span>의 정의입니다. <span class="kw3">Content schemata</span>는 일반적 세계 지식, 사회문화적 지식, 주제 지식(general world / sociocultural / topic knowledge)을 포함합니다.
+          </div>
+        </div>
+        <div class="exp-section">
+          <div class="exp-label">📖 상세 설명</div>
+          <div class="detail">
+            <span class="kw3">Content schemata</span>: general world knowledge + sociocultural knowledge + topic knowledge. 독자가 텍스트 내용에 대해 갖는 배경지식의 총체로, 같은 글을 읽어도 전공이 다른 독자가 다르게 추론하는 것이 content schemata의 차이 때문입니다 (기출 2009모의.23 실험).<br><br>
+            <span class="kw3">Formal schemata</span>: background knowledge about organizational forms, discourse structures and rhetorical structures of different texts (e.g. essay 구조, 비교·대조 문단 패턴, genre knowledge).
+          </div>
+        </div>
+        <div class="source-box">
+          Content Schema: general world knowledge, sociocultural knowledge, topic knowledge. / Formal schema: background knowledge about organizational forms and discourse, rhetorical structures.
+        </div>
+        <div class="compare-box">
+          <div class="cmp-title">📊 비교 정리 — Content vs Formal Schemata</div>
+          <div class="compare-grid">
+            <div class="cmp-item"><div class="cmp-head kw3">Content schemata</div>일반 세계지식 / 사회문화지식 / 주제지식 → 내용에 대한 배경지식</div>
+            <div class="cmp-item"><div class="cmp-head kw3">Formal schemata</div>담화구조 / 수사적 패턴 / 텍스트 유형 지식 → 글의 형식에 대한 배경지식</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="q-card" id="qcard-3">
+    <div class="q-header">
+      <div class="q-num">3</div>
+      <div class="q-tags">
+        <span class="tag tag-ex">기출 2015.A.기입5</span>
+        <span class="tag tag-topic">Extensive Reading</span>
+      </div>
+    </div>
+    <div class="q-body">
+      <div class="q-eng">Extensive reading involves reading short passages for the explicit purpose of learning new reading skills and language items, usually followed by comprehension exercises.</div>
+      <div class="btn-group">
+        <button class="btn-ox" onclick="answer(3,'O')">⭕ O</button>
+        <button class="btn-ox" onclick="answer(3,'X')">❌ X</button>
+      </div>
+      <div class="explanation" id="exp-3">
+        <div class="result-badge" id="badge-3"></div>
+        <div class="exp-section">
+          <div class="exp-label">🔧 핵심 정정</div>
+          <div class="correction">
+            위 설명은 <span class="kw3">intensive reading</span>의 정의입니다. <span class="kw4">Extensive reading</span>은 즐거움과 실생활 목적을 위해 학습자가 스스로 선택한 긴 텍스트를 읽는 것으로, 교실 comprehension 연습에 집중하지 않습니다.
+          </div>
+        </div>
+        <div class="exp-section">
+          <div class="exp-label">📖 상세 설명</div>
+          <div class="detail">
+            <span class="kw4">Extensive reading</span>: Reading longer texts which are selected by Ss themselves, for pleasure and for real-world purposes, without a focus on classroom exercises designed to test comprehension skills. → <span class="kw2">top-down approach</span> 기반, <span class="kw2">implicit learning</span> 및 bottom-up 읽기 기능의 자동화(automatization) 유도. <span class="kw1">book-conferencing</span>·<span class="kw1">sustained silent reading</span> 포함.<br><br>
+            <span class="kw3">Intensive reading</span>: 짧은 텍스트를 깊이 이해하며 reading skill·vocabulary 등을 명시적으로 학습. comprehension exercise가 뒤따름 → <span class="kw2">bottom-up approach</span> 기반.
+          </div>
+        </div>
+        <div class="source-box">
+          Extensive reading: Reading longer texts which are selected by Ss themselves, for pleasure and for real-world purposes, without a focus on classroom exercises designed to test comprehension skills.
+        </div>
+        <div class="compare-box">
+          <div class="cmp-title">📊 비교 정리 — Intensive vs Extensive Reading</div>
+          <div class="compare-grid">
+            <div class="cmp-item"><div class="cmp-head kw3">Intensive reading</div>짧은 텍스트 / 기능·어휘 명시적 학습 / comprehension 연습 포함 / bottom-up</div>
+            <div class="cmp-item"><div class="cmp-head kw4">Extensive reading</div>긴 텍스트 / 즐거움·실생활 목적 / 학생 자기선택 / top-down / 묵독</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="q-card" id="qcard-4">
+    <div class="q-header">
+      <div class="q-num">4</div>
+      <div class="q-tags">
+        <span class="tag tag-ex">기출 2011.17 · 2013.22</span>
+        <span class="tag tag-topic">Reconstruction Activities</span>
+      </div>
+    </div>
+    <div class="q-body">
+      <div class="q-eng">In reconstruction activities, students use the original, unmodified text to select specific information and represent it in a different form, thereby developing their analytical skills.</div>
+      <div class="btn-group">
+        <button class="btn-ox" onclick="answer(4,'O')">⭕ O</button>
+        <button class="btn-ox" onclick="answer(4,'X')">❌ X</button>
+      </div>
+      <div class="explanation" id="exp-4">
+        <div class="result-badge" id="badge-4"></div>
+        <div class="exp-section">
+          <div class="exp-label">🔧 핵심 정정</div>
+          <div class="correction">
+            위 설명은 <span class="kw3">analysis activities</span>의 정의입니다. <span class="kw3">Reconstruction activities</span>는 원본 텍스트를 <em>변형(modified)</em>하여 제공하고, 학생이 예측·재구성하는 활동입니다.
+          </div>
+        </div>
+        <div class="exp-section">
+          <div class="exp-label">📖 상세 설명</div>
+          <div class="detail">
+            <b>Directed Activities Related to Texts (DARTs)</b>: 학생들이 텍스트와 상호작용하며 읽기 이해력을 높이고 critical reader가 되도록 하는 활동 (Nunan).<br><br>
+            <span class="kw3">Reconstruction activities</span>: <em>modified text</em> 사용 → 원본을 분절·공란 처리 → 학생이 예측하며 재구성 → text type 구조 이해 발달. 예: <span class="kw2">cloze (text completion)</span>, <span class="kw2">sequencing</span>, <span class="kw2">prediction</span>, <span class="kw2">table completion</span>.<br><br>
+            <span class="kw3">Analysis activities</span>: <em>unmodified text</em> 사용 → 특정 정보 추출 후 다른 형식으로 표현 → 분석 기능 발달. 예: <span class="kw2">underlining</span>, <span class="kw2">segmenting</span>, <span class="kw2">diagrammatic representation</span>, <span class="kw2">summary</span>.
+          </div>
+        </div>
+        <div class="source-box">
+          Reconstruction activities: The original text is broken down and given to Ss either in segments or as blocks of text with gaps. Ss use prediction and reconstruct. / Analysis activities: Ss select specific information from the text and represent it in a different form using unmodified text.
+        </div>
+        <div class="compare-box">
+          <div class="cmp-title">📊 비교 정리 — Reconstruction vs Analysis</div>
+          <div class="compare-grid">
+            <div class="cmp-item"><div class="cmp-head kw3">Reconstruction</div>변형 텍스트 사용 / 예측·재구성 / cloze, sequencing, prediction / text 구조 이해</div>
+            <div class="cmp-item"><div class="cmp-head kw3">Analysis</div>원본 텍스트 사용 / 정보 추출·변환 / underlining, segmenting, diagrammatic rep. / 분석 능력 발달</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="q-card" id="qcard-5">
+    <div class="q-header">
+      <div class="q-num">5</div>
+      <div class="q-tags">
+        <span class="tag tag-ex">기출 2017.A.6</span>
+        <span class="tag tag-topic">Skimming / Scanning</span>
+      </div>
+    </div>
+    <div class="q-body">
+      <div class="q-eng">Skimming refers to reading carefully for a particular piece of information without necessarily understanding the rest of the text, while scanning is reading quickly to gain a general idea of a passage.</div>
+      <div class="btn-group">
+        <button class="btn-ox" onclick="answer(5,'O')">⭕ O</button>
+        <button class="btn-ox" onclick="answer(5,'X')">❌ X</button>
+      </div>
+      <div class="explanation" id="exp-5">
+        <div class="result-badge" id="badge-5"></div>
+        <div class="exp-section">
+          <div class="exp-label">🔧 핵심 정정</div>
+          <div class="correction">
+            설명이 서로 뒤바뀌었습니다. <span class="kw4">Skimming</span>은 전체적인 주제·요지 파악을 위해 빠르게 읽는 것이고, <span class="kw4">Scanning</span>은 특정 정보를 찾기 위해 나머지는 이해하지 않아도 되는 읽기입니다.
+          </div>
+        </div>
+        <div class="exp-section">
+          <div class="exp-label">📖 상세 설명</div>
+          <div class="detail">
+            <span class="kw4">Skimming</span>: Glancing rapidly through the text to get a <em>general idea</em>. 학생들이 약 30초 동안 텍스트를 훑으며 주제·요지를 파악. 매 단어에 집중하지 않음.<br><br>
+            <span class="kw4">Scanning</span>: Glancing rapidly through the text to locate <em>specific information</em>. 이미 학습한 discourse markers 등을 빠르게 찾을 때 사용.
+          </div>
+        </div>
+        <div class="source-box">
+          Skimming: Glancing rapidly through the text to get a general idea. / Scanning: Glancing rapidly through the text to locate specific information.
+        </div>
+        <div class="compare-box">
+          <div class="cmp-title">📊 비교 정리 — Skimming vs Scanning</div>
+          <div class="compare-grid">
+            <div class="cmp-item"><div class="cmp-head kw4">Skimming</div>목적: 전체 주제·요지 파악 / 빠르게 훑기 / ~30초 / 매 단어 집중 불필요</div>
+            <div class="cmp-item"><div class="cmp-head kw4">Scanning</div>목적: 특정 정보 찾기 / 나머지 이해 불필요 / 특정 단어·숫자·discourse markers 탐색</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="q-card" id="qcard-6">
+    <div class="q-header">
+      <div class="q-num">6</div>
+      <div class="q-tags">
+        <span class="tag tag-ex">기출 2009.25 · 2014.10</span>
+        <span class="tag tag-topic">Think-aloud / Metacognitive</span>
+      </div>
+    </div>
+    <div class="q-body">
+      <div class="q-eng">The think-aloud protocol is a technique in which the teacher encourages students to monitor their comprehension process while reading and report on what they are doing, thereby fostering metacognitive awareness.</div>
+      <div class="btn-group">
+        <button class="btn-ox" onclick="answer(6,'O')">⭕ O</button>
+        <button class="btn-ox" onclick="answer(6,'X')">❌ X</button>
+      </div>
+      <div class="explanation" id="exp-6">
+        <div class="result-badge" id="badge-6"></div>
+        <div class="exp-section">
+          <div class="exp-label">✅ 핵심 확인</div>
+          <div class="correction" style="border-left-color:#2e7d52; background:#e8f5e9;">
+            정확한 설명입니다. <span class="kw4">Think-aloud protocol</span>은 읽는 과정에서 자신의 사고 과정을 소리 내어 말하게 함으로써 <span class="kw4">metacognitive awareness</span>를 기르는 핵심 전략 지도 기법입니다.
+          </div>
+        </div>
+        <div class="exp-section">
+          <div class="exp-label">📖 상세 설명</div>
+          <div class="detail">
+            <span class="kw4">Think-aloud protocol</span>: T encourages Ss to monitor their comprehension process while reading. They report on what they are doing and their thoughts → Ss can verify strategies that assist them in getting at the meaning. <span class="kw3">inferencing</span> 과정을 파악하는 데도 활용 (2014.10 기출).<br><br>
+            <span class="kw4">Metacognitive awareness</span>: 학습자가 자신의 정신적 처리과정을 인식하는 학습 과정. Before reading → 전략 선택, While reading → 전략 모니터링, After reading → 전략 효과 평가.
+          </div>
+        </div>
+        <div class="source-box">
+          Think-aloud protocol: T encourages Ss to monitor their comprehension process while reading. At the same time, they are required to report on what they are doing and their thought to the teacher. → metacognitive awareness (기출 2009.25, 2014.10 공통 핵심 키워드)
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="q-card" id="qcard-7">
+    <div class="q-header">
+      <div class="q-num">7</div>
+      <div class="q-tags">
+        <span class="tag tag-ex">기출 2009.15</span>
+        <span class="tag tag-topic">Graphic Organizer</span>
+      </div>
+    </div>
+    <div class="q-body">
+      <div class="q-eng">A graphic organizer is an analysis activity that uses unmodified text to help students visually represent relationships among ideas, and it is associated with top-down processing.</div>
+      <div class="btn-group">
+        <button class="btn-ox" onclick="answer(7,'O')">⭕ O</button>
+        <button class="btn-ox" onclick="answer(7,'X')">❌ X</button>
+      </div>
+      <div class="explanation" id="exp-7">
+        <div class="result-badge" id="badge-7"></div>
+        <div class="exp-section">
+          <div class="exp-label">✅ 핵심 확인</div>
+          <div class="correction" style="border-left-color:#2e7d52; background:#e8f5e9;">
+            정확한 설명입니다. <span class="kw3">Graphic organizer</span>는 분석 활동(analysis activity)으로서 원본 텍스트를 사용하며, top-down processing과 연결됩니다 (기출 2009.15).
+          </div>
+        </div>
+        <div class="exp-section">
+          <div class="exp-label">📖 상세 설명</div>
+          <div class="detail">
+            <span class="kw3">Graphic organizer</span>: A visual representation to show relationship among ideas in a text. 학생들이 텍스트의 핵심 정보, 정보 조직 방식, 아이디어 간 관계를 시각적으로 파악. 이 정보를 바탕으로 말하거나 쓰는 활동으로 확장 가능.<br><br>
+            기출 2009.15에서는 학생들이 읽은 텍스트를 시각 자료로 표현하는 수업으로 출제. <span class="kw2">top-down processing</span> 활동으로 분류 (diagrammatic representation의 대표 예시).
+          </div>
+        </div>
+        <div class="source-box">
+          Graphic organizer: A visual representation to show relationship among ideas in a text. Students are able to see the key information in a text, the organization of text information, the ways that information is structured, and the relationships among ideas presented in a text.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="q-card" id="qcard-8">
+    <div class="q-header">
+      <div class="q-num">8</div>
+      <div class="q-tags">
+        <span class="tag tag-ex">기출 2020.A.10</span>
+        <span class="tag tag-topic">Outlining / Inferencing</span>
+      </div>
+    </div>
+    <div class="q-body">
+      <div class="q-eng">Inferencing is a reading strategy that helps readers organize a text by distinguishing and listing main ideas and supporting details, giving an organized representation of the information.</div>
+      <div class="btn-group">
+        <button class="btn-ox" onclick="answer(8,'O')">⭕ O</button>
+        <button class="btn-ox" onclick="answer(8,'X')">❌ X</button>
+      </div>
+      <div class="explanation" id="exp-8">
+        <div class="result-badge" id="badge-8"></div>
+        <div class="exp-section">
+          <div class="exp-label">🔧 핵심 정정</div>
+          <div class="correction">
+            위 설명은 <span class="kw3">outlining</span>의 정의입니다. <span class="kw4">Inferencing</span>은 텍스트에 명시되지 않은 아이디어를 파악하기 위해 맥락적 단서를 활용하여 추론하는 전략입니다.
+          </div>
+        </div>
+        <div class="exp-section">
+          <div class="exp-label">📖 상세 설명</div>
+          <div class="detail">
+            <span class="kw4">Inferencing</span>: Identify ideas that are <em>not explicitly stated</em>. Look for the clues in the text and use these clues to guess about the text and about the writer's ideas. <span class="kw2">inferential level of comprehension</span>과 연결. think-aloud data가 inferencing 과정 파악에 활용됨.<br><br>
+            <span class="kw3">Outlining</span>: Distinguish and list the main ideas and supporting details of a text → gives readers an <em>organized representation</em> of the information. 텍스트의 계층 구조를 파악하는 분석 전략.
+          </div>
+        </div>
+        <div class="source-box">
+          Inferencing: identify ideas that are not explicitly stated, look for the clues in the text and use these clues to guess about the text and about the writer's ideas. / Outlining: distinguish and list the main ideas and supporting details of a text.
+        </div>
+        <div class="compare-box">
+          <div class="cmp-title">📊 비교 정리 — Inferencing vs Outlining</div>
+          <div class="compare-grid">
+            <div class="cmp-item"><div class="cmp-head kw4">Inferencing</div>명시되지 않은 의미 추론 / 맥락 단서 활용 / inferential comprehension level</div>
+            <div class="cmp-item"><div class="cmp-head kw3">Outlining</div>주제문·뒷받침 문장 구분·목록화 / 텍스트 전체 구조 파악 / 조직적 표현</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="q-card" id="qcard-9">
+    <div class="q-header">
+      <div class="q-num">9</div>
+      <div class="q-tags">
+        <span class="tag tag-topic">Interactive-compensatory Model</span>
+      </div>
+    </div>
+    <div class="q-body">
+      <div class="q-eng">The interactive-compensatory model proposes that a deficiency in processing at one level can be compensated by reliance on processing at another level, so a reader who lacks automatic word recognition can rely more on contextual information and higher-level schemata.</div>
+      <div class="btn-group">
+        <button class="btn-ox" onclick="answer(9,'O')">⭕ O</button>
+        <button class="btn-ox" onclick="answer(9,'X')">❌ X</button>
+      </div>
+      <div class="explanation" id="exp-9">
+        <div class="result-badge" id="badge-9"></div>
+        <div class="exp-section">
+          <div class="exp-label">✅ 핵심 확인</div>
+          <div class="correction" style="border-left-color:#2e7d52; background:#e8f5e9;">
+            정확한 설명입니다. <span class="kw2">Interactive-compensatory model</span>의 핵심은 처리 수준 간 결핍의 보완(compensation) 가능성입니다.
+          </div>
+        </div>
+        <div class="exp-section">
+          <div class="exp-label">📖 상세 설명</div>
+          <div class="detail">
+            <span class="kw2">Interactive-compensatory model</span>: Language processing is organized into levels ranging from letter recognition to high-level schemata. A deficiency of processing at one level can be compensated by reliance on processing at another level.<br><br>
+            예: fast automatic <span class="kw1">word recognition</span> 능력이 부족한 학습자 → contextual information·고수준 schemata를 더 적극적으로 활용하여 보완.<br><br>
+            <span class="kw1">Interactive processing</span>(단순)과 구별: interactive processing은 bottom-up과 top-down이 <em>동시에</em> 작동한다는 것이고, interactive-compensatory는 한 수준의 약점을 다른 수준이 <em>보완</em>한다는 점을 강조.
+          </div>
+        </div>
+        <div class="source-box">
+          Interactive-compensatory model: Lg processing is organized into levels ranging from letter recognition to high-level schemata, and a deficiency of processing at one level can be compensated by reliance on processing at another level.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="q-card" id="qcard-10">
+    <div class="q-header">
+      <div class="q-num">10</div>
+      <div class="q-tags">
+        <span class="tag tag-ex">기출 2021.A.9</span>
+        <span class="tag tag-topic">Comprehension Levels</span>
+      </div>
+    </div>
+    <div class="q-body">
+      <div class="q-eng">The evaluative (critical) comprehension level requires readers to make personal judgments rather than accepting the author's view, while the inferential level focuses on finding implied meaning not explicitly stated in the text.</div>
+      <div class="btn-group">
+        <button class="btn-ox" onclick="answer(10,'O')">⭕ O</button>
+        <button class="btn-ox" onclick="answer(10,'X')">❌ X</button>
+      </div>
+      <div class="explanation" id="exp-10">
+        <div class="result-badge" id="badge-10"></div>
+        <div class="exp-section">
+          <div class="exp-label">✅ 핵심 확인</div>
+          <div class="correction" style="border-left-color:#2e7d52; background:#e8f5e9;">
+            정확한 설명입니다. 읽기 이해 수준 5단계의 정의가 정확히 기술되어 있습니다.
+          </div>
+        </div>
+        <div class="exp-section">
+          <div class="exp-label">📖 상세 설명</div>
+          <div class="detail">
+            읽기 이해 수준 5단계:
+            <ol style="padding-left:18px; margin-top:8px; line-height:2;">
+              <li><span class="kw1">Literal comprehension level</span>: 텍스트에 명시적으로 표현된 정보 이해·기억</li>
+              <li><span class="kw1">Reorganization (reinterpretation) level</span>: 텍스트 일부를 재조직·재해석 / 기초적 추론</li>
+              <li><span class="kw3">Inferential level</span>: 명시되지 않은 함의 파악 / 독자 경험·직관 활용 추론</li>
+              <li><span class="kw3">Evaluative (critical) level</span>: 저자 의도 수용 대신 개인적 판단 / 작가의 편견·가치·사실성 평가</li>
+              <li><span class="kw1">Creative level</span>: 정서적·미적 반응 / 결말 상상 / 독서록 작성</li>
+            </ol>
+          </div>
+        </div>
+        <div class="source-box">
+          Inferential level: comprehension level to find intention which is not explicitly stated in a passage, using the reader's experience and intuition. / Evaluative level: comprehension level to make personal judgment instead of accepting the author's intention.
+        </div>
+        <div class="compare-box">
+          <div class="cmp-title">📊 5단계 이해 수준 한눈에</div>
+          <div style="font-size:0.82em; line-height:1.8; padding:4px;">
+            Literal → Reorganization → <span class="kw3">Inferential</span> → <span class="kw3">Evaluative</span> → Creative
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 결과 패널 -->
+  <div class="result-panel" id="result-panel">
+    <div style="font-size:2.5em; margin-bottom:8px;">🎉</div>
+    <div class="result-score" id="final-score">0 / 10</div>
+    <div class="result-msg" id="result-msg"></div>
+    <div style="font-size:0.88em; color:#888; margin-bottom:24px;">Ch.6 Teaching Reading 완료</div>
+    <button class="retry-btn" onclick="retryQuiz()">🔄 다시 풀기</button>
+  </div>
+
+</div>
+
+<script>
+const ANSWERS = { 1:'X', 2:'X', 3:'X', 4:'X', 5:'X', 6:'O', 7:'O', 8:'X', 9:'O', 10:'O' };
+let correct = 0, wrong = 0, answered = new Set();
+
+function answer(num, choice) {
+  if (answered.has(num)) return;
+  answered.add(num);
+
+  const isCorrect = (choice === ANSWERS[num]);
+  if (isCorrect) correct++; else wrong++;
+
+  const remain = 10 - answered.size;
+  document.getElementById('correct-cnt').textContent = correct;
+  document.getElementById('wrong-cnt').textContent = wrong;
+  document.getElementById('remain-cnt').textContent = remain;
+  document.getElementById('prog').style.width = (answered.size * 10) + '%';
+
+  const card = document.getElementById('qcard-' + num);
+  const btns = card.querySelectorAll('.btn-ox');
+  btns[0].classList.remove('selected-O','selected-X');
+  btns[1].classList.remove('selected-O','selected-X');
+  if (choice === 'O') {
+    btns[0].classList.add(isCorrect ? 'correct' : 'wrong');
+    btns[1].classList.add(isCorrect ? '' : 'correct');
+  } else {
+    btns[1].classList.add(isCorrect ? 'correct' : 'wrong');
+    btns[0].classList.add(isCorrect ? '' : 'correct');
+  }
+
+  const badge = document.getElementById('badge-' + num);
+  badge.className = 'result-badge ' + (isCorrect ? 'correct-badge' : 'wrong-badge');
+  badge.textContent = isCorrect ? '✅ 정답입니다!' : '❌ 오답입니다. 해설을 확인하세요.';
+
+  const exp = document.getElementById('exp-' + num);
+  exp.classList.add('show');
+
+  if (answered.size === 10) {
+    setTimeout(() => {
+      const panel = document.getElementById('result-panel');
+      panel.classList.add('show');
+      document.getElementById('final-score').textContent = correct + ' / 10';
+      const msgs = ['완벽해요! 🏆', '훌륭합니다! 💪', '좋아요! 조금만 더! 📚', '다시 한 번 복습해봐요! 🔄'];
+      document.getElementById('result-msg').textContent = correct === 10 ? msgs[0] : correct >= 8 ? msgs[1] : correct >= 6 ? msgs[2] : msgs[3];
+      panel.scrollIntoView({ behavior: 'smooth' });
+    }, 600);
+  }
+}
+
+function retryQuiz() {
+  correct = 0; wrong = 0; answered = new Set();
+  document.getElementById('correct-cnt').textContent = 0;
+  document.getElementById('wrong-cnt').textContent = 0;
+  document.getElementById('remain-cnt').textContent = 10;
+  document.getElementById('prog').style.width = '0%';
+  document.getElementById('result-panel').classList.remove('show');
+
+  for (let i = 1; i <= 10; i++) {
+    const card = document.getElementById('qcard-' + i);
+    card.querySelectorAll('.btn-ox').forEach(b => {
+      b.className = 'btn-ox';
+    });
+    document.getElementById('exp-' + i).classList.remove('show');
+  }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
