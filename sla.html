@@ -1,18 +1,22 @@
 <!DOCTYPE html>
-<html lang="ko" style="background:#f0faf4;color:#1a3326;">
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ch.1 SLA Theory OX Quiz</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=JetBrains+Mono:wght@400;600&family=Caveat:wght@600&display=swap');
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Noto Sans KR',sans-serif;background:#f0faf4;color:#1a3326;min-height:100vh;padding:16px}
-.header{text-align:center;padding:36px 16px 24px}
-.tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11px;color:#2e7d52;background:rgba(46,125,82,.1);border:1px solid rgba(46,125,82,.3);padding:4px 12px;border-radius:20px;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
-.ch-badge{display:inline-block;background:linear-gradient(135deg,#2e7d52,#26a69a);color:white;font-size:12px;font-weight:700;padding:4px 14px;border-radius:20px;margin-bottom:10px;font-family:'JetBrains Mono',monospace}
-h1{font-size:clamp(22px,4vw,32px);font-weight:700;background:linear-gradient(135deg,#2e7d52,#26a69a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px}
-.sub{color:#4a7a62;font-size:14px}
+body{font-family:'Noto Sans KR',sans-serif;background:#f5f4ee;background-image:repeating-linear-gradient(transparent,transparent 27px,#ddddd0 28px);color:#1a1a1a;min-height:100vh;padding:16px}
+.header-wrap{max-width:720px;margin:0 auto;padding:20px 8px 0}
+.header-topbar{display:flex;justify-content:space-between;align-items:center;border-top:2px solid #1a1a1a;padding-top:8px;margin-bottom:10px}
+.header-no{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;border:2px solid #1a1a1a;padding:3px 10px;border-radius:2px;letter-spacing:.5px;display:flex;align-items:center;gap:6px}
+.header-label{font-family:'JetBrains Mono',monospace;font-size:11px;color:#888;letter-spacing:1px}
+.header-title{font-size:clamp(30px,7vw,46px);font-weight:900;color:#1a1a1a;line-height:1.1;margin-bottom:5px;letter-spacing:-1px}
+.title-hl{background:#2e7d52;color:#fff;padding:1px 6px}
+.header-script{font-family:'Caveat',cursive;font-size:21px;color:#2e7d52;margin-bottom:4px;font-weight:600}
+.header-sub{font-size:13px;color:#555;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#aaa;margin-bottom:14px}
+.header-divider{border:none;border-top:2.5px solid #1a1a1a;margin-bottom:20px}
 .prog-wrap{max-width:720px;margin:0 auto 24px;padding:0 8px}
 .prog-info{display:flex;justify-content:space-between;font-size:12px;color:#4a7a62;font-family:'JetBrains Mono',monospace;margin-bottom:6px}
 .bar{height:4px;background:#b2dfcc;border-radius:2px;overflow:hidden}
@@ -81,11 +85,15 @@ h1{font-size:clamp(22px,4vw,32px);font-weight:700;background:linear-gradient(135
 </style>
 </head>
 <body>
-<div class="header">
-  <div class="tag">임용고시 대비</div><br>
-  <div class="ch-badge">Chapter 1</div>
-  <h1>SLA Theory OX Quiz</h1>
-  <p class="sub">O if the statement is correct · X if it is wrong</p>
+<div class="header-wrap">
+  <div class="header-topbar">
+    <span class="header-no">NO. 01 <span>—</span> SLA Theory</span>
+    <span class="header-label">Past-Exam Notebook</span>
+  </div>
+  <h1 class="header-title"><span class="title-hl">기출마스터</span> 전공영어</h1>
+  <div class="header-script">Past-Exam Master</div>
+  <p class="header-sub">영어학 · SLA Theory · 임용고시 대비</p>
+  <div class="header-divider"></div>
 </div>
 <div class="prog-wrap">
   <div class="prog-info"><span id="pt">1 / 20</span><span id="ps">정답 0개</span></div>
