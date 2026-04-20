@@ -114,6 +114,8 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f5f4ee;background-image:r
     <button class="restart-btn" onclick="freshStart()">🔄 처음부터</button>
   </div>
 </div>
+<script src="./score-popup.js"></script>
+<script src="./sounds.js"></script>
 <script>
 const SAVE_KEY='ox_sla_v1';
 const TOTAL=20;
@@ -215,7 +217,5 @@ function freshStart(){localStorage.removeItem(SAVE_KEY);cur=0;answers=new Array(
   renderNav();render();
 })();
 </script>
-<script src="./score-popup.js"></script>
-<script src="./sounds.js"></script>
 </body>
 </html>
