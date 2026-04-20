@@ -333,7 +333,9 @@ function render(){
 }
 function pick(val){
   if(answers[cur])return;
-  answers[cur]={picked:val,correct:(val===Q[cur].ans)};
+  const ok=(val===Q[cur].ans);
+  answers[cur]={picked:val,correct:ok};
+  if(ok){if(typeof playOk==='function')playOk();}else{if(typeof playNg==='function')playNg();}
   saveProgress(); render();
 }
 function next(){cur++; saveProgress(); render();}
