@@ -81,6 +81,8 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f5f4ee;background-image:r
 .nd:hover:not(.cur){opacity:.7}
 #nav{display:flex;flex-wrap:wrap;gap:5px;max-width:720px;margin:0 auto 16px;padding:0 8px}
 </style>
+<script src="./score-popup.js" defer></script>
+<script src="./sounds.js" defer></script>
 </head>
 <body>
 <div class="header-wrap">
@@ -458,7 +460,5 @@ function restart(){cur=0;answers=new Array(TOTAL).fill(null);clearProgress();doc
   renderNav();render();
 })();
 </script>
-<script src="./score-popup.js"></script>
-<script src="./sounds.js"></script>
 </body>
 </html>
