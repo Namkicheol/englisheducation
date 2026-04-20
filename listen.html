@@ -426,6 +426,7 @@ function pick(val){
   document.getElementById('xb').disabled=true;
   const ok=val===q.ans;
   answers[cur]={picked:val,correct:ok};
+  if(ok){if(typeof playOk==='function')playOk();}else{if(typeof playNg==='function')playNg();}
   const bd=document.getElementById('bd');
   bd.textContent=ok?'✅ 정답!':`❌ 오답! 정답은 ${q.ans?'O':'X'}`;
   bd.className='badge '+(ok?'ok':'ng');
