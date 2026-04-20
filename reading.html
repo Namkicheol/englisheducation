@@ -113,6 +113,8 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f5f4ee;background-image:r
     <button class="restart-btn" onclick="restart()">🔄 다시 풀기</button>
   </div>
 </div>
+<script src="./score-popup.js"></script>
+<script src="./sounds.js"></script>
 <script>
 const SAVE_KEY='ox_reading_v1', TOTAL=20;
 const Q=[
@@ -353,7 +355,5 @@ function showScore(){
 function restart(){cur=0;answers=new Array(TOTAL).fill(null);document.getElementById('sc').classList.remove('show');render();}
 loadProgress(); render();
 </script>
-<script src="./score-popup.js"></script>
-<script src="./sounds.js"></script>
 </body>
 </html>
