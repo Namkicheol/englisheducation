@@ -377,6 +377,7 @@ function render(){
     const p=s/TOTAL;
     document.getElementById('rm').textContent=p===1?'🎉 Perfect!':p>=.8?'👏 Great!':p>=.6?'😊 Good!':'💪 Keep going!';
     document.getElementById('rs').textContent=`${TOTAL}문제 중 ${s}문제 정답 (${Math.round(p*100)}%)`;
+    setTimeout(function(){window.showScorePopup&&window.showScorePopup(s,TOTAL);},400);
     renderNav();return;
   }
   document.getElementById('sc').classList.remove('show');
@@ -456,5 +457,7 @@ function restart(){cur=0;answers=new Array(TOTAL).fill(null);clearProgress();doc
   renderNav();render();
 })();
 </script>
+<script src="./score-popup.js"></script>
+<script src="./sounds.js"></script>
 </body>
 </html>
