@@ -175,6 +175,79 @@ function toggle(id){ document.getElementById(id).classList.toggle('open'); }
 function openSec(id){ const s=document.getElementById(id); s.classList.add('open'); s.scrollIntoView({behavior:'smooth',block:'start'}); }
 ```
 
+### 콘텐츠 표현 패턴 (Ch.3 Learner Variables 적용 검증)
+
+#### ① 헷갈 키텀 N대 비교 카드 (★★★ 함정 대비)
+한 섹션에서 자주 혼동되는 키텀쌍을 `grid col2` 4셀로 정리. 14번 헷갈 키텀 md 기반.
+```html
+<div class="concept">
+  <div class="c-title">🔑 헷갈리는 키텀 3대 비교 (★★★ 함정 단골)</div>
+  <div class="grid col2">
+    <div class="grid-item">
+      <div class="gi-title">① <span class='kw4'>A</span> vs <span class='kw4'>B</span></div>
+      <div class="gi-body"><span><strong>A</strong>: 정의 + 예시</span><span><strong>B</strong>: 정의 + 예시</span><span>🔍 구분 포인트</span></div>
+    </div>
+    <!-- ②, ③, ④ 반복 -->
+  </div>
+</div>
+```
+- Code-switching vs Foreignizing / Approximation vs Circumlocution 등
+- `🔍` 이모지 + "구분 포인트" 문구로 핵심 차이 시각화
+
+#### ② N대 전략 한눈 비교 카드
+여러 전략/유형을 한 카드에서 비교. 4셀 그리드에서 **마지막 셀은 "구분 포인트"로 요약**.
+```html
+<div class="grid col2">
+  <div class="grid-item"><div class="gi-title">전략1</div>...</div>
+  <div class="grid-item"><div class="gi-title">전략2</div>...</div>
+  <div class="grid-item"><div class="gi-title">전략3</div>...</div>
+  <div class="grid-item">
+    <div class="gi-title">🎯 구분 포인트</div>
+    <div class="gi-body"><span><strong>전략1</strong>: 한 줄 요약</span>...</div>
+  </div>
+</div>
+```
+- Metacognitive / Cognitive / Socioaffective 3분할에 적용 성공
+
+#### ③ 용어 구분 카드 (Motivation vs Orientation 타입)
+교재·기출에서 자주 혼용되는 상위·하위 용어 관계를 명시.
+```html
+<div class="concept">
+  <div class="c-title">🔑 [용어A] vs [용어B] 용어 구분 (★★★ 헷갈 키텀)</div>
+  <p class="note"><strong>저자 공식 구분</strong>: ...</p>
+  <div class="grid col2">
+    <div class="grid-item">
+      <div class="gi-title"><span class='kw4'>용어A</span> (번역)</div>
+      <div class="gi-body"><span>정의</span><span>하위: <span class='kw1'>X/Y</span></span></div>
+    </div>
+    <!-- 용어B -->
+  </div>
+  <p class="note">⚠️ 주의: "혼용 표현"도 통용되지만 엄밀히는 [정확 표현]이 정확.</p>
+</div>
+```
+
+#### ④ Dual-Nature (양면성) 표현 패턴
+High/Low, Strong/Weak 같은 연속체에서 각 극점의 **장점(✅) + 단점(❌)** 모두 제시.
+```html
+<div class="gi-body">
+  <span>✅ <strong>장점</strong>: ...</span>
+  <span>❌ <strong>단점</strong>: ...</span>
+  <span><em>e.g. 예시</em></span>
+</div>
+```
+- Ambiguity Tolerance, Risk-taking 등에 적용
+- 하단에 `💡 Optimum level 필요` 문구로 균형 강조
+
+#### ⑤ 상단 기출분석 포인트 박스
+TOC 바로 아래 `.exam`에 해당 챕터 핵심 기출 8~10개 bullet. kw3~kw4 키워드 기반.
+```html
+<div class="exam" style="margin-bottom:20px">
+  <div class="exam-label">📝 기출분석 포인트 (Ch.N 챕터명)</div>
+  <p>① <span class='kw4'>핵심개념1</span> — 출제 유형 + 예시</p>
+  <!-- ② ~ ⑧ -->
+</div>
+```
+
 ---
 
 ## 참고 자료 (refs/ 폴더)
