@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>영어교육론 개념 마스터 · 임용고시 대비</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=JetBrains+Mono:wght@400;600&family=Caveat:wght@600&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans KR',sans-serif;background:#f5f4ee;background-image:repeating-linear-gradient(transparent,transparent 27px,#ddddd0 28px);color:#1a1a1a;min-height:100vh;padding:16px}
+.wrap{max-width:860px;margin:0 auto}
+
+/* Header */
+.header-wrap{padding:20px 8px 0}
+.header-topbar{display:flex;justify-content:space-between;align-items:center;border-top:2px solid #1a1a1a;padding-top:8px;margin-bottom:10px}
+.header-no{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;border:2px solid #1a1a1a;padding:3px 10px;border-radius:2px;letter-spacing:.5px}
+.header-label{font-family:'JetBrains Mono',monospace;font-size:11px;color:#888;letter-spacing:1px}
+.header-title{font-size:clamp(30px,7vw,50px);font-weight:900;color:#1a1a1a;line-height:1.1;margin-bottom:5px;letter-spacing:-1px}
+.title-hl{background:#2e7d52;color:#fff;padding:1px 8px}
+.header-script{font-family:'Caveat',cursive;font-size:24px;color:#2e7d52;margin-bottom:4px;font-weight:600}
+.header-sub{font-size:13px;color:#555;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#aaa;margin-bottom:14px}
+.header-divider{border:none;border-top:2.5px solid #1a1a1a;margin-bottom:24px}
+
+/* Intro */
+.intro{background:#fff;border:1.5px solid #b2dfcc;border-radius:14px;padding:22px 24px;margin-bottom:20px;box-shadow:0 2px 8px rgba(46,125,82,.08)}
+.intro h2{font-size:16px;color:#1b5e3a;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.intro p{font-size:13.5px;color:#3a3a3a;line-height:1.8;margin-bottom:6px}
+.intro .tag{display:inline-block;background:rgba(46,125,82,.1);color:#1b5e3a;font-family:'JetBrains Mono',monospace;font-size:11px;padding:3px 8px;border-radius:5px;margin-right:5px;margin-top:6px;border:1px solid rgba(46,125,82,.2)}
+
+/* Stats */
+.stats{display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap}
+.stat-card{flex:1;min-width:130px;background:#fff;border:1.5px solid #b2dfcc;border-radius:12px;padding:14px 16px;box-shadow:0 2px 6px rgba(46,125,82,.06)}
+.stat-num{font-family:'JetBrains Mono',monospace;font-size:24px;font-weight:700;color:#2e7d52;line-height:1}
+.stat-lb{font-size:11px;color:#666;margin-top:6px;letter-spacing:.3px}
+
+/* Chapter cards */
+.sec-header{display:flex;align-items:center;gap:10px;margin:24px 0 14px;padding:0 4px}
+.sec-header h3{font-size:17px;font-weight:700;color:#1a3326}
+.sec-header .sec-dot{width:10px;height:10px;background:#2e7d52;border-radius:50%}
+.sec-header .cnt{font-family:'JetBrains Mono',monospace;font-size:11px;color:#666;margin-left:auto}
+
+.chap-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.chap-card{background:#fff;border:1.5px solid #b2dfcc;border-radius:14px;padding:18px 20px;transition:all .2s ease;box-shadow:0 2px 6px rgba(46,125,82,.06);position:relative;overflow:hidden}
+.chap-card:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(46,125,82,.15);border-color:#2e7d52}
+.chap-card.upcoming{opacity:.55;background:#fafaf6;border-style:dashed}
+.chap-card.upcoming:hover{transform:none;box-shadow:0 2px 6px rgba(46,125,82,.06);border-color:#b2dfcc}
+
+.chap-top{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.chap-no{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:#2e7d52;background:rgba(46,125,82,.1);padding:3px 9px;border-radius:6px}
+.chap-status{font-family:'JetBrains Mono',monospace;font-size:10px;padding:2px 8px;border-radius:5px;margin-left:auto}
+.chap-status.done{background:rgba(46,125,82,.15);color:#1b5e3a;border:1px solid rgba(46,125,82,.25)}
+.chap-status.soon{background:rgba(255,152,0,.1);color:#bf6000;border:1px solid rgba(255,152,0,.25)}
+
+.chap-title{font-size:16px;font-weight:700;color:#1a1a1a;margin-bottom:4px;letter-spacing:-.3px}
+.chap-ko{font-family:'Caveat',cursive;font-size:18px;color:#2e7d52;font-weight:600;margin-bottom:12px}
+
+.chap-actions{display:flex;gap:8px;margin-top:10px}
+.chap-btn{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:5px;padding:9px 10px;border-radius:8px;font-size:12px;font-weight:700;text-decoration:none;transition:all .15s ease;font-family:'Noto Sans KR',sans-serif}
+.chap-btn.quiz{background:#2e7d52;color:#fff;border:1.5px solid #2e7d52}
+.chap-btn.quiz:hover{background:#1b5e3a}
+.chap-btn.study{background:#fff;color:#00695c;border:1.5px solid #00796b}
+.chap-btn.study:hover{background:rgba(0,121,107,.08)}
+.chap-btn.disabled{background:#f0f0eb;color:#aaa;border:1.5px dashed #ccc;cursor:not-allowed;pointer-events:none}
+
+/* Footer */
+.footer{margin-top:40px;padding:18px 8px;border-top:2px dashed #888;text-align:center;font-family:'JetBrains Mono',monospace;font-size:11px;color:#666}
+.footer .hl{color:#2e7d52;font-weight:700}
+
+/* Mobile */
+@media(max-width:600px){
+  .stats{flex-direction:column}
+  .chap-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <!-- Header -->
+  <div class="header-wrap">
+    <div class="header-topbar">
+      <span class="header-no">임용고시 대비 · English Education</span>
+      <span class="header-label">Concept Master · Index</span>
+    </div>
+    <h1 class="header-title"><span class="title-hl">영어교육론</span> 개념 마스터</h1>
+    <div class="header-script">Concept Master · All Chapters</div>
+    <p class="header-sub">중등 임용 영어 · 서브노트 기반 · 기출 포함 · OX 퀴즈 + 개념 정리</p>
+    <div class="header-divider"></div>
+  </div>
+
+  <!-- Intro -->
+  <div class="intro">
+    <h2>📘 학습 가이드</h2>
+    <p>· 각 챕터는 <strong>OX 퀴즈(20문항)</strong> + <strong>개념정리 노트</strong> 2개 페이지로 구성됩니다.</p>
+    <p>· 원서(TBP·PLLT)·빌드업·정T·송은우·밍우·루이스 기출을 <strong>서브노트 기반</strong>으로 통합 정리했습니다.</p>
+    <p>· 퀴즈는 <strong>영어 문장</strong>으로 출제되며, 해설은 핵심정정→상세설명→Source→비교정리 순입니다.</p>
+    <div>
+      <span class="tag">kw1 ★ 기본</span>
+      <span class="tag">kw2 부키워드</span>
+      <span class="tag">kw3 ★★ 빈출</span>
+      <span class="tag">kw4 ★★★ 최빈출</span>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats">
+    <div class="stat-card"><div class="stat-num">5</div><div class="stat-lb">완료 챕터</div></div>
+    <div class="stat-card"><div class="stat-num">100</div><div class="stat-lb">OX 문항 총수</div></div>
+    <div class="stat-card"><div class="stat-num">8</div><div class="stat-lb">예정 챕터</div></div>
+    <div class="stat-card"><div class="stat-num">13</div><div class="stat-lb">전체 챕터</div></div>
+  </div>
+
+  <!-- Completed Chapters -->
+  <div class="sec-header">
+    <span class="sec-dot"></span><h3>✅ 완료 챕터</h3><span class="cnt">5 / 13</span>
+  </div>
+
+  <div class="chap-grid">
+    <!-- Ch.1 SLA -->
+    <div class="chap-card">
+      <div class="chap-top">
+        <span class="chap-no">Ch.1</span>
+        <span class="chap-status done">DONE</span>
+      </div>
+      <div class="chap-title">SLA Theory</div>
+      <div class="chap-ko">제2언어습득 이론</div>
+      <div class="chap-actions">
+        <a class="chap-btn quiz" href="./sla.html">⭕❌ OX 퀴즈</a>
+        <a class="chap-btn study" href="./sla_study.html">📖 개념정리</a>
+      </div>
+    </div>
+
+    <!-- Ch.2 Linguistic -->
+    <div class="chap-card">
+      <div class="chap-top">
+        <span class="chap-no">Ch.2</span>
+        <span class="chap-status done">DONE</span>
+      </div>
+      <div class="chap-title">Linguistic Aspects</div>
+      <div class="chap-ko">언어학적 측면</div>
+      <div class="chap-actions">
+        <a class="chap-btn quiz" href="./linguistic.html">⭕❌ OX 퀴즈</a>
+        <a class="chap-btn study" href="./linguistic_study.html">📖 개념정리</a>
+      </div>
+    </div>
+
+    <!-- Ch.3 Learner Variables -->
+    <div class="chap-card">
+      <div class="chap-top">
+        <span class="chap-no">Ch.3</span>
+        <span class="chap-status done">NEW</span>
+      </div>
+      <div class="chap-title">Learner Variables</div>
+      <div class="chap-ko">학습자 변인</div>
+      <div class="chap-actions">
+        <a class="chap-btn quiz" href="./learner.html">⭕❌ OX 퀴즈</a>
+        <a class="chap-btn study" href="./learner_study.html">📖 개념정리</a>
+      </div>
+    </div>
+
+    <!-- Ch.6 Reading -->
+    <div class="chap-card">
+      <div class="chap-top">
+        <span class="chap-no">Ch.6</span>
+        <span class="chap-status done">DONE</span>
+      </div>
+      <div class="chap-title">Teaching Reading</div>
+      <div class="chap-ko">읽기 지도</div>
+      <div class="chap-actions">
+        <a class="chap-btn quiz" href="./reading.html">⭕❌ OX 퀴즈</a>
+        <a class="chap-btn study" href="./reading_study.html">📖 개념정리</a>
+      </div>
+    </div>
+
+    <!-- Ch.7 Listening -->
+    <div class="chap-card">
+      <div class="chap-top">
+        <span class="chap-no">Ch.7</span>
+        <span class="chap-status done">DONE</span>
+      </div>
+      <div class="chap-title">Teaching Listening</div>
+      <div class="chap-ko">듣기 지도</div>
+      <div class="chap-actions">
+        <a class="chap-btn quiz" href="./listen.html">⭕❌ OX 퀴즈</a>
+        <a class="chap-btn study" href="./listen_study.html">📖 개념정리</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Upcoming Chapters -->
+  <div class="sec-header">
+    <span class="sec-dot" style="background:#ff9800"></span><h3>🚧 제작 예정</h3><span class="cnt">8 / 13</span>
+  </div>
+
+  <div class="chap-grid">
+    <div class="chap-card upcoming">
+      <div class="chap-top">
+        <span class="chap-no">Ch.4</span>
+        <span class="chap-status soon">SOON</span>
+      </div>
+      <div class="chap-title">Discourse</div>
+      <div class="chap-ko">담화</div>
+      <div class="chap-actions">
+        <span class="chap-btn disabled">⭕❌ 준비중</span>
+        <span class="chap-btn disabled">📖 준비중</span>
+      </div>
+    </div>
+
+    <div class="chap-card upcoming">
+      <div class="chap-top">
+        <span class="chap-no">Ch.5</span>
+        <span class="chap-status soon">SOON</span>
+      </div>
+      <div class="chap-title">Methodology</div>
+      <div class="chap-ko">교수법</div>
+      <div class="chap-actions">
+        <span class="chap-btn disabled">⭕❌ 준비중</span>
+        <span class="chap-btn disabled">📖 준비중</span>
+      </div>
+    </div>
+
+    <div class="chap-card upcoming">
+      <div class="chap-top">
+        <span class="chap-no">Ch.8</span>
+        <span class="chap-status soon">SOON</span>
+      </div>
+      <div class="chap-title">Speaking</div>
+      <div class="chap-ko">말하기 지도</div>
+      <div class="chap-actions">
+        <span class="chap-btn disabled">⭕❌ 준비중</span>
+        <span class="chap-btn disabled">📖 준비중</span>
+      </div>
+    </div>
+
+    <div class="chap-card upcoming">
+      <div class="chap-top">
+        <span class="chap-no">Ch.9</span>
+        <span class="chap-status soon">SOON</span>
+      </div>
+      <div class="chap-title">Writing</div>
+      <div class="chap-ko">쓰기 지도</div>
+      <div class="chap-actions">
+        <span class="chap-btn disabled">⭕❌ 준비중</span>
+        <span class="chap-btn disabled">📖 준비중</span>
+      </div>
+    </div>
+
+    <div class="chap-card upcoming">
+      <div class="chap-top">
+        <span class="chap-no">Ch.10</span>
+        <span class="chap-status soon">SOON</span>
+      </div>
+      <div class="chap-title">Grammar</div>
+      <div class="chap-ko">문법 지도</div>
+      <div class="chap-actions">
+        <span class="chap-btn disabled">⭕❌ 준비중</span>
+        <span class="chap-btn disabled">📖 준비중</span>
+      </div>
+    </div>
+
+    <div class="chap-card upcoming">
+      <div class="chap-top">
+        <span class="chap-no">Ch.11</span>
+        <span class="chap-status soon">SOON</span>
+      </div>
+      <div class="chap-title">Vocabulary</div>
+      <div class="chap-ko">어휘 지도</div>
+      <div class="chap-actions">
+        <span class="chap-btn disabled">⭕❌ 준비중</span>
+        <span class="chap-btn disabled">📖 준비중</span>
+      </div>
+    </div>
+
+    <div class="chap-card upcoming">
+      <div class="chap-top">
+        <span class="chap-no">Ch.12</span>
+        <span class="chap-status soon">SOON</span>
+      </div>
+      <div class="chap-title">CALL · Material</div>
+      <div class="chap-ko">CALL·교재</div>
+      <div class="chap-actions">
+        <span class="chap-btn disabled">⭕❌ 준비중</span>
+        <span class="chap-btn disabled">📖 준비중</span>
+      </div>
+    </div>
+
+    <div class="chap-card upcoming">
+      <div class="chap-top">
+        <span class="chap-no">Ch.13</span>
+        <span class="chap-status soon">SOON</span>
+      </div>
+      <div class="chap-title">Assessment</div>
+      <div class="chap-ko">평가</div>
+      <div class="chap-actions">
+        <span class="chap-btn disabled">⭕❌ 준비중</span>
+        <span class="chap-btn disabled">📖 준비중</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>📚 중등 임용 영어 · 영어교육론 개념 마스터</p>
+    <p style="margin-top:6px">서브노트 · TBP · PLLT · 빌드업 · 정T · 송은우 · 밍우 · 기출 통합</p>
+    <p style="margin-top:6px"><span class="hl">Concept Master</span> · 임용 합격 기원 🌿</p>
+  </div>
+</div>
+</body>
+</html>
