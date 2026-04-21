@@ -14,6 +14,9 @@
 | `linguistic_study.html` | Ch.2 Linguistic Aspects 개념 정리 | ✅ 완료 |
 | `reading.html` | Ch.6 Teaching Reading OX 퀴즈 | ✅ 완료 |
 | `reading_study.html` | Ch.6 Teaching Reading 개념 정리 | ✅ 완료 |
+| `learner.html` | Ch.3 Learner Variables OX 퀴즈 | ✅ 완료 |
+| `learner_study.html` | Ch.3 Learner Variables 개념 정리 | ✅ 완료 |
+| `index.html` | 전체 챕터 인덱스 랜딩 페이지 | ✅ 완료 |
 | `sounds.js` | 정답/오답 효과음 (Web Audio API) | ✅ 공용 |
 | `score-popup.js` | 결과 팝업 + 컨페티 + 최고기록 | ✅ 공용 |
 | `refs/` | 키워드·매핑·서브노트·기출 참고 자료 | - |
@@ -21,7 +24,6 @@
 ### 제작 예정 파일명 규칙 (챕터당 2개)
 | 챕터 | 퀴즈 | 개념정리 |
 |------|------|---------|
-| Ch.3 Learner Variables | `learner.html` | `learner_study.html` |
 | Ch.4 Discourse | `discourse.html` | `discourse_study.html` |
 | Ch.5 Methodology | `methodology.html` | `methodology_study.html` |
 | Ch.8 Speaking | `speaking.html` | `speaking_study.html` |
@@ -220,3 +222,110 @@ function openSec(id){ const s=document.getElementById(id); s.classList.add('open
 - CSS 변수 사용 금지, 클래스 스타일로 처리
 - 수정 항목: `SAVE_KEY`, `TOTAL`, 헤더 텍스트(NO. XX, 챕터명), `Q[]` 배열
 - **sounds.js + score-popup.js 반드시 포함, 퀴즈 JS보다 먼저 로드**
+- **⚠️ "루이스" 글자 사용 금지** — 소스 인용·해설 어디에도 "루이스" 단어 넣지 말 것. `5판`·`기출`·`해설` 등으로만 표기.
+- **새 챕터 완료 시 `index.html`도 함께 업데이트** (완료 챕터 카드 추가 + 통계 숫자 갱신)
+
+---
+
+## 챕터 작업 완료 시 자동 처리 워크플로우 ✅
+
+**챕터 1개 완료 = 반드시 아래 5단계 모두 자동 실행**
+
+### 1단계: 코드 작업
+- `XXX.html` + `XXX_study.html` 작성
+- `index.html` 업데이트 (완료 챕터 카드 추가, 통계 숫자 +1)
+
+### 2단계: 커밋
+```bash
+git add XXX.html XXX_study.html index.html
+git commit -m "Add Ch.N [챕터명] — XXX.html (OX quiz, 20문항) + XXX_study.html (개념 정리)
+
+- 주요 변경 내용 요약
+Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>"
+```
+
+### 3단계: 브랜치 푸시
+```bash
+git push -u origin <current-branch>
+```
+
+### 4단계: main 머지·푸시 (워크트리 기준)
+```bash
+cd /Users/namgicheol/englisheducation
+git fetch origin
+git merge --ff-only <current-branch>
+git push origin main
+```
+> GitHub Pages는 main 기준 배포 — main 머지해야 `namkicheol.github.io/englisheducation/...` 에서 접근 가능.
+
+### 5단계: 블로그 자료 자동 제공
+사용자가 별도 요청하지 않아도 아래 4가지를 함께 출력:
+① 블로그 제목 2개 (퀴즈/개념정리)
+② 태그
+③ iframe 임베드 코드 2개 (퀴즈/개념정리)
+④ Gemini 썸네일 명령어 2개 (퀴즈/개념정리)
+
+---
+
+## 블로그 자료 템플릿
+
+### ① 블로그 제목 (2개)
+```
+중등 임용 영어 | Ch.N [영문 챕터명] OX 퀴즈 20문제 (기출 포함)
+중등 임용 영어 | Ch.N [영문 챕터명] 핵심 개념정리 (서브노트 기반)
+```
+
+### ② 태그 (공통)
+```
+임용고시, 중등영어, 영어교육론, ChN, [챕터키워드1], [챕터키워드2], 
+[핵심개념1], [핵심개념2], [핵심개념3], 서브노트, 기출분석
+```
+
+### ③ iframe 임베드
+**퀴즈:**
+```html
+<iframe src="https://namkicheol.github.io/englisheducation/XXX.html" 
+        width="100%" height="900" frameborder="0" 
+        style="border:1px solid #ddd; border-radius:12px;"></iframe>
+```
+**개념정리:**
+```html
+<iframe src="https://namkicheol.github.io/englisheducation/XXX_study.html" 
+        width="100%" height="900" frameborder="0" 
+        style="border:1px solid #ddd; border-radius:12px;"></iframe>
+```
+
+### ④ Gemini 썸네일 생성 명령어
+
+**퀴즈 썸네일 (1200x675, 16:9):**
+```
+Create a blog thumbnail image (1200x675, 16:9 ratio) for a Korean teacher qualification exam blog post.
+
+Style:
+- Clean flat design, minimal, Korean educational style
+- Mint/soft green gradient background (#d4f1e4 → #a8e6cf)
+- Large bold red X mark icon on the left side (circular badge style)
+- Right side text layout:
+  • Top small badge "Ch.N" (dark rounded pill)
+  • Title: "[English Chapter Name]" (very large bold English, dark text)
+  • Subtitle: "OX 퀴즈 20문제" (Korean, medium, dark green #1b5e3a)
+  • Bottom keyword tags: "[keyword1] · [keyword2] · [keyword3] · [keyword4]" (small gray)
+- No borders, lots of white space, professional typography
+- Font: clean sans-serif (Noto Sans KR + Inter style)
+```
+
+**개념정리 썸네일 (1200x675, 16:9):**
+```
+Create a blog thumbnail image (1200x675, 16:9 ratio) for a Korean teacher qualification exam study notes blog post.
+
+Style:
+- Clean flat design, Korean educational style
+- Light mint background (#eaf7f0) with subtle notebook line pattern
+- Left side: stylized open notebook icon with keywords "[kw1]", "[kw2]", "[kw3]" floating as sticker labels around it (teal #00796b color)
+- Right side text layout:
+  • Top small badge "Ch.N" (dark rounded pill)
+  • Title: "[English Chapter Name]" (very large bold English, dark text)
+  • Subtitle: "핵심 개념정리" (Korean, teal #00695c, bold)
+  • Bottom keyword tags: "[author1] · [author2] · [concept1] · [concept2]" (small gray)
+- Clean professional look, Noto Sans KR + Inter style
+```
