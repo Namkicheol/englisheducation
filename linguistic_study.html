@@ -220,13 +220,22 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
     <div class="div"></div>
     <div class="concept">
       <div class="c-title">U-shaped Learning</div>
-      <div class="flow">
-        <div class="flow-item">Phase 1<br><small style="color:#2e7d52">correct</small><br><small>(imitation/lexical item)</small></div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-item">Phase 2<br><small style="color:#c62828">incorrect</small><br><small>(overgeneralization)</small></div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-item">Phase 3<br><small style="color:#2e7d52">correct</small><br><small>(rule internalized)</small></div>
-      </div>
+      <svg viewBox="0 0 700 100" style="width:100%;margin-top:10px;font-family:'JetBrains Mono',monospace" xmlns="http://www.w3.org/2000/svg">
+        <rect x="4" y="10" width="208" height="80" rx="8" fill="rgba(46,125,82,.1)" stroke="rgba(46,125,82,.4)" stroke-width="1.5"/>
+        <text x="108" y="36" text-anchor="middle" fill="#1b5e3a" font-size="12" font-weight="bold">Phase 1</text>
+        <text x="108" y="54" text-anchor="middle" fill="#2e7d52" font-size="11">✓ correct</text>
+        <text x="108" y="70" text-anchor="middle" fill="#3a6b51" font-size="10">imitation / lexical item</text>
+        <text x="222" y="55" text-anchor="middle" fill="#26a69a" font-size="22">→</text>
+        <rect x="236" y="10" width="208" height="80" rx="8" fill="rgba(183,28,28,.08)" stroke="rgba(183,28,28,.35)" stroke-width="1.5"/>
+        <text x="340" y="36" text-anchor="middle" fill="#b71c1c" font-size="12" font-weight="bold">Phase 2</text>
+        <text x="340" y="54" text-anchor="middle" fill="#c62828" font-size="11">✗ incorrect</text>
+        <text x="340" y="70" text-anchor="middle" fill="#b71c1c" font-size="10">overgeneralization</text>
+        <text x="454" y="55" text-anchor="middle" fill="#26a69a" font-size="22">→</text>
+        <rect x="466" y="10" width="230" height="80" rx="8" fill="rgba(46,125,82,.15)" stroke="rgba(46,125,82,.5)" stroke-width="1.5"/>
+        <text x="581" y="36" text-anchor="middle" fill="#1b5e3a" font-size="12" font-weight="bold">Phase 3</text>
+        <text x="581" y="54" text-anchor="middle" fill="#2e7d52" font-size="11">✓ correct</text>
+        <text x="581" y="70" text-anchor="middle" fill="#1b5e3a" font-size="10">rule internalized</text>
+      </svg>
       <p class="note" style="margin-top:10px">e.g. went → <span class='kw2'>goed</span> → went (overgeneralization 후 회복)</p>
     </div>
   </div>
