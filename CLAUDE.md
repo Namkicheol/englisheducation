@@ -415,15 +415,30 @@ git commit -m "Add Ch.N [챕터명] + index 업데이트
 Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>"
 ```
 
-### 3단계: 브랜치 푸시 + main 머지·푸시 (연쇄)
+### 3단계: 브랜치 푸시 + PR 머지 (GitHub MCP 방식)
+
+> ⚠️ **웹 환경 주의**: 로컬에서 별도 작업 후 origin/main에 직접 푸시한 경우, 이 환경의 로컬 main이 origin/main과 diverge될 수 있음. 이 경우 **로컬 git merge 대신 GitHub MCP로 PR 머지**하고, 이후 로컬 main을 reset --hard.
+
+**① feature 브랜치 푸시**
 ```bash
-git push -u origin <current-branch> && \
-cd /Users/namgicheol/englisheducation && \
-git fetch origin && \
-git merge --ff-only <current-branch> && \
-git push origin main
+git push -u origin <current-branch>
 ```
-> 한 번의 명령 체인으로 처리 — 중간에 추가 커밋 삽입 금지.
+
+**② PR을 draft → ready 전환 후 squash 머지 (GitHub MCP)**
+```python
+# draft 해제
+mcp__github__update_pull_request(owner, repo, pullNumber, draft=False)
+# squash 머지
+mcp__github__merge_pull_request(owner, repo, pullNumber, merge_method="squash",
+    commit_title="커밋 제목", commit_message="상세 내용")
+```
+
+**③ 로컬 main 동기화**
+```bash
+git fetch origin && git reset --hard origin/main
+```
+
+> 한 번의 흐름으로 처리 — 중간에 추가 커밋 삽입 금지.
 
 ### 4단계: Pages 배포 완료 대기 (폴링)
 ```bash
