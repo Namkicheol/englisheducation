@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch.3 Learner Variables OX Quiz</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=JetBrains+Mono:wght@400;600&family=Caveat:wght@600&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans KR',sans-serif;background:#f5f4ee;background-image:repeating-linear-gradient(transparent,transparent 27px,#ddddd0 28px);color:#1a1a1a;min-height:100vh;padding:16px}
+.header-wrap{max-width:720px;margin:0 auto;padding:20px 8px 0}
+.header-topbar{display:flex;justify-content:space-between;align-items:center;border-top:2px solid #1a1a1a;padding-top:8px;margin-bottom:10px}
+.header-no{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;border:2px solid #1a1a1a;padding:3px 10px;border-radius:2px;letter-spacing:.5px;display:flex;align-items:center;gap:6px}
+.header-label{font-family:'JetBrains Mono',monospace;font-size:11px;color:#888;letter-spacing:1px}
+.header-title{font-size:clamp(30px,7vw,46px);font-weight:900;color:#1a1a1a;line-height:1.1;margin-bottom:5px;letter-spacing:-1px}
+.title-hl{background:#2e7d52;color:#fff;padding:1px 6px}
+.header-script{font-family:'Caveat',cursive;font-size:21px;color:#2e7d52;margin-bottom:4px;font-weight:600}
+.header-sub{font-size:13px;color:#555;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#aaa;margin-bottom:14px}
+.header-divider{border:none;border-top:2.5px solid #1a1a1a;margin-bottom:20px}
+.prog-wrap{max-width:720px;margin:0 auto 10px;padding:0 8px}
+.prog-info{display:flex;justify-content:space-between;font-size:12px;color:#4a7a62;font-family:'JetBrains Mono',monospace;margin-bottom:6px}
+.bar{height:4px;background:#b2dfcc;border-radius:2px;overflow:hidden}
+.bar-fill{height:100%;background:linear-gradient(90deg,#2e7d52,#26a69a);border-radius:2px;transition:width .5s ease}
+.wrap{max-width:720px;margin:0 auto}
+.card{background:#fff;border:1.5px solid #b2dfcc;border-radius:14px;padding:26px;animation:up .35s ease;box-shadow:0 2px 8px rgba(46,125,82,.08)}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.q-meta{display:flex;align-items:center;gap:7px;margin-bottom:14px;flex-wrap:wrap}
+.q-num{font-family:'JetBrains Mono',monospace;font-size:11px;color:#2e7d52;background:rgba(46,125,82,.1);padding:3px 10px;border-radius:8px;font-weight:700}
+.q-src{font-size:11px;color:#4a7a62;font-family:'JetBrains Mono',monospace}
+.q-cat{font-size:11px;color:#00796b;background:rgba(38,166,154,.1);padding:3px 10px;border-radius:8px;margin-left:auto;font-weight:600}
+.kw1{background:rgba(46,125,82,.15);color:#1b5e3a;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(46,125,82,.25)}
+.kw2{color:#00796b;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border-bottom:2px solid rgba(0,121,107,.45)}
+.kw3{background:rgba(230,119,0,.13);color:#bf6000;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(230,119,0,.3)}
+.kw4{background:rgba(183,28,28,.11);color:#b71c1c;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(183,28,28,.25)}
+.q-text{font-size:clamp(15px,2.2vw,16.5px);line-height:1.9;margin-bottom:24px;color:#1a3326}
+.ox-btns{display:flex;gap:12px}
+.ox-btn{flex:1;padding:20px 10px;border-radius:12px;border:2px solid #b2dfcc;background:#f5fdf8;color:#1a3326;font-size:30px;cursor:pointer;transition:all .18s ease;display:flex;flex-direction:column;align-items:center;gap:5px}
+.lb{font-size:11px;font-family:'JetBrains Mono',monospace;color:#4a7a62;letter-spacing:1px;font-weight:600}
+.ox-btn:hover:not(:disabled){transform:translateY(-2px)}
+.o-btn:hover:not(:disabled){border-color:#2e7d52;background:rgba(46,125,82,.08)}
+.x-btn:hover:not(:disabled){border-color:#c62828;background:rgba(198,40,40,.06)}
+.co,.cx{border-color:#2e7d52!important;background:rgba(46,125,82,.1)!important}
+.wp{border-color:#c62828!important;background:rgba(198,40,40,.08)!important}
+.ox-btn:disabled{cursor:default}
+.badge{display:none;margin-top:14px;padding:9px 16px;border-radius:8px;font-size:14px;font-weight:700;font-family:'JetBrains Mono',monospace}
+.badge.ok{display:inline-block;background:rgba(46,125,82,.1);color:#2e7d52;border:1.5px solid rgba(46,125,82,.3)}
+.badge.ng{display:inline-block;background:rgba(198,40,40,.08);color:#c62828;border:1.5px solid rgba(198,40,40,.25)}
+.exp{display:none;margin-top:18px;border-radius:12px;overflow:hidden;animation:fade .3s ease}
+.exp.show{display:block}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.exp-header{background:linear-gradient(135deg,rgba(46,125,82,.12),rgba(38,166,154,.06));border:1.5px solid rgba(46,125,82,.25);border-bottom:none;padding:11px 16px}
+.exp-header span{font-size:11px;font-family:'JetBrains Mono',monospace;color:#1b5e3a;letter-spacing:1.5px;text-transform:uppercase;font-weight:700}
+.exp-answer{background:rgba(46,125,82,.05);border:1.5px solid rgba(46,125,82,.2);border-top:none;border-bottom:none;padding:14px 16px}
+.ans-label{font-size:11px;font-family:'JetBrains Mono',monospace;color:#4a7a62;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;font-weight:700}
+.ans-text{font-size:15px;color:#1a3326;line-height:1.75;font-weight:500}
+.exp-body{background:rgba(46,125,82,.03);border:1.5px solid rgba(46,125,82,.15);border-top:1px solid rgba(46,125,82,.1);padding:14px 16px}
+.sec-label{font-size:11px;font-family:'JetBrains Mono',monospace;color:#00796b;text-transform:uppercase;letter-spacing:1px;margin-bottom:7px;margin-top:13px;font-weight:700}
+.sec-label:first-child{margin-top:0}
+.exp-body p{font-size:14px;color:#2a5040;line-height:1.8;margin-bottom:5px}
+.def-box{background:rgba(38,166,154,.06);border-left:4px solid #26a69a;padding:10px 14px;border-radius:0 8px 8px 0;margin:8px 0}
+.def-box p{color:#004d40;font-size:13.5px;font-style:italic;line-height:1.75}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.compare.three{grid-template-columns:1fr 1fr 1fr}
+.compare-item{background:#f5fdf8;border:1.5px solid #b2dfcc;border-radius:8px;padding:11px 14px}
+.ci-title{font-size:11px;font-family:'JetBrains Mono',monospace;color:#1b5e3a;font-weight:700;margin-bottom:5px}
+.compare-item p{font-size:13px;color:#3a6b51;line-height:1.65}
+.next-btn{display:none;width:100%;margin-top:16px;padding:14px;background:linear-gradient(135deg,#2e7d52,#26a69a);border:none;border-radius:10px;color:white;font-family:'Noto Sans KR',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:opacity .2s,transform .2s}
+.next-btn:hover{opacity:.88;transform:translateY(-1px)}
+.next-btn.show{display:block;animation:fade .3s ease}
+.score-card{display:none;text-align:center;padding:48px 24px}
+.score-card.show{display:block;animation:up .5s ease}
+.score-circle{width:130px;height:130px;border-radius:50%;background:linear-gradient(135deg,#2e7d52,#26a69a);display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 0 40px rgba(46,125,82,.3)}
+.s-num{font-size:42px;font-weight:700;line-height:1;color:#fff}
+.s-total{font-size:14px;opacity:.85;color:#fff}
+.score-card h2{font-size:24px;margin-bottom:7px;color:#1a1a1a}
+.score-card p{color:#555;margin-bottom:24px;font-size:15px}
+.restart-btn{padding:13px 32px;background:#fff;border:2px solid #1a1a1a;border-radius:10px;color:#1a1a1a;font-family:'Noto Sans KR',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:all .2s}
+.restart-btn:hover{background:#f5f4ee}
+.nd{width:28px;height:28px;border-radius:6px;border:1.5px solid #b2dfcc;background:#fff;font-size:10px;font-family:'JetBrains Mono',monospace;cursor:pointer;color:#4a7a62;transition:all .15s;display:inline-flex;align-items:center;justify-content:center;font-weight:600}
+.nd.cur{border-color:#2e7d52;background:#2e7d52;color:white}
+.nd.ok{border-color:#2e7d52;background:rgba(46,125,82,.15);color:#1b5e3a}
+.nd.ng{border-color:#c62828;background:rgba(198,40,40,.1);color:#c62828}
+.nd:hover:not(.cur){opacity:.7}
+#nav{display:flex;flex-wrap:wrap;gap:5px;max-width:720px;margin:0 auto 16px;padding:0 8px}
+</style>
+</head>
+<body>
+<div class="header-wrap">
+  <div class="header-topbar">
+    <span class="header-no">NO. 03 <span>—</span> Learner Variables</span>
+    <span class="header-label">Past-Exam Notebook</span>
+  </div>
+  <h1 class="header-title"><span class="title-hl">영어교육론</span> 개념 마스터</h1>
+  <div class="header-script">Concept Master</div>
+  <p class="header-sub">영어교육론 · Learner Variables · 임용고시 대비</p>
+  <div class="header-divider"></div>
+</div>
+<div class="prog-wrap">
+  <div class="prog-info"><span id="pt">1 / 20</span><span id="ps">정답 0개</span></div>
+  <div class="bar"><div class="bar-fill" id="bf" style="width:5%"></div></div>
+</div>
+<div id="rb" style="display:none;max-width:720px;margin:0 auto 14px;padding:0 8px">
+  <div style="background:rgba(46,125,82,.08);border:1.5px solid rgba(46,125,82,.3);border-radius:12px;padding:13px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+    <span id="rb-msg" style="font-size:13px;color:#1a3326;font-family:'JetBrains Mono',monospace;line-height:1.5"></span>
+    <button onclick="freshStart()" style="padding:10px 22px;background:#c62828;border:none;border-radius:8px;color:#fff;font-size:14px;font-weight:700;font-family:'Noto Sans KR',sans-serif;cursor:pointer">처음부터</button>
+  </div>
+</div>
+<div id="nav"></div>
+<div class="wrap">
+  <div id="qa"></div>
+  <div class="score-card" id="sc">
+    <div class="score-circle"><span class="s-num" id="fs">0</span><span class="s-total">/20</span></div>
+    <h2 id="rm"></h2><p id="rs"></p>
+    <button class="restart-btn" onclick="freshStart()">🔄 처음부터</button>
+  </div>
+</div>
+<script src="./score-popup.js"></script>
+<script src="./sounds.js"></script>
+<script>
+const SAVE_KEY='ox_learner_v1';
+const TOTAL=20;
+let cur=0;
+let answers=new Array(TOTAL).fill(null);
+function getScore(){return answers.filter(a=>a&&a.correct).length;}
+const Q=[
+  {src:"Learner Style · 5판",cat:"Processing · FI/FD",text:"<span class='kw4'>Field-Independent</span> learners are more holistic in perception and perform better in selective listening tasks, as they easily grasp the whole picture of the listening text.",ans:false,correct:"<span class='kw4'>Field-Independent</span> Ls are <span class='kw2'>analytic</span>, not holistic. They <span class='kw2'>distinguish parts from whole</span> → 선택적 듣기·문법 분석·mechanical drill 유리. <span class='kw4'>Field-Dependent</span> Ls가 holistic.",why:"5판 공식: <strong>FI = bottom-up</strong> (examining input to discover generalization) · <strong>FD = top-down</strong> (predict, apply to instances). FI는 grammatical analysis, attention to details, mechanical drill 유리 / FD는 communicative writing, authentic reading text 유리.",source:"\"<span class='kw4'>Field-Independent</span>: distinguish parts from a whole (→ Selective listening); prefers <span class='kw2'>bottom-up processing</span>. <span class='kw4'>Field-Dependent</span>: perceive the whole picture; prefer <span class='kw2'>top-down processing</span>.\" (5판)",compare:[{title:"<span class='kw4'>Field-Dependent</span>",desc:"holistic · <span class='kw2'>top-down</span> · context-rich · CLT 유리"},{title:"<span class='kw4'>Field-Independent</span>",desc:"analytic · <span class='kw2'>bottom-up</span> · selective listening · drill 유리"}]},
+  {src:"Learner Style · 5판",cat:"Ambiguity Tolerance",text:"While <span class='kw3'>tolerance of ambiguity</span> is generally beneficial for L2 learning, being <span class='kw2'>too tolerant</span> of ambiguity may lead to <span class='kw2'>fossilization</span> of incorrect forms.",ans:true,correct:"Too high ambiguity tolerance can cause learners to <span class='kw2'>accept incorrect forms without noticing</span>, leading to <span class='kw2'>fossilization</span> of incorrect knowledge.",why:"5판 양면 분석: <strong>High AT</strong> — 장점=creative possibilities / 단점=fossilization. <strong>Low AT</strong> — 장점=deal with reality / 단점=dogmatic, not creative. Optimum level 필요.",source:"\"<span class='kw3'>a) high tolerance</span>: Advantage = free to entertain creative possibilities · Disadvantage = <span class='kw2'>fossilization of incorrect knowledge</span>. <span class='kw3'>b) low tolerance</span>: Advantage = deal with reality · Disadvantage = <span class='kw2'>dogmatic, not creative</span>.\" (5판)",compare:[{title:"<span class='kw2'>High tolerance</span>",desc:"창의적 · but <span class='kw2'>fossilization</span>"},{title:"<span class='kw2'>Low tolerance</span>",desc:"체계적 · but <span class='kw2'>dogmatic</span>"}]},
+  {src:"Learner Style",cat:"Reflectivity / Impulsivity",text:"If given <span class='kw2'>preparation time</span> before a speaking task, <span class='kw1'>reflective</span> learners may gain <span class='kw2'>confidence</span>, and <span class='kw1'>impulsive</span> learners may gain <span class='kw2'>accuracy</span>.",ans:true,correct:"Preparation time gives reflective Ls <span class='kw2'>confidence</span> (slow but accurate) and gives impulsive Ls <span class='kw2'>accuracy</span> (fast but error-prone).",why:"Reflective learners는 느리지만 정확 → 준비시간은 자신감을 강화. Impulsive learners는 빠르지만 오류 多 → 준비시간으로 정확성 확보. 기출에 교수 시사점으로 등장.",source:"\"If given preparation time before speaking task, <span class='kw2'>reflective Ls may gain confidence</span>, and <span class='kw2'>impulsive Ls may gain accuracy</span>.\"",compare:[{title:"<span class='kw1'>Reflective</span>",desc:"slow · accurate · few errors"},{title:"<span class='kw1'>Impulsive</span>",desc:"fast · risk-taking · many errors"}]},
+  {src:"Learner Style",cat:"Learning Context",text:"An <span class='kw3'>Authority-oriented</span> learner typically has <span class='kw2'>high tolerance of ambiguity</span> and prefers independent, social learning without much teacher direction.",ans:false,correct:"<span class='kw3'>Authority-oriented</span> Ls need <span class='kw2'>Ts' directions and explanations</span>, prefer a <span class='kw2'>structured learning environment</span>, and have <span class='kw2'>low tolerance of ambiguity</span>.",why:"Authority-oriented 학습자는 교사 주도 구조화 학습 선호, 모호함을 싫어함. 독립적·사회적 학습 선호는 <span class='kw3'>Communicative learning style</span>의 특징입니다.",source:"\"<span class='kw3'>Authority-oriented learning style</span>: needs Ts' directions and explanations; prefer a <span class='kw2'>structured learning environment</span>; <span class='kw2'>low tolerance of ambiguity</span>.\"",compare:[{title:"<span class='kw3'>Authority-oriented</span>",desc:"T-dependent · structured · low AT"},{title:"<span class='kw3'>Communicative</span>",desc:"T-independent · flexible · high AT"}]},
+  {src:"Learner Style",cat:"Style Stretching",text:"<span class='kw3'>Style stretching</span> refers to students sticking to their preferred learning style to maximize their comfort and performance in classroom activities.",ans:false,correct:"<span class='kw3'>Style stretching</span> = Ss respond <span class='kw2'>flexibly</span> in different learning contexts by <span class='kw2'>using a NEW learning style they are NOT accustomed to</span>.",why:"익숙한 스타일에 고착하는 것이 아니라, 익숙하지 않은 스타일을 시도하며 유연하게 적응하는 능력입니다. 다양한 맥락 대응력 향상이 목적.",source:"\"<span class='kw3'>Style stretching skill</span>: A skill where Ss are able to respond flexibly in different learning context by using a <span class='kw2'>new learning style they are not accustomed to</span>.\"",compare:[{title:"✅ Style stretching",desc:"새로운 스타일 시도 · 유연성"},{title:"❌ Style fixation",desc:"기존 스타일 고착 · 경직"}]},
+  {src:"Learning Strategies · 2010.15 · 2016.A.1 기출",cat:"Metacognitive",text:"A student who <span class='kw2'>records her own video</span> after class and <span class='kw2'>writes a learning log</span> is primarily using <span class='kw4'>metacognitive strategies</span> (self-monitoring, self-evaluation).",ans:true,correct:"Video 녹화 + learning log 작성 = <span class='kw4'>Metacognitive</span> (특히 <span class='kw2'>self-monitoring, self-evaluation</span>). 2010.15 기출 직답.",why:"5판 해설: \"지문과 같이 그녀의 video를 녹화해서 보고, learning log를 작성하는 것 자체가 metacognitive, 특히 'self-monitoring', 'self-evaluation' 전략을 사용하는 것.\" 2016.A.1에서도 learning log가 다시 출제되었고 복수형 'Strategies'가 답.",source:"\"<span class='kw4'>Metacognitive</span>: high order strategies → <span class='kw2'>planning, monitoring, and evaluating</span> learning.\" — 2010.15 기출 해설",compare:[{title:"<span class='kw2'>Plan</span>",desc:"advance organizers · functional planning"},{title:"<span class='kw2'>Monitor</span>",desc:"self-monitoring · directed attention · video 녹화"},{title:"<span class='kw2'>Evaluate</span>",desc:"self-evaluation · learning log"}]},
+  {src:"Learning Strategies",cat:"Cognitive",text:"<span class='kw1'>Cognitive strategies</span> are high-order strategies that plan and evaluate the entire learning process across all tasks.",ans:false,correct:"That describes <span class='kw4'>metacognitive</span> strategies. <span class='kw1'>Cognitive strategies</span> are <span class='kw2'>limited to specific learning tasks</span> and manipulate the learning material directly.",why:"Cognitive strategies는 특정 과제에 국한되어 학습 자료를 직접 조작하는 전략입니다 (repetition, deduction, inferencing, keyword, translation 등).",source:"\"<span class='kw1'>Cognitive Strategies</span>: Learning strategies that are more <span class='kw2'>limited to specific learning tasks</span> and are deployed to <span class='kw2'>manipulate the learning material</span>.\"",compare:[{title:"<span class='kw1'>Cognitive</span>",desc:"task-specific · manipulate material · skimming, inferencing"},{title:"<span class='kw4'>Metacognitive</span>",desc:"high-order · plan/monitor/evaluate · reflective"}]},
+  {src:"Learning Strategies · 2010.15 기출",cat:"Socioaffective",text:"A student saying \"I didn't ask her to repeat it because I wasn't sure if it was okay\" shows a <span class='kw4'>lack of social strategies</span> (specifically, failure to use a <span class='kw2'>clarification request</span>).",ans:true,correct:"Clarification request(질문 요청) 주저함 = <span class='kw1'>social strategies</span> 결여. 2010.15 기출 직답.",why:"해설: \"파트너의 발화를 잘 이해 못했을 때도 repeat할 것을 요구하지는 않았다. 즉 socioaffective strategies (Question for clarification)를 사용하지 않고 있으므로 pairwork 중 social strategy를 사용하고 있다고 보기 힘들다.\"",source:"\"<span class='kw4'>Socioaffective</span>: socio-mediating activity → <span class='kw2'>cooperation, question for clarification</span>.\" — 2010.15 기출 해설",compare:[{title:"<span class='kw1'>Social</span>",desc:"cooperation · <span class='kw2'>clarification request</span>"},{title:"<span class='kw1'>Affective</span>",desc:"emotion control · self-talk · anxiety regulation"}]},
+  {src:"Communication Strategies",cat:"Avoidance",text:"<span class='kw3'>Message abandonment</span> occurs when a learner <span class='kw2'>starts but does not finish</span> an utterance due to a language difficulty during production.",ans:true,correct:"<span class='kw3'>Message abandonment</span> = 발화를 시작했지만 언어적 어려움으로 <span class='kw2'>끝내지 못하고 미종결 상태로 두는</span> 회피 전략.",why:"Avoidance strategies 4종: Topic avoidance, Lexical avoidance, Pronunciation avoidance, Message abandonment. Message abandonment는 발화 중 포기가 핵심.",source:"\"<span class='kw3'>Message abandonment</span>: 언어적 어려움 때문에 메시지를 <span class='kw2'>미종결상태로 두기</span>\"",compare:[{title:"<span class='kw3'>Topic avoidance</span>",desc:"주제 자체 회피"},{title:"<span class='kw3'>Message abandonment</span>",desc:"시작했으나 중단"}]},
+  {src:"Communication Strategies · 2010.15 기출",cat:"Compensatory · Code-switching",text:"A student saying \"When I didn't have enough words to describe it, <span class='kw2'>I simply used Korean words</span>\" is using the <span class='kw4'>code-switching</span> strategy.",ans:true,correct:"\"I simply used Korean words\" = <span class='kw4'>Code-switching</span> (L1 단어를 L1 발음 그대로 L2 발화에 끼워 쓰기). 2010.15 기출 직답.",why:"5판 2010.15 해설: \"'I simply used Korean words'라고 하며 code-switching을 사용하고 있다.\" Foreignizing(L1 + L2 음운 적용, 예 '공부행-ing')과 혼동 주의.",source:"\"<span class='kw4'>Code-switching</span>: Using an L1 word with <span class='kw2'>L1 pronunciation</span> while speaking in L2.\" — 2010.15 기출 해설",compare:[{title:"<span class='kw4'>Code-switching</span>",desc:"L1 단어 · <span class='kw2'>L1 발음</span> 그대로"},{title:"<span class='kw3'>Foreignizing</span>",desc:"L1 단어 · <span class='kw2'>L2 음운</span> 적용 (예: 공부행-ing)"}]},
+  {src:"Communication Strategies · 5판",cat:"Compensatory · Foreignizing",text:"A student saying \"You are so <span class='kw2'>유아tic</span>\" or \"I'm <span class='kw2'>공부행-ing</span>\" is using <span class='kw4'>code-switching</span>.",ans:false,correct:"That is <span class='kw4'>Foreignizing</span> — using an L1 word by <span class='kw2'>adjusting it to L2 phonology/morphology</span>. Code-switching은 L1 발음 그대로 씀.",why:"5판 공식 예시: \"Foreignizing: use of L1 by adjusting it to L2 phonology ('I'm 공부행-ing' 사용)\". 유아(幼兒)+tic, 공부하+ing 처럼 L1 어근에 L2 접사 붙이기.",source:"\"<span class='kw4'>Foreignizing</span>: Using a L1 word by <span class='kw2'>adjusting it to L2 phonology or L2 morphology</span>. (e.g. You are so 유아tic, borrow your yeon-pill?)\" / \"<span class='kw4'>Code-switching</span>: L1 word with L1 pronunciation.\"",compare:[{title:"<span class='kw4'>Foreignizing</span>",desc:"L1 어근 + <span class='kw2'>L2 접사/음운</span> · 유아tic"},{title:"<span class='kw4'>Code-switching</span>",desc:"L1 단어 · <span class='kw2'>L1 발음</span> 그대로"}]},
+  {src:"Communication Strategies",cat:"Compensatory",text:"A student saying \"pig meat\" for \"pork\" or \"thick tea\" for \"strong tea\" shows the use of <span class='kw3'>approximation</span>.",ans:false,correct:"These are examples of <span class='kw3'>literal translation</span> — translating an L1 lexical item/compound/structure word-for-word, often due to <span class='kw2'>L1 interference</span>.",why:"Literal translation은 L1을 그대로 직역하여 L2로 옮기는 전략입니다. 돼지+고기 = pig meat. Approximation은 의미가 유사한 다른 단어를 쓰는 것(squirrel for chipmunk).",source:"\"<span class='kw3'>Literal translation</span>: Literally translating a lexical item, compound, or structure. May result from <span class='kw2'>L1 interference</span>. (e.g. 'pig meat' for 'pork', 'thick tea' for 'strong tea')\"",compare:[{title:"<span class='kw3'>Literal translation</span>",desc:"pig meat · thick tea · L1 interference"},{title:"<span class='kw3'>Approximation</span>",desc:"squirrel for chipmunk · 유사 의미"}]},
+  {src:"Communication Strategies",cat:"Compensatory",text:"A student who says \"counting machine\" for \"calculator\" or \"squirrel\" for \"chipmunk\" is using the strategy of <span class='kw3'>approximation</span>.",ans:true,correct:"<span class='kw3'>Approximation</span> = 목표 어휘와 <span class='kw2'>의미 자질이 유사한 대체 용어</span>로 의미를 가능한 한 가깝게 표현하는 전략.",why:"Approximation은 '가장 가까운 단어로 바꿔 쓰기' 전략입니다. calculator ≈ counting machine, chipmunk ≈ squirrel, waterpipe ≈ pipe, silkworm ≈ worm 모두 대표 예.",source:"\"<span class='kw3'>Approximation</span>: Using an alternative term which shares enough semantic features in common with the target lexical item. (e.g. 'pipe' for 'waterpipe', 'squirrel' for 'chipmunk', 'counting machine' for 'calculator')\"",compare:[{title:"<span class='kw3'>Approximation</span>",desc:"대체 단어 · 의미 자질 유사"},{title:"<span class='kw3'>Circumlocution</span>",desc:"특징 묘사 · 설명하기"}]},
+  {src:"Communication Strategies · 기출",cat:"Compensatory · Circumlocution",text:"A student saying \"<span class='kw2'>put chickens in oil, very hot oil, kind of bake them</span>\" for \"frying\" is using <span class='kw4'>circumlocution</span>.",ans:true,correct:"<span class='kw4'>Circumlocution</span> = 적절한 어휘 대신 <span class='kw2'>대상의 특징·과정을 묘사·예시</span>하여 전달하는 전략. (\"빙빙 돌려 말한다\")",why:"기출 해설: \"'Fry'를 'put in oil, bake them'과 같은 다른 말로 돌려서 부연 설명하는 circumlocution이라는 compensatory strategy.\" Approximation(한 단어 대체)과 구분.",source:"\"<span class='kw4'>Circumlocution</span>: <span class='kw2'>describing the characteristics or elements</span> of the target object or action. (e.g. 'the thing that make hair hot' for blow dryer · 'put chickens in oil, bake them' for frying)\"",compare:[{title:"<span class='kw4'>Circumlocution</span>",desc:"특징·과정 <span class='kw2'>묘사</span> (빙빙 돌려)"},{title:"<span class='kw3'>Approximation</span>",desc:"한 단어로 <span class='kw2'>대체</span> (근사치)"}]},
+  {src:"Communication Strategies",cat:"Compensatory",text:"A student saying \"vegetarianist\" for \"vegetarian\" or \"cooker\" for \"a person who cooks\" is using the <span class='kw3'>word coinage</span> strategy.",ans:true,correct:"<span class='kw3'>Word coinage</span> = L2에 존재하지 않는 단어를 <span class='kw2'>유추된 규칙을 바탕으로 새로 만드는</span> 전략 (overgeneralization).",why:"Word coinage는 '-ist', '-er' 같은 파생 규칙을 과잉 적용해 없는 단어를 만들어내는 것입니다. vegetarian + ist = vegetarianist, cook + er = cooker.",source:"\"<span class='kw3'>Word coinage</span>: Creating a <span class='kw2'>non-existing L2 word based on a supposed rule</span>. (e.g. 'vegetarianist' for 'vegetarian', 'cooker' for 'a person who cooks')\"",compare:[{title:"<span class='kw3'>Word coinage</span>",desc:"없는 단어 생성 · 규칙 과잉 적용"},{title:"<span class='kw3'>Foreignizing</span>",desc:"L1 단어에 L2 음운 적용"}]},
+  {src:"Motivation",cat:"Integrative / Instrumental",text:"A student saying \"I want to learn English so I can get promoted and earn more money\" shows <span class='kw3'>integrative orientation</span>.",ans:false,correct:"That is <span class='kw3'>instrumental orientation</span> — learning for <span class='kw2'>practical reasons</span> like occupational opportunities or social status.",why:"Integrative는 L2 공동체에 통합되려는 동기(영어권 사람들과 교류하고 싶음). Instrumental은 승진·취업·시험 등 실용 목적. 예시 구분이 기출 포인트.",source:"\"<span class='kw3'>Instrumental orientation</span>: Predisposition of Ss to learn the lg for the <span class='kw2'>practical reasons such as increased occupational opportunities</span>.\"",compare:[{title:"<span class='kw3'>Integrative</span>",desc:"L2 공동체 통합 · 문화적 동기"},{title:"<span class='kw3'>Instrumental</span>",desc:"승진·시험·취업 · 실용 목적"}]},
+  {src:"Motivation · 14번 헷갈 키텀",cat:"Motivation vs Orientation",text:"Brown distinguishes <span class='kw3'>motivation</span> and <span class='kw3'>orientation</span> — <span class='kw2'>Intrinsic/Extrinsic</span> refer to <span class='kw3'>motivation</span>, while <span class='kw2'>Integrative/Instrumental</span> refer to <span class='kw3'>orientation</span>.",ans:true,correct:"용어 정확 구분: <span class='kw3'>Intrinsic/Extrinsic motivation</span> · <span class='kw3'>Integrative/Instrumental orientation</span>. 헷갈리는 키텀에서 자주 출제되는 구분.",why:"<strong>Motivation</strong>: 보상 예상·목표·노력 (내부/외부). <strong>Orientation</strong>: 다른 문화에 대한 개인적 관점 + 그것이 동기 강도에 미치는 영향. 5판도 이 구분을 공식적으로 사용.",source:"\"<span class='kw1'>Intrinsic motivation</span>: engage in activities for their own sake (competence, self-determination). <span class='kw1'>Extrinsic motivation</span>: anticipation of a reward from outside. <span class='kw1'>Integrative orientation</span>: desire stemming from positive affect toward community. <span class='kw1'>Instrumental orientation</span>: acquire language as a means.\" (5판)",compare:[{title:"<span class='kw3'>Motivation</span>",desc:"Intrinsic / Extrinsic · 보상·목표"},{title:"<span class='kw3'>Orientation</span>",desc:"Integrative / Instrumental · 문화적 관점"}]},
+  {src:"Language Ego",cat:"Inhibition",text:"<span class='kw3'>Adaptive language ego</span> is an L2 identity with <span class='kw2'>rigid ego boundary</span> that protects the learner from making mistakes in the target language.",ans:false,correct:"<span class='kw3'>Adaptive language ego</span> has a <span class='kw2'>permeable ego boundary</span>, enabling learners to flexibly handle the identity crisis in L2 learning.",why:"Language ego는 언어와 연결된 정체성이며, inhibition은 이를 보호하려는 방어기제입니다. Adaptive language ego는 유연한(permeable) ego 경계로 L2 정체성 위기를 다룰 수 있습니다.",source:"\"<span class='kw3'>Adaptive language ego</span>: Second language identity with which a language learner is able to <span class='kw2'>flexibly deal with identity crisis</span> involved in L2 learning with <span class='kw2'>permeable ego boundary</span>.\"",compare:[{title:"<span class='kw3'>Adaptive ego</span>",desc:"permeable · flexible · L2 정체성 수용"},{title:"<span class='kw2'>Inhibition</span>",desc:"defense mechanism · protects fragile ego"}]},
+  {src:"Anxiety",cat:"Facilitative / Debilitative",text:"A student who says \"High level of challenge makes me feel nervous, but this tension pushes me to do well\" shows <span class='kw4'>facilitative anxiety</span>.",ans:true,correct:"<span class='kw4'>Facilitative anxiety</span> = 도움이 되는 긴장. 경쟁·도전의식과 연결되어 <span class='kw2'>학습자를 노력하도록 동기 부여</span>함.",why:"Facilitative anxiety는 helpful tension, 경쟁 상황에서 학습자를 push. Debilitative anxiety는 불안을 회피하게 만들고 수행을 저해합니다. 예문이 기출 단골.",source:"\"<span class='kw4'>Facilitative anxiety</span>: <span class='kw2'>Helpful tension</span> especially closely related to competitiveness; it <span class='kw2'>motivates a learner make efforts</span> to overcome the sense of anxiety.\"",compare:[{title:"<span class='kw4'>Facilitative</span>",desc:"euphoric tension · motivates · 수행 ↑"},{title:"<span class='kw4'>Debilitative</span>",desc:"worry · avoids source · 수행 ↓"}]},
+  {src:"Sociocultural",cat:"Acculturation",text:"<span class='kw3'>Assimilation</span> in the Acculturation Model refers to learners who <span class='kw2'>reject TL culture</span> and cling only to their native culture.",ans:false,correct:"That describes <span class='kw3'>Preservation</span>. <span class='kw3'>Assimilation</span> = Ls who acculturate into the TL culture <span class='kw2'>at the expense of native culture and language</span>.",why:"Schumann Acculturation Model 3단계: Preservation(모국문화 고수·TL문화 거부) → Acculturation(둘 다 수용) → Assimilation(TL 문화 흡수·모국문화 상실). 순서·정의 혼동 주의.",source:"\"<span class='kw3'>Preservation</span>: Ls who reject TL culture and cling to their native culture. <span class='kw3'>Acculturation</span>: Ls who view TL culture favorably, but also maintain native culture and lg. <span class='kw3'>Assimilation</span>: Ls who acculturate into the TL culture at the expense of native culture and lg.\"",compare:[{title:"<span class='kw3'>Preservation</span>",desc:"TL문화 거부 · 모국문화 고수"},{title:"<span class='kw3'>Acculturation</span>",desc:"둘 다 수용 · 균형"},{title:"<span class='kw3'>Assimilation</span>",desc:"TL문화 흡수 · 모국문화 상실"}]}
+];
+function renderExp(q,isCorrect){
+  const three=q.compare&&q.compare.length===3;
+  const cmp=q.compare?`<div class="sec-label">📊 비교 정리</div><div class="compare${three?' three':''}">${q.compare.map(c=>`<div class="compare-item"><div class="ci-title">${c.title}</div><p>${c.desc}</p></div>`).join('')}</div>`:'';
+  return `<div class="exp show"><div class="exp-header"><span>${isCorrect?'✅ 정답':'❌ 오답'} · 해설</span></div><div class="exp-answer"><div class="ans-label">핵심 정정</div><div class="ans-text">${q.correct}</div></div><div class="exp-body"><div class="sec-label">📖 상세 설명</div><p>${q.why}</p><div class="sec-label">📌 Source</div><div class="def-box"><p>${q.source}</p></div>${cmp}</div></div>`;
+}
+function renderNav(){
+  document.getElementById('nav').innerHTML=answers.map((a,i)=>{
+    let cls='nd';
+    if(i===cur)cls+=' cur';
+    else if(a!==null)cls+=a.correct?' ok':' ng';
+    return `<button class="${cls}" onclick="jumpTo(${i})">${i+1}</button>`;
+  }).join('');
+}
+function render(){
+  if(cur>=TOTAL){
+    document.getElementById('qa').style.display='none';
+    document.getElementById('sc').classList.add('show');
+    const s=getScore();
+    document.getElementById('fs').textContent=s;
+    const p=s/TOTAL;
+    document.getElementById('rm').textContent=p===1?'🎉 Perfect!':p>=.8?'👏 Great!':p>=.6?'😊 Good!':'💪 Keep going!';
+    document.getElementById('rs').textContent=`${TOTAL}문제 중 ${s}문제 정답 (${Math.round(p*100)}%)`;
+    setTimeout(function(){window.showScorePopup&&window.showScorePopup(s,TOTAL);},400);
+    renderNav();return;
+  }
+  document.getElementById('sc').classList.remove('show');
+  document.getElementById('qa').style.display='block';
+  renderNav();
+  const q=Q[cur];
+  document.getElementById('bf').style.width=((cur+1)/TOTAL*100).toFixed(1)+'%';
+  document.getElementById('pt').textContent=`${cur+1} / ${TOTAL}`;
+  document.getElementById('ps').textContent=`정답 ${getScore()}개`;
+  const a=answers[cur];
+  if(a!==null){
+    let oBtnCls='',xBtnCls='';
+    if(a.picked===true){oBtnCls=a.correct?'co':'wp';if(!a.correct)xBtnCls='cx';}
+    else{xBtnCls=a.correct?'cx':'wp';if(!a.correct)oBtnCls='co';}
+    document.getElementById('qa').innerHTML=`<div class="card"><div class="q-meta"><span class="q-num">Q${cur+1}</span><span class="q-src">${q.src}</span><span class="q-cat">${q.cat}</span></div><div class="q-text">${q.text}</div><div class="ox-btns"><button class="ox-btn o-btn ${oBtnCls}" disabled>⭕<span class="lb">CORRECT</span></button><button class="ox-btn x-btn ${xBtnCls}" disabled>❌<span class="lb">WRONG</span></button></div><div class="badge ${a.correct?'ok':'ng'}">${a.correct?'✅ 정답!':'❌ 오답! 정답은 '+(q.ans?'O':'X')}</div><div>${renderExp(q,a.correct)}</div><button class="next-btn show" onclick="next()">${cur<TOTAL-1?'Next →':'결과 보기 →'}</button></div>`;
+  }else{
+    document.getElementById('qa').innerHTML=`<div class="card"><div class="q-meta"><span class="q-num">Q${cur+1}</span><span class="q-src">${q.src}</span><span class="q-cat">${q.cat}</span></div><div class="q-text">${q.text}</div><div class="ox-btns"><button class="ox-btn o-btn" onclick="pick(true)" id="ob">⭕<span class="lb">CORRECT</span></button><button class="ox-btn x-btn" onclick="pick(false)" id="xb">❌<span class="lb">WRONG</span></button></div><div id="bd" class="badge"></div><div id="ep"></div><button class="next-btn" id="nb" onclick="next()">${cur<TOTAL-1?'Next →':'결과 보기 →'}</button></div>`;
+  }
+}
+function pick(val){
+  const q=Q[cur];
+  document.getElementById('ob').disabled=true;
+  document.getElementById('xb').disabled=true;
+  const ok=val===q.ans;
+  answers[cur]={picked:val,correct:ok};
+  if(ok){if(typeof playOk==='function')playOk();}else{if(typeof playNg==='function')playNg();}
+  const bd=document.getElementById('bd');
+  bd.textContent=ok?'✅ 정답!':`❌ 오답! 정답은 ${q.ans?'O':'X'}`;
+  bd.className='badge '+(ok?'ok':'ng');
+  document.getElementById(val?'ob':'xb').classList.add(ok?(val?'co':'cx'):'wp');
+  if(!ok)document.getElementById(q.ans?'ob':'xb').classList.add(q.ans?'co':'cx');
+  document.getElementById('ep').innerHTML=renderExp(q,ok);
+  document.getElementById('nb').classList.add('show');
+  document.getElementById('ps').textContent=`정답 ${getScore()}개`;
+  renderNav();saveProgress();
+}
+function next(){cur++;saveProgress();render();}
+function jumpTo(i){cur=i;render();document.getElementById('qa').scrollIntoView({behavior:'smooth',block:'start'});}
+function saveProgress(){localStorage.setItem(SAVE_KEY,JSON.stringify({cur,answers}));}
+function freshStart(){localStorage.removeItem(SAVE_KEY);cur=0;answers=new Array(TOTAL).fill(null);document.getElementById('rb').style.display='none';document.getElementById('sc').classList.remove('show');document.getElementById('qa').style.display='block';renderNav();render();}
+(function(){
+  const saved=JSON.parse(localStorage.getItem(SAVE_KEY)||'null');
+  if(saved&&saved.answers&&saved.cur>=0&&saved.cur<TOTAL){
+    cur=saved.cur;answers=saved.answers;
+    const done=answers.filter(a=>a!==null).length;
+    if(done>0){document.getElementById('rb-msg').textContent=`이어서 풀기 중 · ${done}/${TOTAL} 문제 완료 (정답 ${getScore()}개)`;document.getElementById('rb').style.display='block';}
+  }
+  renderNav();render();
+})();
+</script>
+</body>
+</html>

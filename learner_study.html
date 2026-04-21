@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch.3 Learner Variables — 개념정리</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=JetBrains+Mono:wght@400;600&family=Caveat:wght@600&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans KR',sans-serif;background:#f4f3ed;background-image:repeating-linear-gradient(transparent,transparent 27px,#d5d8cf 28px);color:#1a1a1a;min-height:100vh;padding:16px}
+.header-wrap{max-width:820px;margin:0 auto;padding:24px 8px 0}
+.header-topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.header-sticker{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;background:#1a3326;color:#e8f5e9;padding:5px 13px;border-radius:3px;letter-spacing:2px;text-transform:uppercase}
+.header-chapter{font-family:'JetBrains Mono',monospace;font-size:12px;color:#4a5a44;letter-spacing:.5px}
+.header-title{font-size:clamp(30px,7vw,46px);font-weight:900;color:#1a1a1a;line-height:1.1;margin-bottom:5px;letter-spacing:-1px}
+.title-hl{background:#00695c;color:#fff;padding:1px 6px}
+.header-script{font-family:'Caveat',cursive;font-size:21px;color:#00695c;margin-bottom:4px;font-weight:600}
+.header-sub{font-size:13px;color:#555;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#aaa;margin-bottom:10px}
+.header-divider{border:none;border-top:2px dashed #888;margin-bottom:10px}
+.header-tip{font-size:12px;color:#2e4a3a;font-family:'JetBrains Mono',monospace;margin-bottom:20px;background:rgba(0,105,92,.06);border:1px solid rgba(0,105,92,.2);border-radius:8px;padding:9px 14px;line-height:1.7}
+.wrap{max-width:820px;margin:0 auto}
+.sec{background:#fff;border:1.5px solid #b2dfcc;border-radius:16px;margin-bottom:20px;overflow:hidden;box-shadow:0 2px 8px rgba(46,125,82,.08)}
+.sec-header{background:linear-gradient(135deg,rgba(46,125,82,.08),rgba(38,166,154,.05));border-bottom:1.5px solid #b2dfcc;padding:16px 22px;display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none}
+.sec-icon{font-size:20px}
+.sec-title{font-size:16px;font-weight:700;color:#1b5e3a;font-family:'JetBrains Mono',monospace}
+.sec-tag{font-size:11px;color:#2e7d52;background:rgba(46,125,82,.1);padding:3px 10px;border-radius:6px;margin-left:auto;font-weight:600}
+.sec-tag.red{background:rgba(183,28,28,.12);color:#b71c1c;border:1px solid rgba(183,28,28,.2)}
+.sec-tag.orange{background:rgba(230,119,0,.12);color:#bf6000;border:1px solid rgba(230,119,0,.2)}
+.sec-arrow{font-size:13px;color:#4a7a62;transition:transform .3s;margin-left:6px}
+.sec.open .sec-arrow{transform:rotate(180deg)}
+.sec-body{display:none;padding:22px}
+.sec.open .sec-body{display:block}
+.concept{margin-bottom:22px}
+.concept:last-child{margin-bottom:0}
+.c-title{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;color:#1b5e3a;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.badge-ex{font-size:10px;background:rgba(230,119,0,.12);color:#e67c00;border:1px solid rgba(230,119,0,.3);padding:2px 7px;border-radius:4px;letter-spacing:0;text-transform:none;font-weight:700}
+.def{background:rgba(46,125,82,.06);border-left:4px solid #2e7d52;padding:12px 16px;border-radius:0 10px 10px 0;margin-bottom:10px;font-size:15px;line-height:1.8;color:#1a1a1a}
+.note{font-size:14px;color:#3a6b51;line-height:1.75;margin-bottom:6px;padding-left:6px}
+.note::before{content:"• ";color:#26a69a;font-weight:700}
+.kw1{background:rgba(46,125,82,.15);color:#1b5e3a;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(46,125,82,.25)}
+.kw2{color:#00796b;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border-bottom:2px solid rgba(0,121,107,.45)}
+.kw3{background:rgba(230,119,0,.13);color:#bf6000;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(230,119,0,.3)}
+.kw4{background:rgba(183,28,28,.11);color:#b71c1c;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(183,28,28,.25)}
+.grid{display:grid;gap:10px;margin-top:12px}
+.grid.col2{grid-template-columns:1fr 1fr}
+.grid.col3{grid-template-columns:1fr 1fr 1fr}
+.grid-item{background:#f5fdf8;border:1.5px solid #b2dfcc;border-radius:10px;padding:14px 16px}
+.gi-title{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#2e7d52;margin-bottom:7px}
+.gi-body{font-size:13px;color:#3a6b51;line-height:1.7}
+.gi-body span{display:block}
+.flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px}
+.flow-item{background:#f5fdf8;border:1.5px solid #b2dfcc;border-radius:8px;padding:10px 16px;font-size:13px;color:#1a1a1a;text-align:center;line-height:1.5}
+.flow-arrow{color:#26a69a;font-size:18px;font-weight:700}
+.stage-wrap{margin-top:12px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{background:rgba(46,125,82,.1);color:#1b5e3a;font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;padding:10px 14px;border:1.5px solid #b2dfcc;text-align:left;font-weight:700}
+td{padding:10px 14px;border:1.5px solid #b2dfcc;color:#2a5040;vertical-align:top;line-height:1.65}
+tr:nth-child(even) td{background:rgba(46,125,82,.04)}
+.exam{background:rgba(230,119,0,.06);border:1.5px solid rgba(230,119,0,.25);border-radius:10px;padding:14px 16px;margin-top:14px}
+.exam-label{font-size:11px;font-family:'JetBrains Mono',monospace;color:#e67c00;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;font-weight:700}
+.exam p{font-size:13.5px;color:#6b4400;line-height:1.75;margin-bottom:4px}
+.div{height:1px;background:rgba(38,166,154,.2);margin:18px 0}
+.toc{max-width:820px;margin:0 auto 20px;background:#fff;border:1.5px solid #b2dfcc;border-radius:12px;padding:16px 20px;box-shadow:0 2px 8px rgba(46,125,82,.06)}
+.toc-title{font-size:11px;font-family:'JetBrains Mono',monospace;color:#4a7a62;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;font-weight:700}
+.toc-list{display:flex;flex-wrap:wrap;gap:7px}
+.toc-item{font-size:12px;color:#2e7d52;background:rgba(46,125,82,.08);border:1.5px solid rgba(46,125,82,.2);padding:5px 12px;border-radius:8px;cursor:pointer;transition:all .15s;font-family:'JetBrains Mono',monospace;font-weight:600}
+.toc-item:hover{background:rgba(46,125,82,.18)}
+.legend{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 16px;padding:10px 14px;background:#fff;border:1.5px solid #b2dfcc;border-radius:10px;align-items:center}
+</style>
+</head>
+<body>
+<div class="header-wrap">
+  <div class="header-topbar">
+    <span class="header-sticker">STUDY NOTE</span>
+    <span class="header-chapter">Ch.03 · Learner Variables</span>
+  </div>
+  <h1 class="header-title"><span class="title-hl">개념 정리</span> 노트</h1>
+  <div class="header-script">Concept Notes · Learner Variables</div>
+  <p class="header-sub">서브노트 순서 기반 · 기출 포인트 · 비교 도식</p>
+  <div class="header-divider"></div>
+  <p class="header-tip">📌 목차 버튼 클릭 → 해당 섹션으로 이동 &nbsp;·&nbsp; ▼ 섹션 제목 클릭 → 열고 닫기</p>
+</div>
+<div class="wrap">
+<!-- TOC -->
+<div class="toc">
+  <div class="toc-title">📋 목차</div>
+  <div class="toc-list">
+    <div class="toc-item" onclick="openSec('s1')">① Learner Style</div>
+    <div class="toc-item" onclick="openSec('s2')">② Learning Strategies</div>
+    <div class="toc-item" onclick="openSec('s3')">③ Communication Strategies</div>
+    <div class="toc-item" onclick="openSec('s4')">④ Motivation</div>
+    <div class="toc-item" onclick="openSec('s5')">⑤ Inhibition / Anxiety</div>
+    <div class="toc-item" onclick="openSec('s6')">⑥ Risk-taking · Empathy · WTC</div>
+    <div class="toc-item" onclick="openSec('s7')">⑦ Acculturation</div>
+    <div class="toc-item" onclick="openSec('s8')">⑧ Culture Teaching</div>
+    <div class="toc-item" onclick="openSec('s9')">⑨ Bilingualism · Sapir-Whorf</div>
+  </div>
+</div>
+
+<!-- 범례 -->
+<div class="legend">
+  <span class="legend-title">키워드</span>
+  <span class="legend-item"><span class="kw4">★★★ 최빈출</span></span>
+  <span class="legend-item"><span class="kw3">★★ 빈출</span></span>
+  <span class="legend-item"><span class="kw1">★ 기본개념</span></span>
+  <span class="legend-item"><span class="kw2">부키워드</span></span>
+</div>
+
+<!-- 기출분석 -->
+<div class="exam" style="margin-bottom:20px">
+  <div class="exam-label">📝 기출분석 포인트 (Ch.3 Learner Variables)</div>
+  <p>① <span class='kw4'>Compensatory strategies</span> — 사례 제시 후 전략 identify 유형 최빈출 (모든 하위유형 고루 출제)</p>
+  <p>② <span class='kw4'>Metacognitive strategy</span> 3키워드: <span class='kw2'>Plan · Monitor · Evaluate</span> — learning log/자기녹화 예시 기출 직답</p>
+  <p>③ <span class='kw3'>Socioaffective(Social) strategies</span> — <span class='kw2'>clarification request</span> 주저가 대표 오답 사례</p>
+  <p>④ <span class='kw3'>Anxiety</span>: <span class='kw2'>Facilitative vs Debilitative</span> — 예문 판별 (tension 도움 vs 방해)</p>
+  <p>⑤ <span class='kw3'>Motivation</span>: Integrative/Instrumental 사례 구분 + <span class='kw2'>Motivation ≠ Orientation</span> 용어 구분</p>
+  <p>⑥ <span class='kw3'>Field Dependence/Independence</span>: FI = bottom-up, 선택적 듣기·drill / FD = top-down, CLT 유리</p>
+  <p>⑦ <span class='kw3'>Ambiguity Tolerance</span>: High/Low 양면성 — Optimum level 필요</p>
+  <p>⑧ <span class='kw3'>Acculturation Model</span>: Preservation → Acculturation → Assimilation 3단계 정의 혼동 주의</p>
+</div>
+
+<!-- ① Learner Style -->
+<div class="sec open" id="s1">
+  <div class="sec-header" onclick="toggle('s1')">
+    <span class="sec-icon">🎨</span>
+    <span class="sec-title">① Learner Style</span>
+    <span class="sec-tag">Perceptive · Personality · Processing · Context</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+
+    <div class="concept">
+      <div class="c-title">1) Perceptive Preference</div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw1'>Visual</span> / <span class='kw1'>Auditory</span></div>
+          <div class="gi-body"><span>Visual: reading, flow chart, semantic mapping</span><span>Auditory: verbal explanation, listening (Suggestopedia)</span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw1'>Kinesthetic</span> / <span class='kw1'>Tactile</span></div>
+          <div class="gi-body"><span>Kinesthetic: demonstration, physical activity (TPR, Realia)</span><span>Tactile: hands-on, manipulating objects</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <div class="concept">
+      <div class="c-title">2) Personality Preference</div>
+      <p class="note"><span class='kw1'>Extroverted</span>: sociable · ego enhancement from others · risk-taking</p>
+      <p class="note"><span class='kw1'>Introverted</span>: non-sociable · ego enhancement from myself</p>
+      <p class="note"><span class='kw3'>Ambiguity Tolerance (AT)</span>: willingness to deal with uncertainty or contradictory propositions</p>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw2'>High AT</span> (tolerance)</div>
+          <div class="gi-body"><span>✅ <strong>장점</strong>: open-minded · <span class='kw2'>creative possibilities</span> 수용</span><span>❌ <strong>단점</strong>: 너무 높으면 틀린 형태 수용 → <span class='kw4'>fossilization of incorrect knowledge</span></span><span><em>e.g. Sujin doesn't understand everything, but it does not bother her</em></span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw2'>Low AT</span> (intolerance)</div>
+          <div class="gi-body"><span>✅ <strong>장점</strong>: deal with reality · 체계적·꼼꼼</span><span>❌ <strong>단점</strong>: <span class='kw2'>dogmatic, not creative</span> · 사전 집착 · 경직</span><span><em>e.g. Mijin feels she should always look up unfamiliar words</em></span></div>
+        </div>
+      </div>
+      <p class="note" style="margin-top:10px">💡 <strong>Optimum level 필요</strong> — High/Low 각각 양면성이 있으므로 "중간 수준의 모호 관용"이 이상적.</p>
+    </div>
+
+    <div class="div"></div>
+
+    <div class="concept">
+      <div class="c-title">3) Processing Preference</div>
+      <p class="note"><span class='kw4'>Field Dependence (FD)</span> vs <span class='kw4'>Field Independence (FI)</span></p>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw4'>FD</span>: holistic</div>
+          <div class="gi-body"><span><span class='kw2'>holistic</span> · perceive the whole picture · context-rich</span><span>처리: <span class='kw2'>top-down processing</span> (predict, apply to instances)</span><span>유리: CLT, communicative writing, authentic reading text, 대인 상호작용</span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw4'>FI</span>: analytic</div>
+          <div class="gi-body"><span><span class='kw2'>analytic</span> · distinguish parts from whole · ignore larger field</span><span>처리: <span class='kw2'>bottom-up processing</span> (examining input to discover generalization)</span><span>유리: <span class='kw2'>selective listening</span>, grammatical analysis, mechanical drill, paper-pencil test</span></div>
+        </div>
+      </div>
+      <p class="note" style="margin-top:10px">🔑 <strong>공식 도식</strong>: FD = top-down · FI = bottom-up — 듣기/읽기 처리 방식 관련 기출에서 자주 등장.</p>
+      <p class="note" style="margin-top:12px"><span class='kw1'>Reflectivity</span>: slow · accurate / <span class='kw1'>Impulsivity</span>: fast · inaccurate</p>
+      <p class="note">→ preparation time이 주어지면 reflective Ls는 <span class='kw2'>confidence</span>, impulsive Ls는 <span class='kw2'>accuracy</span>를 얻음</p>
+      <p class="note"><span class='kw1'>Left-brain</span>: details, analysis, form / <span class='kw1'>Right-brain</span>: holistic, intuition, meaning</p>
+      <p class="note">Synthetic/Analytic · Deductive/Inductive · Global/Detail-oriented</p>
+    </div>
+
+    <div class="div"></div>
+
+    <div class="concept">
+      <div class="c-title">4) Learning Context Preference</div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>Concrete</span></div>
+          <div class="gi-body"><span>direct · people-oriented · spontaneous · imaginative</span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>Analytic</span></div>
+          <div class="gi-body"><span>hypothetical-deductive · object-oriented · independent · logical</span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>Communicative</span></div>
+          <div class="gi-body"><span>T-independent · flexible · <span class='kw2'>high AT</span> · social learning</span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>Authority-oriented</span></div>
+          <div class="gi-body"><span>needs T's direction · structured env · <span class='kw2'>low AT</span> · sequential</span></div>
+        </div>
+      </div>
+      <p class="note" style="margin-top:12px"><span class='kw3'>Style stretching skill</span>: 다른 맥락에서 <span class='kw2'>익숙하지 않은 새로운 스타일</span>을 사용하여 유연히 반응하는 능력</p>
+    </div>
+
+    <div class="exam">
+      <div class="exam-label">📝 출제 포인트</div>
+      <p>• FI는 selective listening·drill에 강함 (객관식 1번 빈출)</p>
+      <p>• Ambiguity Tolerance 과도 → fossilization 위험</p>
+      <p>• Reflective/Impulsive에 preparation time 효과 구분</p>
+      <p>• 4 learning context style 설명-용어 매칭</p>
+    </div>
+  </div>
+</div>
+
+<!-- ② Learning Strategies -->
+<div class="sec" id="s2">
+  <div class="sec-header" onclick="toggle('s2')">
+    <span class="sec-icon">🧠</span>
+    <span class="sec-title">② Learning Strategies</span>
+    <span class="sec-tag red">★★★ Metacognitive 빈출</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+
+    <div class="concept">
+      <div class="c-title">1) Metacognitive Strategies <span class="badge-ex">★★★</span></div>
+      <div class="def">High-order strategies that <span class='kw4'>plan</span> upcoming learning, <span class='kw4'>monitor</span> comprehension during learning, and <span class='kw4'>evaluate</span> outcomes after learning.</div>
+      <div class="flow">
+        <div class="flow-item"><span class='kw2'>Plan</span><br>advance organizers<br>functional planning</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-item"><span class='kw2'>Monitor</span><br>self-monitoring<br>directed/selective attention</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-item"><span class='kw2'>Evaluate</span><br>self-evaluation<br>learning log</div>
+      </div>
+      <p class="note" style="margin-top:12px">예시: Writing a <span class='kw2'>learning log</span> = employing metacognitive strategy</p>
+      <p class="note">Data types: <span class='kw1'>Self-report</span>(low validity) / <span class='kw1'>Self-observation</span> / <span class='kw1'>Self-revelation</span>(Think-aloud)</p>
+    </div>
+
+    <div class="div"></div>
+
+    <div class="concept">
+      <div class="c-title">2) Cognitive Strategies</div>
+      <div class="def">Learning strategies <span class='kw2'>limited to specific tasks</span>, deployed to <span class='kw2'>manipulate the learning material</span> directly.</div>
+      <p class="note">repetition · resourcing · translation · imagery · auditory representation · grouping · note taking · deduction · induction · keyword · transfer · elaboration · recombination · contextualization · inferencing</p>
+    </div>
+
+    <div class="div"></div>
+
+    <div class="concept">
+      <div class="c-title">3) Socioaffective Strategies</div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw1'>Social</span></div>
+          <div class="gi-body"><span>대인 상호작용 · L2 사용량 증가</span><span>Cooperation · <span class='kw4'>Clarification request</span> · Self-talk</span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw1'>Affective</span></div>
+          <div class="gi-body"><span>감정 상태 통제</span><span>anxiety 관리 · self-encouragement</span></div>
+        </div>
+      </div>
+      <p class="note" style="margin-top:12px">Lack of social strategies 예: "I didn't ask her to repeat it because I wasn't sure if it was okay"</p>
+    </div>
+
+    <div class="div"></div>
+
+    <div class="concept">
+      <div class="c-title">4) 🔑 3대 전략 한눈 비교</div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw4'>Metacognitive</span></div>
+          <div class="gi-body"><span>high-order · 전체 학습 과정 총괄</span><span>Plan / Monitor / Evaluate</span><span><em>e.g. video 녹화, learning log 작성</em></span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw1'>Cognitive</span></div>
+          <div class="gi-body"><span>task-specific · 학습 자료 직접 조작</span><span>repetition, inferencing, keyword, translation</span><span><em>e.g. 단어 반복 암기, 추론 독해</em></span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw1'>Socioaffective</span></div>
+          <div class="gi-body"><span>사회적 상호작용 + 감정 통제</span><span>Cooperation · <span class='kw4'>Clarification request</span> · Self-talk</span><span><em>e.g. 친구에게 다시 말해달라 요청</em></span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title">🎯 구분 포인트</div>
+          <div class="gi-body"><span><strong>Meta</strong>: 학습 전체를 어떻게 다룰지 (상위)</span><span><strong>Cog</strong>: 자료를 어떻게 조작할지 (특정 과제)</span><span><strong>Socio</strong>: 타인·감정과 어떻게 관계맺을지</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exam">
+      <div class="exam-label">📝 출제 포인트</div>
+      <p>• Metacognitive 3키워드: <span class='kw4'>Plan · Monitor · Evaluate</span></p>
+      <p>• <span class='kw2'>Learning log · 자기녹화 · self-evaluation</span> → Metacognitive (기출 직답)</p>
+      <p>• <span class='kw2'>Clarification request</span> 주저 → Socioaffective(Social) 결여 (기출)</p>
+      <p>• <span class='kw2'>Cognitive vs Metacognitive</span> 구분 (specific task vs high-order)</p>
+    </div>
+  </div>
+</div>
+
+<!-- ③ Communication Strategies -->
+<div class="sec" id="s3">
+  <div class="sec-header" onclick="toggle('s3')">
+    <span class="sec-icon">💬</span>
+    <span class="sec-title">③ Communication Strategies</span>
+    <span class="sec-tag red">★★★ Compensatory 최빈출</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+
+    <div class="concept">
+      <div class="c-title">Definition</div>
+      <div class="def">Strategies a learner employs to <span class='kw2'>compensate for gaps in speaking competence</span>, solving communication problems and reaching a particular communicative goal.</div>
+    </div>
+
+    <div class="div"></div>
+
+    <div class="concept">
+      <div class="c-title">1) Avoidance Strategies</div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>Topic avoidance</span></div>
+          <div class="gi-body"><span>주제 자체를 회피</span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>Lexical avoidance</span></div>
+          <div class="gi-body"><span>특정 단어 회피</span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>Pronunciation avoidance</span></div>
+          <div class="gi-body"><span>발음 어려운 단어 회피</span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>Message abandonment</span></div>
+          <div class="gi-body"><span>시작했으나 <span class='kw2'>미종결 상태로 두기</span></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <div class="concept">
+      <div class="c-title">2) Compensatory Strategies <span class="badge-ex">★★★ 최빈출</span></div>
+      <div class="def">Strategic options used by Ls to <span class='kw2'>overcome self-perceived weaknesses</span> and maintain communication flow, preventing communication breakdown.</div>
+
+      <div class="grid col2" style="margin-top:12px">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw4'>Prefabricated pattern</span></div>
+          <div class="gi-body"><span>rote-memorized chunks · survival purpose</span><span><em>e.g. Where is the toilet? I don't speak French.</em></span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw4'>Appeal for assistance</span></div>
+          <div class="gi-body"><span>도움 요청 · 직접/간접</span><span><em>e.g. "What do you X in Spanish?" / 눈빛·표정</em></span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw4'>Code-switching</span></div>
+          <div class="gi-body"><span>L1 단어 · <span class='kw2'>L1 발음 그대로</span> 끼워 쓰기</span><span><em>e.g. "When I didn't have enough words, I simply used Korean words"</em></span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw4'>Foreignizing</span></div>
+          <div class="gi-body"><span>L1 단어에 <span class='kw2'>L2 음운/형태 규칙</span> 적용</span><span><em>e.g. You are so 유아tic, borrow your yeon-pill?</em></span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw4'>Literal translation</span></div>
+          <div class="gi-body"><span>L1을 그대로 직역 · L1 interference</span><span><em>e.g. 'pig meat' for pork · 'thick tea' for strong tea</em></span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw4'>Approximation</span></div>
+          <div class="gi-body"><span>의미 유사한 <span class='kw2'>대체 용어</span></span><span><em>e.g. 'squirrel' for chipmunk · 'counting machine' for calculator</em></span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw4'>Circumlocution</span></div>
+          <div class="gi-body"><span><span class='kw2'>특징·요소 묘사</span>하기</span><span><em>e.g. "the thing that make hair hot" for blow dryer</em></span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw4'>Word coinage</span></div>
+          <div class="gi-body"><span>유추 규칙으로 없는 단어 생성</span><span><em>e.g. 'vegetarianist' · 'cooker' for a person who cooks</em></span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw4'>All-purpose words</span></div>
+          <div class="gi-body"><span>일반 어휘로 구체 어휘 대체</span><span><em>e.g. thing, stuff</em></span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw4'>Stalling (time-gaining)</span></div>
+          <div class="gi-body"><span>fillers, hesitation devices로 시간 벌기</span><span><em>e.g. well..., um..., you know...</em></span></div>
+        </div>
+      </div>
+
+      <p class="note" style="margin-top:14px"><span class='kw1'>Nonlinguistic signals</span>: mime · gesture · facial expression · sound imitation</p>
+    </div>
+
+    <div class="div"></div>
+
+    <div class="concept">
+      <div class="c-title">3) 🔑 헷갈리는 키텀 3대 비교 (★★★ 함정 단골)</div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title">① <span class='kw4'>Code-switching</span> vs <span class='kw4'>Foreignizing</span></div>
+          <div class="gi-body"><span><strong>Code-switching</strong>: L1 단어 + <span class='kw2'>L1 발음</span> 그대로 ("I used Korean words")</span><span><strong>Foreignizing</strong>: L1 어근 + <span class='kw2'>L2 접사/음운</span> 적용 (유아tic, 공부행-ing)</span><span>🔍 발음/형태 변형 유무가 구분점</span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title">② <span class='kw4'>Approximation</span> vs <span class='kw4'>Circumlocution</span></div>
+          <div class="gi-body"><span><strong>Approximation</strong>: <span class='kw2'>한 단어 대체</span> (squirrel↔chipmunk)</span><span><strong>Circumlocution</strong>: <span class='kw2'>여러 문장 묘사</span> ("the thing that make hair hot" / "put chickens in oil, bake them" for frying)</span><span>🔍 단어 1개 vs 설명·과정 묘사</span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title">③ <span class='kw4'>Literal translation</span> vs <span class='kw4'>Word coinage</span></div>
+          <div class="gi-body"><span><strong>Literal translation</strong>: L1을 그대로 직역 (pig meat=돼지+고기)</span><span><strong>Word coinage</strong>: L2 파생규칙 과잉 (vegetarianist, cooker)</span><span>🔍 L1 직역 vs L2 규칙 남용</span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title">④ <span class='kw4'>Appeal for assistance</span> 하위</div>
+          <div class="gi-body"><span><strong>Direct</strong>: 명시적 질문 ("What do you call X?")</span><span><strong>Indirect</strong>: 비언어적 신호 (rising intonation, puzzled expression)</span><span>🔍 요청 방식이 명시적 vs 암시적</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exam">
+      <div class="exam-label">📝 출제 포인트</div>
+      <p>• 사례 → 전략 identify 유형이 매년 1회 이상 출제 (2010.15, 2013, 2017 등)</p>
+      <p>• <span class='kw2'>Code-switching vs Foreignizing</span> 혼동 주의 (L1 발음 그대로 vs L2 음운 적용)</p>
+      <p>• <span class='kw2'>Approximation vs Circumlocution</span> 구분 (단어 1개 대체 vs 여러 문장 묘사)</p>
+      <p>• <span class='kw2'>Literal translation vs Word coinage</span> 구분 (L1 직역 vs 규칙 과잉)</p>
+      <p>• <span class='kw2'>Message abandonment</span> (avoidance) — 시작 후 미종결</p>
+    </div>
+  </div>
+</div>
+
+<!-- ④ Motivation -->
+<div class="sec" id="s4">
+  <div class="sec-header" onclick="toggle('s4')">
+    <span class="sec-icon">🎯</span>
+    <span class="sec-title">④ Motivation</span>
+    <span class="sec-tag">Integrative · Instrumental · Intrinsic · Extrinsic</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+
+    <div class="concept">
+      <div class="c-title">1) Integrative vs Instrumental Orientation</div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>Integrative</span></div>
+          <div class="gi-body"><span>L2 공동체에 통합되려는 동기</span><span><em>e.g. converse with international English speakers</em></span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>Instrumental</span></div>
+          <div class="gi-body"><span>실용 목적 (승진·시험·재정·사회적 지위)</span><span><em>e.g. English will add to her social status</em></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <div class="concept">
+      <div class="c-title">2) Intrinsic vs Extrinsic Motivation</div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw1'>Intrinsic</span></div>
+          <div class="gi-body"><span>언어 자체·즐거움 위해 학습</span><span><span class='kw2'>internal rewards</span>: satisfaction · competence · self-determination</span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw1'>Extrinsic</span></div>
+          <div class="gi-body"><span>외적 보상 기대</span><span>prize · grade · praise · showing off</span></div>
+        </div>
+      </div>
+      <p class="note" style="margin-top:12px"><strong>내적동기 유발법</strong>: T는 enabler (not rewarder), 평가+피드백 / S는 autonomy, 개인 목표, 전략 활용 / learner-centered, content-based activities</p>
+    </div>
+
+    <div class="div"></div>
+
+    <div class="concept">
+      <div class="c-title">3) 🔑 Motivation vs Orientation 용어 구분 (★★★ 헷갈 키텀)</div>
+      <p class="note"><strong>Brown 공식 구분</strong>: 두 용어는 다르게 사용되며, 시험에서 용어 정확성이 요구됨.</p>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw4'>Motivation</span> (동기)</div>
+          <div class="gi-body"><span>보상에 대한 <span class='kw2'>기대·목표·노력</span>의 정도</span><span>하위: <span class='kw1'>Intrinsic / Extrinsic</span></span><span>→ 내부/외부 보상 유발 여부</span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw4'>Orientation</span> (지향)</div>
+          <div class="gi-body"><span>다른 문화·언어권에 대한 <span class='kw2'>개인의 관점</span>과 그것이 동기 강도에 미치는 영향</span><span>하위: <span class='kw1'>Integrative / Instrumental</span></span><span>→ 문화적 통합 vs 실용적 목적</span></div>
+        </div>
+      </div>
+      <p class="note" style="margin-top:12px">⚠️ 주의: "Integrative motivation"이라는 표현도 통용되지만, 엄밀히는 <span class='kw2'>Integrative orientation</span>이 정확. 서술형에서 용어 선택 주의.</p>
+    </div>
+
+    <div class="exam">
+      <div class="exam-label">📝 출제 포인트</div>
+      <p>• 예시 → Integrative/Instrumental 구분 (기출 단골)</p>
+      <p>• 내적동기 유발 교수법 서술형</p>
+      <p>• <span class='kw3'>Motivation ≠ Orientation</span> 용어 구분 — Intrinsic/Extrinsic은 motivation, Integrative/Instrumental은 orientation</p>
+    </div>
+  </div>
+</div>
+
+<!-- ⑤ Inhibition / Anxiety -->
+<div class="sec" id="s5">
+  <div class="sec-header" onclick="toggle('s5')">
+    <span class="sec-icon">🛡️</span>
+    <span class="sec-title">⑤ Inhibition · Language Ego · Anxiety</span>
+    <span class="sec-tag">Affective Domain</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+
+    <div class="concept">
+      <div class="c-title">Language Ego & Inhibition</div>
+      <div class="def"><span class='kw3'>Language ego</span>: 언어와 관련해 형성되는 정체성. <span class='kw3'>Inhibition</span>: 취약한 ego를 보호하려는 <span class='kw2'>mental defensive mechanism</span>.</div>
+      <p class="note"><span class='kw3'>Adaptive language ego</span>: <span class='kw2'>permeable ego boundary</span>로 L2 정체성 위기를 유연히 다룸</p>
+      <p class="note">Lowering inhibition 방법: guessing games · meaning-centered, fluency-based activities · T's empathy & patience · challenging but not overwhelming tasks</p>
+    </div>
+
+    <div class="div"></div>
+
+    <div class="concept">
+      <div class="c-title">Anxiety</div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw4'>Facilitative</span></div>
+          <div class="gi-body"><span>helpful tension · 경쟁·도전과 연결</span><span><span class='kw2'>motivates</span> efforts to overcome</span><span><em>e.g. "tension pushes me to do well"</em></span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw4'>Debilitative</span></div>
+          <div class="gi-body"><span>worry · self-efficacy 저해</span><span>source를 <span class='kw2'>회피</span></span><span><em>e.g. "flee the learning task"</em></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exam">
+      <div class="exam-label">📝 출제 포인트</div>
+      <p>• 예시 문장 → Facilitative/Debilitative 판별 (tension이 도움인가 방해인가)</p>
+      <p>• Adaptive language ego의 <span class='kw2'>permeable</span> 특성</p>
+    </div>
+  </div>
+</div>
+
+<!-- ⑥ Risk-taking, Empathy, WTC -->
+<div class="sec" id="s6">
+  <div class="sec-header" onclick="toggle('s6')">
+    <span class="sec-icon">🎲</span>
+    <span class="sec-title">⑥ Risk-taking · Empathy · WTC</span>
+    <span class="sec-tag">기타 정의적 요인</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+
+    <div class="concept">
+      <div class="c-title">Risk-taking</div>
+      <div class="def">Willingness to <span class='kw2'>use the TL system</span> with an attitude to take the risk of making errors.</div>
+      <p class="note"><span class='kw2'>Optimum level</span> 필요 — 너무 높으면 부정확, 너무 낮으면 fossilization</p>
+      <p class="note">High: meaning > form, fluency > accuracy / Low: form 집착, fossilization 위험</p>
+      <p class="note"><em>e.g. "Even though she feels nervous, she tried to speak whenever she can"</em></p>
+    </div>
+
+    <div class="div"></div>
+
+    <div class="concept">
+      <div class="c-title">Empathy</div>
+      <div class="def">Ability to <span class='kw2'>put oneself in the position of another person</span> in order to understand them better.</div>
+      <p class="note">cooperation, group work, intelligible pronunciation과 연결</p>
+    </div>
+
+    <div class="div"></div>
+
+    <div class="concept">
+      <div class="c-title">Willingness to Communicate (WTC)</div>
+      <div class="def">The <span class='kw2'>intention to initiate communication</span>, given a choice.</div>
+      <p class="note"><em>e.g. High WTC: one enjoys participating in small group speaking activities</em></p>
+      <p class="note">영향 요인: motivation · personality · self-confidence</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ⑦ Acculturation -->
+<div class="sec" id="s7">
+  <div class="sec-header" onclick="toggle('s7')">
+    <span class="sec-icon">🌍</span>
+    <span class="sec-title">⑦ Acculturation Model</span>
+    <span class="sec-tag">Sociocultural · Schumann</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+
+    <div class="concept">
+      <div class="c-title">Definition</div>
+      <div class="def">Acculturation involves: (a) acquisition of a <span class='kw2'>second identity</span>, (b) learning the <span class='kw2'>culture</span> of the L2 community, (c) adapting to those <span class='kw2'>values and behavioral patterns</span>.</div>
+    </div>
+
+    <div class="div"></div>
+
+    <div class="concept">
+      <div class="c-title">Three Types of Learners</div>
+      <div class="grid col3">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>Preservation</span></div>
+          <div class="gi-body"><span>TL 문화 <span class='kw2'>거부</span></span><span>모국 문화 고수</span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>Acculturation</span></div>
+          <div class="gi-body"><span>TL 문화 <span class='kw2'>호의적</span></span><span>모국 문화도 유지</span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>Assimilation</span></div>
+          <div class="gi-body"><span>TL 문화에 흡수</span><span>모국 문화·언어 <span class='kw2'>희생</span></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <div class="concept">
+      <div class="c-title">Distance</div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw1'>Social distance</span></div>
+          <div class="gi-body"><span>L2 학습자 집단과 TL 집단 간 <span class='kw2'>사회적 관계</span></span><span>계층·직업·종교·민족 차이</span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw1'>Psychological distance</span></div>
+          <div class="gi-body"><span>학습자 개인의 <span class='kw2'>주관적 감정</span> (더 큰 개념)</span><span>motivation · attitude · culture shock</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <div class="concept">
+      <div class="c-title">Culture Shock (4 Stages)</div>
+      <div class="flow">
+        <div class="flow-item"><span class='kw2'>Euphoria</span><br>excitement<br>newness of surroundings</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-item"><span class='kw2'>Culture shock</span><br>cultural difference<br>conflict · breakdown</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-item"><span class='kw2'>Culture stress</span><br>anomie<br>cultural homelessness</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-item"><span class='kw2'>Acculturation</span><br>assimilation / adaptation<br>new identity · self-confidence</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ⑧ Culture Teaching -->
+<div class="sec" id="s8">
+  <div class="sec-header" onclick="toggle('s8')">
+    <span class="sec-icon">🎭</span>
+    <span class="sec-title">⑧ Culture Teaching Techniques</span>
+    <span class="sec-tag orange">지문 근거로 자주 활용</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+
+    <div class="concept">
+      <div class="c-title">Four Core Techniques</div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>Culture Capsules</span></div>
+          <div class="gi-body"><span>① 두 문화 차이 <span class='kw2'>brief description</span> 듣기</span><span>② 차이 토론 → ③ role-play → ④ 다른 기능과 통합</span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>Culture Assimilators</span></div>
+          <div class="gi-body"><span>① cross-cultural <span class='kw2'>miscommunication episode</span> 제시</span><span>② <span class='kw2'>multiple-choice</span>로 이유 선택</span><span>③ 각 선택지에 대한 feedback 설명</span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>Audio-motor Unit</span></div>
+          <div class="gi-body"><span>TPR을 문화적 행동에 적용</span><span>논리적으로 배열된 명령문</span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>Role play</span></div>
+          <div class="gi-body"><span>다른 문화적 맥락의 역할 수행</span><span>cultural stereotype·fatigue 극복</span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>Cultural Minidrama</span></div>
+          <div class="gi-body"><span>오해 사건 여러 episode 연속</span><span>마지막에 <span class='kw2'>exact problem</span> 공개 → 토론</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ⑨ Bilingualism, Sapir-Whorf -->
+<div class="sec" id="s9">
+  <div class="sec-header" onclick="toggle('s9')">
+    <span class="sec-icon">🗣️</span>
+    <span class="sec-title">⑨ Bilingualism · Sapir-Whorf</span>
+    <span class="sec-tag">기타 개념</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+
+    <div class="concept">
+      <div class="c-title">Bilingualism Types</div>
+      <div class="grid col3">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw1'>Coordinate</span></div>
+          <div class="gi-body"><span>두 언어 시스템 <span class='kw2'>독립 운영</span></span><span>Eng: Apple / Kor: …?</span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw1'>Compound</span></div>
+          <div class="gi-body"><span><span class='kw2'>단일 혼합 시스템</span>으로 두 언어 처리</span><span>Eng: Apple / Kor: 사과</span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw1'>Subordinate</span></div>
+          <div class="gi-body"><span>모국어를 통해 L2 처리</span><span>"사과" → Apple</span></div>
+        </div>
+      </div>
+      <p class="note" style="margin-top:12px"><span class='kw1'>Additive bilingual</span>: L2 습득이 긍정적 / <span class='kw1'>Subtractive bilingual</span>: L2 습득이 L1에 해로움</p>
+    </div>
+
+    <div class="div"></div>
+
+    <div class="concept">
+      <div class="c-title">Sapir-Whorf Hypothesis</div>
+      <div class="def"><span class='kw2'>Linguistic determinism</span>: 언어가 한 사람의 <span class='kw2'>세계관을 결정</span>. 언어는 단순한 생각의 표현 도구가 아니라 사고의 <span class='kw2'>형성자</span>이자 안내자.</div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title">Strong version</div>
+          <div class="gi-body"><span>linguistic <span class='kw2'>determinism</span></span><span>언어가 사고를 결정</span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title">Weak version</div>
+          <div class="gi-body"><span>linguistic <span class='kw2'>relativism</span></span><span>언어가 사고에 영향</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div><!-- /wrap -->
+<script>
+function toggle(id){document.getElementById(id).classList.toggle('open')}
+function openSec(id){const s=document.getElementById(id);s.classList.add('open');s.scrollIntoView({behavior:'smooth',block:'start'})}
+</script>
+</body>
+</html>
