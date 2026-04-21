@@ -304,32 +304,46 @@ TOC 바로 아래 `.exam`에 해당 챕터 핵심 기출 8~10개 bullet. kw3~kw4
 
 **챕터 1개 완료 = 반드시 아래 5단계 모두 자동 실행**
 
-### 1단계: 코드 작업
+> ⚠️ **GitHub Pages 동시성 주의**: Pages workflow는 동시성 정책으로 새 실행이 들어오면 이전 실행을 취소시킴. 연속 커밋·푸시 시 **"Canceling since a higher priority waiting request" 에러로 아무것도 배포 안 됨**. 따라서:
+> - **변경사항은 한 커밋으로 묶을 것** (커밋 여러 번 쪼개지 말 것)
+> - main 머지·푸시 후 **Pages 배포 완료 전까지 추가 커밋 금지**
+> - 빈 커밋으로 재빌드 트리거 금지 (이것도 취소 유발)
+> - 배포 실패 시 GitHub Actions(https://github.com/Namkicheol/englisheducation/actions) 직접 확인
+
+### 1단계: 코드 작업 (한 번에 모두 완료)
 - `XXX.html` + `XXX_study.html` 작성
 - `index.html` 업데이트 (완료 챕터 카드 추가, 통계 숫자 +1)
+- 필요 시 CLAUDE.md 업데이트
+- **작업 완료 전까지는 커밋하지 말 것** — 모든 변경 한 번에 묶기
 
-### 2단계: 커밋
+### 2단계: 하나의 커밋으로 묶기
 ```bash
-git add XXX.html XXX_study.html index.html
-git commit -m "Add Ch.N [챕터명] — XXX.html (OX quiz, 20문항) + XXX_study.html (개념 정리)
+git add XXX.html XXX_study.html index.html [CLAUDE.md]
+git commit -m "Add Ch.N [챕터명] + index 업데이트
 
-- 주요 변경 내용 요약
+- XXX.html: OX 퀴즈 20문항
+- XXX_study.html: 개념정리 N섹션
+- index.html: Ch.N 완료 카드 추가
+
 Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>"
 ```
 
-### 3단계: 브랜치 푸시
+### 3단계: 브랜치 푸시 + main 머지·푸시 (연쇄)
 ```bash
-git push -u origin <current-branch>
-```
-
-### 4단계: main 머지·푸시 (워크트리 기준)
-```bash
-cd /Users/namgicheol/englisheducation
-git fetch origin
-git merge --ff-only <current-branch>
+git push -u origin <current-branch> && \
+cd /Users/namgicheol/englisheducation && \
+git fetch origin && \
+git merge --ff-only <current-branch> && \
 git push origin main
 ```
-> GitHub Pages는 main 기준 배포 — main 머지해야 `namkicheol.github.io/englisheducation/...` 에서 접근 가능.
+> 한 번의 명령 체인으로 처리 — 중간에 추가 커밋 삽입 금지.
+
+### 4단계: Pages 배포 완료 대기 (폴링)
+```bash
+until [ "$(curl -s -o /dev/null -w '%{http_code}' https://namkicheol.github.io/englisheducation/XXX.html)" = "200" ]; do sleep 20; done
+```
+- 보통 1~5분 소요. 완료 확인 전까지 **다음 작업 금지**.
+- 이 대기 중 추가 커밋하면 워크플로우 취소됨.
 
 ### 5단계: 블로그 자료 자동 제공
 사용자가 별도 요청하지 않아도 아래 4가지를 함께 출력:
