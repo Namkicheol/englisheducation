@@ -128,14 +128,14 @@
 - 사이트는 챕터당 2개: `*_study.html` (개념정리) + `*.html` (OX 20문항)
 - **블로그 글 단위: 챕터당 1편 통합** (4섹션 본문 + iframe 임베드)
 
-**iframe / 링크 배치**
-- 본문 중반(④ 직전): `*_study.html` (개념정리) **iframe 임베드** — "✅ 한 번에 정리 페이지로 보기"
-- 본문 마지막: OX 20문항은 **이미 발행된 `obangti.tistory.com` 별도 글로 링크 버튼** 처리 (iframe 중복 X)
-- 개념정리 iframe URL: `https://namkicheol.github.io/englisheducation/<filename>_study.html`
-- OX 링크 버튼 템플릿:
+**iframe / 링크 배치 — iframe 미사용 원칙**
+- ❌ **개념정리(`*_study.html`) iframe 임베드 금지** — 4섹션 본문에 이미 개념을 풀어 썼으므로 iframe은 중복
+- ❌ **OX(`*.html`) iframe 임베드 금지** — 이미 별도 obangti.tistory.com 글로 발행됨
+- ✅ **본문 끝에 OX 링크 버튼**만 추가 — `obangti.tistory.com/<post-id>` 형식 (예: `obangti.tistory.com/37`)
+- 링크 버튼 템플릿:
   ```html
   <p align="center">
-  <a href="https://obangti.tistory.com/<post-id>" target="_blank" style="display:inline-block;padding:14px 28px;background:#3182ce;color:#fff;text-decoration:none;border-radius:8px;font-weight:bold;font-size:15px;">📝 OX 20문항 풀러 가기 →</a>
+  <a href="https://obangti.tistory.com/<post-id>" target="_blank" style="display:inline-block;padding:14px 28px;background:#3182ce;color:#fff;text-decoration:none;border-radius:8px;font-weight:bold;font-size:15px;">📝 [챕터명] OX 20문항 풀러 가기 →</a>
   </p>
   ```
 
