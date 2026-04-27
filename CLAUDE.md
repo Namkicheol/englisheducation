@@ -119,7 +119,7 @@
 - **키워드 하이라이트 필수** (5색): 이론명·가설명·기술 용어 → 파랑 `#3182ce` / 학자명 → 보라 `#805ad5` / 함정·주의 → 빨강 `#c53030` / 장점·긍정 → 청록 `#319795` / 현직쌤 팁 → 주황 `#dd6b20`
 - **기출 연도 빨간색 인라인** (`#c53030`)
 - 핵심 개념은 **영어 원문 한 문단 + 한글 설명 한 문단** 교차 (개념정리 페이지 수록 개념 + 알파)
-- **썸네일은 Pencil MCP** (`blog-image-pencil` 스킬)로 생성
+- **신규 글 썸네일은 Pencil MCP** (`blog-image-pencil` 스킬)로 생성. 기존 글은 그대로 유지
 - **SVG 사용 금지** (블로그 한정. 웹앱 페이지의 SVG 다이어그램은 별개)
 
 ### 영교론 블로그 고유 규칙
@@ -128,10 +128,16 @@
 - 사이트는 챕터당 2개: `*_study.html` (개념정리) + `*.html` (OX 20문항)
 - **블로그 글 단위: 챕터당 1편 통합** (4섹션 본문 + iframe 임베드)
 
-**iframe 임베드 위치**
-- 본문 중반(④ 직전): `*_study.html` (개념정리) — "✅ 한 번에 정리 페이지로 보기"
-- 본문 마지막: `*.html` (OX 20문항) — "📝 직접 풀어보기"
-- 두 iframe URL: `https://namkicheol.github.io/englisheducation/<filename>.html`
+**iframe / 링크 배치**
+- 본문 중반(④ 직전): `*_study.html` (개념정리) **iframe 임베드** — "✅ 한 번에 정리 페이지로 보기"
+- 본문 마지막: OX 20문항은 **이미 발행된 `obangti.tistory.com` 별도 글로 링크 버튼** 처리 (iframe 중복 X)
+- 개념정리 iframe URL: `https://namkicheol.github.io/englisheducation/<filename>_study.html`
+- OX 링크 버튼 템플릿:
+  ```html
+  <p align="center">
+  <a href="https://obangti.tistory.com/<post-id>" target="_blank" style="display:inline-block;padding:14px 28px;background:#3182ce;color:#fff;text-decoration:none;border-radius:8px;font-weight:bold;font-size:15px;">📝 OX 20문항 풀러 가기 →</a>
+  </p>
+  ```
 
 **4섹션 보강 포인트 (영교론 특화)**
 - ② **기출 맥락**: 영교론 기출 답안 형식 분석에 강함. `refs/밍우_영교론 영역별 기출분석본.md` + `refs/keywords.md` 우선 활용
