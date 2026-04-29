@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch.8 Teaching Speaking OX Quiz</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=JetBrains+Mono:wght@400;600&family=Caveat:wght@600&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans KR',sans-serif;background:#f5f4ee;background-image:repeating-linear-gradient(transparent,transparent 27px,#ddddd0 28px);color:#1a1a1a;min-height:100vh;padding:16px}
+.header-wrap{max-width:720px;margin:0 auto;padding:20px 8px 0}
+.header-topbar{display:flex;justify-content:space-between;align-items:center;border-top:2px solid #1a1a1a;padding-top:8px;margin-bottom:10px}
+.header-no{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;border:2px solid #1a1a1a;padding:3px 10px;border-radius:2px;letter-spacing:.5px;display:flex;align-items:center;gap:6px}
+.header-label{font-family:'JetBrains Mono',monospace;font-size:11px;color:#888;letter-spacing:1px}
+.header-title{font-size:clamp(30px,7vw,46px);font-weight:900;color:#1a1a1a;line-height:1.1;margin-bottom:5px;letter-spacing:-1px}
+.title-hl{background:#2e7d52;color:#fff;padding:1px 6px}
+.header-script{font-family:'Caveat',cursive;font-size:21px;color:#2e7d52;margin-bottom:4px;font-weight:600}
+.header-sub{font-size:13px;color:#555;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#aaa;margin-bottom:14px}
+.header-divider{border:none;border-top:2.5px solid #1a1a1a;margin-bottom:20px}
+.prog-wrap{max-width:720px;margin:0 auto 24px;padding:0 8px}
+.prog-info{display:flex;justify-content:space-between;font-size:12px;color:#4a7a62;font-family:'JetBrains Mono',monospace;margin-bottom:6px}
+.bar{height:4px;background:#b2dfcc;border-radius:2px;overflow:hidden}
+.bar-fill{height:100%;background:linear-gradient(90deg,#2e7d52,#26a69a);border-radius:2px;transition:width .5s ease}
+.wrap{max-width:720px;margin:0 auto}
+.card{background:#fff;border:1.5px solid #b2dfcc;border-radius:14px;padding:26px;animation:up .35s ease;box-shadow:0 2px 8px rgba(46,125,82,.08)}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.q-meta{display:flex;align-items:center;gap:7px;margin-bottom:14px;flex-wrap:wrap}
+.q-num{font-family:'JetBrains Mono',monospace;font-size:11px;color:#2e7d52;background:rgba(46,125,82,.1);padding:3px 10px;border-radius:8px;font-weight:700}
+.q-src{font-size:11px;color:#4a7a62;font-family:'JetBrains Mono',monospace}
+.q-cat{font-size:11px;color:#00796b;background:rgba(38,166,154,.1);padding:3px 10px;border-radius:8px;margin-left:auto;font-weight:600}
+.kw1{background:rgba(46,125,82,.18);color:#1b5e3a;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em}
+.kw2{color:#00796b;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border-bottom:2px solid rgba(0,121,107,.4)}
+.kw3{background:rgba(230,119,0,.13);color:#bf6000;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(230,119,0,.3)}
+.kw4{background:rgba(183,28,28,.11);color:#b71c1c;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(183,28,28,.25)}
+.q-text{font-size:clamp(15px,2.2vw,16.5px);line-height:1.9;margin-bottom:24px;color:#1a3326}
+.ox-btns{display:flex;gap:12px}
+.ox-btn{flex:1;padding:20px 10px;border-radius:12px;border:2px solid #b2dfcc;background:#f5fdf8;color:#1a3326;font-size:30px;cursor:pointer;transition:all .18s ease;display:flex;flex-direction:column;align-items:center;gap:5px}
+.lb{font-size:11px;font-family:'JetBrains Mono',monospace;color:#4a7a62;letter-spacing:1px;font-weight:600}
+.ox-btn:hover:not(:disabled){transform:translateY(-2px)}
+.o-btn:hover:not(:disabled){border-color:#2e7d52;background:rgba(46,125,82,.08)}
+.x-btn:hover:not(:disabled){border-color:#c62828;background:rgba(198,40,40,.06)}
+.co,.cx{border-color:#2e7d52!important;background:rgba(46,125,82,.1)!important}
+.wp{border-color:#c62828!important;background:rgba(198,40,40,.08)!important}
+.ox-btn:disabled{cursor:default}
+.badge{display:none;margin-top:14px;padding:9px 16px;border-radius:8px;font-size:14px;font-weight:700;font-family:'JetBrains Mono',monospace}
+.badge.ok{display:inline-block;background:rgba(46,125,82,.1);color:#2e7d52;border:1.5px solid rgba(46,125,82,.3)}
+.badge.ng{display:inline-block;background:rgba(198,40,40,.08);color:#c62828;border:1.5px solid rgba(198,40,40,.25)}
+.exp{display:none;margin-top:18px;border-radius:12px;overflow:hidden;animation:fade .3s ease}
+.exp.show{display:block}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.exp-header{background:linear-gradient(135deg,rgba(46,125,82,.12),rgba(38,166,154,.06));border:1.5px solid rgba(46,125,82,.25);border-bottom:none;padding:11px 16px}
+.exp-header span{font-size:11px;font-family:'JetBrains Mono',monospace;color:#1b5e3a;letter-spacing:1.5px;text-transform:uppercase;font-weight:700}
+.exp-answer{background:rgba(46,125,82,.05);border:1.5px solid rgba(46,125,82,.2);border-top:none;border-bottom:none;padding:14px 16px}
+.ans-label{font-size:11px;font-family:'JetBrains Mono',monospace;color:#4a7a62;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;font-weight:700}
+.ans-text{font-size:15px;color:#1a3326;line-height:1.75;font-weight:500}
+.exp-body{background:rgba(46,125,82,.03);border:1.5px solid rgba(46,125,82,.15);border-top:1px solid rgba(46,125,82,.1);padding:14px 16px}
+.sec-label{font-size:11px;font-family:'JetBrains Mono',monospace;color:#00796b;text-transform:uppercase;letter-spacing:1px;margin-bottom:7px;margin-top:13px;font-weight:700}
+.sec-label:first-child{margin-top:0}
+.exp-body p{font-size:14px;color:#2a5040;line-height:1.8;margin-bottom:5px}
+.def-box{background:rgba(38,166,154,.06);border-left:4px solid #26a69a;padding:10px 14px;border-radius:0 8px 8px 0;margin:8px 0}
+.def-box p{color:#004d40;font-size:13.5px;font-style:italic;line-height:1.75}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.compare.three{grid-template-columns:1fr 1fr 1fr}
+.compare-item{background:#f5fdf8;border:1.5px solid #b2dfcc;border-radius:8px;padding:11px 14px}
+.ci-title{font-size:11px;font-family:'JetBrains Mono',monospace;color:#1b5e3a;font-weight:700;margin-bottom:5px}
+.compare-item p{font-size:13px;color:#3a6b51;line-height:1.65}
+.next-btn{display:none;width:100%;margin-top:16px;padding:14px;background:linear-gradient(135deg,#2e7d52,#26a69a);border:none;border-radius:10px;color:white;font-family:'Noto Sans KR',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:opacity .2s,transform .2s}
+.next-btn:hover{opacity:.88;transform:translateY(-1px)}
+.next-btn.show{display:block;animation:fade .3s ease}
+.score-card{display:none;text-align:center;padding:48px 24px}
+.score-card.show{display:block;animation:up .5s ease}
+.score-circle{width:130px;height:130px;border-radius:50%;background:linear-gradient(135deg,#2e7d52,#26a69a);display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 0 40px rgba(46,125,82,.3)}
+.s-num{font-size:42px;font-weight:700;line-height:1;color:#fff}
+.s-total{font-size:14px;opacity:.85;color:#fff}
+.score-card h2{font-size:24px;margin-bottom:7px;color:#1a3326}
+.score-card p{color:#4a7a62;margin-bottom:24px;font-size:15px}
+.restart-btn{padding:13px 32px;background:#f5fdf8;border:2px solid #2e7d52;border-radius:10px;color:#2e7d52;font-family:'Noto Sans KR',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:all .2s}
+.restart-btn:hover{background:rgba(46,125,82,.1)}
+.nd{width:28px;height:28px;border-radius:6px;border:1.5px solid #b2dfcc;background:#f5fdf8;font-size:11px;font-family:'JetBrains Mono',monospace;cursor:pointer;color:#4a7a62;transition:all .15s;display:inline-flex;align-items:center;justify-content:center;font-weight:600}
+.nd.cur{border-color:#2e7d52;background:#2e7d52;color:white}
+.nd.ok{border-color:#2e7d52;background:rgba(46,125,82,.15);color:#1b5e3a}
+.nd.ng{border-color:#c62828;background:rgba(198,40,40,.1);color:#c62828}
+.nd:hover:not(.cur){opacity:.7}
+#nav{display:flex;flex-wrap:wrap;gap:5px;max-width:720px;margin:0 auto 16px;padding:0 8px}
+</style>
+</head>
+<body>
+<div class="header-wrap">
+  <div class="header-topbar">
+    <span class="header-no">NO. 08 <span>—</span> Teaching Speaking</span>
+    <span class="header-label">Past-Exam Notebook</span>
+  </div>
+  <h1 class="header-title"><span class="title-hl">영어교육론</span> 개념 마스터</h1>
+  <div class="header-script">Concept Master</div>
+  <p class="header-sub">영어교육론 · Teaching Speaking · 임용고시 대비</p>
+  <div class="header-divider"></div>
+</div>
+<div class="prog-wrap">
+  <div class="prog-info"><span id="pt">1 / 26</span><span id="ps">정답 0개</span></div>
+  <div class="bar"><div class="bar-fill" id="bf" style="width:3.8%"></div></div>
+</div>
+<div id="rb" style="display:none;max-width:720px;margin:0 auto 14px;padding:0 8px">
+  <div style="background:rgba(46,125,82,.08);border:1.5px solid rgba(46,125,82,.3);border-radius:12px;padding:13px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+    <span id="rb-msg" style="font-size:13px;color:#1a3326;font-family:'JetBrains Mono',monospace;line-height:1.5"></span>
+    <button onclick="freshStart()" style="padding:10px 22px;background:#c62828;border:none;border-radius:8px;color:#fff;font-size:14px;font-weight:700;font-family:'Noto Sans KR',sans-serif;cursor:pointer;white-space:nowrap;flex-shrink:0">처음부터</button>
+  </div>
+</div>
+<div id="nav"></div>
+<div class="wrap">
+  <div id="qa"></div>
+  <div class="score-card" id="sc">
+    <div class="score-circle"><span class="s-num" id="fs">0</span><span class="s-total">/26</span></div>
+    <h2 id="rm"></h2><p id="rs"></p>
+    <button class="restart-btn" onclick="restart()">🔄 다시 풀기</button>
+  </div>
+</div>
+<script src="./score-popup.js"></script>
+<script src="./sounds.js"></script>
+<script>
+const Q=[
+  {src:"Drill 종류",cat:"Mechanical Drill",
+   text:"<span class='kw1'>Mechanical drills</span> require Ss to make the only one correct response from the teacher's cue, and <span class='kw2'>comprehension is not needed</span> to perform them correctly.",
+   ans:true,
+   correct:"<span class='kw1'>Mechanical drill</span>은 단일 정답만 요구되는 통제된 반복 연습으로, <span class='kw2'>comprehension은 필요하지 않습니다</span>. 형식과 의미의 연결도 없으며 현실 맥락(reality)과의 연관도 없습니다.",
+   why:"Mechanical drill은 audiolingual 전통의 가장 통제된 drill 형태입니다. 학생은 T의 cue에 따라 미리 정해진 단 하나의 정답을 산출하면 되고, 의미를 이해하지 못해도 반복으로 패턴을 습득할 수 있습니다. Repetition drill, substitution drill, moving slot substitution drill이 대표 예입니다.",
+   source:"\"<span class='kw1'>Mechanical Drills</span>: L is required to make the only one correct response from the T's cue; <span class='kw2'>comprehension is not needed</span>; no connection with reality.\"",
+   compare:[{title:"<span class='kw1'>Mechanical</span>",desc:"comprehension X · 정답 1개"},{title:"<span class='kw1'>Meaningful</span>",desc:"comprehension 필요 · predicted response"},{title:"<span class='kw1'>Communicative</span>",desc:"open response · real info"}]},
+
+  {src:"Drill 종류",cat:"Meaningful Drill",
+   text:"<span class='kw1'>Meaningful drills</span> have a predicted response with a regulated sequence and require <span class='kw2'>display questions</span>, but Ss must understand the meaning to answer correctly.",
+   ans:true,
+   correct:"<span class='kw1'>Meaningful drill</span>은 예측 가능한 정답이 정해진 순서로 있고, 학생이 <span class='kw2'>의미를 이해해야</span> 답할 수 있습니다. T가 답을 이미 아는 <span class='kw2'>display question</span> 형식이며 현실과 어느 정도 연결됩니다.",
+   why:"Meaningful drill은 mechanical drill과 communicative drill의 중간 단계입니다. 정답은 이미 정해져 있지만(predicted) 학생이 의미를 이해해야만 정답을 골라 말할 수 있다는 점이 mechanical과의 차이입니다. T의 질문은 답을 미리 알고 묻는 display Q 형식입니다.",
+   source:"\"<span class='kw1'>Meaningful Drills</span>: A type of drill that has a predicted response with regulated sequence; some connection with reality; <span class='kw2'>comprehension is needed</span> to answer correctly.\"",
+   compare:[{title:"<span class='kw1'>Display Q</span>",desc:"T가 답을 알고 묻는 질문 (Meaningful)"},{title:"<span class='kw1'>Referential Q</span>",desc:"T가 답을 모르고 묻는 진짜 질문 (Communicative)"}]},
+
+  {src:"Drill 종류",cat:"Communicative Drill",
+   text:"<span class='kw1'>Communicative practice (form-focused communicative drill)</span> controls the type of response but allows Ss to provide an open response, exchange real information, and respond with <span class='kw2'>referential questions</span> using their own personalized information.",
+   ans:true,
+   correct:"<span class='kw1'>Communicative drill</span>은 응답 유형은 통제되지만 <span class='kw2'>open response</span>가 가능하고, 학생이 <span class='kw2'>실제 자기 정보</span>로 답합니다. <span class='kw2'>Referential question</span>(T가 답을 모르는 진짜 질문)이 핵심입니다.",
+   why:"Communicative drill은 drill 3종 중 가장 개방적인 형태입니다. 형식은 통제하되, 학생의 실제 정보·의견을 끌어내고 의미 협상(negotiation for meaning) 기회를 제공합니다. Mechanical drill과의 결정적 차이는 referential Q + open response + Ss' own real information입니다.",
+   source:"\"<span class='kw1'>Communicative Practice</span>: A type of drill where the type of response is controlled but the L is given opportunities to provide an <span class='kw2'>open response</span>, to exchange real information, and to negotiate for meaning; <span class='kw2'>referential Qs</span>; require Ss to answer with personalized and real information.\"",
+   compare:[{title:"<span class='kw1'>Communicative drill</span>",desc:"open response · real info · referential Q"},{title:"<span class='kw1'>Meaningful drill</span>",desc:"predicted response · display Q"}]},
+
+  {src:"Speaking Activities",cat:"Discussion",
+   text:"In a <span class='kw1'>discussion</span> activity, students need to learn <span class='kw2'>functional language</span>, and each student in a group should assume a specific role.",
+   ans:true,
+   correct:"<span class='kw1'>Discussion</span>은 학생들이 <span class='kw2'>functional language</span>(동의·반대·제안 등)를 학습해야 하고, 그룹 내에서 <span class='kw2'>특정 역할</span>(chairperson, note-taker 등)을 각자 맡아야 합니다.",
+   why:"Discussion은 단순한 자유 대화가 아니라 functional language 학습과 역할 분담이 핵심입니다. 또한 speaking·listening·thinking이 통합된 skill-integrated activity입니다.",
+   source:"\"<span class='kw1'>Discussion</span>: Ss are divided into pairs or groups to discuss a certain topic. Ss need to learn <span class='kw2'>functional language</span>. Each S in a group should assume a specific role. Skill-integrated activities.\""},
+
+  {src:"Speaking Activities",cat:"Presentation",
+   text:"A <span class='kw1'>presentation</span> is a type of <span class='kw2'>monologic task</span>, which is a speaking activity where Ls speak an extended piece of discourse for an audience.",
+   ans:true,
+   correct:"<span class='kw1'>Presentation</span>은 <span class='kw2'>monologic task</span>의 한 유형이며, 학습자가 청중 앞에서 확장된 담화를 산출하는 speaking 활동입니다.",
+   why:"Presentation은 \"독백적(monologic)\" 과업으로 분류됩니다 — 한 학생이 청중을 대상으로 비교적 긴 담화를 산출합니다. Videotaping을 활용하면 학생은 self-evaluation, 교사는 in-depth evaluation이 가능해집니다.",
+   source:"\"<span class='kw1'>Presentation</span> is a type of a <span class='kw2'>monologic task</span>, which is a speaking activity where Ls speak an extended piece of discourse for an audience.\""},
+
+  {src:"Speaking Activities",cat:"Impromptu Speech",
+   text:"<span class='kw1'>Impromptu speeches</span> are a variation of class presentation where a presenter must speak about a given topic, and this technique can be used to teach <span class='kw2'>hesitation markers</span>.",
+   ans:true,
+   correct:"<span class='kw1'>Impromptu speech</span>는 사전 준비 없이 주어진 주제로 발표하는 형식이며, <span class='kw2'>hesitation markers</span>(well, you know, um) 학습에 활용됩니다.",
+   why:"즉흥 발표는 학습자가 시간을 벌기 위해 자연스럽게 hesitation markers를 사용하게 만듭니다. 이는 실제 대화의 수행 변수(performance variables)를 가르치는 좋은 맥락이 됩니다. Rehearsal(준비된 발표)과 대조됩니다.",
+   source:"\"<span class='kw1'>Impromptu speeches</span>: A variation of class presentation where a presenter must speak about a given topic. This can be used as an activity to teach <span class='kw2'>hesitation markers</span>.\"",
+   compare:[{title:"<span class='kw1'>Rehearsal</span>",desc:"preparation time · accuracy↑ · confidence↑"},{title:"<span class='kw1'>Impromptu</span>",desc:"spontaneous · little to no prep · hesitation markers"}]},
+
+  {src:"Gap Activities",cat:"Information-gap vs Reasoning-gap",
+   text:"<span class='kw1'>Information-gap activities</span> are activities that require students to <span class='kw2'>derive new information by inferring it</span> from given information.",
+   ans:false,
+   correct:"<span class='kw1'>Information-gap</span>은 학생끼리 <span class='kw2'>다른 정보를 교환</span>하는 활동입니다. 추론으로 새 정보를 도출하는 것은 <span class='kw1'>Reasoning-gap activity</span>입니다.",
+   why:"Information-gap과 Reasoning-gap은 함정 단골입니다. Information-gap은 단순히 학생끼리 다른 정보를 가지고 있어 \"교환\"하면 되는 반면, Reasoning-gap은 같은 정보를 받아도 \"추론\"으로 새 결론을 도출해야 합니다.",
+   source:"\"<span class='kw1'>Information-gap activities</span>: An activity that involves <span class='kw2'>exchanging information among Ss</span> either one-way or two-way. <span class='kw1'>Reasoning-gap activities</span>: An activity that requires Ss to <span class='kw2'>derive new information by inferring</span> it from the given information.\"",
+   compare:[{title:"<span class='kw1'>Information-gap</span>",desc:"정보 교환 (one-way / two-way)"},{title:"<span class='kw1'>Reasoning-gap</span>",desc:"주어진 정보 → 추론으로 새 정보 도출"}]},
+
+  {src:"Gap Activities",cat:"Reasoning-gap",
+   text:"A <span class='kw1'>reasoning-gap activity</span> requires students to derive new information by <span class='kw2'>inferring it from given information</span> through logical processing.",
+   ans:true,
+   correct:"<span class='kw1'>Reasoning-gap</span>은 주어진 정보로부터 <span class='kw2'>logical inference</span>를 통해 새 정보를 도출하도록 요구하는 활동입니다.",
+   why:"Reasoning-gap의 핵심은 \"추론\"입니다. 정보 자체는 학생이 모두 가지고 있지만, 그 정보들로부터 새로운 결론을 추론해야 합니다. 예: 시간표를 보고 최적 이동 경로 찾기, 단서를 종합해 범인 찾기 등.",
+   source:"\"<span class='kw1'>Reasoning-gap activities</span>: An activity that requires Ss to <span class='kw2'>derive new information by inferring</span> it from the given information.\""},
+
+  {src:"Gap Activities",cat:"Opinion-gap",
+   text:"An <span class='kw1'>opinion-gap activity</span> requires students to give their <span class='kw2'>personal preferences, feelings, or attitudes</span>, with examples including debate or story completion.",
+   ans:true,
+   correct:"<span class='kw1'>Opinion-gap</span>은 학생의 <span class='kw2'>개인적 선호·감정·태도</span>를 표현하는 활동으로, debate나 story completion이 대표적입니다.",
+   why:"Opinion-gap은 객관적 정답이 없습니다. 학생이 자신의 주관을 언어화해야 하는 활동이며, 토론(debate)이나 이야기 완성(story completion)이 대표 예입니다. Information-gap과 달리 \"정보 교환\"이 아닌 \"의견 표현\"이 중심입니다.",
+   source:"\"<span class='kw1'>Opinion-gap activities</span>: An activity that requires Ss to give their <span class='kw2'>personal preferences, feelings, or attitudes</span>. Ex) debate, story completion.\""},
+
+  {src:"Role Play",cat:"Definition",
+   text:"A <span class='kw1'>role play</span> is a drama technique where students take the role of different persons and act out, and it always involves giving a role to members of a group <span class='kw2'>and</span> assigning an objective that must be accomplished.",
+   ans:true,
+   correct:"<span class='kw1'>Role play</span>는 두 가지 구성 요소를 모두 가집니다: ① <span class='kw2'>역할(role) 부여</span>와 ② <span class='kw2'>달성할 목표(objective)</span>. 단순 역할극이 아니라 명확한 목표가 있어야 합니다.",
+   why:"Role play의 정의에서 \"giving a role + assigning an objective\" 두 요소가 모두 필수임을 기억해야 합니다. 단순히 역할만 주고 자유롭게 말하라고 하는 것은 정식 role play가 아닙니다. role card나 cue card를 활용할 수 있습니다.",
+   source:"\"<span class='kw1'>Role play</span>: A drama technique where Ss take the role of different persons and act out in a relatively short and brief situation. It involves a) <span class='kw2'>giving a role</span> to members of a group and b) <span class='kw2'>assigning an objective</span> that must be accomplished.\""},
+
+  {src:"Role Play",cat:"Less Structured Role Play",
+   text:"In a <span class='kw1'>less structured role play</span>, the teacher tells the students <span class='kw2'>who they are</span> and <span class='kw2'>what the situation is</span>, but the students determine what they will say.",
+   ans:true,
+   correct:"<span class='kw1'>Less structured role play</span>는 T가 ① <span class='kw2'>역할</span>과 ② <span class='kw2'>상황</span>만 알려주고, 학생이 직접 무엇을 말할지 결정하는 방식입니다.",
+   why:"Less structured role play의 핵심은 \"학생 자율성\"입니다. T는 누구이며 어떤 상황인지만 제시하고, 학생은 자기 언어 자원으로 대화를 만들어냅니다. 따라서 fluency 향상에 효과적이며 기출 단골 출제 포인트입니다. Structured role play와 비교하면 후자는 T가 대사까지 알려줍니다.",
+   source:"\"<span class='kw1'>Less structured role play</span>: A type of role play where the T tells the Ss <span class='kw2'>who they are and what the situation is</span>, but the Ss determine <span class='kw2'>what they will say</span>.\"",
+   compare:[{title:"<span class='kw1'>Structured</span>",desc:"T tells: who + <span class='kw2'>what to say</span>"},{title:"<span class='kw1'>Less structured</span>",desc:"T tells: who + situation / Ss decide <span class='kw2'>what to say</span>"}]},
+
+  {src:"Role Play",cat:"Structured vs Less Structured",
+   text:"<span class='kw1'>Structured role play</span> is more effective than <span class='kw1'>less structured role play</span> for developing students' <span class='kw2'>fluency</span> in speaking.",
+   ans:false,
+   correct:"<span class='kw2'>Less structured role play</span>가 fluency 향상에 더 효과적입니다. Structured role play는 T가 대사까지 알려주므로 정확성(accuracy) 중심입니다.",
+   why:"기출에서 가장 자주 출제되는 함정 중 하나입니다. Less structured role play는 학생이 자기 자원으로 발화를 구성해야 하므로 자연스러운 fluency 발달을 촉진합니다. Structured는 미리 정해진 대사를 말하는 형식이라 form 정확성에는 좋지만 fluency엔 제한적입니다.",
+   source:"\"speaking activity는 role play가 가장 빈출. 대사의 meaning을 정해놓지 않은 <span class='kw2'>less structured role play가 fluency를 향상</span>시킴.\"",
+   compare:[{title:"<span class='kw1'>Structured</span>",desc:"대사 정해짐 → accuracy 중심"},{title:"<span class='kw1'>Less structured</span>",desc:"대사 자유 → fluency↑"}]},
+
+  {src:"Speaking Activities",cat:"Jigsaw",
+   text:"<span class='kw1'>Jigsaw activities</span> are based on the <span class='kw2'>information-gap principle</span> combined with <span class='kw2'>cooperative learning</span>.",
+   ans:true,
+   correct:"<span class='kw1'>Jigsaw activity</span>의 핵심 원리는 <span class='kw2'>information-gap principle</span>과 <span class='kw2'>cooperative learning</span>의 결합입니다.",
+   why:"Jigsaw에서는 각 학생/그룹이 다른 정보 조각을 가지고 시작합니다. 전체 그림을 완성하려면 정보를 서로 공유해야 하므로 협동학습이 필수가 됩니다. Strip story가 대표 예시입니다.",
+   source:"\"<span class='kw1'>Jigsaw Activities</span>: Information-gap principle / cooperative learning. Strip story.\""},
+
+  {src:"Task Types",cat:"Problem-solving Task",
+   text:"In a <span class='kw1'>problem-solving task</span>, students are given a problem and asked to arrive at a solution, and there is generally a <span class='kw2'>single resolution</span>.",
+   ans:true,
+   correct:"<span class='kw1'>Problem-solving task</span>는 일반적으로 <span class='kw2'>단일한 정답(single resolution)</span>을 향해 수렴(convergent)합니다.",
+   why:"Problem-solving task는 \"하나의 정답\"을 찾는 수렴적(convergent) 과업입니다. Decision-making task와 대조되는데, 후자는 여러 가능한 결과 중 하나를 협상으로 선택하는 발산적(divergent) 과업입니다.",
+   source:"\"<span class='kw1'>Problem-solving tasks</span>: Ss are given a problem and asked to arrive at a solution to the problem; there is generally a <span class='kw2'>single resolution</span>.\"",
+   compare:[{title:"<span class='kw1'>Problem-solving</span>",desc:"single resolution · convergent"},{title:"<span class='kw1'>Decision-making</span>",desc:"multiple outcomes · divergent · negotiation"}]},
+
+  {src:"Task Types",cat:"Decision-making Task",
+   text:"In a <span class='kw1'>decision-making task</span>, students are given a problem with only one fixed correct outcome that the teacher has decided beforehand.",
+   ans:false,
+   correct:"<span class='kw1'>Decision-making task</span>는 <span class='kw2'>여러 가능한 결과(multiple outcomes)</span>가 존재하며, 학생들이 <span class='kw2'>negotiation·discussion으로 하나를 선택</span>합니다.",
+   why:"Decision-making task의 핵심은 \"여러 가능한 결과\"와 \"학생 협상에 의한 선택\"입니다. 정답이 미리 정해져 있는 것이 아니라 학생들이 토의·협상을 통해 결과물을 만들어냅니다. Problem-solving이 수렴적이라면 decision-making은 발산적입니다.",
+   source:"\"<span class='kw1'>Decision-making tasks</span>: Ss are given a problem where there are <span class='kw2'>a number of possible outcomes</span> and are asked to <span class='kw2'>choose one outcome through negotiation and discussion</span>.\""},
+
+  {src:"Fluency · Accuracy",cat:"Fluency Definition",
+   text:"<span class='kw1'>Fluency</span> is an ability to use correct language patterns <span class='kw2'>automatically at normal conversational speed</span>, while focusing on <span class='kw2'>meaning, not form</span>.",
+   ans:true,
+   correct:"<span class='kw1'>Fluency</span>는 정확한 언어 패턴을 <span class='kw2'>자동적으로 normal speed</span>에 사용하는 능력으로, <span class='kw2'>meaning에 초점</span>을 두고 form엔 두지 않습니다.",
+   why:"Fluency의 정의에서 핵심 키워드는 ① automatic ② normal speed ③ focus on meaning, not form입니다. Accuracy(언어 형태 정확성)와 대비되는 개념이며, 이 둘 사이에는 trade-off가 있어 한쪽 강조가 다른 쪽 손상으로 이어질 수 있습니다.",
+   source:"\"<span class='kw1'>Fluency</span>: An ability to use correct lg patterns <span class='kw2'>automatically at normal conversational speed</span> with natural lg use, while at <span class='kw2'>focusing on meaning, not form</span>.\"",
+   compare:[{title:"<span class='kw1'>Fluency</span>",desc:"자동성 · normal speed · meaning"},{title:"<span class='kw1'>Accuracy</span>",desc:"form 정확성 · lg system 준수"},{title:"<span class='kw1'>Complexity</span>",desc:"다양한 구조 · 변화 있는 문장"}]},
+
+  {src:"Pretask Planning",cat:"Effects on Learners",
+   text:"With <span class='kw1'>pretask planning</span>, <span class='kw2'>impulsive students</span> may gain confidence in their speech, while <span class='kw2'>reflective students</span> may gain accuracy.",
+   ans:false,
+   correct:"반대로, <span class='kw2'>impulsive students</span>는 pretask planning을 통해 <span class='kw4'>accuracy</span>를 얻고, <span class='kw2'>reflective students</span>는 <span class='kw4'>confidence</span>를 얻습니다.",
+   why:"기출 단골 함정. Impulsive(충동적) 학습자는 평소 빠르게 말하느라 정확성을 놓치므로 pretask planning이 정확성을 보완해줍니다. 반면 reflective(신중한) 학습자는 평소 너무 신중해서 발화를 망설이므로, 미리 계획할 시간이 자신감을 줍니다. 두 효과가 헷갈리기 쉽습니다.",
+   source:"\"<span class='kw1'>Pretask planning</span>: A technique where a T gives Ss some adequate time to plan what they want to say before they actually are asked to speak. <span class='kw2'>Impulsive Ss</span> may gain <span class='kw4'>accuracy</span> in their speech, <span class='kw2'>reflective Ss</span> may gain <span class='kw4'>confidence</span> through this stage.\"",
+   compare:[{title:"<span class='kw1'>Impulsive Ss</span>",desc:"→ <span class='kw4'>accuracy</span> 향상"},{title:"<span class='kw1'>Reflective Ss</span>",desc:"→ <span class='kw4'>confidence</span> 향상"}]},
+
+  {src:"Task Repetition",cat:"4/3/2 Technique",
+   text:"The <span class='kw1'>4/3/2 technique</span> is an activity for fluency development where students tell and repeat the same story to <span class='kw2'>three different listeners in sequence</span>, with the time pressure of <span class='kw2'>4, 3, and 2 minutes</span> respectively.",
+   ans:true,
+   correct:"<span class='kw1'>4/3/2 technique</span>은 같은 이야기를 <span class='kw2'>3명의 다른 청자</span>에게 차례로 들려주되, 시간을 <span class='kw2'>4분 → 3분 → 2분</span>으로 줄여가는 fluency 개발 활동입니다.",
+   why:"같은 이야기를 반복하면서 시간 압박이 강해지므로, 학습자는 자동성(automaticity)을 높여 fluency를 발달시킵니다. 새로운 청자가 매번 등장하기에 task repetition의 단조로움도 줄어듭니다.",
+   source:"\"<span class='kw1'>4/3/2 technique</span>: An activity designed to develop <span class='kw2'>fluency in speaking</span> where Ss tell and repeat the same story to <span class='kw2'>three different listeners in sequence</span> while they are under the pressure of doing it for <span class='kw2'>four, three, two minutes</span>, respectively.\""},
+
+  {src:"Pronunciation",cat:"Bottom-up Approach",
+   text:"The <span class='kw1'>bottom-up approach</span> to teaching pronunciation focuses mainly on the accurate articulation of consonants and vowels, emphasizing <span class='kw2'>segmental features</span>.",
+   ans:true,
+   correct:"<span class='kw1'>Bottom-up approach</span>는 자음·모음의 정확한 조음(articulation)에 집중하며, <span class='kw2'>segmental features</span>(분절음)를 강조합니다.",
+   why:"Bottom-up은 \"작은 단위(segment) → 큰 단위\" 방향이므로 발음에서는 개별 음소(자음·모음)의 정확한 조음에 초점을 둡니다. Accuracy 지향이며, minimal pair practice가 대표 기법입니다. Top-down approach와 대조됩니다.",
+   source:"\"<span class='kw1'>Bottom-up Approach</span>: Main focus is on accurate articulation of consonants and vowels. Emphasizes the <span class='kw2'>segmental features</span>.\"",
+   compare:[{title:"<span class='kw1'>Bottom-up</span>",desc:"segmental · articulation · accuracy · minimal pair"},{title:"<span class='kw1'>Top-down</span>",desc:"suprasegmental · stress·rhythm·intonation · fluency · backward buildup"}]},
+
+  {src:"Pronunciation",cat:"Top-down Approach",
+   text:"The <span class='kw1'>top-down approach</span> emphasizes <span class='kw2'>suprasegmental features</span> such as stress, rhythm, and intonation, which are believed to have a bigger impact on <span class='kw2'>intelligibility</span>.",
+   ans:true,
+   correct:"<span class='kw1'>Top-down approach</span>는 <span class='kw2'>suprasegmental features</span>(stress·rhythm·intonation)를 강조하며, 이들이 <span class='kw2'>intelligibility</span>에 더 큰 영향을 준다고 봅니다.",
+   why:"Top-down approach는 \"큰 단위(suprasegmental)가 의사소통에 더 결정적이다\"라는 전제에 기반합니다. 따라서 stress, rhythm, intonation을 가르쳐 intelligibility를 높이는 것이 목표이며, fluency 지향입니다. 대표 기법으로 backward buildup, shadowing이 있습니다.",
+   source:"\"<span class='kw1'>Top-down Approach</span>: Main focus is teaching <span class='kw2'>suprasegmental features including stress, rhythm, and intonation</span> which are believed to have bigger impacts on <span class='kw2'>intelligibility</span>.\""},
+
+  {src:"Pronunciation",cat:"Intelligibility",
+   text:"<span class='kw1'>Intelligibility</span> refers to the goal of achieving a <span class='kw2'>native-like accent</span> in pronunciation.",
+   ans:false,
+   correct:"<span class='kw1'>Intelligibility</span>는 native-like accent가 아니라, <span class='kw2'>청자에게 거슬리지 않는(not distracting)</span> 정도를 의미합니다. <span class='kw2'>communicability</span>와 유사한 개념입니다.",
+   why:"Intelligibility는 \"이해 가능성·소통 가능성\"이지 native-like 발음을 뜻하지 않습니다. 학습자의 발음에 모국어 흔적이 남아 있어도 청자가 이해하는 데 거슬리지 않으면 충분히 intelligible합니다. 이것이 현대 발음 교수의 기본 목표입니다.",
+   source:"\"<span class='kw1'>Intelligibility</span>: the degree of an accent and pronunciation of spoken language is <span class='kw2'>not distracting to the listener</span>; Similar to <span class='kw2'>communicability</span>.\""},
+
+  {src:"Pronunciation",cat:"Teachability vs Communicative Importance",
+   text:"In pronunciation teaching, individual segments have <span class='kw2'>high teachability and high communicative importance</span>, so teaching them is the most efficient approach.",
+   ans:false,
+   correct:"개별 segment는 <span class='kw2'>teachability는 높지만 communicative importance는 낮습니다</span>. 반대로 intonation은 teachability는 낮지만 communicative importance가 높습니다. 둘은 <span class='kw4'>역의 관계</span>입니다.",
+   why:"Teachability(가르치기 쉬움)와 communicative importance(의사소통 중요도)는 발음 요소들 사이에서 역의 관계를 보입니다. 가르치기 쉬운 segment는 의사소통에 덜 중요하고, 가르치기 어려운 intonation은 의사소통에 가장 중요합니다. 이 trade-off가 발음 교수법 설계의 딜레마입니다.",
+   source:"\"Teaching individual segments: High teachability / Low communicative importance. Teaching intonation: Low teachability / High communicative importance.\"",
+   compare:[{title:"<span class='kw1'>Segments</span>",desc:"teachability ↑ / importance ↓"},{title:"<span class='kw1'>Intonation</span>",desc:"teachability ↓ / importance ↑"}]},
+
+  {src:"Pronunciation Techniques",cat:"Backward Buildup Drill",
+   text:"The <span class='kw1'>backward buildup drill</span> is a fluency-developing technique where the teacher starts with the <span class='kw2'>final word</span> of a sentence and adds preceding words one at a time.",
+   ans:true,
+   correct:"<span class='kw1'>Backward buildup</span>은 T가 문장의 <span class='kw2'>마지막 단어</span>부터 시작해 앞으로 한 단어씩 추가하는 fluency 발달 기법입니다.",
+   why:"Backward buildup의 핵심은 \"문장 끝 → 앞\" 방향입니다. 이렇게 거꾸로 빌드업하는 이유는 영어의 자연스러운 intonation(특히 문장 끝의 음조)을 유지하기 위해서입니다. 학생의 주의도 의미가 모이는 문장 끝으로 향하게 합니다.",
+   source:"\"<span class='kw1'>Backward buildup</span>: Effective techniques to develop fluency. T starts with the <span class='kw2'>final word of sentence</span> and adds it to the preceding words, one at a time.\""},
+
+  {src:"Pronunciation Techniques",cat:"Behavioristic Minimal Pair",
+   text:"<span class='kw1'>Behavioristic minimal pair practice</span> always embeds the minimal pairs in <span class='kw2'>meaningful real-world contexts</span> so that students can practice phonemic discrimination through communication.",
+   ans:false,
+   correct:"<span class='kw1'>Behavioristic minimal pair</span>는 <span class='kw2'>맥락 없이</span> 고립된 단어 짝을 반복하는 방식입니다. 맥락 안에 포함시키는 것은 <span class='kw1'>contextualized (communicative/meaningful) minimal pair</span>입니다.",
+   why:"Behavioristic minimal pair는 행동주의 전통의 단순 반복 연습으로, 의미 맥락 없이 음소 짝을 듣고 따라하기만 합니다. 반면 communicative/contextualized minimal pair는 \"He has a ship/sheep on the farm\"처럼 의미 차이가 맥락에서 드러나도록 설계됩니다.",
+   source:"\"<span class='kw1'>Minimal-pairs practice</span>: A practice designed to develop Ss' ability to recognize sound contrasts and produce them. <span class='kw2'>Contextualizing minimal pair (Communicative/meaningful)</span> vs. <span class='kw2'>Behavioristic minimal pair</span>.\"",
+   compare:[{title:"<span class='kw1'>Behavioristic</span>",desc:"맥락 X · 단어 짝 단순 반복"},{title:"<span class='kw1'>Contextualized</span>",desc:"맥락 안에서 의미 식별 필요"}]},
+
+  {src:"ETC",cat:"Gambit",
+   text:"A <span class='kw1'>gambit</span> is a formulaic chunk which functions to <span class='kw2'>organize discourse</span>, used in casual conversation to begin, nominate, shift, or terminate a topic.",
+   ans:true,
+   correct:"<span class='kw1'>Gambit</span>은 담화를 <span class='kw2'>조직(organize)</span>하는 기능을 가진 정형화된 표현(formulaic chunk)으로, 대화의 시작·화제 도입·전환·종료에 쓰입니다.",
+   why:"Gambit은 \"By the way\", \"Speaking of\", \"Anyway\", \"Well, I'd better get going\" 같은 정해진 표현입니다. 의미 그 자체보다는 담화 구조 조직이 주된 기능이며, discourse markers와 유사하지만 더 구체적인 회화 기능을 담당합니다.",
+   source:"\"<span class='kw1'>Gambit</span>: A formulaic chunk which functions to <span class='kw2'>organize discourse</span>; in a casual conversation, it is used to begin a conversation, nominate, shift, or terminate a topic.\""},
+
+  {src:"ETC",cat:"Deep-end Strategy",
+   text:"The <span class='kw1'>deep-end strategy</span> is a pedagogical approach where the teacher first explicitly teaches <span class='kw2'>predetermined linguistic forms and structures</span> before students attempt to communicate.",
+   ans:false,
+   correct:"<span class='kw1'>Deep-end strategy</span>는 정반대입니다 — 학생이 미리 형식·구조를 배우지 <span class='kw2'>않고</span>, 자기 언어 자원만으로 의미를 표현하려 시도하게 만드는 전략입니다.",
+   why:"Deep-end는 \"수영을 못하는 학생을 깊은 곳에 던진다\"는 비유에서 온 명칭입니다. 미리 가르치지 않고 의사소통 상황에 학생을 직접 던져 자기 자원으로 의미 전달을 시도하게 합니다. 이를 통해 communicative competence를 자극합니다. 미리 형식을 가르치는 PPP 모형과 대조됩니다.",
+   source:"\"<span class='kw1'>Deep-end strategy</span>: a pedagogical strategy which makes students attempt to use their linguistic resources and knowledge to express meanings they want to convey, <span class='kw2'>without giving instruction of predetermined linguistic forms/structures</span>.\""}
+];
+
+let cur=0;
+const TOTAL=Q.length;
+const SAVE_KEY='ox_speaking_v1';
+let answers=new Array(TOTAL).fill(null);
+
+function getScore(){return answers.filter(a=>a&&a.correct).length;}
+function saveProgress(){localStorage.setItem(SAVE_KEY,JSON.stringify({cur,answers}));}
+function clearProgress(){localStorage.removeItem(SAVE_KEY);}
+
+function freshStart(){
+  cur=0;answers=new Array(TOTAL).fill(null);clearProgress();
+  document.getElementById('rb').style.display='none';
+  document.getElementById('qa').style.display='block';
+  renderNav();render();
+}
+
+function renderNav(){
+  document.getElementById('nav').innerHTML=Array.from({length:TOTAL},(_,i)=>{
+    const a=answers[i];
+    const cls=i===cur?'nd cur':a===null?'nd':a.correct?'nd ok':'nd ng';
+    return `<button class="${cls}" onclick="jumpTo(${i})">${i+1}</button>`;
+  }).join('');
+}
+
+function jumpTo(i){cur=i;render();}
+
+function renderExp(q,isCorrect){
+  const three=q.compare&&q.compare.length===3;
+  const cmp=q.compare?`
+    <div class="sec-label">📊 비교 정리</div>
+    <div class="compare${three?' three':''}">
+      ${q.compare.map(c=>`<div class="compare-item"><div class="ci-title">${c.title}</div><p>${c.desc}</p></div>`).join('')}
+    </div>`:'';
+  return `<div class="exp show">
+    <div class="exp-header"><span>${isCorrect?'✅ 정답':'❌ 오답'} · 해설</span></div>
+    <div class="exp-answer"><div class="ans-label">핵심 정리</div><div class="ans-text">${q.correct}</div></div>
+    <div class="exp-body">
+      <div class="sec-label">📖 상세 설명</div><p>${q.why}</p>
+      <div class="sec-label">📌 Source</div>
+      <div class="def-box"><p>${q.source}</p></div>
+      ${cmp}
+    </div>
+  </div>`;
+}
+
+function render(){
+  if(cur>=TOTAL){
+    document.getElementById('qa').style.display='none';
+    document.getElementById('sc').classList.add('show');
+    const s=getScore();
+    document.getElementById('fs').textContent=s;
+    const p=s/TOTAL;
+    document.getElementById('rm').textContent=p===1?'🎉 Perfect!':p>=.8?'👏 Great!':p>=.6?'😊 Good!':'💪 Keep going!';
+    document.getElementById('rs').textContent=`${TOTAL}문제 중 ${s}문제 정답 (${Math.round(p*100)}%)`;
+    setTimeout(function(){window.showScorePopup&&window.showScorePopup(s,TOTAL);},400);
+    renderNav();return;
+  }
+  document.getElementById('sc').classList.remove('show');
+  document.getElementById('qa').style.display='block';
+  renderNav();
+  const q=Q[cur];
+  document.getElementById('bf').style.width=((cur+1)/TOTAL*100).toFixed(1)+'%';
+  document.getElementById('pt').textContent=`${cur+1} / ${TOTAL}`;
+  document.getElementById('ps').textContent=`정답 ${getScore()}개`;
+  const a=answers[cur];
+  if(a!==null){
+    let oBtnCls='',xBtnCls='';
+    if(a.picked===true){oBtnCls=a.correct?'co':'wp';if(!a.correct)xBtnCls='cx';}
+    else{xBtnCls=a.correct?'cx':'wp';if(!a.correct)oBtnCls='co';}
+    document.getElementById('qa').innerHTML=`
+      <div class="card">
+        <div class="q-meta"><span class="q-num">Q${cur+1}</span><span class="q-src">${q.src}</span><span class="q-cat">${q.cat}</span></div>
+        <div class="q-text">${q.text}</div>
+        <div class="ox-btns">
+          <button class="ox-btn o-btn ${oBtnCls}" disabled>⭕<span class="lb">CORRECT</span></button>
+          <button class="ox-btn x-btn ${xBtnCls}" disabled>❌<span class="lb">WRONG</span></button>
+        </div>
+        <div class="badge ${a.correct?'ok':'ng'}">${a.correct?'✅ 정답!':'❌ 오답! 정답은 '+(q.ans?'O':'X')}</div>
+        <div>${renderExp(q,a.correct)}</div>
+        <button class="next-btn show" onclick="next()">${cur<TOTAL-1?'Next →':'결과 보기 →'}</button>
+      </div>`;
+  }else{
+    document.getElementById('qa').innerHTML=`
+      <div class="card">
+        <div class="q-meta"><span class="q-num">Q${cur+1}</span><span class="q-src">${q.src}</span><span class="q-cat">${q.cat}</span></div>
+        <div class="q-text">${q.text}</div>
+        <div class="ox-btns">
+          <button class="ox-btn o-btn" onclick="pick(true)" id="ob">⭕<span class="lb">CORRECT</span></button>
+          <button class="ox-btn x-btn" onclick="pick(false)" id="xb">❌<span class="lb">WRONG</span></button>
+        </div>
+        <div id="bd" class="badge"></div>
+        <div id="ep"></div>
+        <button class="next-btn" id="nb" onclick="next()">${cur<TOTAL-1?'Next →':'결과 보기 →'}</button>
+      </div>`;
+  }
+}
+
+function pick(val){
+  const q=Q[cur];
+  document.getElementById('ob').disabled=true;
+  document.getElementById('xb').disabled=true;
+  const ok=val===q.ans;
+  answers[cur]={picked:val,correct:ok};
+  if(ok){if(typeof playOk==='function')playOk();}else{if(typeof playNg==='function')playNg();}
+  const bd=document.getElementById('bd');
+  bd.textContent=ok?'✅ 정답!':`❌ 오답! 정답은 ${q.ans?'O':'X'}`;
+  bd.className='badge '+(ok?'ok':'ng');
+  document.getElementById(val?'ob':'xb').classList.add(ok?(val?'co':'cx'):'wp');
+  if(!ok)document.getElementById(q.ans?'ob':'xb').classList.add(q.ans?'co':'cx');
+  document.getElementById('ep').innerHTML=renderExp(q,ok);
+  document.getElementById('nb').classList.add('show');
+  document.getElementById('ps').textContent=`정답 ${getScore()}개`;
+  renderNav();
+}
+
+function next(){
+  cur++;
+  if(cur>=TOTAL){clearProgress();}else{saveProgress();}
+  render();
+}
+function restart(){cur=0;answers=new Array(TOTAL).fill(null);clearProgress();document.getElementById('sc').classList.remove('show');document.getElementById('rb').style.display='none';document.getElementById('qa').style.display='block';renderNav();render();}
+
+(function(){
+  const saved=JSON.parse(localStorage.getItem(SAVE_KEY)||'null');
+  if(saved&&saved.answers&&saved.cur>=0&&saved.cur<TOTAL){
+    cur=saved.cur;answers=saved.answers;
+    const done=answers.filter(a=>a!==null).length;
+    if(done>0){
+      document.getElementById('rb-msg').textContent=`이어서 풀기 중 · ${done}/${TOTAL} 문제 완료 (정답 ${getScore()}개)`;
+      document.getElementById('rb').style.display='block';
+    }
+  }
+  renderNav();render();
+})();
+</script>
+</body>
+</html>
