@@ -4,7 +4,7 @@
 
 ---
 
-## 🔗 testmaster(giulmmaster) 연동 — concept_link 자동 적용 (필수)
+## 🔗 testmaster 연동 — concept_link 자동 적용 (필수)
 
 이 레포의 `_study.html` 챕터를 만들거나 변경하면, testmaster의 기출 데이터가 자동으로 그 챕터를 "💎 합격자 노트에서 더 자세히" 링크로 가리키도록 매핑표를 갱신해야 한다.
 
@@ -24,7 +24,7 @@
    ```
 3. testmaster에서 자동 적용 + 검증 실행:
    ```bash
-   cd ~/Library/CloudStorage/OneDrive-학장중학교/giulmmaster
+   cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Developments/testmaster
    python3 scripts/wire_concept_links.py
    ```
 4. 출력에서 `깨진링크: 0건` 확인. 깨졌으면 anchor 이름 수정.
@@ -36,10 +36,11 @@
 - 기존 `_study.html`에 섹션 추가/제거/anchor 변경 시
 - 사용자가 "기출 연동", "concept_link", "testmaster 적용", "wire" 등 언급 시
 
-### testmaster 위치
+### testmaster 위치 (2026-04 iCloud 이전 완료)
 
-`/Users/namgicheol/Library/CloudStorage/OneDrive-학장중학교/giulmmaster/`  
+`~/Library/Mobile Documents/com~apple~CloudDocs/Developments/testmaster/`
 규칙 원본: 위 디렉토리의 `CLAUDE.md` "concept_link 자동 적용" 섹션
+GitHub: `https://github.com/Namkicheol/testmaster`
 
 ---
 
@@ -150,7 +151,7 @@
 1. **1차**: `refs/keywords.md` — 연도-토픽 매핑 (`(YYYY.X.N)` 형식)
 2. **2차**: `refs/밍우_영교론 영역별 기출분석본.md` — 분류별 연도 목록
 3. **3차**: `refs/루이스기출 5판.md` — 표·해설로 교차 검증
-4. **2022년 이후**: 루이스 5판 범위 밖 → giulmmaster의 `refs/2025 전공 기출 김재균해설.md`, `refs/2026 기출 권두걸팀 해설서.md` 등 타겟 검색
+4. **2022년 이후**: 루이스 5판 범위 밖 → testmaster의 `refs/2025 전공 기출 김재균해설.md`, `refs/2026 기출 권두걸팀 해설서.md` 등 타겟 검색
 
 **원칙**:
 - **연도·기출 정보 표기는 OPTIONAL** — 블로그 작성 시 검증 부담스러우면 본문에 박지 않아도 됨. 개념 위주로 작성해도 무방
@@ -161,7 +162,7 @@
 
 ## 블로그 글 작성
 
-전역 블로그 지침 `~/Library/CloudStorage/OneDrive-학장중학교/blog write.md` 의 **"임용고시 (영어학·영교론)"** 섹션과 그 하위 **"📚 임용 블로그 글쓰기 규칙"** 을 따른다.
+전역 블로그 지침 `~/Library/Mobile Documents/com~apple~CloudDocs/Developments/blog writings/blog write.md` 의 **"임용고시 (영어학·영교론)"** 섹션과 그 하위 **"📚 임용 블로그 글쓰기 규칙"** 을 따른다.
 
 본 레포 유형: **A형 (서브노트형)** — 블로그 작성 대상.
 
