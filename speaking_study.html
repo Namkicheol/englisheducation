@@ -19,7 +19,8 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f4f3ed;background-image:r
 .header-divider{border:none;border-top:2px dashed #888;margin-bottom:10px}
 .header-tip{font-size:12px;color:#2e4a3a;font-family:'JetBrains Mono',monospace;margin-bottom:20px;background:rgba(0,105,92,.06);border:1px solid rgba(0,105,92,.2);border-radius:8px;padding:9px 14px;line-height:1.7}
 .wrap{max-width:820px;margin:0 auto}
-.sec{background:#fff;border:1.5px solid #b2dfcc;border-radius:16px;margin-bottom:20px;overflow:clip;box-shadow:0 2px 8px rgba(46,125,82,.08)}
+.sec{background:#fff;border:1.5px solid #b2dfcc;border-radius:16px;margin-bottom:20px;overflow:hidden;box-shadow:0 2px 8px rgba(46,125,82,.08)}
+@media(max-width:600px){.grid.col2,.grid.col3{grid-template-columns:1fr}}
 .sec-header{background:linear-gradient(135deg,rgba(46,125,82,.08),rgba(38,166,154,.05));border-bottom:1.5px solid #b2dfcc;padding:16px 22px;display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none}
 .sec-icon{font-size:20px}
 .sec-title{font-size:16px;font-weight:700;color:#1b5e3a;font-family:'JetBrains Mono',monospace}
@@ -753,6 +754,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 
 </div><!-- /wrap -->
 
+<div id="back-btn" style="display:none;position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1a3326;color:#e8f5e9;padding:12px 22px;border-radius:24px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;cursor:pointer;z-index:1000;box-shadow:0 4px 20px rgba(0,0,0,.3);white-space:nowrap;max-width:calc(100vw - 32px);text-align:center;letter-spacing:.3px">← 돌아가기</div>
 <script>
 function toggle(id){
   const s=document.getElementById(id);
@@ -763,6 +765,12 @@ function openSec(id){
   s.classList.add('open');
   s.scrollIntoView({behavior:'smooth',block:'start'});
 }
+document.addEventListener('DOMContentLoaded',function(){
+  var h=window.location.hash.slice(1);
+  if(h){var el=document.getElementById(h);if(el&&el.classList.contains('sec')){el.classList.add('open');setTimeout(function(){el.scrollIntoView({behavior:'smooth',block:'start'})},150);}}
+  var p=new URLSearchParams(window.location.search),f=p.get('from'),r=document.referrer;
+  if(f||r){var b=document.getElementById('back-btn');if(b){b.textContent='← '+(f||'이전 페이지')+' 로 돌아가기';b.style.display='block';b.onclick=function(){history.back();};}}
+});
 </script>
 </body>
 </html>
