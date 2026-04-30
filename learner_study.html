@@ -67,7 +67,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 .toc-item{font-size:12px;color:#2e7d52;background:rgba(46,125,82,.08);border:1.5px solid rgba(46,125,82,.2);padding:5px 12px;border-radius:8px;cursor:pointer;transition:all .15s;font-family:'JetBrains Mono',monospace;font-weight:600}
 .toc-item:hover{background:rgba(46,125,82,.18)}
 .legend{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 16px;padding:10px 14px;background:#fff;border:1.5px solid #b2dfcc;border-radius:10px;align-items:center}
-@media(max-width:640px){.grid.col3,.grid.col2{grid-template-columns:1fr}.sec-body{padding:16px}.gi-body{font-size:14px}}
+@media(max-width:640px){.grid.col3,.grid.col2{grid-template-columns:1fr}.sec-body{padding:16px}.gi-body{font-size:14px}th{font-size:13px;padding:8px 10px}td{font-size:13px;padding:8px 10px}table{font-size:13px}.concept{overflow-x:auto}svg{min-width:480px;display:block}}
 </style>
 </head>
 <body>
@@ -759,6 +759,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 </div><!-- /wrap -->
 <div id="back-btn" style="display:none;position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1a3326;color:#e8f5e9;padding:12px 22px;border-radius:24px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;cursor:pointer;z-index:1000;box-shadow:0 4px 20px rgba(0,0,0,.3);white-space:nowrap;max-width:calc(100vw - 32px);text-align:center;letter-spacing:.3px">← 돌아가기</div>
 <script>
+window.addEventListener("DOMContentLoaded",function(){if(!location.hash)return;var t=document.querySelector(location.hash);if(!t)return;var s=t;while(s&&!s.classList.contains("sec"))s=s.parentElement;if(s)s.classList.add("open");setTimeout(function(){t.scrollIntoView({behavior:"smooth",block:"start"});},150);});
 function toggle(id){document.getElementById(id).classList.toggle('open')}
 function openSec(id){const s=document.getElementById(id);s.classList.add('open');s.scrollIntoView({behavior:'smooth',block:'start'})}
 document.addEventListener('DOMContentLoaded',function(){
