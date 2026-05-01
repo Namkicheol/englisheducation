@@ -42,9 +42,46 @@
 
 ---
 
+## 2026-05-01 · kw 태그 하이픈 줄바꿈 + 테이블 글자 너무 작음 (전체 _study.html)
+
+### 문제 3 — kw1~kw4 태그 안 하이픈에서 줄바꿈 발생
+
+**증상**: `Self-revelation`, `top-down` 등 하이픈 포함 키워드가 모바일에서 "Self-" / "revelation" 두 줄로 쪼개짐.
+
+**원인**: `.kw1~.kw4` 클래스에 `white-space:nowrap` 없음.
+
+**수정**: 각 kw 클래스에 `white-space:nowrap` 추가:
+```css
+.kw1 { ...; white-space:nowrap }
+.kw2 { ...; white-space:nowrap }
+.kw3 { ...; white-space:nowrap }
+.kw4 { ...; white-space:nowrap }
+```
+
+**규칙**: **새 챕터 템플릿에 kw1~kw4 정의 시 반드시 `white-space:nowrap` 포함.** 현재 전체 적용 완료(2026-05-01).
+
+---
+
+### 문제 4 — 모바일 표 글자 너무 작음
+
+**증상**: 모바일에서 `th/td` 13px으로 수정했는데도 여전히 작게 보임.
+
+**수정**: `@media(max-width:640px)` 안 테이블 사이즈를 13px → 14px로 상향:
+```css
+th { font-size: 14px; padding: 8px 10px }
+td { font-size: 14px; padding: 8px 10px }
+table { font-size: 14px }
+```
+
+**규칙**: 모바일 표 글자는 최소 14px. 현재 전체 적용 완료(2026-05-01).
+
+---
+
 ## 체크리스트 — 새 `_study.html` 챕터 완성 전 확인
 
 - [ ] 모든 `<svg>` → `<div class="stage-wrap">` 안에 있는가
+- [ ] 모든 `<table>` → `<div class="stage-wrap">` 안에 있는가
+- [ ] `.kw1~.kw4` 정의에 `white-space:nowrap` 있는가
 - [ ] `@media(max-width:640px)` 안에 `.sec-title{min-width:0;overflow-wrap:anywhere}` 있는가
-- [ ] 섹션 제목 길이가 화면에서 문제 없는지 확인
-- [ ] 표(`<table>`)는 `<div class="stage-wrap">` 안에 있는가
+- [ ] `@media(max-width:640px)` 안 `th/td/table` → 14px 이상인가
+- [ ] 섹션 제목이 특히 긴 경우(30자+) 모바일에서 잘리지 않는지 확인

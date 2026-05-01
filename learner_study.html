@@ -38,10 +38,10 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f4f3ed;background-image:r
 .def{background:rgba(46,125,82,.06);border-left:4px solid #2e7d52;padding:12px 16px;border-radius:0 10px 10px 0;margin-bottom:10px;font-size:16px;line-height:1.8;color:#1a1a1a}
 .note{font-size:15px;color:#3a6b51;line-height:1.75;margin-bottom:6px;padding-left:6px}
 .note::before{content:"• ";color:#26a69a;font-weight:700}
-.kw1{background:rgba(46,125,82,.15);color:#1b5e3a;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(46,125,82,.25)}
-.kw2{color:#00796b;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border-bottom:2px solid rgba(0,121,107,.45)}
-.kw3{background:rgba(230,119,0,.13);color:#bf6000;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(230,119,0,.3)}
-.kw4{background:rgba(183,28,28,.11);color:#b71c1c;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(183,28,28,.25)}
+.kw1{background:rgba(46,125,82,.15);color:#1b5e3a;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(46,125,82,.25);white-space:nowrap}
+.kw2{color:#00796b;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border-bottom:2px solid rgba(0,121,107,.45);white-space:nowrap}
+.kw3{background:rgba(230,119,0,.13);color:#bf6000;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(230,119,0,.3);white-space:nowrap}
+.kw4{background:rgba(183,28,28,.11);color:#b71c1c;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(183,28,28,.25);white-space:nowrap}
 .grid{display:grid;gap:10px;margin-top:12px}
 .grid.col2{grid-template-columns:1fr 1fr}
 .grid.col3{grid-template-columns:1fr 1fr 1fr}
@@ -67,7 +67,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 .toc-item{font-size:12px;color:#2e7d52;background:rgba(46,125,82,.08);border:1.5px solid rgba(46,125,82,.2);padding:5px 12px;border-radius:8px;cursor:pointer;transition:all .15s;font-family:'JetBrains Mono',monospace;font-weight:600}
 .toc-item:hover{background:rgba(46,125,82,.18)}
 .legend{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 16px;padding:10px 14px;background:#fff;border:1.5px solid #b2dfcc;border-radius:10px;align-items:center}
-@media(max-width:640px){.grid.col3,.grid.col2{grid-template-columns:1fr}.sec-body{padding:16px}.gi-body{font-size:14px}th{font-size:13px;padding:8px 10px}td{font-size:13px;padding:8px 10px}table{font-size:13px}.concept{overflow-x:auto}svg{min-width:480px;display:block}}
+@media(max-width:640px){.grid.col3,.grid.col2{grid-template-columns:1fr}.sec-body{padding:16px}.gi-body{font-size:14px}th{font-size:14px;padding:8px 10px}td{font-size:14px;padding:8px 10px}table{font-size:14px}.concept{overflow-x:auto}svg{min-width:480px;display:block}}
 </style>
 </head>
 <body>
@@ -235,7 +235,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
     <div class="concept">
       <div class="c-title">1) Metacognitive Strategies <span class="badge-ex">★★★</span></div>
       <div class="def">High-order strategies that <span class='kw4'>plan</span> upcoming learning, <span class='kw4'>monitor</span> comprehension during learning, and <span class='kw4'>evaluate</span> outcomes after learning.</div>
-      <svg viewBox="0 0 700 100" style="width:100%;margin-top:12px;font-family:'JetBrains Mono',monospace" xmlns="http://www.w3.org/2000/svg">
+      <div class="stage-wrap"><svg viewBox="0 0 700 100" style="width:100%;margin-top:12px;font-family:'JetBrains Mono',monospace" xmlns="http://www.w3.org/2000/svg">
         <rect x="4" y="10" width="208" height="80" rx="8" fill="rgba(0,121,107,.08)" stroke="rgba(0,121,107,.35)" stroke-width="1.5"/>
         <text x="108" y="37" text-anchor="middle" fill="#00695c" font-size="13" font-weight="bold">Plan</text>
         <text x="108" y="55" text-anchor="middle" fill="#00796b" font-size="10">advance organizers</text>
@@ -250,7 +250,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         <text x="581" y="37" text-anchor="middle" fill="#00695c" font-size="13" font-weight="bold">Evaluate</text>
         <text x="581" y="55" text-anchor="middle" fill="#00796b" font-size="10">self-evaluation</text>
         <text x="581" y="71" text-anchor="middle" fill="#00796b" font-size="10">learning log</text>
-      </svg>
+      </svg></div>
       <p class="note" style="margin-top:12px">예시: Writing a <span class='kw2'>learning log</span> = employing metacognitive strategy</p>
       <p class="note">Data types: <span class='kw1'>Self-report</span>(low validity) / <span class='kw1'>Self-observation</span> / <span class='kw1'>Self-revelation</span>(Think-aloud)</p>
     </div>
@@ -642,7 +642,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 
     <div class="concept">
       <div class="c-title">Culture Shock (4 Stages)</div>
-      <svg viewBox="0 0 700 110" style="width:100%;margin-top:12px;font-family:'JetBrains Mono',monospace" xmlns="http://www.w3.org/2000/svg">
+      <div class="stage-wrap"><svg viewBox="0 0 700 110" style="width:100%;margin-top:12px;font-family:'JetBrains Mono',monospace" xmlns="http://www.w3.org/2000/svg">
         <rect x="4" y="10" width="142" height="90" rx="8" fill="rgba(46,125,82,.1)" stroke="rgba(46,125,82,.4)" stroke-width="1.5"/>
         <text x="75" y="38" text-anchor="middle" fill="#1b5e3a" font-size="13" font-weight="bold">Euphoria</text>
         <text x="75" y="58" text-anchor="middle" fill="#3a6b51" font-size="11">excitement</text>
@@ -662,7 +662,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         <text x="587" y="38" text-anchor="middle" fill="#1b5e3a" font-size="13" font-weight="bold">Acculturation</text>
         <text x="587" y="58" text-anchor="middle" fill="#1b5e3a" font-size="11">assimilation / adaptation</text>
         <text x="587" y="76" text-anchor="middle" fill="#1b5e3a" font-size="11">new identity · confidence</text>
-      </svg>
+      </svg></div>
     </div>
 
   </div>
