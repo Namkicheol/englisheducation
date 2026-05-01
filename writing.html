@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch.9 Teaching Writing OX Quiz</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=JetBrains+Mono:wght@400;600&family=Caveat:wght@600&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans KR',sans-serif;background:#f5f4ee;background-image:repeating-linear-gradient(transparent,transparent 27px,#ddddd0 28px);color:#1a1a1a;min-height:100vh;padding:16px}
+.header-wrap{max-width:720px;margin:0 auto;padding:20px 8px 0}
+.header-topbar{display:flex;justify-content:space-between;align-items:center;border-top:2px solid #1a1a1a;padding-top:8px;margin-bottom:10px}
+.header-no{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;border:2px solid #1a1a1a;padding:3px 10px;border-radius:2px;letter-spacing:.5px;display:flex;align-items:center;gap:6px}
+.header-label{font-family:'JetBrains Mono',monospace;font-size:11px;color:#888;letter-spacing:1px}
+.header-title{font-size:clamp(30px,7vw,46px);font-weight:900;color:#1a1a1a;line-height:1.1;margin-bottom:5px;letter-spacing:-1px}
+.title-hl{background:#2e7d52;color:#fff;padding:1px 6px}
+.header-script{font-family:'Caveat',cursive;font-size:21px;color:#2e7d52;margin-bottom:4px;font-weight:600}
+.header-sub{font-size:13px;color:#555;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#aaa;margin-bottom:14px}
+.header-divider{border:none;border-top:2.5px solid #1a1a1a;margin-bottom:20px}
+.prog-wrap{max-width:720px;margin:0 auto 24px;padding:0 8px}
+.prog-info{display:flex;justify-content:space-between;font-size:12px;color:#4a7a62;font-family:'JetBrains Mono',monospace;margin-bottom:6px}
+.bar{height:4px;background:#b2dfcc;border-radius:2px;overflow:hidden}
+.bar-fill{height:100%;background:linear-gradient(90deg,#2e7d52,#26a69a);border-radius:2px;transition:width .5s ease}
+.wrap{max-width:720px;margin:0 auto}
+.card{background:#fff;border:1.5px solid #b2dfcc;border-radius:14px;padding:26px;animation:up .35s ease;box-shadow:0 2px 8px rgba(46,125,82,.08)}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.q-meta{display:flex;align-items:center;gap:7px;margin-bottom:14px;flex-wrap:wrap}
+.q-num{font-family:'JetBrains Mono',monospace;font-size:11px;color:#2e7d52;background:rgba(46,125,82,.1);padding:3px 10px;border-radius:8px;font-weight:700}
+.q-src{font-size:11px;color:#4a7a62;font-family:'JetBrains Mono',monospace}
+.q-cat{font-size:11px;color:#00796b;background:rgba(38,166,154,.1);padding:3px 10px;border-radius:8px;margin-left:auto;font-weight:600}
+.kw1{background:rgba(46,125,82,.18);color:#1b5e3a;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em}
+.kw2{color:#00796b;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border-bottom:2px solid rgba(0,121,107,.4)}
+.kw3{background:rgba(230,119,0,.13);color:#bf6000;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(230,119,0,.3)}
+.kw4{background:rgba(183,28,28,.11);color:#b71c1c;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(183,28,28,.25)}
+.q-text{font-size:clamp(15px,2.2vw,16.5px);line-height:1.9;margin-bottom:24px;color:#1a3326}
+.ox-btns{display:flex;gap:12px}
+.ox-btn{flex:1;padding:20px 10px;border-radius:12px;border:2px solid #b2dfcc;background:#f5fdf8;color:#1a3326;font-size:30px;cursor:pointer;transition:all .18s ease;display:flex;flex-direction:column;align-items:center;gap:5px}
+.lb{font-size:11px;font-family:'JetBrains Mono',monospace;color:#4a7a62;letter-spacing:1px;font-weight:600}
+.ox-btn:hover:not(:disabled){transform:translateY(-2px)}
+.o-btn:hover:not(:disabled){border-color:#2e7d52;background:rgba(46,125,82,.08)}
+.x-btn:hover:not(:disabled){border-color:#c62828;background:rgba(198,40,40,.06)}
+.co,.cx{border-color:#2e7d52!important;background:rgba(46,125,82,.1)!important}
+.wp{border-color:#c62828!important;background:rgba(198,40,40,.08)!important}
+.ox-btn:disabled{cursor:default}
+.badge{display:none;margin-top:14px;padding:9px 16px;border-radius:8px;font-size:14px;font-weight:700;font-family:'JetBrains Mono',monospace}
+.badge.ok{display:inline-block;background:rgba(46,125,82,.1);color:#2e7d52;border:1.5px solid rgba(46,125,82,.3)}
+.badge.ng{display:inline-block;background:rgba(198,40,40,.08);color:#c62828;border:1.5px solid rgba(198,40,40,.25)}
+.exp{display:none;margin-top:18px;border-radius:12px;overflow:hidden;animation:fade .3s ease}
+.exp.show{display:block}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.exp-header{background:linear-gradient(135deg,rgba(46,125,82,.12),rgba(38,166,154,.06));border:1.5px solid rgba(46,125,82,.25);border-bottom:none;padding:11px 16px}
+.exp-header span{font-size:11px;font-family:'JetBrains Mono',monospace;color:#1b5e3a;letter-spacing:1.5px;text-transform:uppercase;font-weight:700}
+.exp-answer{background:rgba(46,125,82,.05);border:1.5px solid rgba(46,125,82,.2);border-top:none;border-bottom:none;padding:14px 16px}
+.ans-label{font-size:11px;font-family:'JetBrains Mono',monospace;color:#4a7a62;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;font-weight:700}
+.ans-text{font-size:15px;color:#1a3326;line-height:1.75;font-weight:500}
+.exp-body{background:rgba(46,125,82,.03);border:1.5px solid rgba(46,125,82,.15);border-top:1px solid rgba(46,125,82,.1);padding:14px 16px}
+.sec-label{font-size:11px;font-family:'JetBrains Mono',monospace;color:#00796b;text-transform:uppercase;letter-spacing:1px;margin-bottom:7px;margin-top:13px;font-weight:700}
+.sec-label:first-child{margin-top:0}
+.exp-body p{font-size:14px;color:#2a5040;line-height:1.8;margin-bottom:5px}
+.def-box{background:rgba(38,166,154,.06);border-left:4px solid #26a69a;padding:10px 14px;border-radius:0 8px 8px 0;margin:8px 0}
+.def-box p{color:#004d40;font-size:13.5px;font-style:italic;line-height:1.75}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.compare.three{grid-template-columns:1fr 1fr 1fr}
+.compare-item{background:#f5fdf8;border:1.5px solid #b2dfcc;border-radius:8px;padding:11px 14px}
+.ci-title{font-size:11px;font-family:'JetBrains Mono',monospace;color:#1b5e3a;font-weight:700;margin-bottom:5px}
+.compare-item p{font-size:13px;color:#3a6b51;line-height:1.65}
+.next-btn{display:none;width:100%;margin-top:16px;padding:14px;background:linear-gradient(135deg,#2e7d52,#26a69a);border:none;border-radius:10px;color:white;font-family:'Noto Sans KR',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:opacity .2s,transform .2s}
+.next-btn:hover{opacity:.88;transform:translateY(-1px)}
+.next-btn.show{display:block;animation:fade .3s ease}
+.score-card{display:none;text-align:center;padding:48px 24px}
+.score-card.show{display:block;animation:up .5s ease}
+.score-circle{width:130px;height:130px;border-radius:50%;background:linear-gradient(135deg,#2e7d52,#26a69a);display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 0 40px rgba(46,125,82,.3)}
+.s-num{font-size:42px;font-weight:700;line-height:1;color:#fff}
+.s-total{font-size:14px;opacity:.85;color:#fff}
+.score-card h2{font-size:24px;margin-bottom:7px;color:#1a3326}
+.score-card p{color:#4a7a62;margin-bottom:24px;font-size:15px}
+.restart-btn{padding:13px 32px;background:#f5fdf8;border:2px solid #2e7d52;border-radius:10px;color:#2e7d52;font-family:'Noto Sans KR',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:all .2s}
+.restart-btn:hover{background:rgba(46,125,82,.1)}
+.nd{width:28px;height:28px;border-radius:6px;border:1.5px solid #b2dfcc;background:#f5fdf8;font-size:11px;font-family:'JetBrains Mono',monospace;cursor:pointer;color:#4a7a62;transition:all .15s;display:inline-flex;align-items:center;justify-content:center;font-weight:600}
+.nd.cur{border-color:#2e7d52;background:#2e7d52;color:white}
+.nd.ok{border-color:#2e7d52;background:rgba(46,125,82,.15);color:#1b5e3a}
+.nd.ng{border-color:#c62828;background:rgba(198,40,40,.1);color:#c62828}
+.nd:hover:not(.cur){opacity:.7}
+#nav{display:flex;flex-wrap:wrap;gap:5px;max-width:720px;margin:0 auto 16px;padding:0 8px}
+</style>
+</head>
+<body>
+<div class="header-wrap">
+  <div class="header-topbar">
+    <span class="header-no">NO. 09 <span>—</span> Teaching Writing</span>
+    <span class="header-label">Past-Exam Notebook</span>
+  </div>
+  <h1 class="header-title"><span class="title-hl">영어교육론</span> 개념 마스터</h1>
+  <div class="header-script">Concept Master</div>
+  <p class="header-sub">영어교육론 · Teaching Writing · 임용고시 대비</p>
+  <div class="header-divider"></div>
+</div>
+<div class="prog-wrap">
+  <div class="prog-info"><span id="pt">1 / 20</span><span id="ps">정답 0개</span></div>
+  <div class="bar"><div class="bar-fill" id="bf" style="width:5%"></div></div>
+</div>
+<div id="rb" style="display:none;max-width:720px;margin:0 auto 14px;padding:0 8px">
+  <div style="background:rgba(46,125,82,.08);border:1.5px solid rgba(46,125,82,.3);border-radius:12px;padding:13px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+    <span id="rb-msg" style="font-size:13px;color:#1a3326;font-family:'JetBrains Mono',monospace;line-height:1.5"></span>
+    <button onclick="freshStart()" style="padding:10px 22px;background:#c62828;border:none;border-radius:8px;color:#fff;font-size:14px;font-weight:700;font-family:'Noto Sans KR',sans-serif;cursor:pointer;white-space:nowrap;flex-shrink:0">처음부터</button>
+  </div>
+</div>
+<div id="nav"></div>
+<div class="wrap">
+  <div id="qa"></div>
+  <div class="score-card" id="sc">
+    <div class="score-circle"><span class="s-num" id="fs">0</span><span class="s-total">/20</span></div>
+    <h2 id="rm"></h2><p id="rs"></p>
+    <button class="restart-btn" onclick="restart()">🔄 다시 풀기</button>
+  </div>
+</div>
+<script src="./score-popup.js"></script>
+<script src="./sounds.js"></script>
+<script>
+const Q=[
+  {src:"Approaches",cat:"Product-oriented Approach",
+   text:"The <span class='kw1'>product-oriented approach</span> focuses on producing an <span class='kw2'>error-free final product</span> with little concern for the processes involved, and teachers primarily give feedback on <span class='kw2'>grammar and mechanics</span>.",
+   ans:true,
+   correct:"<span class='kw1'>Product-oriented approach</span>는 <span class='kw2'>error-free final product</span> 산출에 초점을 두며, 피드백도 <span class='kw2'>grammar와 mechanics</span> 중심으로 제공합니다.",
+   why:"Product-oriented approach는 imitating/copying/transforming models of correct language로 요약됩니다. Quality(quality over quantity)를 강조하고 최종 결과물을 평가 기준으로 삼습니다. Process-oriented과의 핵심 차이는 피드백 초점에 있습니다 — product: grammar/mechanics, process: content/organization.",
+   source:"\"<span class='kw1'>Product-oriented approach</span> focuses on producing an <span class='kw2'>error-free final product</span> with little concern for the processes; focus mostly on <span class='kw2'>grammar and mechanics</span> when giving feedback.\"",
+   compare:[{title:"<span class='kw1'>Product-oriented</span>",desc:"error-free product · grammar/mechanics 피드백"},{title:"<span class='kw1'>Process-oriented</span>",desc:"well-organized text · content/organization 피드백"}]},
+
+  {src:"Approaches",cat:"Process-oriented Approach",
+   text:"The <span class='kw1'>process-oriented approach</span> completely ignores the importance of the final product, caring only about the writing process itself.",
+   ans:false,
+   correct:"<span class='kw1'>Process-oriented approach</span>는 최종 결과물의 중요성을 <span class='kw2'>무시하지 않습니다</span>. 다만 <span class='kw4'>error-free text</span>보다 <span class='kw2'>well-organized and effective text</span>를 선호합니다.",
+   why:"기출 단골 함정입니다. Process-oriented는 \"최종 결과물은 신경 쓰지 않는다\"가 아니라 \"과정을 통해 더 나은 결과물을 만든다\"는 입장입니다. 피드백은 content와 organization에 초점을 두며, 학습자 중심(learner-centered)입니다.",
+   source:"\"<span class='kw1'>Process-oriented approach</span>: Does <span class='kw4'>NOT</span> downplay the importance of the final product; however, it prefers <span class='kw2'>well-organized and effective text</span> over <span class='kw4'>error-free texts</span>.\""},
+
+  {src:"Writing Process",cat:"Recursive Stages",
+   text:"The five stages of the writing process — pre-writing, drafting, responding, revising, and editing — must be completed in a strictly <span class='kw4'>sequential and linear</span> order.",
+   ans:false,
+   correct:"Writing process의 5단계는 <span class='kw2'>recursive and cyclical</span>(순환적) 과정입니다. 어느 단계에서나 이전 단계로 돌아가거나 다시 수행할 수 있습니다.",
+   why:"Process-oriented approach의 핵심 특성 중 하나가 바로 비선형성(non-linear)입니다. Pre-writing → drafting → responding → revising → editing 순서가 있지만, 실제로는 어느 단계에서든 재수행이 가능하며 이 점이 product-oriented와 구별되는 중요한 특징입니다.",
+   source:"\"Writing process involves five basic stages: pre-writing; drafting; responding; revising; editing. As it is a <span class='kw2'>recursive and cyclical process</span>, any of these stages can be performed or re-performed at any stage in the writing process.\""},
+
+  {src:"Pre-writing",cat:"Freewriting",
+   text:"<span class='kw1'>Freewriting</span> is an activity where students freely write down about a given topic without stopping, without concern for formal correctness, often starting from an opening clause or sentence provided by the teacher.",
+   ans:true,
+   correct:"<span class='kw1'>Freewriting</span>은 주어진 주제에 대해 <span class='kw2'>멈추지 않고</span>, <span class='kw2'>형식적 정확성에 구애받지 않고</span> 자유롭게 쓰는 활동입니다. 교사가 opening clause나 sentence를 제공해 시작을 도울 수 있습니다.",
+   why:"Freewriting의 핵심 키워드: without stop + without formal correctness. 학습자가 내용에만 집중하여 아이디어를 최대한 많이 생성하는 pre-writing 기법입니다. Looping과 혼동 주의 — Looping은 freewriting 후 가장 중요한 문장을 골라 새 주제로 삼는 활동입니다.",
+   source:"\"<span class='kw1'>Freewriting</span>: An activity where Ss freely write down about a given topic <span class='kw2'>without stop, without formal correctness</span>. T generally provides an opening clause or sentence for the Ss to start with.\"",
+   compare:[{title:"<span class='kw1'>Freewriting</span>",desc:"주제 받아 자유롭게 씀 · 멈추지 않음"},{title:"<span class='kw1'>Looping</span>",desc:"자유 쓰기 → 핵심 문장 선택 → 새 주제"}]},
+
+  {src:"Pre-writing",cat:"Clustering vs Looping",
+   text:"<span class='kw1'>Looping</span> is an activity where students write a short passage freely, select a sentence that conveys the most important idea, and use that sentence as the topic of another piece of writing.",
+   ans:true,
+   correct:"<span class='kw1'>Looping</span>은 자유롭게 짧은 글 작성 → <span class='kw2'>가장 중요한 아이디어를 담은 문장 선택</span> → 그 문장을 <span class='kw2'>새 글의 주제</span>로 삼는 3단계 과정입니다.",
+   why:"Looping은 freewriting의 확장 형태로, 아이디어를 점점 좁혀가며(loop) 핵심 주제를 찾아가는 과정입니다. Clustering은 visual network를 만드는 것이고, Looping은 문장 선택과 재사용이 핵심입니다.",
+   source:"\"<span class='kw1'>Looping</span>: An activity where Ss write a short passage freely and rapidly, read their passage and <span class='kw2'>select a sentence which conveys the most important idea</span> from it, and use the sentence as <span class='kw2'>the topic of other pieces of writing</span>.\""},
+
+  {src:"Pre-writing",cat:"Clustering",
+   text:"<span class='kw1'>Clustering</span> is a pre-writing activity where students jot down all <span class='kw2'>free associations triggered by a key word</span> to make a <span class='kw2'>visual network</span> linking them.",
+   ans:true,
+   correct:"<span class='kw1'>Clustering</span>은 핵심 키워드에서 촉발된 <span class='kw2'>free associations</span>을 연결하는 <span class='kw2'>visual network</span>를 만드는 pre-writing 활동입니다.",
+   why:"Clustering = 마인드맵 유사 개념. 중심 키워드에서 연상되는 단어/아이디어를 거미줄처럼 연결합니다. Mind map과 유사하지만 Mind map은 중심 주제에서 아이디어를 발전시키며(develop) 연상이 확장되는 점이 차이입니다.",
+   source:"\"<span class='kw1'>Clustering</span>: An activity where Ss are asked to jot down all <span class='kw2'>free associations triggered by the given key word</span> to make a <span class='kw2'>visual network</span> linking them.\"",
+   compare:[{title:"<span class='kw1'>Clustering</span>",desc:"key word → free associations → visual network"},{title:"<span class='kw1'>Mind map</span>",desc:"중심 주제 → 아이디어 develop · 확장"}]},
+
+  {src:"Drafting",cat:"Focus in Drafting",
+   text:"In the <span class='kw1'>drafting</span> stage of the writing process, students should focus primarily on <span class='kw4'>accuracy and grammatical correctness</span> to produce a polished first draft.",
+   ans:false,
+   correct:"Drafting 단계에서는 <span class='kw2'>fluency and delivery of meaning</span>에 초점을 두어야 합니다. 문법적 정확성은 나중에 editing 단계에서 다룹니다.",
+   why:"Drafting은 '초안 쓰기' 단계입니다. 이 단계에서 accuracy에 집착하면 아이디어 흐름이 막힙니다. 학생은 audience(독자), expectation(기대), purpose(목적)를 의식하면서 의미 전달에 집중해야 합니다. 정확성은 editing 단계의 몫입니다.",
+   source:"\"<span class='kw1'>Drafting</span>: Focus on <span class='kw2'>fluency and delivery of meaning</span>; Conscious of context of writing (audience, expectation, purpose).\"",
+   compare:[{title:"<span class='kw1'>Drafting</span>",desc:"fluency · meaning 전달 · audience 의식"},{title:"<span class='kw1'>Editing</span>",desc:"grammar · spelling · punctuation · diction"}]},
+
+  {src:"Feedback Types",cat:"Formative vs Summative",
+   text:"<span class='kw1'>Formative feedback</span> aims at encouraging the development of writing by helping students see what they need to do next, while <span class='kw1'>summative feedback</span> is provided at the end of an instructional unit for evaluation.",
+   ans:true,
+   correct:"<span class='kw1'>Formative feedback</span>: 학습 <span class='kw2'>과정 중</span> 제공되어 다음 단계 발전을 돕는 피드백. <span class='kw1'>Summative feedback</span>: 수업 단위 <span class='kw2'>종료 후</span> 평가 목적으로 제공됩니다.",
+   why:"Formative feedback는 학습이 진행되는 동안 개선을 돕기 위한 ongoing feedback입니다. Summative feedback는 학습 종료 후 결과를 평가합니다. Process-oriented approach는 formative feedback를 강조합니다.",
+   source:"\"<span class='kw1'>Formative feedback</span>: Feedback that aims at encouraging the development of their writing by helping them to see what they need to do next. <span class='kw1'>Summative feedback</span>: feedback provided at the end of an instructional unit for evaluation.\"",
+   compare:[{title:"<span class='kw1'>Formative</span>",desc:"과정 중 · 개선 유도 · ongoing"},{title:"<span class='kw1'>Summative</span>",desc:"종료 후 · 평가 목적 · evaluation"}]},
+
+  {src:"Teacher Feedback",cat:"ECC",
+   text:"The <span class='kw1'>Essay Correction Code (ECC)</span> is effective for giving feedback not only on language accuracy issues but also on <span class='kw4'>content and organization</span> of students' writing.",
+   ans:false,
+   correct:"ECC는 language accuracy 문제는 지적할 수 있지만, <span class='kw4'>content나 organization에 대한 피드백은 줄 수 없습니다</span>. 또한 errors의 how와 why에 대한 정보도 제공하지 못합니다.",
+   why:"ECC(Essay Correction Code / Correction Symbols)의 단점: ① Ss가 기호를 해독 못하면 무용지물 ② content나 organization에 대한 피드백 불가 ③ how/why Ss made errors에 대한 정보 제공 불가. 반면 장점은: 선별적 언어 오류 지적, 자기교정 유도, 덜 위협적.",
+   source:"\"ECC: -) <span class='kw4'>Cannot give feedback on issues about content or organization</span>; Cannot give information about how and why Ss made errors; Useless when Ss fail to decode what symbols mean.\"",
+   compare:[{title:"<span class='kw1'>ECC 장점</span>",desc:"선별적 오류 지적 · 자기교정 유도 · less threatening"},{title:"<span class='kw4'>ECC 단점</span>",desc:"content/org 피드백 불가 · 기호 해독 실패 시 무용"}]},
+
+  {src:"Teacher Feedback",cat:"Conferencing",
+   text:"<span class='kw1'>Conferencing</span> provides opportunities for the teacher and student to <span class='kw2'>negotiate the meaning</span> of the student's writing through discussion, but one drawback is that students may <span class='kw2'>passively incorporate</span> the teacher's suggestions.",
+   ans:true,
+   correct:"<span class='kw1'>Conferencing</span>의 장점: <span class='kw2'>meaning negotiation</span> 가능, less threatening. 단점: <span class='kw2'>time-consuming</span>(시간 소요), 학생이 T 제안을 <span class='kw2'>수동적으로 수용</span>할 수 있음.",
+   why:"Conferencing은 1:1 면담 방식으로 진행 중인 작업(work in progress)에 대해 T와 학생이 직접 대화합니다. 모호한 부분을 명확히 하고 revision 과정을 지원하는 장점이 있지만, 시간이 많이 소요되고 학생이 교사 의견에 지나치게 의존할 수 있다는 단점이 있습니다.",
+   source:"\"<span class='kw1'>Conferencing</span>: +) <span class='kw2'>Clarifies existing ambiguities; Less threatening</span>. -) <span class='kw2'>Time-consuming; Passively incorporate T's suggestion</span>.\""},
+
+  {src:"Teacher Feedback",cat:"Reformulation",
+   text:"<span class='kw1'>Reformulation</span> is a feedback technique that requires students to compare their first draft with a <span class='kw2'>reformulated version written by the teacher</span> in order to <span class='kw2'>notice the gap</span>.",
+   ans:true,
+   correct:"<span class='kw1'>Reformulation</span>은 학생의 1차 초안을 교사가 재작성(reformulate)한 버전을 제공하고, 학생이 원본과 비교하여 <span class='kw2'>gap을 인식(notice)</span>하도록 하는 피드백 방식입니다.",
+   why:"Reformulation은 Noticing Hypothesis와 연결됩니다 — 학습자가 자신의 output과 목표 언어 형식 사이의 gap을 인식(notice)해야 intake가 일어납니다. T가 학생 글을 직접 '고쳐 쓰기'한 버전을 제공하므로 학생은 비교를 통해 자연스럽게 언어 형식에 주의를 기울이게 됩니다.",
+   source:"\"<span class='kw1'>Reformulation</span>: Providing feedback to Ss' 1st draft which requires Ss to compare a text written by one of them and its reformulated version made by the T. Reformulation helps Ss to <span class='kw2'>notice the gap</span>.\""},
+
+  {src:"Peer Feedback",cat:"Types & Focus",
+   text:"<span class='kw1'>Peer feedback</span> focuses on <span class='kw2'>content</span>, <span class='kw1'>peer editing</span> focuses on <span class='kw2'>forms</span>, and <span class='kw1'>peer correction</span> involves <span class='kw2'>actual correction of errors</span>.",
+   ans:true,
+   correct:"세 용어의 구분: <span class='kw1'>Peer feedback</span>(content 중심) → <span class='kw1'>Peer editing</span>(form 중심) → <span class='kw1'>Peer correction</span>(실제 오류 교정).",
+   why:"이 세 용어는 유사하지만 구별이 필요합니다. Peer feedback은 내용과 아이디어에, peer editing은 언어 형식에, peer correction은 실제 오류 수정에 초점을 둡니다. 기출에서는 이 차이를 묻거나 장단점과 연결해 출제합니다.",
+   source:"\"<span class='kw1'>Peer feedback</span> focuses on <span class='kw2'>content</span>; <span class='kw1'>peer editing</span> focuses on <span class='kw2'>forms</span>; <span class='kw1'>peer correction</span> involves actual <span class='kw2'>correction of errors</span>.\""},
+
+  {src:"Peer Feedback",cat:"Disadvantages",
+   text:"One key disadvantage of peer feedback is that students tend to give <span class='kw4'>too little positive feedback</span>, making the activity overly critical and discouraging.",
+   ans:false,
+   correct:"반대로, peer feedback의 단점은 <span class='kw4'>too much positive feedback</span>이 문제입니다. 또한 vague하고 unhelpful하며, sentence-level 문제에만 집중하는 경향이 있습니다.",
+   why:"기출 단골 함정입니다. Peer feedback의 실제 단점은: ① vague, unhelpful ② sentence-level 문제에 과도한 집중 ③ 너무 많은 positive feedback(비판을 꺼려 칭찬만 하는 경향). '너무 적은 positive feedback'은 사실과 반대입니다.",
+   source:"\"Peer feedback -): <span class='kw4'>Vague, unhelpful</span>; Too much emphasis on sentence-level problems; <span class='kw4'>Too much positive feedback</span>.\"",
+   compare:[{title:"<span class='kw4'>실제 단점</span>",desc:"too MUCH positive feedback · sentence-level only · vague"},{title:"<span class='kw4'>함정 표현</span>",desc:"'too little positive feedback' → 반대로 기억"}]},
+
+  {src:"Peer Feedback",cat:"Timing Strategy",
+   text:"When advising students on peer feedback, teachers should recommend focusing on <span class='kw2'>content</span> in the <span class='kw2'>earlier stages</span> and on <span class='kw2'>grammar and mechanics</span> in the <span class='kw2'>final stages</span>.",
+   ans:true,
+   correct:"피드백 타이밍: <span class='kw2'>초기 단계(earlier stages)</span> → <span class='kw2'>content</span> 중심 / <span class='kw2'>최종 단계(final stages)</span> → <span class='kw2'>grammar/mechanics</span> 중심.",
+   why:"Process-oriented approach의 피드백 원칙입니다. 초안 단계에서 문법을 고치면 아이디어 발전을 방해합니다. 내용이 충분히 발전된 후에 형식적 정확성을 다듬어야 합니다. 이 원칙은 teacher feedback와 peer feedback 모두에 적용됩니다.",
+   source:"\"Advise the following: in <span class='kw2'>earlier stages</span>, focus on <span class='kw2'>content</span>; in <span class='kw2'>final stages</span>, focus on <span class='kw2'>grammar or mechanics</span>.\""},
+
+  {src:"Revising vs Editing",cat:"Global vs Local",
+   text:"<span class='kw1'>Revising</span> addresses <span class='kw4'>local language issues</span> such as grammar and spelling, while <span class='kw1'>editing</span> addresses <span class='kw4'>global issues</span> such as content and organization.",
+   ans:false,
+   correct:"반대입니다. <span class='kw2'>Revising</span>은 <span class='kw2'>global issues</span>(content, organization of ideas), <span class='kw2'>Editing</span>은 <span class='kw2'>local language issues</span>(grammar, spelling, punctuation, diction)을 다룹니다.",
+   why:"기출 단골 함정. Revising(수정)은 아이디어·내용·구성과 같은 '큰 그림(global)'을 다시 보는 것이고, Editing(교정)은 문법·철자·구두점·어휘 선택 같은 '세부 언어(local)' 문제를 다듬는 것입니다. R-E 순서로 기억하세요: 먼저 Re-vise(global), 나중에 Edit(local).",
+   source:"\"<span class='kw1'>Revising</span>: Rewrite draft to improve <span class='kw2'>global issues</span> like content and organization. <span class='kw1'>Editing</span>: Check and improve <span class='kw2'>local language issues</span> like grammar, spelling, punctuation, diction.\"",
+   compare:[{title:"<span class='kw1'>Revising</span>",desc:"global: content · organization (큰 그림)"},{title:"<span class='kw1'>Editing</span>",desc:"local: grammar · spelling · punctuation · diction"}]},
+
+  {src:"Writing Performances",cat:"Imitative Writing",
+   text:"<span class='kw1'>Imitative Writing (Dictation)</span> is an activity where the teacher reads a paragraph in <span class='kw2'>short phrase units with a pause</span> after each unit, and students write down <span class='kw2'>exactly what they have heard</span> during the pause.",
+   ans:true,
+   correct:"<span class='kw1'>Dictation</span>(Imitative Writing)의 정의: 교사가 단락을 <span class='kw2'>짧은 구 단위로 읽고</span> 각 구 뒤에 <span class='kw2'>pause</span>를 두면, 학생은 pause 동안 들은 것을 <span class='kw2'>그대로 받아쓰기</span>합니다.",
+   why:"Imitative Writing = 받아쓰기(dictation). Grammar와 vocabulary의 collocation 교수에 효과적입니다. Dicto-comp와 자주 혼동되는데, 핵심 차이는 dictation은 pause가 있고 그대로 받아쓰는 반면, dicto-comp는 pause가 없고 학생이 내용을 재구성합니다.",
+   source:"\"<span class='kw1'>Imitative Writing (Dictation)</span>: T reads aloud a paragraph in <span class='kw2'>short phrase units with a pause</span> immediately following each unit; Ss write down <span class='kw2'>exactly what they have heard</span> during the pause.\"",
+   compare:[{title:"<span class='kw1'>Dictation</span>",desc:"pause 있음 · 그대로 받아쓰기"},{title:"<span class='kw1'>Dicto-comp</span>",desc:"pause 없음 · preparatory stage · 내용 재구성"}]},
+
+  {src:"Writing Performances",cat:"Dicto-comp",
+   text:"<span class='kw1'>Dicto-comp</span> is different from <span class='kw1'>dictation</span> in that it does <span class='kw2'>not have pauses</span>, but has a <span class='kw2'>preparatory stage</span> where students listen to the passage multiple times.",
+   ans:true,
+   correct:"<span class='kw1'>Dicto-comp</span>의 핵심 특징: ① pause 없이 지문 청취 ② <span class='kw2'>preparatory stage</span> 존재 ③ 학생이 지문의 아이디어를 기억해 자기 말로(or 원문으로) 재구성. 100단어 이상의 지문을 여러 번 듣습니다.",
+   why:"Dicto-comp는 controlled writing의 한 유형으로, listening + writing을 통합합니다. Dictation(그대로 받아쓰기)과 달리 내용을 기억하고 재구성하는 것이 핵심입니다. '준비 단계(preparatory stage)'가 있다는 점도 중요한 구별 기준입니다.",
+   source:"\"<span class='kw1'>Dicto-comp</span>: Ss listen to a passage of more than one hundred words long several times, remember the ideas, and reproduce them. Different from dictation in that it does <span class='kw2'>not have pauses</span> but has <span class='kw2'>preparatory stage</span>.\""},
+
+  {src:"Writing Performances",cat:"Dialogue Journal",
+   text:"In a <span class='kw1'>Dialogue Journal</span>, students' entries <span class='kw4'>must be graded and corrected</span> by the teacher in order to improve their writing accuracy.",
+   ans:false,
+   correct:"Dialogue Journal에서 학생의 일지 항목은 <span class='kw4'>graded, corrected, 또는 evaluated 되어서는 안 됩니다</span>. 교사는 written comments로 응답하며 authentic reader 역할을 합니다.",
+   why:"기출 단골입니다. Dialogue Journal의 핵심 원칙: Ss' entry must NOT be graded, corrected, or evaluated. 이는 자유로운 자기표현과 authentic communication을 위해서입니다. 또한 학생이 시간이 지남에 따라 일지 항목을 비교해 자신의 발전을 확인하는 self-assessment 도구로도 활용됩니다.",
+   source:"\"<span class='kw1'>Dialogue Journal</span>: Ss' entry must <span class='kw4'>not be graded, corrected, or evaluated</span>. Audience is the student herself and the teacher. Can be used as <span class='kw2'>self-assessment</span>.\"",
+   compare:[{title:"<span class='kw4'>하면 안 됨</span>",desc:"graded / corrected / evaluated"},{title:"<span class='kw2'>목적</span>",desc:"authentic reader · self-assessment · 자유 표현"}]},
+
+  {src:"Writing Performances",cat:"Group Writing",
+   text:"<span class='kw1'>Group writing</span> can be suggested as a task that adopts <span class='kw2'>process-oriented approach</span> and also incorporates <span class='kw2'>social constructivism</span>, as it involves collaborative learning through peer scaffolding.",
+   ans:true,
+   correct:"<span class='kw1'>Group writing</span>은 <span class='kw2'>process-oriented approach</span>(계획·초안·수정 과정 공유)와 <span class='kw2'>social constructivism</span>(peer scaffolding을 통한 협동학습)을 모두 구현하는 활동입니다.",
+   why:"Group writing = collaborative writing. 학생들이 함께 계획하고, 각각 한 단락을 쓰고, 서로의 초안을 확인하며, 자기 부분을 재작성한 뒤 하나의 글로 조립합니다. 이 과정이 Vygotsky의 social constructivism을 구현합니다.",
+   source:"\"<span class='kw1'>Group writing</span>: This can be suggested as a task that adopts <span class='kw2'>process-oriented approach</span> which also incorporate <span class='kw2'>social constructivism</span> as it involves collaborative learning through peer scaffolding.\""},
+
+  {src:"Writing Types",cat:"Real vs Display Writing",
+   text:"<span class='kw1'>Display writing</span> is used for genuine communication of messages to an audience who genuinely wants information, while <span class='kw1'>real writing</span> is used to display one's knowledge in evaluation contexts.",
+   ans:false,
+   correct:"반대입니다. <span class='kw2'>Real writing</span>: 독자가 답을 모르고 진짜로 알고 싶어하는 <span class='kw2'>진짜 소통</span>이 목적 (personal, vocational, academic). <span class='kw4'>Display writing</span>: 자신의 지식을 보여주기 위한, 평가가 수반되는 쓰기.",
+   why:"Real writing과 display writing을 바꿔서 출제하는 전형적인 함정입니다. 시험에서 에세이 쓰기는 display writing입니다 — 교사가 이미 답을 알고 있지만 학생이 지식을 보여주기 위해 씁니다. 실제 친구에게 편지 쓰기, 학교 신문 기고 등은 real writing입니다.",
+   source:"\"<span class='kw2'>Real writing</span>: writing for genuine communication; reader doesn't know the answer and genuinely wants information. <span class='kw4'>Display writing</span>: writing to display one's knowledge; may involve evaluation.\"",
+   compare:[{title:"<span class='kw2'>Real writing</span>",desc:"진짜 소통 · 독자가 정보 원함 · personal/vocational/academic"},{title:"<span class='kw4'>Display writing</span>",desc:"지식 과시 · 평가 포함 · exam/report"}]},
+
+  {src:"Writing Concepts",cat:"Contrastive Rhetoric",
+   text:"<span class='kw1'>Contrastive rhetoric</span> argues that culturally determined predispositions to structure and organize a text from the <span class='kw2'>first language transfer themselves to second language writing</span>.",
+   ans:true,
+   correct:"<span class='kw1'>Contrastive rhetoric</span>은 L1의 <span class='kw2'>문화적으로 결정된 텍스트 구조·조직 방식</span>이 L2 쓰기에 전이된다는 이론입니다. 이는 cultural awareness 교육의 필요성과 연결됩니다.",
+   why:"Contrastive rhetoric은 Robert Kaplan이 제안한 이론으로, 언어마다 텍스트 조직 패턴이 다르며(예: 영어는 직선형, 아랍어는 나선형, 동아시아 언어는 간접적) 이 L1 패턴이 L2 쓰기에도 영향을 미친다고 봅니다. 임용에서는 L1 transfer → L2 writing + cultural awareness가 핵심 키워드입니다.",
+   source:"\"<span class='kw1'>Contrastive rhetoric</span>: The idea that shows the <span class='kw2'>influence of first language on additional language writing</span> by arguing that culturally determined predispositions to structure and organize a text <span class='kw2'>transfer themselves to second language writing</span>; this may involve cultural awareness.\""}
+];
+
+const TOTAL=20;
+const SAVE_KEY='ox_writing_v1';
+let cur=0,answers=new Array(TOTAL).fill(null);
+
+function saveProgress(){localStorage.setItem(SAVE_KEY,JSON.stringify({cur,answers}));}
+function clearProgress(){localStorage.removeItem(SAVE_KEY);}
+function freshStart(){clearProgress();cur=0;answers=new Array(TOTAL).fill(null);document.getElementById('rb').style.display='none';renderNav();render();}
+function getScore(){return answers.filter(a=>a&&a.correct).length;}
+
+function renderExp(q,isCorrect){
+  let html=`<div class="exp show">
+    <div class="exp-header"><span>${isCorrect?'✅ 정답 확인':'❌ 오답 — 정오표'}</span></div>
+    <div class="exp-answer"><div class="ans-label">핵심 정정</div><div class="ans-text">${q.correct}</div></div>
+    <div class="exp-body">
+      <div class="sec-label">해설</div><p>${q.why}</p>`;
+  if(q.source){html+=`<div class="sec-label">Source</div><div class="def-box"><p>${q.source}</p></div>`;}
+  if(q.compare&&q.compare.length){
+    html+=`<div class="sec-label">비교 정리</div><div class="compare${q.compare.length===3?' three':''}">`;
+    q.compare.forEach(c=>{html+=`<div class="compare-item"><div class="ci-title">${c.title}</div><p>${c.desc}</p></div>`;});
+    html+=`</div>`;}
+  html+=`</div></div>`;return html;
+}
+
+function renderNav(){
+  const nav=document.getElementById('nav');
+  nav.innerHTML=answers.map((a,i)=>`<button class="nd${a===null?(i===cur?' cur':''):(a.correct?' ok':' ng')}" onclick="jumpTo(${i})">${i+1}</button>`).join('');
+}
+
+function jumpTo(i){
+  if(answers[i]===null)return;
+  cur=i;render();
+}
+
+function render(){
+  if(cur>=TOTAL){
+    document.getElementById('qa').style.display='none';
+    const s=getScore(),p=s/TOTAL;
+    document.getElementById('fs').textContent=s;
+    document.getElementById('rm').textContent=p>=.9?'완벽해요! 🎉':p>=.7?'잘 했어요! 👍':p>=.5?'조금 더 노력!':'다시 도전해보세요!';
+    document.getElementById('rs').textContent=`${TOTAL}문제 중 ${s}문제 정답 (${Math.round(p*100)}%)`;
+    document.getElementById('sc').classList.add('show');
+    setTimeout(function(){window.showScorePopup&&window.showScorePopup(s,TOTAL);},400);
+    return;
+  }
+  document.getElementById('qa').style.display='block';
+  document.getElementById('sc').classList.remove('show');
+  const q=Q[cur];
+  const pct=Math.round((cur/TOTAL)*100);
+  document.getElementById('bf').style.width=pct+'%';
+  document.getElementById('pt').textContent=`${cur+1} / ${TOTAL}`;
+  document.getElementById('ps').textContent=`정답 ${getScore()}개`;
+  const a=answers[cur];
+  if(a!==null){
+    let oBtnCls='',xBtnCls='';
+    if(a.picked===true){oBtnCls=a.correct?'co':'wp';if(!a.correct)xBtnCls='cx';}
+    else{xBtnCls=a.correct?'cx':'wp';if(!a.correct)oBtnCls='co';}
+    document.getElementById('qa').innerHTML=`
+      <div class="card">
+        <div class="q-meta"><span class="q-num">Q${cur+1}</span><span class="q-src">${q.src}</span><span class="q-cat">${q.cat}</span></div>
+        <div class="q-text">${q.text}</div>
+        <div class="ox-btns">
+          <button class="ox-btn o-btn ${oBtnCls}" disabled>⭕<span class="lb">CORRECT</span></button>
+          <button class="ox-btn x-btn ${xBtnCls}" disabled>❌<span class="lb">WRONG</span></button>
+        </div>
+        <div class="badge ${a.correct?'ok':'ng'}">${a.correct?'✅ 정답!':'❌ 오답! 정답은 '+(q.ans?'O':'X')}</div>
+        <div>${renderExp(q,a.correct)}</div>
+        <button class="next-btn show" onclick="next()">${cur<TOTAL-1?'Next →':'결과 보기 →'}</button>
+      </div>`;
+  }else{
+    document.getElementById('qa').innerHTML=`
+      <div class="card">
+        <div class="q-meta"><span class="q-num">Q${cur+1}</span><span class="q-src">${q.src}</span><span class="q-cat">${q.cat}</span></div>
+        <div class="q-text">${q.text}</div>
+        <div class="ox-btns">
+          <button class="ox-btn o-btn" onclick="pick(true)" id="ob">⭕<span class="lb">CORRECT</span></button>
+          <button class="ox-btn x-btn" onclick="pick(false)" id="xb">❌<span class="lb">WRONG</span></button>
+        </div>
+        <div id="bd" class="badge"></div>
+        <div id="ep"></div>
+        <button class="next-btn" id="nb" onclick="next()">${cur<TOTAL-1?'Next →':'결과 보기 →'}</button>
+      </div>`;
+  }
+}
+
+function pick(val){
+  const q=Q[cur];
+  document.getElementById('ob').disabled=true;
+  document.getElementById('xb').disabled=true;
+  const ok=val===q.ans;
+  answers[cur]={picked:val,correct:ok};
+  if(ok){if(typeof playOk==='function')playOk();}else{if(typeof playNg==='function')playNg();}
+  const bd=document.getElementById('bd');
+  bd.textContent=ok?'✅ 정답!':`❌ 오답! 정답은 ${q.ans?'O':'X'}`;
+  bd.className='badge '+(ok?'ok':'ng');
+  document.getElementById(val?'ob':'xb').classList.add(ok?(val?'co':'cx'):'wp');
+  if(!ok)document.getElementById(q.ans?'ob':'xb').classList.add(q.ans?'co':'cx');
+  document.getElementById('ep').innerHTML=renderExp(q,ok);
+  document.getElementById('nb').classList.add('show');
+  document.getElementById('ps').textContent=`정답 ${getScore()}개`;
+  renderNav();saveProgress();
+}
+
+function next(){
+  cur++;
+  if(cur>=TOTAL){clearProgress();}else{saveProgress();}
+  render();
+}
+function restart(){cur=0;answers=new Array(TOTAL).fill(null);clearProgress();document.getElementById('sc').classList.remove('show');document.getElementById('rb').style.display='none';document.getElementById('qa').style.display='block';renderNav();render();}
+
+(function(){
+  const saved=JSON.parse(localStorage.getItem(SAVE_KEY)||'null');
+  if(saved&&saved.answers&&saved.cur>=0&&saved.cur<TOTAL){
+    cur=saved.cur;answers=saved.answers;
+    const done=answers.filter(a=>a!==null).length;
+    if(done>0){
+      document.getElementById('rb-msg').textContent=`이어서 풀기 중 · ${done}/${TOTAL} 문제 완료 (정답 ${getScore()}개)`;
+      document.getElementById('rb').style.display='block';
+    }
+  }
+  renderNav();render();
+})();
+</script>
+</body>
+</html>
