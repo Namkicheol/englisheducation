@@ -261,3 +261,7 @@ Process-oriented approach의 피드백 원칙. 초안 단계에서 문법을 고
 <p align="center">
 <a href="https://obangti.tistory.com/[CONCEPT_POST_ID]" target="_blank" style="display:inline-block;padding:14px 28px;background:#2e7d52;color:#fff;text-decoration:none;border-radius:8px;font-weight:bold;font-size:15px;">📖 [Teaching Writing] 개념정리 노트로 돌아가기 →</a>
 </p>
+
+---
+
+**태그**: 임용고시, 중등영어, 영어교육론, Ch9, Teaching Writing, OX퀴즈, Process approach, Peer feedback, Conferencing, ECC, Deep-end strategy, 서브노트, 기출분석
