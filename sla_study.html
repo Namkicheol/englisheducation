@@ -38,10 +38,10 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f4f3ed;background-image:r
 .def{background:rgba(46,125,82,.06);border-left:4px solid #2e7d52;padding:12px 16px;border-radius:0 10px 10px 0;margin-bottom:10px;font-size:16px;line-height:1.8;color:#1a1a1a}
 .note{font-size:15px;color:#3a6b51;line-height:1.75;margin-bottom:6px;padding-left:6px}
 .note::before{content:"• ";color:#26a69a;font-weight:700}
-.kw1{background:rgba(46,125,82,.15);color:#1b5e3a;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(46,125,82,.25)}
-.kw2{color:#00796b;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border-bottom:2px solid rgba(0,121,107,.45)}
-.kw3{background:rgba(230,119,0,.13);color:#bf6000;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(230,119,0,.3)}
-.kw4{background:rgba(183,28,28,.11);color:#b71c1c;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(183,28,28,.25)}
+.kw1{background:rgba(46,125,82,.15);color:#1b5e3a;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(46,125,82,.25);white-space:nowrap}
+.kw2{color:#00796b;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border-bottom:2px solid rgba(0,121,107,.45);white-space:nowrap}
+.kw3{background:rgba(230,119,0,.13);color:#bf6000;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(230,119,0,.3);white-space:nowrap}
+.kw4{background:rgba(183,28,28,.11);color:#b71c1c;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(183,28,28,.25);white-space:nowrap}
 .grid{display:grid;gap:10px;margin-top:12px}
 .grid.col2{grid-template-columns:1fr 1fr}
 .grid.col3{grid-template-columns:1fr 1fr 1fr}
@@ -67,7 +67,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 .toc-item{font-size:12px;color:#2e7d52;background:rgba(46,125,82,.08);border:1.5px solid rgba(46,125,82,.2);padding:5px 12px;border-radius:8px;cursor:pointer;transition:all .15s;font-family:'JetBrains Mono',monospace;font-weight:600}
 .toc-item:hover{background:rgba(46,125,82,.18)}
 .legend{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 16px;padding:10px 14px;background:#fff;border:1.5px solid #b2dfcc;border-radius:10px;align-items:center}
-@media(max-width:640px){.grid.col3,.grid.col2{grid-template-columns:1fr}.sec-body{padding:16px}.gi-body{font-size:14px}th{font-size:13px;padding:8px 10px}td{font-size:13px;padding:8px 10px}table{font-size:13px}.concept{overflow-x:auto}svg{min-width:480px;display:block}}
+@media(max-width:640px){.grid.col3,.grid.col2{grid-template-columns:1fr}.sec-body{padding:16px}.gi-body{font-size:14px}th{font-size:14px;padding:8px 10px}td{font-size:14px;padding:8px 10px}table{font-size:14px}.concept{overflow-x:auto}svg{min-width:480px;display:block}}
 </style>
 </head>
 <body>
@@ -354,7 +354,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
           </div>
         </div>
       </div>
-      <svg viewBox="0 0 700 90" style="width:100%;margin-top:12px;font-family:'JetBrains Mono',monospace" xmlns="http://www.w3.org/2000/svg">
+      <div class="stage-wrap"><svg viewBox="0 0 700 90" style="width:100%;margin-top:12px;font-family:'JetBrains Mono',monospace" xmlns="http://www.w3.org/2000/svg">
         <rect x="4" y="10" width="148" height="70" rx="8" fill="rgba(46,125,82,.1)" stroke="rgba(46,125,82,.4)" stroke-width="1.5"/>
         <text x="78" y="38" text-anchor="middle" fill="#1b5e3a" font-size="12" font-weight="bold">Controlled</text>
         <text x="78" y="55" text-anchor="middle" fill="#3a6b51" font-size="10">conscious effort</text>
@@ -372,7 +372,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         <rect x="519" y="10" width="177" height="70" rx="8" fill="rgba(183,28,28,.08)" stroke="rgba(183,28,28,.35)" stroke-width="1.5"/>
         <text x="607" y="43" text-anchor="middle" fill="#b71c1c" font-size="12" font-weight="bold">Automatization</text>
         <text x="607" y="60" text-anchor="middle" fill="#b71c1c" font-size="10">proceduralized · fluent</text>
-      </svg>
+      </svg></div>
       <p class="note" style="margin-top:10px"><span class='kw1'>Restructuring</span>: adjusts existing knowledge to accommodate new info in long-term memory</p>
     </div>
     <div class="div"></div>
@@ -394,7 +394,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
           </div>
         </div>
       </div>
-      <svg viewBox="0 0 700 90" style="width:100%;margin-top:10px;font-family:'JetBrains Mono',monospace" xmlns="http://www.w3.org/2000/svg">
+      <div class="stage-wrap"><svg viewBox="0 0 700 90" style="width:100%;margin-top:10px;font-family:'JetBrains Mono',monospace" xmlns="http://www.w3.org/2000/svg">
         <rect x="4" y="10" width="148" height="70" rx="8" fill="rgba(46,125,82,.1)" stroke="rgba(46,125,82,.4)" stroke-width="1.5"/>
         <text x="78" y="38" text-anchor="middle" fill="#1b5e3a" font-size="12" font-weight="bold">Explicit</text>
         <text x="78" y="55" text-anchor="middle" fill="#3a6b51" font-size="10">declarative</text>
@@ -412,7 +412,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         <rect x="519" y="10" width="177" height="70" rx="8" fill="rgba(183,28,28,.08)" stroke="rgba(183,28,28,.35)" stroke-width="1.5"/>
         <text x="607" y="43" text-anchor="middle" fill="#b71c1c" font-size="12" font-weight="bold">Proceduralization</text>
         <text x="607" y="60" text-anchor="middle" fill="#b71c1c" font-size="10">interface position</text>
-      </svg>
+      </svg></div>
       <p class="note" style="margin-top:10px"><span class='kw3'>Interface position</span>: explicit → implicit through practice (↔ Krashen's <span class='kw4'>non-interface position</span>)</p>
     </div>
     <div class="div"></div>
@@ -560,7 +560,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
     <div class="div"></div>
     <div class="concept">
       <div class="c-title">Regulation <span class="badge-ex">기출 포인트</span></div>
-      <svg viewBox="0 0 700 100" style="width:100%;margin-top:12px;font-family:'JetBrains Mono',monospace" xmlns="http://www.w3.org/2000/svg">
+      <div class="stage-wrap"><svg viewBox="0 0 700 100" style="width:100%;margin-top:12px;font-family:'JetBrains Mono',monospace" xmlns="http://www.w3.org/2000/svg">
         <rect x="4" y="10" width="208" height="80" rx="8" fill="rgba(46,125,82,.1)" stroke="rgba(46,125,82,.4)" stroke-width="1.5"/>
         <text x="108" y="38" text-anchor="middle" fill="#1b5e3a" font-size="12" font-weight="bold">Object-regulation</text>
         <text x="108" y="56" text-anchor="middle" fill="#3a6b51" font-size="10">dictionary 등</text>
@@ -575,7 +575,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         <text x="581" y="38" text-anchor="middle" fill="#b71c1c" font-size="12" font-weight="bold">Self-regulation</text>
         <text x="581" y="56" text-anchor="middle" fill="#b71c1c" font-size="10">자율·독립적 수행</text>
         <text x="581" y="72" text-anchor="middle" fill="#b71c1c" font-size="10">ZPD 완성 단계</text>
-      </svg>
+      </svg></div>
     </div>
     <div class="div"></div>
     <div class="concept">
