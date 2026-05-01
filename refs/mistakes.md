@@ -119,3 +119,9 @@ table { font-size: 14px }
 - [ ] `kw vs kw` / `kw ⇄ kw` 패턴 → flex 또는 grid로 처리했는가
 - [ ] kw 태그 안에 `·`로 이어진 목록 없는가 (핵심어 하나만 넣을 것)
 - [ ] 섹션 제목이 특히 긴 경우(30자+) 모바일에서 잘리지 않는지 확인
+## 체크리스트 — 새 `_study.html` 챕터 완성 전 확인
+
+- [ ] 모든 `<svg>` → `<div class="stage-wrap">` 안에 있는가
+- [ ] `@media(max-width:640px)` 안에 `.sec-title{min-width:0;overflow-wrap:anywhere}` 있는가
+- [ ] 섹션 제목 길이가 화면에서 문제 없는지 확인
+- [ ] 표(`<table>`)는 `<div class="stage-wrap">` 안에 있는가
