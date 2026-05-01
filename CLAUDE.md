@@ -11,6 +11,14 @@
 
 ---
 
+## 한글 용어 규칙 (필수)
+
+`_study.html` 개념 본문 / OX 퀴즈 `why` / 카드 설명 등 **한글이 등장하는 모든 본문**에서 학술 키워드는 영어 원어로 통일한다(예: `의사소통 드릴` → `communicative drill`, `차별화 교수` → `differentiated instruction`). 한글 설명 블록 자체는 유지.
+
+> 상세 매핑표·예시·위반 트리거는 **`docs/한글용어.md`** 참조. 정책 원본은 전역 `~/.claude/CLAUDE.md` "임용 관련 작업: 한국어 용어 규칙" 및 testmaster `docs/한글용어.md`.
+
+---
+
 ## 🔗 testmaster 연동 — concept_link 자동 적용 (필수)
 
 이 레포의 `_study.html` 챕터를 만들거나 변경하면, testmaster의 기출 데이터가 자동으로 그 챕터를 "💎 합격자 노트에서 더 자세히" 링크로 가리키도록 매핑표를 갱신해야 한다.
