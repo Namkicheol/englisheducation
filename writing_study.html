@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch.9 Teaching Writing — 개념정리</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=JetBrains+Mono:wght@400;600&family=Caveat:wght@600&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans KR',sans-serif;background:#f4f3ed;background-image:repeating-linear-gradient(transparent,transparent 27px,#d5d8cf 28px);color:#1a1a1a;min-height:100vh;padding:16px}
+.header-wrap{max-width:820px;margin:0 auto;padding:24px 8px 0}
+.header-topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.header-sticker{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;background:#1a3326;color:#e8f5e9;padding:5px 13px;border-radius:3px;letter-spacing:2px;text-transform:uppercase}
+.header-chapter{font-family:'JetBrains Mono',monospace;font-size:12px;color:#4a5a44;letter-spacing:.5px}
+.header-title{font-size:clamp(30px,7vw,46px);font-weight:900;color:#1a1a1a;line-height:1.1;margin-bottom:5px;letter-spacing:-1px}
+.title-hl{background:#00695c;color:#fff;padding:1px 6px}
+.header-script{font-family:'Caveat',cursive;font-size:21px;color:#00695c;margin-bottom:4px;font-weight:600}
+.header-sub{font-size:13px;color:#555;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#aaa;margin-bottom:10px}
+.header-divider{border:none;border-top:2px dashed #888;margin-bottom:10px}
+.header-tip{font-size:12px;color:#2e4a3a;font-family:'JetBrains Mono',monospace;margin-bottom:20px;background:rgba(0,105,92,.06);border:1px solid rgba(0,105,92,.2);border-radius:8px;padding:9px 14px;line-height:1.7}
+.wrap{max-width:820px;margin:0 auto}
+.sec{background:#fff;border:1.5px solid #b2dfcc;border-radius:16px;margin-bottom:20px;overflow:hidden;box-shadow:0 2px 8px rgba(46,125,82,.08)}
+.sec-header{background:linear-gradient(135deg,rgba(46,125,82,.08),rgba(38,166,154,.05));border-bottom:1.5px solid #b2dfcc;padding:16px 22px;display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none}
+.sec-icon{font-size:20px}
+.sec-title{font-size:16px;font-weight:700;color:#1b5e3a;font-family:'JetBrains Mono',monospace}
+.sec-tag{font-size:11px;color:#2e7d52;background:rgba(46,125,82,.1);padding:3px 10px;border-radius:6px;margin-left:auto;font-weight:600}
+.sec-arrow{font-size:13px;color:#4a7a62;transition:transform .3s;margin-left:6px}
+.sec.open .sec-arrow{transform:rotate(180deg)}
+.sec-body{display:none;padding:22px}
+.sec.open .sec-body{display:block}
+.concept{margin-bottom:22px}
+.concept:last-child{margin-bottom:0}
+.c-title{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;color:#1b5e3a;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.c-title .badge-ex{font-size:10px;background:rgba(230,119,0,.12);color:#e67c00;border:1px solid rgba(230,119,0,.3);padding:2px 7px;border-radius:4px;letter-spacing:0;text-transform:none;font-weight:700}
+.def{background:rgba(46,125,82,.06);border-left:4px solid #2e7d52;padding:12px 16px;border-radius:0 10px 10px 0;margin-bottom:10px;font-size:16px;line-height:1.8;color:#1a3326}
+.note{font-size:15px;color:#3a6b51;line-height:1.75;margin-bottom:6px;padding-left:6px}
+.note::before{content:"• ";color:#26a69a;font-weight:700}
+.kw1{background:rgba(46,125,82,.15);color:#1b5e3a;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(46,125,82,.25);white-space:nowrap}
+.kw2{color:#00796b;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border-bottom:2px solid rgba(0,121,107,.45);white-space:nowrap}
+.kw3{background:rgba(230,119,0,.13);color:#bf6000;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(230,119,0,.3);white-space:nowrap}
+.kw4{background:rgba(183,28,28,.11);color:#b71c1c;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(183,28,28,.25);white-space:nowrap}
+.legend{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 16px;padding:10px 14px;background:#fff;border:1.5px solid #b2dfcc;border-radius:10px;align-items:center}
+.legend-title{font-size:10px;font-family:'JetBrains Mono',monospace;color:#4a7a62;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-right:4px}
+.legend-item{display:flex;align-items:center;gap:5px;font-size:11px;color:#3a6b51}
+.grid{display:grid;gap:10px;margin-top:12px}
+.grid.col2{grid-template-columns:1fr 1fr}
+.grid.col3{grid-template-columns:1fr 1fr 1fr}
+.grid-item{background:#f5fdf8;border:1.5px solid #b2dfcc;border-radius:10px;padding:14px 16px}
+.gi-title{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#2e7d52;margin-bottom:7px}
+.gi-body{font-size:13px;color:#3a6b51;line-height:1.7}
+.gi-body span{display:block}
+.stage-wrap{margin-top:12px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{background:rgba(46,125,82,.1);color:#1b5e3a;font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;padding:10px 14px;border:1.5px solid #b2dfcc;text-align:left;font-weight:700}
+td{padding:10px 14px;border:1.5px solid #b2dfcc;color:#2a5040;vertical-align:top;line-height:1.65}
+tr:nth-child(even) td{background:rgba(46,125,82,.04)}
+.exam{background:rgba(230,119,0,.06);border:1.5px solid rgba(230,119,0,.25);border-radius:10px;padding:14px 16px;margin-top:14px}
+.exam-label{font-size:11px;font-family:'JetBrains Mono',monospace;color:#e67c00;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;font-weight:700}
+.exam p{font-size:13.5px;color:#6b4400;line-height:1.75;margin-bottom:4px}
+.div{height:1px;background:rgba(38,166,154,.2);margin:18px 0}
+.toc{max-width:820px;margin:0 auto 20px;background:#fff;border:1.5px solid #b2dfcc;border-radius:12px;padding:16px 20px;box-shadow:0 2px 8px rgba(46,125,82,.06)}
+.toc-title{font-size:11px;font-family:'JetBrains Mono',monospace;color:#4a7a62;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;font-weight:700}
+.toc-list{display:flex;flex-wrap:wrap;gap:7px}
+.toc-item{font-size:12px;color:#2e7d52;background:rgba(46,125,82,.08);border:1.5px solid rgba(46,125,82,.2);padding:5px 12px;border-radius:8px;cursor:pointer;transition:all .15s;font-family:'JetBrains Mono',monospace;font-weight:600}
+.toc-item:hover{background:rgba(46,125,82,.18)}
+@media(max-width:640px){.grid.col3,.grid.col2{grid-template-columns:1fr}.sec-body{padding:16px}.gi-body{font-size:14px}th{font-size:13px;padding:8px 10px}td{font-size:13px;padding:8px 10px}table{font-size:13px}.concept{overflow-x:auto}svg{min-width:480px;display:block}.sec-title{min-width:0;overflow-wrap:anywhere}}
+</style>
+</head>
+<body>
+
+<div class="header-wrap">
+  <div class="header-topbar">
+    <span class="header-sticker">STUDY NOTE</span>
+    <span class="header-chapter">Ch.09 · Teaching Writing</span>
+  </div>
+  <h1 class="header-title"><span class="title-hl">개념 정리</span> 노트</h1>
+  <div class="header-script">Concept Notes · Teaching Writing</div>
+  <p class="header-sub">서브노트 순서 기반 · 기출 포인트 · 비교 도식</p>
+  <div class="header-divider"></div>
+  <p class="header-tip">📌 목차 버튼 클릭 → 해당 섹션으로 이동 &nbsp;·&nbsp; ▼ 섹션 제목 클릭 → 열고 닫기</p>
+</div>
+
+<div class="wrap">
+
+<!-- TOC -->
+<div class="toc">
+  <div class="toc-title">📋 목차</div>
+  <div class="toc-list">
+    <div class="toc-item" onclick="openSec('s1')">① Approaches</div>
+    <div class="toc-item" onclick="openSec('s2')">② Writing Process 5단계</div>
+    <div class="toc-item" onclick="openSec('s3')">③ Pre-writing Activities</div>
+    <div class="toc-item" onclick="openSec('s4')">④ Teacher Feedback</div>
+    <div class="toc-item" onclick="openSec('s5')">⑤ Peer Feedback</div>
+    <div class="toc-item" onclick="openSec('s6')">⑥ Revising vs Editing</div>
+    <div class="toc-item" onclick="openSec('s7')">⑦ Types of Writing Performances</div>
+    <div class="toc-item" onclick="openSec('s8')">⑧ Writing Concepts</div>
+  </div>
+</div>
+
+<!-- 기출분석 포인트 -->
+<div class="exam" style="margin-bottom:20px">
+  <div class="exam-label">📝 기출분석 포인트 (Ch.9 Teaching Writing)</div>
+  <p>① <span class='kw1'>Product-oriented</span> vs <span class='kw1'>Process-oriented</span> — 피드백 초점(grammar/mechanics vs content/organization) 구분이 핵심</p>
+  <p>② <span class='kw1'>Responding</span> 단계 — teacher feedback(ECC·conferencing·reformulation) 장단점 자주 출제</p>
+  <p>③ <span class='kw1'>Dialogue journal</span> — graded/corrected 금지, authentic reader, self-assessment 연결 단골</p>
+  <p>④ <span class='kw1'>Revising</span>(global: content/org) vs <span class='kw1'>Editing</span>(local: grammar/spelling) 역할 혼동 함정</p>
+  <p>⑤ <span class='kw1'>Peer feedback</span> 단점: too much positive feedback(not too little) — 반드시 역방향으로 기억</p>
+  <p>⑥ <span class='kw1'>Group writing</span> — process-oriented approach + social constructivism 연결 논술 소재</p>
+</div>
+
+<!-- Legend -->
+<div class="legend">
+  <span class="legend-title">키워드 범례</span>
+  <span class="legend-item"><span class="kw1">kw1</span> 핵심 용어</span>
+  <span class="legend-item"><span class="kw2">kw2</span> 세부 포인트</span>
+  <span class="legend-item"><span class="kw3">kw3</span> 주의·비교</span>
+  <span class="legend-item"><span class="kw4">kw4</span> 함정·오답</span>
+</div>
+
+<!-- S1: Approaches -->
+<div class="sec open" id="s1">
+  <div class="sec-header" onclick="toggle('s1')">
+    <span class="sec-icon">📝</span>
+    <span class="sec-title">Approaches in Teaching Writing</span>
+    <span class="sec-tag">기출 ★★★</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body" id="approaches">
+
+    <div class="concept">
+      <div class="c-title">🔑 Product-oriented vs Process-oriented (★★★ 핵심 대조)</div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class="kw1">Product-oriented</span></div>
+          <div class="gi-body">
+            <span>✏️ <strong>초점</strong>: error-free final product</span>
+            <span>📋 <strong>활동</strong>: imitating, copying, transforming models of correct language</span>
+            <span>⚖️ <strong>기준</strong>: quality over quantity</span>
+            <span>💬 <strong>피드백</strong>: grammar and mechanics 중심</span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class="kw1">Process-oriented</span></div>
+          <div class="gi-body">
+            <span>✏️ <strong>초점</strong>: steps of drafting/redrafting</span>
+            <span>📋 <strong>특징</strong>: learner-centered, high-order processing(idea development)</span>
+            <span>⚖️ <strong>기준</strong>: well-organized &amp; effective text (not error-free)</span>
+            <span>💬 <strong>피드백</strong>: content and organization 중심</span>
+          </div>
+        </div>
+      </div>
+      <div class="exam" style="margin-top:12px">
+        <div class="exam-label">⚠️ 함정 포인트</div>
+        <p>Process-oriented가 최종 결과물을 <span class='kw4'>무시한다</span>는 표현 → <span class='kw2'>오답</span>. "does NOT downplay the importance of the final product"가 정확한 표현.</p>
+      </div>
+    </div>
+
+    <svg viewBox="0 0 680 100" style="width:100%;margin-top:16px;font-family:'JetBrains Mono',monospace" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="15" width="300" height="70" rx="10" fill="rgba(46,125,82,.1)" stroke="rgba(46,125,82,.4)" stroke-width="1.5"/>
+      <text x="160" y="44" text-anchor="middle" fill="#1b5e3a" font-size="13" font-weight="bold">Product-oriented</text>
+      <text x="160" y="62" text-anchor="middle" fill="#3a6b51" font-size="10">error-free product</text>
+      <text x="160" y="76" text-anchor="middle" fill="#3a6b51" font-size="10">grammar / mechanics 피드백</text>
+      <text x="340" y="57" text-anchor="middle" fill="#26a69a" font-size="28">⇄</text>
+      <rect x="370" y="15" width="300" height="70" rx="10" fill="rgba(183,28,28,.07)" stroke="rgba(183,28,28,.25)" stroke-width="1.5"/>
+      <text x="520" y="44" text-anchor="middle" fill="#b71c1c" font-size="13" font-weight="bold">Process-oriented</text>
+      <text x="520" y="62" text-anchor="middle" fill="#8a2020" font-size="10">well-organized text (not error-free)</text>
+      <text x="520" y="76" text-anchor="middle" fill="#8a2020" font-size="10">content / organization 피드백</text>
+    </svg>
+
+  </div>
+</div>
+
+<!-- S2: Writing Process 5단계 -->
+<div class="sec" id="s2">
+  <div class="sec-header" onclick="toggle('s2')">
+    <span class="sec-icon">🔄</span>
+    <span class="sec-title">Writing Process — 5 Stages</span>
+    <span class="sec-tag">기출 ★★★</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body" id="writing-process">
+
+    <div class="concept">
+      <div class="def">Writing process involves five basic stages: <strong>pre-writing → drafting → responding → revising → editing</strong>. As it is a <span class='kw2'>recursive and cyclical process</span>, any stage can be performed or re-performed at any point.</div>
+      <p class="note">핵심: <span class='kw2'>recursive and cyclical</span> — 순서가 있지만 어느 단계에서든 이전 단계로 돌아갈 수 있음 (<span class='kw4'>strictly linear</span> 표현은 틀림)</p>
+    </div>
+
+    <div class="stage-wrap">
+      <table>
+        <tr>
+          <th>단계</th><th>핵심 초점</th><th>주요 활동</th>
+        </tr>
+        <tr>
+          <td><span class='kw1'>① Pre-writing</span></td>
+          <td>Generating ideas</td>
+          <td>Brainstorming, Clustering, Mind map, Freewriting, Looping, Strategic questioning</td>
+        </tr>
+        <tr>
+          <td><span class='kw1'>② Drafting</span></td>
+          <td><span class='kw2'>Fluency &amp; delivery of meaning</span></td>
+          <td>Conscious of audience, expectation, purpose</td>
+        </tr>
+        <tr>
+          <td><span class='kw1'>③ Responding</span></td>
+          <td>Feedback (T or peers)</td>
+          <td>ECC, Conferencing, Reformulation, Peer feedback</td>
+        </tr>
+        <tr>
+          <td><span class='kw1'>④ Revising</span></td>
+          <td><span class='kw2'>Global issues</span>: content &amp; organization</td>
+          <td>Rewrite draft based on responding stage feedback</td>
+        </tr>
+        <tr>
+          <td><span class='kw1'>⑤ Editing</span></td>
+          <td><span class='kw2'>Local issues</span>: grammar, spelling, punctuation, diction</td>
+          <td>Final check before submitting</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="exam" style="margin-top:12px">
+      <div class="exam-label">⚠️ Revising vs Editing 함정</div>
+      <p><span class='kw1'>Revising</span> = <span class='kw2'>global</span> (content, organization) &nbsp;|&nbsp; <span class='kw1'>Editing</span> = <span class='kw2'>local</span> (grammar, spelling, punctuation, diction). 두 개념의 역할을 바꿔서 출제하는 패턴 빈출.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- S3: Pre-writing Activities -->
+<div class="sec" id="s3">
+  <div class="sec-header" onclick="toggle('s3')">
+    <span class="sec-icon">💡</span>
+    <span class="sec-title">Pre-writing Activities</span>
+    <span class="sec-tag">기출 ★★</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body" id="pre-writing">
+
+    <div class="concept">
+      <div class="c-title">Idea Generation 활동 6종 비교</div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class="kw1">Brainstorming</span></div>
+          <div class="gi-body">
+            <span>주어진 주제에 대해 <strong>아이디어·연상을 판단 없이 최대한</strong> 쏟아내기</span>
+            <span>개인 또는 pair 활동 가능</span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class="kw1">Clustering</span></div>
+          <div class="gi-body">
+            <span>key word에서 촉발된 <strong>free associations</strong>을 연결해 <strong>visual network</strong> 만들기</span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class="kw1">Mind Map</span></div>
+          <div class="gi-body">
+            <span>중심 주제에서 시작해 아이디어를 <strong>발전·확장(develop)</strong>시키며 연상 그리기</span>
+            <span>cf. Clustering과 유사하나 아이디어 발전에 초점</span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class="kw1">Freewriting</span></div>
+          <div class="gi-body">
+            <span><strong>without stop</strong> + <strong>without formal correctness</strong>로 자유롭게 씀</span>
+            <span>T가 opening clause/sentence 제공</span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class="kw1">Looping</span></div>
+          <div class="gi-body">
+            <span>자유 쓰기 → <strong>가장 중요한 아이디어 담은 문장 선택</strong> → 그 문장을 새 글의 주제로 사용</span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class="kw1">Strategic Questioning</span></div>
+          <div class="gi-body">
+            <span>쓰기 전 <strong>who, why, what, where, when, how</strong> 질문 생성</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="concept">
+      <div class="c-title">🔑 Freewriting vs Looping 구별 (★★ 함정)</div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class="kw1">Freewriting</span></div>
+          <div class="gi-body">
+            <span>주제 받아 멈추지 않고 자유롭게 씀</span>
+            <span>formal correctness 무시</span>
+            <span>T가 opening sentence 제공</span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class="kw1">Looping</span></div>
+          <div class="gi-body">
+            <span>자유 쓰기 후 <strong>핵심 문장 선택</strong> 과정 추가</span>
+            <span>선택한 문장 → 새 주제 → 반복(loop)</span>
+            <span>아이디어를 점점 좁혀가는 구조</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- S4: Teacher Feedback -->
+<div class="sec" id="s4">
+  <div class="sec-header" onclick="toggle('s4')">
+    <span class="sec-icon">🗒️</span>
+    <span class="sec-title">Teacher Feedback (Responding Stage)</span>
+    <span class="sec-tag">기출 ★★★</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body" id="teacher-feedback">
+
+    <div class="concept">
+      <div class="c-title">Formative vs Summative Feedback</div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class="kw1">Formative Feedback</span></div>
+          <div class="gi-body">
+            <span>학습 <strong>과정 중</strong> 제공 (ongoing)</span>
+            <span>목적: 다음 단계 발전 독려</span>
+            <span>Process-oriented approach와 연결</span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class="kw1">Summative Feedback</span></div>
+          <div class="gi-body">
+            <span>수업 단위 <strong>종료 후</strong> 제공</span>
+            <span>목적: 평가(evaluation)</span>
+            <span>Product-oriented approach와 연결</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <div class="concept">
+      <div class="c-title">🔑 Teacher Feedback 4종 — 장단점 비교 (★★★)</div>
+      <div class="stage-wrap">
+        <table>
+          <tr>
+            <th>유형</th><th>장점 (+)</th><th>단점 (−)</th>
+          </tr>
+          <tr>
+            <td><span class='kw1'>ECC</span><br><small>Essay Correction Code</small></td>
+            <td>• 선별적 언어 오류 지적<br>• 자기교정 유도<br>• less threatening</td>
+            <td>• <span class='kw4'>content/organization 피드백 불가</span><br>• how/why 오류 정보 불가<br>• 기호 해독 실패 시 무용</td>
+          </tr>
+          <tr>
+            <td><span class='kw1'>Conferencing</span></td>
+            <td>• meaning negotiation 가능<br>• ambiguity 명확화<br>• less threatening</td>
+            <td>• <span class='kw4'>time-consuming</span><br>• T 제안 수동적 수용</td>
+          </tr>
+          <tr>
+            <td><span class='kw1'>Written Feedback</span></td>
+            <td>• 상세한 서면 피드백 가능</td>
+            <td>• 직접 대화 불가</td>
+          </tr>
+          <tr>
+            <td><span class='kw1'>Reformulation</span></td>
+            <td>• <span class='kw2'>gap noticing</span> 유도<br>• T 재작성본과 비교로 자연스러운 주의 기울임</td>
+            <td>• T의 글쓰기 부담 높음</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="concept">
+      <div class="c-title">Reformulation 정의</div>
+      <div class="def"><span class='kw1'>Reformulation</span>: Providing feedback to Ss' 1st draft which requires Ss to compare a text written by one of them and its reformulated version made by the T. Reformulation helps Ss to <span class='kw2'>notice the gap</span>.</div>
+      <p class="note">T가 학생 초안을 직접 재작성(reformulate) → 학생이 자기 글과 비교 → gap 인식(Noticing Hypothesis 연결)</p>
+    </div>
+
+    <div class="concept">
+      <div class="c-title">피드백 타이밍 원칙 <span class="badge-ex">★★★ 기출</span></div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title">Early Draft</div>
+          <div class="gi-body"><span>→ <span class='kw2'>content</span> 중심 피드백</span><span>아이디어 발전 우선</span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title">Final Draft</div>
+          <div class="gi-body"><span>→ <span class='kw2'>grammar &amp; mechanics</span> 중심</span><span>정확성 다듬기</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- S5: Peer Feedback -->
+<div class="sec" id="s5">
+  <div class="sec-header" onclick="toggle('s5')">
+    <span class="sec-icon">👥</span>
+    <span class="sec-title">Peer Feedback</span>
+    <span class="sec-tag">기출 ★★★</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body" id="peer-feedback">
+
+    <div class="concept">
+      <div class="c-title">용어 구분 (★★)</div>
+      <div class="grid col3">
+        <div class="grid-item">
+          <div class="gi-title"><span class="kw1">Peer Feedback</span></div>
+          <div class="gi-body"><span>초점: <strong>content</strong></span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class="kw1">Peer Editing</span></div>
+          <div class="gi-body"><span>초점: <strong>forms</strong>(언어 형식)</span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class="kw1">Peer Correction</span></div>
+          <div class="gi-body"><span>실제 <strong>오류 교정</strong></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="concept">
+      <div class="c-title">장단점</div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title">장점 (+)</div>
+          <div class="gi-body">
+            <span>✅ Authentic context</span>
+            <span>✅ Authentic audience → 동기 향상</span>
+            <span>✅ 자기 초안을 비판적으로 분석하는 능력 개발</span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title">단점 (−) <span class="kw4">함정 주의</span></div>
+          <div class="gi-body">
+            <span>❌ Vague, unhelpful</span>
+            <span>❌ Sentence-level 문제에만 집중</span>
+            <span>❌ <span class='kw4'>Too much positive feedback</span> (비판 회피)</span>
+          </div>
+        </div>
+      </div>
+      <div class="exam" style="margin-top:10px">
+        <div class="exam-label">⚠️ 함정 포인트</div>
+        <p>"too <span class='kw4'>little</span> positive feedback" → <span class='kw2'>오답</span>. 실제 단점은 "too <span class='kw4'>much</span> positive feedback". 반드시 역방향으로 기억할 것.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- S6: Revising vs Editing -->
+<div class="sec" id="s6">
+  <div class="sec-header" onclick="toggle('s6')">
+    <span class="sec-icon">✏️</span>
+    <span class="sec-title">Revising vs Editing</span>
+    <span class="sec-tag">기출 ★★★</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body" id="revising-editing">
+
+    <div class="concept">
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class="kw1">Revising</span></div>
+          <div class="gi-body">
+            <span>기반: Responding 단계 피드백</span>
+            <span>초점: <span class='kw2'>Global issues</span></span>
+            <span>내용: content, organization of ideas</span>
+            <span>→ 큰 그림(big picture) 수정</span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class="kw1">Editing</span></div>
+          <div class="gi-body">
+            <span>시점: 최종 제출 직전</span>
+            <span>초점: <span class='kw2'>Local language issues</span></span>
+            <span>내용: grammar, spelling, punctuation, diction</span>
+            <span>→ 세부 언어 다듬기</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <svg viewBox="0 0 700 90" style="width:100%;margin-top:12px;font-family:'JetBrains Mono',monospace" xmlns="http://www.w3.org/2000/svg">
+      <rect x="4" y="10" width="200" height="70" rx="8" fill="rgba(46,125,82,.1)" stroke="rgba(46,125,82,.4)" stroke-width="1.5"/>
+      <text x="104" y="36" text-anchor="middle" fill="#1b5e3a" font-size="12" font-weight="bold">Responding</text>
+      <text x="104" y="54" text-anchor="middle" fill="#3a6b51" font-size="10">ECC · Conferencing</text>
+      <text x="104" y="68" text-anchor="middle" fill="#3a6b51" font-size="10">Reformulation · Peer</text>
+      <text x="215" y="52" text-anchor="middle" fill="#26a69a" font-size="20">→</text>
+      <rect x="226" y="10" width="200" height="70" rx="8" fill="rgba(46,125,82,.1)" stroke="rgba(46,125,82,.4)" stroke-width="1.5"/>
+      <text x="326" y="36" text-anchor="middle" fill="#1b5e3a" font-size="12" font-weight="bold">Revising</text>
+      <text x="326" y="54" text-anchor="middle" fill="#3a6b51" font-size="10">GLOBAL</text>
+      <text x="326" y="68" text-anchor="middle" fill="#3a6b51" font-size="10">content · organization</text>
+      <text x="437" y="52" text-anchor="middle" fill="#26a69a" font-size="20">→</text>
+      <rect x="448" y="10" width="248" height="70" rx="8" fill="rgba(183,28,28,.08)" stroke="rgba(183,28,28,.35)" stroke-width="1.5"/>
+      <text x="572" y="36" text-anchor="middle" fill="#b71c1c" font-size="12" font-weight="bold">Editing</text>
+      <text x="572" y="54" text-anchor="middle" fill="#b71c1c" font-size="10">LOCAL</text>
+      <text x="572" y="68" text-anchor="middle" fill="#b71c1c" font-size="10">grammar · spelling · punctuation</text>
+    </svg>
+
+  </div>
+</div>
+
+<!-- S7: Types of Writing Performances -->
+<div class="sec" id="s7">
+  <div class="sec-header" onclick="toggle('s7')">
+    <span class="sec-icon">📋</span>
+    <span class="sec-title">Types of Writing Performances</span>
+    <span class="sec-tag">기출 ★★★</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body" id="writing-performances">
+
+    <div class="concept">
+      <div class="c-title"><span class="kw1">① Imitative Writing</span> (Dictation)</div>
+      <div class="def">T reads aloud a paragraph in <span class='kw2'>short phrase units with a pause</span> immediately following each unit; Ss write down <span class='kw2'>exactly what they have heard</span> during the pause.</div>
+      <p class="note">Grammar와 vocabulary의 collocation 교수에 효과적</p>
+    </div>
+
+    <div class="concept">
+      <div class="c-title"><span class="kw1">② Controlled Writing</span></div>
+      <div class="def">Does <span class='kw4'>not allow creativity</span> on the part of Ss by strictly controlling <span class='kw2'>content and form</span>.</div>
+      <div class="grid col2" style="margin-top:10px">
+        <div class="grid-item">
+          <div class="gi-title"><span class="kw1">Dicto-comp</span></div>
+          <div class="gi-body">
+            <span>100단어 이상 지문을 <strong>여러 번 청취</strong></span>
+            <span><strong>pause 없음</strong> + preparatory stage 있음</span>
+            <span>아이디어 기억 후 재구성(원문 or 자기 말로)</span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title">vs. <span class="kw3">Dictation</span></div>
+          <div class="gi-body">
+            <span><strong>pause 있음</strong> → 그대로 받아쓰기</span>
+            <span>preparatory stage 없음</span>
+            <span>듣는 대로 정확히 기록</span>
+          </div>
+        </div>
+      </div>
+      <p class="note" style="margin-top:8px"><strong>Grammar transformation exercise</strong>: 특정 언어 형식을 목표 형식으로 변형</p>
+      <p class="note"><strong>Sentence combining task</strong>: syntactic fluency + grammatical accuracy 향상</p>
+      <p class="note"><strong>Story reconstruction activity</strong>: 카드 순서 맞추기 → coherence &amp; cohesion 향상</p>
+    </div>
+
+    <div class="concept">
+      <div class="c-title"><span class="kw1">③ Guided Writing</span></div>
+      <p class="note"><strong>Picture-cued description task</strong>: 그림 토론 후 vocabulary/idiom 사용해 작성</p>
+      <p class="note"><strong>Describing a story</strong>: 비디오 영상 시청 후 이야기 작성</p>
+    </div>
+
+    <div class="concept">
+      <div class="c-title"><span class="kw1">④ Self-Writing</span> — Dialogue Journal <span class="badge-ex">★★★ 기출 단골</span></div>
+      <div class="def"><span class='kw1'>Dialogue Journal</span>: A written conversation between the T and the S where Ss record thoughts, feelings, ideas, reactions, or self-selected topics, and the T reads and responds with written comments.</div>
+      <div class="grid col2" style="margin-top:10px">
+        <div class="grid-item">
+          <div class="gi-title">핵심 특징</div>
+          <div class="gi-body">
+            <span>Audience: student herself + teacher</span>
+            <span>T는 written comments로 응답 (authentic reader)</span>
+            <span>Self-assessment 도구로 활용 가능</span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class="kw4">절대 금지</span></div>
+          <div class="gi-body">
+            <span><span class='kw4'>graded</span> 금지</span>
+            <span><span class='kw4'>corrected</span> 금지</span>
+            <span><span class='kw4'>evaluated</span> 금지</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="concept">
+      <div class="c-title"><span class="kw1">⑤ Group Writing</span></div>
+      <div class="def">Ss in a group <span class='kw2'>plan together</span>, write a paragraph each, check each other's drafts, redraft their own parts, and <span class='kw2'>assemble paragraphs</span> to complete a coherent piece of writing.</div>
+      <p class="note">Process-oriented approach + <span class='kw2'>social constructivism</span>(peer scaffolding을 통한 collaborative learning) 구현</p>
+      <p class="note"><strong>Chain writing</strong>: T가 첫 문장 제공 → 학생이 차례로 한 문장씩 추가</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- S8: Writing Concepts -->
+<div class="sec" id="s8">
+  <div class="sec-header" onclick="toggle('s8')">
+    <span class="sec-icon">🌍</span>
+    <span class="sec-title">Key Writing Concepts</span>
+    <span class="sec-tag">기출 ★★</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body" id="writing-concepts">
+
+    <div class="concept">
+      <div class="c-title">🔑 Real Writing vs Display Writing (★★★ 함정)</div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class="kw1">Real Writing</span></div>
+          <div class="gi-body">
+            <span>독자가 답을 <strong>모르고</strong> 진짜로 원하는 정보를 씀</span>
+            <span>genuine communication of messages</span>
+            <span>personal, vocational, or academic</span>
+            <span>예: 친구에게 편지, 학교 신문 기고</span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class="kw3">Display Writing</span></div>
+          <div class="gi-body">
+            <span>자신의 <strong>지식을 과시</strong>하기 위해 씀</span>
+            <span>평가(evaluation) 수반</span>
+            <span>독자(교사)는 이미 답을 알고 있음</span>
+            <span>예: 시험 에세이, 학교 리포트</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="concept">
+      <div class="c-title">Contrastive Rhetoric</div>
+      <div class="def"><span class='kw1'>Contrastive rhetoric</span>: The idea that <span class='kw2'>culturally determined predispositions to structure and organize a text</span> from the first language <span class='kw2'>transfer themselves to second language writing</span>; this may involve cultural awareness.</div>
+      <p class="note">L1의 문화적 텍스트 조직 방식이 L2 쓰기에 전이 → cultural awareness 교육 필요성</p>
+    </div>
+
+    <div class="concept">
+      <div class="c-title">Coherence &amp; Cohesion <span class="badge-ex">기출 빈출</span></div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class="kw1">Coherence</span></div>
+          <div class="gi-body">
+            <span>글 전체의 <strong>의미적 일관성</strong></span>
+            <span>아이디어 간 논리적 연결</span>
+            <span>독자가 전체 의미를 파악할 수 있음</span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class="kw1">Cohesion</span></div>
+          <div class="gi-body">
+            <span>글의 <strong>표면적 언어 연결</strong></span>
+            <span>접속사, 대명사, 지시어 등 사용</span>
+            <span>문장 간 명시적(explicit) 연결</span>
+          </div>
+        </div>
+      </div>
+      <p class="note" style="margin-top:8px">두 개념의 단순 대조보다 <strong>쓰기의 필수 요소</strong>로 출제 — 교사 피드백 기준, 학생이 습득해야 할 요소로 빈출</p>
+    </div>
+
+    <div class="concept">
+      <div class="c-title">Genre-based Approach</div>
+      <div class="def"><span class='kw1'>Genre-based approach</span>: An approach in teaching writing which bases a writing curriculum on the different types of <span class='kw2'>text structures or text genres</span>.</div>
+      <p class="note">장르(narrative, descriptive, argumentative 등)별 텍스트 구조·목적을 명시적으로 교수</p>
+    </div>
+
+  </div>
+</div>
+
+</div><!-- wrap -->
+
+<script>
+function toggle(id){document.getElementById(id).classList.toggle('open');}
+function openSec(id){const s=document.getElementById(id);s.classList.add('open');s.scrollIntoView({behavior:'smooth',block:'start'});}
+</script>
+</body>
+</html>
