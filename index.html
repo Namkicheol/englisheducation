@@ -32,7 +32,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f4efe4;color:#1a1a1a;line
 .progress-title::before{content:"";width:4px;height:16px;background:#2e7d52;border-radius:2px}
 .progress-pct{font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:700;color:#2e7d52}
 .progress-bar{height:10px;background:#eae5d7;border-radius:999px;overflow:hidden;position:relative}
-.progress-fill{height:100%;background:linear-gradient(90deg,#2e7d52 0%,#68c491 50%,#c5a572 100%);border-radius:999px;width:38.5%;position:relative;box-shadow:0 1px 3px rgba(46,125,82,.3)}
+.progress-fill{height:100%;background:linear-gradient(90deg,#2e7d52 0%,#68c491 50%,#c5a572 100%);border-radius:999px;width:53.8%;position:relative;box-shadow:0 1px 3px rgba(46,125,82,.3)}
 .progress-fill::after{content:"";position:absolute;top:0;right:0;bottom:0;width:20px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.6));animation:shimmer 2.5s infinite}
 @keyframes shimmer{0%{transform:translateX(-20px);opacity:0}50%{opacity:1}100%{transform:translateX(0);opacity:0}}
 .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:22px;padding-top:22px;border-top:1px dashed #d5cfbf}
@@ -137,13 +137,13 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f4efe4;color:#1a1a1a;line
   <div class="progress-wrap">
     <div class="progress-head">
       <div class="progress-title">학습 진도 · Progress</div>
-      <div class="progress-pct">46.2% · 6 / 13</div>
+      <div class="progress-pct">53.8% · 7 / 13</div>
     </div>
     <div class="progress-bar"><div class="progress-fill"></div></div>
     <div class="stats-row">
-      <div class="stat"><div class="stat-n">6</div><div class="stat-l">완료 챕터</div></div>
-      <div class="stat"><div class="stat-n">126<span class="small">문</span></div><div class="stat-l">OX 퀴즈</div></div>
-      <div class="stat"><div class="stat-n">7</div><div class="stat-l">제작 예정</div></div>
+      <div class="stat"><div class="stat-n">7</div><div class="stat-l">완료 챕터</div></div>
+      <div class="stat"><div class="stat-n">153<span class="small">문</span></div><div class="stat-l">OX 퀴즈</div></div>
+      <div class="stat"><div class="stat-n">6</div><div class="stat-l">제작 예정</div></div>
       <div class="stat"><div class="stat-n">13</div><div class="stat-l">전체 챕터</div></div>
     </div>
   </div>
@@ -153,7 +153,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f4efe4;color:#1a1a1a;line
     <h2>Completed</h2>
     <span class="sec-ko">완료된 챕터</span>
     <span class="sec-line"></span>
-    <span class="sec-cnt">6 chapters</span>
+    <span class="sec-cnt">7 chapters</span>
   </div>
 
   <div class="chap-grid">
@@ -231,6 +231,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f4efe4;color:#1a1a1a;line
     <div class="chap">
       <div class="chap-head">
         <span class="chap-badge">CH · 08</span>
+        <span class="chap-status">DONE</span>
       </div>
       <div class="chap-title">Teaching Speaking</div>
       <div class="chap-ko">말하기 지도</div>
@@ -248,7 +249,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f4efe4;color:#1a1a1a;line
       </div>
       <div class="chap-title">Teaching Writing</div>
       <div class="chap-ko">쓰기 지도</div>
-      <div class="chap-meta"><span>📝 20문항</span><span class="sep">·</span><span>📖 개념정리</span></div>
+      <div class="chap-meta"><span>📝 21문항</span><span class="sep">·</span><span>📖 개념정리</span></div>
       <div class="chap-btns">
         <a class="btn btn-q" href="./writing.html">OX 퀴즈</a>
         <a class="btn btn-s" href="./writing_study.html">📖 개념정리</a>
