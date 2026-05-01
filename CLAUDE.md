@@ -67,7 +67,7 @@ GitHub: `https://github.com/Namkicheol/testmaster`
 | OX 퀴즈 페이지 제작 (문항 구조·localStorage·효과음) | `englisheducation-quiz` |
 | 개념 정리 페이지 제작 (TOC·섹션·SVG 다이어그램) | `englisheducation-study` |
 | 챕터 완료 후 커밋·배포·블로그 자료 | `englisheducation-deploy` |
-| 이미지 생성 (Pencil MCP) | `blog-image-pencil` |
+| 이미지 생성 (Gemini) | Gemini 채팅창에서 이미지 프롬프트 직접 입력 |
 
 ---
 
@@ -191,7 +191,7 @@ GitHub: `https://github.com/Namkicheol/testmaster`
 - **키워드 하이라이트 필수** (5색): 이론명·가설명·기술 용어 → 파랑 `#3182ce` / 학자명 → 보라 `#805ad5` / 함정·주의 → 빨강 `#c53030` / 장점·긍정 → 청록 `#319795` / 현직쌤 팁 → 주황 `#dd6b20`
 - **기출 연도 빨간색 인라인** (`#c53030`)
 - 핵심 개념은 **영어 원문 한 문단 + 한글 설명 한 문단** 교차 (개념정리 페이지 수록 개념 + 알파)
-- **신규 글 썸네일은 Pencil MCP** (`blog-image-pencil` 스킬)로 생성. 기존 글은 그대로 유지
+- **신규 글 썸네일은 Gemini로 생성** — Gemini 채팅창에서 이미지 프롬프트 직접 입력. 기존 글은 그대로 유지
 - **SVG 사용 금지** (블로그 한정. 웹앱 페이지의 SVG 다이어그램은 별개)
 
 ### 영교론 블로그 고유 규칙
