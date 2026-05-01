@@ -1,0 +1,6 @@
+# macOS
+.DS_Store
+
+# Claude 로컬 설정
+.claude/*
+!.claude/skills

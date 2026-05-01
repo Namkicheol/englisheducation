@@ -1,3 +1,5 @@
+<iframe src="https://namkicheol.github.io/englisheducation/writing.html" width="100%" height="1000px" style="border: none; border-radius: 10px;"></iframe>
+
 # [영어교육론] Ch.9 Teaching Writing OX 21문항 — 해설 완전 정복
 
 Ch.9 Teaching Writing의 핵심 개념을 OX 문항으로 점검합니다. Product/Process approach 구분부터 writing process 5 stages, pre-writing 3종, teacher feedback 비교, peer feedback 함정, writing performances까지 — 기출 단골 함정 포인트 중심으로 해설합니다.

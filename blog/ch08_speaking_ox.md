@@ -1,3 +1,5 @@
+<iframe src="https://namkicheol.github.io/englisheducation/speaking.html" width="100%" height="1000px" style="border: none; border-radius: 10px;"></iframe>
+
 # [영어교육론] Ch.8 Teaching Speaking OX 26문항 — 해설 완전 정복
 
 Ch.8 Teaching Speaking의 핵심 개념을 OX 문항으로 점검합니다. Drill 3종부터 Gap Activity 4종, Role play, Fluency·Accuracy, Pronunciation 기법까지 — 기출 단골 함정 포인트 중심으로 해설합니다.
