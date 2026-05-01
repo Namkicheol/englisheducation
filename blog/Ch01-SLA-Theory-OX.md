@@ -277,3 +277,8 @@ high motivation + low anxiety + high self-esteem = filter가 <span style="color:
 <p align="center">
 <a href="https://obangti.tistory.com/<concept-post-id>" target="_blank" style="display:inline-block;padding:14px 28px;background:#3182ce;color:#fff;text-decoration:none;border-radius:8px;font-weight:bold;font-size:15px;">📚 SLA Theory 개념정리 한 번 더 →</a>
 </p>
+
+---
+
+**태그**: 임용고시, 중등영어, 영어교육론, Ch1, SLA, OX퀴즈, Krashen, Monitor Model, Affective Filter, UG, Noticing Hypothesis, 서브노트, 기출분석
+</p>

@@ -225,3 +225,7 @@ Bottom-up ↔ Top-down을 서술할 때:
 <p align="center">
 <a href="https://obangti.tistory.com/TODO_SPEAKING_OX_POST_ID" target="_blank" style="display:inline-block;padding:14px 28px;background:#3182ce;color:#fff;text-decoration:none;border-radius:8px;font-weight:bold;font-size:15px;">📝 [Ch.8 Teaching Speaking] OX 20문항 풀러 가기 →</a>
 </p>
+
+---
+
+**태그**: 임용고시, 중등영어, 영어교육론, Ch8, Teaching Speaking, Drill, Role play, Fluency, Accuracy, Pronunciation, Gap Activity, 서브노트, 기출분석

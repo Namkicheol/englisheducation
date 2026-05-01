@@ -281,3 +281,7 @@ Ch.8 Teaching Speaking의 핵심 개념을 OX 문항으로 점검합니다. Dril
 <p align="center">
 <a href="https://namkicheol.github.io/englisheducation/speaking_study.html" target="_blank" style="display:inline-block;padding:14px 28px;background:#00695c;color:#fff;text-decoration:none;border-radius:8px;font-weight:bold;font-size:15px;">📖 Ch.8 Teaching Speaking 개념정리 보러 가기 →</a>
 </p>
+
+---
+
+**태그**: 임용고시, 중등영어, 영어교육론, Ch8, Teaching Speaking, OX퀴즈, Drill, Gap Activity, Role play, Fluency, Pronunciation, 서브노트, 기출분석
