@@ -77,6 +77,38 @@ table { font-size: 14px }
 
 ---
 
+## 2026-05-01 · kw vs kw 레이아웃 패턴 (판단 가능 항목)
+
+### 문제 5 — `kw vs kw` 패턴이 모바일에서 어색하게 줄바꿈
+
+**증상**: `<p class="note"><span class='kw4'>A (long)</span> vs <span class='kw4'>B (long)</span></p>` 형태에서 "B"의 첫 단어만 줄바꿈돼 "A vs B / (long)" 같이 어색하게 표시됨.
+
+**판단 기준**: kw 태그 2개가 `vs` / `⇄` / `↔`로 이어지고 합산 길이가 20자 이상이면 레이아웃 분리 필요.
+
+**수정 A — 짧은 vs 비교** (flex wrap):
+```html
+<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding-left:6px;margin-bottom:8px">
+  <span class='kw4'>A</span>
+  <span style="color:#888;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:12px">vs</span>
+  <span class='kw4'>B</span>
+</div>
+```
+
+**수정 B — kw 태그 안에 여러 단어 목록** (`Bottom-up · segmental · minimal pair · accuracy` 같은 경우):
+```html
+<!-- kw 태그는 단일 핵심어만. 나머지는 태그 밖으로 -->
+<div class="grid col2" style="margin-top:6px">
+  <div class="grid-item"><span class='kw4'>Bottom-up</span> · segmental · minimal pair · accuracy</div>
+  <div class="grid-item"><span class='kw4'>Top-down</span> · suprasegmental · backward buildup · fluency</div>
+</div>
+```
+
+**규칙**:
+- kw 태그는 **단일 핵심 용어 하나**만. 목록(·로 구분)은 태그 밖으로.
+- `kw vs kw` 패턴이 보이면 flex 또는 grid로 자동 판단해서 처리.
+
+---
+
 ## 체크리스트 — 새 `_study.html` 챕터 완성 전 확인
 
 - [ ] 모든 `<svg>` → `<div class="stage-wrap">` 안에 있는가
@@ -84,4 +116,6 @@ table { font-size: 14px }
 - [ ] `.kw1~.kw4` 정의에 `white-space:nowrap` 있는가
 - [ ] `@media(max-width:640px)` 안에 `.sec-title{min-width:0;overflow-wrap:anywhere}` 있는가
 - [ ] `@media(max-width:640px)` 안 `th/td/table` → 14px 이상인가
+- [ ] `kw vs kw` / `kw ⇄ kw` 패턴 → flex 또는 grid로 처리했는가
+- [ ] kw 태그 안에 `·`로 이어진 목록 없는가 (핵심어 하나만 넣을 것)
 - [ ] 섹션 제목이 특히 긴 경우(30자+) 모바일에서 잘리지 않는지 확인
