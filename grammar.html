@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch.10 Teaching Grammar OX Quiz</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=JetBrains+Mono:wght@400;600&family=Caveat:wght@600&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans KR',sans-serif;background:#f5f4ee;background-image:repeating-linear-gradient(transparent,transparent 27px,#ddddd0 28px);color:#1a1a1a;min-height:100vh;padding:16px}
+.header-wrap{max-width:720px;margin:0 auto;padding:20px 8px 0}
+.header-topbar{display:flex;justify-content:space-between;align-items:center;border-top:2px solid #1a1a1a;padding-top:8px;margin-bottom:10px}
+.header-no{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;border:2px solid #1a1a1a;padding:3px 10px;border-radius:2px;letter-spacing:.5px;display:flex;align-items:center;gap:6px}
+.header-label{font-family:'JetBrains Mono',monospace;font-size:11px;color:#888;letter-spacing:1px}
+.header-title{font-size:clamp(30px,7vw,46px);font-weight:900;color:#1a1a1a;line-height:1.1;margin-bottom:5px;letter-spacing:-1px}
+.title-hl{background:#2e7d52;color:#fff;padding:1px 6px}
+.header-script{font-family:'Caveat',cursive;font-size:21px;color:#2e7d52;margin-bottom:4px;font-weight:600}
+.header-sub{font-size:13px;color:#555;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#aaa;margin-bottom:14px}
+.header-divider{border:none;border-top:2.5px solid #1a1a1a;margin-bottom:20px}
+.prog-wrap{max-width:720px;margin:0 auto 10px;padding:0 8px}
+.prog-info{display:flex;justify-content:space-between;font-size:12px;color:#4a7a62;font-family:'JetBrains Mono',monospace;margin-bottom:6px}
+.bar{height:4px;background:#b2dfcc;border-radius:2px;overflow:hidden}
+.bar-fill{height:100%;background:linear-gradient(90deg,#2e7d52,#26a69a);border-radius:2px;transition:width .5s ease}
+.wrap{max-width:720px;margin:0 auto}
+.card{background:#fff;border:1.5px solid #b2dfcc;border-radius:14px;padding:26px;animation:up .35s ease;box-shadow:0 2px 8px rgba(46,125,82,.08)}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.q-meta{display:flex;align-items:center;gap:7px;margin-bottom:14px;flex-wrap:wrap}
+.q-num{font-family:'JetBrains Mono',monospace;font-size:11px;color:#2e7d52;background:rgba(46,125,82,.1);padding:3px 10px;border-radius:8px;font-weight:700}
+.q-src{font-size:11px;color:#4a7a62;font-family:'JetBrains Mono',monospace}
+.q-cat{font-size:11px;color:#00796b;background:rgba(38,166,154,.1);padding:3px 10px;border-radius:8px;margin-left:auto;font-weight:600}
+.kw1{background:rgba(46,125,82,.18);color:#1b5e3a;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em}
+.kw2{color:#00796b;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border-bottom:2px solid rgba(0,121,107,.4)}
+.kw3{background:rgba(230,119,0,.13);color:#bf6000;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(230,119,0,.3)}
+.kw4{background:rgba(183,28,28,.11);color:#b71c1c;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(183,28,28,.25)}
+.q-text{font-size:clamp(16px,2.3vw,17.5px);line-height:1.9;margin-bottom:24px;color:#1a3326}
+.ox-btns{display:flex;gap:12px}
+.ox-btn{flex:1;padding:20px 10px;border-radius:12px;border:2px solid #b2dfcc;background:#f5fdf8;color:#1a3326;font-size:30px;cursor:pointer;transition:all .18s ease;display:flex;flex-direction:column;align-items:center;gap:5px}
+.lb{font-size:11px;font-family:'JetBrains Mono',monospace;color:#4a7a62;letter-spacing:1px;font-weight:600}
+.ox-btn:hover:not(:disabled){transform:translateY(-2px)}
+.o-btn:hover:not(:disabled){border-color:#2e7d52;background:rgba(46,125,82,.08)}
+.x-btn:hover:not(:disabled){border-color:#c62828;background:rgba(198,40,40,.06)}
+.co,.cx{border-color:#2e7d52!important;background:rgba(46,125,82,.1)!important}
+.wp{border-color:#c62828!important;background:rgba(198,40,40,.08)!important}
+.ox-btn:disabled{cursor:default}
+.badge{display:none;margin-top:14px;padding:9px 16px;border-radius:8px;font-size:14px;font-weight:700;font-family:'JetBrains Mono',monospace}
+.badge.ok{display:inline-block;background:rgba(46,125,82,.1);color:#2e7d52;border:1.5px solid rgba(46,125,82,.3)}
+.badge.ng{display:inline-block;background:rgba(198,40,40,.08);color:#c62828;border:1.5px solid rgba(198,40,40,.25)}
+.exp{display:none;margin-top:18px;border-radius:12px;overflow:hidden;animation:fade .3s ease}
+.exp.show{display:block}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.exp-header{background:linear-gradient(135deg,rgba(46,125,82,.12),rgba(38,166,154,.06));border:1.5px solid rgba(46,125,82,.25);border-bottom:none;padding:11px 16px}
+.exp-header span{font-size:11px;font-family:'JetBrains Mono',monospace;color:#1b5e3a;letter-spacing:1.5px;text-transform:uppercase;font-weight:700}
+.exp-answer{background:rgba(46,125,82,.05);border:1.5px solid rgba(46,125,82,.2);border-top:none;border-bottom:none;padding:14px 16px}
+.ans-label{font-size:11px;font-family:'JetBrains Mono',monospace;color:#4a7a62;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;font-weight:700}
+.ans-text{font-size:16px;color:#1a3326;line-height:1.75;font-weight:500}
+.exp-body{background:rgba(46,125,82,.03);border:1.5px solid rgba(46,125,82,.15);border-top:1px solid rgba(46,125,82,.1);padding:14px 16px}
+.sec-label{font-size:11px;font-family:'JetBrains Mono',monospace;color:#00796b;text-transform:uppercase;letter-spacing:1px;margin-bottom:7px;margin-top:13px;font-weight:700}
+.sec-label:first-child{margin-top:0}
+.exp-body p{font-size:15px;color:#2a5040;line-height:1.8;margin-bottom:5px}
+.def-box{background:rgba(38,166,154,.06);border-left:4px solid #26a69a;padding:10px 14px;border-radius:0 8px 8px 0;margin:8px 0}
+.def-box p{color:#004d40;font-size:14.5px;font-style:italic;line-height:1.75}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.compare.three{grid-template-columns:1fr 1fr 1fr}
+.compare-item{background:#f5fdf8;border:1.5px solid #b2dfcc;border-radius:8px;padding:11px 14px}
+.ci-title{font-size:11px;font-family:'JetBrains Mono',monospace;color:#1b5e3a;font-weight:700;margin-bottom:5px}
+.compare-item p{font-size:14px;color:#3a6b51;line-height:1.65}
+.next-btn{display:none;width:100%;margin-top:16px;padding:14px;background:linear-gradient(135deg,#2e7d52,#26a69a);border:none;border-radius:10px;color:white;font-family:'Noto Sans KR',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:opacity .2s,transform .2s}
+.next-btn:hover{opacity:.88;transform:translateY(-1px)}
+.next-btn.show{display:block;animation:fade .3s ease}
+.score-card{display:none;text-align:center;padding:48px 24px}
+.score-card.show{display:block;animation:up .5s ease}
+.score-circle{width:130px;height:130px;border-radius:50%;background:linear-gradient(135deg,#2e7d52,#26a69a);display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 0 40px rgba(46,125,82,.3)}
+.s-num{font-size:42px;font-weight:700;line-height:1;color:#fff}
+.s-total{font-size:14px;opacity:.85;color:#fff}
+.score-card h2{font-size:24px;margin-bottom:7px;color:#1a3326}
+.score-card p{color:#4a7a62;margin-bottom:24px;font-size:15px}
+.restart-btn{padding:13px 32px;background:#f5fdf8;border:2px solid #2e7d52;border-radius:10px;color:#2e7d52;font-family:'Noto Sans KR',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:all .2s}
+.restart-btn:hover{background:rgba(46,125,82,.1)}
+.nd{width:28px;height:28px;border-radius:6px;border:1.5px solid #b2dfcc;background:#f5fdf8;font-size:11px;font-family:'JetBrains Mono',monospace;cursor:pointer;color:#4a7a62;transition:all .15s;display:inline-flex;align-items:center;justify-content:center;font-weight:600}
+.nd.cur{border-color:#2e7d52;background:#2e7d52;color:white}
+.nd.ok{border-color:#2e7d52;background:rgba(46,125,82,.15);color:#1b5e3a}
+.nd.ng{border-color:#c62828;background:rgba(198,40,40,.1);color:#c62828}
+.nd:hover:not(.cur){opacity:.7}
+#nav{display:flex;flex-wrap:wrap;gap:5px;max-width:720px;margin:0 auto 16px;padding:0 8px}
+.mode-bar{max-width:720px;margin:0 auto 10px;padding:0 8px;display:flex;gap:8px}
+.mode-btn{flex:1;padding:8px 14px;border-radius:8px;border:1.5px solid #b2dfcc;background:#f5fdf8;color:#4a7a62;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;cursor:pointer;transition:all .18s;letter-spacing:.5px}
+.mode-btn.active{background:#2e7d52;border-color:#2e7d52;color:#fff}
+</style>
+</head>
+<body>
+<div class="header-wrap">
+  <div class="header-topbar">
+    <span class="header-no">NO. 10 <span>—</span> Teaching Grammar</span>
+    <span class="header-label">Past-Exam Notebook</span>
+  </div>
+  <h1 class="header-title"><span class="title-hl">영어교육론</span> 개념 마스터</h1>
+  <div class="header-script">Concept Master</div>
+  <p class="header-sub">영어교육론 · Teaching Grammar · 임용고시 대비</p>
+  <div class="header-divider"></div>
+</div>
+<div class="prog-wrap">
+  <div class="prog-info"><span id="pt">1 / 20</span><span id="ps">정답 0개</span></div>
+  <div class="bar"><div class="bar-fill" id="bf" style="width:5%"></div></div>
+</div>
+<div id="rb" style="display:none;max-width:720px;margin:0 auto 14px;padding:0 8px">
+  <div style="background:rgba(46,125,82,.08);border:1.5px solid rgba(46,125,82,.3);border-radius:12px;padding:13px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+    <span id="rb-msg" style="font-size:13px;color:#1a3326;font-family:'JetBrains Mono',monospace;line-height:1.5"></span>
+    <button onclick="freshStart()" style="padding:10px 22px;background:#c62828;border:none;border-radius:8px;color:#fff;font-size:14px;font-weight:700;font-family:'Noto Sans KR',sans-serif;cursor:pointer;white-space:nowrap;flex-shrink:0">처음부터</button>
+  </div>
+</div>
+<div class="mode-bar">
+  <button class="mode-btn active" id="btn-normal" onclick="setMode('normal')">📋 기본 순서</button>
+  <button class="mode-btn" id="btn-random" onclick="setMode('random')">🔀 랜덤</button>
+</div>
+<div id="nav"></div>
+<div class="wrap">
+  <div id="qa"></div>
+  <div class="score-card" id="sc">
+    <div class="score-circle"><span class="s-num" id="fs">0</span><span class="s-total">/20</span></div>
+    <h2 id="rm"></h2><p id="rs"></p>
+    <button class="restart-btn" onclick="restart()">🔄 다시 풀기</button>
+  </div>
+</div>
+<script src="./score-popup.js"></script>
+<script src="./sounds.js"></script>
+<script>
+const Q=[
+  {src:"Three Approaches",cat:"Focus on Form",
+   text:"According to Long (1991), <span class='kw1'>Focus on Form</span> overtly draws students' attention to linguistic elements <span class='kw2'>as they arise incidentally</span> in lessons whose overriding focus is on <span class='kw2'>meaning or communication</span>.",
+   ans:true,
+   correct:"<span class='kw1'>Focus on Form (FonF)</span>의 핵심: 의미·소통 중심 수업에서 언어 형식에 <span class='kw2'>incidentally</span>(우발적으로) 주의를 기울이도록 하는 접근입니다.",
+   why:"FonF는 의미 중심 활동 중 언어 형식에 부수적으로 주의를 기울이는 것이며, FonFS(Focus on FormS)는 사전에 선정된 문법 항목을 체계적으로 가르치는 방식입니다. 핵심 차이: FonF는 meaning이 primary, FonFS는 form이 primary입니다.",
+   source:"\"Focus on Form: <span class='kw2'>overtly draws students' attention</span> to linguistic elements as they arise <span class='kw2'>incidentally</span> in lessons whose overriding focus is on <span class='kw2'>meaning or communication</span>.\" (Long, 1991)",
+   compare:[{title:"<span class='kw1'>Focus on Form (FonF)</span>",desc:"meaning primary · form attention incidental"},{title:"<span class='kw3'>Focus on Forms (FonFS)</span>",desc:"form primary · pre-selected items · isolated"}]},
+
+  {src:"Three Approaches",cat:"Focus on Forms",
+   text:"<span class='kw3'>Focus on Forms</span> is a traditional grammar approach in which <span class='kw4'>pre-selected</span> grammatical items are taught <span class='kw4'>in isolation</span> from meaningful context, making it a purely form-focused syllabus.",
+   ans:true,
+   correct:"<span class='kw3'>Focus on Forms (FonFS)</span>의 핵심: <span class='kw4'>pre-selected</span> 문법 항목을 의미 맥락과 분리하여(in isolation) 가르치는 전통적 문법 교수법입니다.",
+   why:"FonFS는 Grammar Translation Method(GTM), Audiolingual Method(ALM) 등 전통적 접근법의 특징으로, 미리 선정된 문법 항목을 순차적으로 가르칩니다. 의미보다 형식 중심이며, 실제 의사소통과 분리됩니다.",
+   source:"\"<span class='kw3'>Focus on Forms</span>: a grammar-based approach that <span class='kw4'>systematically teaches pre-selected grammatical items</span> in isolation from meaningful context and communication.\"",
+   compare:[{title:"<span class='kw3'>Focus on Forms</span>",desc:"pre-selected · isolated · form primary · GTM/ALM"},{title:"<span class='kw2'>Focus on Meaning</span>",desc:"no explicit form attention · incidental · Natural Approach"}]},
+
+  {src:"Types of FonF",cat:"Reactive vs Proactive",
+   text:"<span class='kw3'>Reactive Focus on Form</span> is planned in advance before the lesson based on anticipated learner problems, while <span class='kw3'>Proactive Focus on Form</span> occurs spontaneously in response to learner errors during communication.",
+   ans:false,
+   correct:"반대입니다. <span class='kw3'>Proactive FonF</span> = 사전 계획된(planned in advance) form 교수. <span class='kw3'>Reactive FonF</span> = 수업 중 learner error에 즉각 반응하는(spontaneous) form 교수.",
+   why:"Proactive FonF는 교사가 학습자들이 어려워할 것으로 예상되는 form을 사전에 계획하여 가르치는 방식입니다. Reactive FonF는 실제 의사소통 중 발생하는 오류에 즉각적으로 반응하는 방식입니다.",
+   source:"\"<span class='kw3'>Proactive FonF</span>: <span class='kw2'>planned in advance</span> by T. <span class='kw3'>Reactive FonF</span>: occurs <span class='kw2'>spontaneously</span> in response to Ss' errors during communicative activity.\"",
+   compare:[{title:"<span class='kw3'>Proactive</span>",desc:"planned before lesson · anticipated problems"},{title:"<span class='kw3'>Reactive</span>",desc:"spontaneous · in-response to actual errors"}]},
+
+  {src:"Explicit vs Implicit",cat:"Knowledge Types",
+   text:"<span class='kw2'>Explicit grammar instruction</span> primarily develops <span class='kw4'>implicit/procedural knowledge</span> that learners can use automatically, while <span class='kw2'>implicit instruction</span> develops <span class='kw4'>explicit/declarative knowledge</span>.",
+   ans:false,
+   correct:"반대입니다. <span class='kw2'>Explicit instruction</span> → <span class='kw1'>declarative/explicit knowledge</span>(의식적 규칙 이해). <span class='kw2'>Implicit instruction</span> → <span class='kw1'>procedural/implicit knowledge</span>(자동적 사용).",
+   why:"Explicit instruction(명시적 교수)은 의식적으로 규칙을 이해하는 declarative knowledge를 발달시킵니다. Implicit instruction(암시적 교수)은 학습자가 언어를 자동적으로 사용하는 procedural knowledge를 발달시킵니다.",
+   source:"\"<span class='kw2'>Explicit instruction</span> → <span class='kw1'>declarative/explicit knowledge</span>. <span class='kw2'>Implicit instruction</span> → <span class='kw1'>procedural/implicit knowledge</span>.\"",
+   compare:[{title:"<span class='kw2'>Explicit instruction</span>",desc:"conscious rule knowledge · declarative"},{title:"<span class='kw2'>Implicit instruction</span>",desc:"automatic use · procedural · ALM, input enhancement"}]},
+
+  {src:"Deductive vs Inductive",cat:"Deductive Approach",
+   text:"In the <span class='kw3'>deductive approach</span>, the teacher presents the grammatical <span class='kw2'>rule first</span>, followed by examples and practice, which is considered more <span class='kw2'>time-efficient</span> than the inductive approach.",
+   ans:true,
+   correct:"<span class='kw3'>Deductive approach</span>: rule 먼저 → examples → practice. 시간 효율적(time-efficient)이지만 학습 기억에는 덜 효과적입니다.",
+   why:"Deductive approach는 교사가 문법 규칙을 명시적으로 제시하고 학습자가 이를 연습하는 방식입니다. 장점: time-efficient(수업 시간 효율), 단점: 덜 memorable. GTM과 연결됩니다.",
+   source:"\"<span class='kw3'>Deductive approach</span>: rule-driven. <span class='kw2'>Rule presented first</span>, followed by examples and practice. <span class='kw2'>Time-efficient</span> but less memorable.\"",
+   compare:[{title:"<span class='kw3'>Deductive</span>",desc:"rule → examples → practice · time-efficient"},{title:"<span class='kw1'>Inductive</span>",desc:"examples → discover rule · memorable · time-consuming"}]},
+
+  {src:"Deductive vs Inductive",cat:"Inductive Approach",
+   text:"The <span class='kw1'>inductive approach</span> is faster and more efficient than the deductive approach, as learners can directly apply rules given by the teacher without spending time on rule discovery.",
+   ans:false,
+   correct:"Inductive approach는 deductive보다 <span class='kw4'>시간이 더 걸립니다(time-consuming)</span>. 학습자가 데이터에서 규칙을 직접 발견해야 하기 때문입니다.",
+   why:"Inductive approach는 학습자가 언어 데이터를 분석하여 스스로 규칙을 도출(discover)하는 방식입니다. 더 memorable하고 자율성을 키워주지만 time-consuming합니다. Deductive가 더 time-efficient합니다.",
+   source:"\"<span class='kw1'>Inductive approach</span>: data → Ss discover rule. <span class='kw2'>More memorable</span> and promotes learner autonomy, but <span class='kw4'>less time-efficient</span> than deductive.\"",
+   compare:[{title:"<span class='kw4'>Inductive 단점</span>",desc:"time-consuming · Ss may discover wrong rule"},{title:"<span class='kw2'>Inductive 장점</span>",desc:"more memorable · promotes learner autonomy"}]},
+
+  {src:"Corrective Feedback",cat:"Recast",
+   text:"<span class='kw4'>Recast</span> is a type of <span class='kw2'>implicit</span> corrective feedback in which the teacher <span class='kw2'>reformulates</span> a learner's erroneous utterance while maintaining the <span class='kw2'>conversational focus on meaning</span>.",
+   ans:true,
+   correct:"<span class='kw4'>Recast</span>의 핵심: ① implicit feedback ② 학습자 발화를 <span class='kw2'>reformulate</span>(교정하여 재말하기) ③ 의미 초점 유지. 학습자는 교사의 reformulation을 교정으로 인식하지 못할 수 있습니다.",
+   why:"Recast는 수업 중 가장 자주 발생하는 corrective feedback 유형입니다. Implicit하기 때문에 학습자가 교정임을 인식하지 못하는 경우가 많아 uptake 비율이 낮습니다.",
+   source:"\"<span class='kw4'>Recast</span>: T <span class='kw2'>reformulates</span> Ss' incorrect utterance, correcting the error while <span class='kw2'>maintaining conversational focus on meaning</span>. Type of <span class='kw2'>implicit</span> corrective feedback.\"",
+   compare:[{title:"<span class='kw4'>Recast</span>",desc:"implicit · reformulate · meaning focus"},{title:"<span class='kw1'>Explicit correction</span>",desc:"explicit · provides correct form directly · may signal error"}]},
+
+  {src:"Corrective Feedback",cat:"Recast Limitation",
+   text:"<span class='kw4'>Recast</span> is widely considered the most effective type of corrective feedback for L2 acquisition because learners are always aware that their utterance is being corrected.",
+   ans:false,
+   correct:"Recast의 핵심 한계: <span class='kw4'>implicit</span>하기 때문에 학습자가 교정을 받고 있다는 것을 <span class='kw4'>인식하지 못할 수 있어</span>(ambiguous) uptake 비율이 낮고 덜 효과적일 수 있습니다.",
+   why:"Recast의 문제점: 학습자가 교사의 reformulation을 교정으로 인식하지 않고 단순한 확인(confirmation)이나 반복(repetition)으로 받아들일 수 있습니다. Prompt(예: elicitation, clarification request)가 uptake 비율이 더 높은 경향이 있습니다.",
+   source:"\"Recast: <span class='kw4'>may not be noticed</span> by Ss as corrective feedback (ambiguous). Low uptake rate. Less effective when Ss are not developmentally ready.\"",
+   compare:[{title:"<span class='kw4'>Recast 한계</span>",desc:"ambiguous · learner may not notice · low uptake"},{title:"<span class='kw2'>Prompt 장점</span>",desc:"explicit signal · pushes self-repair · higher uptake"}]},
+
+  {src:"Corrective Feedback",cat:"Clarification Request",
+   text:"A <span class='kw1'>clarification request</span> is classified as a type of <span class='kw4'>input-providing</span> corrective feedback because the teacher directly supplies the learner with the grammatically correct form.",
+   ans:false,
+   correct:"<span class='kw1'>Clarification request</span>는 <span class='kw2'>prompt</span> 유형입니다. Teacher는 correct form을 직접 제공하지 않고, 이해하지 못했다는 신호를 보내어 학습자 스스로 repair하도록 push합니다.",
+   why:"Clarification request는 'Sorry?', 'What do you mean?' 등의 표현으로 메시지가 이해되지 않았음을 알립니다. Input-providing feedback(recast, explicit correction)과 달리, learner에게 self-repair 기회를 줍니다.",
+   source:"\"<span class='kw1'>Clarification request</span>: a <span class='kw2'>prompt</span> that signals non-understanding of Ss' message; <span class='kw2'>elicits self-repair</span>. NOT input-providing. Classified alongside metalinguistic feedback, elicitation, repetition.\"",
+   compare:[{title:"<span class='kw2'>Prompts</span>",desc:"CR · metalinguistic · elicitation · repetition → self-repair"},{title:"<span class='kw3'>Input-providing</span>",desc:"recast · explicit correction → correct form supplied"}]},
+
+  {src:"Corrective Feedback",cat:"Metalinguistic Feedback",
+   text:"<span class='kw3'>Metalinguistic feedback</span> directly provides the learner with the correct form and then gives a grammatical explanation of why the error occurred, functioning as explicit correction with added explanation.",
+   ans:false,
+   correct:"<span class='kw3'>Metalinguistic feedback</span>는 correct form을 <span class='kw4'>직접 제공하지 않습니다</span>. Error의 유형을 comment·question·metalinguistic information의 세 가지 방식으로 설명할 뿐입니다.",
+   why:"Metalinguistic feedback의 세 가지 유형: ① comment(예: 'Be careful with tense') ② question(예: 'Is that the right tense?') ③ metalinguistic information(예: 'Past tense is needed here'). 정확한 correct form을 직접 제시하지 않는 prompt입니다.",
+   source:"\"<span class='kw3'>Metalinguistic feedback</span>: T provides <span class='kw4'>comments, questions, or information</span> related to the Ss' error <span class='kw4'>without providing the correct form</span>. Three types: comment / question / metalinguistic information.\"",
+   compare:[{title:"<span class='kw3'>Metalinguistic feedback</span>",desc:"comment / question / info · no correct form"},{title:"<span class='kw1'>Explicit correction</span>",desc:"directly provides correct form · may add explanation"}]},
+
+  {src:"Corrective Feedback",cat:"Elicitation",
+   text:"<span class='kw3'>Elicitation</span> is a corrective feedback technique that <span class='kw2'>directly induces the learner</span> to produce the correct form through incomplete utterances, direct questions, or explicit invitations to reformulate.",
+   ans:true,
+   correct:"<span class='kw3'>Elicitation</span>의 핵심: 학습자가 correct form을 스스로 생성(produce)하도록 직접 유도합니다. 방법: ① incomplete utterance ② direct question ③ explicit invitation to reformulate.",
+   why:"Elicitation은 prompt의 한 유형으로, 예: 'Can you say that again?', 'What do we say?' 또는 문장을 완성하지 않고 멈추기 등의 방법을 사용합니다. Learner의 능동적 self-repair를 요구합니다.",
+   source:"\"<span class='kw3'>Elicitation</span>: T directly induces Ss to self-repair by using an <span class='kw2'>incomplete utterance, a question, or an explicit invitation</span> to reformulate the erroneous utterance.\"",
+   compare:[{title:"<span class='kw3'>Elicitation 방법</span>",desc:"incomplete sentence / direct question / invitation"},{title:"<span class='kw3'>Elicitation vs Recast</span>",desc:"elicitation = prompt · recast = input-providing"}]},
+
+  {src:"Corrective Feedback",cat:"Repetition",
+   text:"<span class='kw2'>Repetition</span> as corrective feedback involves the teacher <span class='kw2'>repeating the learner's erroneous utterance</span> with an <span class='kw2'>exaggerated or altered intonation</span> to signal the presence of an error and allow self-repair.",
+   ans:true,
+   correct:"<span class='kw2'>Repetition</span>의 핵심: 학습자의 <span class='kw2'>오류 발화를 그대로 반복</span>하되 <span class='kw2'>강조된 intonation</span>으로 발화하여 오류가 있음을 알리고 self-repair 기회를 줍니다.",
+   why:"Repetition은 prompt의 한 유형입니다. 올바른 형태를 직접 제공하지 않고 오류를 강조하여 반복함으로써 학습자 스스로 오류를 인식하도록 합니다. Implicit한 recast와 달리, 오류임을 더 명확히 신호합니다.",
+   source:"\"<span class='kw2'>Repetition</span>: T repeats the ill-formed utterance, <span class='kw2'>adjusting intonation to highlight the error</span>. Prompt type — learner expected to self-repair.\""},
+
+  {src:"Corrective Feedback",cat:"Explicit Correction",
+   text:"<span class='kw1'>Explicit correction</span> is classified as a <span class='kw2'>prompt</span> because it pushes learners to produce the target form on their own rather than directly supplying the correct form.",
+   ans:false,
+   correct:"<span class='kw1'>Explicit correction</span>는 <span class='kw4'>prompt가 아니라 input-providing</span> feedback입니다. Correct form을 직접 제공하며, 오류임을 명시적으로 알리고 금지 표현(예: 'No', 'Don't say') 또는 metalinguistic 정보와 함께 쓰입니다.",
+   why:"Corrective feedback 분류: Input-providing = recast + explicit correction. Prompts = elicitation + metalinguistic feedback + clarification request + repetition. Explicit correction은 correct form을 직접 제공하므로 input-providing입니다.",
+   source:"\"<span class='kw1'>Explicit correction</span>: T provides <span class='kw2'>the correct form explicitly</span>, clearly indicating that what Ss said was incorrect. <span class='kw4'>Input-providing feedback</span> (not a prompt).\"",
+   compare:[{title:"<span class='kw4'>Input-providing</span>",desc:"recast + explicit correction → correct form given"},{title:"<span class='kw2'>Prompts</span>",desc:"elicitation + metalinguistic + CR + repetition → self-repair"}]},
+
+  {src:"Consciousness-raising",cat:"CR Task",
+   text:"<span class='kw1'>Consciousness-raising (CR) tasks</span> are data-based activities in which learners engage in <span class='kw2'>meta-talk</span> about language form, developing <span class='kw1'>explicit/declarative knowledge</span> through inductive or deductive discovery.",
+   ans:true,
+   correct:"<span class='kw1'>CR task</span>의 핵심: ① data-based ② meta-talk(언어에 대해 말하기) ③ <span class='kw1'>explicit/declarative knowledge</span> 발달 ④ inductive 또는 deductive 방식의 rule discovery.",
+   why:"CR task는 의미 이해보다 form에 대한 명시적 이해를 목표로 합니다. 학습자들이 언어 데이터를 분석하고 토론하며 규칙을 발견합니다. Output이 필수적이지 않습니다.",
+   source:"\"<span class='kw1'>Consciousness-raising task</span>: data-driven activity that helps Ss develop <span class='kw1'>explicit/declarative knowledge</span> through engaging in <span class='kw2'>meta-talk</span>; proceeds inductively or deductively.\"",
+   compare:[{title:"<span class='kw1'>CR Task</span>",desc:"meta-talk · declarative knowledge · rule discovery"},{title:"<span class='kw3'>Garden Path</span>",desc:"overgeneralize → exception → notice gap"}]},
+
+  {src:"Consciousness-raising",cat:"Garden Path",
+   text:"The <span class='kw3'>garden path technique</span> deliberately leads learners to <span class='kw4'>overgeneralize</span> a grammatical rule, and then presents counterexamples that cause learners to <span class='kw2'>notice the exception</span> and correct their overgeneralization.",
+   ans:true,
+   correct:"<span class='kw3'>Garden path technique</span>의 핵심: 학습자를 의도적으로 <span class='kw4'>overgeneralization</span>으로 이끈 후, counterexamples(예외)을 제시하여 규칙의 한계를 인식하게 합니다.",
+   why:"Garden path는 inductive 활동으로, 학습자가 특정 패턴을 과잉일반화(overgeneralize)한 후 예외를 경험할 때 언어에 더 주의를 기울이게 됩니다. Noticing the gap을 유도하는 기법입니다.",
+   source:"\"<span class='kw3'>Garden path technique</span>: intentionally leads learners to <span class='kw4'>overgeneralize</span> a rule, then provides counterexamples that cause them to <span class='kw2'>notice</span> the exception.\""},
+
+  {src:"Input-based Instruction",cat:"Input Enhancement",
+   text:"<span class='kw2'>Input enhancement</span> draws learner attention to target forms through <span class='kw2'>typographic highlighting</span> techniques such as bolding, underlining, italicizing, or capitalizing the target form in authentic texts.",
+   ans:true,
+   correct:"<span class='kw2'>Input enhancement</span>의 핵심: <span class='kw2'>typographic highlighting</span>(bold, underline, italics, caps 등)을 사용하여 목표 형식에 주의를 유도합니다. Input flooding과의 차이는 highlighting 유무입니다.",
+   why:"Input enhancement는 학습자가 읽기/듣기 자료에서 target form을 자연스럽게 눈에 띄게 만들어 noticing을 유도합니다. Semi-implicit한 방식으로, 의미 초점을 유지하면서도 form에 주의를 줍니다.",
+   source:"\"<span class='kw2'>Input enhancement</span>: makes target form <span class='kw2'>perceptually salient</span> through typographic devices (bold, underline, italics, caps). Draws attention without explicit explanation.\"",
+   compare:[{title:"<span class='kw2'>Input enhancement</span>",desc:"typographic highlighting · salient · semi-implicit"},{title:"<span class='kw1'>Input flooding</span>",desc:"NO highlighting · many examples · fully implicit"}]},
+
+  {src:"Input-based Instruction",cat:"Input Flood",
+   text:"<span class='kw1'>Input flooding</span> exposes learners to a large number of examples of the target form in texts, and like input enhancement, uses <span class='kw4'>typographic highlighting</span> to make the target form visually salient.",
+   ans:false,
+   correct:"<span class='kw1'>Input flooding</span>은 <span class='kw4'>typographic highlighting을 사용하지 않습니다</span>. 많은 양의 target form 예시를 제공하지만, 강조 표시 없이 자연스럽게 노출하는 fully implicit 방식입니다.",
+   why:"Input flooding과 input enhancement의 핵심 차이: Input enhancement = highlighting 있음(bold/underline 등). Input flooding = highlighting 없음(implicit exposure). Input flooding은 Krashen의 comprehensible input 이론과 연결됩니다.",
+   source:"\"<span class='kw1'>Input flooding</span>: provides a <span class='kw2'>large quantity</span> of the target form in texts <span class='kw4'>without any typographic highlighting</span>. Fully implicit exposure.\"",
+   compare:[{title:"<span class='kw1'>Input flooding</span>",desc:"NO highlighting · quantity · fully implicit"},{title:"<span class='kw2'>Input enhancement</span>",desc:"highlighting · perceptual salience · semi-implicit"}]},
+
+  {src:"Types of FonF",cat:"Isolated vs Integrated",
+   text:"<span class='kw3'>Isolated Focus on Form</span> treats the target linguistic form separately from the communicative task in a distinct grammar phase, while <span class='kw1'>Integrated Focus on Form</span> embeds form attention within the communicative activity itself.",
+   ans:true,
+   correct:"<span class='kw3'>Isolated FonF</span>: 의사소통 활동과 분리된 별도 문법 단계에서 form 교수. <span class='kw1'>Integrated FonF</span>: 의사소통 활동 안에서 form 교수가 통합적으로 이루어짐.",
+   why:"Isolated FonF는 의사소통 활동과 분리된 별도의 문법 수업(separate grammar phase)입니다. Integrated FonF는 task 중간에 form attention이 일어나는 방식으로, 의미와 형식이 함께 다루어집니다.",
+   source:"\"<span class='kw3'>Isolated FonF</span>: treats form <span class='kw2'>separately</span> from communicative task. <span class='kw1'>Integrated FonF</span>: form attention is <span class='kw2'>embedded within</span> the communicative task.\"",
+   compare:[{title:"<span class='kw3'>Isolated FonF</span>",desc:"separate grammar phase · disconnected from task"},{title:"<span class='kw1'>Integrated FonF</span>",desc:"embedded within task · form + meaning together"}]},
+
+  {src:"Corrective Feedback",cat:"Uptake",
+   text:"<span class='kw2'>Uptake</span> refers to a learner's response to corrective feedback. <span class='kw2'>Successful uptake</span> occurs when the learner produces the <span class='kw2'>correct target form</span>, while <span class='kw2'>unsuccessful uptake</span> includes acknowledgment or still-erroneous attempts.",
+   ans:true,
+   correct:"<span class='kw2'>Uptake</span> = corrective feedback에 대한 학습자의 즉각적 반응. Successful uptake = correct form 생성. Unsuccessful uptake = 오류 지속, 단순 acknowledgment(예: 'Yeah'), 이해 불가 등.",
+   why:"Uptake는 corrective feedback 직후 학습자가 반응하는 모든 발화를 포함합니다. Prompt(elicitation, metalinguistic, CR, repetition)가 recast보다 successful uptake 비율이 높은 경향이 있습니다.",
+   source:"\"<span class='kw2'>Uptake</span>: any learner utterance that <span class='kw2'>immediately follows</span> corrective feedback. <span class='kw2'>Successful uptake</span>: repair of target form. <span class='kw2'>Unsuccessful uptake</span>: acknowledgment / needs-repair.\"",
+   compare:[{title:"<span class='kw2'>Successful uptake</span>",desc:"correct target form produced · repair"},{title:"<span class='kw2'>Unsuccessful uptake</span>",desc:"still erroneous / acknowledgment only"}]},
+
+  {src:"Teaching Grammar",cat:"기출 종합",
+   text:"According to Lyster's (2004) research, <span class='kw2'>prompts</span> (elicitation, metalinguistic feedback, clarification request, repetition) tend to yield <span class='kw2'>higher successful uptake rates</span> than <span class='kw4'>recasts</span> in classroom contexts.",
+   ans:true,
+   correct:"Lyster(2004): Prompts가 recast보다 <span class='kw2'>successful uptake 비율이 높습니다</span>. Prompt는 학습자를 self-repair로 push하므로 형식 주의를 더 명확히 유도합니다.",
+   why:"Recast는 implicit하여 학습자가 교정임을 인식하지 못할 수 있습니다. Prompt는 명시적으로 repair를 요구하므로 uptake 비율이 더 높습니다. 단, 발달적 준비도(developmental readiness)가 되어 있어야 prompt도 효과적입니다.",
+   source:"\"Prompts lead to higher rates of <span class='kw2'>successful uptake</span> and <span class='kw2'>repair</span> compared to recasts, because they explicitly push Ss toward self-correction.\" (Lyster, 2004)",
+   compare:[{title:"<span class='kw2'>Prompts</span>",desc:"higher uptake · explicit signal · pushes self-repair"},{title:"<span class='kw4'>Recast</span>",desc:"lower uptake · ambiguous · implicit"}]}
+];
+
+const TOTAL=20;
+const SAVE_KEY='ox_grammar_v1';
+let cur=0,answers=new Array(TOTAL).fill(null);
+let mode='normal',order=[...Array(TOTAL).keys()];
+function initOrder(m){if(m==='random'){const a=[...Array(TOTAL).keys()];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}order=a;}else order=[...Array(TOTAL).keys()];}
+function updateModeUI(){document.getElementById('btn-normal').classList.toggle('active',mode==='normal');document.getElementById('btn-random').classList.toggle('active',mode==='random');}
+function setMode(m){if(mode===m)return;mode=m;initOrder(m);cur=0;answers=new Array(TOTAL).fill(null);localStorage.removeItem(SAVE_KEY);document.getElementById('rb').style.display='none';document.getElementById('sc').classList.remove('show');updateModeUI();renderNav();render();}
+function getScore(){return answers.filter(a=>a&&a.correct).length;}
+function saveProgress(){localStorage.setItem(SAVE_KEY,JSON.stringify({cur,answers,mode,order}));}
+function clearProgress(){localStorage.removeItem(SAVE_KEY);}
+function freshStart(){clearProgress();cur=0;answers=new Array(TOTAL).fill(null);mode='normal';order=[...Array(TOTAL).keys()];document.getElementById('rb').style.display='none';updateModeUI();renderNav();render();}
+function restart(){cur=0;answers=new Array(TOTAL).fill(null);mode='normal';order=[...Array(TOTAL).keys()];clearProgress();document.getElementById('sc').classList.remove('show');document.getElementById('rb').style.display='none';document.getElementById('qa').style.display='block';updateModeUI();renderNav();render();}
+
+function renderExp(q,isCorrect){
+  const three=q.compare&&q.compare.length===3;
+  const cmp=q.compare?`<div class="sec-label">📊 비교 정리</div><div class="compare${three?' three':''}">${q.compare.map(c=>`<div class="compare-item"><div class="ci-title">${c.title}</div><p>${c.desc}</p></div>`).join('')}</div>`:'';
+  return `<div class="exp show"><div class="exp-header"><span>${isCorrect?'✅ 정답':'❌ 오답'} · 해설</span></div><div class="exp-answer"><div class="ans-label">핵심 정정</div><div class="ans-text">${q.correct}</div></div><div class="exp-body"><div class="sec-label">📖 상세 설명</div><p>${q.why}</p><div class="sec-label">📌 Source</div><div class="def-box"><p>${q.source}</p></div>${cmp}</div></div>`;
+}
+
+function renderNav(){
+  document.getElementById('nav').innerHTML=answers.map((a,i)=>{
+    let cls='nd';
+    if(i===cur)cls+=' cur';
+    else if(a!==null)cls+=a.correct?' ok':' ng';
+    return `<button class="${cls}" onclick="jumpTo(${i})">${i+1}</button>`;
+  }).join('');
+}
+
+function render(){
+  if(cur>=TOTAL){
+    document.getElementById('qa').style.display='none';
+    document.getElementById('sc').classList.add('show');
+    const s=getScore();
+    document.getElementById('fs').textContent=s;
+    const p=s/TOTAL;
+    document.getElementById('rm').textContent=p===1?'🎉 Perfect!':p>=.8?'👏 Great!':p>=.6?'😊 Good!':'💪 Keep going!';
+    document.getElementById('rs').textContent=`${TOTAL}문제 중 ${s}문제 정답 (${Math.round(p*100)}%)`;
+    setTimeout(function(){window.showScorePopup&&window.showScorePopup(s,TOTAL);},400);
+    renderNav();return;
+  }
+  document.getElementById('sc').classList.remove('show');
+  document.getElementById('qa').style.display='block';
+  renderNav();
+  const q=Q[order[cur]];
+  document.getElementById('bf').style.width=((cur+1)/TOTAL*100).toFixed(1)+'%';
+  document.getElementById('pt').textContent=`${cur+1} / ${TOTAL}`;
+  document.getElementById('ps').textContent=`정답 ${getScore()}개`;
+  const a=answers[cur];
+  if(a!==null){
+    let oBtnCls='',xBtnCls='';
+    if(a.picked===true){oBtnCls=a.correct?'co':'wp';if(!a.correct)xBtnCls='cx';}
+    else{xBtnCls=a.correct?'cx':'wp';if(!a.correct)oBtnCls='co';}
+    document.getElementById('qa').innerHTML=`<div class="card"><div class="q-meta"><span class="q-num">Q${cur+1}</span><span class="q-src">${q.src}</span><span class="q-cat">${q.cat}</span></div><div class="q-text">${q.text}</div><div class="ox-btns"><button class="ox-btn o-btn ${oBtnCls}" disabled>⭕<span class="lb">CORRECT</span></button><button class="ox-btn x-btn ${xBtnCls}" disabled>❌<span class="lb">WRONG</span></button></div><div class="badge ${a.correct?'ok':'ng'}">${a.correct?'✅ 정답!':'❌ 오답! 정답은 '+(q.ans?'O':'X')}</div><div>${renderExp(q,a.correct)}</div><button class="next-btn show" onclick="next()">${cur<TOTAL-1?'Next →':'결과 보기 →'}</button></div>`;
+  }else{
+    document.getElementById('qa').innerHTML=`<div class="card"><div class="q-meta"><span class="q-num">Q${cur+1}</span><span class="q-src">${q.src}</span><span class="q-cat">${q.cat}</span></div><div class="q-text">${q.text}</div><div class="ox-btns"><button class="ox-btn o-btn" onclick="pick(true)" id="ob">⭕<span class="lb">CORRECT</span></button><button class="ox-btn x-btn" onclick="pick(false)" id="xb">❌<span class="lb">WRONG</span></button></div><div id="bd" class="badge"></div><div id="ep"></div><button class="next-btn" id="nb" onclick="next()">${cur<TOTAL-1?'Next →':'결과 보기 →'}</button></div>`;
+  }
+}
+
+function pick(val){
+  const q=Q[order[cur]];
+  document.getElementById('ob').disabled=true;
+  document.getElementById('xb').disabled=true;
+  const ok=val===q.ans;
+  answers[cur]={picked:val,correct:ok};
+  if(ok){if(typeof playOk==='function')playOk();}else{if(typeof playNg==='function')playNg();}
+  const bd=document.getElementById('bd');
+  bd.textContent=ok?'✅ 정답!':`❌ 오답! 정답은 ${q.ans?'O':'X'}`;
+  bd.className='badge '+(ok?'ok':'ng');
+  document.getElementById(val?'ob':'xb').classList.add(ok?(val?'co':'cx'):'wp');
+  if(!ok)document.getElementById(q.ans?'ob':'xb').classList.add(q.ans?'co':'cx');
+  document.getElementById('ep').innerHTML=renderExp(q,ok);
+  document.getElementById('nb').classList.add('show');
+  document.getElementById('ps').textContent=`정답 ${getScore()}개`;
+  renderNav();saveProgress();
+}
+
+function next(){cur++;saveProgress();render();}
+function jumpTo(i){cur=i;render();document.getElementById('qa').scrollIntoView({behavior:'smooth',block:'start'});}
+
+(function(){
+  const saved=JSON.parse(localStorage.getItem(SAVE_KEY)||'null');
+  if(saved&&saved.answers&&saved.cur>=0&&saved.cur<TOTAL){
+    cur=saved.cur;answers=saved.answers;
+    if(saved.mode){mode=saved.mode;order=saved.order||[...Array(TOTAL).keys()];}
+    const done=answers.filter(a=>a!==null).length;
+    if(done>0){document.getElementById('rb-msg').textContent=`이어서 풀기 중 · ${done}/${TOTAL} 문제 완료 (정답 ${getScore()}개)`;document.getElementById('rb').style.display='block';}
+  }
+  updateModeUI();renderNav();render();
+})();
+</script>
+</body>
+</html>

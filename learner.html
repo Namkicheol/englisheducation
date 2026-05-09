@@ -82,6 +82,9 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f5f4ee;background-image:r
 .nd.ng{border-color:#c62828;background:rgba(198,40,40,.1);color:#c62828}
 .nd:hover:not(.cur){opacity:.7}
 #nav{display:flex;flex-wrap:wrap;gap:5px;max-width:720px;margin:0 auto 16px;padding:0 8px}
+.mode-bar{max-width:720px;margin:0 auto 10px;padding:0 8px;display:flex;gap:8px}
+.mode-btn{flex:1;padding:8px 14px;border-radius:8px;border:1.5px solid #b2dfcc;background:#f5fdf8;color:#4a7a62;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;cursor:pointer;transition:all .18s;letter-spacing:.5px}
+.mode-btn.active{background:#2e7d52;border-color:#2e7d52;color:#fff}
 </style>
 </head>
 <body>
@@ -105,6 +108,10 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f5f4ee;background-image:r
     <button onclick="freshStart()" style="padding:10px 22px;background:#c62828;border:none;border-radius:8px;color:#fff;font-size:14px;font-weight:700;font-family:'Noto Sans KR',sans-serif;cursor:pointer">처음부터</button>
   </div>
 </div>
+<div class="mode-bar">
+  <button class="mode-btn active" id="btn-normal" onclick="setMode('normal')">📋 기본 순서</button>
+  <button class="mode-btn" id="btn-random" onclick="setMode('random')">🔀 랜덤</button>
+</div>
 <div id="nav"></div>
 <div class="wrap">
   <div id="qa"></div>
@@ -121,6 +128,10 @@ const SAVE_KEY='ox_learner_v1';
 const TOTAL=20;
 let cur=0;
 let answers=new Array(TOTAL).fill(null);
+let mode='normal',order=[...Array(TOTAL).keys()];
+function initOrder(m){if(m==='random'){const a=[...Array(TOTAL).keys()];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}order=a;}else order=[...Array(TOTAL).keys()];}
+function updateModeUI(){document.getElementById('btn-normal').classList.toggle('active',mode==='normal');document.getElementById('btn-random').classList.toggle('active',mode==='random');}
+function setMode(m){if(mode===m)return;mode=m;initOrder(m);cur=0;answers=new Array(TOTAL).fill(null);localStorage.removeItem(SAVE_KEY);document.getElementById('rb').style.display='none';document.getElementById('sc').classList.remove('show');updateModeUI();renderNav();render();}
 function getScore(){return answers.filter(a=>a&&a.correct).length;}
 const Q=[
   {src:"Learner Style · 5판",cat:"Processing · FI/FD",text:"<span class='kw4'>Field-Independent</span> learners are more holistic in perception and perform better in selective listening tasks, as they easily grasp the whole picture of the listening text.",ans:false,correct:"<span class='kw4'>Field-Independent</span> Ls are <span class='kw2'>analytic</span>, not holistic. They <span class='kw2'>distinguish parts from whole</span> → 선택적 듣기·문법 분석·mechanical drill 유리. <span class='kw4'>Field-Dependent</span> Ls가 holistic.",why:"5판 공식: <strong>FI = bottom-up</strong> (examining input to discover generalization) · <strong>FD = top-down</strong> (predict, apply to instances). FI는 grammatical analysis, attention to details, mechanical drill 유리 / FD는 communicative writing, authentic reading text 유리.",source:"\"<span class='kw4'>Field-Independent</span>: distinguish parts from a whole (→ Selective listening); prefers <span class='kw2'>bottom-up processing</span>. <span class='kw4'>Field-Dependent</span>: perceive the whole picture; prefer <span class='kw2'>top-down processing</span>.\" (5판)",compare:[{title:"<span class='kw4'>Field-Dependent</span>",desc:"holistic · <span class='kw2'>top-down</span> · context-rich · CLT 유리"},{title:"<span class='kw4'>Field-Independent</span>",desc:"analytic · <span class='kw2'>bottom-up</span> · selective listening · drill 유리"}]},
@@ -172,7 +183,7 @@ function render(){
   document.getElementById('sc').classList.remove('show');
   document.getElementById('qa').style.display='block';
   renderNav();
-  const q=Q[cur];
+  const q=Q[order[cur]];
   document.getElementById('bf').style.width=((cur+1)/TOTAL*100).toFixed(1)+'%';
   document.getElementById('pt').textContent=`${cur+1} / ${TOTAL}`;
   document.getElementById('ps').textContent=`정답 ${getScore()}개`;
@@ -187,7 +198,7 @@ function render(){
   }
 }
 function pick(val){
-  const q=Q[cur];
+  const q=Q[order[cur]];
   document.getElementById('ob').disabled=true;
   document.getElementById('xb').disabled=true;
   const ok=val===q.ans;
@@ -205,16 +216,17 @@ function pick(val){
 }
 function next(){cur++;saveProgress();render();}
 function jumpTo(i){cur=i;render();document.getElementById('qa').scrollIntoView({behavior:'smooth',block:'start'});}
-function saveProgress(){localStorage.setItem(SAVE_KEY,JSON.stringify({cur,answers}));}
-function freshStart(){localStorage.removeItem(SAVE_KEY);cur=0;answers=new Array(TOTAL).fill(null);document.getElementById('rb').style.display='none';document.getElementById('sc').classList.remove('show');document.getElementById('qa').style.display='block';renderNav();render();}
+function saveProgress(){localStorage.setItem(SAVE_KEY,JSON.stringify({cur,answers,mode,order}));}
+function freshStart(){localStorage.removeItem(SAVE_KEY);cur=0;answers=new Array(TOTAL).fill(null);mode='normal';order=[...Array(TOTAL).keys()];document.getElementById('rb').style.display='none';document.getElementById('sc').classList.remove('show');document.getElementById('qa').style.display='block';updateModeUI();renderNav();render();}
 (function(){
   const saved=JSON.parse(localStorage.getItem(SAVE_KEY)||'null');
   if(saved&&saved.answers&&saved.cur>=0&&saved.cur<TOTAL){
     cur=saved.cur;answers=saved.answers;
+    if(saved.mode){mode=saved.mode;order=saved.order||[...Array(TOTAL).keys()];}
     const done=answers.filter(a=>a!==null).length;
     if(done>0){document.getElementById('rb-msg').textContent=`이어서 풀기 중 · ${done}/${TOTAL} 문제 완료 (정답 ${getScore()}개)`;document.getElementById('rb').style.display='block';}
   }
-  renderNav();render();
+  updateModeUI();renderNav();render();
 })();
 </script>
 </body>

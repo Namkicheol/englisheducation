@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch.10 Teaching Grammar — 개념정리</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=JetBrains+Mono:wght@400;600&family=Caveat:wght@600&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans KR',sans-serif;background:#f4f3ed;background-image:repeating-linear-gradient(transparent,transparent 27px,#d5d8cf 28px);color:#1a1a1a;min-height:100vh;padding:16px}
+.header-wrap{max-width:820px;margin:0 auto;padding:24px 8px 0}
+.header-topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.header-sticker{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;background:#1a3326;color:#e8f5e9;padding:5px 13px;border-radius:3px;letter-spacing:2px;text-transform:uppercase}
+.header-chapter{font-family:'JetBrains Mono',monospace;font-size:12px;color:#4a5a44;letter-spacing:.5px}
+.header-title{font-size:clamp(30px,7vw,46px);font-weight:900;color:#1a1a1a;line-height:1.1;margin-bottom:5px;letter-spacing:-1px}
+.title-hl{background:#00695c;color:#fff;padding:1px 6px}
+.header-script{font-family:'Caveat',cursive;font-size:21px;color:#00695c;margin-bottom:4px;font-weight:600}
+.header-sub{font-size:13px;color:#555;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#aaa;margin-bottom:10px}
+.header-divider{border:none;border-top:2px dashed #888;margin-bottom:10px}
+.header-tip{font-size:12px;color:#2e4a3a;font-family:'JetBrains Mono',monospace;margin-bottom:20px;background:rgba(0,105,92,.06);border:1px solid rgba(0,105,92,.2);border-radius:8px;padding:9px 14px;line-height:1.7}
+
+.wrap{max-width:820px;margin:0 auto}
+
+.sec{background:#fff;border:1.5px solid #b2dfcc;border-radius:16px;margin-bottom:20px;overflow:hidden;box-shadow:0 2px 8px rgba(46,125,82,.08)}
+@media(max-width:600px){.grid.col2,.grid.col3{grid-template-columns:1fr}}
+.sec-header{background:linear-gradient(135deg,rgba(46,125,82,.08),rgba(38,166,154,.05));border-bottom:1.5px solid #b2dfcc;padding:16px 22px;display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none}
+.sec-icon{font-size:20px}
+.sec-title{font-size:16px;font-weight:700;color:#1b5e3a;font-family:'JetBrains Mono',monospace}
+.sec-tag{font-size:11px;color:#2e7d52;background:rgba(46,125,82,.1);padding:3px 10px;border-radius:6px;margin-left:auto;font-weight:600}
+.sec-arrow{font-size:13px;color:#4a7a62;transition:transform .3s;margin-left:6px}
+.sec.open .sec-arrow{transform:rotate(180deg)}
+.sec-body{display:none;padding:22px}
+.sec.open .sec-body{display:block}
+
+.concept{margin-bottom:22px}
+.concept:last-child{margin-bottom:0}
+.c-title{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;color:#1b5e3a;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.c-title .badge-ex{font-size:10px;background:rgba(230,119,0,.12);color:#e67c00;border:1px solid rgba(230,119,0,.3);padding:2px 7px;border-radius:4px;letter-spacing:0;text-transform:none;font-weight:700}
+.def{background:rgba(46,125,82,.06);border-left:4px solid #2e7d52;padding:12px 16px;border-radius:0 10px 10px 0;margin-bottom:10px;font-size:17px;line-height:1.8;color:#1a3326}
+.note{font-size:16px;color:#3a6b51;line-height:1.75;margin-bottom:6px;padding-left:6px}
+.note::before{content:"• ";color:#26a69a;font-weight:700}
+
+.kw1{background:rgba(46,125,82,.15);color:#1b5e3a;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(46,125,82,.25);white-space:nowrap}
+.kw2{color:#00796b;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border-bottom:2px solid rgba(0,121,107,.45);white-space:nowrap}
+.kw3{background:rgba(230,119,0,.13);color:#bf6000;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(230,119,0,.3);white-space:nowrap}
+.kw4{background:rgba(183,28,28,.11);color:#b71c1c;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(183,28,28,.25);white-space:nowrap}
+.legend{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 16px;padding:10px 14px;background:#fff;border:1.5px solid #b2dfcc;border-radius:10px;align-items:center}
+.legend-title{font-size:10px;font-family:'JetBrains Mono',monospace;color:#4a7a62;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-right:4px}
+.legend-item{display:flex;align-items:center;gap:5px;font-size:11px;color:#3a6b51}
+
+.grid{display:grid;gap:10px;margin-top:12px}
+.grid.col2{grid-template-columns:1fr 1fr}
+.grid.col3{grid-template-columns:1fr 1fr 1fr}
+.grid-item{background:#f5fdf8;border:1.5px solid #b2dfcc;border-radius:10px;padding:14px 16px}
+.gi-title{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#2e7d52;margin-bottom:7px}
+.gi-body{font-size:14px;color:#3a6b51;line-height:1.7}
+.gi-body span{display:block}
+
+.flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px}
+.flow-item{background:#f5fdf8;border:1.5px solid #b2dfcc;border-radius:8px;padding:10px 16px;font-size:13px;color:#1a3326;text-align:center}
+.flow-arrow{color:#26a69a;font-size:18px;font-weight:700}
+
+.stage-wrap{margin-top:12px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{background:rgba(46,125,82,.1);color:#1b5e3a;font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;padding:10px 14px;border:1.5px solid #b2dfcc;text-align:left;font-weight:700}
+td{padding:10px 14px;border:1.5px solid #b2dfcc;color:#2a5040;vertical-align:top;line-height:1.65}
+tr:nth-child(even) td{background:rgba(46,125,82,.04)}
+
+.exam{background:rgba(230,119,0,.06);border:1.5px solid rgba(230,119,0,.25);border-radius:10px;padding:14px 16px;margin-top:14px}
+.exam-label{font-size:11px;font-family:'JetBrains Mono',monospace;color:#e67c00;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;font-weight:700}
+.exam p{font-size:13.5px;color:#6b4400;line-height:1.75;margin-bottom:4px}
+
+.div{height:1px;background:rgba(38,166,154,.2);margin:18px 0}
+
+.toc{max-width:820px;margin:0 auto 20px;background:#fff;border:1.5px solid #b2dfcc;border-radius:12px;padding:16px 20px;box-shadow:0 2px 8px rgba(46,125,82,.06)}
+.toc-title{font-size:11px;font-family:'JetBrains Mono',monospace;color:#4a7a62;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;font-weight:700}
+.toc-list{display:flex;flex-wrap:wrap;gap:7px}
+.toc-item{font-size:12px;color:#2e7d52;background:rgba(46,125,82,.08);border:1.5px solid rgba(46,125,82,.2);padding:5px 12px;border-radius:8px;cursor:pointer;transition:all .15s;font-family:'JetBrains Mono',monospace;font-weight:600}
+.toc-item:hover{background:rgba(46,125,82,.18)}
+@media(max-width:640px){.grid.col3,.grid.col2{grid-template-columns:1fr}.sec-body{padding:16px}.gi-body{font-size:14px}th{font-size:14px;padding:8px 10px}td{font-size:14px;padding:8px 10px}table{font-size:14px}.concept{overflow-x:auto}svg{min-width:480px;display:block}}
+</style>
+</head>
+<body>
+
+<div class="header-wrap">
+  <div class="header-topbar">
+    <span class="header-sticker">STUDY NOTE</span>
+    <span class="header-chapter">Ch.10 · Teaching Grammar</span>
+  </div>
+  <h1 class="header-title"><span class="title-hl">개념 정리</span> 노트</h1>
+  <div class="header-script">Concept Notes · Teaching Grammar</div>
+  <p class="header-sub">서브노트 순서 기반 · 기출 포인트 · 비교 도식</p>
+  <div class="header-divider"></div>
+  <p class="header-tip">📌 목차 버튼 클릭 → 해당 섹션으로 이동 &nbsp;·&nbsp; ▼ 섹션 제목 클릭 → 열고 닫기</p>
+</div>
+
+<div class="wrap">
+
+<!-- TOC -->
+<div class="toc">
+  <div class="toc-title">📋 목차</div>
+  <div class="toc-list">
+    <div class="toc-item" onclick="openSec('s1')">① FonF / FonFS / FonM</div>
+    <div class="toc-item" onclick="openSec('s2')">② Reactive vs Pre-emptive</div>
+    <div class="toc-item" onclick="openSec('s3')">③ Isolated vs Integrated</div>
+    <div class="toc-item" onclick="openSec('s4')">④ Explicit vs Implicit</div>
+    <div class="toc-item" onclick="openSec('s5')">⑤ Corrective Feedback</div>
+    <div class="toc-item" onclick="openSec('s6')">⑥ Uptake</div>
+    <div class="toc-item" onclick="openSec('s7')">⑦ Grammar Techniques</div>
+  </div>
+</div>
+
+<!-- 범례 -->
+<div class="legend">
+  <span class="legend-title">키워드</span>
+  <span class="legend-item"><span class="kw4">★★★ 최빈출</span></span>
+  <span class="legend-item"><span class="kw3">★★ 빈출</span></span>
+  <span class="legend-item"><span class="kw1">★ 기본개념</span></span>
+  <span class="legend-item"><span class="kw2">부키워드</span></span>
+</div>
+
+<!-- 기출분석 포인트 -->
+<div class="exam" style="margin-bottom:20px">
+  <div class="exam-label">📝 기출분석 포인트 (Ch.10 Teaching Grammar)</div>
+  <p>① <span class='kw4'>Focus on Form</span> vs <span class='kw4'>Focus on FormS</span> vs Focus on Meaning — 3-way 구분 <span class='kw4'>최빈출</span></p>
+  <p>② <span class='kw4'>Reactive</span> vs <span class='kw4'>Pre-emptive</span> FonF 구분, <span class='kw3'>Planned</span> vs <span class='kw3'>Incidental</span> 포함</p>
+  <p>③ corrective feedback 6종 — <span class='kw4'>Recast</span>(implicit) vs <span class='kw4'>Explicit Correction</span>, <span class='kw3'>Prompts</span> vs <span class='kw3'>Input-providing</span></p>
+  <p>④ <span class='kw3'>CR task</span> = explicit / declarative knowledge; <span class='kw3'>Input Enhancement</span> vs <span class='kw3'>Input Flood</span> 구분</p>
+  <p>⑤ <span class='kw3'>Uptake</span> 정의 + Repair / Needs Repair 분류</p>
+</div>
+
+<!-- ① Focus on Form -->
+<div class="sec open" id="s1">
+  <div class="sec-header" onclick="toggle('s1')">
+    <span class="sec-icon">🎯</span>
+    <span class="sec-title">① Focus on Form · FormS · Meaning</span>
+    <span class="sec-tag">3-Way 구분</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+
+    <div class="concept">
+      <div class="c-title">🔑 3-Way 핵심 비교 <span class="badge-ex">★★★ 최빈출</span></div>
+      <div class="grid col3" style="margin-top:12px">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw4'>Focus on FormS</span></div>
+          <div class="gi-body">
+            <span><strong>Synthetic approach</strong></span>
+            <span>문법 항목을 순서대로 명시적으로 가르침</span>
+            <span>context-reduced, sentence level</span>
+            <span>decontextualized 설명</span>
+            <span>→ communicative usage (not primary)</span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw4'>Focus on Form</span></div>
+          <div class="gi-body">
+            <span><strong>Analytic approach</strong></span>
+            <span>의미 중심 활동 중 의도적으로 형태에 주의 유도</span>
+            <span>context-embedded, discourse level</span>
+            <span>form-meaning mapping</span>
+            <span>→ communicative use (primary)</span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw1'>Focus on Meaning</span></div>
+          <div class="gi-body">
+            <span><strong>Analytic approach</strong></span>
+            <span>자연스러운 의사소통에 몰입</span>
+            <span>comprehensible input만으로 학습</span>
+            <span>형태에 대한 명시적 주의 없음</span>
+            <span>→ no focus on form</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <div class="concept">
+      <div class="c-title">Focus on Form SVG 다이어그램</div>
+      <svg id="fonf-svg" viewBox="0 0 700 90" style="width:100%;margin-top:12px;font-family:'JetBrains Mono',monospace" xmlns="http://www.w3.org/2000/svg">
+        <rect x="4" y="10" width="200" height="70" rx="8" fill="rgba(183,28,28,.08)" stroke="rgba(183,28,28,.35)" stroke-width="1.5"/>
+        <text x="104" y="38" text-anchor="middle" fill="#b71c1c" font-size="11" font-weight="bold">Focus on FormS</text>
+        <text x="104" y="55" text-anchor="middle" fill="#b71c1c" font-size="10">synthetic · form-only</text>
+        <text x="104" y="70" text-anchor="middle" fill="#b71c1c" font-size="10">decontextualized</text>
+        <text x="217" y="52" text-anchor="middle" fill="#26a69a" font-size="22">⇄</text>
+        <rect x="230" y="10" width="236" height="70" rx="8" fill="rgba(46,125,82,.1)" stroke="rgba(46,125,82,.4)" stroke-width="1.5"/>
+        <text x="348" y="38" text-anchor="middle" fill="#1b5e3a" font-size="11" font-weight="bold">Focus on Form</text>
+        <text x="348" y="55" text-anchor="middle" fill="#1b5e3a" font-size="10">analytic · form + meaning</text>
+        <text x="348" y="70" text-anchor="middle" fill="#1b5e3a" font-size="10">contextualized</text>
+        <text x="478" y="52" text-anchor="middle" fill="#26a69a" font-size="22">⇄</text>
+        <rect x="491" y="10" width="204" height="70" rx="8" fill="rgba(0,121,107,.08)" stroke="rgba(0,121,107,.35)" stroke-width="1.5"/>
+        <text x="593" y="38" text-anchor="middle" fill="#00695c" font-size="11" font-weight="bold">Focus on Meaning</text>
+        <text x="593" y="55" text-anchor="middle" fill="#00695c" font-size="10">analytic · meaning-only</text>
+        <text x="593" y="70" text-anchor="middle" fill="#00695c" font-size="10">no grammar instruction</text>
+      </svg>
+    </div>
+
+    <div class="div"></div>
+
+    <div class="exam">
+      <div class="exam-label">⚠️ 함정 포인트</div>
+      <p>• <span class='kw4'>Focus on Form ≠ Focus on FormS</span> — FonF는 의미 활동 <strong>안에서</strong> 형태를 다룸; FonFS는 형태만 독립적으로 가르침</p>
+      <p>• FonF는 <span class='kw2'>analytic</span> syllabus 기반 → FonFS의 <span class='kw2'>synthetic</span> syllabus와 구분</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ② Reactive vs Pre-emptive -->
+<div class="sec" id="s2">
+  <div class="sec-header" onclick="toggle('s2')">
+    <span class="sec-icon">⚡</span>
+    <span class="sec-title">② Reactive vs Pre-emptive Focus on Form</span>
+    <span class="sec-tag">Planned · Incidental</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+
+    <div class="concept">
+      <div class="c-title">Planned vs Incidental FonF</div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>Planned Focus on Form</span></div>
+          <div class="gi-body">
+            <span>특정 언어 항목을 <strong>사전에 결정</strong>한 후 의미 중심 활동에 삽입</span>
+            <span>→ <span class='kw2'>intensive focus</span> (집중형)</span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>Incidental Focus on Form</span></div>
+          <div class="gi-body">
+            <span>사전 의도 없이 <strong>즉흥적</strong>으로 형태에 주의 유도</span>
+            <span>reactive(오류 후) 또는 pre-emptive(오류 전) 가능</span>
+            <span>→ <span class='kw2'>extensive focus</span> (광범위형)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <div class="concept">
+      <div class="c-title">🔑 Reactive vs Pre-emptive <span class="badge-ex">★★ 빈출</span></div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw4'>Reactive Focus on Form</span></div>
+          <div class="gi-body">
+            <span>학습자의 <strong>오류 발생 후</strong> 교사가 corrective feedback 제공</span>
+            <span>의미 중심 활동 중에 일어남</span>
+            <span>→ 오류가 트리거</span>
+            <span><em>e.g. Ss: "She catched the dog." → T: "She caught the dog."</em></span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw4'>Pre-emptive Focus on Form</span></div>
+          <div class="gi-body">
+            <span>오류가 발생하기 <strong>전에</strong> 문제가 예상되는 언어 형태를 미리 다룸</span>
+            <span>교사 또는 학습자가 시작 가능</span>
+            <span>→ 예방적 형태 초점</span>
+            <span><em>e.g. T: "Before we do this task, let's review the past tense."</em></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ③ Isolated vs Integrated -->
+<div class="sec" id="s3">
+  <div class="sec-header" onclick="toggle('s3')">
+    <span class="sec-icon">🔗</span>
+    <span class="sec-title">③ Isolated vs Integrated Focus on Form</span>
+    <span class="sec-tag">맥락 분리 여부</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+
+    <div class="concept">
+      <div class="c-title">🔑 핵심 비교</div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>Isolated Focus on Form</span></div>
+          <div class="gi-body">
+            <span>의사소통 활동과 <strong>분리</strong>하여 형태 집중 지도</span>
+            <span>communicative activity 흐름 중단</span>
+            <span><em>e.g. CR task를 의사소통 활동 밖에서 별도로 실시</em></span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>Integrated Focus on Form</span></div>
+          <div class="gi-body">
+            <span>의사소통 활동 <strong>안에서</strong> 형태에 주의 유도</span>
+            <span>meaning-focused input에 형태 초점이 내재됨</span>
+            <span><em>e.g. reading 중 input enhancement 활용</em></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ④ Explicit vs Implicit -->
+<div class="sec" id="s4">
+  <div class="sec-header" onclick="toggle('s4')">
+    <span class="sec-icon">📚</span>
+    <span class="sec-title">④ Explicit vs Implicit Instruction</span>
+    <span class="sec-tag">Deductive · Inductive</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+
+    <div class="concept">
+      <div class="c-title">Explicit vs Implicit Grammar Instruction</div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>Explicit Grammar Instruction</span></div>
+          <div class="gi-body">
+            <span>problem-solving + reasoning 포함</span>
+            <span>→ <span class='kw2'>declarative knowledge</span> 발달 목표</span>
+            <span><em>예: CR task, Garden Path, GTM</em></span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>Implicit Grammar Instruction</span></div>
+          <div class="gi-body">
+            <span>intellectually less demanding</span>
+            <span>→ <span class='kw2'>procedural knowledge</span> 발달 목표</span>
+            <span><em>예: ALM, input flooding</em></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <div class="concept">
+      <div class="c-title">🔑 Deductive vs Inductive <span class="badge-ex">★★ 빈출</span></div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>Deductive Approach</span></div>
+          <div class="gi-body">
+            <span>규칙 먼저 제시 → 예시에 적용</span>
+            <span><strong>Rule-driven learning</strong></span>
+            <span>✅ 시간 절약; 분석적 학습자에 유리; 초급자에 적합</span>
+            <span>❌ 기억 유지 어려움; 어린 학습자 metalanguage 이해 어려움</span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>Inductive Approach</span></div>
+          <div class="gi-body">
+            <span>L2 data 제시 → 규칙을 학습자 스스로 도출</span>
+            <span><strong>Discovery learning · Data-driven learning</strong></span>
+            <span>✅ 기억 유지 강함; 자율성·동기 증가; 중급 이상 적합</span>
+            <span>❌ 시간·에너지 비효율; 잘못된 규칙 가설 위험</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <div class="concept">
+      <div class="c-title">Explicit vs Implicit FonF 기법 분류</div>
+      <div class="stage-wrap">
+        <table>
+          <tr>
+            <th>기법</th>
+            <th>Explicit / Implicit</th>
+            <th>지식 유형</th>
+            <th>비고</th>
+          </tr>
+          <tr>
+            <td><span class='kw3'>CR Task</span></td>
+            <td>Explicit</td>
+            <td>declarative</td>
+            <td>inductive 또는 deductive 절차 모두 가능</td>
+          </tr>
+          <tr>
+            <td><span class='kw3'>Garden Path</span></td>
+            <td>Explicit</td>
+            <td>declarative</td>
+            <td>inductive 접근 → 예외 규칙 학습</td>
+          </tr>
+          <tr>
+            <td><span class='kw3'>Input Enhancement</span></td>
+            <td>Implicit</td>
+            <td>procedural</td>
+            <td>textual modification (highlighting 등)</td>
+          </tr>
+          <tr>
+            <td><span class='kw3'>Input Flood</span></td>
+            <td>Implicit</td>
+            <td>procedural</td>
+            <td>반복 노출, 강조 없음</td>
+          </tr>
+          <tr>
+            <td><span class='kw1'>Structured Input</span></td>
+            <td>Explicit</td>
+            <td>declarative</td>
+            <td>input processing instruction</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ⑤ Corrective Feedback -->
+<div class="sec" id="s5">
+  <div class="sec-header" onclick="toggle('s5')">
+    <span class="sec-icon">🔁</span>
+    <span class="sec-title">⑤ Corrective Feedback — 6 Types</span>
+    <span class="sec-tag">Prompts vs Input-providing</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+
+    <div class="concept">
+      <div class="c-title">🔑 Prompts vs Input-providing <span class="badge-ex">★★★ 최빈출</span></div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw4'>Prompts</span> (4종)</div>
+          <div class="gi-body">
+            <span>학습자가 <strong>스스로 오류를 수정</strong>하도록 유도 (self-repair)</span>
+            <span>정확한 형태를 <strong>직접 제공하지 않음</strong></span>
+            <span>→ <span class='kw2'>Clarification Request</span></span>
+            <span>→ <span class='kw2'>Metalinguistic Feedback</span></span>
+            <span>→ <span class='kw2'>Elicitation</span></span>
+            <span>→ <span class='kw2'>Repetition</span></span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw4'>Input-providing</span> (2종)</div>
+          <div class="gi-body">
+            <span>올바른 형태를 <strong>직접 제공</strong></span>
+            <span>→ <span class='kw2'>Recast</span> (implicit)</span>
+            <span>→ <span class='kw2'>Explicit Correction</span> (explicit)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <div class="concept">
+      <div class="c-title">INPUT-PROVIDING — Implicit</div>
+      <div class="concept">
+        <div class="c-title"><span class='kw4'>① Recast</span> <span class="badge-ex">★★★</span></div>
+        <div class="def">Reformulation of the whole or part of a learner's erroneous utterance into a correct form while maintaining the overall focus on meaning without altering the central meaning.</div>
+        <p class="note">positive + negative evidence 동시 포함</p>
+        <p class="note">오류에 대해 <strong>명시적 주의를 끌지 않음</strong> (implicit) → 의미 흐름 유지</p>
+        <p class="note">ungrammaticality는 암시적으로 표현됨</p>
+        <p class="note"><em>e.g. S: "She catched the dog." → T: "Oh, she CAUGHT the dog."</em></p>
+        <div class="exam" style="margin-top:10px">
+          <div class="exam-label">⚠️ Recast 한계</div>
+          <p>• 학습자가 developmentally ready하지 않으면 uptake 실패</p>
+          <p>• 학습자의 의미 집중이 형태 인식을 방해할 수 있음</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <div class="concept">
+      <div class="c-title">INPUT-PROVIDING — Explicit</div>
+      <div class="concept">
+        <div class="c-title"><span class='kw3'>⑥ Explicit Correction</span></div>
+        <div class="def">The explicit provision of correct form in response to learner's error after clearly pinpointing the error.</div>
+        <p class="note">오류를 명확히 지적한 후 올바른 형태를 직접 제공</p>
+        <p class="note">self-repair 기회를 제공하지 않음</p>
+        <p class="note"><em>e.g. "No, you should say 'caught,' not 'catched.'"</em></p>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <div class="concept">
+      <div class="c-title">PROMPTS — 4종 상세</div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>② Clarification Request</span></div>
+          <div class="gi-body">
+            <span>학습자의 발화가 이해되지 않거나 ill-formed임을 알림</span>
+            <span>반복 또는 reformulation 요구</span>
+            <span>학습자가 correct form을 <strong>스스로 생성</strong>해야 함</span>
+            <span><em>"Pardon?" / "What do you mean by ~?"</em></span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>③ Metalinguistic Feedback</span></div>
+          <div class="gi-body">
+            <span>metalinguistic comment/information/question으로 오류 본질을 지적</span>
+            <span>정확한 형태를 <strong>직접 제공하지 않음</strong></span>
+            <span><em>Comment: "Can you find the error?"</em></span>
+            <span><em>Question: "What is the past tense of this verb?"</em></span>
+            <span><em>Clue: "It is a past tense."</em></span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>④ Elicitation</span></div>
+          <div class="gi-body">
+            <span>학습자로부터 정확한 형태를 직접 이끌어냄</span>
+            <span>→ 미완성 문장 / 질문 / reformulation 요청</span>
+            <span>형태에 대한 overt attention을 끌고 학습자가 스스로 산출</span>
+            <span><em>"He comes..." / "How do you say X?"</em></span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>⑤ Repetition</span></div>
+          <div class="gi-body">
+            <span>학습자의 오류 발화를 <strong>강조된 억양으로</strong> 반복</span>
+            <span>ill-formed 부분을 억양 변화로 부각</span>
+            <span>self-repair 기회 제공</span>
+            <span><em>S: "I pay 10 dollars." → T: "I PAY?" (rising intonation)</em></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <div class="concept">
+      <div class="c-title">6종 한눈 비교 테이블</div>
+      <div class="stage-wrap">
+        <table>
+          <tr>
+            <th>유형</th>
+            <th>분류</th>
+            <th>Implicit/Explicit</th>
+            <th>Self-repair 기회</th>
+          </tr>
+          <tr>
+            <td><span class='kw4'>Recast</span></td>
+            <td>Input-providing</td>
+            <td>Implicit</td>
+            <td>❌</td>
+          </tr>
+          <tr>
+            <td><span class='kw3'>Explicit Correction</span></td>
+            <td>Input-providing</td>
+            <td>Explicit</td>
+            <td>❌</td>
+          </tr>
+          <tr>
+            <td><span class='kw3'>Clarification Request</span></td>
+            <td>Prompt</td>
+            <td>Implicit</td>
+            <td>✅</td>
+          </tr>
+          <tr>
+            <td><span class='kw3'>Metalinguistic Feedback</span></td>
+            <td>Prompt</td>
+            <td>Explicit</td>
+            <td>✅</td>
+          </tr>
+          <tr>
+            <td><span class='kw3'>Elicitation</span></td>
+            <td>Prompt</td>
+            <td>Explicit</td>
+            <td>✅</td>
+          </tr>
+          <tr>
+            <td><span class='kw3'>Repetition</span></td>
+            <td>Prompt</td>
+            <td>Implicit</td>
+            <td>✅</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ⑥ Uptake -->
+<div class="sec" id="s6">
+  <div class="sec-header" onclick="toggle('s6')">
+    <span class="sec-icon">📤</span>
+    <span class="sec-title">⑥ Uptake</span>
+    <span class="sec-tag">Repair · Needs Repair</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+
+    <div class="concept">
+      <div class="c-title">정의 <span class="badge-ex">★★ 빈출</span></div>
+      <div class="def">Uptake: a student's reactive move that immediately follows the teacher's corrective feedback.</div>
+      <p class="note">교사의 corrective feedback 직후 학습자가 보이는 반응</p>
+      <p class="note">feedback의 효과 지표 — 학습자가 오류를 인식하고 내재화했는지 증거</p>
+      <p class="note">learner's noticing + hypothesis testing + metalinguistic reflection 포함</p>
+      <p class="note">→ <span class='kw2'>pushed output</span>의 한 형태</p>
+    </div>
+
+    <div class="div"></div>
+
+    <div class="concept">
+      <div class="c-title">Uptake 유형 분류</div>
+      <div class="grid col3">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>Repair</span></div>
+          <div class="gi-body">
+            <span>feedback에 반응하여 <strong>정확한 형태로 수정</strong></span>
+            <span><em>S: "Exciting boy." → T: "An excited boy." → S: "Excited."</em></span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>Needs Repair</span></div>
+          <div class="gi-body">
+            <span>반응은 했지만 <strong>정확한 형태 미산출</strong></span>
+            <span><em>S: "If she plays it, people sleep." → T: "Go to sleep." → S: "Yeah."</em></span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw2'>No Uptake</span></div>
+          <div class="gi-body">
+            <span>교사의 feedback에 <strong>아무 반응 없음</strong></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ⑦ Grammar Techniques -->
+<div class="sec" id="s7">
+  <div class="sec-header" onclick="toggle('s7')">
+    <span class="sec-icon">🛠</span>
+    <span class="sec-title">⑦ Grammar Techniques</span>
+    <span class="sec-tag">CR · Garden Path · Enhancement · Flood</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+
+    <div class="concept">
+      <div class="c-title">CR (Consciousness-Raising) Task <span class="badge-ex">★★★</span></div>
+      <div class="def">An activity where learners are provided with L2 data and asked to arrive at <strong>explicit understanding</strong> of the given linguistic items.</div>
+      <p class="note">목표: <span class='kw4'>declarative knowledge</span> 발달 (explicit 학습)</p>
+      <p class="note">learners operate on data → verbalize rule with own words → T confirms</p>
+      <p class="note">inductive 또는 deductive 절차 모두 가능</p>
+      <p class="note">메타언어적 대화(meta-talk)를 통한 상호작용 → meaningful exchange</p>
+      <p class="note">minimal production 요구 (procedural knowledge X)</p>
+      <div class="flow" style="margin-top:10px">
+        <div class="flow-item">L2 data with target feature 제공</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-item">학습자 데이터 분석</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-item">자신의 언어로 규칙 언어화</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-item">T 명시적 규칙 제공</div>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <div class="concept">
+      <div class="c-title">Garden Path <span class="badge-ex">★★</span></div>
+      <div class="def">An inductive grammar learning task that leads learners to <strong>overgeneralize the rule</strong> so that they can attend to exceptions.</div>
+      <p class="note">목표: <span class='kw2'>예외 규칙</span> 학습 (일반화 오류 → 즉각적 피드백 → 갭 인식)</p>
+      <p class="note">explicit technique (정확한 명시적 규칙 학습) + inductive 접근 (deep processing)</p>
+      <p class="note">즉각적인 corrective feedback 필수 → learners notice the gap</p>
+      <p class="note">그룹 활동으로 진행 권장 (affective factor 고려)</p>
+    </div>
+
+    <div class="div"></div>
+
+    <div class="concept">
+      <div class="c-title">🔑 Input Enhancement vs Input Flood <span class="badge-ex">★★★ 함정 단골</span></div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw4'>Input Enhancement</span></div>
+          <div class="gi-body">
+            <span>목표 구조의 <strong>두드러짐 증가</strong>를 위해 textual modification 사용</span>
+            <span>→ highlighting, boldfacing, italicizing, color coding, capitalizing</span>
+            <span>학습자는 의미를 위해 텍스트 읽음 (meaning first)</span>
+            <span><strong>implicit technique</strong> (형태 강조하지만 명시적 설명 없음)</span>
+            <span>awareness-raising / FonF 범주</span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw4'>Input Flood</span></div>
+          <div class="gi-body">
+            <span>목표 형태의 <strong>예시를 반복 노출</strong> — typographic 강조 없음</span>
+            <span>→ highlighting 사용 안 함</span>
+            <span>반복 노출로 자연스럽게 salience 증가</span>
+            <span><strong>implicit technique</strong></span>
+            <span>FonF 범주</span>
+          </div>
+        </div>
+      </div>
+      <div class="exam" style="margin-top:12px">
+        <div class="exam-label">⚠️ 핵심 구분</div>
+        <p>• Input Enhancement = 텍스트 <strong>강조(highlighting 등) 있음</strong></p>
+        <p>• Input Flood = 반복 노출만, <strong>강조 없음</strong></p>
+        <p>• 둘 다 implicit + FonF 범주 — 혼동 금지</p>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <div class="concept">
+      <div class="c-title">Structured Input Activity <span class="badge-ex">★ 기본</span></div>
+      <div class="def">An activity used in input processing instruction, which helps learners attend to forms and structures when processing meaning.</div>
+      <p class="note">form-meaning connection 형성 지원</p>
+      <p class="note"><span class='kw2'>Referential activity</span>: 정답/오답 있음 (right/wrong answer)</p>
+      <p class="note"><span class='kw2'>Affective activity</span>: 의견·동의 표현 (no right/wrong answer)</p>
+    </div>
+
+    <div class="div"></div>
+
+    <div class="concept">
+      <div class="c-title">기법 총정리 비교표</div>
+      <div class="stage-wrap">
+        <table>
+          <tr>
+            <th>기법</th>
+            <th>Explicit/Implicit</th>
+            <th>지식 유형</th>
+            <th>강조 여부</th>
+            <th>핵심 특징</th>
+          </tr>
+          <tr>
+            <td><span class='kw4'>CR Task</span></td>
+            <td>Explicit</td>
+            <td>declarative</td>
+            <td>—</td>
+            <td>rule 스스로 도출 (inductive/deductive)</td>
+          </tr>
+          <tr>
+            <td><span class='kw3'>Garden Path</span></td>
+            <td>Explicit</td>
+            <td>declarative</td>
+            <td>—</td>
+            <td>overgeneralization → exception 학습</td>
+          </tr>
+          <tr>
+            <td><span class='kw4'>Input Enhancement</span></td>
+            <td>Implicit</td>
+            <td>procedural</td>
+            <td>✅ 있음</td>
+            <td>textual modification으로 형태 부각</td>
+          </tr>
+          <tr>
+            <td><span class='kw4'>Input Flood</span></td>
+            <td>Implicit</td>
+            <td>procedural</td>
+            <td>❌ 없음</td>
+            <td>반복 노출만, 강조 없음</td>
+          </tr>
+          <tr>
+            <td><span class='kw1'>Structured Input</span></td>
+            <td>Explicit</td>
+            <td>declarative</td>
+            <td>—</td>
+            <td>input processing instruction</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div><!-- /.wrap -->
+
+<script>
+function toggle(id){ document.getElementById(id).classList.toggle('open'); }
+function openSec(id){ const s=document.getElementById(id); s.classList.add('open'); s.scrollIntoView({behavior:'smooth',block:'start'}); }
+</script>
+</body>
+</html>
