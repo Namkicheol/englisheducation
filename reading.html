@@ -81,6 +81,9 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f5f4ee;background-image:r
 .nd.ng{border-color:#c62828;background:rgba(198,40,40,.1);color:#c62828}
 .nd:hover:not(.cur){opacity:.7}
 #nav{display:flex;flex-wrap:wrap;gap:5px;max-width:720px;margin:0 auto 16px;padding:0 8px}
+.mode-bar{max-width:720px;margin:0 auto 10px;padding:0 8px;display:flex;gap:8px}
+.mode-btn{flex:1;padding:8px 14px;border-radius:8px;border:1.5px solid #b2dfcc;background:#f5fdf8;color:#4a7a62;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;cursor:pointer;transition:all .18s;letter-spacing:.5px}
+.mode-btn.active{background:#2e7d52;border-color:#2e7d52;color:#fff}
 </style>
 </head>
 <body>
@@ -103,6 +106,10 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f5f4ee;background-image:r
     <span id="rb-msg" style="font-size:13px;color:#1a3326;font-family:'JetBrains Mono',monospace;line-height:1.5"></span>
     <button onclick="freshStart()" style="padding:10px 22px;background:#c62828;border:none;border-radius:8px;color:#fff;font-size:14px;font-weight:700;font-family:'Noto Sans KR',sans-serif;cursor:pointer;white-space:nowrap;flex-shrink:0">처음부터</button>
   </div>
+</div>
+<div class="mode-bar">
+  <button class="mode-btn active" id="btn-normal" onclick="setMode('normal')">📋 기본 순서</button>
+  <button class="mode-btn" id="btn-random" onclick="setMode('random')">🔀 랜덤</button>
 </div>
 <div id="nav"></div>
 <div class="wrap">
@@ -262,13 +269,18 @@ const Q=[
 ];
 
 let cur=0, answers=new Array(TOTAL).fill(null);
+let mode='normal',order=[...Array(TOTAL).keys()];
+function initOrder(m){if(m==='random'){const a=[...Array(TOTAL).keys()];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}order=a;}else order=[...Array(TOTAL).keys()];}
+function updateModeUI(){document.getElementById('btn-normal').classList.toggle('active',mode==='normal');document.getElementById('btn-random').classList.toggle('active',mode==='random');}
+function setMode(m){if(mode===m)return;mode=m;initOrder(m);cur=0;answers=new Array(TOTAL).fill(null);try{localStorage.removeItem(SAVE_KEY)}catch(e){}document.getElementById('rb').style.display='none';updateModeUI();renderNav();render();}
 function getScore(){return answers.filter(a=>a&&a.correct).length}
-function saveProgress(){try{localStorage.setItem(SAVE_KEY,JSON.stringify({cur,answers}))}catch(e){}}
+function saveProgress(){try{localStorage.setItem(SAVE_KEY,JSON.stringify({cur,answers,mode,order}))}catch(e){}}
 function loadProgress(){
   try{
     const d=JSON.parse(localStorage.getItem(SAVE_KEY)||'null');
     if(d&&Array.isArray(d.answers)&&d.answers.length===TOTAL){
       cur=d.cur; answers=d.answers;
+      if(d.mode){mode=d.mode;order=d.order||[...Array(TOTAL).keys()];}
       const done=answers.filter(Boolean).length;
       if(done>0&&cur<TOTAL){
         document.getElementById('rb').style.display='block';
@@ -280,8 +292,9 @@ function loadProgress(){
 function freshStart(){
   try{localStorage.removeItem(SAVE_KEY)}catch(e){}
   cur=0; answers=new Array(TOTAL).fill(null);
+  mode='normal';order=[...Array(TOTAL).keys()];
   document.getElementById('rb').style.display='none';
-  render();
+  updateModeUI();render();
 }
 function renderNav(){
   document.getElementById('nav').innerHTML=answers.map((a,i)=>{
@@ -294,7 +307,7 @@ function renderNav(){
 function jumpTo(i){cur=i; render();}
 function render(){
   if(cur>=TOTAL){showScore();return;}
-  const q=Q[cur], a=answers[cur];
+  const q=Q[order[cur]], a=answers[cur];
   const done=answers.filter(Boolean).length;
   document.getElementById('pt').textContent=`${cur+1} / ${TOTAL}`;
   document.getElementById('ps').textContent=`정답 ${getScore()}개`;
@@ -335,7 +348,7 @@ function render(){
 }
 function pick(val){
   if(answers[cur])return;
-  const ok=(val===Q[cur].ans);
+  const ok=(val===Q[order[cur]].ans);
   answers[cur]={picked:val,correct:ok};
   if(ok){if(typeof playOk==='function')playOk();}else{if(typeof playNg==='function')playNg();}
   saveProgress(); render();
@@ -353,7 +366,7 @@ function showScore(){
   try{localStorage.removeItem(SAVE_KEY)}catch(e){}
 }
 function restart(){cur=0;answers=new Array(TOTAL).fill(null);document.getElementById('sc').classList.remove('show');render();}
-loadProgress(); render();
+loadProgress(); updateModeUI(); render();
 </script>
 </body>
 </html>
