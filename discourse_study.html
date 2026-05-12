@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch.4 Discourse — 개념정리</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=JetBrains+Mono:wght@400;600&family=Caveat:wght@600&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans KR',sans-serif;background:#f4f3ed;background-image:repeating-linear-gradient(transparent,transparent 27px,#d5d8cf 28px);color:#1a1a1a;min-height:100vh;padding:16px}
+.header-wrap{max-width:820px;margin:0 auto;padding:24px 8px 0}
+.header-topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.header-sticker{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;background:#1a3326;color:#e8f5e9;padding:5px 13px;border-radius:3px;letter-spacing:2px;text-transform:uppercase}
+.header-chapter{font-family:'JetBrains Mono',monospace;font-size:12px;color:#4a5a44;letter-spacing:.5px}
+.header-title{font-size:clamp(30px,7vw,46px);font-weight:900;color:#1a1a1a;line-height:1.1;margin-bottom:5px;letter-spacing:-1px}
+.title-hl{background:#00695c;color:#fff;padding:1px 6px}
+.header-script{font-family:'Caveat',cursive;font-size:21px;color:#00695c;margin-bottom:4px;font-weight:600}
+.header-sub{font-size:13px;color:#555;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#aaa;margin-bottom:10px}
+.header-divider{border:none;border-top:2px dashed #888;margin-bottom:10px}
+.header-tip{font-size:12px;color:#2e4a3a;font-family:'JetBrains Mono',monospace;margin-bottom:20px;background:rgba(0,105,92,.06);border:1px solid rgba(0,105,92,.2);border-radius:8px;padding:9px 14px;line-height:1.7}
+
+.wrap{max-width:820px;margin:0 auto}
+
+.sec{background:#fff;border:1.5px solid #b2dfcc;border-radius:16px;margin-bottom:20px;overflow:hidden;box-shadow:0 2px 8px rgba(46,125,82,.08)}
+@media(max-width:600px){.grid.col2,.grid.col3{grid-template-columns:1fr}}
+.sec-header{background:linear-gradient(135deg,rgba(46,125,82,.08),rgba(38,166,154,.05));border-bottom:1.5px solid #b2dfcc;padding:16px 22px;display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none}
+.sec-icon{font-size:20px}
+.sec-title{font-size:16px;font-weight:700;color:#1b5e3a;font-family:'JetBrains Mono',monospace}
+.sec-tag{font-size:11px;color:#2e7d52;background:rgba(46,125,82,.1);padding:3px 10px;border-radius:6px;margin-left:auto;font-weight:600}
+.sec-arrow{font-size:13px;color:#4a7a62;transition:transform .3s;margin-left:6px}
+.sec.open .sec-arrow{transform:rotate(180deg)}
+.sec-body{display:none;padding:22px}
+.sec.open .sec-body{display:block}
+
+.concept{margin-bottom:22px}
+.concept:last-child{margin-bottom:0}
+.c-title{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;color:#1b5e3a;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.c-title .badge-ex{font-size:10px;background:rgba(230,119,0,.12);color:#e67c00;border:1px solid rgba(230,119,0,.3);padding:2px 7px;border-radius:4px;letter-spacing:0;text-transform:none;font-weight:700}
+.def{background:rgba(46,125,82,.06);border-left:4px solid #2e7d52;padding:12px 16px;border-radius:0 10px 10px 0;margin-bottom:10px;font-size:17px;line-height:1.8;color:#1a3326}
+.note{font-size:16px;color:#3a6b51;line-height:1.75;margin-bottom:6px;padding-left:6px}
+.note::before{content:"• ";color:#26a69a;font-weight:700}
+
+.kw1{background:rgba(46,125,82,.15);color:#1b5e3a;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(46,125,82,.25);white-space:nowrap}
+.kw2{color:#00796b;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border-bottom:2px solid rgba(0,121,107,.45);white-space:nowrap}
+.kw3{background:rgba(230,119,0,.13);color:#bf6000;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(230,119,0,.3);white-space:nowrap}
+.kw4{background:rgba(183,28,28,.11);color:#b71c1c;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(183,28,28,.25);white-space:nowrap}
+.legend{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 16px;padding:10px 14px;background:#fff;border:1.5px solid #b2dfcc;border-radius:10px;align-items:center}
+.legend-title{font-size:10px;font-family:'JetBrains Mono',monospace;color:#4a7a62;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-right:4px}
+.legend-item{display:flex;align-items:center;gap:5px;font-size:11px;color:#3a6b51}
+
+.grid{display:grid;gap:10px;margin-top:12px}
+.grid.col2{grid-template-columns:1fr 1fr}
+.grid.col3{grid-template-columns:1fr 1fr 1fr}
+.grid-item{background:#f5fdf8;border:1.5px solid #b2dfcc;border-radius:10px;padding:14px 16px}
+.gi-title{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#2e7d52;margin-bottom:7px}
+.gi-body{font-size:14px;color:#3a6b51;line-height:1.7}
+.gi-body span{display:block}
+
+.flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px}
+.flow-item{background:#f5fdf8;border:1.5px solid #b2dfcc;border-radius:8px;padding:10px 16px;font-size:13px;color:#1a3326;text-align:center}
+.flow-arrow{color:#26a69a;font-size:18px;font-weight:700}
+
+.stage-wrap{margin-top:12px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{background:rgba(46,125,82,.1);color:#1b5e3a;font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;padding:10px 14px;border:1.5px solid #b2dfcc;text-align:left;font-weight:700}
+td{padding:10px 14px;border:1.5px solid #b2dfcc;color:#2a5040;vertical-align:top;line-height:1.65}
+tr:nth-child(even) td{background:rgba(46,125,82,.04)}
+
+.exam{background:rgba(230,119,0,.06);border:1.5px solid rgba(230,119,0,.25);border-radius:10px;padding:14px 16px;margin-top:14px}
+.exam-label{font-size:11px;font-family:'JetBrains Mono',monospace;color:#e67c00;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;font-weight:700}
+.exam p{font-size:13.5px;color:#6b4400;line-height:1.75;margin-bottom:4px}
+
+.div{height:1px;background:rgba(38,166,154,.2);margin:18px 0}
+
+.toc{max-width:820px;margin:0 auto 20px;background:#fff;border:1.5px solid #b2dfcc;border-radius:12px;padding:16px 20px;box-shadow:0 2px 8px rgba(46,125,82,.06)}
+.toc-title{font-size:11px;font-family:'JetBrains Mono',monospace;color:#4a7a62;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;font-weight:700}
+.toc-list{display:flex;flex-wrap:wrap;gap:7px}
+.toc-item{font-size:12px;color:#2e7d52;background:rgba(46,125,82,.08);border:1.5px solid rgba(46,125,82,.2);padding:5px 12px;border-radius:8px;cursor:pointer;transition:all .15s;font-family:'JetBrains Mono',monospace;font-weight:600}
+.toc-item:hover{background:rgba(46,125,82,.18)}
+@media(max-width:640px){.grid.col3,.grid.col2{grid-template-columns:1fr}.sec-body{padding:16px}.gi-body{font-size:14px}th{font-size:14px;padding:8px 10px}td{font-size:14px;padding:8px 10px}table{font-size:14px}.concept{overflow-x:auto}svg{min-width:480px;display:block}}
+</style>
+</head>
+<body>
+<div class="header-wrap">
+  <div class="header-topbar">
+    <span class="header-sticker">STUDY NOTE</span>
+    <span class="header-chapter">Ch.04 · Discourse</span>
+  </div>
+  <h1 class="header-title"><span class="title-hl">개념 정리</span> 노트</h1>
+  <div class="header-script">Concept Notes · Discourse</div>
+  <p class="header-sub">서브노트 순서 기반 · 기출 포인트 · 비교 도식</p>
+  <div class="header-divider"></div>
+  <p class="header-tip">📌 목차 버튼 클릭 → 해당 섹션으로 이동 &nbsp;·&nbsp; ▼ 섹션 제목 클릭 → 열고 닫기</p>
+</div>
+
+<div class="wrap">
+<div class="toc">
+  <div class="toc-title">📋 목차</div>
+  <div class="toc-list"><div class="toc-item" onclick="openSec('s1')">1 Discourse Competence</div><div class="toc-item" onclick="openSec('s2')">2 IRE vs IRF</div><div class="toc-item" onclick="openSec('s3')">3 Four Modes</div><div class="toc-item" onclick="openSec('s4')">4 Cohesion vs Coherence</div><div class="toc-item" onclick="openSec('s5')">5 Conversation Analysis</div><div class="toc-item" onclick="openSec('s6')">6 Teaching Conversation</div></div>
+</div>
+<div class="legend">
+  <span class="legend-title">키워드</span>
+  <span class="legend-item"><span class="kw4">★★★ 최빈출</span></span>
+  <span class="legend-item"><span class="kw3">★★ 빈출</span></span>
+  <span class="legend-item"><span class="kw1">★ 기본개념</span></span>
+  <span class="legend-item"><span class="kw2">부키워드</span></span>
+</div>
+<div class="exam" style="margin-bottom:20px">
+  <div class="exam-label">📝 기출분석 포인트 (Ch.04 Discourse)</div>
+  <p>1. <span class='kw4'>Discourse Competence</span> — cohesion과 coherence를 사용해 suprasentential relationship을 조직하고 해석하는 능력</p><p>2. <span class='kw4'>IRE vs IRF</span> — display question 중심의 IRE와 referential question 중심의 IRF 구분</p><p>3. <span class='kw4'>Classroom Discourse Modes</span> — managerial, material, skills and systems, classroom context mode</p><p>4. <span class='kw4'>Cohesion vs Coherence</span> — 표면 연결과 의미 연결의 구분</p><p>5. <span class='kw4'>Adjacency Pair</span> — conversation에서 서로 맞물리는 두 turn</p><p>6. <span class='kw4'>Direct vs Indirect Approach</span> — conversation rule 명시 여부</p>
+</div>
+
+<div class="sec open" id="s1">
+  <div class="sec-header" onclick="toggle('s1')">
+    <span class="sec-icon">🎯</span>
+    <span class="sec-title">1 Discourse Competence</span>
+    <span class="sec-tag">Communicative competence 안의 discourse competence</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="concept"><div class="c-title">Discourse Competence</div><div class="def">Discourse competence는 ideas를 결합해 <span class="kw4">cohesion</span> in form과 <span class="kw4">coherence</span> in meaning을 이루고, discourse 안의 suprasentential relationship을 판단하는 능력입니다.</div><p class="note">Grammatical competence는 linguistic code 통제, sociolinguistic competence는 register·variety 민감성, strategic competence는 communication breakdown 보상 전략과 관련됩니다.</p></div><div class="div"></div><div class="concept"><div class="c-title">Bachman Framework</div><div class="def">Bachman의 organizational competence에는 grammatical competence와 <span class="kw3">textual competence</span>가 들어가며, textual competence는 discourse competence와 연결됩니다.</div><p class="note">Pragmatic competence 안의 illocutionary competence는 특정 communicative goal을 달성하기 위한 language use 능력입니다.</p></div>
+  </div>
+</div>
+<div class="sec" id="s2">
+  <div class="sec-header" onclick="toggle('s2')">
+    <span class="sec-icon">🔎</span>
+    <span class="sec-title">2 IRE vs IRF</span>
+    <span class="sec-tag">classroom exchange structure</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="concept"><div class="c-title">IRE Sequence</div><div class="def"><span class="kw3">IRE</span>는 Initiation-Response-Evaluation 구조이며, teacher가 predetermined answer를 알고 있는 <span class="kw2">display question</span>과 잘 연결됩니다.</div><p class="note">Controlled language practice, comprehension check, scaffolding에 유용하지만 teacher initiative가 커지고 learner가 passive해질 수 있습니다.</p></div><div class="div"></div><div class="concept"><div class="c-title">IRF Sequence</div><div class="def"><span class="kw3">IRF</span>는 Initiation-Response-Feedback 구조이며, 실제 정보를 묻는 <span class="kw2">referential question</span>과 연결됩니다.</div><p class="note">Communicative practice와 fluency exercise에서 authentic communication을 촉진합니다.</p></div>
+  </div>
+</div>
+<div class="sec" id="s3">
+  <div class="sec-header" onclick="toggle('s3')">
+    <span class="sec-icon">🔎</span>
+    <span class="sec-title">3 Four Modes</span>
+    <span class="sec-tag">four modes of classroom discourse</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="concept"><div class="c-title">Four Modes</div><div class="def">Classroom discourse는 <span class="kw1">managerial mode</span>, <span class="kw1">material mode</span>, <span class="kw1">skills and systems mode</span>, <span class="kw1">classroom context mode</span>로 구분됩니다.</div><p class="note">Managerial mode는 instruction 중심, material mode는 material이 topic과 turn-taking을 결정, skills and systems mode는 target language practice, classroom context mode는 자연 대화에 가깝습니다.</p></div>
+  </div>
+</div>
+<div class="sec" id="s4">
+  <div class="sec-header" onclick="toggle('s4')">
+    <span class="sec-icon">🔎</span>
+    <span class="sec-title">4 Cohesion vs Coherence</span>
+    <span class="sec-tag">surface links and meaning links</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="concept"><div class="c-title">Cohesion</div><div class="def"><span class="kw4">Cohesion</span>은 discourse나 text 안의 grammatical·lexical relationship입니다. Grammatical cohesion에는 reference, substitution, ellipsis, discourse connectors가 포함됩니다.</div><p class="note">Lexical cohesion에는 collocation, synonym/antonym, superordinate, repetition 등이 포함됩니다.</p><div class="exam"><div class="exam-label">📋 기출 이력</div><p><strong>2016 기입9</strong> — discourse markers와 text organization 맥락</p></div></div><div class="div"></div><div class="concept"><div class="c-title">Coherence</div><div class="def"><span class="kw4">Coherence</span>는 utterance나 sentence의 meaning을 연결하는 covert, logical connection입니다.</div><p class="note">A text may be coherent but incohesive, or cohesive but incoherent. 즉 표면 연결과 의미 연결은 별개입니다.</p><div class="exam"><div class="exam-label">📋 기출 이력</div><p><strong>2023 B-6</strong> — lexical cohesion과 repetition, part-whole relations 맥락</p></div></div>
+  </div>
+</div>
+<div class="sec" id="s5">
+  <div class="sec-header" onclick="toggle('s5')">
+    <span class="sec-icon">🔎</span>
+    <span class="sec-title">5 Conversation Analysis</span>
+    <span class="sec-tag">adjacency pair and sequence</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="concept"><div class="c-title">Adjacency Pair</div><div class="def"><span class="kw3">Adjacency pair</span>는 두 participant가 주고받는, 서로 함께 가는 두 turn의 쌍입니다.</div><p class="note">Preferred response는 앞 utterance에 맞는 positive response이고, dispreferred response는 potential problem을 repair해야 하는 negative response입니다.</p></div><div class="div"></div><div class="concept"><div class="c-title">Conversation Sequence</div><div class="def">Conversation은 attention getting, topic nomination, topic development/turn-taking, topic termination 순서로 볼 수 있습니다.</div><p class="note">Turn-taking은 verbal cue와 nonverbal cue로 signal됩니다.</p></div>
+  </div>
+</div>
+<div class="sec" id="s6">
+  <div class="sec-header" onclick="toggle('s6')">
+    <span class="sec-icon">🔎</span>
+    <span class="sec-title">6 Teaching Conversation</span>
+    <span class="sec-tag">direct and indirect approach</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="concept"><div class="c-title">Direct Approach</div><div class="def"><span class="kw3">Direct approach</span>는 conversational rules, conventions, strategies에 대한 learner attention을 명시적으로 이끕니다.</div><p class="note">Formulaic utterance, opening/closing sequence, turn-taking cue 등을 직접 지도할 수 있습니다.</p></div><div class="div"></div><div class="concept"><div class="c-title">Indirect Approach</div><div class="def"><span class="kw3">Indirect approach</span>는 meaningful tasks 참여를 통해 conversational competence가 peripheral하게 습득된다고 봅니다.</div><p class="note">명시적 규칙 설명보다 task participation과 communication opportunity를 중시합니다.</p></div>
+  </div>
+</div>
+</div><!-- /.wrap -->
+
+<script>
+function toggle(id){ document.getElementById(id).classList.toggle('open'); }
+function openSec(id){ const s=document.getElementById(id); s.classList.add('open'); s.scrollIntoView({behavior:'smooth',block:'start'}); }
+</script>
+</body>
+</html>

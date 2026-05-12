@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch.5 Methodology — 개념정리</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=JetBrains+Mono:wght@400;600&family=Caveat:wght@600&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans KR',sans-serif;background:#f4f3ed;background-image:repeating-linear-gradient(transparent,transparent 27px,#d5d8cf 28px);color:#1a1a1a;min-height:100vh;padding:16px}
+.header-wrap{max-width:820px;margin:0 auto;padding:24px 8px 0}
+.header-topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.header-sticker{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;background:#1a3326;color:#e8f5e9;padding:5px 13px;border-radius:3px;letter-spacing:2px;text-transform:uppercase}
+.header-chapter{font-family:'JetBrains Mono',monospace;font-size:12px;color:#4a5a44;letter-spacing:.5px}
+.header-title{font-size:clamp(30px,7vw,46px);font-weight:900;color:#1a1a1a;line-height:1.1;margin-bottom:5px;letter-spacing:-1px}
+.title-hl{background:#00695c;color:#fff;padding:1px 6px}
+.header-script{font-family:'Caveat',cursive;font-size:21px;color:#00695c;margin-bottom:4px;font-weight:600}
+.header-sub{font-size:13px;color:#555;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#aaa;margin-bottom:10px}
+.header-divider{border:none;border-top:2px dashed #888;margin-bottom:10px}
+.header-tip{font-size:12px;color:#2e4a3a;font-family:'JetBrains Mono',monospace;margin-bottom:20px;background:rgba(0,105,92,.06);border:1px solid rgba(0,105,92,.2);border-radius:8px;padding:9px 14px;line-height:1.7}
+
+.wrap{max-width:820px;margin:0 auto}
+
+.sec{background:#fff;border:1.5px solid #b2dfcc;border-radius:16px;margin-bottom:20px;overflow:hidden;box-shadow:0 2px 8px rgba(46,125,82,.08)}
+@media(max-width:600px){.grid.col2,.grid.col3{grid-template-columns:1fr}}
+.sec-header{background:linear-gradient(135deg,rgba(46,125,82,.08),rgba(38,166,154,.05));border-bottom:1.5px solid #b2dfcc;padding:16px 22px;display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none}
+.sec-icon{font-size:20px}
+.sec-title{font-size:16px;font-weight:700;color:#1b5e3a;font-family:'JetBrains Mono',monospace}
+.sec-tag{font-size:11px;color:#2e7d52;background:rgba(46,125,82,.1);padding:3px 10px;border-radius:6px;margin-left:auto;font-weight:600}
+.sec-arrow{font-size:13px;color:#4a7a62;transition:transform .3s;margin-left:6px}
+.sec.open .sec-arrow{transform:rotate(180deg)}
+.sec-body{display:none;padding:22px}
+.sec.open .sec-body{display:block}
+
+.concept{margin-bottom:22px}
+.concept:last-child{margin-bottom:0}
+.c-title{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;color:#1b5e3a;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.c-title .badge-ex{font-size:10px;background:rgba(230,119,0,.12);color:#e67c00;border:1px solid rgba(230,119,0,.3);padding:2px 7px;border-radius:4px;letter-spacing:0;text-transform:none;font-weight:700}
+.def{background:rgba(46,125,82,.06);border-left:4px solid #2e7d52;padding:12px 16px;border-radius:0 10px 10px 0;margin-bottom:10px;font-size:17px;line-height:1.8;color:#1a3326}
+.note{font-size:16px;color:#3a6b51;line-height:1.75;margin-bottom:6px;padding-left:6px}
+.note::before{content:"• ";color:#26a69a;font-weight:700}
+
+.kw1{background:rgba(46,125,82,.15);color:#1b5e3a;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(46,125,82,.25);white-space:nowrap}
+.kw2{color:#00796b;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border-bottom:2px solid rgba(0,121,107,.45);white-space:nowrap}
+.kw3{background:rgba(230,119,0,.13);color:#bf6000;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(230,119,0,.3);white-space:nowrap}
+.kw4{background:rgba(183,28,28,.11);color:#b71c1c;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(183,28,28,.25);white-space:nowrap}
+.legend{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 16px;padding:10px 14px;background:#fff;border:1.5px solid #b2dfcc;border-radius:10px;align-items:center}
+.legend-title{font-size:10px;font-family:'JetBrains Mono',monospace;color:#4a7a62;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-right:4px}
+.legend-item{display:flex;align-items:center;gap:5px;font-size:11px;color:#3a6b51}
+
+.grid{display:grid;gap:10px;margin-top:12px}
+.grid.col2{grid-template-columns:1fr 1fr}
+.grid.col3{grid-template-columns:1fr 1fr 1fr}
+.grid-item{background:#f5fdf8;border:1.5px solid #b2dfcc;border-radius:10px;padding:14px 16px}
+.gi-title{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#2e7d52;margin-bottom:7px}
+.gi-body{font-size:14px;color:#3a6b51;line-height:1.7}
+.gi-body span{display:block}
+
+.flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px}
+.flow-item{background:#f5fdf8;border:1.5px solid #b2dfcc;border-radius:8px;padding:10px 16px;font-size:13px;color:#1a3326;text-align:center}
+.flow-arrow{color:#26a69a;font-size:18px;font-weight:700}
+
+.stage-wrap{margin-top:12px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{background:rgba(46,125,82,.1);color:#1b5e3a;font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;padding:10px 14px;border:1.5px solid #b2dfcc;text-align:left;font-weight:700}
+td{padding:10px 14px;border:1.5px solid #b2dfcc;color:#2a5040;vertical-align:top;line-height:1.65}
+tr:nth-child(even) td{background:rgba(46,125,82,.04)}
+
+.exam{background:rgba(230,119,0,.06);border:1.5px solid rgba(230,119,0,.25);border-radius:10px;padding:14px 16px;margin-top:14px}
+.exam-label{font-size:11px;font-family:'JetBrains Mono',monospace;color:#e67c00;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;font-weight:700}
+.exam p{font-size:13.5px;color:#6b4400;line-height:1.75;margin-bottom:4px}
+
+.div{height:1px;background:rgba(38,166,154,.2);margin:18px 0}
+
+.toc{max-width:820px;margin:0 auto 20px;background:#fff;border:1.5px solid #b2dfcc;border-radius:12px;padding:16px 20px;box-shadow:0 2px 8px rgba(46,125,82,.06)}
+.toc-title{font-size:11px;font-family:'JetBrains Mono',monospace;color:#4a7a62;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;font-weight:700}
+.toc-list{display:flex;flex-wrap:wrap;gap:7px}
+.toc-item{font-size:12px;color:#2e7d52;background:rgba(46,125,82,.08);border:1.5px solid rgba(46,125,82,.2);padding:5px 12px;border-radius:8px;cursor:pointer;transition:all .15s;font-family:'JetBrains Mono',monospace;font-weight:600}
+.toc-item:hover{background:rgba(46,125,82,.18)}
+@media(max-width:640px){.grid.col3,.grid.col2{grid-template-columns:1fr}.sec-body{padding:16px}.gi-body{font-size:14px}th{font-size:14px;padding:8px 10px}td{font-size:14px;padding:8px 10px}table{font-size:14px}.concept{overflow-x:auto}svg{min-width:480px;display:block}}
+</style>
+</head>
+<body>
+<div class="header-wrap">
+  <div class="header-topbar">
+    <span class="header-sticker">STUDY NOTE</span>
+    <span class="header-chapter">Ch.05 · Methodology</span>
+  </div>
+  <h1 class="header-title"><span class="title-hl">개념 정리</span> 노트</h1>
+  <div class="header-script">Concept Notes · Methodology</div>
+  <p class="header-sub">서브노트 순서 기반 · 기출 포인트 · 비교 도식</p>
+  <div class="header-divider"></div>
+  <p class="header-tip">📌 목차 버튼 클릭 → 해당 섹션으로 이동 &nbsp;·&nbsp; ▼ 섹션 제목 클릭 → 열고 닫기</p>
+</div>
+
+<div class="wrap">
+<div class="toc">
+  <div class="toc-title">📋 목차</div>
+  <div class="toc-list"><div class="toc-item" onclick="openSec('s1')">1 CLT</div><div class="toc-item" onclick="openSec('s2')">2 TBLT</div><div class="toc-item" onclick="openSec('s3')">3 Task Types</div><div class="toc-item" onclick="openSec('s4')">4 PPP and TBLT</div><div class="toc-item" onclick="openSec('s5')">5 Designer Methods</div><div class="toc-item" onclick="openSec('s6')">6 Post-method</div></div>
+</div>
+<div class="legend">
+  <span class="legend-title">키워드</span>
+  <span class="legend-item"><span class="kw4">★★★ 최빈출</span></span>
+  <span class="legend-item"><span class="kw3">★★ 빈출</span></span>
+  <span class="legend-item"><span class="kw1">★ 기본개념</span></span>
+  <span class="legend-item"><span class="kw2">부키워드</span></span>
+</div>
+<div class="exam" style="margin-bottom:20px">
+  <div class="exam-label">📝 기출분석 포인트 (Ch.05 Methodology)</div>
+  <p>1. <span class='kw4'>CLT</span> — communicative activity, authentic material, small groups, functions and forms</p><p>2. <span class='kw4'>TBLT</span> — meaning focus와 communicative outcome을 가진 task</p><p>3. <span class='kw4'>Task Types</span> — information-gap, opinion-gap, reasoning-gap</p><p>4. <span class='kw4'>PPP vs TBLT</span> — presentation-practice-production과 task cycle</p><p>5. <span class='kw4'>Designer Methods</span> — Silent Way, TPR, Suggestopedia, CLL, Natural Approach</p><p>6. <span class='kw4'>Post-method</span> — principled eclecticism과 teacher autonomy</p>
+</div>
+
+<div class="sec open" id="s1">
+  <div class="sec-header" onclick="toggle('s1')">
+    <span class="sec-icon">🎯</span>
+    <span class="sec-title">1 CLT</span>
+    <span class="sec-tag">Communicative Language Teaching</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="concept"><div class="c-title">CLT Conditions</div><div class="def"><span class="kw4">CLT</span>는 communicative activity, authentic material, small groups, functions and forms의 균형, fluency와 accuracy의 상보성을 강조합니다.</div><p class="note">Communicative activity에는 information gap, learner choice, feedback이 들어갑니다.</p><div class="exam"><div class="exam-label">📋 기출 이력</div><p><strong>2010 Q16</strong> — focus on form과 communicative activity 맥락</p><p><strong>2026 A-7</strong> — communicative drill과 information gap 맥락</p></div></div><div class="div"></div><div class="concept"><div class="c-title">Notional Functional Syllabus</div><div class="def"><span class="kw3">Functional syllabus</span>는 learner가 수행할 communicative functions나 speech acts를 중심으로 구성됩니다.</div><p class="note">Grammar syllabus보다 language에 대한 넓은 관점을 반영하지만 atomistic approach가 될 수 있습니다.</p></div>
+  </div>
+</div>
+<div class="sec" id="s2">
+  <div class="sec-header" onclick="toggle('s2')">
+    <span class="sec-icon">🔎</span>
+    <span class="sec-title">2 TBLT</span>
+    <span class="sec-tag">task-based instruction</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="concept"><div class="c-title">Task Features</div><div class="def"><span class="kw4">Task</span>는 work plan이며, primary focus on meaning, natural language use process, clearly defined communicative outcome을 갖습니다.</div><p class="note">Task completion 자체가 중심이며 language form은 task 수행 중 필요에 따라 다뤄집니다.</p><div class="exam"><div class="exam-label">📋 기출 이력</div><p><strong>2017 B 서술3</strong> — TBLT task 유형과 form focus 통합 맥락</p><p><strong>2023 B-10</strong> — task-based language test 맥락</p></div></div><div class="div"></div><div class="concept"><div class="c-title">Target vs Pedagogical Task</div><div class="def"><span class="kw3">Target task</span>는 classroom 밖 real-world activity이고, <span class="kw3">pedagogical task</span>는 classroom에서 communicative language use를 유도하도록 설계된 activity입니다.</div><p class="note">Rehearsal task는 real-world counterpart와 명확한 관계가 있고, activation task는 직접 대응이 약합니다.</p></div>
+  </div>
+</div>
+<div class="sec" id="s3">
+  <div class="sec-header" onclick="toggle('s3')">
+    <span class="sec-icon">🔎</span>
+    <span class="sec-title">3 Task Types</span>
+    <span class="sec-tag">task classification</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="concept"><div class="c-title">Gap Tasks</div><div class="def"><span class="kw4">Information-gap</span>은 정보 교환, <span class="kw4">opinion-gap</span>은 preference·feeling 교환, <span class="kw4">reasoning-gap</span>은 주어진 정보에서 새 정보를 추론하는 task입니다.</div><p class="note">Reasoning-gap은 timetable로 best route 찾기처럼 inference process가 필요합니다.</p><div class="exam"><div class="exam-label">📋 기출 이력</div><p><strong>2026 A-7</strong> — information gap 활동 맥락</p></div></div><div class="div"></div><div class="concept"><div class="c-title">Psycholinguistic Classification</div><div class="def">Jigsaw, information-gap, problem-solving, decision-making, opinion exchange는 interactant relationship, interaction requirement, goal orientation, outcome option으로 구분됩니다.</div><p class="note">Jigsaw는 two-way information gap, required interaction, convergent goal, closed outcome의 성격이 강합니다.</p></div>
+  </div>
+</div>
+<div class="sec" id="s4">
+  <div class="sec-header" onclick="toggle('s4')">
+    <span class="sec-icon">🔎</span>
+    <span class="sec-title">4 PPP and TBLT</span>
+    <span class="sec-tag">procedure comparison</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="concept"><div class="c-title">PPP</div><div class="def"><span class="kw3">PPP</span>는 Presentation → Practice → Production 순서로 target form을 제시하고 통제 연습 후 산출로 이동합니다.</div><p class="note">초급자와 accuracy focus에는 유용하지만 communication이 후반부에 제한적으로 나타날 수 있습니다.</p></div><div class="div"></div><div class="concept"><div class="c-title">TBLT Cycle</div><div class="def"><span class="kw3">TBLT</span>는 task 수행을 중심으로 pre-task, task cycle, language focus가 연결됩니다.</div><p class="note">Meaning-oriented task 수행 후 learner language를 바탕으로 form focus가 일어날 수 있습니다.</p></div>
+  </div>
+</div>
+<div class="sec" id="s5">
+  <div class="sec-header" onclick="toggle('s5')">
+    <span class="sec-icon">🔎</span>
+    <span class="sec-title">5 Designer Methods</span>
+    <span class="sec-tag">classic methods</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="concept"><div class="c-title">Designer Methods</div><div class="def"><span class="kw1">Silent Way</span>, <span class="kw1">Suggestopedia</span>, <span class="kw1">TPR</span>, <span class="kw1">CLL</span>, <span class="kw1">Natural Approach</span>는 각기 다른 theory와 classroom technique을 가진 designer methods입니다.</div><p class="note">TPR은 command와 physical response, Natural Approach는 comprehensible input과 low affective filter를 강조합니다.</p></div>
+  </div>
+</div>
+<div class="sec" id="s6">
+  <div class="sec-header" onclick="toggle('s6')">
+    <span class="sec-icon">🔎</span>
+    <span class="sec-title">6 Post-method</span>
+    <span class="sec-tag">principled eclecticism</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="concept"><div class="c-title">Post-method Era</div><div class="def"><span class="kw3">Post-method</span> 관점은 단일 method 처방보다 local context, teacher judgement, learner needs에 맞춘 principled decision을 강조합니다.</div><p class="note">Principled eclecticism은 여러 방법을 무작위로 섞는 것이 아니라 coherent rationale에 따라 선택하는 것입니다.</p></div>
+  </div>
+</div>
+</div><!-- /.wrap -->
+
+<script>
+function toggle(id){ document.getElementById(id).classList.toggle('open'); }
+function openSec(id){ const s=document.getElementById(id); s.classList.add('open'); s.scrollIntoView({behavior:'smooth',block:'start'}); }
+</script>
+</body>
+</html>

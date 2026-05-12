@@ -32,7 +32,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f4efe4;color:#1a1a1a;line
 .progress-title::before{content:"";width:4px;height:16px;background:#2e7d52;border-radius:2px}
 .progress-pct{font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:700;color:#2e7d52}
 .progress-bar{height:10px;background:#eae5d7;border-radius:999px;overflow:hidden;position:relative}
-.progress-fill{height:100%;background:linear-gradient(90deg,#2e7d52 0%,#68c491 50%,#c5a572 100%);border-radius:999px;width:61.5%;position:relative;box-shadow:0 1px 3px rgba(46,125,82,.3)}
+.progress-fill{height:100%;background:linear-gradient(90deg,#2e7d52 0%,#68c491 50%,#c5a572 100%);border-radius:999px;width:100%;position:relative;box-shadow:0 1px 3px rgba(46,125,82,.3)}
 .progress-fill::after{content:"";position:absolute;top:0;right:0;bottom:0;width:20px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.6));animation:shimmer 2.5s infinite}
 @keyframes shimmer{0%{transform:translateX(-20px);opacity:0}50%{opacity:1}100%{transform:translateX(0);opacity:0}}
 .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:22px;padding-top:22px;border-top:1px dashed #d5cfbf}
@@ -137,13 +137,13 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f4efe4;color:#1a1a1a;line
   <div class="progress-wrap">
     <div class="progress-head">
       <div class="progress-title">학습 진도 · Progress</div>
-      <div class="progress-pct">61.5% · 8 / 13</div>
+      <div class="progress-pct">100% · 13 / 13</div>
     </div>
     <div class="progress-bar"><div class="progress-fill"></div></div>
     <div class="stats-row">
-      <div class="stat"><div class="stat-n">7</div><div class="stat-l">완료 챕터</div></div>
-      <div class="stat"><div class="stat-n">153<span class="small">문</span></div><div class="stat-l">OX 퀴즈</div></div>
-      <div class="stat"><div class="stat-n">6</div><div class="stat-l">제작 예정</div></div>
+      <div class="stat"><div class="stat-n">13</div><div class="stat-l">완료 챕터</div></div>
+      <div class="stat"><div class="stat-n">253<span class="small">문</span></div><div class="stat-l">OX 퀴즈</div></div>
+      <div class="stat"><div class="stat-n">0</div><div class="stat-l">제작 예정</div></div>
       <div class="stat"><div class="stat-n">13</div><div class="stat-l">전체 챕터</div></div>
     </div>
   </div>
@@ -153,7 +153,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f4efe4;color:#1a1a1a;line
     <h2>Completed</h2>
     <span class="sec-ko">완료된 챕터</span>
     <span class="sec-line"></span>
-    <span class="sec-cnt">8 chapters</span>
+    <span class="sec-cnt">13 chapters</span>
   </div>
 
   <div class="chap-grid">
@@ -269,6 +269,76 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f4efe4;color:#1a1a1a;line
         <a class="btn btn-s" href="./grammar_study.html">📖 개념정리</a>
       </div>
     </div>
+    <!-- Ch.4 -->
+    <div class="chap">
+      <div class="chap-head">
+        <span class="chap-badge">CH · 04</span>
+        <span class="chap-status new">NEW</span>
+      </div>
+      <div class="chap-title">Discourse</div>
+      <div class="chap-ko">담화</div>
+      <div class="chap-meta"><span>📝 20문항</span><span class="sep">·</span><span>📖 개념정리</span></div>
+      <div class="chap-btns">
+        <a class="btn btn-q" href="./discourse.html">OX 퀴즈</a>
+        <a class="btn btn-s" href="./discourse_study.html">📖 개념정리</a>
+      </div>
+    </div>
+    <!-- Ch.5 -->
+    <div class="chap">
+      <div class="chap-head">
+        <span class="chap-badge">CH · 05</span>
+        <span class="chap-status new">NEW</span>
+      </div>
+      <div class="chap-title">Methodology</div>
+      <div class="chap-ko">교수법</div>
+      <div class="chap-meta"><span>📝 20문항</span><span class="sep">·</span><span>📖 개념정리</span></div>
+      <div class="chap-btns">
+        <a class="btn btn-q" href="./methodology.html">OX 퀴즈</a>
+        <a class="btn btn-s" href="./methodology_study.html">📖 개념정리</a>
+      </div>
+    </div>
+    <!-- Ch.11 -->
+    <div class="chap">
+      <div class="chap-head">
+        <span class="chap-badge">CH · 11</span>
+        <span class="chap-status new">NEW</span>
+      </div>
+      <div class="chap-title">Teaching Vocabulary</div>
+      <div class="chap-ko">어휘 지도</div>
+      <div class="chap-meta"><span>📝 20문항</span><span class="sep">·</span><span>📖 개념정리</span></div>
+      <div class="chap-btns">
+        <a class="btn btn-q" href="./vocab.html">OX 퀴즈</a>
+        <a class="btn btn-s" href="./vocab_study.html">📖 개념정리</a>
+      </div>
+    </div>
+    <!-- Ch.12 -->
+    <div class="chap">
+      <div class="chap-head">
+        <span class="chap-badge">CH · 12</span>
+        <span class="chap-status new">NEW</span>
+      </div>
+      <div class="chap-title">CALL · Material</div>
+      <div class="chap-ko">CALL·교재</div>
+      <div class="chap-meta"><span>📝 20문항</span><span class="sep">·</span><span>📖 개념정리</span></div>
+      <div class="chap-btns">
+        <a class="btn btn-q" href="./call.html">OX 퀴즈</a>
+        <a class="btn btn-s" href="./call_study.html">📖 개념정리</a>
+      </div>
+    </div>
+    <!-- Ch.13 -->
+    <div class="chap">
+      <div class="chap-head">
+        <span class="chap-badge">CH · 13</span>
+        <span class="chap-status new">NEW</span>
+      </div>
+      <div class="chap-title">Assessment</div>
+      <div class="chap-ko">평가</div>
+      <div class="chap-meta"><span>📝 20문항</span><span class="sep">·</span><span>📖 개념정리</span></div>
+      <div class="chap-btns">
+        <a class="btn btn-q" href="./assessment.html">OX 퀴즈</a>
+        <a class="btn btn-s" href="./assessment_study.html">📖 개념정리</a>
+      </div>
+    </div>
   </div>
 
   <!-- ═══ Upcoming ═══ -->
@@ -276,15 +346,11 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f4efe4;color:#1a1a1a;line
     <h2>Upcoming</h2>
     <span class="sec-ko">제작 예정</span>
     <span class="sec-line"></span>
-    <span class="sec-cnt">5 chapters</span>
+    <span class="sec-cnt">0 chapters</span>
   </div>
 
   <div class="upcoming-grid">
-    <div class="up"><span class="up-no">CH · 04</span><div class="up-titles"><div class="up-en">Discourse</div><div class="up-ko">담화</div></div><span class="up-soon">SOON</span></div>
-    <div class="up"><span class="up-no">CH · 05</span><div class="up-titles"><div class="up-en">Methodology</div><div class="up-ko">교수법</div></div><span class="up-soon">SOON</span></div>
-    <div class="up"><span class="up-no">CH · 11</span><div class="up-titles"><div class="up-en">Vocabulary</div><div class="up-ko">어휘 지도</div></div><span class="up-soon">SOON</span></div>
-    <div class="up"><span class="up-no">CH · 12</span><div class="up-titles"><div class="up-en">CALL · Material</div><div class="up-ko">CALL·교재</div></div><span class="up-soon">SOON</span></div>
-    <div class="up"><span class="up-no">CH · 13</span><div class="up-titles"><div class="up-en">Assessment</div><div class="up-ko">평가</div></div><span class="up-soon">SOON</span></div>
+    <div class="up"><span class="up-no">DONE</span><div class="up-titles"><div class="up-en">All chapters completed</div><div class="up-ko">전체 챕터 완료</div></div><span class="up-soon">OK</span></div>
   </div>
 
   <!-- ═══ Study Guide ═══ -->

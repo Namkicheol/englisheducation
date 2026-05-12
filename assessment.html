@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch.13 Assessment OX Quiz</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=JetBrains+Mono:wght@400;600&family=Caveat:wght@600&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans KR',sans-serif;background:#f5f4ee;background-image:repeating-linear-gradient(transparent,transparent 27px,#ddddd0 28px);color:#1a1a1a;min-height:100vh;padding:16px}
+.header-wrap{max-width:720px;margin:0 auto;padding:20px 8px 0}
+.header-topbar{display:flex;justify-content:space-between;align-items:center;border-top:2px solid #1a1a1a;padding-top:8px;margin-bottom:10px}
+.header-no{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;border:2px solid #1a1a1a;padding:3px 10px;border-radius:2px;letter-spacing:.5px;display:flex;align-items:center;gap:6px}
+.header-label{font-family:'JetBrains Mono',monospace;font-size:11px;color:#888;letter-spacing:1px}
+.header-title{font-size:clamp(30px,7vw,46px);font-weight:900;color:#1a1a1a;line-height:1.1;margin-bottom:5px;letter-spacing:-1px}
+.title-hl{background:#2e7d52;color:#fff;padding:1px 6px}
+.header-script{font-family:'Caveat',cursive;font-size:21px;color:#2e7d52;margin-bottom:4px;font-weight:600}
+.header-sub{font-size:13px;color:#555;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#aaa;margin-bottom:14px}
+.header-divider{border:none;border-top:2.5px solid #1a1a1a;margin-bottom:20px}
+.prog-wrap{max-width:720px;margin:0 auto 10px;padding:0 8px}
+.prog-info{display:flex;justify-content:space-between;font-size:12px;color:#4a7a62;font-family:'JetBrains Mono',monospace;margin-bottom:6px}
+.bar{height:4px;background:#b2dfcc;border-radius:2px;overflow:hidden}
+.bar-fill{height:100%;background:linear-gradient(90deg,#2e7d52,#26a69a);border-radius:2px;transition:width .5s ease}
+.wrap{max-width:720px;margin:0 auto}
+.card{background:#fff;border:1.5px solid #b2dfcc;border-radius:14px;padding:26px;animation:up .35s ease;box-shadow:0 2px 8px rgba(46,125,82,.08)}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.q-meta{display:flex;align-items:center;gap:7px;margin-bottom:14px;flex-wrap:wrap}
+.q-num{font-family:'JetBrains Mono',monospace;font-size:11px;color:#2e7d52;background:rgba(46,125,82,.1);padding:3px 10px;border-radius:8px;font-weight:700}
+.q-src{font-size:11px;color:#4a7a62;font-family:'JetBrains Mono',monospace}
+.q-cat{font-size:11px;color:#00796b;background:rgba(38,166,154,.1);padding:3px 10px;border-radius:8px;margin-left:auto;font-weight:600}
+.kw1{background:rgba(46,125,82,.18);color:#1b5e3a;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em}
+.kw2{color:#00796b;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border-bottom:2px solid rgba(0,121,107,.4)}
+.kw3{background:rgba(230,119,0,.13);color:#bf6000;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(230,119,0,.3)}
+.kw4{background:rgba(183,28,28,.11);color:#b71c1c;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(183,28,28,.25)}
+.q-text{font-size:clamp(16px,2.3vw,17.5px);line-height:1.9;margin-bottom:24px;color:#1a3326}
+.ox-btns{display:flex;gap:12px}
+.ox-btn{flex:1;padding:20px 10px;border-radius:12px;border:2px solid #b2dfcc;background:#f5fdf8;color:#1a3326;font-size:30px;cursor:pointer;transition:all .18s ease;display:flex;flex-direction:column;align-items:center;gap:5px}
+.lb{font-size:11px;font-family:'JetBrains Mono',monospace;color:#4a7a62;letter-spacing:1px;font-weight:600}
+.ox-btn:hover:not(:disabled){transform:translateY(-2px)}
+.o-btn:hover:not(:disabled){border-color:#2e7d52;background:rgba(46,125,82,.08)}
+.x-btn:hover:not(:disabled){border-color:#c62828;background:rgba(198,40,40,.06)}
+.co,.cx{border-color:#2e7d52!important;background:rgba(46,125,82,.1)!important}
+.wp{border-color:#c62828!important;background:rgba(198,40,40,.08)!important}
+.ox-btn:disabled{cursor:default}
+.badge{display:none;margin-top:14px;padding:9px 16px;border-radius:8px;font-size:14px;font-weight:700;font-family:'JetBrains Mono',monospace}
+.badge.ok{display:inline-block;background:rgba(46,125,82,.1);color:#2e7d52;border:1.5px solid rgba(46,125,82,.3)}
+.badge.ng{display:inline-block;background:rgba(198,40,40,.08);color:#c62828;border:1.5px solid rgba(198,40,40,.25)}
+.exp{display:none;margin-top:18px;border-radius:12px;overflow:hidden;animation:fade .3s ease}
+.exp.show{display:block}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.exp-header{background:linear-gradient(135deg,rgba(46,125,82,.12),rgba(38,166,154,.06));border:1.5px solid rgba(46,125,82,.25);border-bottom:none;padding:11px 16px}
+.exp-header span{font-size:11px;font-family:'JetBrains Mono',monospace;color:#1b5e3a;letter-spacing:1.5px;text-transform:uppercase;font-weight:700}
+.exp-answer{background:rgba(46,125,82,.05);border:1.5px solid rgba(46,125,82,.2);border-top:none;border-bottom:none;padding:14px 16px}
+.ans-label{font-size:11px;font-family:'JetBrains Mono',monospace;color:#4a7a62;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;font-weight:700}
+.ans-text{font-size:16px;color:#1a3326;line-height:1.75;font-weight:500}
+.exp-body{background:rgba(46,125,82,.03);border:1.5px solid rgba(46,125,82,.15);border-top:1px solid rgba(46,125,82,.1);padding:14px 16px}
+.sec-label{font-size:11px;font-family:'JetBrains Mono',monospace;color:#00796b;text-transform:uppercase;letter-spacing:1px;margin-bottom:7px;margin-top:13px;font-weight:700}
+.sec-label:first-child{margin-top:0}
+.exp-body p{font-size:15px;color:#2a5040;line-height:1.8;margin-bottom:5px}
+.def-box{background:rgba(38,166,154,.06);border-left:4px solid #26a69a;padding:10px 14px;border-radius:0 8px 8px 0;margin:8px 0}
+.def-box p{color:#004d40;font-size:14.5px;font-style:italic;line-height:1.75}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.compare.three{grid-template-columns:1fr 1fr 1fr}
+.compare-item{background:#f5fdf8;border:1.5px solid #b2dfcc;border-radius:8px;padding:11px 14px}
+.ci-title{font-size:11px;font-family:'JetBrains Mono',monospace;color:#1b5e3a;font-weight:700;margin-bottom:5px}
+.compare-item p{font-size:14px;color:#3a6b51;line-height:1.65}
+.next-btn{display:none;width:100%;margin-top:16px;padding:14px;background:linear-gradient(135deg,#2e7d52,#26a69a);border:none;border-radius:10px;color:white;font-family:'Noto Sans KR',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:opacity .2s,transform .2s}
+.next-btn:hover{opacity:.88;transform:translateY(-1px)}
+.next-btn.show{display:block;animation:fade .3s ease}
+.score-card{display:none;text-align:center;padding:48px 24px}
+.score-card.show{display:block;animation:up .5s ease}
+.score-circle{width:130px;height:130px;border-radius:50%;background:linear-gradient(135deg,#2e7d52,#26a69a);display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 0 40px rgba(46,125,82,.3)}
+.s-num{font-size:42px;font-weight:700;line-height:1;color:#fff}
+.s-total{font-size:14px;opacity:.85;color:#fff}
+.score-card h2{font-size:24px;margin-bottom:7px;color:#1a3326}
+.score-card p{color:#4a7a62;margin-bottom:24px;font-size:15px}
+.restart-btn{padding:13px 32px;background:#f5fdf8;border:2px solid #2e7d52;border-radius:10px;color:#2e7d52;font-family:'Noto Sans KR',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:all .2s}
+.restart-btn:hover{background:rgba(46,125,82,.1)}
+.nd{width:28px;height:28px;border-radius:6px;border:1.5px solid #b2dfcc;background:#f5fdf8;font-size:11px;font-family:'JetBrains Mono',monospace;cursor:pointer;color:#4a7a62;transition:all .15s;display:inline-flex;align-items:center;justify-content:center;font-weight:600}
+.nd.cur{border-color:#2e7d52;background:#2e7d52;color:white}
+.nd.ok{border-color:#2e7d52;background:rgba(46,125,82,.15);color:#1b5e3a}
+.nd.ng{border-color:#c62828;background:rgba(198,40,40,.1);color:#c62828}
+.nd:hover:not(.cur){opacity:.7}
+#nav{display:flex;flex-wrap:wrap;gap:5px;max-width:720px;margin:0 auto 16px;padding:0 8px}
+.mode-bar{max-width:720px;margin:0 auto 10px;padding:0 8px;display:flex;gap:8px}
+.mode-btn{flex:1;padding:8px 14px;border-radius:8px;border:1.5px solid #b2dfcc;background:#f5fdf8;color:#4a7a62;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;cursor:pointer;transition:all .18s;letter-spacing:.5px}
+.mode-btn.active{background:#2e7d52;border-color:#2e7d52;color:#fff}
+</style>
+</head>
+<body>
+<div class="header-wrap">
+  <div class="header-topbar">
+    <span class="header-no">NO. 13 <span>—</span> Assessment</span>
+    <span class="header-label">Past-Exam Notebook</span>
+  </div>
+  <h1 class="header-title"><span class="title-hl">영어교육론</span> 개념 마스터</h1>
+  <div class="header-script">Concept Master</div>
+  <p class="header-sub">영어교육론 · Assessment · 임용고시 대비</p>
+  <div class="header-divider"></div>
+</div>
+<div class="prog-wrap">
+  <div class="prog-info"><span id="pt">1 / 20</span><span id="ps">정답 0개</span></div>
+  <div class="bar"><div class="bar-fill" id="bf" style="width:5%"></div></div>
+</div>
+<div id="rb" style="display:none;max-width:720px;margin:0 auto 14px;padding:0 8px">
+  <div style="background:rgba(46,125,82,.08);border:1.5px solid rgba(46,125,82,.3);border-radius:12px;padding:13px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+    <span id="rb-msg" style="font-size:13px;color:#1a3326;font-family:'JetBrains Mono',monospace;line-height:1.5"></span>
+    <button onclick="freshStart()" style="padding:10px 22px;background:#c62828;border:none;border-radius:8px;color:#fff;font-size:14px;font-weight:700;font-family:'Noto Sans KR',sans-serif;cursor:pointer;white-space:nowrap;flex-shrink:0">처음부터</button>
+  </div>
+</div>
+<div class="mode-bar">
+  <button class="mode-btn active" id="btn-normal" onclick="setMode('normal')">📋 기본 순서</button>
+  <button class="mode-btn" id="btn-random" onclick="setMode('random')">🔀 랜덤</button>
+</div>
+<div id="nav"></div>
+<div class="wrap">
+  <div id="qa"></div>
+  <div class="score-card" id="sc">
+    <div class="score-circle"><span class="s-num" id="fs">0</span><span class="s-total">/20</span></div>
+    <h2 id="rm"></h2><p id="rs"></p>
+    <button class="restart-btn" onclick="restart()">🔄 다시 풀기</button>
+  </div>
+</div>
+<script src="./score-popup.js"></script>
+<script src="./sounds.js"></script>
+<script>
+const Q=[
+  {src:"Practicality",cat:"Core Concept",text:"<span class='kw1'>Practicality</span> is best understood as financial, time, administration constraints, so it should be interpreted within its instructional or assessment context.",ans:true,correct:"맞습니다. <span class='kw1'>Practicality</span>의 핵심은 financial, time, administration constraints입니다.",why:"이 문항은 Practicality를 단순 명칭보다 기능과 classroom use 중심으로 확인합니다. 관련 개념을 비교할 때는 목적, learner role, teacher role, task condition을 함께 보아야 합니다.",source:"&quot;Practicality concerns financial limitations, time constraints, and ease of administration.&quot;"},
+
+  {src:"Practicality",cat:"Misconception",text:"<span class='kw4'>Practicality</span> can be safely treated as the same as any neighboring concept because the distinction is mostly terminological.",ans:false,correct:"틀립니다. <span class='kw4'>Practicality</span>는 인접 개념과 구분되는 condition, purpose, learner behavior가 있습니다.",why:"영교론 문항은 비슷한 key terms의 경계 조건을 묻는 경우가 많습니다. Practicality는 정의 속 keyword를 기준으로 구분해야 합니다.",source:"&quot;Practicality concerns financial limitations, time constraints, and ease of administration.&quot;",compare:[{title:"<span class='kw1'>Practicality</span>",desc:"financial, time, administration constraints"},{title:"<span class='kw4'>Trap</span>",desc:"confusing it with a neighboring concept"}]},
+
+  {src:"Reliability",cat:"Core Concept",text:"<span class='kw1'>Reliability</span> is best understood as consistent and dependable results, so it should be interpreted within its instructional or assessment context.",ans:true,correct:"맞습니다. <span class='kw1'>Reliability</span>의 핵심은 consistent and dependable results입니다.",why:"이 문항은 Reliability를 단순 명칭보다 기능과 classroom use 중심으로 확인합니다. 관련 개념을 비교할 때는 목적, learner role, teacher role, task condition을 함께 보아야 합니다.",source:"&quot;Reliability is the degree to which a test gives consistent and dependable results.&quot;"},
+
+  {src:"Reliability",cat:"Misconception",text:"<span class='kw4'>Reliability</span> can be safely treated as the same as any neighboring concept because the distinction is mostly terminological.",ans:false,correct:"틀립니다. <span class='kw4'>Reliability</span>는 인접 개념과 구분되는 condition, purpose, learner behavior가 있습니다.",why:"영교론 문항은 비슷한 key terms의 경계 조건을 묻는 경우가 많습니다. Reliability는 정의 속 keyword를 기준으로 구분해야 합니다.",source:"&quot;Reliability is the degree to which a test gives consistent and dependable results.&quot;",compare:[{title:"<span class='kw1'>Reliability</span>",desc:"consistent and dependable results"},{title:"<span class='kw4'>Trap</span>",desc:"confusing it with a neighboring concept"}]},
+
+  {src:"Validity",cat:"Core Concept",text:"<span class='kw1'>Validity</span> is best understood as content, face, construct, criterion-related, so it should be interpreted within its instructional or assessment context.",ans:true,correct:"맞습니다. <span class='kw1'>Validity</span>의 핵심은 content, face, construct, criterion-related입니다.",why:"이 문항은 Validity를 단순 명칭보다 기능과 classroom use 중심으로 확인합니다. 관련 개념을 비교할 때는 목적, learner role, teacher role, task condition을 함께 보아야 합니다.",source:"&quot;Validity is the degree to which a test measures what it is supposed to measure.&quot;"},
+
+  {src:"Validity",cat:"Misconception",text:"<span class='kw4'>Validity</span> can be safely treated as the same as any neighboring concept because the distinction is mostly terminological.",ans:false,correct:"틀립니다. <span class='kw4'>Validity</span>는 인접 개념과 구분되는 condition, purpose, learner behavior가 있습니다.",why:"영교론 문항은 비슷한 key terms의 경계 조건을 묻는 경우가 많습니다. Validity는 정의 속 keyword를 기준으로 구분해야 합니다.",source:"&quot;Validity is the degree to which a test measures what it is supposed to measure.&quot;",compare:[{title:"<span class='kw1'>Validity</span>",desc:"content, face, construct, criterion-related"},{title:"<span class='kw4'>Trap</span>",desc:"confusing it with a neighboring concept"}]},
+
+  {src:"Authenticity and Interactiveness",cat:"Core Concept",text:"<span class='kw1'>Authenticity and Interactiveness</span> is best understood as target language use와 individual characteristics involvement, so it should be interpreted within its instructional or assessment context.",ans:true,correct:"맞습니다. <span class='kw1'>Authenticity and Interactiveness</span>의 핵심은 target language use와 individual characteristics involvement입니다.",why:"이 문항은 Authenticity and Interactiveness를 단순 명칭보다 기능과 classroom use 중심으로 확인합니다. 관련 개념을 비교할 때는 목적, learner role, teacher role, task condition을 함께 보아야 합니다.",source:"&quot;Authenticity concerns correspondence with target language use; interactiveness concerns individual involvement.&quot;"},
+
+  {src:"Authenticity and Interactiveness",cat:"Misconception",text:"<span class='kw4'>Authenticity and Interactiveness</span> can be safely treated as the same as any neighboring concept because the distinction is mostly terminological.",ans:false,correct:"틀립니다. <span class='kw4'>Authenticity and Interactiveness</span>는 인접 개념과 구분되는 condition, purpose, learner behavior가 있습니다.",why:"영교론 문항은 비슷한 key terms의 경계 조건을 묻는 경우가 많습니다. Authenticity and Interactiveness는 정의 속 keyword를 기준으로 구분해야 합니다.",source:"&quot;Authenticity concerns correspondence with target language use; interactiveness concerns individual involvement.&quot;",compare:[{title:"<span class='kw1'>Authenticity and Interactiveness</span>",desc:"target language use와 individual characteristics involvement"},{title:"<span class='kw4'>Trap</span>",desc:"confusing it with a neighboring concept"}]},
+
+  {src:"Washback",cat:"Core Concept",text:"<span class='kw1'>Washback</span> is best understood as testing이 teaching/learning에 미치는 영향, so it should be interpreted within its instructional or assessment context.",ans:true,correct:"맞습니다. <span class='kw1'>Washback</span>의 핵심은 testing이 teaching/learning에 미치는 영향입니다.",why:"이 문항은 Washback를 단순 명칭보다 기능과 classroom use 중심으로 확인합니다. 관련 개념을 비교할 때는 목적, learner role, teacher role, task condition을 함께 보아야 합니다.",source:"&quot;Washback effect is the effect of testing on teaching and learning.&quot;"},
+
+  {src:"Washback",cat:"Misconception",text:"<span class='kw4'>Washback</span> can be safely treated as the same as any neighboring concept because the distinction is mostly terminological.",ans:false,correct:"틀립니다. <span class='kw4'>Washback</span>는 인접 개념과 구분되는 condition, purpose, learner behavior가 있습니다.",why:"영교론 문항은 비슷한 key terms의 경계 조건을 묻는 경우가 많습니다. Washback는 정의 속 keyword를 기준으로 구분해야 합니다.",source:"&quot;Washback effect is the effect of testing on teaching and learning.&quot;",compare:[{title:"<span class='kw1'>Washback</span>",desc:"testing이 teaching/learning에 미치는 영향"},{title:"<span class='kw4'>Trap</span>",desc:"confusing it with a neighboring concept"}]},
+
+  {src:"Test Types",cat:"Core Concept",text:"<span class='kw1'>Test Types</span> is best understood as formative/summative, norm/criterion, direct/indirect, so it should be interpreted within its instructional or assessment context.",ans:true,correct:"맞습니다. <span class='kw1'>Test Types</span>의 핵심은 formative/summative, norm/criterion, direct/indirect입니다.",why:"이 문항은 Test Types를 단순 명칭보다 기능과 classroom use 중심으로 확인합니다. 관련 개념을 비교할 때는 목적, learner role, teacher role, task condition을 함께 보아야 합니다.",source:"&quot;Norm-referenced testing compares learners; criterion-referenced testing evaluates performance against mastery criteria.&quot;"},
+
+  {src:"Test Types",cat:"Misconception",text:"<span class='kw4'>Test Types</span> can be safely treated as the same as any neighboring concept because the distinction is mostly terminological.",ans:false,correct:"틀립니다. <span class='kw4'>Test Types</span>는 인접 개념과 구분되는 condition, purpose, learner behavior가 있습니다.",why:"영교론 문항은 비슷한 key terms의 경계 조건을 묻는 경우가 많습니다. Test Types는 정의 속 keyword를 기준으로 구분해야 합니다.",source:"&quot;Norm-referenced testing compares learners; criterion-referenced testing evaluates performance against mastery criteria.&quot;",compare:[{title:"<span class='kw1'>Test Types</span>",desc:"formative/summative, norm/criterion, direct/indirect"},{title:"<span class='kw4'>Trap</span>",desc:"confusing it with a neighboring concept"}]},
+
+  {src:"Alternative Assessment",cat:"Core Concept",text:"<span class='kw1'>Alternative Assessment</span> is best understood as portfolio, self-assessment, performance-based assessment, so it should be interpreted within its instructional or assessment context.",ans:true,correct:"맞습니다. <span class='kw1'>Alternative Assessment</span>의 핵심은 portfolio, self-assessment, performance-based assessment입니다.",why:"이 문항은 Alternative Assessment를 단순 명칭보다 기능과 classroom use 중심으로 확인합니다. 관련 개념을 비교할 때는 목적, learner role, teacher role, task condition을 함께 보아야 합니다.",source:"&quot;Portfolio is a purposeful collection of student work representing progress and achievement.&quot;"},
+
+  {src:"Alternative Assessment",cat:"Misconception",text:"<span class='kw4'>Alternative Assessment</span> can be safely treated as the same as any neighboring concept because the distinction is mostly terminological.",ans:false,correct:"틀립니다. <span class='kw4'>Alternative Assessment</span>는 인접 개념과 구분되는 condition, purpose, learner behavior가 있습니다.",why:"영교론 문항은 비슷한 key terms의 경계 조건을 묻는 경우가 많습니다. Alternative Assessment는 정의 속 keyword를 기준으로 구분해야 합니다.",source:"&quot;Portfolio is a purposeful collection of student work representing progress and achievement.&quot;",compare:[{title:"<span class='kw1'>Alternative Assessment</span>",desc:"portfolio, self-assessment, performance-based assessment"},{title:"<span class='kw4'>Trap</span>",desc:"confusing it with a neighboring concept"}]},
+
+  {src:"Scoring and Items",cat:"Core Concept",text:"<span class='kw1'>Scoring and Items</span> is best understood as holistic/analytic scoring, MC guidelines, item analysis, so it should be interpreted within its instructional or assessment context.",ans:true,correct:"맞습니다. <span class='kw1'>Scoring and Items</span>의 핵심은 holistic/analytic scoring, MC guidelines, item analysis입니다.",why:"이 문항은 Scoring and Items를 단순 명칭보다 기능과 classroom use 중심으로 확인합니다. 관련 개념을 비교할 때는 목적, learner role, teacher role, task condition을 함께 보아야 합니다.",source:"&quot;Analytic scoring separately rates components; holistic scoring gives a single overall score.&quot;"},
+
+  {src:"Scoring and Items",cat:"Misconception",text:"<span class='kw4'>Scoring and Items</span> can be safely treated as the same as any neighboring concept because the distinction is mostly terminological.",ans:false,correct:"틀립니다. <span class='kw4'>Scoring and Items</span>는 인접 개념과 구분되는 condition, purpose, learner behavior가 있습니다.",why:"영교론 문항은 비슷한 key terms의 경계 조건을 묻는 경우가 많습니다. Scoring and Items는 정의 속 keyword를 기준으로 구분해야 합니다.",source:"&quot;Analytic scoring separately rates components; holistic scoring gives a single overall score.&quot;",compare:[{title:"<span class='kw1'>Scoring and Items</span>",desc:"holistic/analytic scoring, MC guidelines, item analysis"},{title:"<span class='kw4'>Trap</span>",desc:"confusing it with a neighboring concept"}]},
+
+  {src:"Practicality",cat:"Review",text:"A learner can identify <span class='kw2'>Practicality</span> only by memorizing the label, without checking examples or classroom conditions.",ans:false,correct:"틀립니다. <span class='kw2'>Practicality</span>는 label만 외우기보다 예시, 조건, 효과를 함께 확인해야 합니다.",why:"실전에서는 용어 단독보다 적용 맥락이 단서가 됩니다. financial, time, administration constraints를 기준으로 판단합니다.",source:"&quot;Practicality concerns financial limitations, time constraints, and ease of administration.&quot;"},
+
+  {src:"Reliability",cat:"Review",text:"A learner can identify <span class='kw2'>Reliability</span> only by memorizing the label, without checking examples or classroom conditions.",ans:false,correct:"틀립니다. <span class='kw2'>Reliability</span>는 label만 외우기보다 예시, 조건, 효과를 함께 확인해야 합니다.",why:"실전에서는 용어 단독보다 적용 맥락이 단서가 됩니다. consistent and dependable results를 기준으로 판단합니다.",source:"&quot;Reliability is the degree to which a test gives consistent and dependable results.&quot;"},
+
+  {src:"Validity",cat:"Review",text:"A learner can identify <span class='kw2'>Validity</span> only by memorizing the label, without checking examples or classroom conditions.",ans:false,correct:"틀립니다. <span class='kw2'>Validity</span>는 label만 외우기보다 예시, 조건, 효과를 함께 확인해야 합니다.",why:"실전에서는 용어 단독보다 적용 맥락이 단서가 됩니다. content, face, construct, criterion-related를 기준으로 판단합니다.",source:"&quot;Validity is the degree to which a test measures what it is supposed to measure.&quot;"},
+
+  {src:"Authenticity and Interactiveness",cat:"Review",text:"A learner can identify <span class='kw2'>Authenticity and Interactiveness</span> only by memorizing the label, without checking examples or classroom conditions.",ans:false,correct:"틀립니다. <span class='kw2'>Authenticity and Interactiveness</span>는 label만 외우기보다 예시, 조건, 효과를 함께 확인해야 합니다.",why:"실전에서는 용어 단독보다 적용 맥락이 단서가 됩니다. target language use와 individual characteristics involvement를 기준으로 판단합니다.",source:"&quot;Authenticity concerns correspondence with target language use; interactiveness concerns individual involvement.&quot;"}
+];
+
+const TOTAL=20;
+const SAVE_KEY='ox_assessment_v1';
+let cur=0,answers=new Array(TOTAL).fill(null);
+let mode='normal',order=[...Array(TOTAL).keys()];
+function initOrder(m){if(m==='random'){const a=[...Array(TOTAL).keys()];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}order=a;}else order=[...Array(TOTAL).keys()];}
+function updateModeUI(){document.getElementById('btn-normal').classList.toggle('active',mode==='normal');document.getElementById('btn-random').classList.toggle('active',mode==='random');}
+function setMode(m){if(mode===m)return;mode=m;initOrder(m);cur=0;answers=new Array(TOTAL).fill(null);localStorage.removeItem(SAVE_KEY);document.getElementById('rb').style.display='none';document.getElementById('sc').classList.remove('show');updateModeUI();renderNav();render();}
+function getScore(){return answers.filter(a=>a&&a.correct).length;}
+function saveProgress(){localStorage.setItem(SAVE_KEY,JSON.stringify({cur,answers,mode,order}));}
+function clearProgress(){localStorage.removeItem(SAVE_KEY);}
+function freshStart(){clearProgress();cur=0;answers=new Array(TOTAL).fill(null);mode='normal';order=[...Array(TOTAL).keys()];document.getElementById('rb').style.display='none';updateModeUI();renderNav();render();}
+function restart(){cur=0;answers=new Array(TOTAL).fill(null);mode='normal';order=[...Array(TOTAL).keys()];clearProgress();document.getElementById('sc').classList.remove('show');document.getElementById('rb').style.display='none';document.getElementById('qa').style.display='block';updateModeUI();renderNav();render();}
+
+function renderExp(q,isCorrect){
+  const three=q.compare&&q.compare.length===3;
+  const cmp=q.compare?`<div class="sec-label">📊 비교 정리</div><div class="compare${three?' three':''}">${q.compare.map(c=>`<div class="compare-item"><div class="ci-title">${c.title}</div><p>${c.desc}</p></div>`).join('')}</div>`:'';
+  return `<div class="exp show"><div class="exp-header"><span>${isCorrect?'✅ 정답':'❌ 오답'} · 해설</span></div><div class="exp-answer"><div class="ans-label">핵심 정정</div><div class="ans-text">${q.correct}</div></div><div class="exp-body"><div class="sec-label">📖 상세 설명</div><p>${q.why}</p><div class="sec-label">📌 Source</div><div class="def-box"><p>${q.source}</p></div>${cmp}</div></div>`;
+}
+
+function renderNav(){
+  document.getElementById('nav').innerHTML=answers.map((a,i)=>{
+    let cls='nd';
+    if(i===cur)cls+=' cur';
+    else if(a!==null)cls+=a.correct?' ok':' ng';
+    return `<button class="${cls}" onclick="jumpTo(${i})">${i+1}</button>`;
+  }).join('');
+}
+
+function render(){
+  if(cur>=TOTAL){
+    document.getElementById('qa').style.display='none';
+    document.getElementById('sc').classList.add('show');
+    const s=getScore();
+    document.getElementById('fs').textContent=s;
+    const p=s/TOTAL;
+    document.getElementById('rm').textContent=p===1?'🎉 Perfect!':p>=.8?'👏 Great!':p>=.6?'😊 Good!':'💪 Keep going!';
+    document.getElementById('rs').textContent=`${TOTAL}문제 중 ${s}문제 정답 (${Math.round(p*100)}%)`;
+    setTimeout(function(){window.showScorePopup&&window.showScorePopup(s,TOTAL);},400);
+    renderNav();return;
+  }
+  document.getElementById('sc').classList.remove('show');
+  document.getElementById('qa').style.display='block';
+  renderNav();
+  const q=Q[order[cur]];
+  document.getElementById('bf').style.width=((cur+1)/TOTAL*100).toFixed(1)+'%';
+  document.getElementById('pt').textContent=`${cur+1} / ${TOTAL}`;
+  document.getElementById('ps').textContent=`정답 ${getScore()}개`;
+  const a=answers[cur];
+  if(a!==null){
+    let oBtnCls='',xBtnCls='';
+    if(a.picked===true){oBtnCls=a.correct?'co':'wp';if(!a.correct)xBtnCls='cx';}
+    else{xBtnCls=a.correct?'cx':'wp';if(!a.correct)oBtnCls='co';}
+    document.getElementById('qa').innerHTML=`<div class="card"><div class="q-meta"><span class="q-num">Q${cur+1}</span><span class="q-src">${q.src}</span><span class="q-cat">${q.cat}</span></div><div class="q-text">${q.text}</div><div class="ox-btns"><button class="ox-btn o-btn ${oBtnCls}" disabled>⭕<span class="lb">CORRECT</span></button><button class="ox-btn x-btn ${xBtnCls}" disabled>❌<span class="lb">WRONG</span></button></div><div class="badge ${a.correct?'ok':'ng'}">${a.correct?'✅ 정답!':'❌ 오답! 정답은 '+(q.ans?'O':'X')}</div><div>${renderExp(q,a.correct)}</div><button class="next-btn show" onclick="next()">${cur<TOTAL-1?'Next →':'결과 보기 →'}</button></div>`;
+  }else{
+    document.getElementById('qa').innerHTML=`<div class="card"><div class="q-meta"><span class="q-num">Q${cur+1}</span><span class="q-src">${q.src}</span><span class="q-cat">${q.cat}</span></div><div class="q-text">${q.text}</div><div class="ox-btns"><button class="ox-btn o-btn" onclick="pick(true)" id="ob">⭕<span class="lb">CORRECT</span></button><button class="ox-btn x-btn" onclick="pick(false)" id="xb">❌<span class="lb">WRONG</span></button></div><div id="bd" class="badge"></div><div id="ep"></div><button class="next-btn" id="nb" onclick="next()">${cur<TOTAL-1?'Next →':'결과 보기 →'}</button></div>`;
+  }
+}
+
+function pick(val){
+  const q=Q[order[cur]];
+  document.getElementById('ob').disabled=true;
+  document.getElementById('xb').disabled=true;
+  const ok=val===q.ans;
+  answers[cur]={picked:val,correct:ok};
+  if(ok){if(typeof playOk==='function')playOk();}else{if(typeof playNg==='function')playNg();}
+  const bd=document.getElementById('bd');
+  bd.textContent=ok?'✅ 정답!':`❌ 오답! 정답은 ${q.ans?'O':'X'}`;
+  bd.className='badge '+(ok?'ok':'ng');
+  document.getElementById(val?'ob':'xb').classList.add(ok?(val?'co':'cx'):'wp');
+  if(!ok)document.getElementById(q.ans?'ob':'xb').classList.add(q.ans?'co':'cx');
+  document.getElementById('ep').innerHTML=renderExp(q,ok);
+  document.getElementById('nb').classList.add('show');
+  document.getElementById('ps').textContent=`정답 ${getScore()}개`;
+  renderNav();saveProgress();
+}
+
+function next(){cur++;saveProgress();render();}
+function jumpTo(i){cur=i;render();document.getElementById('qa').scrollIntoView({behavior:'smooth',block:'start'});}
+
+(function(){
+  const saved=JSON.parse(localStorage.getItem(SAVE_KEY)||'null');
+  if(saved&&saved.answers&&saved.cur>=0&&saved.cur<TOTAL){
+    cur=saved.cur;answers=saved.answers;
+    if(saved.mode){mode=saved.mode;order=saved.order||[...Array(TOTAL).keys()];}
+    const done=answers.filter(a=>a!==null).length;
+    if(done>0){document.getElementById('rb-msg').textContent=`이어서 풀기 중 · ${done}/${TOTAL} 문제 완료 (정답 ${getScore()}개)`;document.getElementById('rb').style.display='block';}
+  }
+  updateModeUI();renderNav();render();
+})();
+</script>
+</body>
+</html>

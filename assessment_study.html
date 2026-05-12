@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch.13 Assessment — 개념정리</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=JetBrains+Mono:wght@400;600&family=Caveat:wght@600&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans KR',sans-serif;background:#f4f3ed;background-image:repeating-linear-gradient(transparent,transparent 27px,#d5d8cf 28px);color:#1a1a1a;min-height:100vh;padding:16px}
+.header-wrap{max-width:820px;margin:0 auto;padding:24px 8px 0}
+.header-topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.header-sticker{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;background:#1a3326;color:#e8f5e9;padding:5px 13px;border-radius:3px;letter-spacing:2px;text-transform:uppercase}
+.header-chapter{font-family:'JetBrains Mono',monospace;font-size:12px;color:#4a5a44;letter-spacing:.5px}
+.header-title{font-size:clamp(30px,7vw,46px);font-weight:900;color:#1a1a1a;line-height:1.1;margin-bottom:5px;letter-spacing:-1px}
+.title-hl{background:#00695c;color:#fff;padding:1px 6px}
+.header-script{font-family:'Caveat',cursive;font-size:21px;color:#00695c;margin-bottom:4px;font-weight:600}
+.header-sub{font-size:13px;color:#555;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#aaa;margin-bottom:10px}
+.header-divider{border:none;border-top:2px dashed #888;margin-bottom:10px}
+.header-tip{font-size:12px;color:#2e4a3a;font-family:'JetBrains Mono',monospace;margin-bottom:20px;background:rgba(0,105,92,.06);border:1px solid rgba(0,105,92,.2);border-radius:8px;padding:9px 14px;line-height:1.7}
+
+.wrap{max-width:820px;margin:0 auto}
+
+.sec{background:#fff;border:1.5px solid #b2dfcc;border-radius:16px;margin-bottom:20px;overflow:hidden;box-shadow:0 2px 8px rgba(46,125,82,.08)}
+@media(max-width:600px){.grid.col2,.grid.col3{grid-template-columns:1fr}}
+.sec-header{background:linear-gradient(135deg,rgba(46,125,82,.08),rgba(38,166,154,.05));border-bottom:1.5px solid #b2dfcc;padding:16px 22px;display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none}
+.sec-icon{font-size:20px}
+.sec-title{font-size:16px;font-weight:700;color:#1b5e3a;font-family:'JetBrains Mono',monospace}
+.sec-tag{font-size:11px;color:#2e7d52;background:rgba(46,125,82,.1);padding:3px 10px;border-radius:6px;margin-left:auto;font-weight:600}
+.sec-arrow{font-size:13px;color:#4a7a62;transition:transform .3s;margin-left:6px}
+.sec.open .sec-arrow{transform:rotate(180deg)}
+.sec-body{display:none;padding:22px}
+.sec.open .sec-body{display:block}
+
+.concept{margin-bottom:22px}
+.concept:last-child{margin-bottom:0}
+.c-title{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;color:#1b5e3a;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.c-title .badge-ex{font-size:10px;background:rgba(230,119,0,.12);color:#e67c00;border:1px solid rgba(230,119,0,.3);padding:2px 7px;border-radius:4px;letter-spacing:0;text-transform:none;font-weight:700}
+.def{background:rgba(46,125,82,.06);border-left:4px solid #2e7d52;padding:12px 16px;border-radius:0 10px 10px 0;margin-bottom:10px;font-size:17px;line-height:1.8;color:#1a3326}
+.note{font-size:16px;color:#3a6b51;line-height:1.75;margin-bottom:6px;padding-left:6px}
+.note::before{content:"• ";color:#26a69a;font-weight:700}
+
+.kw1{background:rgba(46,125,82,.15);color:#1b5e3a;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(46,125,82,.25);white-space:nowrap}
+.kw2{color:#00796b;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border-bottom:2px solid rgba(0,121,107,.45);white-space:nowrap}
+.kw3{background:rgba(230,119,0,.13);color:#bf6000;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(230,119,0,.3);white-space:nowrap}
+.kw4{background:rgba(183,28,28,.11);color:#b71c1c;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(183,28,28,.25);white-space:nowrap}
+.legend{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 16px;padding:10px 14px;background:#fff;border:1.5px solid #b2dfcc;border-radius:10px;align-items:center}
+.legend-title{font-size:10px;font-family:'JetBrains Mono',monospace;color:#4a7a62;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-right:4px}
+.legend-item{display:flex;align-items:center;gap:5px;font-size:11px;color:#3a6b51}
+
+.grid{display:grid;gap:10px;margin-top:12px}
+.grid.col2{grid-template-columns:1fr 1fr}
+.grid.col3{grid-template-columns:1fr 1fr 1fr}
+.grid-item{background:#f5fdf8;border:1.5px solid #b2dfcc;border-radius:10px;padding:14px 16px}
+.gi-title{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#2e7d52;margin-bottom:7px}
+.gi-body{font-size:14px;color:#3a6b51;line-height:1.7}
+.gi-body span{display:block}
+
+.flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px}
+.flow-item{background:#f5fdf8;border:1.5px solid #b2dfcc;border-radius:8px;padding:10px 16px;font-size:13px;color:#1a3326;text-align:center}
+.flow-arrow{color:#26a69a;font-size:18px;font-weight:700}
+
+.stage-wrap{margin-top:12px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{background:rgba(46,125,82,.1);color:#1b5e3a;font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;padding:10px 14px;border:1.5px solid #b2dfcc;text-align:left;font-weight:700}
+td{padding:10px 14px;border:1.5px solid #b2dfcc;color:#2a5040;vertical-align:top;line-height:1.65}
+tr:nth-child(even) td{background:rgba(46,125,82,.04)}
+
+.exam{background:rgba(230,119,0,.06);border:1.5px solid rgba(230,119,0,.25);border-radius:10px;padding:14px 16px;margin-top:14px}
+.exam-label{font-size:11px;font-family:'JetBrains Mono',monospace;color:#e67c00;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;font-weight:700}
+.exam p{font-size:13.5px;color:#6b4400;line-height:1.75;margin-bottom:4px}
+
+.div{height:1px;background:rgba(38,166,154,.2);margin:18px 0}
+
+.toc{max-width:820px;margin:0 auto 20px;background:#fff;border:1.5px solid #b2dfcc;border-radius:12px;padding:16px 20px;box-shadow:0 2px 8px rgba(46,125,82,.06)}
+.toc-title{font-size:11px;font-family:'JetBrains Mono',monospace;color:#4a7a62;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;font-weight:700}
+.toc-list{display:flex;flex-wrap:wrap;gap:7px}
+.toc-item{font-size:12px;color:#2e7d52;background:rgba(46,125,82,.08);border:1.5px solid rgba(46,125,82,.2);padding:5px 12px;border-radius:8px;cursor:pointer;transition:all .15s;font-family:'JetBrains Mono',monospace;font-weight:600}
+.toc-item:hover{background:rgba(46,125,82,.18)}
+@media(max-width:640px){.grid.col3,.grid.col2{grid-template-columns:1fr}.sec-body{padding:16px}.gi-body{font-size:14px}th{font-size:14px;padding:8px 10px}td{font-size:14px;padding:8px 10px}table{font-size:14px}.concept{overflow-x:auto}svg{min-width:480px;display:block}}
+</style>
+</head>
+<body>
+<div class="header-wrap">
+  <div class="header-topbar">
+    <span class="header-sticker">STUDY NOTE</span>
+    <span class="header-chapter">Ch.13 · Assessment</span>
+  </div>
+  <h1 class="header-title"><span class="title-hl">개념 정리</span> 노트</h1>
+  <div class="header-script">Concept Notes · Assessment</div>
+  <p class="header-sub">서브노트 순서 기반 · 기출 포인트 · 비교 도식</p>
+  <div class="header-divider"></div>
+  <p class="header-tip">📌 목차 버튼 클릭 → 해당 섹션으로 이동 &nbsp;·&nbsp; ▼ 섹션 제목 클릭 → 열고 닫기</p>
+</div>
+
+<div class="wrap">
+<div class="toc">
+  <div class="toc-title">📋 목차</div>
+  <div class="toc-list"><div class="toc-item" onclick="openSec('s1')">1 Assessment Qualities</div><div class="toc-item" onclick="openSec('s2')">2 Validity</div><div class="toc-item" onclick="openSec('s3')">3 Authenticity</div><div class="toc-item" onclick="openSec('s4')">4 Washback</div><div class="toc-item" onclick="openSec('s5')">5 Test Types</div><div class="toc-item" onclick="openSec('s6')">6 Classroom Tests</div><div class="toc-item" onclick="openSec('s7')">7 Alternative Assessment</div><div class="toc-item" onclick="openSec('s8')">8 Scoring and Items</div></div>
+</div>
+<div class="legend">
+  <span class="legend-title">키워드</span>
+  <span class="legend-item"><span class="kw4">★★★ 최빈출</span></span>
+  <span class="legend-item"><span class="kw3">★★ 빈출</span></span>
+  <span class="legend-item"><span class="kw1">★ 기본개념</span></span>
+  <span class="legend-item"><span class="kw2">부키워드</span></span>
+</div>
+<div class="exam" style="margin-bottom:20px">
+  <div class="exam-label">📝 기출분석 포인트 (Ch.13 Assessment)</div>
+  <p>1. <span class='kw4'>Practicality</span> — financial, time, administration constraints</p><p>2. <span class='kw4'>Reliability</span> — consistent and dependable results</p><p>3. <span class='kw4'>Validity</span> — content, face, construct, criterion-related</p><p>4. <span class='kw4'>Authenticity and Interactiveness</span> — target language use와 individual characteristics involvement</p><p>5. <span class='kw4'>Washback</span> — testing이 teaching/learning에 미치는 영향</p><p>6. <span class='kw4'>Test Types</span> — formative/summative, norm/criterion, direct/indirect</p><p>7. <span class='kw4'>Alternative Assessment</span> — portfolio, self-assessment, performance-based assessment</p><p>8. <span class='kw4'>Scoring and Items</span> — holistic/analytic scoring, MC guidelines, item analysis</p>
+</div>
+
+<div class="sec open" id="s1">
+  <div class="sec-header" onclick="toggle('s1')">
+    <span class="sec-icon">🎯</span>
+    <span class="sec-title">1 Assessment Qualities</span>
+    <span class="sec-tag">core qualities of language assessment</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="concept"><div class="c-title">Practicality</div><div class="def"><span class="kw1">Practicality</span>는 financial limitation, time constraint, ease of administration 안에서 test가 실행 가능한 정도입니다.</div><p class="note">좋은 test라도 비용·시간·운영 조건이 맞지 않으면 classroom assessment로 쓰기 어렵습니다.</p></div><div class="div"></div><div class="concept"><div class="c-title">Reliability</div><div class="def"><span class="kw4">Reliability</span>는 test가 consistent and dependable results를 주는 정도입니다.</div><p class="note">Internal-consistency, student, test administration, intra-rater, inter-rater, test-retest, equivalent-forms, split-half reliability를 구분합니다.</p><div class="exam"><div class="exam-label">📋 기출 이력</div><p><strong>2014 기입10</strong> — reliability, validity, washback 맥락</p></div></div>
+  </div>
+</div>
+<div class="sec" id="s2">
+  <div class="sec-header" onclick="toggle('s2')">
+    <span class="sec-icon">🔎</span>
+    <span class="sec-title">2 Validity</span>
+    <span class="sec-tag">validity types</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="concept"><div class="c-title">Content Validity</div><div class="def"><span class="kw4">Content validity</span>는 assessment content가 course objective와 domain을 representative하게 sample하는 정도입니다.</div><p class="note">Speaking competence를 paper-and-pencil multiple-choice test로만 측정하면 content validity가 낮습니다.</p></div><div class="div"></div><div class="concept"><div class="c-title">Construct Validity</div><div class="def"><span class="kw4">Construct validity</span>는 assessment instrument가 정의된 theoretical construct를 제대로 측정하는 정도입니다.</div><p class="note">Oral interview score를 pronunciation과 grammar만으로 결정하면 intended construct를 충분히 측정하지 못할 수 있습니다.</p></div><div class="div"></div><div class="concept"><div class="c-title">Face and Criterion-related Validity</div><div class="def"><span class="kw3">Face validity</span>는 test-taker가 test를 타당하게 느끼는 정도, concurrent validity와 predictive validity는 criterion-related validity와 관련됩니다.</div><p class="note">Concurrent validity는 같은 시점의 다른 test와 correlation, predictive validity는 future performance 예측입니다.</p></div>
+  </div>
+</div>
+<div class="sec" id="s3">
+  <div class="sec-header" onclick="toggle('s3')">
+    <span class="sec-icon">🔎</span>
+    <span class="sec-title">3 Authenticity</span>
+    <span class="sec-tag">authenticity and interactiveness</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="concept"><div class="c-title">Authenticity</div><div class="def"><span class="kw3">Authenticity</span>는 test task가 target language use task의 features와 대응하는 정도입니다.</div><p class="note">Natural language, contextualized items, thematic organization, meaningful topic이 관련됩니다.</p><div class="exam"><div class="exam-label">📋 기출 이력</div><p><strong>2012 Q25</strong> — portfolio와 authentic assessment 맥락</p></div></div><div class="div"></div><div class="concept"><div class="c-title">Interactiveness</div><div class="def"><span class="kw3">Interactiveness</span>는 test task 수행에 learner의 language ability, topical knowledge, affective schemata 같은 individual characteristics가 관여하는 정도입니다.</div><p class="note">Role play는 high authenticity와 high interactiveness의 예시입니다.</p></div>
+  </div>
+</div>
+<div class="sec" id="s4">
+  <div class="sec-header" onclick="toggle('s4')">
+    <span class="sec-icon">🔎</span>
+    <span class="sec-title">4 Washback</span>
+    <span class="sec-tag">effect on teaching and learning</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="concept"><div class="c-title">Washback</div><div class="def"><span class="kw4">Washback effect</span>는 testing이 teaching과 learning에 미치는 영향입니다.</div><p class="note">Useful diagnoses와 specific feedback은 beneficial washback을 만들지만, simple letter grade만 제공하면 washback이 약합니다.</p><div class="exam"><div class="exam-label">📋 기출 이력</div><p><strong>2018 기입7</strong> — assessment, washback, formative 맥락</p></div></div>
+  </div>
+</div>
+<div class="sec" id="s5">
+  <div class="sec-header" onclick="toggle('s5')">
+    <span class="sec-icon">🔎</span>
+    <span class="sec-title">5 Test Types</span>
+    <span class="sec-tag">major test classifications</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="concept"><div class="c-title">Formative vs Summative</div><div class="def"><span class="kw4">Formative assessment</span>는 instruction 과정 중 learner learning을 scaffold하기 위한 평가이고, <span class="kw4">summative assessment</span>는 course end에서 learning outcome을 document하는 평가입니다.</div><p class="note">Portfolio assessment는 formal이면서 formative일 수 있습니다.</p><div class="exam"><div class="exam-label">📋 기출 이력</div><p><strong>2011 Q29</strong> — formative assessment와 feedback 맥락</p></div></div><div class="div"></div><div class="concept"><div class="c-title">Norm vs Criterion</div><div class="def"><span class="kw4">Norm-referenced testing</span>은 scores를 test takers끼리 비교하고, <span class="kw4">criterion-referenced testing</span>은 mastery criterion에 비추어 performance를 해석합니다.</div><p class="note">Norm-referenced는 rank order, percentile, relative standing과 관련되고 criterion-referenced는 qualitative feedback과 learning goals 관련 progress를 중시합니다.</p><div class="exam"><div class="exam-label">📋 기출 이력</div><p><strong>2010 Q25</strong> — norm-referenced test와 criterion-referenced test 비교</p></div></div>
+  </div>
+</div>
+<div class="sec" id="s6">
+  <div class="sec-header" onclick="toggle('s6')">
+    <span class="sec-icon">🔎</span>
+    <span class="sec-title">6 Classroom Tests</span>
+    <span class="sec-tag">purpose-based tests</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="concept"><div class="c-title">Purpose-based Tests</div><div class="def"><span class="kw3">Proficiency test</span>, <span class="kw3">placement test</span>, <span class="kw3">diagnostic test</span>, <span class="kw3">achievement test</span>는 목적이 다릅니다.</div><p class="note">Proficiency test는 prior instruction과 무관한 overall proficiency, placement test는 비슷한 level group 분류, diagnostic test는 strengths/weaknesses 파악, achievement test는 instruction outcome 확인입니다.</p><div class="exam"><div class="exam-label">📋 기출 이력</div><p><strong>2010 Q26</strong> — diagnostic test와 placement test 구분</p><p><strong>2015 기입8</strong> — proficiency test와 placement test 구분</p></div></div>
+  </div>
+</div>
+<div class="sec" id="s7">
+  <div class="sec-header" onclick="toggle('s7')">
+    <span class="sec-icon">🔎</span>
+    <span class="sec-title">7 Alternative Assessment</span>
+    <span class="sec-tag">portfolio and self-assessment</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="concept"><div class="c-title">Portfolio</div><div class="def"><span class="kw4">Portfolio</span>는 learner work의 purposeful collection으로 progress와 achievement를 보여 줍니다.</div><p class="note">Process-oriented, formative, reflective이며 production과 teacher judgement를 중시합니다.</p><div class="exam"><div class="exam-label">📋 기출 이력</div><p><strong>2010 Q29</strong> — portfolio assessment와 formative assessment</p><p><strong>2016 서술6</strong> — portfolio와 self-assessment</p></div></div><div class="div"></div><div class="concept"><div class="c-title">Self-assessment</div><div class="def"><span class="kw3">Self-assessment</span>는 learner가 자신의 process, strategies, outcomes를 평가하는 alternative assessment입니다.</div><p class="note">Learner autonomy와 intrinsic motivation을 촉진하지만 checklist를 구체화하고 conferencing을 병행해야 합니다.</p></div>
+  </div>
+</div>
+<div class="sec" id="s8">
+  <div class="sec-header" onclick="toggle('s8')">
+    <span class="sec-icon">🔎</span>
+    <span class="sec-title">8 Scoring and Items</span>
+    <span class="sec-tag">rubrics and item analysis</span>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+    <div class="concept"><div class="c-title">Holistic vs Analytic Scoring</div><div class="def"><span class="kw3">Holistic scoring</span>은 single score를 빠르게 제공하고, <span class="kw3">analytic scoring</span>은 components를 따로 rating하여 diagnostic feedback을 제공합니다.</div><p class="note">Analytic scoring은 시간이 더 걸리지만 formative feedback과 strengths/weaknesses 파악에 유용합니다.</p><div class="exam"><div class="exam-label">📋 기출 이력</div><p><strong>2021 논술2</strong> — rubric, feedback, writing assessment 맥락</p></div></div><div class="div"></div><div class="concept"><div class="c-title">Multiple-choice Guidelines</div><div class="def">Selected-response item은 declarative knowledge와 beginning level learner 평가에 유용하지만 guessing과 distractor quality 문제가 있습니다.</div><p class="note">Stem은 concise and simple, single clearly formulated problem이어야 하며 distractors는 같은 grammatical/semantic category에 속해야 합니다.</p><div class="exam"><div class="exam-label">📋 기출 이력</div><p><strong>2023 B-11</strong> — selected-response item guideline 맥락</p></div></div>
+  </div>
+</div>
+</div><!-- /.wrap -->
+
+<script>
+function toggle(id){ document.getElementById(id).classList.toggle('open'); }
+function openSec(id){ const s=document.getElementById(id); s.classList.add('open'); s.scrollIntoView({behavior:'smooth',block:'start'}); }
+</script>
+</body>
+</html>
