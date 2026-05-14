@@ -2,7 +2,7 @@
 
 # [영어교육론] Ch.5 Methodology OX 20문항 — 해설 완전 정복
 
-Ch.5 Methodology의 핵심 개념을 OX 문항으로 점검합니다. CLT의 communicative activity 조건, TBLT의 task 정의, information-gap / opinion-gap / reasoning-gap 구분, PPP vs TBLT, Designer Methods, Post-method와 principled eclecticism까지 — 기출 단골 함정 포인트 중심으로 해설합니다.
+Ch.5 Methodology OX는 활동 이름보다 condition을 확인하는 연습이다. 아래 해설은 반복 설명을 줄이고, 각 문항에서 실제로 헷갈릴 만한 판단 기준과 답안 문장만 붙였다.
 
 ---
 
@@ -10,11 +10,11 @@ Ch.5 Methodology의 핵심 개념을 OX 문항으로 점검합니다. CLT의 com
 
 > *"CLT is best understood as communicative activity, authentic material, small groups, functions and forms, so it should be interpreted within its instructional or assessment context."*
 
-<span style="color:#3182ce">**CLT**</span>는 communication을 중심으로 language use를 조직하는 접근입니다. 핵심은 communicative activity, authentic material, small groups, functions and forms입니다.
+맞습니다. <span style="color:#3182ce">**CLT**</span>는 communicative activity, authentic material, small groups, functions and forms를 핵심 단서로 봅니다.
 
-특히 communicative activity는 information gap, learner choice, feedback을 포함해야 합니다. 활동 이름보다 실제 classroom condition을 확인해야 합니다.
+특히 communicative activity는 information gap, learner choice, feedback으로 판단합니다. <span style="color:#c53030">**2010 Q16 / 2026 A-7**</span>처럼 focus on form, communicative drill, information gap이 함께 나오면 활동 이름보다 실제 조건을 확인해야 합니다.
 
-<span style="color:#c53030">**2010 Q16 / 2026 A-7**</span> 출제 영역
+답안 패턴: "The activity is communicative because learners exchange different information to complete the outcome."
 
 ---
 
@@ -22,9 +22,9 @@ Ch.5 Methodology의 핵심 개념을 OX 문항으로 점검합니다. CLT의 com
 
 > *"CLT can be safely treated as the same as any neighboring concept because the distinction is mostly terminological."*
 
-<span style="color:#c53030">**⚠️ CLT는 인접 개념과 구분되는 condition이 있습니다.**</span>
+틀립니다. CLT는 label이 아니라 classroom condition으로 구분합니다.
 
-CLT는 단순 label이 아니라 communicative activity의 조건으로 판단합니다. information gap, learner choice, feedback이 있는지 확인해야 하며, pair work나 speaking activity라는 이유만으로 CLT의 핵심 조건이 충족된다고 볼 수 없습니다.
+Pair work라도 같은 worksheet를 보고 정해진 문장을 반복하면 information gap이 약합니다. 반대로 controlled frame이 있어도 서로 다른 information을 묻고 답해야 outcome이 완성되면 communicative activity로 설명할 수 있습니다.
 
 ---
 
@@ -32,9 +32,11 @@ CLT는 단순 label이 아니라 communicative activity의 조건으로 판단�
 
 > *"TBLT is best understood as meaning focus와 communicative outcome을 가진 task, so it should be interpreted within its instructional or assessment context."*
 
-<span style="color:#3182ce">**TBLT**</span>에서 task는 primary focus on meaning과 clearly defined communicative outcome을 가진 work plan입니다. task completion이 중심이고, language form은 task 수행 중 필요에 따라 다뤄질 수 있습니다.
+맞습니다. <span style="color:#3182ce">**TBLT**</span>에서 task는 primary focus on meaning과 clearly defined communicative outcome을 가진 work plan입니다.
 
-<span style="color:#c53030">**2017 B 서술3 / 2023 B-10**</span> 출제 영역
+"past tense 빈칸 채우기"는 form practice에 가깝고, "친구들의 weekend activity를 조사해 class survey 결과를 보고하기"는 meaning focus와 outcome이 있으므로 task로 설명할 수 있습니다.
+
+답안 패턴: "This is a task because learners focus on meaning and produce a clearly defined communicative outcome."
 
 ---
 
@@ -42,9 +44,9 @@ CLT는 단순 label이 아니라 communicative activity의 조건으로 판단�
 
 > *"TBLT can be safely treated as the same as any neighboring concept because the distinction is mostly terminological."*
 
-<span style="color:#c53030">**⚠️ TBLT는 단순 activity와 다릅니다.**</span>
+틀립니다. 재미있는 activity나 pair work라고 모두 TBLT가 아닙니다. Task로 보려면 meaning focus와 outcome이 있어야 합니다.
 
-TBLT의 task는 meaning focus와 communicative outcome이 있어야 합니다. 단순 form practice나 drill을 task라고 부르려면 부족합니다. learner가 의미를 전달하고 task outcome을 완성해야 합니다.
+또한 TBLT가 grammar teaching을 배제한다는 뜻도 아닙니다. Form focus는 task 수행 중 또는 이후 learner language를 바탕으로 연결될 수 있습니다.
 
 ---
 
@@ -52,13 +54,11 @@ TBLT의 task는 meaning focus와 communicative outcome이 있어야 합니다. �
 
 > *"Task Types is best understood as information-gap, opinion-gap, reasoning-gap, so it should be interpreted within its instructional or assessment context."*
 
-Task type은 활동에서 요구되는 exchange나 inference process에 따라 구분합니다.
+맞습니다. Task type은 topic이 아니라 learner가 수행하는 process로 구분합니다.
 
-- <span style="color:#3182ce">**Information-gap**</span>: 서로 다른 information을 교환
-- <span style="color:#3182ce">**Opinion-gap**</span>: preference, feeling, attitude 교환
-- <span style="color:#3182ce">**Reasoning-gap**</span>: 주어진 information에서 새 information 추론
-
-<span style="color:#c53030">**2026 A-7**</span> 출제 영역
+- <span style="color:#3182ce">**Information-gap**</span>: 서로 다른 information 교환
+- <span style="color:#3182ce">**Opinion-gap**</span>: preference, feeling, attitude 표현
+- <span style="color:#3182ce">**Reasoning-gap**</span>: 주어진 information에서 새 conclusion 추론
 
 ---
 
@@ -66,9 +66,9 @@ Task type은 활동에서 요구되는 exchange나 inference process에 따라 �
 
 > *"Task Types can be safely treated as the same as any neighboring concept because the distinction is mostly terminological."*
 
-<span style="color:#c53030">**⚠️ Task type은 label이 아니라 요구되는 process로 구분합니다.**</span>
+틀립니다. Information을 단순 교환하면 information-gap, personal response를 말하면 opinion-gap, clue를 조합해 새 결과를 만들면 reasoning-gap입니다.
 
-Information-gap은 information exchange, opinion-gap은 personal response, reasoning-gap은 inference process가 핵심입니다. 문제에서 활동 절차가 제시되면 어떤 process가 필요한지 먼저 확인해야 합니다.
+답안에서 "students exchange information"과 "students infer a new result from given information"은 서로 다른 근거입니다.
 
 ---
 
@@ -76,9 +76,9 @@ Information-gap은 information exchange, opinion-gap은 personal response, reaso
 
 > *"PPP vs TBLT is best understood as presentation-practice-production과 task cycle, so it should be interpreted within its instructional or assessment context."*
 
-<span style="color:#3182ce">**PPP**</span>는 Presentation → Practice → Production 순서로 target form을 제시하고 연습 후 산출로 이동합니다.
+맞습니다. <span style="color:#3182ce">**PPP**</span>는 Presentation → Practice → Production 순서로 target form을 먼저 제시합니다. <span style="color:#3182ce">**TBLT**</span>는 pre-task → task cycle → language focus 흐름으로 task completion을 중심에 둡니다.
 
-<span style="color:#3182ce">**TBLT**</span>는 pre-task, task cycle, language focus로 연결되며 task completion이 중심입니다.
+정리하면 PPP는 form first, TBLT는 task first입니다.
 
 ---
 
@@ -86,9 +86,9 @@ Information-gap은 information exchange, opinion-gap은 personal response, reaso
 
 > *"PPP vs TBLT can be safely treated as the same as any neighboring concept because the distinction is mostly terminological."*
 
-<span style="color:#c53030">**⚠️ PPP와 TBLT는 수업 조직의 출발점이 다릅니다.**</span>
+틀립니다. PPP의 Production과 TBLT의 task는 같지 않습니다.
 
-PPP는 target form을 먼저 제시하고 controlled practice를 거쳐 production으로 이동합니다. TBLT는 task 수행을 중심으로 수업이 조직됩니다. PPP의 Production과 TBLT의 task를 같은 것으로 처리하면 안 됩니다.
+PPP의 Production은 이미 제시된 target form을 산출하는 단계입니다. TBLT의 task는 처음부터 meaning-focused task completion이 수업 조직의 중심입니다.
 
 ---
 
@@ -96,12 +96,15 @@ PPP는 target form을 먼저 제시하고 controlled practice를 거쳐 producti
 
 > *"Designer Methods is best understood as Silent Way, TPR, Suggestopedia, CLL, Natural Approach, so it should be interpreted within its instructional or assessment context."*
 
-<span style="color:#3182ce">**Designer Methods**</span>에는 Silent Way, TPR, Suggestopedia, CLL, Natural Approach 등이 포함됩니다. 각 method는 theory, teacher role, learner role, classroom technique으로 구분합니다.
+맞습니다. Designer Methods는 method name보다 classroom clue로 구분합니다.
 
-핵심 단서:
-- Silent Way: teacher silence, learner discovery
-- TPR: command와 physical response
-- Natural Approach: comprehensible input, low affective filter
+| Method | 빠른 단서 |
+|---|---|
+| <span style="color:#3182ce">**Silent Way**</span> | teacher silence, learner discovery |
+| <span style="color:#3182ce">**TPR**</span> | command + physical response |
+| <span style="color:#3182ce">**Suggestopedia**</span> | relaxed atmosphere, suggestion |
+| <span style="color:#3182ce">**CLL**</span> | counselor role, learner security |
+| <span style="color:#3182ce">**Natural Approach**</span> | comprehensible input, low affective filter |
 
 ---
 
@@ -109,9 +112,9 @@ PPP는 target form을 먼저 제시하고 controlled practice를 거쳐 producti
 
 > *"Designer Methods can be safely treated as the same as any neighboring concept because the distinction is mostly terminological."*
 
-<span style="color:#c53030">**⚠️ Designer Methods는 technique과 role 단서로 구분해야 합니다.**</span>
+틀립니다. 하나의 표면 단서만으로 판단하면 위험합니다.
 
-이름만 외우면 classroom example에서 흔들립니다. command가 physical response로 이어지면 TPR, teacher가 silence를 전략적으로 사용하면 Silent Way, comprehensible input과 low affective filter가 강조되면 Natural Approach를 먼저 의심합니다.
+Teacher silence가 learner discovery와 연결되면 Silent Way, command에 physical response가 이어지면 TPR, counselor role과 learner security가 강조되면 CLL입니다. 답안에는 teacher behavior와 learner behavior를 함께 써야 합니다.
 
 ---
 
@@ -119,9 +122,9 @@ PPP는 target form을 먼저 제시하고 controlled practice를 거쳐 producti
 
 > *"Post-method is best understood as principled eclecticism과 teacher autonomy, so it should be interpreted within its instructional or assessment context."*
 
-<span style="color:#3182ce">**Post-method**</span>는 단일 method 처방보다 local context, teacher judgement, learner needs를 고려한 principled decision을 강조합니다.
+맞습니다. <span style="color:#3182ce">**Post-method**</span>는 단일 method 처방보다 local context, teacher judgement, learner needs에 맞춘 principled decision을 강조합니다.
 
-<span style="color:#3182ce">**Principled eclecticism**</span>은 여러 method의 technique을 coherent rationale에 따라 선택하는 것입니다.
+<span style="color:#3182ce">**Principled eclecticism**</span>은 technique을 아무렇게나 섞는 것이 아니라 coherent rationale에 따라 선택하는 것입니다.
 
 ---
 
@@ -129,9 +132,11 @@ PPP는 target form을 먼저 제시하고 controlled practice를 거쳐 producti
 
 > *"Post-method can be safely treated as the same as any neighboring concept because the distinction is mostly terminological."*
 
-<span style="color:#c53030">**⚠️ Post-method는 random mixing이 아닙니다.**</span>
+틀립니다. Post-method는 random mixing이 아닙니다.
 
-Post-method에서 중요한 것은 teacher autonomy와 local context입니다. 여러 technique을 섞더라도 coherent rationale이 있어야 하며, learner needs와 teaching context에 맞는 principled choice가 필요합니다.
+Teacher autonomy도 즉흥적 취향이 아니라 professional judgement입니다. Learner needs, local context, instructional goal을 근거로 technique을 선택해야 principled eclecticism이라고 할 수 있습니다.
+
+답안 패턴: "The teacher's choice reflects principled eclecticism because the techniques are justified by learner needs and the local teaching context."
 
 ---
 
@@ -139,13 +144,9 @@ Post-method에서 중요한 것은 teacher autonomy와 local context입니다. �
 
 > *"A learner can identify CLT only by memorizing the label, without checking examples or classroom conditions."*
 
-CLT는 label만 외우기만으로 판단할 수 없습니다. communicative activity의 실제 조건을 확인해야 합니다.
+틀립니다. CLT는 label 암기가 아니라 condition 판별입니다.
 
-확인 순서:
-1. information gap이 있는가?
-2. learner choice가 있는가?
-3. feedback이 있는가?
-4. authentic material, small groups, functions and forms가 어떻게 연결되는가?
+확인할 것은 information gap, learner choice, feedback입니다. "Students practice requests"라는 설명만으로는 부족하고, request가 outcome을 완성하는 데 실제로 필요한지 봐야 합니다.
 
 ---
 
@@ -153,9 +154,9 @@ CLT는 label만 외우기만으로 판단할 수 없습니다. communicative act
 
 > *"A learner can identify TBLT only by memorizing the label, without checking examples or classroom conditions."*
 
-TBLT도 label보다 task 조건이 중요합니다. primary focus on meaning과 clearly defined communicative outcome이 있는지 확인해야 합니다.
+틀립니다. TBLT는 task 조건을 확인해야 합니다.
 
-<span style="color:#c53030">**⚠️ 함정**: activity가 재미있거나 pair work라고 해서 자동으로 TBLT가 되는 것은 아닙니다.</span>
+Target form manipulation만 있으면 task라고 보기 어렵습니다. 반대로 target form이 포함되어 있어도 learner가 meaning을 전달하고 outcome을 완성한다면 task로 설명할 수 있습니다.
 
 ---
 
@@ -163,13 +164,13 @@ TBLT도 label보다 task 조건이 중요합니다. primary focus on meaning과 
 
 > *"A learner can identify Task Types only by memorizing the label, without checking examples or classroom conditions."*
 
-Task type은 활동 절차를 봐야 합니다.
+틀립니다. Task type은 activity procedure를 봐야 합니다.
 
-| Type | 판단 기준 |
+| Type | 답안 한 줄 |
 |---|---|
-| Information-gap | 서로 다른 information 교환 |
-| Opinion-gap | preference, feeling, attitude 교환 |
-| Reasoning-gap | inference process를 통한 결과 도출 |
+| Information-gap | Students exchange different information to complete missing parts. |
+| Opinion-gap | Students express and compare their preferences. |
+| Reasoning-gap | Students infer a new result from the given information. |
 
 ---
 
@@ -177,9 +178,9 @@ Task type은 활동 절차를 봐야 합니다.
 
 > *"A learner can identify PPP vs TBLT only by memorizing the label, without checking examples or classroom conditions."*
 
-PPP와 TBLT는 절차와 중심이 다릅니다. PPP는 Presentation → Practice → Production, TBLT는 task completion과 task cycle을 중심으로 판단합니다.
+틀립니다. PPP와 TBLT는 절차와 중심이 다릅니다.
 
-<span style="color:#c53030">**⚠️ 정리**: PPP = form first 흐름. TBLT = task first 흐름.</span>
+Teacher가 먼저 form을 설명하고 controlled practice로 이동하면 PPP 가능성이 강합니다. Students가 task를 수행하고 이후 language focus로 가면 TBLT 가능성이 강합니다.
 
 ---
 
@@ -187,15 +188,9 @@ PPP와 TBLT는 절차와 중심이 다릅니다. PPP는 Presentation → Practic
 
 > *"A learner can identify Designer Methods only by memorizing the label, without checking examples or classroom conditions."*
 
-Designer Methods는 classroom technique과 teacher/learner role을 확인해야 합니다.
+틀립니다. Designer Methods는 classroom clue를 잡아야 합니다.
 
-| Method | 빠른 단서 |
-|---|---|
-| Silent Way | teacher silence |
-| TPR | command + physical response |
-| Suggestopedia | relaxed atmosphere |
-| CLL | counselor role |
-| Natural Approach | comprehensible input |
+예: "The activity reflects TPR because the teacher gives commands and learners show comprehension through physical response."
 
 ---
 
@@ -203,9 +198,9 @@ Designer Methods는 classroom technique과 teacher/learner role을 확인해야 
 
 > *"A learner can identify Post-method only by memorizing the label, without checking examples or classroom conditions."*
 
-Post-method는 label보다 선택 근거가 중요합니다. local context, teacher judgement, learner needs를 바탕으로 coherent rationale이 있는지 확인해야 합니다.
+틀립니다. Post-method는 선택 근거가 중요합니다.
 
-Principled eclecticism은 method를 섞는다는 결과보다 왜 그렇게 선택했는지가 핵심입니다.
+Principled eclecticism은 "여러 방법을 섞었다"가 아니라 "왜 그 방법들을 선택했는가"를 설명해야 합니다.
 
 ---
 
@@ -213,9 +208,9 @@ Principled eclecticism은 method를 섞는다는 결과보다 왜 그렇게 선�
 
 > *"A learner can identify CLT only by memorizing the label, without checking examples or classroom conditions."*
 
-같은 CLT 문항이라도 활동 조건을 반복 확인해야 합니다. communication이라는 말이 있어도 information gap, learner choice, feedback이 약하면 communicative activity로 보기 어렵습니다.
+틀립니다. Communicative drill과 mechanical drill을 구분할 때는 response가 고정되어 있는지, learner choice가 있는지, 상대방 information이 필요한지 확인합니다.
 
-<span style="color:#c53030">**⚠️ 빈출 함정**: communicative drill과 mechanical drill을 구분할 때도 실제 information exchange와 learner choice를 확인합니다.</span>
+답안 패턴: "Although the activity is controlled, it is communicative because learners must choose context-appropriate responses and use exchanged information."
 
 ---
 
@@ -223,9 +218,11 @@ Principled eclecticism은 method를 섞는다는 결과보다 왜 그렇게 선�
 
 > *"A learner can identify TBLT only by memorizing the label, without checking examples or classroom conditions."*
 
-TBLT의 마지막 확인 기준은 task outcome입니다. learner가 meaning을 중심으로 language를 사용하고, task completion을 통해 communicative outcome을 만들어야 합니다.
+틀립니다. TBLT의 마지막 확인 기준은 task outcome입니다.
 
-<span style="color:#3182ce">**TBLT 답안 패턴**</span>: "이 활동은 primary focus on meaning과 clearly defined communicative outcome을 가지므로 task에 해당한다."
+Survey result, route, ranking, story, plan, report처럼 확인 가능한 outcome을 잡고, 그 outcome이 meaning-focused interaction을 통해 만들어졌다는 점을 설명해야 합니다.
+
+답안 패턴: "This activity qualifies as a task because learners focus on meaning and complete a communicative outcome."
 
 ---
 
