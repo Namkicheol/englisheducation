@@ -211,5 +211,5 @@ Discourse 답안은 보통 다음 네 단계를 따르면 안정적입니다.
 ---
 
 <p align="center">
-<a href="https://obangti.tistory.com/[post-id]" target="_blank" style="display:inline-block;padding:14px 28px;background:#3182ce;color:#fff;text-decoration:none;border-radius:8px;font-weight:bold;font-size:15px;">[Discourse] OX 20문항 풀러 가기 →</a>
+<a href="https://obangti.tistory.com/85" target="_blank" style="display:inline-block;padding:14px 28px;background:#3182ce;color:#fff;text-decoration:none;border-radius:8px;font-weight:bold;font-size:15px;">[Discourse] OX 20문항 풀러 가기 →</a>
 </p>
