@@ -1,6 +1,6 @@
-# englisheducation - Codex 작업 환경
+# englisheducation — AGENTS.md (Codex)
 
-이 레포는 임용고시 영어교육론 OX 퀴즈 + 개념정리 정적 웹앱이다. Codex는 이 `AGENTS.md`를 1차 작업 지침으로 삼는다. `CLAUDE.md`는 기존 레거시 규칙을 확인할 때만 보조로 참고한다.
+이 레포는 임용고시 영어교육론 OX 퀴즈 + 개념정리 정적 웹앱이다. Codex는 이 `AGENTS.md`를 1차 진입 문서로 사용한다. Claude Code는 `CLAUDE.md`를 사용하며, 두 파일은 도구 framing만 다르고 섹션·순서·규칙은 동일하다. 새 규칙은 양쪽 모두 갱신한다.
 
 ## 기본 작업 순서
 
