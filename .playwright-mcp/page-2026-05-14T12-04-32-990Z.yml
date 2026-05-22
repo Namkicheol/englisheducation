@@ -1,0 +1,20 @@
+- generic [active] [ref=e1]:
+  - generic:
+    - link "본문 바로가기" [ref=e2] [cursor=pointer]:
+      - /url: "#kakaoBody"
+    - link "메뉴 바로가기" [ref=e3] [cursor=pointer]:
+      - /url: "#kakaoLnb"
+  - generic [ref=e4]:
+    - banner [ref=e5]
+    - main [ref=e6]:
+      - generic [ref=e11]:
+        - heading "로그인" [level=2]
+        - link "TISTORY" [ref=e12] [cursor=pointer]:
+          - /url: "#"
+          - strong [ref=e13]: TISTORY
+        - paragraph [ref=e14]: 당신의 이야기가 값진 수익이 됩니다.
+        - link "카카오계정으로 로그인" [ref=e15] [cursor=pointer]:
+          - /url: "#"
+          - generic [ref=e17]: 카카오계정으로 로그인
+        - link "내 티스토리 계정을 모르겠어요" [ref=e18] [cursor=pointer]:
+          - /url: "#"

@@ -66,7 +66,9 @@ until [ "$(curl -s -o /dev/null -w '%{http_code}' https://namkicheol.github.io/e
 ① 블로그 제목 2개 (퀴즈/개념정리)
 ② 태그
 ③ iframe 임베드 코드 2개 (퀴즈/개념정리)
-④ Pencil MCP 이미지 (blog-image-pencil 스킬 사용)
+④ 썸네일 — **Canva MCP** (`mcp__claude_ai_Canva__generate-design`)로 생성
+
+> ⚠️ Pencil MCP는 토큰 과다 소비로 블로그 썸네일에 사용 금지.
 
 ---
 
@@ -102,6 +104,20 @@ until [ "$(curl -s -o /dev/null -w '%{http_code}' https://namkicheol.github.io/e
         style="border:1px solid #ddd; border-radius:12px;"></iframe>
 ```
 
-## 이미지
+## 썸네일 생성 (Canva MCP)
 
-**blog-image-pencil 스킬** 사용 — Pencil MCP로 3장 AI 생성.
+`mcp__claude_ai_Canva__generate-design`으로 개념정리·OX 각 1장씩 총 2장 생성.
+
+**프롬프트 패턴** (밝고 깔끔한 교육 블로그 스타일):
+```
+Clean bright educational blog thumbnail. Topic: "Ch.N [챕터명]".
+Bright white or light background with bold dark green (#1a3326) left panel,
+clear bold white English text "[제목]" as main title, "[부제]" as subtitle.
+Right side: bright cheerful photo of teacher in well-lit classroom, warm natural lighting.
+Modern clean editorial style like an educational magazine cover.
+NOT dark, NOT moody. Bright, professional, readable. 16:9.
+```
+
+생성 후 `mcp__claude_ai_Canva__create-design-from-candidate`로 저장,
+`mcp__claude_ai_Canva__export-design`(PNG 1280×720)으로 내보낸 뒤
+`curl`로 `blog/thumbnails/`에 로컬 저장 → 커밋.
