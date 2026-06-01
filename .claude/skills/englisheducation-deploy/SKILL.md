@@ -21,7 +21,7 @@ description: englisheducation 챕터 완료 시 자동 처리 워크플로우. G
 ## 2단계: 하나의 커밋으로 묶기
 
 ```bash
-git add XXX.html XXX_study.html index.html [CLAUDE.md]
+git add XXX.html XXX_study.html index.html [AGENTS.md]
 git commit -m "Add Ch.N [챕터명] + index 업데이트
 
 - XXX.html: OX 퀴즈 20문항
