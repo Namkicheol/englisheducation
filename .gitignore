@@ -7,3 +7,4 @@
 
 # codex 로컬 참조용 testmaster 심볼릭 링크 (Pages 빌드 노출 방지)
 .local-refs/
+.playwright-mcp/
