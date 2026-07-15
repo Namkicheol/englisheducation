@@ -68,9 +68,22 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 .toc-item:hover{background:rgba(46,125,82,.18)}
 .legend{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 16px;padding:10px 14px;background:#fff;border:1.5px solid #b2dfcc;border-radius:10px;align-items:center}
 @media(max-width:640px){.grid.col3,.grid.col2{grid-template-columns:1fr}.sec-body{padding:16px}.gi-body{font-size:14px}th{font-size:14px;padding:8px 10px}td{font-size:14px;padding:8px 10px}table{font-size:14px}.concept{overflow-x:auto}svg{min-width:480px;display:block}}
+.learning-nav{max-width:820px;margin:0 auto 16px;padding:0 8px;display:flex;flex-wrap:wrap;gap:7px}
+.learning-nav.bottom{margin-top:24px;margin-bottom:72px}
+.learning-nav a{flex:1 1 140px;background:#fff;border:1.5px solid #b2dfcc;border-radius:8px;padding:8px 10px;color:#1b5e3a;text-decoration:none;text-align:center;font-size:12px;font-weight:700;line-height:1.4;transition:background .15s,border-color .15s}
+.learning-nav a:hover{background:#f0faf5;border-color:#2e7d52}
+@media(max-width:640px){.learning-nav a{flex-basis:calc(50% - 7px)}}
 </style>
 </head>
 <body>
+<nav class="learning-nav" aria-label="상단 학습 내비게이션">
+  <a href="https://testmaster-pi.vercel.app/">기출 WIKI</a>
+  <a href="./index.html">영어교육론 허브</a>
+  <a href="./sla.html">📝 이 챕터 OX 퀴즈</a>
+  <a href="https://namkicheol.github.io/linguistics/">영어학</a>
+  <a href="https://namkicheol.github.io/phonetics-phonology/phonetics.html">음성·음운론</a>
+  <a href="https://testmaster-pi.vercel.app/keyterm-quiz.html">영어교육론 키텀</a>
+</nav>
 <div class="header-wrap">
   <div class="header-topbar">
     <span class="header-sticker">STUDY NOTE</span>
@@ -684,5 +697,13 @@ document.addEventListener('DOMContentLoaded',function(){
   if(f||r){var b=document.getElementById('back-btn');if(b){b.textContent='← '+(f||'이전 페이지')+' 로 돌아가기';b.style.display='block';b.onclick=function(){history.back();};}}
 });
 </script>
+<nav class="learning-nav bottom" aria-label="하단 학습 내비게이션">
+  <a href="https://testmaster-pi.vercel.app/">기출 WIKI</a>
+  <a href="./index.html">영어교육론 허브</a>
+  <a href="./sla.html">📝 이 챕터 OX 퀴즈</a>
+  <a href="https://namkicheol.github.io/linguistics/">영어학</a>
+  <a href="https://namkicheol.github.io/phonetics-phonology/phonetics.html">음성·음운론</a>
+  <a href="https://testmaster-pi.vercel.app/keyterm-quiz.html">영어교육론 키텀</a>
+</nav>
 </body>
 </html>
