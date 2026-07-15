@@ -16,6 +16,10 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f4efe4;color:#1a1a1a;line
 .hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 20% 30%,rgba(197,165,114,.12) 0,transparent 40%),radial-gradient(circle at 85% 75%,rgba(104,196,145,.1) 0,transparent 45%);pointer-events:none}
 .hero-top{display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;color:rgba(240,236,224,.55);margin-bottom:26px;text-transform:uppercase}
 .hero-top .dot{display:inline-block;width:8px;height:8px;background:#c5a572;border-radius:50%;margin-right:10px;vertical-align:middle;box-shadow:0 0 8px rgba(197,165,114,.5)}
+.hub-nav{display:flex;gap:8px;flex-wrap:wrap;margin:-8px 0 26px}
+.hub-nav a{display:inline-flex;align-items:center;min-height:34px;padding:7px 12px;border:1px solid rgba(255,255,255,.18);border-radius:999px;color:rgba(240,236,224,.86);font-size:11.5px;font-weight:700;text-decoration:none;transition:background .15s ease,border-color .15s ease,color .15s ease}
+.hub-nav a:hover,.hub-nav a:focus-visible{background:rgba(255,255,255,.12);border-color:rgba(197,165,114,.7);color:#fff;outline:none}
+.hub-nav a[aria-current="page"]{background:rgba(197,165,114,.18);border-color:rgba(197,165,114,.55);color:#f3d8a4}
 .hero-brand{font-family:'Nunito',sans-serif;font-style:normal;font-weight:900;font-size:clamp(40px,7.5vw,72px);line-height:1;letter-spacing:-2px;margin-bottom:12px;color:#fff}
 .hero-brand .accent{color:#c5a572}
 .hero-script{font-family:'Caveat',cursive;font-weight:700;font-size:clamp(28px,4vw,38px);color:#c5a572;margin-bottom:22px;transform:rotate(-1.5deg);display:inline-block;margin-left:4px}
@@ -70,15 +74,6 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f4efe4;color:#1a1a1a;line
 .btn-s:hover{background:#faf7f0;border-color:var(--accent,#2e7d52);color:var(--accent,#2e7d52)}
 
 
-/* ─── Upcoming list (slim) ───────────────────────────── */
-.upcoming-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
-.up{background:#fbf8f0;border:1px dashed #cfc8b6;border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:12px;transition:all .2s ease}
-.up:hover{background:#fff;border-color:#b8ad91}
-.up-no{font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:700;color:#8a8070;background:#fff;border:1px solid #d5cfbf;padding:4px 8px;border-radius:6px;min-width:44px;text-align:center}
-.up-titles{flex:1;min-width:0}
-.up-en{font-family:'Nunito',sans-serif;font-style:normal;font-weight:700;font-size:14px;color:#0e2a1f;letter-spacing:-.2px;line-height:1.1}
-.up-ko{font-family:'Jua','Noto Sans KR',sans-serif;font-size:13px;color:#8a8070;margin-top:2px}
-.up-soon{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;letter-spacing:1px;color:#c5a572;border:1px solid rgba(197,165,114,.35);padding:3px 7px;border-radius:4px}
 
 /* ─── Study guide (minimal cards) ────────────────────── */
 .guide{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-bottom:40px}
@@ -103,7 +98,10 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f4efe4;color:#1a1a1a;line
 @media(max-width:640px){
   .wrap{padding:0 16px}
   .hero{padding:32px 0 46px}
-  .stats-row{grid-template-columns:repeat(2,1fr);gap:12px}
+  .hub-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-bottom:22px}
+  .hub-nav a{justify-content:center;padding-inline:8px;text-align:center}
+  .stats-row{grid-template-columns:repeat(3,1fr);gap:8px}
+  .stat-n{font-size:30px}
   .chap-grid{grid-template-columns:1fr}
   .hero-top{font-size:9.5px;letter-spacing:1px}
   .progress-wrap{padding:20px}
@@ -119,9 +117,16 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f4efe4;color:#1a1a1a;line
       <span><span class="dot"></span>Korean Secondary Teacher Exam</span>
       <span>Vol. 01 · English Education</span>
     </div>
+    <nav class="hub-nav" aria-label="전공영어 학습 허브">
+      <a href="https://testmaster-pi.vercel.app/">기출 WIKI</a>
+      <a href="./" aria-current="page">영어교육론</a>
+      <a href="https://namkicheol.github.io/linguistics/">영어학</a>
+      <a href="https://namkicheol.github.io/phonetics-phonology/phonetics.html">음성·음운론</a>
+      <a href="https://testmaster-pi.vercel.app/keyterm-quiz.html">영어교육론 키텀 퀴즈</a>
+    </nav>
     <h1 class="hero-brand">English <span class="accent">Education</span><br>Concept Master</h1>
     <div class="hero-script">영어교육론 개념 마스터</div>
-    <p class="hero-sub">중등 임용 영어 대비. <strong>서브노트 기반</strong>으로 13개 챕터의 핵심 개념을 <strong>OX 퀴즈(20문항)</strong>와 <strong>개념정리 노트</strong>로 정리한 학습 허브입니다.</p>
+    <p class="hero-sub">중등 임용 영어 대비. <strong>서브노트 기반</strong>으로 13개 챕터의 핵심 개념을 <strong>챕터별 OX 퀴즈</strong>와 <strong>개념정리 노트</strong>로 정리한 학습 허브입니다.</p>
     <div class="hero-meta">
       <span class="chip gold">📚 서브노트 기반</span>
       <span class="chip">🎯 기출 포인트</span>
@@ -142,9 +147,8 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f4efe4;color:#1a1a1a;line
     <div class="progress-bar"><div class="progress-fill"></div></div>
     <div class="stats-row">
       <div class="stat"><div class="stat-n">13</div><div class="stat-l">완료 챕터</div></div>
-      <div class="stat"><div class="stat-n">253<span class="small">문</span></div><div class="stat-l">OX 퀴즈</div></div>
-      <div class="stat"><div class="stat-n">0</div><div class="stat-l">제작 예정</div></div>
-      <div class="stat"><div class="stat-n">13</div><div class="stat-l">전체 챕터</div></div>
+      <div class="stat"><div class="stat-n">273<span class="small">문</span></div><div class="stat-l">OX 퀴즈</div></div>
+      <div class="stat"><div class="stat-n">13</div><div class="stat-l">개념정리</div></div>
     </div>
   </div>
 
@@ -221,7 +225,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f4efe4;color:#1a1a1a;line
       </div>
       <div class="chap-title">Teaching Listening</div>
       <div class="chap-ko">듣기 지도</div>
-      <div class="chap-meta"><span>📝 20문항</span><span class="sep">·</span><span>📖 개념정리</span></div>
+      <div class="chap-meta"><span>📝 26문항</span><span class="sep">·</span><span>📖 개념정리</span></div>
       <div class="chap-btns">
         <a class="btn btn-q" href="./listen.html">OX 퀴즈</a>
         <a class="btn btn-s" href="./listen_study.html">📖 개념정리</a>
@@ -341,18 +345,6 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f4efe4;color:#1a1a1a;line
     </div>
   </div>
 
-  <!-- ═══ Upcoming ═══ -->
-  <div class="sec-h">
-    <h2>Upcoming</h2>
-    <span class="sec-ko">제작 예정</span>
-    <span class="sec-line"></span>
-    <span class="sec-cnt">0 chapters</span>
-  </div>
-
-  <div class="upcoming-grid">
-    <div class="up"><span class="up-no">DONE</span><div class="up-titles"><div class="up-en">All chapters completed</div><div class="up-ko">전체 챕터 완료</div></div><span class="up-soon">OK</span></div>
-  </div>
-
   <!-- ═══ Study Guide ═══ -->
   <div class="sec-h">
     <h2>How to Study</h2>
@@ -363,7 +355,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f4efe4;color:#1a1a1a;line
   <div class="guide">
     <div class="guide-card">
       <h3>01 · Format</h3>
-      <p>각 챕터는 <strong>OX 퀴즈 20문항</strong>과 <strong>개념정리 노트</strong> 두 페이지로 구성됩니다. 영어 문장 기반 문제로 실전 감각을 기릅니다.</p>
+      <p>각 챕터는 <strong>챕터별 OX 퀴즈</strong>와 <strong>개념정리 노트</strong> 두 페이지로 구성됩니다. 영어 문장 기반 문제로 실전 감각을 기릅니다.</p>
     </div>
     <div class="guide-card">
       <h3>02 · Explanation</h3>
