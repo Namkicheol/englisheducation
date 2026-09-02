@@ -241,5 +241,5 @@ Vocabulary 문항은 label보다 condition을 먼저 본다.
 ---
 
 <p align="center">
-<a href="https://obangti.tistory.com/[post-id]" target="_blank" style="display:inline-block;padding:14px 28px;background:#3182ce;color:#fff;text-decoration:none;border-radius:8px;font-weight:bold;font-size:15px;">📝 [Teaching Vocabulary] OX 20문항 풀러 가기 →</a>
+<a href="https://namkicheol.github.io/englisheducation/vocab.html" target="_blank" style="display:inline-block;padding:14px 28px;background:#3182ce;color:#fff;text-decoration:none;border-radius:8px;font-weight:bold;font-size:15px;">📝 [Teaching Vocabulary] OX 20문항 풀러 가기 →</a>
 </p>

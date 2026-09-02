@@ -204,13 +204,13 @@ Principled eclecticism은 "여러 방법을 섞었다"가 아니라 "왜 그 방
 
 ---
 
-## Q19. CLT Review — ❌ X
+## Q19. CLT Applied Condition — ❌ X
 
-> *"A learner can identify CLT only by memorizing the label, without checking examples or classroom conditions."*
+> *"A pair activity is communicative even when each learner repeats a fixed worksheet response and does not need to exchange information or choose content and form."*
 
-틀립니다. Communicative drill과 mechanical drill을 구분할 때는 response가 고정되어 있는지, learner choice가 있는지, 상대방 information이 필요한지 확인합니다.
+틀립니다. 고정된 worksheet response를 반복하고 information exchange나 learner choice가 없으면 communicative activity의 조건을 충족하지 않습니다. CLT에서는 information gap, learner choice, feedback을 함께 확인합니다.
 
-답안 패턴: "Although the activity is controlled, it is communicative because learners must choose context-appropriate responses and use exchanged information."
+답안 패턴: "The activity is not communicative because learners neither exchange different information nor choose content and form."
 
 ---
 

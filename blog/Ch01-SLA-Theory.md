@@ -1,3 +1,5 @@
+<iframe src="https://namkicheol.github.io/englisheducation/sla_study.html" width="100%" height="1000px" style="border: none; border-radius: 10px;"></iframe>
+
 # 임용 영교론 Ch.1 SLA Theory 완전 정리: Krashen 5대 가설부터 Sociocultural까지
 
 영교론 13개 챕터 중 **SLA Theory가 압도적 최빈출**이다. <span style="color:#3182ce;">**Input · Interaction · Output**</span> 3대 가설은 거의 매년 출제되고, <span style="color:#3182ce;">**Sociocultural Theory**</span>의 ZPD·Scaffolding까지 합치면 한 해 한 문항은 거의 확정.
@@ -236,8 +238,10 @@ ZPD는 영역(zone), Scaffolding은 그 영역을 메우는 support. **다른 �
 **OX 20문항** — 위 4섹션 다 읽었으면 빈틈 점검 차원에서 직접 풀어보자.
 
 <p align="center">
-<a href="https://obangti.tistory.com/37" target="_blank" style="display:inline-block;padding:14px 28px;background:#3182ce;color:#fff;text-decoration:none;border-radius:8px;font-weight:bold;font-size:15px;">📝 SLA OX 20문항 풀러 가기 →</a>
+<a href="https://namkicheol.github.io/englisheducation/sla.html" target="_blank" style="display:inline-block;padding:14px 28px;background:#3182ce;color:#fff;text-decoration:none;border-radius:8px;font-weight:bold;font-size:15px;">📝 SLA OX 20문항 풀러 가기 →</a>
 </p>
+
+<iframe src="https://namkicheol.github.io/englisheducation/sla.html" width="100%" height="1000px" style="border: none; border-radius: 10px;"></iframe>
 
 ---
 

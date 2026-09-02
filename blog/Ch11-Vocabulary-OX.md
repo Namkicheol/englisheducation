@@ -241,5 +241,5 @@ Ch.11 Teaching Vocabulary OX는 단순 암기 확인용이 아니다. 실제 임
 ---
 
 <p align="center">
-<a href="https://obangti.tistory.com/[개념정리-post-id]" target="_blank" style="display:inline-block;padding:14px 28px;background:#2e7d52;color:#fff;text-decoration:none;border-radius:8px;font-weight:bold;font-size:15px;">📖 Ch.11 Teaching Vocabulary 개념정리 보러 가기 →</a>
+<a href="https://namkicheol.github.io/englisheducation/vocab_study.html" target="_blank" style="display:inline-block;padding:14px 28px;background:#2e7d52;color:#fff;text-decoration:none;border-radius:8px;font-weight:bold;font-size:15px;">📖 Ch.11 Teaching Vocabulary 개념정리 보러 가기 →</a>
 </p>

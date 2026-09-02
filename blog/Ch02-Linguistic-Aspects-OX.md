@@ -225,15 +225,16 @@
 
 > "Uptake: utterance that immediately follows teacher's feedback. Successful / Unsuccessful."
 
-<span style="color:#3182ce">**Uptake**</span>는 교사의 피드백에 **즉각적으로 반응**하는 학습자의 발화입니다. 오류가 수정되었는지 여부와 무관하게, 피드백 직후의 모든 학습자 발화가 uptake에 해당합니다.
+<span style="color:#3182ce">**Uptake**</span>는 교사의 피드백 뒤에 이어지며, 그 피드백에 대한 **immediate reaction**을 이루는 학습자의 발화입니다. 오류가 수정되었는지 여부와 무관하게 successful uptake와 unsuccessful uptake가 있으며, acknowledgement도 uptake 유형입니다. 반면 no uptake는 피드백에 반응하지 않고 topic continuation을 하는 경우입니다.
 
 | 유형 | 설명 |
 |------|------|
 | <span style="color:#319795">Successful uptake</span> | 오류 수정 완료 |
-| Unsuccessful uptake | 시도했지만 여전히 오류 |
-| No uptake | 무시하거나 acknowledgement만 |
+| Unsuccessful uptake | 피드백에 반응해 시도했지만 여전히 오류 |
+| Acknowledgement | acknowledgement만 함; uptake 유형 |
+| No uptake | 피드백에 반응하지 않고 topic continuation을 함; uptake 아님 |
 
-⚠️ **함정**: uptake = successful repair만이 아닙니다. 피드백 **직후**(immediately follows)의 모든 반응이 uptake입니다.
+⚠️ **함정**: uptake = successful repair만이 아닙니다. 다만 피드백 직후의 모든 발화가 아니라, 피드백에 대한 **immediate reaction**이어야 하며 ignore/no uptake는 제외합니다.
 
 ---
 

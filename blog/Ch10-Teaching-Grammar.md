@@ -154,5 +154,5 @@ Uptake는 learner의 **noticing** + **pushed output**으로 기능하며, correc
 ---
 
 <p align="center">
-<a href="https://obangti.tistory.com/[post-id]" target="_blank" style="display:inline-block;padding:14px 28px;background:#3182ce;color:#fff;text-decoration:none;border-radius:8px;font-weight:bold;font-size:15px;">📝 [Teaching Grammar] OX 20문항 풀러 가기 →</a>
+<a href="https://namkicheol.github.io/englisheducation/grammar.html" target="_blank" style="display:inline-block;padding:14px 28px;background:#3182ce;color:#fff;text-decoration:none;border-radius:8px;font-weight:bold;font-size:15px;">📝 [Teaching Grammar] OX 20문항 풀러 가기 →</a>
 </p>

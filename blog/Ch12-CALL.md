@@ -315,5 +315,5 @@ CAT는 item selection이 adaptive해야 한다. 단순히 computer에서 시험�
 **OX 20문항** — 위 개념을 읽은 뒤, label이 아니라 condition과 learner behavior를 기준으로 다시 확인해 보자.
 
 <p align="center">
-<a href="https://obangti.tistory.com/[post-id]" target="_blank" style="display:inline-block;padding:14px 28px;background:#3182ce;color:#fff;text-decoration:none;border-radius:8px;font-weight:bold;font-size:15px;">📝 [CALL · Material] OX 20문항 풀러 가기 →</a>
+<a href="https://namkicheol.github.io/englisheducation/call.html" target="_blank" style="display:inline-block;padding:14px 28px;background:#3182ce;color:#fff;text-decoration:none;border-radius:8px;font-weight:bold;font-size:15px;">📝 [CALL · Material] OX 20문항 풀러 가기 →</a>
 </p>

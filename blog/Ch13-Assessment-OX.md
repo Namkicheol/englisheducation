@@ -247,5 +247,5 @@ Memorable experience with friends처럼 real-life topic과 discourse purpose가 
 ---
 
 <p align="center">
-<a href="https://obangti.tistory.com/[post-id]" target="_blank" style="display:inline-block;padding:14px 28px;background:#3182ce;color:#fff;text-decoration:none;border-radius:8px;font-weight:bold;font-size:15px;">📚 [Assessment] 개념 정리로 돌아가기 →</a>
+<a href="https://namkicheol.github.io/englisheducation/assessment_study.html" target="_blank" style="display:inline-block;padding:14px 28px;background:#3182ce;color:#fff;text-decoration:none;border-radius:8px;font-weight:bold;font-size:15px;">📚 [Assessment] 개념 정리로 돌아가기 →</a>
 </p>

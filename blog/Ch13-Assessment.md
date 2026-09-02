@@ -210,5 +210,5 @@ Multiple-choice item에서 자주 보는 guideline은 세 가지다.
 **OX 20문항** — 위 개념을 읽은 뒤에는 "정의 암기"가 아니라 발문 조건을 보고 어떤 quality, test type, scoring issue인지 바로 찍는 연습을 하자.
 
 <p align="center">
-<a href="https://obangti.tistory.com/[post-id]" target="_blank" style="display:inline-block;padding:14px 28px;background:#3182ce;color:#fff;text-decoration:none;border-radius:8px;font-weight:bold;font-size:15px;">📝 [Assessment] OX 20문항 풀러 가기 →</a>
+<a href="https://namkicheol.github.io/englisheducation/assessment.html" target="_blank" style="display:inline-block;padding:14px 28px;background:#3182ce;color:#fff;text-decoration:none;border-radius:8px;font-weight:bold;font-size:15px;">📝 [Assessment] OX 20문항 풀러 가기 →</a>
 </p>

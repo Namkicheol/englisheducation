@@ -72,7 +72,7 @@ Mode 분류는 이름보다 수업 장면의 control을 봐야 합니다. instru
 
 ## Q7. Cohesion vs Coherence — O
 
-> *"Cohesion vs Coherence is best understood as 표면 연결과 의미 연결의 구분, so it should be interpreted within its instructional or assessment context."*
+> *"Cohesion vs Coherence is best understood as grammatical·lexical relationships versus covert, logical connections, so it should be interpreted within its instructional or assessment context."*
 
 맞습니다. <span style="color:#3182ce">**Cohesion**</span>은 discourse나 text 안의 grammatical·lexical relationship이고, <span style="color:#3182ce">**Coherence**</span>는 utterance나 sentence의 meaning을 연결하는 covert, logical connection입니다.
 
@@ -87,8 +87,8 @@ Mode 분류는 이름보다 수업 장면의 control을 봐야 합니다. instru
 
 틀립니다. Cohesion과 Coherence는 서로 다른 판단 기준입니다.
 
-- <span style="color:#3182ce">**Cohesion**</span>: reference, substitution, ellipsis, discourse connectors, collocation, synonym/antonym, superordinate, repetition
-- <span style="color:#3182ce">**Coherence**</span>: meaning의 logical connection
+- <span style="color:#3182ce">**Cohesion**</span>: grammatical·lexical relationships — reference, substitution, ellipsis, discourse connectors, collocation, synonym/antonym, superordinate, repetition
+- <span style="color:#3182ce">**Coherence**</span>: utterance나 sentence의 meanings를 잇는 covert, logical connections
 
 <span style="color:#c53030">**함정**: cohesive device가 많으면 반드시 coherent하다 → 오답.</span>
 
@@ -234,7 +234,7 @@ Indirect approach에서는 learner가 role play, discussion, problem-solving tas
 
 ## Q20. IRE vs IRF Review — X
 
-> *"A referential question always guarantees a communicative classroom exchange, regardless of what happens after the student's answer."*
+> *"A referential question always guarantees a communicative classroom exchange, even when the teacher immediately evaluates and closes the interaction after the student's answer."*
 
 틀립니다. Referential question은 IRF와 잘 연결될 수 있지만, 그것만으로 충분하지 않습니다. Student response 뒤에 teacher가 어떻게 반응하는지도 봐야 합니다.
 
