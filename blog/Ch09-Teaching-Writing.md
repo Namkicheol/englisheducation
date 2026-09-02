@@ -154,7 +154,7 @@ Robert Kaplan이 제안. L1의 문화적 텍스트 조직 패턴(영어: 직선�
 ---
 
 <p align="center">
-<a href="https://obangti.tistory.com/[POST_ID]" target="_blank" style="display:inline-block;padding:14px 28px;background:#3182ce;color:#fff;text-decoration:none;border-radius:8px;font-weight:bold;font-size:15px;">📝 [Teaching Writing] OX 21문항 풀러 가기 →</a>
+<a href="https://namkicheol.github.io/englisheducation/writing.html" target="_blank" style="display:inline-block;padding:14px 28px;background:#3182ce;color:#fff;text-decoration:none;border-radius:8px;font-weight:bold;font-size:15px;">📝 [Teaching Writing] OX 21문항 풀러 가기 →</a>
 </p>
 
 ---

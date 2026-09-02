@@ -1,3 +1,5 @@
+<iframe src="https://namkicheol.github.io/englisheducation/sla.html" width="100%" height="1000px" style="border: none; border-radius: 10px;"></iframe>
+
 # 임용 영교론 Ch.1 SLA Theory OX 20문제 — 해설 완전판
 
 영교론 최빈출 단원 SLA Theory의 OX 20문제. 함정 포인트 위주로 해설을 박았다. 답안 작성 시 자주 틀리는 부분이 표시되어 있으니 ⚠️ 표시는 반드시 체크.
@@ -275,10 +277,9 @@ high motivation + low anxiety + high self-esteem = filter가 <span style="color:
 함정 패턴만 외워도 5~6문제 더 맞춥니다. 풀어보고 약한 부분은 개념정리 글로 돌아가서 한 번 더 보강하세요.
 
 <p align="center">
-<a href="https://obangti.tistory.com/<concept-post-id>" target="_blank" style="display:inline-block;padding:14px 28px;background:#3182ce;color:#fff;text-decoration:none;border-radius:8px;font-weight:bold;font-size:15px;">📚 SLA Theory 개념정리 한 번 더 →</a>
+<a href="https://namkicheol.github.io/englisheducation/sla_study.html" target="_blank" style="display:inline-block;padding:14px 28px;background:#3182ce;color:#fff;text-decoration:none;border-radius:8px;font-weight:bold;font-size:15px;">📚 SLA Theory 개념정리 한 번 더 →</a>
 </p>
 
 ---
 
 **태그**: 임용고시, 중등영어, 영어교육론, Ch1, SLA, OX퀴즈, Krashen, Monitor Model, Affective Filter, UG, Noticing Hypothesis, 서브노트, 기출분석
-</p>

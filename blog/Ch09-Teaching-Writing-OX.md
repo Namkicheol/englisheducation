@@ -259,7 +259,7 @@ Process-oriented approach의 피드백 원칙. 초안 단계에서 문법을 고
 ---
 
 <p align="center">
-<a href="https://obangti.tistory.com/[CONCEPT_POST_ID]" target="_blank" style="display:inline-block;padding:14px 28px;background:#2e7d52;color:#fff;text-decoration:none;border-radius:8px;font-weight:bold;font-size:15px;">📖 [Teaching Writing] 개념정리 노트로 돌아가기 →</a>
+<a href="https://namkicheol.github.io/englisheducation/writing_study.html" target="_blank" style="display:inline-block;padding:14px 28px;background:#2e7d52;color:#fff;text-decoration:none;border-radius:8px;font-weight:bold;font-size:15px;">📖 [Teaching Writing] 개념정리 노트로 돌아가기 →</a>
 </p>
 
 ---

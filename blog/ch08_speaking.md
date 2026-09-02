@@ -223,7 +223,7 @@ Bottom-up ↔ Top-down을 서술할 때:
 ---
 
 <p align="center">
-<a href="https://obangti.tistory.com/TODO_SPEAKING_OX_POST_ID" target="_blank" style="display:inline-block;padding:14px 28px;background:#3182ce;color:#fff;text-decoration:none;border-radius:8px;font-weight:bold;font-size:15px;">📝 [Ch.8 Teaching Speaking] OX 20문항 풀러 가기 →</a>
+<a href="https://namkicheol.github.io/englisheducation/speaking.html" target="_blank" style="display:inline-block;padding:14px 28px;background:#3182ce;color:#fff;text-decoration:none;border-radius:8px;font-weight:bold;font-size:15px;">📝 [Ch.8 Teaching Speaking] OX 26문항 풀러 가기 →</a>
 </p>
 
 ---

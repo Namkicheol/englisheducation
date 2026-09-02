@@ -320,7 +320,7 @@ Ch.6 Teaching Reading은 기출 빈도가 가장 높은 챕터 중 하나입니�
 
 ## Q18. Semantic Mapping
 
-**문제:** <span style="font-weight:bold">Semantic mapping</span> is a pre-reading strategy that randomly gathers information on certain criteria such as characters, events, and time lines, helping students provide some order to the chaos of ideas.
+**문제:** <span style="font-weight:bold">Semantic mapping</span> is a pre-reading strategy that groups ideas into meaningful clusters, helping students provide some order to the chaos of ideas.
 
 **정답:** ✅ 정답
 
