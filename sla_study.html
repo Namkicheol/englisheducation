@@ -74,15 +74,16 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 .learning-nav a:hover{background:#f0faf5;border-color:#2e7d52}
 @media(max-width:640px){.learning-nav a{flex-basis:calc(50% - 7px)}}
 </style>
+<link rel="stylesheet" href="./study-return.css">
 </head>
 <body>
 <nav class="learning-nav" aria-label="상단 학습 내비게이션">
-  <a href="https://testmaster-pi.vercel.app/">기출 WIKI</a>
+  <a href="https://etwiki.net/index.html">기출 WIKI</a>
   <a href="./index.html">영어교육론 허브</a>
   <a href="./sla.html">📝 이 챕터 OX 퀴즈</a>
   <a href="https://namkicheol.github.io/linguistics/">영어학</a>
   <a href="https://namkicheol.github.io/phonetics-phonology/phonetics.html">음성·음운론</a>
-  <a href="https://testmaster-pi.vercel.app/keyterm-quiz.html">영어교육론 키텀</a>
+  <a href="https://etwiki.net/keyterm-quiz.html">영어교육론 키텀</a>
 </nav>
 <div class="header-wrap">
   <div class="header-topbar">
@@ -685,7 +686,6 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 </div>
 
 </div><!-- /wrap -->
-<div id="back-btn" style="display:none;position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1a3326;color:#e8f5e9;padding:12px 22px;border-radius:24px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;cursor:pointer;z-index:1000;box-shadow:0 4px 20px rgba(0,0,0,.3);white-space:nowrap;max-width:calc(100vw - 32px);text-align:center;letter-spacing:.3px">← 돌아가기</div>
 <script>
 window.addEventListener("DOMContentLoaded",function(){if(!location.hash)return;var t=document.querySelector(location.hash);if(!t)return;var s=t;while(s&&!s.classList.contains("sec"))s=s.parentElement;if(s)s.classList.add("open");setTimeout(function(){t.scrollIntoView({behavior:"smooth",block:"start"});},150);});
 function toggle(id){document.getElementById(id).classList.toggle('open')}
@@ -693,17 +693,17 @@ function openSec(id){const s=document.getElementById(id);s.classList.add('open')
 document.addEventListener('DOMContentLoaded',function(){
   var h=window.location.hash.slice(1);
   if(h){var el=document.getElementById(h);if(el&&el.classList.contains('sec')){el.classList.add('open');setTimeout(function(){el.scrollIntoView({behavior:'smooth',block:'start'})},150);}}
-  var p=new URLSearchParams(window.location.search),f=p.get('from'),r=document.referrer;
-  if(f||r){var b=document.getElementById('back-btn');if(b){b.textContent='← '+(f||'이전 페이지')+' 로 돌아가기';b.style.display='block';b.onclick=function(){history.back();};}}
 });
 </script>
 <nav class="learning-nav bottom" aria-label="하단 학습 내비게이션">
-  <a href="https://testmaster-pi.vercel.app/">기출 WIKI</a>
+  <a href="https://etwiki.net/index.html">기출 WIKI</a>
   <a href="./index.html">영어교육론 허브</a>
   <a href="./sla.html">📝 이 챕터 OX 퀴즈</a>
   <a href="https://namkicheol.github.io/linguistics/">영어학</a>
   <a href="https://namkicheol.github.io/phonetics-phonology/phonetics.html">음성·음운론</a>
-  <a href="https://testmaster-pi.vercel.app/keyterm-quiz.html">영어교육론 키텀</a>
+  <a href="https://etwiki.net/keyterm-quiz.html">영어교육론 키텀</a>
 </nav>
+<a class="study-return-link" id="back-btn" href="./index.html" aria-label="영어교육론 허브로 돌아가기">← 영어교육론 허브로 돌아가기</a>
+<script src="./study-return.js"></script>
 </body>
 </html>
