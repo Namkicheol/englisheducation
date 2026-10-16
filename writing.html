@@ -92,6 +92,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f5f4ee;background-image:r
 @media(max-width:640px){.compare,.compare.three{grid-template-columns:1fr}.learning-nav a{flex-basis:calc(50% - 7px)}}
 </style>
 <link rel="stylesheet" href="./study-return.css">
+<link rel="stylesheet" href="./learning.css">
 </head>
 <body>
 <nav class="learning-nav" aria-label="상단 학습 내비게이션">
@@ -139,13 +140,25 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f5f4ee;background-image:r
 <script src="./sounds.js"></script>
 <script>
 const Q=[
-  {src:"Approaches",cat:"Product-oriented Approach",
-   text:"The <span class='kw1'>product-oriented approach</span> focuses on producing an <span class='kw2'>error-free final product</span> with little concern for the processes involved, and teachers primarily give feedback on <span class='kw2'>grammar and mechanics</span>.",
-   ans:true,
-   correct:"<span class='kw1'>Product-oriented approach</span>는 <span class='kw2'>error-free final product</span> 산출에 초점을 두며, 피드백도 <span class='kw2'>grammar와 mechanics</span> 중심으로 제공합니다.",
-   why:"Product-oriented approach는 imitating/copying/transforming models of correct language로 요약됩니다. Quality(quality over quantity)를 강조하고 최종 결과물을 평가 기준으로 삼습니다. Process-oriented과의 핵심 차이는 피드백 초점에 있습니다 — product: grammar/mechanics, process: content/organization.",
-   source:"\"<span class='kw1'>Product-oriented approach</span> focuses on producing an <span class='kw2'>error-free final product</span> with little concern for the processes; focus mostly on <span class='kw2'>grammar and mechanics</span> when giving feedback.\"",
-   compare:[{title:"<span class='kw1'>Product-oriented</span>",desc:"error-free product · grammar/mechanics 피드백"},{title:"<span class='kw1'>Process-oriented</span>",desc:"well-organized text · content/organization 피드백"}]},
+  {
+  "src": "Approaches",
+  "cat": "Product-oriented Approach",
+  "text": "The <span class='kw1'>product-oriented approach</span> emphasizes the quality of the finished text, whereas a <span class='kw1'>process-oriented approach</span> gives sustained attention to planning, drafting, feedback, and revision.",
+  "ans": true,
+  "correct": "Product-oriented approach는 완성된 글의 질을, process-oriented approach는 글을 계획하고 쓰고 고치는 과정을 강조합니다. 피드백 항목을 문법과 내용으로 배타적으로 나누는 구분은 아닙니다.",
+  "why": "Product 중심 평가에서도 내용과 구성을 살필 수 있습니다. Process 중심 수업에서도 최종 결과물과 언어적 정확성이 중요합니다. 두 접근의 차이는 무엇을 평가할 수 있느냐보다 교수·학습에서 어디에 비중을 두느냐에 있습니다.",
+  "source": "출처 요약: Brown (2007), Teaching by Principles, 3판, pp.391–393. 완성된 글의 평가와 쓰기 과정에 대한 지도를 구분하되, 과정과 결과물을 모두 고려한다. 직접 인용이 아님.",
+  "compare": [
+    {
+      "title": "Product-oriented",
+      "desc": "완성된 글의 질에 초점 · 내용·구성도 평가 가능"
+    },
+    {
+      "title": "Process-oriented",
+      "desc": "계획·초고·피드백·수정에 지속적으로 주목"
+    }
+  ]
+},
 
   {src:"Approaches",cat:"Process-oriented Approach",
    text:"The <span class='kw1'>process-oriented approach</span> completely ignores the importance of the final product, caring only about the writing process itself.",
@@ -200,13 +213,25 @@ const Q=[
    source:"\"<span class='kw1'>Formative feedback</span>: Feedback that aims at encouraging the development of their writing by helping them to see what they need to do next. <span class='kw1'>Summative feedback</span>: feedback provided at the end of an instructional unit for evaluation.\"",
    compare:[{title:"<span class='kw1'>Formative</span>",desc:"과정 중 · 개선 유도 · ongoing"},{title:"<span class='kw1'>Summative</span>",desc:"종료 후 · 평가 목적 · evaluation"}]},
 
-  {src:"Teacher Feedback",cat:"ECC",
-   text:"The <span class='kw1'>Essay Correction Code (ECC)</span> is effective for giving feedback not only on language accuracy issues but also on <span class='kw4'>content and organization</span> of students' writing.",
-   ans:false,
-   correct:"ECC는 language accuracy 문제는 지적할 수 있지만, <span class='kw4'>content나 organization에 대한 피드백은 줄 수 없습니다</span>. 또한 errors의 how와 why에 대한 정보도 제공하지 못합니다.",
-   why:"ECC(Essay Correction Code / Correction Symbols)의 단점: ① Ss가 기호를 해독 못하면 무용지물 ② content나 organization에 대한 피드백 불가 ③ how/why Ss made errors에 대한 정보 제공 불가. 반면 장점은: 선별적 언어 오류 지적, 자기교정 유도, 덜 위협적.",
-   source:"\"ECC: -) <span class='kw4'>Cannot give feedback on issues about content or organization</span>; Cannot give information about how and why Ss made errors; Useless when Ss fail to decode what symbols mean.\"",
-   compare:[{title:"<span class='kw1'>ECC 장점</span>",desc:"선별적 오류 지적 · 자기교정 유도 · less threatening"},{title:"<span class='kw4'>ECC 단점</span>",desc:"content/org 피드백 불가 · 기호 해독 실패 시 무용"}]},
+  {
+  "src": "Teacher Feedback",
+  "cat": "ECC",
+  "text": "A correction code limited to grammar and spelling can, by itself, fully explain every problem in the content and organization of a student's essay.",
+  "ans": false,
+  "correct": "문법·철자에 한정된 correction code만으로 글의 내용과 구성을 충분히 설명할 수는 없습니다. 다만 모든 교정 기호가 내용·구성에 관한 피드백을 줄 수 없는 것은 아닙니다.",
+  "why": "교정 기호에는 새 문단이 필요함을 표시하는 기호도 있습니다. 어떤 문제를 지적할 수 있는지는 사용한 코드 체계에 따라 달라집니다. 복잡한 내용·구성 문제는 구체적인 설명이나 면담을 함께 제공하는 편이 좋습니다.",
+  "source": "출처 요약: BBC / British Council (2005), Writing correction code, p.1. 예시 코드에는 문단 구분 기호가 포함된다. 직접 인용이 아님.",
+  "compare": [
+    {
+      "title": "교정 기호",
+      "desc": "약속된 기호로 문제 위치·유형을 표시"
+    },
+    {
+      "title": "추가 설명",
+      "desc": "내용·구성 문제의 이유와 수정 방향을 구체화"
+    }
+  ]
+},
 
   {src:"Teacher Feedback",cat:"Conferencing",
    text:"<span class='kw1'>Conferencing</span> provides opportunities for the teacher and student to <span class='kw2'>negotiate the meaning</span> of the student's writing through discussion, but one drawback is that students may <span class='kw2'>passively incorporate</span> the teacher's suggestions.",
@@ -222,12 +247,15 @@ const Q=[
    why:"Reformulation은 Noticing Hypothesis와 연결됩니다 — 학습자가 자신의 output과 목표 언어 형식 사이의 gap을 인식(notice)해야 intake가 일어납니다. T가 학생 글을 직접 '고쳐 쓰기'한 버전을 제공하므로 학생은 비교를 통해 자연스럽게 언어 형식에 주의를 기울이게 됩니다.",
    source:"\"<span class='kw1'>Reformulation</span>: Providing feedback to Ss' 1st draft which requires Ss to compare a text written by one of them and its reformulated version made by the T. Reformulation helps Ss to <span class='kw2'>notice the gap</span>.\""},
 
-  {src:"Peer Feedback",cat:"Types & Focus",
-   text:"<span class='kw1'>Peer feedback</span> focuses on <span class='kw2'>content</span>, <span class='kw1'>peer editing</span> focuses on <span class='kw2'>forms</span>, and <span class='kw1'>peer correction</span> involves <span class='kw2'>actual correction of errors</span>.",
-   ans:true,
-   correct:"세 용어의 구분: <span class='kw1'>Peer feedback</span>(content 중심) → <span class='kw1'>Peer editing</span>(form 중심) → <span class='kw1'>Peer correction</span>(실제 오류 교정).",
-   why:"이 세 용어는 유사하지만 구별이 필요합니다. Peer feedback은 내용과 아이디어에, peer editing은 언어 형식에, peer correction은 실제 오류 수정에 초점을 둡니다. 기출에서는 이 차이를 묻거나 장단점과 연결해 출제합니다.",
-   source:"\"<span class='kw1'>Peer feedback</span> focuses on <span class='kw2'>content</span>; <span class='kw1'>peer editing</span> focuses on <span class='kw2'>forms</span>; <span class='kw1'>peer correction</span> involves actual <span class='kw2'>correction of errors</span>.\""},
+  {
+  "src": "Peer Feedback",
+  "cat": "Types & Focus",
+  "text": "<span class='kw1'>Peer editing</span> can address a text's content, purpose, and intended audience as well as its language forms.",
+  "ans": true,
+  "correct": "<span class='kw1'>Peer editing</span>은 언어 형식뿐 아니라 내용, 목적, 독자를 고려하여 글을 검토하는 활동이 될 수 있습니다.",
+  "why": "Peer feedback, peer editing, peer correction의 사용 범위는 문헌과 활동 설계에 따라 겹칩니다. Peer editing을 오직 문법·철자 점검으로 한정하지 말고 실제 과제의 질문과 평가 기준을 확인해야 합니다.",
+  "source": "출처 요약: Brown (2007), Teaching by Principles, 3판, p.409. Peer-editing 안내에는 글의 주제, 목적, 독자에 관한 질문이 포함된다. 직접 인용이 아님."
+},
 
   {src:"Peer Feedback",cat:"Disadvantages",
    text:"One key disadvantage of peer feedback is that students tend to give <span class='kw4'>too little positive feedback</span>, making the activity overly critical and discouraging.",
@@ -290,16 +318,19 @@ const Q=[
    source:"\"<span class='kw2'>Real writing</span>: writing for genuine communication; reader doesn't know the answer and genuinely wants information. <span class='kw4'>Display writing</span>: writing to display one's knowledge; may involve evaluation.\"",
    compare:[{title:"<span class='kw2'>Real writing</span>",desc:"진짜 소통 · 독자가 정보 원함 · personal/vocational/academic"},{title:"<span class='kw4'>Display writing</span>",desc:"지식 과시 · 평가 포함 · exam/report"}]},
 
-  {src:"Writing Concepts",cat:"Contrastive Rhetoric",
-   text:"<span class='kw1'>Contrastive rhetoric</span> argues that culturally determined predispositions to structure and organize a text from the <span class='kw2'>first language transfer themselves to second language writing</span>.",
-   ans:true,
-   correct:"<span class='kw1'>Contrastive rhetoric</span>은 L1의 <span class='kw2'>문화적으로 결정된 텍스트 구조·조직 방식</span>이 L2 쓰기에 전이된다는 이론입니다. 이는 cultural awareness 교육의 필요성과 연결됩니다.",
-   why:"Contrastive rhetoric은 Robert Kaplan이 제안한 이론으로, 언어마다 텍스트 조직 패턴이 다르며(예: 영어는 직선형, 아랍어는 나선형, 동아시아 언어는 간접적) 이 L1 패턴이 L2 쓰기에도 영향을 미친다고 봅니다. 임용에서는 L1 transfer → L2 writing + cultural awareness가 핵심 키워드입니다.",
-   source:"\"<span class='kw1'>Contrastive rhetoric</span>: The idea that shows the <span class='kw2'>influence of first language on additional language writing</span> by arguing that culturally determined predispositions to structure and organize a text <span class='kw2'>transfer themselves to second language writing</span>; this may involve cultural awareness.\""}
+  {
+  "src": "Writing Concepts",
+  "cat": "Contrastive Rhetoric",
+  "text": "In Kaplan's early account of <span class='kw1'>contrastive rhetoric</span>, culturally influenced ways of organizing first-language texts can transfer to second-language writing.",
+  "ans": true,
+  "correct": "초기 contrastive rhetoric은 L1에서 익힌 글의 구성 방식이 L2 쓰기에 영향을 줄 수 있다고 보았습니다. 문화와 글쓰기의 관계를 설명하려는 역사적 관점이며, 모든 필자에게 고정된 패턴을 부여하는 법칙은 아닙니다.",
+  "why": "Kaplan의 초기 contrastive rhetoric은 문화적 배경과 글의 구성 방식 사이의 관계를 설명하려 했습니다. Brown이 재현한 역사적 도식에서 Semitic은 지그재그 형태로, 당시 ‘Oriental’로 묶은 범주는 나선형으로 제시됩니다. 이 도식은 역사적 논의의 예이며, 특정 언어·문화의 모든 글이나 필자에게 적용되는 고정 법칙으로 받아들이면 안 됩니다.",
+  "source": "출처 요약: Brown (2007), Teaching by Principles, 3판, pp.393–394의 Kaplan 도식과 논의. 역사적 범주와 일반화의 한계를 함께 고려한다. 직접 인용이 아님."
+}
 ];
 
 const TOTAL=21;
-const SAVE_KEY='ox_writing_v1';
+const SAVE_KEY='ox_writing_v2';
 let cur=0,answers=new Array(TOTAL).fill(null);
 let mode='normal',order=[...Array(TOTAL).keys()];
 function initOrder(m){if(m==='random'){const a=[...Array(TOTAL).keys()];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}order=a;}else order=[...Array(TOTAL).keys()];}
