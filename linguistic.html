@@ -92,6 +92,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f5f4ee;background-image:r
 @media(max-width:640px){.compare,.compare.three{grid-template-columns:1fr}.learning-nav a{flex-basis:calc(50% - 7px)}}
 </style>
 <link rel="stylesheet" href="./study-return.css">
+<link rel="stylesheet" href="./learning.css">
 </head>
 <body>
 <nav class="learning-nav" aria-label="상단 학습 내비게이션">
@@ -138,7 +139,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f5f4ee;background-image:r
 <script src="./score-popup.js"></script>
 <script src="./sounds.js"></script>
 <script>
-const SAVE_KEY='ox_linguistic_v1';
+const SAVE_KEY='ox_linguistic_v2';
 const TOTAL=20;
 let cur=0;
 let answers=new Array(TOTAL).fill(null);
@@ -160,7 +161,29 @@ const Q=[
   {src:"Corrective Feedback",cat:"Recast",text:"<span class='kw4'>Recast</span> is an explicit type of corrective feedback that interrupts the flow of communication to directly indicate the error and provide the correct form.",ans:false,correct:"<span class='kw4'>Recast</span> is <span class='kw2'>implicit</span> feedback — it <span class='kw2'>maintains communicative flow</span> by reformulating the erroneous utterance without overtly signaling it as an error.",why:"Recast의 핵심 특징: ① implicit ② maintains communicative flow ③ positive + negative evidence 모두 포함 ④ 학습자가 confirmation으로 오해 가능.",source:"\"<span class='kw4'>Recast</span>: Reformulation while <span class='kw2'>maintaining focus on meaning</span>. Contains both <span class='kw2'>positive and negative evidence</span>.\"",compare:[{title:"<span class='kw4'>Recast</span> (implicit)",desc:"<span class='kw2'>flow 유지</span> · positive+negative evidence"},{title:"<span class='kw2'>Explicit correction</span>",desc:"directly indicate error · <span class='kw2'>flow 끊김</span>"}]},
   {src:"Corrective Feedback",cat:"Metalinguistic Feedback",text:"<span class='kw3'>Metalinguistic feedback</span> provides both a comment about the error AND the correct form, helping learners immediately understand what the correct structure should be.",ans:false,correct:"<span class='kw3'>Metalinguistic feedback</span> provides comments/questions about the error but does <span class='kw2'>NOT explicitly provide the correct form</span>.",why:"Metalinguistic feedback는 오류의 성격에 대한 언어적 설명을 제공하지만 올바른 형태를 직접 제시하지 않습니다. (e.g. 'Can you find the error?', 'What is the past tense of this verb?')",source:"\"<span class='kw3'>Metalinguistic feedback</span>: Points out nature of error <span class='kw2'>without explicitly providing the correct form</span>.\"",compare:[{title:"<span class='kw3'>Metalinguistic</span>",desc:"comment/question · <span class='kw2'>NO correct form</span>"},{title:"<span class='kw2'>Explicit correction</span>",desc:"indicate error + <span class='kw2'>provides correct form</span>"}]},
   {src:"Corrective Feedback",cat:"Elicitation",text:"<span class='kw3'>Elicitation</span> is a technique that provides the correct form directly to the learner in response to their error, without requiring any learner participation.",ans:false,correct:"<span class='kw3'>Elicitation</span> <span class='kw2'>directly elicits the correct form FROM the learner</span> — pushes L to <span class='kw2'>self-correct</span> using incomplete sentences or questions.",why:"Elicitation은 교사가 정답을 주는 것이 아니라 학습자가 스스로 올바른 형태를 생산하도록 유도하는 기법입니다. (e.g. 'He comes...' / 'We are...?')",source:"\"<span class='kw3'>Elicitation</span>: directly elicit correct form <span class='kw2'>from the L</span>. Pushes L to <span class='kw2'>self-correct</span>.\"",compare:[{title:"<span class='kw3'>Elicitation</span>",desc:"L이 <span class='kw2'>self-correct</span>하도록 유도"},{title:"<span class='kw3'>Metalinguistic</span>",desc:"error 성격 설명 · no correct form"}]},
-  {src:"Corrective Feedback",cat:"Uptake",text:"<span class='kw3'>Uptake</span> refers to any learner utterance that immediately follows the teacher's corrective feedback, regardless of whether the error has been successfully repaired.",ans:true,correct:"<span class='kw3'>Uptake</span> = utterance that <span class='kw2'>immediately follows</span> teacher's feedback — can be <span class='kw2'>successful</span> (error repaired) or <span class='kw2'>unsuccessful</span> (error remains).",why:"Uptake는 교사의 피드백에 즉각적으로 반응하는 학습자의 발화입니다. successful uptake, unsuccessful uptake, no uptake, acknowledgement으로 구분됩니다.",source:"\"<span class='kw3'>Uptake</span>: utterance that <span class='kw2'>immediately follows</span> teacher's feedback. <span class='kw2'>Successful / Unsuccessful</span>.\"",compare:[{title:"<span class='kw3'>Successful uptake</span>",desc:"error <span class='kw2'>repaired</span>"},{title:"<span class='kw3'>Unsuccessful uptake</span>",desc:"attempts but <span class='kw2'>still incorrect</span>"},{title:"<span class='kw2'>No uptake</span>",desc:"ignores / acknowledges only"}]},
+  {
+  "src": "Corrective Feedback",
+  "cat": "Uptake",
+  "text": "<span class='kw3'>Uptake</span> is a learner utterance that immediately follows corrective feedback and reacts to its corrective intent; it may involve repair or still need repair.",
+  "ans": true,
+  "correct": "<span class='kw3'>Uptake</span>는 교정 피드백의 의도에 대한 학습자의 즉각적인 반응입니다. 오류를 고친 <span class='kw2'>repair</span>와 추가 교정이 필요한 <span class='kw2'>needs-repair</span>로 나눕니다.",
+  "why": "단순히 교사 발화 뒤에 나온 모든 발화를 뜻하지는 않습니다. 교사가 특정 언어 형식에 주의를 돌리려 한 것에 반응해야 합니다. Lyster와 Ranta(1997)의 분류에서 acknowledgement는 needs-repair에 포함됩니다. Uptake가 관찰되었다는 사실만으로 지속적인 습득까지 입증할 수는 없습니다.",
+  "source": "출처 요약: Lyster & Ranta (1997), Corrective Feedback and Learner Uptake, pp.49–50. Uptake는 교정 의도에 반응하는 발화이며 repair와 needs-repair로 구분된다. 직접 인용이 아님.",
+  "compare": [
+    {
+      "title": "Repair",
+      "desc": "목표 오류가 교정된 반응"
+    },
+    {
+      "title": "Needs-repair",
+      "desc": "acknowledgement 또는 아직 교정이 필요한 반응"
+    },
+    {
+      "title": "No uptake",
+      "desc": "교정 의도에 대한 학습자의 반응이 나타나지 않음"
+    }
+  ]
+},
   {src:"Corrective Feedback",cat:"Implicit vs Explicit",text:"<span class='kw4'>Recast</span> is categorized as explicit negative feedback because it clearly signals to learners that their utterance contained an error.",ans:false,correct:"<span class='kw4'>Recast</span> is <span class='kw2'>implicit</span> negative feedback — does not <span class='kw2'>overtly draw attention</span> to the error, which is why learners may miss it.",why:"Implicit feedback(recast)는 오류에 대한 직접적 언급 없이 의사소통 흐름 안에서 제공됩니다. Recast의 한계: 학습자가 confirmation으로 오해하거나 form 수정을 알아채지 못할 수 있습니다.",source:"\"<span class='kw2'>Implicit feedback</span>: does <span class='kw2'>not draw overt attention</span> to the error. <span class='kw4'>Recast</span> = implicit feedback.\"",compare:[{title:"<span class='kw2'>Implicit</span> (recast)",desc:"no overt attention · <span class='kw2'>flow 유지</span>"},{title:"<span class='kw2'>Explicit</span>",desc:"overt attention · <span class='kw2'>flow 끊김</span>"}]},
   {src:"Modified Input",cat:"Foreigner Talk vs Teacher Talk",text:"<span class='kw3'>Foreigner talk</span> and <span class='kw3'>teacher talk</span> refer to the same type of modified input, as both involve simplification of speech for non-proficient speakers in a classroom context.",ans:false,correct:"<span class='kw3'>Foreigner talk</span> = used by <span class='kw2'>native speakers</span> speaking to non-proficient foreigners. <span class='kw3'>Teacher talk</span> = input provided by the <span class='kw2'>teacher</span> in classroom.",why:"두 개념은 다른 화자를 전제합니다. Foreigner talk는 교실 밖에서 원어민이 외국인에게, Teacher talk는 교실 내 교사가 학습자에게 제공하는 입력입니다.",source:"\"<span class='kw3'>Foreigner Talk</span>: used by <span class='kw2'>native speakers</span> to foreigners. <span class='kw3'>Teacher Talk</span>: input by <span class='kw2'>T</span> in classroom.\"",compare:[{title:"<span class='kw2'>Care-taker talk</span>",desc:"parents → young children"},{title:"<span class='kw3'>Foreigner talk</span>",desc:"native speakers → foreigners"},{title:"<span class='kw3'>Teacher talk</span>",desc:"teacher → classroom Ss"}]},
   {src:"Modified Input",cat:"Input Modification Types",text:"<span class='kw1'>Elaboration</span> involves replacing complex vocabulary and grammar with simpler forms to make input more comprehensible.",ans:false,correct:"That describes <span class='kw1'>simplification</span>. <span class='kw1'>Elaboration</span> = <span class='kw2'>restating ideas in different ways</span> or repeating segments — has a <span class='kw2'>positive effect</span> on SLA.",why:"Simplification은 어휘·문법을 더 단순한 형태로 교체하는 것이고, Elaboration은 원본 내용을 다른 방식으로 재진술하거나 반복하는 것입니다.",source:"\"<span class='kw1'>Simplification</span>: replace complex → simple. <span class='kw1'>Elaboration</span>: <span class='kw2'>restate/repeat</span> differently; <span class='kw2'>positive effect</span> on SLA.\"",compare:[{title:"<span class='kw1'>Simplification</span>",desc:"replace complex → simple"},{title:"<span class='kw1'>Elaboration</span>",desc:"<span class='kw2'>restate/repeat</span> → SLA↑"},{title:"<span class='kw1'>Regularization</span>",desc:"more basic/explicit forms"}]},

@@ -92,6 +92,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f5f4ee;background-image:r
 @media(max-width:640px){.compare,.compare.three{grid-template-columns:1fr}.learning-nav a{flex-basis:calc(50% - 7px)}}
 </style>
 <link rel="stylesheet" href="./study-return.css">
+<link rel="stylesheet" href="./learning.css">
 </head>
 <body>
 <nav class="learning-nav" aria-label="상단 학습 내비게이션">
@@ -281,13 +282,29 @@ const Q=[
    source:"\"<span class='kw3'>Isolated FonF</span>: treats form <span class='kw2'>separately</span> from communicative task. <span class='kw1'>Integrated FonF</span>: form attention is <span class='kw2'>embedded within</span> the communicative task.\"",
    compare:[{title:"<span class='kw3'>Isolated FonF</span>",desc:"separate grammar phase · disconnected from task"},{title:"<span class='kw1'>Integrated FonF</span>",desc:"embedded within task · form + meaning together"}]},
 
-  {src:"Corrective Feedback",cat:"Uptake",
-   text:"<span class='kw2'>Uptake</span> refers to a learner's response to corrective feedback. <span class='kw2'>Successful uptake</span> occurs when the learner produces the <span class='kw2'>correct target form</span>, while <span class='kw2'>unsuccessful uptake</span> includes acknowledgment or still-erroneous attempts.",
-   ans:true,
-   correct:"<span class='kw2'>Uptake</span> = corrective feedback에 대한 학습자의 즉각적 반응. Successful uptake = correct form 생성. Unsuccessful uptake = 오류 지속, 단순 acknowledgment(예: 'Yeah'), 이해 불가 등.",
-   why:"Uptake는 corrective feedback 직후 학습자가 반응하는 모든 발화를 포함합니다. Prompt(elicitation, metalinguistic, CR, repetition)가 recast보다 successful uptake 비율이 높은 경향이 있습니다.",
-   source:"\"<span class='kw2'>Uptake</span>: any learner utterance that <span class='kw2'>immediately follows</span> corrective feedback. <span class='kw2'>Successful uptake</span>: repair of target form. <span class='kw2'>Unsuccessful uptake</span>: acknowledgment / needs-repair.\"",
-   compare:[{title:"<span class='kw2'>Successful uptake</span>",desc:"correct target form produced · repair"},{title:"<span class='kw2'>Unsuccessful uptake</span>",desc:"still erroneous / acknowledgment only"}]},
+  {
+  "src": "Corrective Feedback",
+  "cat": "Uptake",
+  "text": "<span class='kw3'>Uptake</span> is a learner utterance that immediately follows corrective feedback and reacts to its corrective intent; it may involve repair or still need repair.",
+  "ans": true,
+  "correct": "<span class='kw3'>Uptake</span>는 교정 피드백의 의도에 대한 학습자의 즉각적인 반응입니다. 오류를 고친 <span class='kw2'>repair</span>와 추가 교정이 필요한 <span class='kw2'>needs-repair</span>로 나눕니다.",
+  "why": "단순히 교사 발화 뒤에 나온 모든 발화를 뜻하지는 않습니다. 교사가 특정 언어 형식에 주의를 돌리려 한 것에 반응해야 합니다. Lyster와 Ranta(1997)의 분류에서 acknowledgement는 needs-repair에 포함됩니다. Uptake가 관찰되었다는 사실만으로 지속적인 습득까지 입증할 수는 없습니다.",
+  "source": "출처 요약: Lyster & Ranta (1997), Corrective Feedback and Learner Uptake, pp.49–50. Uptake는 교정 의도에 반응하는 발화이며 repair와 needs-repair로 구분된다. 직접 인용이 아님.",
+  "compare": [
+    {
+      "title": "Repair",
+      "desc": "목표 오류가 교정된 반응"
+    },
+    {
+      "title": "Needs-repair",
+      "desc": "acknowledgement 또는 아직 교정이 필요한 반응"
+    },
+    {
+      "title": "No uptake",
+      "desc": "교정 의도에 대한 학습자의 반응이 나타나지 않음"
+    }
+  ]
+},
 
   {src:"Teaching Grammar",cat:"기출 종합",
    text:"According to Lyster's (2004) research, <span class='kw2'>prompts</span> (elicitation, metalinguistic feedback, clarification request, repetition) tend to yield <span class='kw2'>higher successful uptake rates</span> than <span class='kw4'>recasts</span> in classroom contexts.",
@@ -299,7 +316,7 @@ const Q=[
 ];
 
 const TOTAL=20;
-const SAVE_KEY='ox_grammar_v1';
+const SAVE_KEY='ox_grammar_v2';
 let cur=0,answers=new Array(TOTAL).fill(null);
 let mode='normal',order=[...Array(TOTAL).keys()];
 function initOrder(m){if(m==='random'){const a=[...Array(TOTAL).keys()];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}order=a;}else order=[...Array(TOTAL).keys()];}

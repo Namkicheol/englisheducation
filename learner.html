@@ -92,6 +92,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f5f4ee;background-image:r
 @media(max-width:640px){.compare,.compare.three{grid-template-columns:1fr}.learning-nav a{flex-basis:calc(50% - 7px)}}
 </style>
 <link rel="stylesheet" href="./study-return.css">
+<link rel="stylesheet" href="./learning.css">
 </head>
 <body>
 <nav class="learning-nav" aria-label="상단 학습 내비게이션">
@@ -138,7 +139,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f5f4ee;background-image:r
 <script src="./score-popup.js"></script>
 <script src="./sounds.js"></script>
 <script>
-const SAVE_KEY='ox_learner_v1';
+const SAVE_KEY='ox_learner_v2';
 const TOTAL=20;
 let cur=0;
 let answers=new Array(TOTAL).fill(null);
@@ -148,7 +149,25 @@ function updateModeUI(){document.getElementById('btn-normal').classList.toggle('
 function setMode(m){if(mode===m)return;mode=m;initOrder(m);cur=0;answers=new Array(TOTAL).fill(null);localStorage.removeItem(SAVE_KEY);document.getElementById('rb').style.display='none';document.getElementById('sc').classList.remove('show');updateModeUI();renderNav();render();}
 function getScore(){return answers.filter(a=>a&&a.correct).length;}
 const Q=[
-  {src:"Learner Style · 5판",cat:"Processing · FI/FD",text:"<span class='kw4'>Field-Independent</span> learners are more holistic in perception and perform better in selective listening tasks, as they easily grasp the whole picture of the listening text.",ans:false,correct:"<span class='kw4'>Field-Independent</span> Ls are <span class='kw2'>analytic</span>, not holistic. They <span class='kw2'>distinguish parts from whole</span> → 선택적 듣기·문법 분석·mechanical drill 유리. <span class='kw4'>Field-Dependent</span> Ls가 holistic.",why:"5판 공식: <strong>FI = bottom-up</strong> (examining input to discover generalization) · <strong>FD = top-down</strong> (predict, apply to instances). FI는 grammatical analysis, attention to details, mechanical drill 유리 / FD는 communicative writing, authentic reading text 유리.",source:"\"<span class='kw4'>Field-Independent</span>: distinguish parts from a whole (→ Selective listening); prefers <span class='kw2'>bottom-up processing</span>. <span class='kw4'>Field-Dependent</span>: perceive the whole picture; prefer <span class='kw2'>top-down processing</span>.\" (5판)",compare:[{title:"<span class='kw4'>Field-Dependent</span>",desc:"holistic · <span class='kw2'>top-down</span> · context-rich · CLT 유리"},{title:"<span class='kw4'>Field-Independent</span>",desc:"analytic · <span class='kw2'>bottom-up</span> · selective listening · drill 유리"}]},
+  {
+  "src": "Learner Style · Brown (2014)",
+  "cat": "Processing · FI/FD",
+  "text": "<span class='kw4'>Field-Independent</span> learners are characterized by a tendency to perceive the whole without separating its parts from the surrounding field.",
+  "ans": false,
+  "correct": "이 설명은 <span class='kw4'>Field Dependence</span>의 특징에 가깝습니다. <span class='kw4'>Field Independence</span>는 주변 맥락에서 부분을 분리하여 지각하는 경향을 말합니다.",
+  "why": "Field Independence와 Field Dependence는 지각·인지 스타일에 관한 구분입니다. Bottom-up과 top-down은 정보 처리 방향에 관한 구분이므로 두 쌍을 일대일로 등치하지 않습니다. 특정 스타일이 모든 듣기·읽기 활동에서 더 유리하다고 단정해서도 안 됩니다.",
+  "source": "출처 요약: Brown (2014), Principles of Language Learning and Teaching, 6판, pp.114–116. 부분을 주변 맥락에서 분리하는 지각 경향과 전체 맥락의 영향을 받는 경향을 구분한다. 직접 인용이 아님.",
+  "compare": [
+    {
+      "title": "Field Independence",
+      "desc": "주변 맥락에서 부분을 분리하여 지각하는 경향"
+    },
+    {
+      "title": "Field Dependence",
+      "desc": "전체 맥락의 영향을 받아 지각하는 경향"
+    }
+  ]
+},
   {src:"Learner Style · 5판",cat:"Ambiguity Tolerance",text:"While <span class='kw3'>tolerance of ambiguity</span> is generally beneficial for L2 learning, being <span class='kw2'>too tolerant</span> of ambiguity may lead to <span class='kw2'>fossilization</span> of incorrect forms.",ans:true,correct:"Too high ambiguity tolerance can cause learners to <span class='kw2'>accept incorrect forms without noticing</span>, leading to <span class='kw2'>fossilization</span> of incorrect knowledge.",why:"5판 양면 분석: <strong>High AT</strong> — 장점=creative possibilities / 단점=fossilization. <strong>Low AT</strong> — 장점=deal with reality / 단점=dogmatic, not creative. Optimum level 필요.",source:"\"<span class='kw3'>a) high tolerance</span>: Advantage = free to entertain creative possibilities · Disadvantage = <span class='kw2'>fossilization of incorrect knowledge</span>. <span class='kw3'>b) low tolerance</span>: Advantage = deal with reality · Disadvantage = <span class='kw2'>dogmatic, not creative</span>.\" (5판)",compare:[{title:"<span class='kw2'>High tolerance</span>",desc:"창의적 · but <span class='kw2'>fossilization</span>"},{title:"<span class='kw2'>Low tolerance</span>",desc:"체계적 · but <span class='kw2'>dogmatic</span>"}]},
   {src:"Learner Style",cat:"Reflectivity / Impulsivity",text:"If given <span class='kw2'>preparation time</span> before a speaking task, <span class='kw1'>reflective</span> learners may gain <span class='kw2'>confidence</span>, and <span class='kw1'>impulsive</span> learners may gain <span class='kw2'>accuracy</span>.",ans:true,correct:"Preparation time gives reflective Ls <span class='kw2'>confidence</span> (slow but accurate) and gives impulsive Ls <span class='kw2'>accuracy</span> (fast but error-prone).",why:"Reflective learners는 느리지만 정확 → 준비시간은 자신감을 강화. Impulsive learners는 빠르지만 오류 多 → 준비시간으로 정확성 확보. 기출에 교수 시사점으로 등장.",source:"\"If given preparation time before speaking task, <span class='kw2'>reflective Ls may gain confidence</span>, and <span class='kw2'>impulsive Ls may gain accuracy</span>.\"",compare:[{title:"<span class='kw1'>Reflective</span>",desc:"slow · accurate · few errors"},{title:"<span class='kw1'>Impulsive</span>",desc:"fast · risk-taking · many errors"}]},
   {src:"Learner Style",cat:"Learning Context",text:"An <span class='kw3'>Authority-oriented</span> learner typically has <span class='kw2'>high tolerance of ambiguity</span> and prefers independent, social learning without much teacher direction.",ans:false,correct:"<span class='kw3'>Authority-oriented</span> Ls need <span class='kw2'>Ts' directions and explanations</span>, prefer a <span class='kw2'>structured learning environment</span>, and have <span class='kw2'>low tolerance of ambiguity</span>.",why:"Authority-oriented 학습자는 교사 주도 구조화 학습 선호, 모호함을 싫어함. 독립적·사회적 학습 선호는 <span class='kw3'>Communicative learning style</span>의 특징입니다.",source:"\"<span class='kw3'>Authority-oriented learning style</span>: needs Ts' directions and explanations; prefer a <span class='kw2'>structured learning environment</span>; <span class='kw2'>low tolerance of ambiguity</span>.\"",compare:[{title:"<span class='kw3'>Authority-oriented</span>",desc:"T-dependent · structured · low AT"},{title:"<span class='kw3'>Communicative</span>",desc:"T-independent · flexible · high AT"}]},
