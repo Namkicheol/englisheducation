@@ -69,6 +69,11 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 .learning-nav a{flex:1 1 140px;background:#fff;border:1.5px solid #b2dfcc;border-radius:8px;padding:8px 10px;color:#1b5e3a;text-decoration:none;text-align:center;font-size:12px;font-weight:700;line-height:1.4;transition:background .15s,border-color .15s}
 .learning-nav a:hover{background:#f0faf5;border-color:#2e7d52}
 @media(max-width:640px){.learning-nav a{flex-basis:calc(50% - 7px)}}
+
+.teaching-case{margin:14px 0;border:1px solid #a5cfc1;border-radius:10px;background:#f4fbf7;overflow-wrap:anywhere}
+.teaching-case summary{cursor:pointer;padding:12px 14px;color:#00695c;font-weight:700;font-size:14px;line-height:1.6}
+.teaching-case .case-body{padding:0 14px 14px;font-size:13px;line-height:1.85}
+.teaching-case p{margin:9px 0}.teaching-case ul{padding-left:20px}.teaching-case li{margin:6px 0}
 </style>
 <link rel="stylesheet" href="./study-return.css">
 <link rel="stylesheet" href="./learning.css">
@@ -92,7 +97,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
   </div>
   <h1 class="header-title"><span class="title-hl">개념 정리</span> 노트</h1>
   <div class="header-script">Concept Notes · Teaching Writing</div>
-  <p class="header-sub">서브노트 순서 기반 · 기출 포인트 · 비교 도식</p>
+  <p class="header-sub">개념 요약 · 수업 사례 · 비교와 적용</p>
   <div class="header-divider"></div>
   <p class="header-tip">📌 목차 버튼 클릭 → 해당 섹션으로 이동 &nbsp;·&nbsp; ▼ 섹션 제목 클릭 → 열고 닫기</p>
 </div>
@@ -116,13 +121,13 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 
 <!-- 기출분석 포인트 -->
 <div class="exam" style="margin-bottom:20px">
-  <div class="exam-label">📝 기출분석 포인트 (Ch.9 Teaching Writing)</div>
+  <div class="exam-label">📝 학습 포인트 (Ch.9 Teaching Writing)</div>
   <p>① <span class='kw1'>Product-oriented</span> vs <span class='kw1'>Process-oriented</span> — 완성된 글과 쓰기 과정 중 어디에 비중을 두는지 구분</p>
-  <p>② <span class='kw1'>Responding</span> 단계 — teacher feedback(ECC·conferencing·reformulation) 장단점 자주 출제</p>
-  <p>③ <span class='kw1'>Dialogue journal</span> — graded/corrected 금지, authentic reader, self-assessment 연결 단골</p>
+  <p>② <span class='kw1'>Responding</span> 단계 — teacher feedback(ECC·conferencing·reformulation) 목적·방법·학습자 반응을 함께 비교</p>
+  <p>③ <span class='kw1'>Dialogue journal</span> — 의미 중심의 대화, authentic reader, self-assessment 연결</p>
   <p>④ <span class='kw1'>Revising</span>(global: content/org) vs <span class='kw1'>Editing</span>(local: grammar/spelling) 역할 혼동 함정</p>
-  <p>⑤ <span class='kw1'>Peer feedback</span> 단점: too much positive feedback(not too little) — 반드시 역방향으로 기억</p>
-  <p>⑥ <span class='kw1'>Group writing</span> — process-oriented approach + social constructivism 연결 논술 소재</p>
+  <p>⑤ <span class='kw1'>Peer feedback</span> 구체적 근거 없는 칭찬이나 비판은 수정에 도움이 부족함</p>
+  <p>⑥ <span class='kw1'>Group writing</span> — process-oriented approach + social constructivism 연결 원리</p>
 </div>
 
 <!-- Legend -->
@@ -139,20 +144,21 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
   <div class="sec-header" onclick="toggle('s1')">
     <span class="sec-icon">📝</span>
     <span class="sec-title">Approaches in Teaching Writing</span>
-    <span class="sec-tag">기출 ★★★</span>
+    <span class="sec-tag">핵심 비교</span>
     <span class="sec-arrow">▼</span>
   </div>
   <div class="sec-body" id="approaches">
+<div class="exam"><div class="exam-label">관련 적용: 2025 B-6</div><p>이 문항은 project-based learning의 절차를 평가한다. 학습자가 목표·범위를 함께 정해야 하는데 교사가 정한 Week 1, 과정과 결과를 함께 평가해야 하는데 최종 brochure만 평가한 Week 6이 지문 기준과 어긋난다. 쓰기의 process/product 구분과 연결할 수 있지만 문항 자체의 주제는 PBL이다.</p></div>
 
     <div class="concept">
-      <div class="c-title">🔑 Product-oriented vs Process-oriented (★★★ 핵심 대조)</div>
+      <div class="c-title">🔑 Product-oriented vs Process-oriented (핵심 대조)</div>
       <div class="grid col2">
         <div class="grid-item">
           <div class="gi-title"><span class="kw1">Product-oriented</span></div>
           <div class="gi-body">
-            <span>✏️ <strong>초점</strong>: error-free final product</span>
+            <span>✏️ <strong>초점</strong>: quality of the finished text</span>
             <span>📋 <strong>활동</strong>: imitating, copying, transforming models of correct language</span>
-            <span>⚖️ <strong>기준</strong>: quality over quantity</span>
+            <span>⚖️ <strong>기준</strong>: content, organization, language, mechanics</span>
             <span>💬 <strong>피드백</strong>: 문법·표기뿐 아니라 내용·구성도 평가 가능</span>
           </div>
         </div>
@@ -170,28 +176,22 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         <div class="exam-label">⚠️ 함정 포인트</div>
         <p>Process-oriented가 최종 결과물을 <span class='kw4'>무시한다</span>는 표현 → <span class='kw2'>오답</span>. "does NOT downplay the importance of the final product"가 정확한 표현.</p>
       </div>
-      <div class="exam" style="margin-top:10px">
-        <div class="exam-label">📋 기출 이력</div>
-        <p><strong>2012 Q28</strong> — 쓰기 과정과 수정 단계(writing process, drafting, revision)</p>
-        <p><strong>2013 Q27</strong> — 쓰기 과정 접근법과 동료 피드백(process approach, peer feedback)</p>
-        <p><strong>2016_B 논술2</strong> — 과정·결과 중심 쓰기 교수 비교 논술</p>
-        <p><strong>2018_B 논술1</strong> — L2 쓰기 피드백과 수정 과정 논술</p>
-        <p><strong>2023 B-7</strong> — content, organization, process writing</p>
-        <p><strong>2025 B-6</strong> — process, product, collaboratively</p>
-      </div>
+
     </div>
 
     <svg viewBox="0 0 680 100" style="width:100%;margin-top:16px;font-family:'JetBrains Mono',monospace" xmlns="http://www.w3.org/2000/svg">
       <rect x="10" y="15" width="300" height="70" rx="10" fill="rgba(46,125,82,.1)" stroke="rgba(46,125,82,.4)" stroke-width="1.5"/>
       <text x="160" y="44" text-anchor="middle" fill="#1b5e3a" font-size="13" font-weight="bold">Product-oriented</text>
-      <text x="160" y="62" text-anchor="middle" fill="#3a6b51" font-size="10">error-free product</text>
-      <text x="160" y="76" text-anchor="middle" fill="#3a6b51" font-size="10">grammar / mechanics 피드백</text>
+      <text x="160" y="62" text-anchor="middle" fill="#3a6b51" font-size="10">finished-text quality</text>
+      <text x="160" y="76" text-anchor="middle" fill="#3a6b51" font-size="10">content · organization · language</text>
       <text x="340" y="57" text-anchor="middle" fill="#26a69a" font-size="28">⇄</text>
       <rect x="370" y="15" width="300" height="70" rx="10" fill="rgba(183,28,28,.07)" stroke="rgba(183,28,28,.25)" stroke-width="1.5"/>
       <text x="520" y="44" text-anchor="middle" fill="#b71c1c" font-size="13" font-weight="bold">Process-oriented</text>
-      <text x="520" y="62" text-anchor="middle" fill="#8a2020" font-size="10">well-organized text (not error-free)</text>
-      <text x="520" y="76" text-anchor="middle" fill="#8a2020" font-size="10">content / organization 피드백</text>
+      <text x="520" y="62" text-anchor="middle" fill="#8a2020" font-size="10">drafting · feedback · revision</text>
+      <text x="520" y="76" text-anchor="middle" fill="#8a2020" font-size="10">meaning and accuracy developed</text>
     </svg>
+
+    <details class="teaching-case"><summary>같은 과제에서 Process · Product · Genre 구분하기</summary><div class="case-body"><p><strong>Task.</strong> 학생들은 학교 도서관에 주말 개방을 요청하는 글을 쓴다. 독자는 담당 교사이며, 목표는 실제 검토에 필요한 이유와 운영 제안을 전달하는 것이다.</p><p><strong>Product emphasis.</strong> 교사는 기준표에 따라 완성된 글을 평가한다. 요청이 명확한지, 근거와 문단 구성이 적절한지, 어휘와 문법을 정확하게 사용했는지 확인한다. 모범 글의 구성을 참고하게 할 수 있다. 내용 평가가 있다고 해서 product-oriented가 아닌 것은 아니다.</p><p><strong>Process emphasis.</strong> 학생이 이용 수요를 정리하고 초안을 쓴다. 동료가 ‘언제, 누가 관리할 것인가?’를 묻자 운영안을 추가하고, 마지막에 문법·표기를 다듬는다. 초안과 수정 이유까지 지도하므로 process-oriented이다. 최종 글의 질도 목표에 포함된다.</p><p><strong>Genre emphasis.</strong> 실제 요청문들을 비교하여 요청자·수신자의 관계, 요청 이유를 제시하는 방식, 공손한 표현과 마무리를 살핀다. 독자와 사회적 목적에 맞는 글의 관습을 배우는 데 초점을 둔다.</p><p><strong>판별.</strong> 한 수업이 세 요소를 모두 포함할 수 있다. 모범 글을 사용했다는 이유만으로 product-oriented라고 판단하거나, 문법을 교정했다는 이유로 process-oriented가 아니라고 판단하지 않는다. Brown (2007), Teaching by Principles, 3rd ed., pp.391–393, 403–404, 412.</p></div></details>
 
   </div>
 </div>
@@ -201,13 +201,13 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
   <div class="sec-header" onclick="toggle('s2')">
     <span class="sec-icon">🔄</span>
     <span class="sec-title">Writing Process — 5 Stages</span>
-    <span class="sec-tag">기출 ★★★</span>
+    <span class="sec-tag">핵심 비교</span>
     <span class="sec-arrow">▼</span>
   </div>
   <div class="sec-body" id="writing-process">
 
     <div class="concept">
-      <div class="def">Writing process involves five basic stages: <strong>pre-writing → drafting → responding → revising → editing</strong>. As it is a <span class='kw2'>recursive and cyclical process</span>, any stage can be performed or re-performed at any point.</div>
+      <div class="def">In this five-stage teaching model, the writing process includes <strong>pre-writing → drafting → responding → revising → editing</strong>. As it is a <span class='kw2'>recursive and cyclical process</span>, any stage can be performed or re-performed at any point.</div>
       <p class="note">핵심: <span class='kw2'>recursive and cyclical</span> — 순서가 있지만 어느 단계에서든 이전 단계로 돌아갈 수 있음 (<span class='kw4'>strictly linear</span> 표현은 틀림)</p>
     </div>
 
@@ -246,8 +246,10 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 
     <div class="exam" style="margin-top:12px">
       <div class="exam-label">⚠️ Revising vs Editing 함정</div>
-      <p><span class='kw1'>Revising</span> = <span class='kw2'>global</span> (content, organization) &nbsp;|&nbsp; <span class='kw1'>Editing</span> = <span class='kw2'>local</span> (grammar, spelling, punctuation, diction). 두 개념의 역할을 바꿔서 출제하는 패턴 빈출.</p>
+      <p><span class='kw1'>Revising</span> = <span class='kw2'>global</span> (content, organization) &nbsp;|&nbsp; <span class='kw1'>Editing</span> = <span class='kw2'>local</span> (grammar, spelling, punctuation, diction). 이 수업 모형에서는 수정 대상이 의미·구성인지 언어 형식인지 살핀다.</p>
     </div>
+
+    <details class="teaching-case"><summary>초안 작성·피드백·재계획의 순환</summary><div class="case-body"><p><strong>Initial draft.</strong> “Our library should open on Saturdays. Students need a place to study.” 학생은 두 문장으로 시작하지만 운영 비용이나 이용 대상은 아직 설명하지 않았다.</p><p><strong>Responding.</strong> 동료가 주장의 뜻을 다시 말한 뒤 ‘모든 주말인가, 시험 기간만인가?’라고 묻는다. 필자는 시험 기간을 염두에 두었다는 것을 깨닫고, pre-writing으로 돌아가 개방 시간·관리 인력 아이디어를 정리한다.</p><p><strong>Revising.</strong> “During exam weeks, the library could open from 9 a.m. to noon on Saturdays.”를 중심 주장으로 삼고, 이유 다음에 운영 제안을 배치한다. 이는 단어 몇 개를 고치는 것이 아니라 주장 범위와 정보 순서를 바꾸는 수정이다.</p><p><strong>Editing.</strong> 주어·동사 일치, 시간 표기, 구두점을 점검한 뒤 제출한다. 점검 중 설명이 빠진 것을 발견하면 다시 내용을 보완할 수 있다.</p><p><strong>모형 비교.</strong> 위 표는 responding과 editing을 따로 드러내는 다섯 단계 모형이다. Brown (2007, pp.404–410)은 prewriting, drafting, revising의 큰 틀 안에서 feedback과 proofreading을 다룬다. 단계 수보다 실제 기능과 필요에 따라 앞 단계로 돌아가 수정하는 과정을 설명한다.</p></div></details>
 
   </div>
 </div>
@@ -257,7 +259,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
   <div class="sec-header" onclick="toggle('s3')">
     <span class="sec-icon">💡</span>
     <span class="sec-title">Pre-writing Activities</span>
-    <span class="sec-tag">기출 ★★</span>
+    <span class="sec-tag">핵심 개념</span>
     <span class="sec-arrow">▼</span>
   </div>
   <div class="sec-body" id="pre-writing">
@@ -282,14 +284,14 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
           <div class="gi-title"><span class="kw1">Mind Map</span></div>
           <div class="gi-body">
             <span>중심 주제에서 시작해 아이디어를 <strong>발전·확장(develop)</strong>시키며 연상 그리기</span>
-            <span>cf. Clustering과 유사하나 아이디어 발전에 초점</span>
+            <span>Clustering과 겹치는 시각적 아이디어 생성 활동</span>
           </div>
         </div>
         <div class="grid-item">
           <div class="gi-title"><span class="kw1">Freewriting</span></div>
           <div class="gi-body">
             <span><strong>without stop</strong> + <strong>without formal correctness</strong>로 자유롭게 씀</span>
-            <span>T가 opening clause/sentence 제공</span>
+            <span>T가 시작 문장을 제공할 수도 있음</span>
           </div>
         </div>
         <div class="grid-item">
@@ -308,14 +310,14 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
     </div>
 
     <div class="concept">
-      <div class="c-title">🔑 Freewriting vs Looping 구별 (★★ 함정)</div>
+      <div class="c-title">🔑 Freewriting vs Looping 구별 (활동 비교)</div>
       <div class="grid col2">
         <div class="grid-item">
           <div class="gi-title"><span class="kw1">Freewriting</span></div>
           <div class="gi-body">
             <span>주제 받아 멈추지 않고 자유롭게 씀</span>
             <span>formal correctness 무시</span>
-            <span>T가 opening sentence 제공</span>
+            <span>시작 문장 제공은 선택 사항</span>
           </div>
         </div>
         <div class="grid-item">
@@ -329,6 +331,8 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       </div>
     </div>
 
+    <details class="teaching-case"><summary>아이디어 생성 활동을 산출물로 구분하기</summary><div class="case-body"><p><strong>주제.</strong> 학교 점심시간을 개선하는 글을 준비한다. Brainstorming에서는 ‘긴 줄, 소음, 짧은 휴식, 좌석’처럼 생각을 빠르게 모으고 즉시 좋고 나쁨을 판정하지 않는다. Clustering에서는 가운데 lunch를 쓰고 queue–waiting time, seats–crowding처럼 관련 항목을 연결한다.</p><p><strong>Freewriting.</strong> 3분 동안 ‘점심시간에 가장 불편했던 날’을 쓰며 철자 때문에 멈추지 않는다. “I waited so long that I had only five minutes to eat.”라는 문장이 나온다. 교사가 첫 문장을 주지 않아도 freewriting이 성립한다.</p><p><strong>Looping.</strong> 그 문장을 골라 다음 3분 동안 쓸 글의 주제로 삼고, 대기 시간을 줄일 방법에 관해 다시 쓴다. 자유롭게 쓰기에서 끝나면 freewriting, 핵심 생각을 선택하여 새 글쓰기를 반복하면 looping이다.</p><p><strong>Strategic questioning.</strong> 누가 오래 기다리는지, 언제 혼잡한지, 줄을 어떻게 나눌 수 있는지 묻고 필요한 정보를 모은다. 최종적으로 ‘학년별 배식 시간을 나누자’라는 제안과 이유 두 가지를 선택한다. Brainstorming과 clustering은 각각 사용하거나 함께 활용할 수 있으며, 반드시 한 활동을 먼저 해야 하는 것은 아니다. Brown (2007), pp.404–408.</p></div></details>
+
   </div>
 </div>
 
@@ -337,7 +341,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
   <div class="sec-header" onclick="toggle('s4')">
     <span class="sec-icon">🗒️</span>
     <span class="sec-title">Teacher Feedback (Responding Stage)</span>
-    <span class="sec-tag">기출 ★★★</span>
+    <span class="sec-tag">핵심 비교</span>
     <span class="sec-arrow">▼</span>
   </div>
   <div class="sec-body" id="teacher-feedback">
@@ -404,7 +408,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
     </div>
 
     <div class="concept">
-      <div class="c-title">피드백 타이밍 원칙 <span class="badge-ex">★★★ 기출</span></div>
+      <div class="c-title">피드백 타이밍 원칙 <span class="badge-ex">핵심</span></div>
       <div class="grid col2">
         <div class="grid-item">
           <div class="gi-title">Early Draft</div>
@@ -417,6 +421,8 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       </div>
     </div>
 
+    <details class="teaching-case"><summary>하나의 초안에 서로 다른 피드백 주기</summary><div class="case-body"><p><strong>Draft.</strong> “Students needs more time. It is bad.” 교사는 학습자와 needs의 주어·동사 일치를 확인할 수도 있지만, it이 무엇을 뜻하는지 먼저 명확히 할 필요도 있다.</p><ul><li><strong>ECC:</strong> needs 옆에 수업에서 합의한 S–V 기호를 쓴다. 학생이 Students need로 고치고 이유를 말하면 self-correction이 이루어진다. 기호를 이해하지 못하면 예와 설명이 추가로 필요하다.</li><li><strong>Written comment:</strong> ‘What situation does “it” refer to? Add a specific example.’라고 적는다. 이는 내용의 구체화를 돕는 서면 제안이다.</li><li><strong>Conferencing:</strong> 학생이 배식 줄을 뜻했다고 설명하면 교사는 ‘독자가 그 상황을 알 수 있도록 어떤 정보를 넣겠니?’라고 묻는다. 학생은 대기 시간 사례를 선택한다. 교사의 주장을 대신 쓰게 하는 것이 목적은 아니다.</li><li><strong>Reformulation:</strong> 교사가 학생의 의도를 확인한 후 의미를 유지하면서 표현을 다듬은 버전을 제공한다. 학생은 두 버전의 차이와 그 이유를 표시하고 자기 글을 다시 쓴다. 비교 기회가 noticing을 도울 수 있지만, 보기만 했다고 학습이 보장되지는 않는다.</li></ul><p><strong>분류 기준의 차이.</strong> Written/oral은 전달 방식, teacher/peer는 제공자, formative/summative는 사용 목적이다. 초안 수정에 쓰는 코멘트는 formative이고, 단원 성취를 판단하는 점수는 summative이다. 최종 평가의 코멘트를 다음 글에 활용할 수도 있다. Brown (2007), pp.396, 411–415; reformulation 사례의 기준은 원래 의미를 유지한 재작성본과 학습자 글의 비교이다.</p></div></details>
+
   </div>
 </div>
 
@@ -425,13 +431,13 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
   <div class="sec-header" onclick="toggle('s5')">
     <span class="sec-icon">👥</span>
     <span class="sec-title">Peer Feedback</span>
-    <span class="sec-tag">기출 ★★★</span>
+    <span class="sec-tag">핵심 비교</span>
     <span class="sec-arrow">▼</span>
   </div>
   <div class="sec-body" id="peer-feedback">
 
     <div class="concept">
-      <div class="c-title">용어 구분 (★★)</div>
+      <div class="c-title">용어 구분</div>
       <div class="grid col3">
         <div class="grid-item">
           <div class="gi-title"><span class="kw1">Peer Feedback</span></div>
@@ -464,15 +470,17 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
           <div class="gi-body">
             <span>❌ Vague, unhelpful</span>
             <span>❌ Sentence-level 문제에만 집중</span>
-            <span>❌ <span class='kw4'>Too much positive feedback</span> (비판 회피)</span>
+            <span>❌ 구체적 제안 없이 칭찬만 하는 경우 (비판 회피)</span>
           </div>
         </div>
       </div>
       <div class="exam" style="margin-top:10px">
         <div class="exam-label">⚠️ 함정 포인트</div>
-        <p>"too <span class='kw4'>little</span> positive feedback" → <span class='kw2'>오답</span>. 실제 단점은 "too <span class='kw4'>much</span> positive feedback". 반드시 역방향으로 기억할 것.</p>
+        <p>칭찬만 반복하여 필요한 수정을 회피하는 경우도 있고, 근거 없이 비판하여 필자를 위축시키는 경우도 있다. 피드백의 질은 praise의 양보다 <strong>텍스트 근거와 실행 가능한 제안</strong>으로 판단한다.</p>
       </div>
     </div>
+
+    <details class="teaching-case"><summary>수정에 도움이 되는 Peer feedback</summary><div class="case-body"><p><strong>상황.</strong> 학생 A가 도서관 주말 개방을 제안하고 B는 “Good!”만 적는다. 긍정적 반응은 있지만 글의 어느 부분이 좋고 무엇을 수정해야 하는지 알 수 없어 revision에 필요한 정보가 부족하다.</p><p><strong>교사의 시범.</strong> 교사는 (1) 중심 주장을 자기 말로 적기, (2) 설득력 있는 근거 하나 표시하기, (3) 독자가 더 알고 싶어 할 정보와 이를 추가할 위치를 알려 주기, (4) 수정안을 필자와 논의하기를 시범 보인다.</p><p><strong>개선된 반응.</strong> “The exam-week limit makes the request realistic. In the last paragraph, explain who could supervise the room.” 학생 A는 첫 부분을 유지하고 관리 인력 제안을 추가한다. 모든 제안을 무조건 수용하는 대신 요청의 목적에 맞는지 판단한다.</p><p><strong>용어 비교.</strong> 내용 반응을 peer feedback, 형식 점검을 peer editing이라고 좁게 나누는 수업도 있다. Brown의 peer-editing 활동은 main idea, audience, purpose, supporting details까지 검토한다. 따라서 활동의 checklist와 수정 대상을 근거로 답한다.</p><p><strong>판별.</strong> 칭찬이 많다는 사실만으로 나쁜 피드백은 아니다. “Good!”만 있는 반응과 구체적 강점·수정 제안이 있는 긍정적 반응을 구별한다. 공격적인 비판 역시 학습을 방해할 수 있다. Brown (2007), pp.409–410.</p></div></details>
 
   </div>
 </div>
@@ -482,10 +490,11 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
   <div class="sec-header" onclick="toggle('s6')">
     <span class="sec-icon">✏️</span>
     <span class="sec-title">Revising vs Editing</span>
-    <span class="sec-tag">기출 ★★★</span>
+    <span class="sec-tag">핵심 비교</span>
     <span class="sec-arrow">▼</span>
   </div>
   <div class="sec-body" id="revising-editing">
+<div class="exam"><div class="exam-label">2023 B-7: 수정 전후의 증거</div><p>두 번째 초안은 간식에 관한 세부 정보를 추가하여 content를 발전시키고, but·then·so를 넣어 사건의 관계와 흐름을 드러내어 organization을 개선한다. 교사가 vocabulary와 grammar도 지적했지만 실제 수정본에는 그 오류가 남아 있으므로, 받은 조언과 실제로 수행한 수정을 구별한다.</p></div>
 
     <div class="concept">
       <div class="grid col2">
@@ -527,6 +536,8 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       <text x="572" y="68" text-anchor="middle" fill="#b71c1c" font-size="10">grammar · spelling · punctuation</text>
     </svg>
 
+    <details class="teaching-case"><summary>Revising과 editing의 수정 대상 비교</summary><div class="case-body"><p><strong>Before.</strong> “The library should open longer. I like the chairs. Some students cannot study quietly at home.” 글의 주장은 개방 시간 연장이지만 두 번째 문장이 이를 뒷받침하지 못한다.</p><p><strong>Revising.</strong> 의자 이야기를 삭제하고 가정의 학습 환경 문제를 주장 뒤에 옮긴다. 이어 시험 기간 토요일 오전 개방안을 넣는다. 근거의 관련성, 주장 범위, 배열이 바뀌었으므로 content와 organization을 다루었다.</p><p><strong>Editing.</strong> 수정본의 “Several student needs a quiet room”을 “Several students need a quiet room”으로 고친다. 핵심 주장과 근거는 그대로 두고 명사 수와 동사 일치를 점검했다.</p><p><strong>경계.</strong> 내용 검토와 형식 검토는 구분해 지도할 수 있지만 실제 쓰기에서는 겹친다. 단어 선택 때문에 의미가 바뀌거나 문법 오류가 이해를 막는다면 초안에서도 다룰 수 있다. Brown (2007, pp.411–412)의 첫 초안 지침도 모든 언어 문제를 금지하지 않는다.</p></div></details>
+
   </div>
 </div>
 
@@ -534,8 +545,8 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 <div class="sec" id="s7">
   <div class="sec-header" onclick="toggle('s7')">
     <span class="sec-icon">📋</span>
-    <span class="sec-title">Types of Writing Performances</span>
-    <span class="sec-tag">기출 ★★★</span>
+    <span class="sec-title">Writing Performances and Classroom Activities</span>
+    <span class="sec-tag">핵심 비교</span>
     <span class="sec-arrow">▼</span>
   </div>
   <div class="sec-body" id="writing-performances">
@@ -548,13 +559,13 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 
     <div class="concept">
       <div class="c-title"><span class="kw1">② Controlled Writing</span></div>
-      <div class="def">Does <span class='kw4'>not allow creativity</span> on the part of Ss by strictly controlling <span class='kw2'>content and form</span>.</div>
+      <div class="def">Controlled tasks restrict learners’ choices of content or language to practise a specified target; the degree of control depends on the task.</div>
       <div class="grid col2" style="margin-top:10px">
         <div class="grid-item">
           <div class="gi-title"><span class="kw1">Dicto-comp</span></div>
           <div class="gi-body">
-            <span>100단어 이상 지문을 <strong>여러 번 청취</strong></span>
-            <span><strong>pause 없음</strong> + preparatory stage 있음</span>
+            <span>한 단락을 보통 <strong>2–3회 청취</strong></span>
+            <span>정상 속도로 듣고 <strong>청취 후 재구성</strong></span>
             <span>아이디어 기억 후 재구성(원문 or 자기 말로)</span>
           </div>
         </div>
@@ -562,7 +573,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
           <div class="gi-title">vs. <span class="kw3">Dictation</span></div>
           <div class="gi-body">
             <span><strong>pause 있음</strong> → 그대로 받아쓰기</span>
-            <span>preparatory stage 없음</span>
+            <span>전체 지문을 먼저 들을 수도 있음</span>
             <span>듣는 대로 정확히 기록</span>
           </div>
         </div>
@@ -579,7 +590,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
     </div>
 
     <div class="concept">
-      <div class="c-title"><span class="kw1">④ Self-Writing</span> — Dialogue Journal <span class="badge-ex">★★★ 기출 단골</span></div>
+      <div class="c-title"><span class="kw1">④ Self-Writing</span> — Dialogue Journal <span class="badge-ex">의미 중심 대화</span></div>
       <div class="def"><span class='kw1'>Dialogue Journal</span>: A written conversation between the T and the S where Ss record thoughts, feelings, ideas, reactions, or self-selected topics, and the T reads and responds with written comments.</div>
       <div class="grid col2" style="margin-top:10px">
         <div class="grid-item">
@@ -591,11 +602,11 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
           </div>
         </div>
         <div class="grid-item">
-          <div class="gi-title"><span class="kw4">절대 금지</span></div>
+          <div class="gi-title"><span class="kw2">의미 중심 운영</span></div>
           <div class="gi-body">
-            <span><span class='kw4'>graded</span> 금지</span>
-            <span><span class='kw4'>corrected</span> 금지</span>
-            <span><span class='kw4'>evaluated</span> 금지</span>
+            <span>매번 점수를 매기는 과제로 운영하지 않음</span>
+            <span>모든 오류를 고치는 것보다 내용에 응답</span>
+            <span>자기 성찰과 발전 관찰에 활용 가능</span>
           </div>
         </div>
       </div>
@@ -608,6 +619,10 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       <p class="note"><strong>Chain writing</strong>: T가 첫 문장 제공 → 학생이 차례로 한 문장씩 추가</p>
     </div>
 
+    <details class="teaching-case"><summary>Dictation · Dicto-comp · Guided writing 비교</summary><div class="case-body"><p><strong>공통 소재.</strong> 교사는 학생들이 학교 정원에 씨앗을 심는 짧은 이야기를 사용한다.</p><ul><li><strong>Dictation:</strong> 전체 이야기를 먼저 들려준 뒤 짧은 구 단위로 읽고 멈춘다. 학생은 멈춘 동안 들은 문구를 적는다. 마지막 전체 듣기로 확인할 수 있다.</li><li><strong>Dicto-comp:</strong> 이야기를 정상 속도로 두세 번 듣고 난 후, 기억한 사건의 순서와 내용을 글로 재구성한다. 핵심어를 제공하는 변형도 가능하다. ‘준비가 있다/없다’보다 받아 적는 시점과 재구성 요구가 핵심 차이다.</li><li><strong>Controlled transformation:</strong> 주어진 현재형 문단을 과거형으로 바꾼다. 내용 선택은 제한되고 특정 언어 형식을 연습한다.</li><li><strong>Guided writing:</strong> 그림과 ‘누가, 무엇을, 왜 했는가?’라는 질문을 보고 이야기를 쓴다. 도움은 제공되지만 학생이 표현을 선택할 여지가 더 크다.</li></ul><p><strong>분류 틀.</strong> Brown (2007, pp.399–402)의 교실 수행 분류는 imitative, intensive/controlled, self-writing, display, real writing이다. 같은 책의 평가 과제 분류(pp.414–415)는 imitative, intensive, responsive, extensive이다. Guided writing이나 group writing은 과제 설계도 설명하므로 모든 명칭을 서로 겹치지 않는 하나의 분류 체계로 취급하지 않는다.</p></div></details>
+
+    <details class="teaching-case"><summary>Dialogue journal과 group writing의 활동 목적</summary><div class="case-body"><p><strong>Dialogue journal.</strong> 학생이 동아리 첫 발표를 해 본 경험과 어려움을 적고, 교사는 인상 깊었던 경험에 반응하며 다음에는 어떤 도움을 원하는지 묻는다. 학생은 다음 기록에서 준비 방법을 돌아본다. 대화의 연속성과 실제로 글을 읽고 답하는 상대에게 자신의 경험과 생각을 전하는 것이 핵심이다. 매 항목의 오류를 모두 고쳐 점수화하면 이 목적을 약화시킬 수 있다.</p><p><strong>Self-assessment.</strong> 몇 주 뒤 학생이 초기 기록과 최근 기록에서 설명의 구체성이나 표현 변화의 예를 골라 성찰한다. 따라서 dialogue journal에서는 학습자의 발전을 평가할 수 없다고 단정해서는 안 된다.</p><p><strong>Group writing.</strong> 네 학생이 안내문의 독자와 목차를 함께 정하고 각 부분을 쓴다. 서로 읽으며 중복·누락을 찾고, 정보를 통일한 뒤 다시 편집한다. 공동 계획, 의미 협의, 피드백이 학습을 지원한다. 각자 쓴 단락을 서로 읽거나 논의하지 않고 합치기만 했다면, 협동 과정에서 scaffolding이 이루어졌다고 판단하기 어렵다.</p><p>Brown (2007), pp.400–402, 411. Dialogue journal의 의미 중심 교사 응답과 상호작용적 쓰기 원리를 적용한 수업 사례.</p></div></details>
+
   </div>
 </div>
 
@@ -616,13 +631,13 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
   <div class="sec-header" onclick="toggle('s8')">
     <span class="sec-icon">🌍</span>
     <span class="sec-title">Key Writing Concepts</span>
-    <span class="sec-tag">기출 ★★</span>
+    <span class="sec-tag">핵심 개념</span>
     <span class="sec-arrow">▼</span>
   </div>
   <div class="sec-body" id="writing-concepts">
 
     <div class="concept">
-      <div class="c-title">🔑 Real Writing vs Display Writing (★★★ 함정)</div>
+      <div class="c-title">🔑 Real Writing vs Display Writing (★활동 비교)</div>
       <div class="grid col2">
         <div class="grid-item">
           <div class="gi-title"><span class="kw1">Real Writing</span></div>
@@ -647,16 +662,13 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 
     <div class="concept">
       <div class="c-title">Contrastive Rhetoric</div>
-      <div class="def"><span class='kw1'>Contrastive rhetoric</span>: The idea that <span class='kw2'>culturally determined predispositions to structure and organize a text</span> from the first language <span class='kw2'>transfer themselves to second language writing</span>; this may involve cultural awareness.</div>
-      <p class="note">L1의 문화적 텍스트 조직 방식이 L2 쓰기에 전이 → cultural awareness 교육 필요성</p>
+      <div class="def"><span class='kw1'>Contrastive rhetoric</span>: In Kaplan’s early account, the proposal that <span class='kw2'>culturally determined predispositions to structure and organize a text</span> from the first language <span class='kw2'>can influence second-language writing</span>; this may involve cultural awareness.</div>
+      <p class="note">L1의 글쓰기 경험은 L2 쓰기에 영향을 줄 수 있다. Brown (2007, pp.393–394)은 문화별 고정 도식의 과도한 일반화를 경고하며, 개인의 경험·과제·독자도 함께 살피도록 한다.</p>
     </div>
 
     <div class="concept">
-      <div class="c-title">Coherence &amp; Cohesion <span class="badge-ex">기출 빈출</span></div>
-      <div class="exam">
-        <div class="exam-label">📋 기출 이력</div>
-        <p><strong>2022 B-6</strong> — lexical cohesion, repetition(of the same content words), part-whole relations(meronymy)</p>
-      </div>
+      <div class="c-title">Coherence &amp; Cohesion <span class="badge-ex">핵심</span></div><div class="exam"><div class="exam-label">관련 적용: 2022 B-6</div><p>이 문항의 자료는 글쓰기 초안이 아니라 대화이다. wallpaper의 반복과 kitchen 안의 구성 요소인 dining table의 part–whole 관계가 lexical cohesion의 증거가 된다. 쓰기에서도 어휘 간 의미 관계를 살펴 연결을 점검할 수 있다.</p></div>
+
       <div class="grid col2">
         <div class="grid-item">
           <div class="gi-title"><span class="kw1">Coherence</span></div>
@@ -675,21 +687,19 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
           </div>
         </div>
       </div>
-      <p class="note" style="margin-top:8px">두 개념의 단순 대조보다 <strong>쓰기의 필수 요소</strong>로 출제 — teacher feedback 기준, 학생이 습득해야 할 요소로 빈출</p>
+      <p class="note" style="margin-top:8px">글의 의미 관계와 언어적 연결 장치를 함께 살피면 teacher feedback과 revision의 근거가 구체화된다.</p>
     </div>
 
     <div class="concept">
       <div class="c-title">Genre-based Approach</div>
       <div class="def"><span class='kw1'>Genre-based approach</span>: An approach in teaching writing which bases a writing curriculum on the different types of <span class='kw2'>text structures or text genres</span>.</div>
       <p class="note">장르(narrative, descriptive, argumentative 등)별 텍스트 구조·목적을 명시적으로 교수</p>
-      <div class="exam">
-        <div class="exam-label">📋 기출 이력</div>
-        <p><strong>2015_A 기입10</strong> — 장르 글쓰기와 수사적 이동(genre, rhetorical moves)</p>
-        <p><strong>2019_B 서술5</strong> — 장르 기반 접근법과 CLT 쓰기</p>
-        <p><strong>2020_B 서술3</strong> — 장르 분석과 수사적 이동(genre, moves analysis)</p>
-        <p><strong>2022 B-7</strong> — context, content, construction(genre feature)</p>
-      </div>
+      <div class="exam"><div class="exam-label">📋 2022 B-7</div><p>이 문항의 기준: context = situation/audience, content = information/message, construction = layout/language. Activity 1의 대문자·문장 형식 질문은 construction, Activity 2의 대상 독자·작성 상황 질문은 context에 해당한다.</p></div>
     </div>
+
+    <details class="teaching-case"><summary>Genre 분석과 real/display writing의 적용</summary><div class="case-body"><p><strong>새 과제.</strong> 학생들이 학교 영화 동아리의 신입 모집 안내문을 만든다. 읽을 사람은 아직 동아리를 모르는 학생이고, 목적은 가입 결정과 신청을 돕는 것이다.</p><ul><li><strong>Context:</strong> 누가 읽으며 어떤 상황에서 이 글을 필요로 하는가? 신입 학생이 가입을 검토한다.</li><li><strong>Content:</strong> 어떤 정보를 전달하는가? 활동 내용, 모임 시간, 신청 방법을 알려 준다.</li><li><strong>Construction:</strong> 어떻게 구성하고 표현하는가? 눈에 띄는 제목, 짧은 항목, 행동을 요청하는 문장을 사용한다.</li></ul><p>이는 2022 B-7이 제시한 세 기준을 새 소재에 적용한 사례이다. 그 문항에서 대문자와 완전한 문장 사용 여부를 묻는 Activity 1은 construction, 독자와 작성 상황을 묻는 Activity 2는 context이다. 글에 활동 내용이 나온다는 이유만으로 질문의 초점을 content로 정하지 않는다.</p><p><strong>Real vs display.</strong> 안내문이 실제 신입생에게 전달되어 신청에 쓰이면 real writing의 기능이 있다. 같은 글을 교사가 언어 능력 평가에 사용하면 display 기능도 있다. 둘은 목적에 따른 continuum이며, 교사가 평가하더라도 실제 독자에게 정보를 전달하는 목적은 유지될 수 있다. Brown (2007), pp.395–396, 402–404.</p></div></details>
+
+    <details class="teaching-case"><summary>Cohesion과 coherence의 구별</summary><div class="case-body"><p><strong>Text A.</strong> “Our club meets on Fridays. Therefore, the moon is very far away.” Therefore가 있지만 앞 문장이 뒤 문장의 이유가 되지 않는다. 연결 표현 하나가 전체 의미 관계를 보장하지 않는다.</p><p><strong>Text B.</strong> “Our club meets on Fridays. New members can join us in Room 203 after class.” 반복된 club을 다시 쓰지 않아도 members와 us, 일정·장소 정보가 모집 안내라는 목적 아래 연결된다.</p><p><strong>Feedback.</strong> A에는 접속사를 더 넣기보다 글의 목적과 관련 없는 달에 관한 문장을 삭제하고 가입에 필요한 정보를 제시하도록 한다. B에는 us가 가리키는 집단과 after class의 시간이 독자에게 충분히 명확한지 점검한다. Coherence는 해석 가능한 의미 관계, cohesion은 reference·conjunction·lexical links 등 언어적 연결과 관련된다.</p><p><strong>Contrastive rhetoric.</strong> 익숙하지 않은 방식으로 글이 구성되어 있더라도, 그 원인을 필자의 국적만으로 설명하지 않는다. 독자에 대한 예상, 이전 글쓰기 교육, 장르 경험, 과제 이해를 확인하고 목표 글의 관습을 설명한다. Brown (2007), pp.393–394, 399, 412–413.</p></div></details>
 
   </div>
 </div>
@@ -712,3 +722,4 @@ function openSec(id){const s=document.getElementById(id);s.classList.add('open')
 <script src="./study-return.js"></script>
 </body>
 </html>
+
