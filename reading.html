@@ -111,7 +111,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f5f4ee;background-image:r
   </div>
   <h1 class="header-title"><span class="title-hl">영어교육론</span> 개념 마스터</h1>
   <div class="header-script">Concept Master</div>
-  <p class="header-sub">영어교육론 · Teaching Reading · 임용고시 대비</p>
+  <p class="header-sub">영어교육론 · Teaching Reading · 임용고시 대비</p><p class="header-sub">기출 관련 개념을 재구성한 OX이며 실제 시험 문항과 구별됩니다.</p>
   <div class="header-divider"></div>
 </div>
 <div class="prog-wrap">
@@ -137,57 +137,58 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f5f4ee;background-image:r
     <button class="restart-btn" onclick="restart()">🔄 다시 풀기</button>
   </div>
 </div>
+<div class="note" style="max-width:820px;margin:20px auto">개념 참고: H. Douglas Brown, <i>Teaching by Principles: An Interactive Approach to Language Pedagogy</i>, 3rd ed., Ch.20, pp.357–376. DARTs 분류 기준: <a href="https://www.teachingenglish.org.uk/professional-development/teachers/managing-resources/articles/interacting-texts-directed-activities">British Council, Interacting with texts</a>. KWL: <a href="https://eric.ed.gov/?id=EJ329558">D. M. Ogle (1986), K-W-L</a>. 위 수업 사례는 개념 비교를 위해 만든 예시이다. 활동 분류는 읽기 목적·입력 텍스트 상태·요구되는 응답을 기준으로 판단한다.</div>
 <script src="./score-popup.js"></script>
 <script src="./sounds.js"></script>
 <script>
-const SAVE_KEY='ox_reading_v1', TOTAL=20;
+const SAVE_KEY='ox_reading_v2', TOTAL=20;
 const Q=[
-  {src:"기출 2009모의.23",cat:"Bottom-up / Top-down Processing",
+  {src:"개념 확인",cat:"Bottom-up / Top-down Processing",
    text:"<span class='kw4'>Bottom-up processing</span> begins with the reader's background knowledge and expectations, using prior experience to predict text meaning before decoding individual words.",
    ans:false,
    correct:"위 설명은 <span class='kw4'>top-down processing</span>의 정의입니다. <span class='kw4'>Bottom-up processing</span>은 가장 작은 언어 단위(글자 → 단어 → 문장 → 텍스트)를 해독하는 데서 출발합니다.",
-   why:"<span class='kw4'>Bottom-up processing</span>: 글자→단어→문장→텍스트 순 해독. <span class='kw2'>data-driven</span>, <span class='kw2'>text-based</span>. <span class='kw1'>Phonics approach</span>·<span class='kw1'>Intensive reading</span>과 연결.<br><br><span class='kw4'>Top-down processing</span>: 독자의 <span class='kw3'>schematic knowledge</span>로 예측·재구성. <span class='kw2'>conceptually-driven</span>. <span class='kw1'>Whole Language Approach</span>·<span class='kw1'>Extensive reading</span>과 연결.",
+   why:"<span class='kw4'>Bottom-up processing</span>: 글자→단어→문장→텍스트 순 해독. <span class='kw2'>data-driven</span>, <span class='kw2'>text-based</span>. <span class='kw1'>Phonics approach</span>·<span class='kw1'>Intensive reading</span>과 연결.<br><br><span class='kw4'>Top-down processing</span>: 독자의 <span class='kw3'>schematic knowledge</span>로 예측·재구성. <span class='kw2'>conceptually-driven</span>. <span class='kw1'>Whole Language Approach</span>·<span class='kw1'>Extensive reading</span>과 연결해 설명하기도 함. 다만 intensive reading = bottom-up, extensive reading = top-down이라는 뜻은 아니며, 두 읽기 활동 모두 텍스트 해독과 배경지식 기반 처리를 활용함.",
    source:"Bottom-up processing: Decoding process in which meaning is decoded and built up from the smallest units of the given input to a complete text. (lower-level skill; data-driven; text-based; focuses on lg itself)",
-   compare:[{t:"Bottom-up",b:"글자→단어→텍스트 / data-driven / Phonics / Intensive reading"},{t:"Top-down",b:"배경지식→예측→확인 / conceptually-driven / Whole Language / Extensive reading"}]},
-  {src:"기출 2009모의.23",cat:"Content / Formal Schemata",
+   compare:[{t:"Bottom-up",b:"글자→단어→텍스트 / data-driven / Phonics"},{t:"Top-down",b:"배경지식→예측→확인 / conceptually-driven / 배경지식 기반 예측"}]},
+  {src:"개념 확인",cat:"Content / Formal Schemata",
    text:"<span class='kw3'>Content schemata</span> include a reader's background knowledge about organizational forms, discourse structures, and rhetorical patterns of different text types.",
    ans:false,
    correct:"위 설명은 <span class='kw3'>formal schemata</span>의 정의입니다. <span class='kw3'>Content schemata</span>는 general world knowledge, sociocultural knowledge, topic knowledge를 포함합니다.",
-   why:"<span class='kw3'>Content schemata</span>: general world knowledge + sociocultural knowledge + topic knowledge. 같은 글도 전공이 다른 독자가 다르게 추론 → content schemata 차이 (2009모의.23 실험).<br><br><span class='kw3'>Formal schemata</span>: organizational forms, discourse structures, rhetorical structures (e.g. essay 구조, 비교·대조 패턴, genre knowledge).",
+   why:"<span class='kw3'>Content schemata</span>: general world knowledge + sociocultural knowledge + topic knowledge. 같은 글도 전공이 다른 독자가 다르게 추론 → content schemata 차이.<br><br><span class='kw3'>Formal schemata</span>: organizational forms, discourse structures, rhetorical structures (e.g. essay 구조, 비교·대조 패턴, genre knowledge).",
    source:"Content Schema: general world knowledge, sociocultural knowledge, topic knowledge. / Formal schema: background knowledge about organizational forms and discourse, rhetorical structures.",
    compare:[{t:"Content schemata",b:"세계지식 / 사회문화지식 / 주제지식 → 내용 배경지식"},{t:"Formal schemata",b:"담화구조 / 수사 패턴 / 장르지식 → 형식 배경지식"}]},
   {src:"기출 2015.A.기입5",cat:"Intensive / Extensive Reading",
    text:"<span class='kw4'>Extensive reading</span> involves reading short passages for the explicit purpose of learning new reading skills and language items, usually followed by comprehension exercises.",
    ans:false,
    correct:"위 설명은 <span class='kw3'>intensive reading</span>의 정의입니다. <span class='kw4'>Extensive reading</span>은 즐거움·실생활 목적으로 학습자가 스스로 선택한 긴 텍스트를 읽는 것입니다.",
-   why:"<span class='kw4'>Extensive reading</span>: longer texts, selected by Ss, for pleasure and real-world purposes, no focus on classroom exercises. <span class='kw2'>top-down approach</span> 기반. <span class='kw1'>book-conferencing</span>·<span class='kw1'>sustained silent reading</span> 포함.<br><br><span class='kw3'>Intensive reading</span>: 짧은 텍스트 + 명시적 학습 + comprehension exercise. <span class='kw2'>bottom-up approach</span>.",
+   why:"<span class='kw4'>Extensive reading</span>: longer texts, selected by Ss, for pleasure and real-world purposes, no focus on classroom exercises. 전체 의미 이해를 중심으로 두 처리 방향을 함께 활용. <span class='kw1'>book-conferencing</span>·<span class='kw1'>sustained silent reading</span> 포함.<br><br><span class='kw3'>Intensive reading</span>: 짧은 텍스트 + 명시적 학습 + comprehension exercise. 언어 및 내용의 세부 의미를 다루며 함의 추론도 포함할 수 있음.",
    source:"Extensive reading: Reading longer texts which are selected by Ss themselves, for pleasure and for real-world purposes, without a focus on classroom exercises designed to test comprehension skills.",
-   compare:[{t:"Intensive reading",b:"짧은 텍스트 / 명시적 학습 / comprehension 연습 / bottom-up"},{t:"Extensive reading",b:"긴 텍스트 / 즐거움·실생활 / 자기선택 / top-down"}]},
+   compare:[{t:"Intensive reading",b:"짧은 텍스트 / 명시적 학습 / 세부 의미·전략 연습"},{t:"Extensive reading",b:"긴 텍스트 / 즐거움·실생활 / 자기선택 / 전체 의미"}]},
   {src:"기출 2011.17 · 2013.22",cat:"Reconstruction / Analysis Activities",
    text:"In <span class='kw3'>reconstruction activities</span>, students use the original, unmodified text to select specific information and represent it in a different form, thereby developing their analytical skills.",
    ans:false,
    correct:"위 설명은 <span class='kw3'>analysis activities</span>의 정의입니다. <span class='kw3'>Reconstruction activities</span>는 변형(modified)된 텍스트로 예측·재구성하는 활동입니다.",
-   why:"<b>DARTs (Directed Activities Related to Texts)</b>: 텍스트 상호작용으로 읽기 이해력 향상·critical reader 양성 (Nunan).<br><br><span class='kw3'>Reconstruction activities</span>: <u>modified text</u> → 분절·공란 → 예측·재구성 → text type 구조 이해. 예: <span class='kw2'>cloze</span>, <span class='kw2'>sequencing</span>, <span class='kw2'>prediction</span>.<br><br><span class='kw3'>Analysis activities</span>: <u>unmodified text</u> → 정보 추출·변환 → 분석 능력 발달. 예: <span class='kw2'>underlining</span>, <span class='kw2'>segmenting</span>, <span class='kw2'>diagrammatic representation</span>.",
+   why:"<b>DARTs (Directed Activities Related to Texts)</b>: 텍스트 상호작용으로 읽기 이해력 향상·critical reader 양성.<br><br><span class='kw3'>Reconstruction activities</span>: <u>modified text</u> → 분절·공란 → 예측·재구성 → text type 구조 이해. 예: <span class='kw2'>cloze</span>, <span class='kw2'>sequencing</span>, <span class='kw2'>prediction</span>.<br><br><span class='kw3'>Analysis activities</span>: <u>unmodified text</u> → 정보 추출·변환 → 분석 능력 발달. 예: <span class='kw2'>underlining</span>, <span class='kw2'>segmenting</span>, <span class='kw2'>diagrammatic representation</span>. 주어진 불완전한 표·도표를 완성하는 활동과 학생이 범주를 정해 새 표·도표를 구성하는 활동을 구별해야 함. 원문이 완전하다는 이유만으로 모든 표 완성을 analysis라고 단정하지 않음.",
    source:"Reconstruction activities: The original text is broken down and given to Ss in segments or blocks with gaps; Ss use prediction and reconstruct. / Analysis activities: Ss select specific information from unmodified text and represent it in a different form.",
    compare:[{t:"Reconstruction",b:"변형 텍스트 / 예측·재구성 / cloze, sequencing / text 구조 이해"},{t:"Analysis",b:"원본 텍스트 / 정보 추출·변환 / underlining, segmenting / 분석 능력"}]},
   {src:"기출 2017.A.6",cat:"Skimming / Scanning",
    text:"<span class='kw4'>Skimming</span> refers to reading carefully for a particular piece of information without necessarily understanding the rest of the text, while <span class='kw4'>scanning</span> is reading quickly to gain a general idea of a passage.",
    ans:false,
    correct:"설명이 뒤바뀌었습니다. <span class='kw4'>Skimming</span>은 전체 주제·요지 파악을 위해 빠르게 읽는 것이고, <span class='kw4'>Scanning</span>은 특정 정보를 찾기 위한 읽기입니다.",
-   why:"<span class='kw4'>Skimming</span>: Glancing rapidly to get a <em>general idea</em>. ~30초, 매 단어 집중 불필요.<br><br><span class='kw4'>Scanning</span>: Glancing rapidly to locate <em>specific information</em>. 특정 단어·숫자·discourse markers 탐색.",
+   why:"<span class='kw4'>Skimming</span>: Glancing rapidly to get a <em>general idea</em>. 시간 제한은 예시이며, 매 단어 집중 불필요.<br><br><span class='kw4'>Scanning</span>: Glancing rapidly to locate <em>specific information</em>. 특정 단어·숫자·discourse markers 탐색.",
    source:"Skimming: Glancing rapidly through the text to get a general idea. / Scanning: Glancing rapidly through the text to locate specific information.",
-   compare:[{t:"Skimming",b:"목적: 주제·요지 (general idea) / ~30초"},{t:"Scanning",b:"목적: 특정 정보 (specific information)"}]},
-  {src:"기출 2009.25 · 2014.10",cat:"Think-aloud / Metacognitive Awareness",
+   compare:[{t:"Skimming",b:"목적: 주제·요지 (general idea) / 빠른 전체 읽기"},{t:"Scanning",b:"목적: 특정 정보 (specific information)"}]},
+  {src:"기출 2009.25 · 2014.A.기입10",cat:"Think-aloud / Metacognitive Awareness",
    text:"The <span class='kw4'>think-aloud protocol</span> is a technique in which the teacher encourages students to monitor their comprehension process while reading and report on what they are doing, thereby fostering <span class='kw4'>metacognitive awareness</span>.",
    ans:true,
    correct:"정확한 설명입니다. <span class='kw4'>Think-aloud protocol</span>은 읽기 과정 중 사고를 소리 내어 말하게 함으로써 <span class='kw4'>metacognitive awareness</span>를 기르는 핵심 전략 지도 기법입니다.",
-   why:"<span class='kw4'>Think-aloud protocol</span>: Ss report on their comprehension process while reading → verify strategies assisting in getting meaning. <span class='kw3'>inferencing</span> 과정 파악에도 활용 (2014.10).<br><br><span class='kw4'>Metacognitive awareness</span>: Before → 전략 선택 / While → 전략 모니터링 / After → 효과 평가.",
+   why:"<span class='kw4'>Think-aloud protocol</span>: Ss report on their comprehension process while reading → verify strategies assisting in getting meaning. <span class='kw3'>inferencing</span> 과정 파악에도 활용 (2014.A.기입10).<br><br><span class='kw4'>Metacognitive awareness</span>: Before → 전략 선택 / While → 전략 모니터링 / After → 효과 평가.",
    source:"Think-aloud protocol: T encourages Ss to monitor their comprehension process while reading. At the same time, they are required to report on what they are doing and their thought to the teacher.",
    compare:[]},
   {src:"기출 2009.15",cat:"Graphic Organizer",
-   text:"A <span class='kw3'>graphic organizer</span> is an analysis activity that uses unmodified text to help students visually represent relationships among ideas, and it is associated with <span class='kw2'>top-down processing</span>.",
+   text:"When students use an unmodified text to create a <span class='kw3'>graphic organizer</span> representing relationships among its ideas, the task is an analysis activity and can support <span class='kw2'>top-down processing</span>.",
    ans:true,
-   correct:"정확한 설명입니다. <span class='kw3'>Graphic organizer</span>는 analysis activity이며 top-down processing과 연결됩니다.",
+   correct:"정확한 설명입니다. <span class='kw3'>Graphic organizer</span>로 완전한 글의 정보를 정리하는 이 활동은 analysis activity입니다. Graphic organizer의 모든 활용이 이 범주에 속하는 것은 아닙니다.",
    why:"<span class='kw3'>Graphic organizer</span>: A visual representation to show relationship among ideas in a text. 핵심 정보·텍스트 구조·아이디어 관계를 시각적으로 파악. 쓰기·말하기 활동으로 확장 가능. (2009.15: 읽은 텍스트를 시각자료로 표현하는 수업)",
    source:"Graphic organizer: A visual representation to show relationship among ideas in a text. Students are able to see the key information in a text, the organization of text information, and the relationships among ideas.",
    compare:[]},
@@ -202,14 +203,14 @@ const Q=[
    text:"The <span class='kw2'>interactive-compensatory model</span> proposes that a deficiency in processing at one level can be compensated by reliance on processing at another level, so a reader who lacks automatic word recognition can rely more on contextual information and higher-level schemata.",
    ans:true,
    correct:"정확한 설명입니다. <span class='kw2'>Interactive-compensatory model</span>의 핵심은 처리 수준 간 결핍을 다른 수준이 보완(compensation)한다는 점입니다.",
-   why:"<span class='kw2'>Interactive-compensatory model</span>: Levels from letter recognition to high-level schemata. Deficiency at one level → compensated by another.<br><br><span class='kw1'>Interactive processing</span>과 구별: interactive = bottom-up·top-down <em>동시 작동</em> / interactive-compensatory = 한 수준 약점을 다른 수준이 <em>보완</em>.",
+   why:"<span class='kw2'>Interactive-compensatory model</span>: Levels from letter recognition to high-level schemata. Deficiency at one level → compensated by another.<br><br><span class='kw1'>Interactive processing</span>과 구별: interactive = bottom-up·top-down <em>상호작용</em> / interactive-compensatory = 한 수준 약점을 다른 수준이 <em>보완</em>.",
    source:"Interactive-compensatory model: Lg processing is organized into levels ranging from letter recognition to high-level schemata, and a deficiency of processing at one level can be compensated by reliance on processing at another level.",
    compare:[]},
-  {src:"기출 2021.A.9",cat:"Comprehension Levels",
+  {src:"개념 확인",cat:"Comprehension Levels",
    text:"The <span class='kw3'>evaluative (critical) comprehension level</span> requires readers to make personal judgments rather than accepting the author's view, while the <span class='kw3'>inferential level</span> focuses on finding implied meaning not explicitly stated in the text.",
    ans:true,
-   correct:"정확한 설명입니다. 읽기 이해 5단계 중 inferential level과 evaluative level의 정의가 정확히 기술되어 있습니다.",
-   why:"읽기 이해 수준 5단계:<br>① <span class='kw1'>Literal</span>: 명시적 정보 이해·기억<br>② <span class='kw1'>Reorganization</span>: 텍스트 재조직·재해석<br>③ <span class='kw3'>Inferential</span>: 함의 파악 / 독자 경험·직관 추론<br>④ <span class='kw3'>Evaluative</span>: 개인적 판단 / 저자 편견·사실성 평가<br>⑤ <span class='kw1'>Creative</span>: 정서·미적 반응 / 결말 상상",
+   correct:"정확한 설명입니다. 읽기 이해의 5가지 구분 중 inferential level과 evaluative level의 정의가 정확히 기술되어 있습니다.",
+   why:"읽기 이해 수준의 5가지 구분:<br>① <span class='kw1'>Literal</span>: 명시적 정보 이해·기억<br>② <span class='kw1'>Reorganization</span>: 텍스트 재조직·재해석<br>③ <span class='kw3'>Inferential</span>: 함의 파악 / 독자 경험·직관 추론<br>④ <span class='kw3'>Evaluative</span>: 개인적 판단 / 저자 편견·사실성 평가<br>⑤ <span class='kw1'>Creative</span>: 정서·미적 반응 / 결말 상상",
    source:"Inferential level: find intention not explicitly stated, using reader's experience and intuition. / Evaluative level: make personal judgment instead of accepting the author's intention.",
    compare:[{t:"Inferential",b:"implied meaning 추론 / 독자 경험·직관"},{t:"Evaluative",b:"개인적 판단 / 저자 편견·사실성 평가"}]}
   ,
@@ -234,11 +235,11 @@ const Q=[
    why:"<span class='kw2'>Passive vocabulary</span>: You can listen and understand. Hearing the vocabulary prompts you to recall its meaning. 대략적인 뜻을 이해하지만 스스로 생산하지는 못함.<br><br><span class='kw2'>Active vocabulary</span>: Vocabulary you can recall and use at will when the situation requires. 스스로 선택하여 능동적으로 사용 가능.",
    source:"Passive vocabulary: You can listen and understand. Hearing the vocabulary used prompts you to recall its meaning. / Active vocabulary: vocabulary that you can recall and use at will when the situation requires it.",
    compare:[{t:"Passive vocabulary",b:"이해 가능 / 수동적 인식 / 읽기·듣기에서 작동"},{t:"Active vocabulary",b:"생산 가능 / 능동적 사용 / 말하기·쓰기에서 작동"}]},
-  {src:"기출 2009.15",cat:"Authentic Material",
+  {src:"개념 확인",cat:"Authentic Material",
    text:"<span class='kw3'>Authentic materials</span> are language teaching materials specifically designed and simplified for L2 learners to provide comprehensible input at an appropriate level.",
    ans:false,
    correct:"위 설명은 <span class='kw1'>modified materials</span> 또는 <span class='kw1'>simplified materials</span>의 설명입니다. <span class='kw3'>Authentic materials</span>는 실제 생활에서 가져온, 교수 목적으로 조작되지 않은 텍스트입니다.",
-   why:"<span class='kw3'>Authentic materials</span>: Language teaching materials which have the qualities of natural speech or writing — <em>not specifically manipulated</em> for the purpose of language teaching and learning. CLT·Krashen의 input hypothesis·Whole Language Approach과 연결.<br><br>너무 어려울 때 → texts를 simplify하지 말고 <b>tasks를 simplify</b>하는 것이 원칙.",
+   why:"<span class='kw3'>Authentic materials</span>: Language teaching materials which have the qualities of natural speech or writing — <em>not specifically manipulated</em> for the purpose of language teaching and learning. CLT·Krashen의 input hypothesis·Whole Language Approach과 연결.<br><br>너무 어려울 때에는 과제를 쉽게 하거나 자연스럽게 쉬운 자료를 고를 수 있음. 필요하면 텍스트를 조정하되 의미 관계와 자연스러운 반복을 유지. Simplified texts 자체를 금지하는 원칙은 아님.",
    source:"Authentic material: Written texts taken from real life and not specifically manipulated for the purpose of lg teaching and learning.",
    compare:[{t:"Authentic material",b:"실제 생활 텍스트 / 조작 없음 / CLT 기반"},{t:"Modified material",b:"언어·문화 참조 변경 / comprehensible input 제공"}]},
   {src:"기출 2012.27",cat:"Integrated Skills / Personalization",
@@ -248,7 +249,7 @@ const Q=[
    why:"<span class='kw2'>Personalization</span>: Allow Ss to apply something they have learned to their own lives and to express their own ideas, feelings, preferences and opinions. Post-reading 단계에서 텍스트 내용을 학생 개인 경험과 연결하는 활동으로 활용.<br><br><span class='kw2'>Integrated skills</span>: Developing several language skills together. Reading 후 writing·speaking으로 연계하는 것이 대표적 예시.",
    source:"Personalization: allow Ss to apply something they have learned to their own lives and to express their own ideas, feeling, preferences and opinions.",
    compare:[]},
-  {src:"기출 2009모의.23",cat:"Reading as a Complex / Interactive Process",
+  {src:"개념 확인",cat:"Reading as a Complex / Interactive Process",
    text:"Reading as a complex, interactive process means that an individual constructs meaning through a transaction with written text, influenced by the reader's past experience, language background, cultural framework, and purpose for reading.",
    ans:true,
    correct:"정확한 설명입니다. 읽기는 독자와 텍스트 간의 상호작용을 통해 의미를 구성하는 복합적 과정입니다.",
@@ -262,25 +263,25 @@ const Q=[
    why:"<span class='kw4'>Extensive reading</span>의 효과: ① implicit learning 유도 ② bottom-up reading skills의 automatization ③ 읽기 속도·유창성(fluency) 향상 ④ 어휘·문법 지식 확장. 학생이 스스로 텍스트를 선택하고 즐거움을 위해 읽는 것이 핵심.",
    source:"Extensive reading: This elicits implicit learning and automatization of Ls' bottom-up reading skills. This involves book-conferencing and sustained silent reading.",
    compare:[]},
-  {src:"기출 2020.A.10",cat:"Prediction / Semantic Mapping",
+  {src:"개념 확인",cat:"Prediction / Semantic Mapping",
    text:"<span class='kw2'>Semantic mapping</span> is a pre-reading strategy that groups ideas into meaningful clusters, helping students provide some order to the chaos of ideas.",
    ans:true,
    correct:"정확한 설명입니다. <span class='kw2'>Semantic mapping</span>은 아이디어를 의미 있는 클러스터로 묶어 정리하여 혼란스러운 아이디어에 질서를 부여하는 시각적 전략입니다.",
    why:"<span class='kw2'>Semantic mapping (clustering)</span>: Grouping ideas into meaningful clusters helps Ss to provide some order to the chaos. Pre-reading 단계에서 배경지식 활성화 + 어휘 학습 + 브레인스토밍 결과 정리에 활용.<br><br><span class='kw1'>Brainstorm</span>과 구별: brainstorm은 제약 없이 아이디어 생성, semantic mapping은 의미 범주화까지 포함.",
    source:"Semantic mapping (clustering): grouping ideas into meaningful clusters, helps the Ss to provide some order to the chaos.",
    compare:[{t:"Semantic mapping",b:"아이디어 범주화·시각화 / Pre-reading / 구조화 강조"},{t:"Brainstorm",b:"자유 아이디어 생성 / 평가 없음 / 의미 범주화 없음"}]},
-  {src:"기출 2017.A.6",cat:"SQ3R Technique",
+  {src:"개념 확인",cat:"SQ3R Technique",
    text:"The <span class='kw1'>SQ3R technique</span> is a metacognitive reading strategy that stands for Survey, Question, Read, Recite, and Review, guiding students through systematic text processing.",
    ans:true,
    correct:"정확한 설명입니다. <span class='kw1'>SQ3R technique</span>은 Survey-Question-Read-Recite-Review의 5단계로 구성된 체계적 읽기 전략입니다.",
-   why:"<span class='kw1'>SQ3R technique</span>: Survey(훑기) → Question(질문 생성) → Read(읽기) → Recite(요약·암송) → Review(복습). 읽기 전반에 걸쳐 <span class='kw4'>metacognitive awareness</span>를 높이는 전략적 읽기 지도 기법.",
+   why:"<span class='kw1'>SQ3R technique</span>: Survey(훑기) → Question(질문 생성) → Read(읽기) → Recite(핵심을 자기 말로 재표현) → Review(복습). 읽기 전반에 걸쳐 <span class='kw4'>metacognitive awareness</span>를 높이는 전략적 읽기 지도 기법.",
    source:"SQ3R technique: Survey, Question, Read, Recite, Review.",
    compare:[]},
-  {src:"기출 2009.15 · 2012.27",cat:"Critical Reading / Argumentative Discourse",
+  {src:"개념 확인",cat:"Critical Reading / Argumentative Discourse",
    text:"<span class='kw2'>Critical reading</span> requires readers to analyze underlying textual ideologies and cultural messages, reacting to the text based on personal standards, values, attitudes, and beliefs.",
    ans:true,
    correct:"정확한 설명입니다. <span class='kw2'>Critical reading</span>은 텍스트에 내재된 이데올로기와 문화적 메시지를 비판적으로 분석하는 고차원적 읽기입니다.",
-   why:"<span class='kw2'>Critical reading</span>: Reader reacts critically to the text through relating the content to personal standards, values, attitudes, and beliefs. The reader focuses on the analysis of underlying textual ideologies and cultural messages.<br><br>이는 comprehension level 5단계 중 <span class='kw3'>evaluative level</span>과 연결되며, <span class='kw1'>creative level</span>로 확장될 수 있음.<br><br><span class='kw1'>Argumentative discourse structure</span>: 논쟁적 관점을 지지하거나 입장 차이가 있는 문제에 대해 특정 포지션을 방어하는 담화 구조.",
+   why:"<span class='kw2'>Critical reading</span>: Reader reacts critically to the text through relating the content to personal standards, values, attitudes, and beliefs. The reader focuses on the analysis of underlying textual ideologies and cultural messages.<br><br>이는 comprehension level의 5가지 구분 중 <span class='kw3'>evaluative level</span>과 연결되며, <span class='kw1'>creative level</span>로 확장될 수 있음.<br><br><span class='kw1'>Argumentative discourse structure</span>: 논쟁적 관점을 지지하거나 입장 차이가 있는 문제에 대해 특정 포지션을 방어하는 담화 구조.",
    source:"Critical reading: reader reacts critically to the text through relating the content of the reading to personal standards, values, attitudes, and belief. The reader focuses on the analysis of underlying textual ideologies and cultural messages.",
    compare:[{t:"Inferential level",b:"명시 안 된 의미 추론 / 독자 경험·직관"},{t:"Evaluative level",b:"개인적 판단 / 텍스트 비판 / critical reading과 연결"}]}
 ];
@@ -355,7 +356,7 @@ function render(){
     <div class="exp-answer"><div class="ans-label">핵심 정정</div><div class="ans-text">${q.correct}</div></div>
     <div class="exp-body">
       <div class="sec-label">상세 설명</div><p>${q.why}</p>
-      <div class="sec-label">📌 Source</div>
+      <div class="sec-label">📌 핵심 정의</div>
       <div class="def-box"><p>${q.source}</p></div>
       ${cmpHtml}
     </div>
@@ -377,7 +378,7 @@ function showScore(){
   const sc=getScore();
   document.getElementById('sc').classList.add('show');
   document.getElementById('fs').textContent=sc;
-  const m=sc===TOTAL?['완벽해요! 🏆','모든 개념을 완벽히 이해했습니다!']:sc>=8?['훌륭합니다! 💪','거의 다 맞았어요!']:sc>=6?['좋아요! 📚','조금만 더 복습하면 완벽!']:['다시 도전! 🔄','개념 정리 노트를 다시 확인해보세요.'];
+  const m=sc===TOTAL?['완벽해요! 🏆','모든 개념을 완벽히 이해했습니다!']:sc/TOTAL>=0.8?['훌륭합니다! 💪','거의 다 맞았어요!']:sc/TOTAL>=0.6?['좋아요! 📚','조금만 더 복습하면 완벽!']:['다시 도전! 🔄','개념 정리 노트를 다시 확인해보세요.'];
   document.getElementById('rm').textContent=m[0];
   document.getElementById('rs').textContent=m[1];
   try{localStorage.removeItem(SAVE_KEY)}catch(e){}
@@ -397,3 +398,4 @@ loadProgress(); updateModeUI(); render();
 <script src="./study-return.js"></script>
 </body>
 </html>
+
