@@ -143,196 +143,308 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f5f4ee;background-image:r
 <script>
 const Q=[
   {
-  "src": "Approaches",
-  "cat": "Product-oriented Approach",
-  "text": "The <span class='kw1'>product-oriented approach</span> emphasizes the quality of the finished text, whereas a <span class='kw1'>process-oriented approach</span> gives sustained attention to planning, drafting, feedback, and revision.",
-  "ans": true,
-  "correct": "Product-oriented approach는 완성된 글의 질을, process-oriented approach는 글을 계획하고 쓰고 고치는 과정을 강조합니다. 피드백 항목을 문법과 내용으로 배타적으로 나누는 구분은 아닙니다.",
-  "why": "Product 중심 평가에서도 내용과 구성을 살필 수 있습니다. Process 중심 수업에서도 최종 결과물과 언어적 정확성이 중요합니다. 두 접근의 차이는 무엇을 평가할 수 있느냐보다 교수·학습에서 어디에 비중을 두느냐에 있습니다.",
-  "source": "출처 요약: Brown (2007), Teaching by Principles, 3판, pp.391–393. 완성된 글의 평가와 쓰기 과정에 대한 지도를 구분하되, 과정과 결과물을 모두 고려한다. 직접 인용이 아님.",
-  "compare": [
-    {
-      "title": "Product-oriented",
-      "desc": "완성된 글의 질에 초점 · 내용·구성도 평가 가능"
-    },
-    {
-      "title": "Process-oriented",
-      "desc": "계획·초고·피드백·수정에 지속적으로 주목"
-    }
-  ]
-},
-
-  {src:"Approaches",cat:"Process-oriented Approach",
-   text:"The <span class='kw1'>process-oriented approach</span> completely ignores the importance of the final product, caring only about the writing process itself.",
-   ans:false,
-   correct:"<span class='kw1'>Process-oriented approach</span>는 최종 결과물의 중요성을 <span class='kw2'>무시하지 않습니다</span>. 다만 <span class='kw4'>error-free text</span>보다 <span class='kw2'>well-organized and effective text</span>를 선호합니다.",
-   why:"기출 단골 함정입니다. Process-oriented는 \"최종 결과물은 신경 쓰지 않는다\"가 아니라 \"과정을 통해 더 나은 결과물을 만든다\"는 입장입니다. 피드백은 content와 organization에 초점을 두며, 학습자 중심(learner-centered)입니다.",
-   source:"\"<span class='kw1'>Process-oriented approach</span>: Does <span class='kw4'>NOT</span> downplay the importance of the final product; however, it prefers <span class='kw2'>well-organized and effective text</span> over <span class='kw4'>error-free texts</span>.\""},
-
-  {src:"Writing Process",cat:"Recursive Stages",
-   text:"The five stages of the writing process — pre-writing, drafting, responding, revising, and editing — must be completed in a strictly <span class='kw4'>sequential and linear</span> order.",
-   ans:false,
-   correct:"Writing process의 5단계는 <span class='kw2'>recursive and cyclical</span>(순환적) 과정입니다. 어느 단계에서나 이전 단계로 돌아가거나 다시 수행할 수 있습니다.",
-   why:"Process-oriented approach의 핵심 특성 중 하나가 non-linear 구조입니다. Pre-writing → drafting → responding → revising → editing 순서가 있지만, 실제로는 어느 단계에서든 재수행이 가능하며 이 점이 product-oriented와 구별되는 중요한 특징입니다.",
-   source:"\"Writing process involves five basic stages: pre-writing; drafting; responding; revising; editing. As it is a <span class='kw2'>recursive and cyclical process</span>, any of these stages can be performed or re-performed at any stage in the writing process.\""},
-
-  {src:"Pre-writing",cat:"Freewriting",
-   text:"<span class='kw1'>Freewriting</span> is an activity where students freely write down about a given topic without stopping, without concern for formal correctness, often starting from an opening clause or sentence provided by the teacher.",
-   ans:true,
-   correct:"<span class='kw1'>Freewriting</span>은 주어진 주제에 대해 <span class='kw2'>멈추지 않고</span>, <span class='kw2'>형식적 정확성에 구애받지 않고</span> 자유롭게 쓰는 활동입니다. 교사가 opening clause나 sentence를 제공해 시작을 도울 수 있습니다.",
-   why:"Freewriting의 핵심 키워드: without stop + without formal correctness. 학습자가 내용에만 집중하여 아이디어를 최대한 많이 생성하는 pre-writing 기법입니다. Looping과 혼동 주의 — Looping은 freewriting 후 가장 중요한 문장을 골라 새 주제로 삼는 활동입니다.",
-   source:"\"<span class='kw1'>Freewriting</span>: An activity where Ss freely write down about a given topic <span class='kw2'>without stop, without formal correctness</span>. T generally provides an opening clause or sentence for the Ss to start with.\"",
-   compare:[{title:"<span class='kw1'>Freewriting</span>",desc:"주제 받아 자유롭게 씀 · 멈추지 않음"},{title:"<span class='kw1'>Looping</span>",desc:"자유 쓰기 → 핵심 문장 선택 → 새 주제"}]},
-
-  {src:"Pre-writing",cat:"Clustering vs Looping",
-   text:"<span class='kw1'>Looping</span> is an activity where students write a short passage freely, select a sentence that conveys the most important idea, and use that sentence as the topic of another piece of writing.",
-   ans:true,
-   correct:"<span class='kw1'>Looping</span>은 자유롭게 짧은 글 작성 → <span class='kw2'>가장 중요한 아이디어를 담은 문장 선택</span> → 그 문장을 <span class='kw2'>새 글의 주제</span>로 삼는 3단계 과정입니다.",
-   why:"Looping은 freewriting의 확장 형태로, 아이디어를 점점 좁혀가며(loop) 핵심 주제를 찾아가는 과정입니다. Clustering은 visual network를 만드는 것이고, Looping은 문장 선택과 재사용이 핵심입니다.",
-   source:"\"<span class='kw1'>Looping</span>: An activity where Ss write a short passage freely and rapidly, read their passage and <span class='kw2'>select a sentence which conveys the most important idea</span> from it, and use the sentence as <span class='kw2'>the topic of other pieces of writing</span>.\""},
-
-  {src:"Pre-writing",cat:"Clustering",
-   text:"<span class='kw1'>Clustering</span> is a pre-writing activity where students jot down all <span class='kw2'>free associations triggered by a key word</span> to make a <span class='kw2'>visual network</span> linking them.",
-   ans:true,
-   correct:"<span class='kw1'>Clustering</span>은 핵심 키워드에서 촉발된 <span class='kw2'>free associations</span>을 연결하는 <span class='kw2'>visual network</span>를 만드는 pre-writing 활동입니다.",
-   why:"Clustering = 마인드맵 유사 개념. 중심 키워드에서 연상되는 단어/아이디어를 거미줄처럼 연결합니다. Mind map과 유사하지만 Mind map은 중심 주제에서 아이디어를 발전시키며(develop) 연상이 확장되는 점이 차이입니다.",
-   source:"\"<span class='kw1'>Clustering</span>: An activity where Ss are asked to jot down all <span class='kw2'>free associations triggered by the given key word</span> to make a <span class='kw2'>visual network</span> linking them.\"",
-   compare:[{title:"<span class='kw1'>Clustering</span>",desc:"key word → free associations → visual network"},{title:"<span class='kw1'>Mind map</span>",desc:"중심 주제 → 아이디어 develop · 확장"}]},
-
-  {src:"Drafting",cat:"Focus in Drafting",
-   text:"In the <span class='kw1'>drafting</span> stage of the writing process, students should focus primarily on <span class='kw4'>accuracy and grammatical correctness</span> to produce a polished first draft.",
-   ans:false,
-   correct:"Drafting 단계에서는 <span class='kw2'>fluency and delivery of meaning</span>에 초점을 두어야 합니다. 문법적 정확성은 나중에 editing 단계에서 다룹니다.",
-   why:"Drafting 단계에서 accuracy에 집착하면 아이디어 흐름이 막힙니다. 학생은 audience(독자), expectation(기대), purpose(목적)를 의식하면서 의미 전달에 집중해야 합니다. 정확성은 editing 단계의 몫입니다.",
-   source:"\"<span class='kw1'>Drafting</span>: Focus on <span class='kw2'>fluency and delivery of meaning</span>; Conscious of context of writing (audience, expectation, purpose).\"",
-   compare:[{title:"<span class='kw1'>Drafting</span>",desc:"fluency · meaning 전달 · audience 의식"},{title:"<span class='kw1'>Editing</span>",desc:"grammar · spelling · punctuation · diction"}]},
-
-  {src:"Feedback Types",cat:"Formative vs Summative",
-   text:"<span class='kw1'>Formative feedback</span> aims at encouraging the development of writing by helping students see what they need to do next, while <span class='kw1'>summative feedback</span> is provided at the end of an instructional unit for evaluation.",
-   ans:true,
-   correct:"<span class='kw1'>Formative feedback</span>: 학습 <span class='kw2'>과정 중</span> 제공되어 다음 단계 발전을 돕는 피드백. <span class='kw1'>Summative feedback</span>: 수업 단위 <span class='kw2'>종료 후</span> 평가 목적으로 제공됩니다.",
-   why:"Formative feedback는 학습이 진행되는 동안 개선을 돕기 위한 ongoing feedback입니다. Summative feedback는 학습 종료 후 결과를 평가합니다. Process-oriented approach는 formative feedback를 강조합니다.",
-   source:"\"<span class='kw1'>Formative feedback</span>: Feedback that aims at encouraging the development of their writing by helping them to see what they need to do next. <span class='kw1'>Summative feedback</span>: feedback provided at the end of an instructional unit for evaluation.\"",
-   compare:[{title:"<span class='kw1'>Formative</span>",desc:"과정 중 · 개선 유도 · ongoing"},{title:"<span class='kw1'>Summative</span>",desc:"종료 후 · 평가 목적 · evaluation"}]},
-
+    "src": "Approaches",
+    "cat": "Product-oriented Approach",
+    "text": "The <span class='kw1'>product-oriented approach</span> emphasizes the quality of the finished text, whereas a <span class='kw1'>process-oriented approach</span> gives sustained attention to planning, drafting, feedback, and revision.",
+    "ans": true,
+    "correct": "Product-oriented approach는 완성된 글의 질을, process-oriented approach는 글을 계획하고 쓰고 고치는 과정을 강조합니다. 피드백 항목을 문법과 내용으로 배타적으로 나누는 구분은 아닙니다.",
+    "why": "Product 중심 평가에서도 내용과 구성을 살필 수 있습니다. Process 중심 수업에서도 최종 결과물과 언어적 정확성이 중요합니다. 두 접근의 차이는 무엇을 평가할 수 있느냐보다 교수·학습에서 어디에 비중을 두느냐에 있습니다.",
+    "source": "Brown, H. D. (2007). Teaching by Principles: An Interactive Approach to Language Pedagogy (3rd ed.), pp.391–393. 개념을 바탕으로 구성한 학습 문항.",
+    "compare": [
+      {
+        "title": "Product-oriented",
+        "desc": "완성된 글의 질에 초점 · 내용·구성도 평가 가능"
+      },
+      {
+        "title": "Process-oriented",
+        "desc": "계획·초고·피드백·수정에 지속적으로 주목"
+      }
+    ]
+  },
   {
-  "src": "Teacher Feedback",
-  "cat": "ECC",
-  "text": "A correction code limited to grammar and spelling can, by itself, fully explain every problem in the content and organization of a student's essay.",
-  "ans": false,
-  "correct": "문법·철자에 한정된 correction code만으로 글의 내용과 구성을 충분히 설명할 수는 없습니다. 다만 모든 교정 기호가 내용·구성에 관한 피드백을 줄 수 없는 것은 아닙니다.",
-  "why": "교정 기호에는 새 문단이 필요함을 표시하는 기호도 있습니다. 어떤 문제를 지적할 수 있는지는 사용한 코드 체계에 따라 달라집니다. 복잡한 내용·구성 문제는 구체적인 설명이나 면담을 함께 제공하는 편이 좋습니다.",
-  "source": "출처 요약: BBC / British Council (2005), Writing correction code, p.1. 예시 코드에는 문단 구분 기호가 포함된다. 직접 인용이 아님.",
-  "compare": [
-    {
-      "title": "교정 기호",
-      "desc": "약속된 기호로 문제 위치·유형을 표시"
-    },
-    {
-      "title": "추가 설명",
-      "desc": "내용·구성 문제의 이유와 수정 방향을 구체화"
-    }
-  ]
-},
-
-  {src:"Teacher Feedback",cat:"Conferencing",
-   text:"<span class='kw1'>Conferencing</span> provides opportunities for the teacher and student to <span class='kw2'>negotiate the meaning</span> of the student's writing through discussion, but one drawback is that students may <span class='kw2'>passively incorporate</span> the teacher's suggestions.",
-   ans:true,
-   correct:"<span class='kw1'>Conferencing</span>의 장점: <span class='kw2'>meaning negotiation</span> 가능, less threatening. 단점: <span class='kw2'>time-consuming</span>(시간 소요), 학생이 T 제안을 <span class='kw2'>수동적으로 수용</span>할 수 있음.",
-   why:"Conferencing은 1:1 면담 방식으로 진행 중인 작업(work in progress)에 대해 T와 학생이 직접 대화합니다. 모호한 부분을 명확히 하고 revision 과정을 지원하는 장점이 있지만, 시간이 많이 소요되고 학생이 교사 의견에 지나치게 의존할 수 있다는 단점이 있습니다.",
-   source:"\"<span class='kw1'>Conferencing</span>: +) <span class='kw2'>Clarifies existing ambiguities; Less threatening</span>. -) <span class='kw2'>Time-consuming; Passively incorporate T's suggestion</span>.\""},
-
-  {src:"Teacher Feedback",cat:"Reformulation",
-   text:"<span class='kw1'>Reformulation</span> is a feedback technique that requires students to compare their first draft with a <span class='kw2'>reformulated version written by the teacher</span> in order to <span class='kw2'>notice the gap</span>.",
-   ans:true,
-   correct:"<span class='kw1'>Reformulation</span>은 학생의 1차 초안을 교사가 재작성(reformulate)한 버전을 제공하고, 학생이 원본과 비교하여 <span class='kw2'>gap을 인식(notice)</span>하도록 하는 피드백 방식입니다.",
-   why:"Reformulation은 Noticing Hypothesis와 연결됩니다 — 학습자가 자신의 output과 목표 언어 형식 사이의 gap을 인식(notice)해야 intake가 일어납니다. T가 학생 글을 직접 '고쳐 쓰기'한 버전을 제공하므로 학생은 비교를 통해 자연스럽게 언어 형식에 주의를 기울이게 됩니다.",
-   source:"\"<span class='kw1'>Reformulation</span>: Providing feedback to Ss' 1st draft which requires Ss to compare a text written by one of them and its reformulated version made by the T. Reformulation helps Ss to <span class='kw2'>notice the gap</span>.\""},
-
+    "src": "Approaches",
+    "cat": "Process-oriented Approach",
+    "text": "The <span class='kw1'>process-oriented approach</span> completely ignores the importance of the final product, caring only about the writing process itself.",
+    "ans": false,
+    "correct": "Process-oriented instruction은 여러 초안과 feedback을 통해 의미가 분명하고 잘 조직된 최종 글을 발전시킨다. 언어 정확성 역시 다듬을 수 있다.",
+    "why": "과정과 결과는 양자택일이 아니다. Brown은 process와 product의 균형을 강조한다. 초안에서 내용에 우선순위를 둘 수 있지만 grammar를 수업에서 배제하지 않는다.",
+    "source": "Brown, H. D. (2007). Teaching by Principles: An Interactive Approach to Language Pedagogy (3rd ed.), pp.391–393. 개념을 바탕으로 구성한 학습 문항."
+  },
   {
-  "src": "Peer Feedback",
-  "cat": "Types & Focus",
-  "text": "<span class='kw1'>Peer editing</span> can address a text's content, purpose, and intended audience as well as its language forms.",
-  "ans": true,
-  "correct": "<span class='kw1'>Peer editing</span>은 언어 형식뿐 아니라 내용, 목적, 독자를 고려하여 글을 검토하는 활동이 될 수 있습니다.",
-  "why": "Peer feedback, peer editing, peer correction의 사용 범위는 문헌과 활동 설계에 따라 겹칩니다. Peer editing을 오직 문법·철자 점검으로 한정하지 말고 실제 과제의 질문과 평가 기준을 확인해야 합니다.",
-  "source": "출처 요약: Brown (2007), Teaching by Principles, 3판, p.409. Peer-editing 안내에는 글의 주제, 목적, 독자에 관한 질문이 포함된다. 직접 인용이 아님."
-},
-
-  {src:"Peer Feedback",cat:"Disadvantages",
-   text:"One key disadvantage of peer feedback is that students tend to give <span class='kw4'>too little positive feedback</span>, making the activity overly critical and discouraging.",
-   ans:false,
-   correct:"반대로, peer feedback의 단점은 <span class='kw4'>too much positive feedback</span>이 문제입니다. 또한 vague하고 unhelpful하며, sentence-level 문제에만 집중하는 경향이 있습니다.",
-   why:"기출 단골 함정입니다. Peer feedback의 실제 단점은: ① vague, unhelpful ② sentence-level 문제에 과도한 집중 ③ 너무 많은 positive feedback(비판을 꺼려 칭찬만 하는 경향). '너무 적은 positive feedback'은 사실과 반대입니다.",
-   source:"\"Peer feedback -): <span class='kw4'>Vague, unhelpful</span>; Too much emphasis on sentence-level problems; <span class='kw4'>Too much positive feedback</span>.\"",
-   compare:[{title:"<span class='kw4'>실제 단점</span>",desc:"too MUCH positive feedback · sentence-level only · vague"},{title:"<span class='kw4'>함정 표현</span>",desc:"'too little positive feedback' → 반대로 기억"}]},
-
-  {src:"Peer Feedback",cat:"Timing Strategy",
-   text:"When advising students on peer feedback, teachers should recommend focusing on <span class='kw2'>content</span> in the <span class='kw2'>earlier stages</span> and on <span class='kw2'>grammar and mechanics</span> in the <span class='kw2'>final stages</span>.",
-   ans:true,
-   correct:"피드백 타이밍: <span class='kw2'>초기 단계(earlier stages)</span> → <span class='kw2'>content</span> 중심 / <span class='kw2'>최종 단계(final stages)</span> → <span class='kw2'>grammar/mechanics</span> 중심.",
-   why:"Process-oriented approach의 피드백 원칙입니다. 초안 단계에서 문법을 고치면 아이디어 발전을 방해합니다. 내용이 충분히 발전된 후에 형식적 정확성을 다듬어야 합니다. 이 원칙은 teacher feedback와 peer feedback 모두에 적용됩니다.",
-   source:"\"Advise the following: in <span class='kw2'>earlier stages</span>, focus on <span class='kw2'>content</span>; in <span class='kw2'>final stages</span>, focus on <span class='kw2'>grammar or mechanics</span>.\""},
-
-  {src:"Revising vs Editing",cat:"Global vs Local",
-   text:"<span class='kw1'>Revising</span> addresses <span class='kw4'>local language issues</span> such as grammar and spelling, while <span class='kw1'>editing</span> addresses <span class='kw4'>global issues</span> such as content and organization.",
-   ans:false,
-   correct:"반대입니다. <span class='kw2'>Revising</span>은 <span class='kw2'>global issues</span>(content, organization of ideas), <span class='kw2'>Editing</span>은 <span class='kw2'>local language issues</span>(grammar, spelling, punctuation, diction)을 다룹니다.",
-   why:"기출 단골 함정. Revising(수정)은 아이디어·내용·구성과 같은 '큰 그림(global)'을 다시 보는 것이고, Editing(교정)은 문법·철자·구두점·어휘 선택 같은 '세부 언어(local)' 문제를 다듬는 것입니다. R-E 순서로 기억하세요: 먼저 Re-vise(global), 나중에 Edit(local).",
-   source:"\"<span class='kw1'>Revising</span>: Rewrite draft to improve <span class='kw2'>global issues</span> like content and organization. <span class='kw1'>Editing</span>: Check and improve <span class='kw2'>local language issues</span> like grammar, spelling, punctuation, diction.\"",
-   compare:[{title:"<span class='kw1'>Revising</span>",desc:"global: content · organization (큰 그림)"},{title:"<span class='kw1'>Editing</span>",desc:"local: grammar · spelling · punctuation · diction"}]},
-
-  {src:"Writing Performances",cat:"Imitative Writing",
-   text:"<span class='kw1'>Imitative Writing (Dictation)</span> is an activity where the teacher reads a paragraph in <span class='kw2'>short phrase units with a pause</span> after each unit, and students write down <span class='kw2'>exactly what they have heard</span> during the pause.",
-   ans:true,
-   correct:"<span class='kw1'>Dictation</span>(Imitative Writing)의 정의: 교사가 단락을 <span class='kw2'>짧은 구 단위로 읽고</span> 각 구 뒤에 <span class='kw2'>pause</span>를 두면, 학생은 pause 동안 들은 것을 <span class='kw2'>그대로 받아쓰기</span>합니다.",
-   why:"Imitative Writing = 받아쓰기(dictation). Grammar와 vocabulary의 collocation 교수에 효과적입니다. Dicto-comp와 자주 혼동되는데, 핵심 차이는 dictation은 pause가 있고 그대로 받아쓰는 반면, dicto-comp는 pause가 없고 학생이 내용을 재구성합니다.",
-   source:"\"<span class='kw1'>Imitative Writing (Dictation)</span>: T reads aloud a paragraph in <span class='kw2'>short phrase units with a pause</span> immediately following each unit; Ss write down <span class='kw2'>exactly what they have heard</span> during the pause.\"",
-   compare:[{title:"<span class='kw1'>Dictation</span>",desc:"pause 있음 · 그대로 받아쓰기"},{title:"<span class='kw1'>Dicto-comp</span>",desc:"pause 없음 · preparatory stage · 내용 재구성"}]},
-
-  {src:"Writing Performances",cat:"Dicto-comp",
-   text:"<span class='kw1'>Dicto-comp</span> is different from <span class='kw1'>dictation</span> in that it does <span class='kw2'>not have pauses</span>, but has a <span class='kw2'>preparatory stage</span> where students listen to the passage multiple times.",
-   ans:true,
-   correct:"<span class='kw1'>Dicto-comp</span>의 핵심 특징: ① pause 없이 지문 청취 ② <span class='kw2'>preparatory stage</span> 존재 ③ 학생이 지문의 아이디어를 기억해 자기 말로(or 원문으로) 재구성. 100단어 이상의 지문을 여러 번 듣습니다.",
-   why:"Dicto-comp는 controlled writing의 한 유형으로, listening + writing을 통합합니다. Dictation(그대로 받아쓰기)과 달리 내용을 기억하고 재구성하는 것이 핵심입니다. '준비 단계(preparatory stage)'가 있다는 점도 중요한 구별 기준입니다.",
-   source:"\"<span class='kw1'>Dicto-comp</span>: Ss listen to a passage of more than one hundred words long several times, remember the ideas, and reproduce them. Different from dictation in that it does <span class='kw2'>not have pauses</span> but has <span class='kw2'>preparatory stage</span>.\""},
-
-  {src:"Writing Performances",cat:"Dialogue Journal",
-   text:"In a <span class='kw1'>Dialogue Journal</span>, students' entries <span class='kw4'>must be graded and corrected</span> by the teacher in order to improve their writing accuracy.",
-   ans:false,
-   correct:"Dialogue Journal에서 학생의 일지 항목은 <span class='kw4'>graded, corrected, 또는 evaluated 되어서는 안 됩니다</span>. 교사는 written comments로 응답하며 authentic reader 역할을 합니다.",
-   why:"기출 단골입니다. Dialogue Journal의 핵심 원칙: Ss' entry must NOT be graded, corrected, or evaluated. 이는 자유로운 자기표현과 authentic communication을 위해서입니다. 또한 학생이 시간이 지남에 따라 일지 항목을 비교해 자신의 발전을 확인하는 self-assessment 도구로도 활용됩니다.",
-   source:"\"<span class='kw1'>Dialogue Journal</span>: Ss' entry must <span class='kw4'>not be graded, corrected, or evaluated</span>. Audience is the student herself and the teacher. Can be used as <span class='kw2'>self-assessment</span>.\"",
-   compare:[{title:"<span class='kw4'>하면 안 됨</span>",desc:"graded / corrected / evaluated"},{title:"<span class='kw2'>목적</span>",desc:"authentic reader · self-assessment · 자유 표현"}]},
-
-  {src:"Writing Performances",cat:"Group Writing",
-   text:"<span class='kw1'>Group writing</span> can be suggested as a task that adopts <span class='kw2'>process-oriented approach</span> and also incorporates <span class='kw2'>social constructivism</span>, as it involves collaborative learning through peer scaffolding.",
-   ans:true,
-   correct:"<span class='kw1'>Group writing</span>은 <span class='kw2'>process-oriented approach</span>(계획·초안·수정 과정 공유)와 <span class='kw2'>social constructivism</span>(peer scaffolding을 통한 협동학습)을 모두 구현하는 활동입니다.",
-   why:"Group writing = collaborative writing. 학생들이 함께 계획하고, 각각 한 단락을 쓰고, 서로의 초안을 확인하며, 자기 부분을 재작성한 뒤 하나의 글로 조립합니다. 이 과정이 Vygotsky의 social constructivism을 구현합니다.",
-   source:"\"<span class='kw1'>Group writing</span>: This can be suggested as a task that adopts <span class='kw2'>process-oriented approach</span> which also incorporate <span class='kw2'>social constructivism</span> as it involves collaborative learning through peer scaffolding.\""},
-
-  {src:"Writing Types",cat:"Real vs Display Writing",
-   text:"<span class='kw1'>Display writing</span> is used for genuine communication of messages to an audience who genuinely wants information, while <span class='kw1'>real writing</span> is used to display one's knowledge in evaluation contexts.",
-   ans:false,
-   correct:"반대입니다. <span class='kw2'>Real writing</span>: 독자가 답을 모르고 진짜로 알고 싶어하는 <span class='kw2'>진짜 소통</span>이 목적 (personal, vocational, academic). <span class='kw4'>Display writing</span>: 자신의 지식을 보여주기 위한, 평가가 수반되는 쓰기.",
-   why:"Real writing과 display writing을 바꿔서 출제하는 전형적인 함정입니다. 시험에서 에세이 쓰기는 display writing입니다 — 교사가 이미 답을 알고 있지만 학생이 지식을 보여주기 위해 씁니다. 실제 친구에게 편지 쓰기, 학교 신문 기고 등은 real writing입니다.",
-   source:"\"<span class='kw2'>Real writing</span>: writing for genuine communication; reader doesn't know the answer and genuinely wants information. <span class='kw4'>Display writing</span>: writing to display one's knowledge; may involve evaluation.\"",
-   compare:[{title:"<span class='kw2'>Real writing</span>",desc:"진짜 소통 · 독자가 정보 원함 · personal/vocational/academic"},{title:"<span class='kw4'>Display writing</span>",desc:"지식 과시 · 평가 포함 · exam/report"}]},
-
+    "src": "Writing Process",
+    "cat": "Recursive Stages",
+    "text": "In a five-stage teaching model (pre-writing, drafting, responding, revising, editing), each stage must be completed once in a strictly linear order.",
+    "ans": false,
+    "correct": "Writing process의 5단계는 <span class='kw2'>recursive and cyclical</span>(순환적) 과정입니다. 어느 단계에서나 이전 단계로 돌아가거나 다시 수행할 수 있습니다.",
+    "why": "다섯 단계는 기능을 드러내는 수업 모형이다. Brown은 prewriting, drafting, revising이라는 큰 틀도 사용한다. 수정 중 근거가 부족하면 계획과 자료 탐색으로 돌아갈 수 있으므로 단계 수와 고정 순서를 혼동하지 않는다.",
+    "source": "Brown, H. D. (2007). Teaching by Principles: An Interactive Approach to Language Pedagogy (3rd ed.), pp.404–410. 개념을 바탕으로 구성한 학습 문항."
+  },
   {
-  "src": "Writing Concepts",
-  "cat": "Contrastive Rhetoric",
-  "text": "In Kaplan's early account of <span class='kw1'>contrastive rhetoric</span>, culturally influenced ways of organizing first-language texts can transfer to second-language writing.",
-  "ans": true,
-  "correct": "초기 contrastive rhetoric은 L1에서 익힌 글의 구성 방식이 L2 쓰기에 영향을 줄 수 있다고 보았습니다. 문화와 글쓰기의 관계를 설명하려는 역사적 관점이며, 모든 필자에게 고정된 패턴을 부여하는 법칙은 아닙니다.",
-  "why": "Kaplan의 초기 contrastive rhetoric은 문화적 배경과 글의 구성 방식 사이의 관계를 설명하려 했습니다. Brown이 재현한 역사적 도식에서 Semitic은 지그재그 형태로, 당시 ‘Oriental’로 묶은 범주는 나선형으로 제시됩니다. 이 도식은 역사적 논의의 예이며, 특정 언어·문화의 모든 글이나 필자에게 적용되는 고정 법칙으로 받아들이면 안 됩니다.",
-  "source": "출처 요약: Brown (2007), Teaching by Principles, 3판, pp.393–394의 Kaplan 도식과 논의. 역사적 범주와 일반화의 한계를 함께 고려한다. 직접 인용이 아님."
-}
+    "src": "Pre-writing",
+    "cat": "Freewriting",
+    "text": "<span class='kw1'>Freewriting</span> is an activity where students freely write down about a given topic without stopping, without concern for formal correctness, often starting from an opening clause or sentence provided by the teacher.",
+    "ans": true,
+    "correct": "<span class='kw1'>Freewriting</span>은 주어진 주제에 대해 <span class='kw2'>멈추지 않고</span>, <span class='kw2'>형식적 정확성에 구애받지 않고</span> 자유롭게 쓰는 활동입니다. 교사가 opening clause나 sentence를 제공해 시작을 도울 수 있습니다.",
+    "why": "Freewriting의 핵심 키워드: without stop + without formal correctness. 학습자가 내용에만 집중하여 아이디어를 최대한 많이 생성하는 pre-writing 기법입니다. Looping과 혼동 주의 — Looping은 freewriting 후 가장 중요한 문장을 골라 새 주제로 삼는 활동입니다.",
+    "source": "Brown, H. D. (2007). Teaching by Principles: An Interactive Approach to Language Pedagogy (3rd ed.), pp.404–406. 개념을 바탕으로 구성한 학습 문항.",
+    "compare": [
+      {
+        "title": "<span class='kw1'>Freewriting</span>",
+        "desc": "주제 받아 자유롭게 씀 · 멈추지 않음"
+      },
+      {
+        "title": "<span class='kw1'>Looping</span>",
+        "desc": "자유 쓰기 → 핵심 문장 선택 → 새 주제"
+      }
+    ]
+  },
+  {
+    "src": "Pre-writing",
+    "cat": "Clustering vs Looping",
+    "text": "<span class='kw1'>Looping</span> is an activity where students write a short passage freely, select a sentence that conveys the most important idea, and use that sentence as the topic of another piece of writing.",
+    "ans": true,
+    "correct": "<span class='kw1'>Looping</span>은 자유롭게 짧은 글 작성 → <span class='kw2'>가장 중요한 아이디어를 담은 문장 선택</span> → 그 문장을 <span class='kw2'>새 글의 주제</span>로 삼는 3단계 과정입니다.",
+    "why": "Looping은 freewriting의 확장 형태로, 아이디어를 점점 좁혀가며(loop) 핵심 주제를 찾아가는 과정입니다. Clustering은 visual network를 만드는 것이고, Looping은 문장 선택과 재사용이 핵심입니다.",
+    "source": "판별 기준: freewriting 후 중심 생각을 선택하여 다음 글쓰기의 출발점으로 사용하는 looping 절차. Brown (2007), p.408은 looping을 아이디어 생성 전략에 포함한다."
+  },
+  {
+    "src": "Pre-writing",
+    "cat": "Clustering",
+    "text": "<span class='kw1'>Clustering</span> is a pre-writing activity where students jot down all <span class='kw2'>free associations triggered by a key word</span> to make a <span class='kw2'>visual network</span> linking them.",
+    "ans": true,
+    "correct": "<span class='kw1'>Clustering</span>은 핵심 키워드에서 촉발된 <span class='kw2'>free associations</span>을 연결하는 <span class='kw2'>visual network</span>를 만드는 pre-writing 활동입니다.",
+    "why": "Clustering은 key word에서 연상되는 아이디어를 시각적으로 연결한다. Mind map도 겹치는 활동이므로 두 명칭 사이에 보편적인 엄격한 경계를 만들기보다 실제 연결·조직 활동을 설명한다.",
+    "source": "Brown, H. D. (2007). Teaching by Principles: An Interactive Approach to Language Pedagogy (3rd ed.), pp.404. 개념을 바탕으로 구성한 학습 문항.",
+    "compare": [
+      {
+        "title": "<span class='kw1'>Clustering</span>",
+        "desc": "key word → free associations → visual network"
+      },
+      {
+        "title": "<span class='kw1'>Mind map</span>",
+        "desc": "중심 주제 → 아이디어 develop · 확장"
+      }
+    ]
+  },
+  {
+    "src": "Drafting",
+    "cat": "Focus in Drafting",
+    "text": "In the <span class='kw1'>drafting</span> stage of the writing process, students should focus primarily on <span class='kw4'>accuracy and grammatical correctness</span> to produce a polished first draft.",
+    "ans": false,
+    "correct": "첫 초안에서는 아이디어와 의미 전달을 발전시키는 데 우선순위를 둔다. 모든 문장을 완벽하게 고친 뒤에만 진행해야 하는 것은 아니다.",
+    "why": "내용을 발전시키는 중 작은 오류를 모두 고치려 하면 흐름이 끊길 수 있다. 다만 의미 이해를 방해하는 표현이나 중요한 오류는 초안에서도 다룰 수 있다. Brown의 첫 초안 지침은 모든 언어 피드백을 금지하지 않는다.",
+    "source": "Brown, H. D. (2007). Teaching by Principles: An Interactive Approach to Language Pedagogy (3rd ed.), pp.404, 411. 개념을 바탕으로 구성한 학습 문항.",
+    "compare": [
+      {
+        "title": "<span class='kw1'>Drafting</span>",
+        "desc": "fluency · meaning 전달 · audience 의식"
+      },
+      {
+        "title": "<span class='kw1'>Editing</span>",
+        "desc": "grammar · spelling · punctuation · diction"
+      }
+    ]
+  },
+  {
+    "src": "Feedback Types",
+    "cat": "Formative vs Summative",
+    "text": "<span class='kw1'>Formative feedback</span> aims at encouraging the development of writing by helping students see what they need to do next, while <span class='kw1'>summative feedback</span> is provided at the end of an instructional unit for evaluation.",
+    "ans": true,
+    "correct": "<span class='kw1'>Formative feedback</span>: 학습 <span class='kw2'>과정 중</span> 제공되어 다음 단계 발전을 돕는 피드백. <span class='kw1'>Summative feedback</span>: 수업 단위 <span class='kw2'>종료 후</span> 평가 목적으로 제공됩니다.",
+    "why": "Formative feedback는 학습이 진행되는 동안 개선을 돕기 위한 ongoing feedback입니다. Summative feedback는 학습 종료 후 결과를 평가합니다. Process-oriented approach는 formative feedback를 강조합니다.",
+    "source": "Brown, H. D. (2007). Teaching by Principles: An Interactive Approach to Language Pedagogy (3rd ed.), pp.414–415. 개념을 바탕으로 구성한 학습 문항.",
+    "compare": [
+      {
+        "title": "<span class='kw1'>Formative</span>",
+        "desc": "과정 중 · 개선 유도 · ongoing"
+      },
+      {
+        "title": "<span class='kw1'>Summative</span>",
+        "desc": "종료 후 · 평가 목적 · evaluation"
+      }
+    ]
+  },
+  {
+    "src": "Teacher Feedback",
+    "cat": "ECC",
+    "text": "A correction code limited to grammar and spelling can, by itself, fully explain every problem in the content and organization of a student's essay.",
+    "ans": false,
+    "correct": "문법·철자에 한정된 correction code만으로 글의 내용과 구성을 충분히 설명할 수는 없습니다. 다만 모든 교정 기호가 내용·구성에 관한 피드백을 줄 수 없는 것은 아닙니다.",
+    "why": "교정 기호에는 새 문단이 필요함을 표시하는 기호도 있습니다. 어떤 문제를 지적할 수 있는지는 사용한 코드 체계에 따라 달라집니다. 복잡한 내용·구성 문제는 구체적인 설명이나 면담을 함께 제공하는 편이 좋습니다.",
+    "source": "판별 기준: 사용한 correction code의 범위와 학생이 기호에서 얻을 수 있는 정보.",
+    "compare": [
+      {
+        "title": "교정 기호",
+        "desc": "약속된 기호로 문제 위치·유형을 표시"
+      },
+      {
+        "title": "추가 설명",
+        "desc": "내용·구성 문제의 이유와 수정 방향을 구체화"
+      }
+    ]
+  },
+  {
+    "src": "Teacher Feedback",
+    "cat": "Conferencing",
+    "text": "<span class='kw1'>Conferencing</span> provides opportunities for the teacher and student to <span class='kw2'>negotiate the meaning</span> of the student's writing through discussion, but one drawback is that students may <span class='kw2'>passively incorporate</span> the teacher's suggestions.",
+    "ans": true,
+    "correct": "<span class='kw1'>Conferencing</span>의 장점: <span class='kw2'>meaning negotiation</span> 가능, less threatening. 단점: <span class='kw2'>time-consuming</span>(시간 소요), 학생이 T 제안을 <span class='kw2'>수동적으로 수용</span>할 수 있음.",
+    "why": "Conferencing은 1:1 면담 방식으로 진행 중인 작업(work in progress)에 대해 T와 학생이 직접 대화합니다. 모호한 부분을 명확히 하고 revision 과정을 지원하는 장점이 있지만, 시간이 많이 소요되고 학생이 교사 의견에 지나치게 의존할 수 있다는 단점이 있습니다.",
+    "source": "Brown, H. D. (2007). Teaching by Principles: An Interactive Approach to Language Pedagogy (3rd ed.), pp.396, 411. 개념을 바탕으로 구성한 학습 문항."
+  },
+  {
+    "src": "Teacher Feedback",
+    "cat": "Reformulation",
+    "text": "<span class='kw1'>Reformulation</span> is a feedback technique that requires students to compare their first draft with a <span class='kw2'>reformulated version written by the teacher</span> in order to <span class='kw2'>notice the gap</span>.",
+    "ans": true,
+    "correct": "<span class='kw1'>Reformulation</span>은 학생의 1차 초안을 교사가 재작성(reformulate)한 버전을 제공하고, 학생이 원본과 비교하여 <span class='kw2'>gap을 인식(notice)</span>하도록 하는 피드백 방식입니다.",
+    "why": "Reformulation은 필자의 원래 뜻을 보존하면서 표현을 다듬은 글과 학습자 초안을 비교하게 한다. 학생이 차이를 설명하고 자신의 글에 적용하는 활동은 noticing을 도울 수 있다. 비교본을 제공했다고 intake나 장기 학습이 자동으로 보장되는 것은 아니다.",
+    "source": "판별 기준: 학생의 의미를 유지한 재작성본을 제공하고 두 버전을 비교하도록 하는 reformulation 절차."
+  },
+  {
+    "src": "Peer Feedback",
+    "cat": "Types & Focus",
+    "text": "<span class='kw1'>Peer editing</span> can address a text's content, purpose, and intended audience as well as its language forms.",
+    "ans": true,
+    "correct": "<span class='kw1'>Peer editing</span>은 언어 형식뿐 아니라 내용, 목적, 독자를 고려하여 글을 검토하는 활동이 될 수 있습니다.",
+    "why": "Peer feedback, peer editing, peer correction의 사용 범위는 문헌과 활동 설계에 따라 겹칩니다. Peer editing을 오직 문법·철자 점검으로 한정하지 말고 실제 과제의 질문과 평가 기준을 확인해야 합니다.",
+    "source": "Brown, H. D. (2007). Teaching by Principles: An Interactive Approach to Language Pedagogy (3rd ed.), pp.409–410. 개념을 바탕으로 구성한 학습 문항."
+  },
+  {
+    "src": "Peer Feedback",
+    "cat": "Disadvantages",
+    "text": "A peer response consisting only of “Good!” gives the writer enough specific information to decide what to revise.",
+    "ans": false,
+    "correct": "“Good!”만으로는 어떤 부분이 효과적이며 어디를 어떻게 수정할지 알기 어렵다. 구체적 강점, 텍스트 근거, 실행 가능한 제안이 필요하다.",
+    "why": "칭찬의 양을 역방향으로 외우는 문제가 아니다. 근거 없는 칭찬이나 비판 모두 개선에 필요한 정보를 부족하게 줄 수 있다. 예를 들어 주장에 맞는 근거를 추가할 위치를 짚어 주면 revision에 사용할 수 있다.",
+    "source": "Brown, H. D. (2007). Teaching by Principles: An Interactive Approach to Language Pedagogy (3rd ed.), pp.409–410. 개념을 바탕으로 구성한 학습 문항.",
+    "compare": [
+      {
+        "title": "Vague praise",
+        "desc": "좋다는 반응만 제시; 수정 근거 부족"
+      },
+      {
+        "title": "Specific response",
+        "desc": "강점과 위치를 짚고 필요한 정보 제안"
+      }
+    ]
+  },
+  {
+    "src": "Peer Feedback",
+    "cat": "Timing Strategy",
+    "text": "When advising students on peer feedback, teachers should recommend focusing on <span class='kw2'>content</span> in the <span class='kw2'>earlier stages</span> and on <span class='kw2'>grammar and mechanics</span> in the <span class='kw2'>final stages</span>.",
+    "ans": true,
+    "correct": "피드백 타이밍: <span class='kw2'>초기 단계(earlier stages)</span> → <span class='kw2'>content</span> 중심 / <span class='kw2'>최종 단계(final stages)</span> → <span class='kw2'>grammar/mechanics</span> 중심.",
+    "why": "초기에는 주장·근거·구성을, 후반에는 세부 정확성을 더 살피는 유용한 우선순위이다. 의미를 막는 오류를 초안에서 다루거나 최종 단계에 내용을 다시 수정할 수도 있다.",
+    "source": "Brown, H. D. (2007). Teaching by Principles: An Interactive Approach to Language Pedagogy (3rd ed.), pp.411–412. 개념을 바탕으로 구성한 학습 문항."
+  },
+  {
+    "src": "Revising vs Editing",
+    "cat": "Global vs Local",
+    "text": "<span class='kw1'>Revising</span> addresses <span class='kw4'>local language issues</span> such as grammar and spelling, while <span class='kw1'>editing</span> addresses <span class='kw4'>global issues</span> such as content and organization.",
+    "ans": false,
+    "correct": "반대입니다. <span class='kw2'>Revising</span>은 <span class='kw2'>global issues</span>(content, organization of ideas), <span class='kw2'>Editing</span>은 <span class='kw2'>local language issues</span>(grammar, spelling, punctuation, diction)을 다룹니다.",
+    "why": "이 단계 모형에서 revising은 주장·근거·구성의 개선, editing은 언어 형식 점검을 강조한다. 실제 작업에서는 겹치거나 앞 단계로 돌아갈 수 있다. Peer editing이라는 활동명은 Brown에서 내용 검토까지 포함하므로 같은 범위라고 단정하지 않는다.",
+    "source": "Brown, H. D. (2007). Teaching by Principles: An Interactive Approach to Language Pedagogy (3rd ed.), pp.410–412. 개념을 바탕으로 구성한 학습 문항.",
+    "compare": [
+      {
+        "title": "<span class='kw1'>Revising</span>",
+        "desc": "global: content · organization (큰 그림)"
+      },
+      {
+        "title": "<span class='kw1'>Editing</span>",
+        "desc": "local: grammar · spelling · punctuation · diction"
+      }
+    ]
+  },
+  {
+    "src": "Writing Performances",
+    "cat": "Imitative Writing",
+    "text": "<span class='kw1'>Imitative Writing (Dictation)</span> is an activity where the teacher reads a paragraph in <span class='kw2'>short phrase units with a pause</span> after each unit, and students write down <span class='kw2'>exactly what they have heard</span> during the pause.",
+    "ans": true,
+    "correct": "<span class='kw1'>Dictation</span>(Imitative Writing)의 정의: 교사가 단락을 <span class='kw2'>짧은 구 단위로 읽고</span> 각 구 뒤에 <span class='kw2'>pause</span>를 두면, 학생은 pause 동안 들은 것을 <span class='kw2'>그대로 받아쓰기</span>합니다.",
+    "why": "Brown의 교실 수행 분류에서 일부 dictation은 imitative writing의 예이다. 모든 imitative writing이 dictation인 것은 아니며, 과제에 따라 dictation은 더 높은 수준의 처리도 요구한다.",
+    "source": "Brown, H. D. (2007). Teaching by Principles: An Interactive Approach to Language Pedagogy (3rd ed.), pp.399–400. 개념을 바탕으로 구성한 학습 문항.",
+    "compare": [
+      {
+        "title": "Dictation",
+        "desc": "짧은 구 뒤 pause 동안 들은 표현 기록"
+      },
+      {
+        "title": "Dicto-comp",
+        "desc": "전체 청취 뒤 기억한 내용 재구성"
+      }
+    ]
+  },
+  {
+    "src": "Writing Performances",
+    "cat": "Dicto-comp",
+    "text": "In Brown’s dicto-comp procedure, students listen to a paragraph at normal speed, usually two or three times, and then reconstruct it from memory.",
+    "ans": true,
+    "correct": "정상 속도의 단락을 듣고 난 뒤 기억한 내용을 글로 재구성한다. 교사가 핵심어를 제공하는 변형도 있다.",
+    "why": "Dictation에서는 짧은 구 뒤 pause 동안 들은 표현을 적는다. Dictation도 처음에 전체 지문을 들을 수 있으므로 준비 단계의 유무는 보편적 차이가 아니다. 100단어 이상이라는 조건도 Brown의 필수 정의가 아니다.",
+    "source": "Brown, H. D. (2007). Teaching by Principles: An Interactive Approach to Language Pedagogy (3rd ed.), pp.400. 개념을 바탕으로 구성한 학습 문항."
+  },
+  {
+    "src": "Writing Performances",
+    "cat": "Dialogue Journal",
+    "text": "In a <span class='kw1'>Dialogue Journal</span>, students' entries <span class='kw4'>must be graded and corrected</span> by the teacher in order to improve their writing accuracy.",
+    "ans": false,
+    "correct": "Dialogue journal의 중심은 의미 있는 서면 대화이다. 모든 항목에 점수를 매기고 오류를 모두 고쳐야 성립하는 활동은 아니다.",
+    "why": "교사는 경험·질문·의견에 독자로서 응답하여 대화를 이어 간다. 기록을 비교하며 발전을 성찰할 수 있으므로 어떤 평가나 관찰도 절대 금지된다는 주장으로 확대하지 않는다.",
+    "source": "Brown, H. D. (2007). Teaching by Principles: An Interactive Approach to Language Pedagogy (3rd ed.), pp.400–401. 개념을 바탕으로 구성한 학습 문항.",
+    "compare": [
+      {
+        "title": "Dialogue",
+        "desc": "내용에 반응하며 다음 기록으로 대화 지속"
+      },
+      {
+        "title": "Reflection",
+        "desc": "기록을 돌아보고 발전을 스스로 관찰"
+      }
+    ]
+  },
+  {
+    "src": "Writing Performances",
+    "cat": "Group Writing",
+    "text": "<span class='kw1'>Group writing</span> can be suggested as a task that adopts <span class='kw2'>process-oriented approach</span> and also incorporates <span class='kw2'>social constructivism</span>, as it involves collaborative learning through peer scaffolding.",
+    "ans": true,
+    "correct": "<span class='kw1'>Group writing</span>은 <span class='kw2'>process-oriented approach</span>(계획·초안·수정 과정 공유)와 <span class='kw2'>social constructivism</span>(peer scaffolding을 통한 협동학습)을 모두 구현하는 활동입니다.",
+    "why": "함께 계획하고 의견을 협의하며 초안에 피드백을 주고 수정하는 활동이라면 peer scaffolding이 과정 중심 쓰기를 지원할 수 있다. 각자 쓴 문단을 검토 없이 붙이기만 하면 그런 상호작용의 근거가 부족하다.",
+    "source": "Brown, H. D. (2007). Teaching by Principles: An Interactive Approach to Language Pedagogy (3rd ed.), pp.411. 개념을 바탕으로 구성한 학습 문항."
+  },
+  {
+    "src": "Writing Types",
+    "cat": "Real vs Display Writing",
+    "text": "<span class='kw1'>Display writing</span> is used for genuine communication of messages to an audience who genuinely wants information, while <span class='kw1'>real writing</span> is used to display one's knowledge in evaluation contexts.",
+    "ans": false,
+    "correct": "반대입니다. <span class='kw2'>Real writing</span>: 독자가 답을 모르고 진짜로 알고 싶어하는 <span class='kw2'>진짜 소통</span>이 목적 (personal, vocational, academic). <span class='kw4'>Display writing</span>: 자신의 지식을 보여주기 위한, 평가가 수반되는 쓰기.",
+    "why": "Real과 display는 목적에 따른 continuum이다. 시험 에세이는 보통 지식·능력을 보여 주는 기능이 강하고, 실제 독자의 선택을 돕는 안내문은 소통 기능이 강하다. 한 과제에 두 목적이 함께 존재할 수도 있다.",
+    "source": "Brown, H. D. (2007). Teaching by Principles: An Interactive Approach to Language Pedagogy (3rd ed.), pp.395–396, 402. 개념을 바탕으로 구성한 학습 문항.",
+    "compare": [
+      {
+        "title": "<span class='kw2'>Real writing</span>",
+        "desc": "진짜 소통 · 독자가 정보 원함 · personal/vocational/academic"
+      },
+      {
+        "title": "<span class='kw4'>Display writing</span>",
+        "desc": "지식 과시 · 평가 포함 · exam/report"
+      }
+    ]
+  },
+  {
+    "src": "Writing Concepts",
+    "cat": "Contrastive Rhetoric",
+    "text": "In Kaplan's early account of <span class='kw1'>contrastive rhetoric</span>, culturally influenced ways of organizing first-language texts can transfer to second-language writing.",
+    "ans": true,
+    "correct": "초기 contrastive rhetoric은 L1에서 익힌 글의 구성 방식이 L2 쓰기에 영향을 줄 수 있다고 보았습니다. 문화와 글쓰기의 관계를 설명하려는 역사적 관점이며, 모든 필자에게 고정된 패턴을 부여하는 법칙은 아닙니다.",
+    "why": "Kaplan의 초기 contrastive rhetoric은 문화적 배경과 글의 구성 방식 사이의 관계를 설명하려 했습니다. Brown이 재현한 역사적 도식에서 Semitic은 지그재그 형태로, 당시 ‘Oriental’로 묶은 범주는 나선형으로 제시됩니다. 이 도식은 역사적 논의의 예이며, 특정 언어·문화의 모든 글이나 필자에게 적용되는 고정 법칙으로 받아들이면 안 됩니다.",
+    "source": "Brown, H. D. (2007). Teaching by Principles: An Interactive Approach to Language Pedagogy (3rd ed.), pp.393–394. 개념을 바탕으로 구성한 학습 문항."
+  }
 ];
 
 const TOTAL=21;
-const SAVE_KEY='ox_writing_v2';
+const SAVE_KEY='ox_writing_v3';
 let cur=0,answers=new Array(TOTAL).fill(null);
 let mode='normal',order=[...Array(TOTAL).keys()];
 function initOrder(m){if(m==='random'){const a=[...Array(TOTAL).keys()];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}order=a;}else order=[...Array(TOTAL).keys()];}
@@ -470,3 +582,4 @@ function restart(){cur=0;answers=new Array(TOTAL).fill(null);clearProgress();doc
 <script src="./study-return.js"></script>
 </body>
 </html>
+
