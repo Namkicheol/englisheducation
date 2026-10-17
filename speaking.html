@@ -142,205 +142,383 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f5f4ee;background-image:r
 <script src="./sounds.js"></script>
 <script>
 const Q=[
-  {src:"Drill 종류",cat:"Mechanical Drill",
-   text:"<span class='kw1'>Mechanical drills</span> require Ss to make the only one correct response from the teacher's cue, and <span class='kw2'>comprehension is not needed</span> to perform them correctly.",
-   ans:true,
-   correct:"<span class='kw1'>Mechanical drill</span>은 단일 정답만 요구되는 통제된 반복 연습으로, <span class='kw2'>comprehension은 필요하지 않습니다</span>. 형식과 의미의 연결도 없으며 현실 맥락(reality)과의 연관도 없습니다.",
-   why:"Mechanical drill은 audiolingual 전통의 가장 통제된 drill 형태입니다. 학생은 T의 cue에 따라 미리 정해진 단 하나의 정답을 산출하면 되고, 의미를 이해하지 못해도 반복으로 패턴을 습득할 수 있습니다. Repetition drill, substitution drill, moving slot substitution drill이 대표 예입니다.",
-   source:"\"<span class='kw1'>Mechanical Drills</span>: L is required to make the only one correct response from the T's cue; <span class='kw2'>comprehension is not needed</span>; no connection with reality.\"",
-   compare:[{title:"<span class='kw1'>Mechanical</span>",desc:"comprehension X · 정답 1개"},{title:"<span class='kw1'>Meaningful</span>",desc:"comprehension 필요 · predicted response"},{title:"<span class='kw1'>Communicative</span>",desc:"open response · real info"}]},
-
-  {src:"Drill 종류",cat:"Meaningful Drill",
-   text:"<span class='kw1'>Meaningful drills</span> have a predicted response with a regulated sequence and require <span class='kw2'>display questions</span>, but Ss must understand the meaning to answer correctly.",
-   ans:true,
-   correct:"<span class='kw1'>Meaningful drill</span>은 예측 가능한 정답이 정해진 순서로 있고, 학생이 <span class='kw2'>의미를 이해해야</span> 답할 수 있습니다. T가 답을 이미 아는 <span class='kw2'>display question</span> 형식이며 현실과 어느 정도 연결됩니다.",
-   why:"Meaningful drill은 mechanical drill과 communicative drill의 중간 단계입니다. 정답은 이미 정해져 있지만(predicted) 학생이 의미를 이해해야만 정답을 골라 말할 수 있다는 점이 mechanical과의 차이입니다. T의 질문은 답을 미리 알고 묻는 display Q 형식입니다.",
-   source:"\"<span class='kw1'>Meaningful Drills</span>: A type of drill that has a predicted response with regulated sequence; some connection with reality; <span class='kw2'>comprehension is needed</span> to answer correctly.\"",
-   compare:[{title:"<span class='kw1'>Display Q</span>",desc:"T가 답을 알고 묻는 질문 (Meaningful)"},{title:"<span class='kw1'>Referential Q</span>",desc:"T가 답을 모르고 묻는 진짜 질문 (Communicative)"}]},
-
-  {src:"Drill 종류",cat:"Communicative Drill",
-   text:"<span class='kw1'>Communicative practice (form-focused communicative drill)</span> controls the type of response but allows Ss to provide an open response, exchange real information, and respond with <span class='kw2'>referential questions</span> using their own personalized information.",
-   ans:true,
-   correct:"<span class='kw1'>Communicative drill</span>은 응답 유형은 통제되지만 <span class='kw2'>open response</span>가 가능하고, 학생이 <span class='kw2'>실제 자기 정보</span>로 답합니다. <span class='kw2'>Referential question</span>(T가 답을 모르는 진짜 질문)이 핵심입니다.",
-   why:"Communicative drill은 drill 3종 중 가장 개방적인 형태입니다. 형식은 통제하되, 학생의 실제 정보·의견을 끌어내고 의미 협상(negotiation for meaning) 기회를 제공합니다. Mechanical drill과의 결정적 차이는 referential Q + open response + Ss' own real information입니다.",
-   source:"\"<span class='kw1'>Communicative Practice</span>: A type of drill where the type of response is controlled but the L is given opportunities to provide an <span class='kw2'>open response</span>, to exchange real information, and to negotiate for meaning; <span class='kw2'>referential Qs</span>; require Ss to answer with personalized and real information.\"",
-   compare:[{title:"<span class='kw1'>Communicative drill</span>",desc:"open response · real info · referential Q"},{title:"<span class='kw1'>Meaningful drill</span>",desc:"predicted response · display Q"}]},
-
-  {src:"Speaking Activities",cat:"Discussion",
-   text:"In a <span class='kw1'>discussion</span> activity, students need to learn <span class='kw2'>functional language</span>, and each student in a group should assume a specific role.",
-   ans:true,
-   correct:"<span class='kw1'>Discussion</span>은 학생들이 <span class='kw2'>functional language</span>(동의·반대·제안 등)를 학습해야 하고, 그룹 내에서 <span class='kw2'>특정 역할</span>(chairperson, note-taker 등)을 각자 맡아야 합니다.",
-   why:"Discussion은 단순한 자유 대화가 아니라 functional language 학습과 역할 분담이 핵심입니다. 또한 speaking·listening·thinking이 통합된 skill-integrated activity입니다.",
-   source:"\"<span class='kw1'>Discussion</span>: Ss are divided into pairs or groups to discuss a certain topic. Ss need to learn <span class='kw2'>functional language</span>. Each S in a group should assume a specific role. Skill-integrated activities.\""},
-
-  {src:"Speaking Activities",cat:"Presentation",
-   text:"A <span class='kw1'>presentation</span> is a type of <span class='kw2'>monologic task</span>, which is a speaking activity where Ls speak an extended piece of discourse for an audience.",
-   ans:true,
-   correct:"<span class='kw1'>Presentation</span>은 <span class='kw2'>monologic task</span>의 한 유형이며, 학습자가 청중 앞에서 확장된 담화를 산출하는 speaking 활동입니다.",
-   why:"Presentation은 \"독백적(monologic)\" 과업으로 분류됩니다 — 한 학생이 청중을 대상으로 비교적 긴 담화를 산출합니다. Videotaping을 활용하면 학생은 self-evaluation, 교사는 in-depth evaluation이 가능해집니다.",
-   source:"\"<span class='kw1'>Presentation</span> is a type of a <span class='kw2'>monologic task</span>, which is a speaking activity where Ls speak an extended piece of discourse for an audience.\""},
-
-  {src:"Speaking Activities",cat:"Impromptu Speech",
-   text:"<span class='kw1'>Impromptu speeches</span> are a variation of class presentation where a presenter must speak about a given topic, and this technique can be used to teach <span class='kw2'>hesitation markers</span>.",
-   ans:true,
-   correct:"<span class='kw1'>Impromptu speech</span>는 사전 준비 없이 주어진 주제로 발표하는 형식이며, <span class='kw2'>hesitation markers</span>(well, you know, um) 학습에 활용됩니다.",
-   why:"즉흥 발표는 학습자가 시간을 벌기 위해 자연스럽게 hesitation markers를 사용하게 만듭니다. 이는 실제 대화의 수행 변수(performance variables)를 가르치는 좋은 맥락이 됩니다. Rehearsal(준비된 발표)과 대조됩니다.",
-   source:"\"<span class='kw1'>Impromptu speeches</span>: A variation of class presentation where a presenter must speak about a given topic. This can be used as an activity to teach <span class='kw2'>hesitation markers</span>.\"",
-   compare:[{title:"<span class='kw1'>Rehearsal</span>",desc:"preparation time · accuracy↑ · confidence↑"},{title:"<span class='kw1'>Impromptu</span>",desc:"spontaneous · little to no prep · hesitation markers"}]},
-
-  {src:"Gap Activities",cat:"Information-gap vs Reasoning-gap",
-   text:"<span class='kw1'>Information-gap activities</span> are activities that require students to <span class='kw2'>derive new information by inferring it</span> from given information.",
-   ans:false,
-   correct:"<span class='kw1'>Information-gap</span>은 학생끼리 <span class='kw2'>다른 정보를 교환</span>하는 활동입니다. 추론으로 새 정보를 도출하는 것은 <span class='kw1'>Reasoning-gap activity</span>입니다.",
-   why:"Information-gap과 Reasoning-gap은 함정 단골입니다. Information-gap은 단순히 학생끼리 다른 정보를 가지고 있어 \"교환\"하면 되는 반면, Reasoning-gap은 같은 정보를 받아도 \"추론\"으로 새 결론을 도출해야 합니다.",
-   source:"\"<span class='kw1'>Information-gap activities</span>: An activity that involves <span class='kw2'>exchanging information among Ss</span> either one-way or two-way. <span class='kw1'>Reasoning-gap activities</span>: An activity that requires Ss to <span class='kw2'>derive new information by inferring</span> it from the given information.\"",
-   compare:[{title:"<span class='kw1'>Information-gap</span>",desc:"정보 교환 (one-way / two-way)"},{title:"<span class='kw1'>Reasoning-gap</span>",desc:"주어진 정보 → 추론으로 새 정보 도출"}]},
-
-  {src:"Gap Activities",cat:"Reasoning-gap",
-   text:"A <span class='kw1'>reasoning-gap activity</span> requires students to derive new information by <span class='kw2'>inferring it from given information</span> through logical processing.",
-   ans:true,
-   correct:"<span class='kw1'>Reasoning-gap</span>은 주어진 정보로부터 <span class='kw2'>logical inference</span>를 통해 새 정보를 도출하도록 요구하는 활동입니다.",
-   why:"Reasoning-gap의 핵심은 \"추론\"입니다. 정보 자체는 학생이 모두 가지고 있지만, 그 정보들로부터 새로운 결론을 추론해야 합니다. 예: 시간표를 보고 최적 이동 경로 찾기, 단서를 종합해 범인 찾기 등.",
-   source:"\"<span class='kw1'>Reasoning-gap activities</span>: An activity that requires Ss to <span class='kw2'>derive new information by inferring</span> it from the given information.\""},
-
-  {src:"Gap Activities",cat:"Opinion-gap",
-   text:"An <span class='kw1'>opinion-gap activity</span> requires students to give their <span class='kw2'>personal preferences, feelings, or attitudes</span>, with examples including debate or story completion.",
-   ans:true,
-   correct:"<span class='kw1'>Opinion-gap</span>은 학생의 <span class='kw2'>개인적 선호·감정·태도</span>를 표현하는 활동으로, debate나 story completion이 대표적입니다.",
-   why:"Opinion-gap은 객관적 정답이 없습니다. 학생이 자신의 주관을 언어화해야 하는 활동이며, 토론(debate)이나 이야기 완성(story completion)이 대표 예입니다. Information-gap과 달리 \"정보 교환\"이 아닌 \"의견 표현\"이 중심입니다.",
-   source:"\"<span class='kw1'>Opinion-gap activities</span>: An activity that requires Ss to give their <span class='kw2'>personal preferences, feelings, or attitudes</span>. Ex) debate, story completion.\""},
-
-  {src:"Role Play",cat:"Definition",
-   text:"A <span class='kw1'>role play</span> is a drama technique where students take the role of different persons and act out, and it always involves giving a role to members of a group <span class='kw2'>and</span> assigning an objective that must be accomplished.",
-   ans:true,
-   correct:"<span class='kw1'>Role play</span>는 두 가지 구성 요소를 모두 가집니다: ① <span class='kw2'>역할(role) 부여</span>와 ② <span class='kw2'>달성할 목표(objective)</span>. 단순 역할극이 아니라 명확한 목표가 있어야 합니다.",
-   why:"Role play의 정의에서 \"giving a role + assigning an objective\" 두 요소가 모두 필수임을 기억해야 합니다. 단순히 역할만 주고 자유롭게 말하라고 하는 것은 정식 role play가 아닙니다. role card나 cue card를 활용할 수 있습니다.",
-   source:"\"<span class='kw1'>Role play</span>: A drama technique where Ss take the role of different persons and act out in a relatively short and brief situation. It involves a) <span class='kw2'>giving a role</span> to members of a group and b) <span class='kw2'>assigning an objective</span> that must be accomplished.\""},
-
-  {src:"Role Play",cat:"Less Structured Role Play",
-   text:"In a <span class='kw1'>less structured role play</span>, the teacher tells the students <span class='kw2'>who they are</span> and <span class='kw2'>what the situation is</span>, but the students determine what they will say.",
-   ans:true,
-   correct:"<span class='kw1'>Less structured role play</span>는 T가 ① <span class='kw2'>역할</span>과 ② <span class='kw2'>상황</span>만 알려주고, 학생이 직접 무엇을 말할지 결정하는 방식입니다.",
-   why:"Less structured role play의 핵심은 \"학생 자율성\"입니다. T는 누구이며 어떤 상황인지만 제시하고, 학생은 자기 언어 자원으로 대화를 만들어냅니다. 따라서 fluency 향상에 효과적이며 기출 단골 출제 포인트입니다. Structured role play와 비교하면 후자는 T가 대사까지 알려줍니다.",
-   source:"\"<span class='kw1'>Less structured role play</span>: A type of role play where the T tells the Ss <span class='kw2'>who they are and what the situation is</span>, but the Ss determine <span class='kw2'>what they will say</span>.\"",
-   compare:[{title:"<span class='kw1'>Structured</span>",desc:"T tells: who + <span class='kw2'>what to say</span>"},{title:"<span class='kw1'>Less structured</span>",desc:"T tells: who + situation / Ss decide <span class='kw2'>what to say</span>"}]},
-
-  {src:"Role Play",cat:"Structured vs Less Structured",
-   text:"<span class='kw1'>Structured role play</span> is more effective than <span class='kw1'>less structured role play</span> for developing students' <span class='kw2'>fluency</span> in speaking.",
-   ans:false,
-   correct:"<span class='kw2'>Less structured role play</span>가 fluency 향상에 더 효과적입니다. Structured role play는 T가 대사까지 알려주므로 정확성(accuracy) 중심입니다.",
-   why:"기출에서 가장 자주 출제되는 함정 중 하나입니다. Less structured role play는 학생이 자기 자원으로 발화를 구성해야 하므로 자연스러운 fluency 발달을 촉진합니다. Structured는 미리 정해진 대사를 말하는 형식이라 form 정확성에는 좋지만 fluency엔 제한적입니다.",
-   source:"\"speaking activity는 role play가 가장 빈출. 대사의 meaning을 정해놓지 않은 <span class='kw2'>less structured role play가 fluency를 향상</span>시킴.\"",
-   compare:[{title:"<span class='kw1'>Structured</span>",desc:"대사 정해짐 → accuracy 중심"},{title:"<span class='kw1'>Less structured</span>",desc:"대사 자유 → fluency↑"}]},
-
-  {src:"Speaking Activities",cat:"Jigsaw",
-   text:"<span class='kw1'>Jigsaw activities</span> are based on the <span class='kw2'>information-gap principle</span> combined with <span class='kw2'>cooperative learning</span>.",
-   ans:true,
-   correct:"<span class='kw1'>Jigsaw activity</span>의 핵심 원리는 <span class='kw2'>information-gap principle</span>과 <span class='kw2'>cooperative learning</span>의 결합입니다.",
-   why:"Jigsaw에서는 각 학생/그룹이 다른 정보 조각을 가지고 시작합니다. 전체 그림을 완성하려면 정보를 서로 공유해야 하므로 협동학습이 필수가 됩니다. Strip story가 대표 예시입니다.",
-   source:"\"<span class='kw1'>Jigsaw Activities</span>: Information-gap principle / cooperative learning. Strip story.\""},
-
-  {src:"Task Types",cat:"Problem-solving Task",
-   text:"In a <span class='kw1'>problem-solving task</span>, students are given a problem and asked to arrive at a solution, and there is generally a <span class='kw2'>single resolution</span>.",
-   ans:true,
-   correct:"<span class='kw1'>Problem-solving task</span>는 일반적으로 <span class='kw2'>단일한 정답(single resolution)</span>을 향해 수렴(convergent)합니다.",
-   why:"Problem-solving task는 \"하나의 정답\"을 찾는 수렴적(convergent) 과업입니다. Decision-making task와 대조되는데, 후자는 여러 가능한 결과 중 하나를 협상으로 선택하는 발산적(divergent) 과업입니다.",
-   source:"\"<span class='kw1'>Problem-solving tasks</span>: Ss are given a problem and asked to arrive at a solution to the problem; there is generally a <span class='kw2'>single resolution</span>.\"",
-   compare:[{title:"<span class='kw1'>Problem-solving</span>",desc:"single resolution · convergent"},{title:"<span class='kw1'>Decision-making</span>",desc:"multiple outcomes · divergent · negotiation"}]},
-
-  {src:"Task Types",cat:"Decision-making Task",
-   text:"In a <span class='kw1'>decision-making task</span>, students are given a problem with only one fixed correct outcome that the teacher has decided beforehand.",
-   ans:false,
-   correct:"<span class='kw1'>Decision-making task</span>는 <span class='kw2'>여러 가능한 결과(multiple outcomes)</span>가 존재하며, 학생들이 <span class='kw2'>negotiation·discussion으로 하나를 선택</span>합니다.",
-   why:"Decision-making task의 핵심은 \"여러 가능한 결과\"와 \"학생 협상에 의한 선택\"입니다. 정답이 미리 정해져 있는 것이 아니라 학생들이 토의·협상을 통해 결과물을 만들어냅니다. Problem-solving이 수렴적이라면 decision-making은 발산적입니다.",
-   source:"\"<span class='kw1'>Decision-making tasks</span>: Ss are given a problem where there are <span class='kw2'>a number of possible outcomes</span> and are asked to <span class='kw2'>choose one outcome through negotiation and discussion</span>.\""},
-
-  {src:"Fluency · Accuracy",cat:"Fluency Definition",
-   text:"<span class='kw1'>Fluency</span> is an ability to use correct language patterns <span class='kw2'>automatically at normal conversational speed</span>, while focusing on <span class='kw2'>meaning, not form</span>.",
-   ans:true,
-   correct:"<span class='kw1'>Fluency</span>는 정확한 언어 패턴을 <span class='kw2'>자동적으로 normal speed</span>에 사용하는 능력으로, <span class='kw2'>meaning에 초점</span>을 두고 form엔 두지 않습니다.",
-   why:"Fluency의 정의에서 핵심 키워드는 ① automatic ② normal speed ③ focus on meaning, not form입니다. Accuracy(언어 형태 정확성)와 대비되는 개념이며, 이 둘 사이에는 trade-off가 있어 한쪽 강조가 다른 쪽 손상으로 이어질 수 있습니다.",
-   source:"\"<span class='kw1'>Fluency</span>: An ability to use correct lg patterns <span class='kw2'>automatically at normal conversational speed</span> with natural lg use, while at <span class='kw2'>focusing on meaning, not form</span>.\"",
-   compare:[{title:"<span class='kw1'>Fluency</span>",desc:"자동성 · normal speed · meaning"},{title:"<span class='kw1'>Accuracy</span>",desc:"form 정확성 · lg system 준수"},{title:"<span class='kw1'>Complexity</span>",desc:"다양한 구조 · 변화 있는 문장"}]},
-
-  {src:"Pretask Planning",cat:"Effects on Learners",
-   text:"With <span class='kw1'>pretask planning</span>, <span class='kw2'>impulsive students</span> may gain confidence in their speech, while <span class='kw2'>reflective students</span> may gain accuracy.",
-   ans:false,
-   correct:"반대로, <span class='kw2'>impulsive students</span>는 pretask planning을 통해 <span class='kw4'>accuracy</span>를 얻고, <span class='kw2'>reflective students</span>는 <span class='kw4'>confidence</span>를 얻습니다.",
-   why:"기출 단골 함정. Impulsive(충동적) 학습자는 평소 빠르게 말하느라 정확성을 놓치므로 pretask planning이 정확성을 보완해줍니다. 반면 reflective(신중한) 학습자는 평소 너무 신중해서 발화를 망설이므로, 미리 계획할 시간이 자신감을 줍니다. 두 효과가 헷갈리기 쉽습니다.",
-   source:"\"<span class='kw1'>Pretask planning</span>: A technique where a T gives Ss some adequate time to plan what they want to say before they actually are asked to speak. <span class='kw2'>Impulsive Ss</span> may gain <span class='kw4'>accuracy</span> in their speech, <span class='kw2'>reflective Ss</span> may gain <span class='kw4'>confidence</span> through this stage.\"",
-   compare:[{title:"<span class='kw1'>Impulsive Ss</span>",desc:"→ <span class='kw4'>accuracy</span> 향상"},{title:"<span class='kw1'>Reflective Ss</span>",desc:"→ <span class='kw4'>confidence</span> 향상"}]},
-
-  {src:"Task Repetition",cat:"4/3/2 Technique",
-   text:"The <span class='kw1'>4/3/2 technique</span> is an activity for fluency development where students tell and repeat the same story to <span class='kw2'>three different listeners in sequence</span>, with the time pressure of <span class='kw2'>4, 3, and 2 minutes</span> respectively.",
-   ans:true,
-   correct:"<span class='kw1'>4/3/2 technique</span>은 같은 이야기를 <span class='kw2'>3명의 다른 청자</span>에게 차례로 들려주되, 시간을 <span class='kw2'>4분 → 3분 → 2분</span>으로 줄여가는 fluency 개발 활동입니다.",
-   why:"같은 이야기를 반복하면서 시간 압박이 강해지므로, 학습자는 자동성(automaticity)을 높여 fluency를 발달시킵니다. 새로운 청자가 매번 등장하기에 task repetition의 단조로움도 줄어듭니다.",
-   source:"\"<span class='kw1'>4/3/2 technique</span>: An activity designed to develop <span class='kw2'>fluency in speaking</span> where Ss tell and repeat the same story to <span class='kw2'>three different listeners in sequence</span> while they are under the pressure of doing it for <span class='kw2'>four, three, two minutes</span>, respectively.\""},
-
-  {src:"Pronunciation",cat:"Bottom-up Approach",
-   text:"The <span class='kw1'>bottom-up approach</span> to teaching pronunciation focuses mainly on the accurate articulation of consonants and vowels, emphasizing <span class='kw2'>segmental features</span>.",
-   ans:true,
-   correct:"<span class='kw1'>Bottom-up approach</span>는 자음·모음의 정확한 조음(articulation)에 집중하며, <span class='kw2'>segmental features</span>(분절음)를 강조합니다.",
-   why:"Bottom-up은 \"작은 단위(segment) → 큰 단위\" 방향이므로 발음에서는 개별 음소(자음·모음)의 정확한 조음에 초점을 둡니다. Accuracy 지향이며, minimal pair practice가 대표 기법입니다. Top-down approach와 대조됩니다.",
-   source:"\"<span class='kw1'>Bottom-up Approach</span>: Main focus is on accurate articulation of consonants and vowels. Emphasizes the <span class='kw2'>segmental features</span>.\"",
-   compare:[{title:"<span class='kw1'>Bottom-up</span>",desc:"segmental · articulation · accuracy · minimal pair"},{title:"<span class='kw1'>Top-down</span>",desc:"suprasegmental · stress·rhythm·intonation · fluency · backward buildup"}]},
-
-  {src:"Pronunciation",cat:"Top-down Approach",
-   text:"The <span class='kw1'>top-down approach</span> emphasizes <span class='kw2'>suprasegmental features</span> such as stress, rhythm, and intonation, which are believed to have a bigger impact on <span class='kw2'>intelligibility</span>.",
-   ans:true,
-   correct:"<span class='kw1'>Top-down approach</span>는 <span class='kw2'>suprasegmental features</span>(stress·rhythm·intonation)를 강조하며, 이들이 <span class='kw2'>intelligibility</span>에 더 큰 영향을 준다고 봅니다.",
-   why:"Top-down approach는 \"큰 단위(suprasegmental)가 의사소통에 더 결정적이다\"라는 전제에 기반합니다. 따라서 stress, rhythm, intonation을 가르쳐 intelligibility를 높이는 것이 목표이며, fluency 지향입니다. 대표 기법으로 backward buildup, shadowing이 있습니다.",
-   source:"\"<span class='kw1'>Top-down Approach</span>: Main focus is teaching <span class='kw2'>suprasegmental features including stress, rhythm, and intonation</span> which are believed to have bigger impacts on <span class='kw2'>intelligibility</span>.\""},
-
-  {src:"Pronunciation",cat:"Intelligibility",
-   text:"<span class='kw1'>Intelligibility</span> refers to the goal of achieving a <span class='kw2'>native-like accent</span> in pronunciation.",
-   ans:false,
-   correct:"<span class='kw1'>Intelligibility</span>는 native-like accent가 아니라, <span class='kw2'>청자에게 거슬리지 않는(not distracting)</span> 정도를 의미합니다. <span class='kw2'>communicability</span>와 유사한 개념입니다.",
-   why:"Intelligibility는 \"이해 가능성·소통 가능성\"이지 native-like 발음을 뜻하지 않습니다. 학습자의 발음에 모국어 흔적이 남아 있어도 청자가 이해하는 데 거슬리지 않으면 충분히 intelligible합니다. 이것이 현대 발음 교수의 기본 목표입니다.",
-   source:"\"<span class='kw1'>Intelligibility</span>: the degree of an accent and pronunciation of spoken language is <span class='kw2'>not distracting to the listener</span>; Similar to <span class='kw2'>communicability</span>.\""},
-
-  {src:"Pronunciation",cat:"Teachability vs Communicative Importance",
-   text:"In pronunciation teaching, individual segments have <span class='kw2'>high teachability and high communicative importance</span>, so teaching them is the most efficient approach.",
-   ans:false,
-   correct:"개별 segment는 <span class='kw2'>teachability는 높지만 communicative importance는 낮습니다</span>. 반대로 intonation은 teachability는 낮지만 communicative importance가 높습니다. 둘은 <span class='kw4'>역의 관계</span>입니다.",
-   why:"Teachability(가르치기 쉬움)와 communicative importance(의사소통 중요도)는 발음 요소들 사이에서 역의 관계를 보입니다. 가르치기 쉬운 segment는 의사소통에 덜 중요하고, 가르치기 어려운 intonation은 의사소통에 가장 중요합니다. 이 trade-off가 발음 교수법 설계의 딜레마입니다.",
-   source:"\"Teaching individual segments: High teachability / Low communicative importance. Teaching intonation: Low teachability / High communicative importance.\"",
-   compare:[{title:"<span class='kw1'>Segments</span>",desc:"teachability ↑ / importance ↓"},{title:"<span class='kw1'>Intonation</span>",desc:"teachability ↓ / importance ↑"}]},
-
-  {src:"Pronunciation Techniques",cat:"Backward Buildup Drill",
-   text:"The <span class='kw1'>backward buildup drill</span> is a fluency-developing technique where the teacher starts with the <span class='kw2'>final word</span> of a sentence and adds preceding words one at a time.",
-   ans:true,
-   correct:"<span class='kw1'>Backward buildup</span>은 T가 문장의 <span class='kw2'>마지막 단어</span>부터 시작해 앞으로 한 단어씩 추가하는 fluency 발달 기법입니다.",
-   why:"Backward buildup의 핵심은 \"문장 끝 → 앞\" 방향입니다. 이렇게 거꾸로 빌드업하는 이유는 영어의 자연스러운 intonation(특히 문장 끝의 음조)을 유지하기 위해서입니다. 학생의 주의도 의미가 모이는 문장 끝으로 향하게 합니다.",
-   source:"\"<span class='kw1'>Backward buildup</span>: Effective techniques to develop fluency. T starts with the <span class='kw2'>final word of sentence</span> and adds it to the preceding words, one at a time.\""},
-
-  {src:"Pronunciation Techniques",cat:"Behavioristic Minimal Pair",
-   text:"<span class='kw1'>Behavioristic minimal pair practice</span> always embeds the minimal pairs in <span class='kw2'>meaningful real-world contexts</span> so that students can practice phonemic discrimination through communication.",
-   ans:false,
-   correct:"<span class='kw1'>Behavioristic minimal pair</span>는 <span class='kw2'>맥락 없이</span> 고립된 단어 짝을 반복하는 방식입니다. 맥락 안에 포함시키는 것은 <span class='kw1'>contextualized (communicative/meaningful) minimal pair</span>입니다.",
-   why:"Behavioristic minimal pair는 행동주의 전통의 단순 반복 연습으로, 의미 맥락 없이 음소 짝을 듣고 따라하기만 합니다. 반면 communicative/contextualized minimal pair는 \"He has a ship/sheep on the farm\"처럼 의미 차이가 맥락에서 드러나도록 설계됩니다.",
-   source:"\"<span class='kw1'>Minimal-pairs practice</span>: A practice designed to develop Ss' ability to recognize sound contrasts and produce them. <span class='kw2'>Contextualizing minimal pair (Communicative/meaningful)</span> vs. <span class='kw2'>Behavioristic minimal pair</span>.\"",
-   compare:[{title:"<span class='kw1'>Behavioristic</span>",desc:"맥락 X · 단어 짝 단순 반복"},{title:"<span class='kw1'>Contextualized</span>",desc:"맥락 안에서 의미 식별 필요"}]},
-
-  {src:"ETC",cat:"Gambit",
-   text:"A <span class='kw1'>gambit</span> is a formulaic chunk which functions to <span class='kw2'>organize discourse</span>, used in casual conversation to begin, nominate, shift, or terminate a topic.",
-   ans:true,
-   correct:"<span class='kw1'>Gambit</span>은 담화를 <span class='kw2'>조직(organize)</span>하는 기능을 가진 정형화된 표현(formulaic chunk)으로, 대화의 시작·화제 도입·전환·종료에 쓰입니다.",
-   why:"Gambit은 \"By the way\", \"Speaking of\", \"Anyway\", \"Well, I'd better get going\" 같은 정해진 표현입니다. 의미 그 자체보다는 담화 구조 조직이 주된 기능이며, discourse markers와 유사하지만 더 구체적인 회화 기능을 담당합니다.",
-   source:"\"<span class='kw1'>Gambit</span>: A formulaic chunk which functions to <span class='kw2'>organize discourse</span>; in a casual conversation, it is used to begin a conversation, nominate, shift, or terminate a topic.\""},
-
-  {src:"ETC",cat:"Deep-end Strategy",
-   text:"The <span class='kw1'>deep-end strategy</span> is a pedagogical approach where the teacher first explicitly teaches <span class='kw2'>predetermined linguistic forms and structures</span> before students attempt to communicate.",
-   ans:false,
-   correct:"<span class='kw1'>Deep-end strategy</span>는 정반대입니다 — 학생이 미리 형식·구조를 배우지 <span class='kw2'>않고</span>, 자기 언어 자원만으로 의미를 표현하려 시도하게 만드는 전략입니다.",
-   why:"Deep-end는 \"수영을 못하는 학생을 깊은 곳에 던진다\"는 비유에서 온 명칭입니다. 미리 가르치지 않고 의사소통 상황에 학생을 직접 던져 자기 자원으로 의미 전달을 시도하게 합니다. 이를 통해 communicative competence를 자극합니다. 미리 형식을 가르치는 PPP 모형과 대조됩니다.",
-   source:"\"<span class='kw1'>Deep-end strategy</span>: a pedagogical strategy which makes students attempt to use their linguistic resources and knowledge to express meanings they want to convey, <span class='kw2'>without giving instruction of predetermined linguistic forms/structures</span>.\""}
+  {
+    "src": "Drill 종류",
+    "cat": "Mechanical Drill",
+    "text": "<span class='kw1'>Mechanical drills</span> require Ss to make the only one correct response from the teacher's cue, and <span class='kw2'>comprehension is not needed</span> to perform them correctly.",
+    "ans": true,
+    "correct": "Mechanical drill은 의미를 이해하지 않아도 cue와 정해진 패턴에 따라 응답할 수 있는 연습입니다. 단일 정답이라는 사실만으로 mechanical이라고 분류하지 않습니다.",
+    "why": "예: 모델을 듣고 그대로 반복하면 의미 확인 없이 수행할 수 있습니다. 반면 공유한 사진에서 실제 위치를 확인해 답해야 한다면 정답이 하나여도 meaningful practice입니다. Substitution이라는 외형보다 comprehension이 과제 수행에 필요한지 보세요.",
+    "source": "Brown (2007), Teaching by Principles, 3rd ed., Ch.11, pp.182–184: mechanical / meaningful practice와 form-focused communicative practice의 구분을 재서술.",
+    "compare": [
+      {
+        "title": "<span class='kw1'>Mechanical</span>",
+        "desc": "comprehension X · 정답 1개"
+      },
+      {
+        "title": "<span class='kw1'>Meaningful</span>",
+        "desc": "comprehension 필요 · predicted response"
+      },
+      {
+        "title": "<span class='kw1'>Communicative</span>",
+        "desc": "open response · real info"
+      }
+    ]
+  },
+  {
+    "src": "Drill 종류",
+    "cat": "Meaningful Drill",
+    "text": "In a <span class=\"kw1\">meaningful drill</span>, the response is predictable or limited, but learners must understand the meaning and relevant context to respond appropriately.",
+    "ans": true,
+    "correct": "O. 응답 범위는 제한되지만 의미와 맥락을 이해해야 합니다. Display question은 흔한 구현 방식이며 모든 meaningful practice를 question 유형 하나로 정의하지는 않습니다.",
+    "why": "교사가 보이는 그림에서 위치를 묻고 학생이 그림을 확인해야 답할 수 있다면 meaningful practice입니다. 답을 이미 아는 교사의 질문이라는 점과 comprehension이 필요하다는 점은 별개 기준입니다.",
+    "source": "Brown (2007), Teaching by Principles, 3rd ed., Ch.11, pp.182–184: mechanical / meaningful practice와 form-focused communicative practice의 구분을 재서술.",
+    "compare": [
+      {
+        "title": "<span class='kw1'>Display Q</span>",
+        "desc": "T가 답을 알고 묻는 질문 (Meaningful)"
+      },
+      {
+        "title": "<span class='kw1'>Referential Q</span>",
+        "desc": "T가 답을 모르고 묻는 진짜 질문 (Communicative)"
+      }
+    ]
+  },
+  {
+    "src": "Drill 종류",
+    "cat": "Communicative Drill",
+    "text": "<span class='kw1'>Communicative practice (form-focused communicative drill)</span> controls the type of response but allows Ss to provide an open response, exchange real information, and respond with <span class='kw2'>referential questions</span> using their own personalized information.",
+    "ans": true,
+    "correct": "<span class='kw1'>Communicative drill</span>은 응답 유형은 통제되지만 <span class='kw2'>open response</span>가 가능하고, 학생이 <span class='kw2'>실제 자기 정보</span>로 답합니다. <span class='kw2'>Referential question</span>(T가 답을 모르는 진짜 질문)이 핵심입니다.",
+    "why": "전통적인 communicative drill 명칭은 응답 형식을 어느 정도 제한하면서 실제 정보를 교환하는 연습을 가리킵니다. Brown은 open response와 negotiation 가능성을 인정하면 엄밀한 drill과 다르다고 보고 form-focused communicative practice라고 부릅니다. 실제 negotiation이 매번 발생해야만 이 분류가 성립하는 것은 아닙니다.",
+    "source": "Brown (2007), Teaching by Principles, 3rd ed., Ch.11, pp.182–184: mechanical / meaningful practice와 form-focused communicative practice의 구분을 재서술.",
+    "compare": [
+      {
+        "title": "<span class='kw1'>Communicative drill</span>",
+        "desc": "open response · real info · referential Q"
+      },
+      {
+        "title": "<span class='kw1'>Meaningful drill</span>",
+        "desc": "predicted response · display Q"
+      }
+    ]
+  },
+  {
+    "src": "Speaking Activities",
+    "cat": "Discussion",
+    "text": "In group discussion, teaching <span class=\"kw1\">functional language</span> and assigning roles such as chairperson or note-taker can support participation.",
+    "ans": true,
+    "correct": "O. 동의·반대·제안 표현과 역할 분담은 discussion의 참여를 돕는 설계입니다.",
+    "why": "역할을 정하면 특정 학생에게 발언이 집중되는 문제를 줄이는 데 도움을 줄 수 있습니다. 그러나 공식 직책이 없다는 이유만으로 discussion이 아니라고 할 수 없고, 역할 배정만으로 참여가 보장되지도 않습니다.",
+    "source": "Brown (2007), Teaching by Principles, 3rd ed., Ch.14, pp.231–235: group-work 활동의 관련 개념. 세부 판별은 제시된 정보 분배·추론·발화 선택·과제 목표를 기준으로 합니다."
+  },
+  {
+    "src": "Speaking Activities",
+    "cat": "Presentation",
+    "text": "A <span class='kw1'>presentation</span> is a type of <span class='kw2'>monologic task</span>, which is a speaking activity where Ls speak an extended piece of discourse for an audience.",
+    "ans": true,
+    "correct": "<span class='kw1'>Presentation</span>은 <span class='kw2'>monologic task</span>의 한 유형이며, 학습자가 청중 앞에서 확장된 담화를 산출하는 speaking 활동입니다.",
+    "why": "Presentation은 \"독백적(monologic)\" 과업으로 분류됩니다 — 한 학생이 청중을 대상으로 비교적 긴 담화를 산출합니다. Videotaping을 활용하면 학생은 self-evaluation, 교사는 in-depth evaluation이 가능해집니다.",
+    "source": "Brown (2007), Teaching by Principles, 3rd ed., Ch.19, pp.323–335: speaking performance, fluency/accuracy, conversation 지도 관련 개념을 재서술."
+  },
+  {
+    "src": "Speaking Activities",
+    "cat": "Impromptu Speech",
+    "text": "<span class='kw1'>Impromptu speeches</span> are a variation of class presentation where a presenter must speak about a given topic, and this technique can be used to teach <span class='kw2'>hesitation markers</span>.",
+    "ans": true,
+    "correct": "<span class='kw1'>Impromptu speech</span>는 사전 준비 없이 주어진 주제로 발표하는 형식이며, <span class='kw2'>hesitation markers</span>(well, you know, um) 학습에 활용됩니다.",
+    "why": "즉흥 발표는 학습자가 시간을 벌기 위해 자연스럽게 hesitation markers를 사용하게 만듭니다. 이는 실제 대화의 수행 변수(performance variables)를 가르치는 좋은 맥락이 됩니다. Rehearsal(준비된 발표)과 대조됩니다.",
+    "source": "Brown (2007), Teaching by Principles, 3rd ed., Ch.19, pp.323–335: speaking performance, fluency/accuracy, conversation 지도 관련 개념을 재서술.",
+    "compare": [
+      {
+        "title": "<span class='kw1'>Rehearsal</span>",
+        "desc": "preparation time · accuracy↑ · confidence↑"
+      },
+      {
+        "title": "<span class='kw1'>Impromptu</span>",
+        "desc": "spontaneous · little to no prep · hesitation markers"
+      }
+    ]
+  },
+  {
+    "src": "Gap Activities",
+    "cat": "Information-gap vs Reasoning-gap",
+    "text": "<span class='kw1'>Information-gap activities</span> are activities that require students to <span class='kw2'>derive new information by inferring it</span> from given information.",
+    "ans": false,
+    "correct": "<span class='kw1'>Information-gap</span>은 학생끼리 <span class='kw2'>다른 정보를 교환</span>하는 활동입니다. 추론으로 새 정보를 도출하는 것은 <span class='kw1'>Reasoning-gap activity</span>입니다.",
+    "why": "Information-gap은 단순히 학생끼리 다른 정보를 가지고 있어 \"교환\"하면 되는 반면, Reasoning-gap은 같은 정보를 받아도 \"추론\"으로 새 결론을 도출해야 합니다.",
+    "source": "Brown (2007), Teaching by Principles, 3rd ed., Ch.14, pp.231–235: group-work 활동의 관련 개념. 세부 판별은 제시된 정보 분배·추론·발화 선택·과제 목표를 기준으로 합니다.",
+    "compare": [
+      {
+        "title": "<span class='kw1'>Information-gap</span>",
+        "desc": "정보 교환 (one-way / two-way)"
+      },
+      {
+        "title": "<span class='kw1'>Reasoning-gap</span>",
+        "desc": "주어진 정보 → 추론으로 새 정보 도출"
+      }
+    ]
+  },
+  {
+    "src": "Gap Activities",
+    "cat": "Reasoning-gap",
+    "text": "A <span class='kw1'>reasoning-gap activity</span> requires students to derive new information by <span class='kw2'>inferring it from given information</span> through logical processing.",
+    "ans": true,
+    "correct": "<span class='kw1'>Reasoning-gap</span>은 주어진 정보로부터 <span class='kw2'>logical inference</span>를 통해 새 정보를 도출하도록 요구하는 활동입니다.",
+    "why": "핵심은 주어진 사실을 결합해 새 결론을 내는 처리입니다. 모든 학생이 같은 정보를 받을 수도 있고, 서로 다른 정보를 먼저 모은 뒤 추론할 수도 있습니다. 시간표에서 시간을 그대로 읽는 것과 여러 조건을 충족하는 경로를 도출하는 것을 구별하세요.",
+    "source": "Brown (2007), Teaching by Principles, 3rd ed., Ch.14, pp.231–235: group-work 활동의 관련 개념. 세부 판별은 제시된 정보 분배·추론·발화 선택·과제 목표를 기준으로 합니다."
+  },
+  {
+    "src": "Gap Activities",
+    "cat": "Opinion-gap",
+    "text": "An <span class=\"kw1\">opinion-gap activity</span> asks learners to express personal preferences, feelings, or attitudes rather than discover one predetermined factual answer.",
+    "ans": true,
+    "correct": "O. 학생의 개인적 판단·선호·태도가 필요한지가 기준입니다.",
+    "why": "같은 이야기 완성도 개인적으로 원하는 결말과 이유를 말하게 하면 opinion-gap 성격이 있습니다. 반대로 단서로 유일한 결말을 추론하게 하면 reasoning-gap일 수 있습니다. Debate나 story completion이라는 활동명만으로 판단하지 않습니다.",
+    "source": "Brown (2007), Teaching by Principles, 3rd ed., Ch.14, pp.231–235: group-work 활동의 관련 개념. 세부 판별은 제시된 정보 분배·추론·발화 선택·과제 목표를 기준으로 합니다."
+  },
+  {
+    "src": "Role Play",
+    "cat": "Definition",
+    "text": "A <span class='kw1'>role play</span> is a drama technique where students take the role of different persons and act out, and it always involves giving a role to members of a group <span class='kw2'>and</span> assigning an objective that must be accomplished.",
+    "ans": true,
+    "correct": "<span class='kw1'>Role play</span>는 두 가지 구성 요소를 모두 가집니다: ① <span class='kw2'>역할(role) 부여</span>와 ② <span class='kw2'>달성할 목표(objective)</span>. 단순 역할극이 아니라 명확한 목표가 있어야 합니다.",
+    "why": "역할과 수행 목적을 주면 학생은 그 역할에서 적절한 speech act를 연습할 수 있습니다. 역할 카드에 모든 문장을 적어 줄 필요는 없으며, 역할에 맞는 의사소통 목적이 상황 속에 제시될 수도 있습니다.",
+    "source": "Brown (2007), Teaching by Principles, 3rd ed., Ch.14, pp.231–235: group-work 활동의 관련 개념. 세부 판별은 제시된 정보 분배·추론·발화 선택·과제 목표를 기준으로 합니다."
+  },
+  {
+    "src": "Role Play",
+    "cat": "Less Structured Role Play",
+    "text": "In a <span class='kw1'>less structured role play</span>, the teacher tells the students <span class='kw2'>who they are</span> and <span class='kw2'>what the situation is</span>, but the students determine what they will say.",
+    "ans": true,
+    "correct": "<span class='kw1'>Less structured role play</span>는 T가 ① <span class='kw2'>역할</span>과 ② <span class='kw2'>상황</span>만 알려주고, 학생이 직접 무엇을 말할지 결정하는 방식입니다.",
+    "why": "역할과 상황은 주어져도 발화 내용과 표현 선택은 학생에게 남습니다. 예를 들어 안내 직원과 방문객이 변경된 방문 시간을 협의하되 대본은 받지 않습니다. 자발적 산출 기회를 제공하지만 실제 fluency 향상 정도는 난도·지원·연습 조건에 따라 달라집니다.",
+    "source": "Brown (2007), Teaching by Principles, 3rd ed., Ch.14, pp.231–235: group-work 활동의 관련 개념. 세부 판별은 제시된 정보 분배·추론·발화 선택·과제 목표를 기준으로 합니다.",
+    "compare": [
+      {
+        "title": "<span class='kw1'>Structured</span>",
+        "desc": "T tells: who + <span class='kw2'>what to say</span>"
+      },
+      {
+        "title": "<span class='kw1'>Less structured</span>",
+        "desc": "T tells: who + situation / Ss decide <span class='kw2'>what to say</span>"
+      }
+    ]
+  },
+  {
+    "src": "Role Play",
+    "cat": "Structured vs Less Structured",
+    "text": "<span class=\"kw1\">Structured role play</span> always develops spontaneous speaking fluency more effectively than less structured role play, regardless of task design or learner needs.",
+    "ans": false,
+    "correct": "X. 모든 조건에서의 우열을 주장할 수 없습니다. Less structured role play는 학생이 메시지와 표현을 선택하는 기회를 주며, structured practice는 특정 표현 연습을 지원할 수 있습니다.",
+    "why": "대본을 정확히 읽는 수행과 예상하지 못한 요청에 응답하는 수행을 분리해 보세요. 대본 연습도 자동화를 도울 수 있지만 곧바로 새로운 상황에서의 spontaneous fluency를 증명하지는 않습니다.",
+    "source": "Brown (2007), Teaching by Principles, 3rd ed., Ch.14, pp.231–235: group-work 활동의 관련 개념. 세부 판별은 제시된 정보 분배·추론·발화 선택·과제 목표를 기준으로 합니다.",
+    "compare": [
+      {
+        "title": "Structured",
+        "desc": "발화 선택 제한 · 특정 표현 지원"
+      },
+      {
+        "title": "Less structured",
+        "desc": "메시지·표현 선택 · 자발적 산출 기회"
+      }
+    ]
+  },
+  {
+    "src": "Speaking Activities",
+    "cat": "Jigsaw",
+    "text": "<span class='kw1'>Jigsaw activities</span> are based on the <span class='kw2'>information-gap principle</span> combined with <span class='kw2'>cooperative learning</span>.",
+    "ans": true,
+    "correct": "<span class='kw1'>Jigsaw activity</span>의 핵심 원리는 <span class='kw2'>information-gap principle</span>과 <span class='kw2'>cooperative learning</span>의 결합입니다.",
+    "why": "Jigsaw에서는 각 학생/그룹이 다른 정보 조각을 가지고 시작합니다. 전체 그림을 완성하려면 정보를 서로 공유해야 하므로 협동학습이 필수가 됩니다. Strip story가 대표 예시입니다.",
+    "source": "Brown (2007), Teaching by Principles, 3rd ed., Ch.14, pp.231–235: group-work 활동의 관련 개념. 세부 판별은 제시된 정보 분배·추론·발화 선택·과제 목표를 기준으로 합니다."
+  },
+  {
+    "src": "Task Types",
+    "cat": "Problem-solving Task",
+    "text": "In a closed <span class=\"kw1\">problem-solving task</span>, learners use the supplied constraints to arrive at a predetermined solution.",
+    "ans": true,
+    "correct": "O. Closed로 설계한 논리 퍼즐은 주어진 조건을 만족하는 정답으로 수렴할 수 있습니다. 모든 problem-solving 활동이 반드시 정답 하나만 갖는 것은 아닙니다.",
+    "why": "예: 일정 단서가 허용하는 회의 시간이 한 개이면 closed입니다. 여러 해결책을 평가해 한 제안을 고르는 활동은 복수의 타당한 결과를 허용할 수 있습니다. Brown의 넓은 분류에서 decision-making은 problem solving의 한 종류입니다.",
+    "source": "Brown (2007), Teaching by Principles, 3rd ed., Ch.14, pp.231–235: group-work 활동의 관련 개념. 세부 판별은 제시된 정보 분배·추론·발화 선택·과제 목표를 기준으로 합니다.",
+    "compare": [
+      {
+        "title": "Goal orientation",
+        "desc": "합의 요구 여부: convergent / divergent"
+      },
+      {
+        "title": "Outcome options",
+        "desc": "허용 결과의 범위: closed / open"
+      }
+    ]
+  },
+  {
+    "src": "Task Types",
+    "cat": "Decision-making Task",
+    "text": "In a <span class='kw1'>decision-making task</span>, students are given a problem with only one fixed correct outcome that the teacher has decided beforehand.",
+    "ans": false,
+    "correct": "<span class='kw1'>Decision-making task</span>는 <span class='kw2'>여러 가능한 결과(multiple outcomes)</span>가 존재하며, 학생들이 <span class='kw2'>negotiation·discussion으로 하나를 선택</span>합니다.",
+    "why": "여러 가능한 결과 중 모둠의 결론 하나를 정하도록 요구할 수 있습니다. 이 경우 합의가 필요하므로 goal orientation은 convergent이고, 여러 타당한 결과를 허용하므로 outcome options는 open입니다. Multiple outcomes와 divergent를 같은 말로 취급하지 않습니다.",
+    "source": "Brown (2007), Teaching by Principles, 3rd ed., Ch.14, pp.231–235: group-work 활동의 관련 개념. 세부 판별은 제시된 정보 분배·추론·발화 선택·과제 목표를 기준으로 합니다."
+  },
+  {
+    "src": "Fluency · Accuracy",
+    "cat": "Fluency Definition",
+    "text": "<span class=\"kw1\">Fluency</span> concerns keeping speech flowing with appropriate pace and manageable hesitation; it does not require every language form to be error-free.",
+    "ans": true,
+    "correct": "O. Fluency는 실시간 발화의 흐름·속도·멈춤 등과 관련됩니다. 형태의 정확성은 accuracy라는 별도 측면에서 봅니다.",
+    "why": "학생 A는 자연스럽게 이야기를 이어 가지만 시제 오류가 있고, 학생 B는 정확한 문장을 오래 멈추며 말할 수 있습니다. 서로 다른 축을 따로 관찰해야 합니다. 속도를 무조건 높이거나 모든 pause를 없애는 것이 fluency의 목표는 아닙니다.",
+    "source": "Brown (2007), Teaching by Principles, 3rd ed., Ch.19, pp.323–335: speaking performance, fluency/accuracy, conversation 지도 관련 개념을 재서술.",
+    "compare": [
+      {
+        "title": "Fluency",
+        "desc": "흐름·pace·hesitation"
+      },
+      {
+        "title": "Accuracy",
+        "desc": "어휘·문법·발음의 정확성"
+      },
+      {
+        "title": "Complexity",
+        "desc": "어휘 다양성·통사적 정교함"
+      }
+    ]
+  },
+  {
+    "src": "Pretask Planning",
+    "cat": "Effects on Learners",
+    "text": "<span class=\"kw1\">Pretask planning</span> guarantees simultaneous improvement in fluency, accuracy, and complexity for every learner.",
+    "ans": false,
+    "correct": "X. Planning은 도움을 줄 수 있지만 모든 학습자에게 세 측면의 동시 향상을 보장하지 않습니다.",
+    "why": "학생이 내용과 순서를 미리 정하면 발화 중 부담을 덜 수 있습니다. 정확한 형태에 주의를 기울일지, 내용을 늘릴지, 계획을 실제 발화에 활용할지는 과제와 학습자에 따라 다릅니다. Impulsive/reflective라는 이름만으로 효과를 확정하지 않습니다.",
+    "source": "판별 기준: planning의 가능한 이점과 모든 학습자에게 나타나는 필연적 효과를 구별합니다. Ellis (2009), Applied Linguistics, 30(4), 474–509, doi:10.1093/applin/amp042 (연구 종합의 초록).",
+    "compare": [
+      {
+        "title": "Pretask planning",
+        "desc": "실제 수행 전 내용·표현 준비"
+      },
+      {
+        "title": "Task repetition",
+        "desc": "이미 수행한 과제의 재수행"
+      }
+    ]
+  },
+  {
+    "src": "Task Repetition",
+    "cat": "4/3/2 Technique",
+    "text": "The <span class='kw1'>4/3/2 technique</span> is an activity for fluency development where students tell and repeat the same story to <span class='kw2'>three different listeners in sequence</span>, with the time pressure of <span class='kw2'>4, 3, and 2 minutes</span> respectively.",
+    "ans": true,
+    "correct": "<span class='kw1'>4/3/2 technique</span>은 같은 이야기를 <span class='kw2'>3명의 다른 청자</span>에게 차례로 들려주되, 시간을 <span class='kw2'>4분 → 3분 → 2분</span>으로 줄여가는 fluency 개발 활동입니다.",
+    "why": "같은 이야기를 반복하면서 시간 압박이 강해지므로, 학습자는 자동성(automaticity)을 높여 fluency를 발달시킵니다. 새로운 청자가 매번 등장하기에 task repetition의 단조로움도 줄어듭니다.",
+    "source": "판별 기준: 동일한 메시지 반복 + 새로운 청자 + 4→3→2분. 관련 연구: Nation (1989), Improving speaking fluency, System, 17(3), 377–384, doi:10.1016/0346-251X(89)90010-9."
+  },
+  {
+    "src": "Pronunciation",
+    "cat": "Bottom-up Approach",
+    "text": "The <span class='kw1'>bottom-up approach</span> to teaching pronunciation focuses mainly on the accurate articulation of consonants and vowels, emphasizing <span class='kw2'>segmental features</span>.",
+    "ans": true,
+    "correct": "<span class='kw1'>Bottom-up approach</span>는 자음·모음의 정확한 조음(articulation)에 집중하며, <span class='kw2'>segmental features</span>(분절음)를 강조합니다.",
+    "why": "발음 지도에서 bottom-up은 개별 segment에서 더 큰 단위로 접근하는 방향을 뜻합니다. Listening의 bottom-up processing과 이름이 같아도 여기서 판단하는 대상은 발음 수업의 출발점입니다. Segment 연습도 의미 구별과 연결할 수 있습니다.",
+    "source": "Brown (2007), Teaching by Principles, 3rd ed., Ch.19, pp.339–344: clear, comprehensible pronunciation과 맥락 속 발음 연습을 재서술.",
+    "compare": [
+      {
+        "title": "Bottom-up",
+        "desc": "segment에서 출발"
+      },
+      {
+        "title": "Top-down",
+        "desc": "discourse·prosody에서 출발"
+      }
+    ]
+  },
+  {
+    "src": "Pronunciation",
+    "cat": "Top-down Approach",
+    "text": "A <span class=\"kw1\">top-down approach</span> to pronunciation gives priority to stress, rhythm, and intonation in connected discourse, without implying that individual sound contrasts are irrelevant.",
+    "ans": true,
+    "correct": "O. Discourse 속 prosody를 우선하되 segmental accuracy도 의사소통을 위해 다룰 수 있습니다.",
+    "why": "어떤 발음 요소가 이해를 방해하는지는 실제 청자와 상황을 보아야 합니다. Suprasegmental을 다루는 활동도 정확한 stress나 intonation을 연습할 수 있으므로 top-down을 accuracy의 반대로 정의하지 않습니다.",
+    "source": "Brown (2007), Teaching by Principles, 3rd ed., Ch.19, pp.339–344: clear, comprehensible pronunciation과 맥락 속 발음 연습을 재서술."
+  },
+  {
+    "src": "Pronunciation",
+    "cat": "Intelligibility",
+    "text": "<span class='kw1'>Intelligibility</span> refers to the goal of achieving a <span class='kw2'>native-like accent</span> in pronunciation.",
+    "ans": false,
+    "correct": "X. Intelligibility의 핵심은 청자가 발화를 이해할 수 있는지입니다. Native-like accent나 청자의 취향에 맞는 accent 자체가 목표는 아닙니다.",
+    "why": "Accent가 남아 있어도 청자가 필요한 메시지를 정확하게 이해하면 intelligible할 수 있습니다. 반대로 자연스럽게 들리는 말이라도 핵심 단어를 잘못 알아듣게 하면 의사소통 목적을 달성하지 못할 수 있습니다.",
+    "source": "Brown (2007), Teaching by Principles, 3rd ed., Ch.19, pp.339–344: clear, comprehensible pronunciation과 맥락 속 발음 연습을 재서술."
+  },
+  {
+    "src": "Pronunciation",
+    "cat": "Teachability vs Communicative Importance",
+    "text": "Because suprasegmental features matter for intelligibility, <span class=\"kw1\">individual sound contrasts</span> can always be ignored in pronunciation teaching.",
+    "ans": false,
+    "correct": "X. Stress·rhythm·intonation을 중시해도 의미 구별에 필요한 segment를 무시할 수 없습니다.",
+    "why": "예를 들어 안내에서 room light와 right를 혼동하면 행동이 달라질 수 있습니다. 가르치기 쉬운 정도와 실제 의사소통 영향은 학습자·목표·상황에 따라 판단합니다. Segment=낮은 중요도, intonation=높은 중요도라는 고정 서열은 수업 전반의 법칙이 아닙니다.",
+    "source": "Brown (2007), Teaching by Principles, 3rd ed., Ch.19, pp.339–344: clear, comprehensible pronunciation과 맥락 속 발음 연습을 재서술.",
+    "compare": [
+      {
+        "title": "Priorities",
+        "desc": "의미 이해를 방해하는 실제 문제 확인"
+      },
+      {
+        "title": "Balance",
+        "desc": "segment와 prosody를 목적에 맞게 통합"
+      }
+    ]
+  },
+  {
+    "src": "Pronunciation Techniques",
+    "cat": "Backward Buildup Drill",
+    "text": "In <span class=\"kw1\">backward buildup</span>, learners begin with the final part of an utterance and progressively add preceding words or chunks until they can say the whole utterance.",
+    "ans": true,
+    "correct": "O. 끝부분에서 시작해 앞부분을 붙여 전체 발화로 확장하는 절차입니다.",
+    "why": "예: after lunch → meet after lunch → Could we meet after lunch? 끝부분의 stress·intonation을 유지하며 길이를 늘릴 수 있습니다. 반복을 통한 발화 연습이며, 이 활동 자체가 자유 대화나 항상 더 나은 fluency를 의미하지는 않습니다.",
+    "source": "절차 판별 기준: 끝부분을 먼저 연습한 뒤 앞부분을 덧붙여 전체 발화로 확장하는 backward buildup. 이는 자유로운 의미 교환 자체를 뜻하지 않습니다."
+  },
+  {
+    "src": "Pronunciation Techniques",
+    "cat": "Behavioristic Minimal Pair",
+    "text": "<span class='kw1'>Behavioristic minimal pair practice</span> always embeds the minimal pairs in <span class='kw2'>meaningful real-world contexts</span> so that students can practice phonemic discrimination through communication.",
+    "ans": false,
+    "correct": "<span class='kw1'>Behavioristic minimal pair</span>는 <span class='kw2'>맥락 없이</span> 고립된 단어 짝을 반복하는 방식입니다. 맥락 안에 포함시키는 것은 <span class='kw1'>contextualized (communicative/meaningful) minimal pair</span>입니다.",
+    "why": "고립된 sound contrast를 듣고 구분하거나 반복하는 것과, 맥락에서 그 구별이 적절한 반응을 결정하도록 하는 것을 비교합니다. 예: 학습자가 pack 또는 back을 듣고 맞는 그림을 고르게 하면 의미 연결을 확인할 수 있습니다. 단어를 문장 안에 넣었다는 사실만으로 communicative task가 되지는 않습니다.",
+    "source": "Brown (2007), Teaching by Principles, 3rd ed., Ch.19, pp.339–344: clear, comprehensible pronunciation과 맥락 속 발음 연습을 재서술.",
+    "compare": [
+      {
+        "title": "<span class='kw1'>Behavioristic</span>",
+        "desc": "맥락 X · 단어 짝 단순 반복"
+      },
+      {
+        "title": "<span class='kw1'>Contextualized</span>",
+        "desc": "맥락 안에서 의미 식별 필요"
+      }
+    ]
+  },
+  {
+    "src": "ETC",
+    "cat": "Gambit",
+    "text": "A <span class='kw1'>gambit</span> is a formulaic chunk which functions to <span class='kw2'>organize discourse</span>, used in casual conversation to begin, nominate, shift, or terminate a topic.",
+    "ans": true,
+    "correct": "<span class='kw1'>Gambit</span>은 담화를 <span class='kw2'>조직(organize)</span>하는 기능을 가진 정형화된 표현(formulaic chunk)으로, 대화의 시작·화제 도입·전환·종료에 쓰입니다.",
+    "why": "Gambit은 \"By the way\", \"Speaking of\", \"Anyway\", \"Well, I'd better get going\" 같은 정해진 표현입니다. 의미 그 자체보다는 담화 구조 조직이 주된 기능이며, discourse markers와 유사하지만 더 구체적인 회화 기능을 담당합니다.",
+    "source": "Brown (2007), Teaching by Principles, 3rd ed., Ch.19, pp.323–335: speaking performance, fluency/accuracy, conversation 지도 관련 개념을 재서술."
+  },
+  {
+    "src": "ETC",
+    "cat": "Deep-end Strategy",
+    "text": "The <span class='kw1'>deep-end strategy</span> is a pedagogical approach where the teacher first explicitly teaches <span class='kw2'>predetermined linguistic forms and structures</span> before students attempt to communicate.",
+    "ans": false,
+    "correct": "<span class='kw1'>Deep-end strategy</span>는 정반대입니다 — 학생이 미리 형식·구조를 배우지 <span class='kw2'>않고</span>, 자기 언어 자원만으로 의미를 표현하려 시도하게 만드는 전략입니다.",
+    "why": "핵심은 목표 형태를 먼저 완전히 가르치고 연습시킨 뒤에야 의사소통하게 하는 순서를 전제하지 않는다는 것입니다. 상황·목표 안내나 수행 후 언어 지원까지 금지하는 것은 아닙니다. 관련 Brown의 direct/indirect conversation 논의와 연결하되 특정 교수법 전체와 동일시하지 않습니다.",
+    "source": "Brown (2007), Teaching by Principles, 3rd ed., Ch.19, pp.323–335: speaking performance, fluency/accuracy, conversation 지도 관련 개념을 재서술."
+  }
 ];
 
 let cur=0;
 const TOTAL=Q.length;
-const SAVE_KEY='ox_speaking_v1';
+const SAVE_KEY='ox_speaking_v2_content_20261017';
 let answers=new Array(TOTAL).fill(null);
 let mode='normal',order=[...Array(TOTAL).keys()];
 function initOrder(m){if(m==='random'){const a=[...Array(TOTAL).keys()];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}order=a;}else order=[...Array(TOTAL).keys()];}
@@ -490,3 +668,4 @@ function restart(){cur=0;answers=new Array(TOTAL).fill(null);clearProgress();doc
 <script src="./study-return.js"></script>
 </body>
 </html>
+
