@@ -142,49 +142,190 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f5f4ee;background-image:r
 <script src="./sounds.js"></script>
 <script>
 const Q=[
-  {src:"Corpus and Concordance",cat:"Core Concept",text:"<span class='kw1'>Corpus and Concordance</span> is best understood as corpus, concordancer, KWIC, so it should be interpreted within its instructional or assessment context.",ans:true,correct:"맞습니다. <span class='kw1'>Corpus and Concordance</span>의 핵심은 corpus, concordancer, KWIC입니다.",why:"이 문항은 Corpus and Concordance를 단순 명칭보다 기능과 classroom use 중심으로 확인합니다. 관련 개념을 비교할 때는 목적, learner role, teacher role, task condition을 함께 보아야 합니다.",source:"&quot;A concordancer arrays every occurrence of a key word in context and displays concordance results.&quot;"},
-
-  {src:"Corpus and Concordance",cat:"Misconception",text:"<span class='kw4'>Corpus and Concordance</span> can be safely treated as the same as any neighboring concept because the distinction is mostly terminological.",ans:false,correct:"틀립니다. <span class='kw4'>Corpus and Concordance</span>는 인접 개념과 구분되는 condition, purpose, learner behavior가 있습니다.",why:"영교론 문항은 비슷한 key terms의 경계 조건을 묻는 경우가 많습니다. Corpus and Concordance는 정의 속 keyword를 기준으로 구분해야 합니다.",source:"&quot;A concordancer arrays every occurrence of a key word in context and displays concordance results.&quot;",compare:[{title:"<span class='kw1'>Corpus and Concordance</span>",desc:"corpus, concordancer, KWIC"},{title:"<span class='kw4'>Trap</span>",desc:"confusing it with a neighboring concept"}]},
-
-  {src:"Data-driven Learning",cat:"Core Concept",text:"<span class='kw1'>Data-driven Learning</span> is best understood as learner가 pattern을 비교하고 inductive rule 형성, so it should be interpreted within its instructional or assessment context.",ans:true,correct:"맞습니다. <span class='kw1'>Data-driven Learning</span>의 핵심은 learner가 pattern을 비교하고 inductive rule 형성입니다.",why:"이 문항은 Data-driven Learning를 단순 명칭보다 기능과 classroom use 중심으로 확인합니다. 관련 개념을 비교할 때는 목적, learner role, teacher role, task condition을 함께 보아야 합니다.",source:"&quot;In data-driven learning, learners compare patterns and inductively formulate rules.&quot;"},
-
-  {src:"Data-driven Learning",cat:"Misconception",text:"<span class='kw4'>Data-driven Learning</span> can be safely treated as the same as any neighboring concept because the distinction is mostly terminological.",ans:false,correct:"틀립니다. <span class='kw4'>Data-driven Learning</span>는 인접 개념과 구분되는 condition, purpose, learner behavior가 있습니다.",why:"영교론 문항은 비슷한 key terms의 경계 조건을 묻는 경우가 많습니다. Data-driven Learning는 정의 속 keyword를 기준으로 구분해야 합니다.",source:"&quot;In data-driven learning, learners compare patterns and inductively formulate rules.&quot;",compare:[{title:"<span class='kw1'>Data-driven Learning</span>",desc:"learner가 pattern을 비교하고 inductive rule 형성"},{title:"<span class='kw4'>Trap</span>",desc:"confusing it with a neighboring concept"}]},
-
-  {src:"CMC",cat:"Core Concept",text:"<span class='kw1'>CMC</span> is best understood as synchronous vs asynchronous communication, so it should be interpreted within its instructional or assessment context.",ans:true,correct:"맞습니다. <span class='kw1'>CMC</span>의 핵심은 synchronous vs asynchronous communication입니다.",why:"이 문항은 CMC를 단순 명칭보다 기능과 classroom use 중심으로 확인합니다. 관련 개념을 비교할 때는 목적, learner role, teacher role, task condition을 함께 보아야 합니다.",source:"&quot;Synchronous CMC is real-time communication; asynchronous CMC includes e-mail and bulletin boards.&quot;"},
-
-  {src:"CMC",cat:"Misconception",text:"<span class='kw4'>CMC</span> can be safely treated as the same as any neighboring concept because the distinction is mostly terminological.",ans:false,correct:"틀립니다. <span class='kw4'>CMC</span>는 인접 개념과 구분되는 condition, purpose, learner behavior가 있습니다.",why:"영교론 문항은 비슷한 key terms의 경계 조건을 묻는 경우가 많습니다. CMC는 정의 속 keyword를 기준으로 구분해야 합니다.",source:"&quot;Synchronous CMC is real-time communication; asynchronous CMC includes e-mail and bulletin boards.&quot;",compare:[{title:"<span class='kw1'>CMC</span>",desc:"synchronous vs asynchronous communication"},{title:"<span class='kw4'>Trap</span>",desc:"confusing it with a neighboring concept"}]},
-
-  {src:"E-learning",cat:"Core Concept",text:"<span class='kw1'>E-learning</span> is best understood as online, distance, open, blended learning, so it should be interpreted within its instructional or assessment context.",ans:true,correct:"맞습니다. <span class='kw1'>E-learning</span>의 핵심은 online, distance, open, blended learning입니다.",why:"이 문항은 E-learning를 단순 명칭보다 기능과 classroom use 중심으로 확인합니다. 관련 개념을 비교할 때는 목적, learner role, teacher role, task condition을 함께 보아야 합니다.",source:"&quot;Blended learning mixes online and face-to-face course delivery.&quot;"},
-
-  {src:"E-learning",cat:"Misconception",text:"<span class='kw4'>E-learning</span> can be safely treated as the same as any neighboring concept because the distinction is mostly terminological.",ans:false,correct:"틀립니다. <span class='kw4'>E-learning</span>는 인접 개념과 구분되는 condition, purpose, learner behavior가 있습니다.",why:"영교론 문항은 비슷한 key terms의 경계 조건을 묻는 경우가 많습니다. E-learning는 정의 속 keyword를 기준으로 구분해야 합니다.",source:"&quot;Blended learning mixes online and face-to-face course delivery.&quot;",compare:[{title:"<span class='kw1'>E-learning</span>",desc:"online, distance, open, blended learning"},{title:"<span class='kw4'>Trap</span>",desc:"confusing it with a neighboring concept"}]},
-
-  {src:"CAT",cat:"Core Concept",text:"<span class='kw1'>CAT</span> is best understood as performance에 따라 item이 조정되는 computer-adaptive testing, so it should be interpreted within its instructional or assessment context.",ans:true,correct:"맞습니다. <span class='kw1'>CAT</span>의 핵심은 performance에 따라 item이 조정되는 computer-adaptive testing입니다.",why:"이 문항은 CAT를 단순 명칭보다 기능과 classroom use 중심으로 확인합니다. 관련 개념을 비교할 때는 목적, learner role, teacher role, task condition을 함께 보아야 합니다.",source:"&quot;Computer-adaptive testing adapts each following question to the test-taker current level.&quot;"},
-
-  {src:"CAT",cat:"Misconception",text:"<span class='kw4'>CAT</span> can be safely treated as the same as any neighboring concept because the distinction is mostly terminological.",ans:false,correct:"틀립니다. <span class='kw4'>CAT</span>는 인접 개념과 구분되는 condition, purpose, learner behavior가 있습니다.",why:"영교론 문항은 비슷한 key terms의 경계 조건을 묻는 경우가 많습니다. CAT는 정의 속 keyword를 기준으로 구분해야 합니다.",source:"&quot;Computer-adaptive testing adapts each following question to the test-taker current level.&quot;",compare:[{title:"<span class='kw1'>CAT</span>",desc:"performance에 따라 item이 조정되는 computer-adaptive testing"},{title:"<span class='kw4'>Trap</span>",desc:"confusing it with a neighboring concept"}]},
-
-  {src:"CALL Approaches",cat:"Core Concept",text:"<span class='kw1'>CALL Approaches</span> is best understood as behavioristic vs constructivist CALL, so it should be interpreted within its instructional or assessment context.",ans:true,correct:"맞습니다. <span class='kw1'>CALL Approaches</span>의 핵심은 behavioristic vs constructivist CALL입니다.",why:"이 문항은 CALL Approaches를 단순 명칭보다 기능과 classroom use 중심으로 확인합니다. 관련 개념을 비교할 때는 목적, learner role, teacher role, task condition을 함께 보아야 합니다.",source:"&quot;Behavioristic CALL provides drills and feedback; constructivist CALL uses authentic materials and communication opportunities.&quot;"},
-
-  {src:"CALL Approaches",cat:"Misconception",text:"<span class='kw4'>CALL Approaches</span> can be safely treated as the same as any neighboring concept because the distinction is mostly terminological.",ans:false,correct:"틀립니다. <span class='kw4'>CALL Approaches</span>는 인접 개념과 구분되는 condition, purpose, learner behavior가 있습니다.",why:"영교론 문항은 비슷한 key terms의 경계 조건을 묻는 경우가 많습니다. CALL Approaches는 정의 속 keyword를 기준으로 구분해야 합니다.",source:"&quot;Behavioristic CALL provides drills and feedback; constructivist CALL uses authentic materials and communication opportunities.&quot;",compare:[{title:"<span class='kw1'>CALL Approaches</span>",desc:"behavioristic vs constructivist CALL"},{title:"<span class='kw4'>Trap</span>",desc:"confusing it with a neighboring concept"}]},
-
-  {src:"Material",cat:"Core Concept",text:"<span class='kw1'>Material</span> is best understood as authentic material and evaluation, so it should be interpreted within its instructional or assessment context.",ans:true,correct:"맞습니다. <span class='kw1'>Material</span>의 핵심은 authentic material and evaluation입니다.",why:"이 문항은 Material를 단순 명칭보다 기능과 classroom use 중심으로 확인합니다. 관련 개념을 비교할 때는 목적, learner role, teacher role, task condition을 함께 보아야 합니다.",source:"&quot;Authentic materials expose learners to real-life language and varied situations.&quot;"},
-
-  {src:"Material",cat:"Misconception",text:"<span class='kw4'>Material</span> can be safely treated as the same as any neighboring concept because the distinction is mostly terminological.",ans:false,correct:"틀립니다. <span class='kw4'>Material</span>는 인접 개념과 구분되는 condition, purpose, learner behavior가 있습니다.",why:"영교론 문항은 비슷한 key terms의 경계 조건을 묻는 경우가 많습니다. Material는 정의 속 keyword를 기준으로 구분해야 합니다.",source:"&quot;Authentic materials expose learners to real-life language and varied situations.&quot;",compare:[{title:"<span class='kw1'>Material</span>",desc:"authentic material and evaluation"},{title:"<span class='kw4'>Trap</span>",desc:"confusing it with a neighboring concept"}]},
-
-  {src:"Corpus and Concordance",cat:"Review",text:"A learner can identify <span class='kw2'>Corpus and Concordance</span> only by memorizing the label, without checking examples or classroom conditions.",ans:false,correct:"틀립니다. <span class='kw2'>Corpus and Concordance</span>는 label만 외우기보다 예시, 조건, 효과를 함께 확인해야 합니다.",why:"실전에서는 용어 단독보다 적용 맥락이 단서가 됩니다. corpus, concordancer, KWIC를 기준으로 판단합니다.",source:"&quot;A concordancer arrays every occurrence of a key word in context and displays concordance results.&quot;"},
-
-  {src:"Data-driven Learning",cat:"Review",text:"A learner can identify <span class='kw2'>Data-driven Learning</span> only by memorizing the label, without checking examples or classroom conditions.",ans:false,correct:"틀립니다. <span class='kw2'>Data-driven Learning</span>는 label만 외우기보다 예시, 조건, 효과를 함께 확인해야 합니다.",why:"실전에서는 용어 단독보다 적용 맥락이 단서가 됩니다. learner가 pattern을 비교하고 inductive rule 형성을 가리킨다는 점을 기준으로 판단합니다.",source:"&quot;In data-driven learning, learners compare patterns and inductively formulate rules.&quot;"},
-
-  {src:"CMC",cat:"Review",text:"A learner can identify <span class='kw2'>CMC</span> only by memorizing the label, without checking examples or classroom conditions.",ans:false,correct:"틀립니다. <span class='kw2'>CMC</span>는 label만 외우기보다 예시, 조건, 효과를 함께 확인해야 합니다.",why:"실전에서는 용어 단독보다 적용 맥락이 단서가 됩니다. synchronous vs asynchronous communication를 기준으로 판단합니다.",source:"&quot;Synchronous CMC is real-time communication; asynchronous CMC includes e-mail and bulletin boards.&quot;"},
-
-  {src:"E-learning",cat:"Review",text:"A learner can identify <span class='kw2'>E-learning</span> only by memorizing the label, without checking examples or classroom conditions.",ans:false,correct:"틀립니다. <span class='kw2'>E-learning</span>는 label만 외우기보다 예시, 조건, 효과를 함께 확인해야 합니다.",why:"실전에서는 용어 단독보다 적용 맥락이 단서가 됩니다. online, distance, open, blended learning를 기준으로 판단합니다.",source:"&quot;Blended learning mixes online and face-to-face course delivery.&quot;"},
-
-  {src:"CAT",cat:"Review",text:"A learner can identify <span class='kw2'>CAT</span> only by memorizing the label, without checking examples or classroom conditions.",ans:false,correct:"틀립니다. <span class='kw2'>CAT</span>는 label만 외우기보다 예시, 조건, 효과를 함께 확인해야 합니다.",why:"실전에서는 용어 단독보다 적용 맥락이 단서가 됩니다. performance에 따라 item이 조정되는 computer-adaptive testing를 기준으로 판단합니다.",source:"&quot;Computer-adaptive testing adapts each following question to the test-taker current level.&quot;"},
-
-  {src:"CALL Approaches",cat:"Review",text:"A learner can identify <span class='kw2'>CALL Approaches</span> only by memorizing the label, without checking examples or classroom conditions.",ans:false,correct:"틀립니다. <span class='kw2'>CALL Approaches</span>는 label만 외우기보다 예시, 조건, 효과를 함께 확인해야 합니다.",why:"실전에서는 용어 단독보다 적용 맥락이 단서가 됩니다. behavioristic vs constructivist CALL를 기준으로 판단합니다.",source:"&quot;Behavioristic CALL provides drills and feedback; constructivist CALL uses authentic materials and communication opportunities.&quot;"}
+  {
+    "src": "Corpus / Concordancer / Concordance",
+    "cat": "Application",
+    "text": "A teacher searches a collection of recorded conversations with a concordancer. The collection is the corpus; the displayed keyword-in-context lines are a concordance.",
+    "ans": true,
+    "correct": "Corpus는 분석할 자료, concordancer는 검색 도구, concordance는 검색 결과입니다.",
+    "why": "같은 활동에 함께 등장하지만 역할이 다릅니다. Corpus에는 문어 자료뿐 아니라 구어 자료도 포함됩니다. 검색 결과에서 검색어의 앞뒤 표현을 비교하면 collocation이나 grammatical pattern을 탐색할 수 있습니다.",
+    "source": "개념 적용 · Corpus / Concordancer / Concordance"
+  },
+  {
+    "src": "Corpus / Concordancer / Concordance",
+    "cat": "Application",
+    "text": "A concordance is the software that searches a corpus, whereas a concordancer is the list of search results.",
+    "ans": false,
+    "correct": "도구는 concordancer이고 결과가 concordance입니다.",
+    "why": "둘 다 컴퓨터 화면에 나타나더라도 도구와 결과를 혼동해서는 안 됩니다. 저장된 언어 자료 → 검색 프로그램 → KWIC lines라는 순서를 먼저 확인하세요. KWIC는 keyword와 주변 문맥을 함께 보여 주는 형식입니다.",
+    "source": "개념 적용 · Corpus / Concordancer / Concordance"
+  },
+  {
+    "src": "Data-driven learning",
+    "cat": "Application",
+    "text": "Students compare corpus examples of two verbs, group recurring patterns, and propose a rule before the teacher comments. This is data-driven learning.",
+    "ans": true,
+    "correct": "용례 비교에서 공통점을 찾고 규칙을 도출하는 학습자의 활동이 핵심입니다.",
+    "why": "교사가 완성된 규칙을 먼저 설명하는 대신 학생이 자료를 근거로 가설을 세웁니다. 교사의 질문이나 예문 선별이 있어도 학습자가 사용 양상을 찾아 설명한다면 inductive discovery를 지원할 수 있습니다.",
+    "source": "개념 적용 · Data-driven learning"
+  },
+  {
+    "src": "Data-driven learning",
+    "cat": "Application",
+    "text": "A teacher explains a grammar rule and then uses a corpus screenshot only to illustrate it. The screenshot alone makes the lesson data-driven learning.",
+    "ans": false,
+    "correct": "Corpus 자료의 존재만으로 학습자가 주도적으로 규칙을 발견했다고 볼 수는 않습니다.",
+    "why": "이 상황에서는 규칙을 교사가 먼저 제공했습니다. 학생이 여러 용례를 비교하고 공통된 규칙을 추론하는지 확인해야 합니다. 같은 concordance도 deductive explanation의 예시 또는 inductive exploration의 자료로 다르게 쓰일 수 있습니다.",
+    "source": "개념 적용 · Data-driven learning"
+  },
+  {
+    "src": "Synchronous CMC",
+    "cat": "Application",
+    "text": "Students exchange typed messages and respond to one another immediately during a scheduled online discussion. This is synchronous CMC even without audio or video.",
+    "ans": true,
+    "correct": "Synchronous 여부는 실시간 상호작용으로 판단합니다.",
+    "why": "문자 채팅도 참여자들이 동시에 참여해 즉시 응답하면 synchronous CMC입니다. 화면에 글자가 보이는지, 얼굴이 보이는지는 시간 관계와 다른 기준입니다.",
+    "source": "개념 적용 · Synchronous CMC"
+  },
+  {
+    "src": "Asynchronous CMC",
+    "cat": "Application",
+    "text": "Students upload drafts on Monday and leave peer comments whenever they log in over the next two days. This is synchronous CMC because they use the same website.",
+    "ans": false,
+    "correct": "같은 플랫폼을 사용해도 시간차를 두고 응답하면 asynchronous CMC입니다.",
+    "why": "동시 접속을 요구하지 않는 게시판은 학생이 글을 읽고 응답을 준비할 시간을 줄 수 있습니다. 초고에 댓글을 달고 이를 반영해 수정한다면 process-oriented writing에도 활용할 수 있습니다.",
+    "source": "개념 적용 · Asynchronous CMC"
+  },
+  {
+    "src": "CMC tool selection",
+    "cat": "Application",
+    "text": "A teacher needs live written discussion and a transcript for the next face-to-face lesson. Selecting any video-conferencing tool is sufficient, regardless of its text and archiving functions.",
+    "ans": false,
+    "correct": "실시간 상호작용뿐 아니라 대화 기록을 남길 수 있는지도 확인해야 합니다.",
+    "why": "목표가 여러 개이면 각 목표에 필요한 기능을 도구가 갖추었는지 확인해야 합니다. Synchronous라는 분류만 맞아도 대화 기록 저장, 후속 피드백, 학생 참여 조건까지 충족하는 것은 아닙니다. 이 문항은 도구 선택을 연습하는 수업 상황입니다.",
+    "source": "개념 적용 · CMC tool selection"
+  },
+  {
+    "src": "Blended learning",
+    "cat": "Application",
+    "text": "A course combines online discussion with planned face-to-face follow-up lessons. Its delivery can be described as blended learning.",
+    "ans": true,
+    "correct": "온라인 수업과 대면 수업의 결합이 근거입니다.",
+    "why": "같은 학습 목표 아래 온라인에서 의견을 나누고 교실에서 그 내용을 비교·정리할 수 있습니다. 단순히 한 교실에서 컴퓨터와 종이책을 번갈아 사용했다는 사실만으로는 online delivery가 확인되지 않습니다.",
+    "source": "개념 적용 · Blended learning"
+  },
+  {
+    "src": "Open learning",
+    "cat": "Application",
+    "text": "An online course fixes every topic, deadline, and study sequence. Internet delivery alone proves that learners have high autonomy over course content.",
+    "ans": false,
+    "correct": "Online은 전달 경로, open은 학습자의 선택과 자율성 정도를 봅니다.",
+    "why": "Internet을 이용한다는 사실은 무엇을 언제 어떻게 배울지 선택할 자유를 보장하지 않습니다. Open learning을 판단하려면 content, pace, method 등에 실제 선택권이 있는지 살펴야 합니다.",
+    "source": "개념 적용 · Open learning"
+  },
+  {
+    "src": "Computer-adaptive testing",
+    "cat": "Application",
+    "text": "All students answer the same fixed questions on a computer, and scores appear instantly. These features alone establish that the test is computer-adaptive.",
+    "ans": false,
+    "correct": "컴퓨터로 실시하고 즉시 채점하는 것만으로 CAT가 되지는 않습니다.",
+    "why": "CAT에서는 앞선 응답에 따른 ability estimate가 이후 item selection에 반영됩니다. 고정 문항을 화면에 제시하는 computer-based test와 응답에 따라 문항을 조정하는 adaptive test를 구분하세요.",
+    "source": "개념 적용 · Computer-adaptive testing"
+  },
+  {
+    "src": "Computer-adaptive testing",
+    "cat": "Application",
+    "text": "A test updates an ability estimate from earlier responses and uses that estimate to choose later items. This response-dependent selection is a defining feature of CAT.",
+    "ans": true,
+    "correct": "응답 → 능력 수준 재추정 → 다음 문항 선택이라는 연결이 핵심입니다.",
+    "why": "모든 응시자에게 같은 난이도 순서를 강제하지 않고 개인의 수행을 반영합니다. 따라서 문항을 단순히 무작위로 섞거나 정답을 즉시 알려 주는 기능과 구별됩니다.",
+    "source": "개념 적용 · Computer-adaptive testing"
+  },
+  {
+    "src": "Computer-adaptive testing",
+    "cat": "Application",
+    "text": "In CAT, a correct answer must always be followed by a harder item; an equally difficult next item would make the test non-adaptive.",
+    "ans": false,
+    "correct": "Adaptive selection을 매번 엄격하게 난이도가 오르내리는 규칙으로 축소하면 안 됩니다.",
+    "why": "2023 A-4의 지문은 정답 뒤에 같거나 조금 더 어려운 문항, 오답 뒤에 같거나 조금 더 쉬운 문항이 올 수 있다고 설명합니다. 판별 기준은 이전 수행을 반영한 조정이지 매 응답마다 반드시 난이도가 바뀌는지 여부가 아닙니다.",
+    "source": "개념 적용 · Computer-adaptive testing"
+  },
+  {
+    "src": "Behavioristic CALL",
+    "cat": "Application",
+    "text": "A program supplies repeated form practice, tutorial explanations, and immediate corrective feedback. Allowing students to work at their own pace is compatible with behavioristic CALL.",
+    "ans": true,
+    "correct": "Self-pacing은 behavioristic CALL에서도 가능합니다.",
+    "why": "학습자가 속도를 조절한다는 한 단서만으로 constructivist CALL이라고 판단하지 마세요. 무엇을 수행하는지가 중요하며, 이 상황의 중심은 반복 연습과 정오 feedback입니다.",
+    "source": "개념 적용 · Behavioristic CALL"
+  },
+  {
+    "src": "Constructivist CALL",
+    "cat": "Application",
+    "text": "Groups compare information from several websites, choose evidence, and jointly compose a cultural guide. These activities are consistent with constructivist CALL.",
+    "ans": true,
+    "correct": "Information exploration, learner choice, collaboration이 함께 나타납니다.",
+    "why": "컴퓨터는 정해진 반응을 반복시키는 도구를 넘어 authentic resources와 communication의 수단으로 쓰입니다. 학생이 문제를 조사하고 근거를 선택해 결과물을 구성하는 과정이 핵심입니다.",
+    "source": "개념 적용 · Constructivist CALL"
+  },
+  {
+    "src": "CALL pedagogy",
+    "cat": "Application",
+    "text": "A worksheet becomes constructivist CALL simply because students complete its repetition drills on a tablet instead of paper.",
+    "ans": false,
+    "correct": "기기의 교체만으로 학습 과정의 성격이 달라지지는 않습니다.",
+    "why": "Tablet, computer, Internet 같은 매체명보다 학습자가 규칙을 반복하는지, 자료를 탐색하고 의미를 함께 구성하는지를 봅니다. 기술은 수업 목표에 맞춰 선택해야 하며 목표를 대신하지 않습니다.",
+    "source": "개념 적용 · CALL pedagogy"
+  },
+  {
+    "src": "Authentic materials",
+    "cat": "Application",
+    "text": "A real café menu made for customers can be authentic material in class; a simplified menu newly written by a teacher to imitate one is simulated authentic material.",
+    "ans": true,
+    "correct": "실제 고객을 위해 만들어진 자료인지, 수업용으로 그 형식을 재현한 자료인지가 다릅니다.",
+    "why": "둘 다 메뉴처럼 보일 수 있으므로 외형만으로 판단하지 않습니다. Authentic material은 원래 실제 의사소통을 위해 만들어졌고, simulated authentic material은 그 content·format·tone을 수업 목적에 맞게 모방합니다.",
+    "source": "개념 적용 · Authentic materials"
+  },
+  {
+    "src": "Material adaptation",
+    "cat": "Application",
+    "text": "A teacher keeps a difficult authentic timetable unchanged but asks beginners to locate only two departure times. The teacher has reduced the task demand rather than simplified the text.",
+    "ans": true,
+    "correct": "원문을 유지하고 수행 범위를 조정한 graded task입니다.",
+    "why": "Text difficulty와 task difficulty는 구별해야 합니다. 초급 학생에게 모든 정보를 해석시키는 대신 필요한 항목만 찾게 할 수 있습니다. 단, 학습 목표와 필요한 language support가 맞는지도 함께 확인해야 합니다.",
+    "source": "개념 적용 · Material adaptation"
+  },
+  {
+    "src": "Text adaptation",
+    "cat": "Application",
+    "text": "Adding more exercises of the existing type is extending; adding a new speaking task to a reading unit can be expanding.",
+    "ans": true,
+    "correct": "Extending은 같은 유형의 양을 늘리고, expanding은 다른 기능이나 활동을 보탭니다.",
+    "why": "같이 adding에 속해도 변화의 성격이 다릅니다. 예를 들어 기존 빈칸 문제를 더 제공하면 quantitative addition이고, 읽은 내용을 바탕으로 의견을 교환하는 speaking task를 추가하면 qualitative addition입니다.",
+    "source": "개념 적용 · Text adaptation"
+  },
+  {
+    "src": "Material evaluation",
+    "cat": "Application",
+    "text": "Skimming the cover, contents page, and introduction to form an overall impression is internal evaluation.",
+    "ans": false,
+    "correct": "전체 인상을 얻는 preliminary inspection은 external evaluation입니다.",
+    "why": "Internal evaluation은 실제 단원의 활동이 사용자에게 무엇을 요구하는지, 내용·순서·task distribution이 어떻게 구성되는지 깊이 살핍니다. 책 안쪽의 목차를 읽었다고 internal이 되는 것은 아닙니다.",
+    "source": "개념 적용 · Material evaluation"
+  },
+  {
+    "src": "Material selection",
+    "cat": "Application",
+    "text": "An authentic article should be selected even when its topic, language level, and task potential do not match the learners or lesson objective.",
+    "ans": false,
+    "correct": "Authenticity는 선택 기준의 하나이며 자료의 적합성을 보장하지는 않습니다.",
+    "why": "흥미, 목적, cultural appropriateness, language level을 함께 검토합니다. 자료가 실제로 쓰였다는 사실과 그 자료로 목표 학습을 할 수 있다는 판단은 다릅니다. 필요하면 자료 또는 과제를 조정하고 그 효과를 확인하세요.",
+    "source": "개념 적용 · Material selection"
+  }
 ];
 
 const TOTAL=20;
-const SAVE_KEY='ox_call_v1';
+const SAVE_KEY='ox_call_v2'; // v1 remains stored; rewritten questions start a separate record.
 let cur=0,answers=new Array(TOTAL).fill(null);
 let mode='normal',order=[...Array(TOTAL).keys()];
 function initOrder(m){if(m==='random'){const a=[...Array(TOTAL).keys()];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}order=a;}else order=[...Array(TOTAL).keys()];}
@@ -199,7 +340,7 @@ function restart(){cur=0;answers=new Array(TOTAL).fill(null);mode='normal';order
 function renderExp(q,isCorrect){
   const three=q.compare&&q.compare.length===3;
   const cmp=q.compare?`<div class="sec-label">📊 비교 정리</div><div class="compare${three?' three':''}">${q.compare.map(c=>`<div class="compare-item"><div class="ci-title">${c.title}</div><p>${c.desc}</p></div>`).join('')}</div>`:'';
-  return `<div class="exp show"><div class="exp-header"><span>${isCorrect?'✅ 정답':'❌ 오답'} · 해설</span></div><div class="exp-answer"><div class="ans-label">핵심 정정</div><div class="ans-text">${q.correct}</div></div><div class="exp-body"><div class="sec-label">📖 상세 설명</div><p>${q.why}</p><div class="sec-label">📌 Source</div><div class="def-box"><p>${q.source}</p></div>${cmp}</div></div>`;
+  return `<div class="exp show"><div class="exp-header"><span>${isCorrect?'✅ 정답':'❌ 오답'} · 해설</span></div><div class="exp-answer"><div class="ans-label">핵심 정정</div><div class="ans-text">${q.correct}</div></div><div class="exp-body"><div class="sec-label">📖 상세 설명</div><p>${q.why}</p><div class="sec-label">📌 적용 개념</div><div class="def-box"><p>${q.source}</p></div>${cmp}</div></div>`;
 }
 
 function renderNav(){
@@ -285,3 +426,4 @@ function jumpTo(i){cur=i;render();document.getElementById('qa').scrollIntoView({
 <script src="./study-return.js"></script>
 </body>
 </html>
+

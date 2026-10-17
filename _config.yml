@@ -1,0 +1,21 @@
+# Exclude source references and authoring-only records from the published site.
+# Learning pages, root runtime JS/CSS, images, and blog content stay included.
+exclude:
+  - refs
+  - docs
+  - AGENTS.md
+  - CLAUDE.md
+  - scripts/check-learning-materials.cjs
+  - scripts/check-quiz-flow.cjs
+  - scripts/check-study-deep-links.cjs
+  # Preserve Jekyll 3's conventional build/dependency exclusions.
+  - .sass-cache
+  - .jekyll-cache
+  - gemfiles
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle
+  - vendor/cache
+  - vendor/gems
+  - vendor/ruby

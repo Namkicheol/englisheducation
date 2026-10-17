@@ -73,6 +73,10 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 .learning-nav a{flex:1 1 140px;background:#fff;border:1.5px solid #b2dfcc;border-radius:8px;padding:8px 10px;color:#1b5e3a;text-decoration:none;text-align:center;font-size:12px;font-weight:700;line-height:1.4;transition:background .15s,border-color .15s}
 .learning-nav a:hover{background:#f0faf5;border-color:#2e7d52}
 @media(max-width:640px){.learning-nav a{flex-basis:calc(50% - 7px)}}
+.linguistic-depth{margin-top:14px;border:1px solid #b2dfcc;border-radius:10px;padding:12px;background:#f5fdf8;overflow-wrap:anywhere}
+.linguistic-depth summary{cursor:pointer;color:#1b5e3a;font-weight:700;line-height:1.6}
+.linguistic-depth[open] summary{margin-bottom:12px}
+.linguistic-depth .note{font-size:15px}
 </style>
 <link rel="stylesheet" href="./study-return.css">
 <link rel="stylesheet" href="./learning.css">
@@ -95,7 +99,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
   </div>
   <h1 class="header-title"><span class="title-hl">개념 정리</span> 노트</h1>
   <div class="header-script">Concept Notes · Linguistic Aspects of SLA</div>
-  <p class="header-sub">서브노트 순서 기반 · 기출 포인트 · 비교 도식</p>
+  <p class="header-sub">핵심 개념 · 기출 적용 · 수업 사례 비교</p>
   <div class="header-divider"></div>
   <p class="header-tip">📌 목차 버튼 클릭 → 해당 섹션으로 이동 &nbsp;·&nbsp; ▼ 섹션 제목 클릭 → 열고 닫기</p>
 </div>
@@ -148,7 +152,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       <div class="grid col2">
         <div class="grid-item">
           <div class="gi-title"><span class='kw1'>Positive transfer</span></div>
-          <div class="gi-body"><span>L1 <span class='kw2'>facilitates</span> L2 learning</span><span>L1/L2 similar → easy</span></div>
+          <div class="gi-body"><span>L1 <span class='kw2'>facilitates</span> L2 learning</span><span>유사성이 학습을 도울 수 있음 · 전체 난이도를 단독 결정하지 않음</span></div>
         </div>
         <div class="grid-item">
           <div class="gi-title"><span class='kw1'>Negative transfer</span></div>
@@ -168,11 +172,11 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       <div class="grid col2" style="margin-top:10px">
         <div class="grid-item">
           <div class="gi-title"><span class='kw1'>Avoidance</span></div>
-          <div class="gi-body"><span>L1에 <span class='kw2'>없는</span> 구조 → 사용 회피</span></div>
+          <div class="gi-body"><span>어렵다고 느끼는 구조·표현 → 사용 회피 (L1 차이가 한 원인일 수 있음)</span></div>
         </div>
         <div class="grid-item">
           <div class="gi-title"><span class='kw1'>Overuse</span></div>
-          <div class="gi-body"><span>L1에 <span class='kw2'>있는</span> 표현 → 부자연스럽게 과용</span></div>
+          <div class="gi-body"><span>특정 표현을 목표어 사용에 비해 과도하게 사용 (L1 영향 가능)</span></div>
         </div>
       </div>
     </div>
@@ -185,7 +189,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
           <div class="gi-body">
             <span>L1–L2 대조 → 오류 <span class='kw2'>사전 예측</span></span>
             <span>어려운 항목 중심 교수</span>
-            <span>L1 오류만 설명 가능</span>
+            <span>L1–L2 차이로 학습 난이도·오류 예측 시도</span>
           </div>
         </div>
         <div class="grid-item">
@@ -193,11 +197,20 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
           <div class="gi-body">
             <span>오류 <span class='kw2'>사후 분석</span></span>
             <span>cross-linguistic influence 강조</span>
-            <span>L1, L2 오류 모두 설명</span>
+            <span>관찰된 오류 중 L1 영향 설명 · 모든 오류를 설명하지 않음</span>
           </div>
         </div>
       </div>
     </div>
+    <div class="div"></div>
+    <details class="linguistic-depth" id="transfer-depth">
+      <summary>사례 비교 · CAH와 Error Analysis</summary>
+      <div class="def">L1과 L2의 차이를 비교하는 것, 실제 오류의 원인을 설명하는 것, 오류의 개수를 세는 것은 서로 다르다.</div>
+      <p class="note">사례 A: 수업 전에 두 언어의 어순을 비교해 특정 오류가 생길 것이라고 예측한다 → <strong>strong CAH</strong>. 사례 B: 실제로 나타난 어순 오류를 모아 L1과의 관련성을 설명한다 → <strong>weak CAH</strong>. Weak CAH가 모든 L2 오류를 설명하는 것은 아니다.</p>
+      <p class="note">사례 C: 학생이 규칙 과거형을 배운 뒤 처음 보는 불규칙 동사에도 -ed를 붙인다. L2 규칙을 허용 범위 밖에 적용했다는 단서가 있으므로 <strong>intralingual overgeneralization</strong>이다. 이를 L1 차이만으로 설명하지 않는다.</p>
+      <p class="note">사례 D: 관계절을 쓸 수 있는 과제에서 학생이 계속 두 단문으로 바꾸고, 관계절을 사용해 보라는 요청에도 응하지 않는다 → <strong>avoidance</strong>의 근거. 관계절 오류가 0개라는 기록만으로 관계절을 습득했다고 결론 내릴 수 없다.</p>
+      <p class="note">출처: Brown (2014), Principles of Language Learning and Teaching, 6th ed., pp.250–257, 260. 예시는 개념을 설명하기 위해 새로 구성했다.</p>
+    </details>
   </div>
 </div>
 
@@ -215,9 +228,6 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       <div class="def"><span class='kw4'>Interlanguage</span>: An intermediate system between L1 and TL — <span class='kw2'>systematic, variable, dynamic</span>. Own unique, coherent rule system.</div>
       <div class="exam">
         <div class="exam-label">📋 기출 이력</div>
-        <p><strong>2010 Q21</strong> — 중간 언어 화석화 현상(interlanguage, fossilization)</p>
-        <p><strong>2011 Q21</strong> — 중간 언어 오류 유형 분류</p>
-        <p><strong>2012 Q21</strong> — 중간 언어 과잉 일반화와 단순화</p>
         <p><strong>2025 A-8</strong> — interlanguage, semantic deviation, number of arguments</p>
       </div>
     </div>
@@ -228,8 +238,8 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         <table>
           <tr><th>Stage</th><th>특징</th><th>Self-correction</th></tr>
           <tr><td><span class='kw3'>Presystematic</span></td><td>random errors · vague rule awareness</td><td>❌</td></tr>
-          <tr><td><span class='kw3'>Emergent</span></td><td>some consistency · <span class='kw2'>backsliding</span> · uptake ❌</td><td>❌ (with feedback)</td></tr>
-          <tr><td><span class='kw3'>Systematic</span></td><td>consistent · uptake ✅</td><td>✅ (with feedback)</td></tr>
+          <tr><td><span class='kw3'>Emergent</span></td><td>some consistency · <span class='kw2'>backsliding</span> · 오류를 지적받아도 repair 어려움</td><td>❌ (with feedback)</td></tr>
+          <tr><td><span class='kw3'>Systematic</span></td><td>consistent · 지적받은 오류 repair 가능</td><td>✅ (with feedback)</td></tr>
           <tr><td><span class='kw3'>Stabilization</span></td><td>few errors · <span class='kw2'>fossilization</span> 가능</td><td>✅ (without feedback)</td></tr>
         </table>
       </div>
@@ -240,20 +250,16 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
     <div class="concept">
       <div class="c-title">Fossilization <span class="badge-ex">기출 포인트</span></div>
       <div class="def"><span class='kw3'>Fossilization</span>: <span class='kw2'>relatively permanent</span> incorporation of incorrect linguistic forms into L2 competence.</div>
-      <p class="note">원인: ① <span class='kw2'>lack of negative feedback</span> ② insensitivity to feedback ③ positive feedback이 오류 강화 ④ too much automatization</p>
-      <p class="note">예방: <span class='kw2'>explicit corrective feedback</span>으로 오류 인식 유도</p>
-      <div class="exam">
-        <div class="exam-label">📋 기출 이력</div>
-        <p><strong>2010 Q21</strong> — 중간 언어 화석화 현상(interlanguage, fossilization)</p>
-        <p><strong>2023 A-1</strong> — backsliding, U-shaped development, overgeneralization, fossilization</p>
-      </div>
+      <p class="note">원인: feedback, 동기, input, 주의, 사회적 맥락 등 여러 요인이 관련됨</p>
+      <p class="note">교수 대응: feedback으로 오류 인식을 도울 수 있지만 특정 교정 방식이 fossilization의 예방·해소를 보장하지는 않음</p>
+      <p class="note">2023 A-1의 일시적 backsliding과 구별: 오류가 늘었다는 사실만으로 fossilization을 판단할 수 없다.</p>
     </div>
     <div class="div"></div>
     <div class="concept">
       <div class="c-title">U-shaped Learning</div>
       <div class="exam">
         <div class="exam-label">📋 기출 이력</div>
-        <p><strong>2023 A-1</strong> — backsliding, U-shaped development, overgeneralization, fossilization</p>
+        <p><strong>2023 A-1</strong> — backsliding — 규칙의 overgeneralization으로 이전의 정확한 형태가 부정확해진 변화</p>
       </div>
       <div class="stage-wrap"><svg viewBox="0 0 700 100" style="width:100%;margin-top:10px;font-family:'JetBrains Mono',monospace" xmlns="http://www.w3.org/2000/svg">
         <rect x="4" y="10" width="208" height="80" rx="8" fill="rgba(46,125,82,.1)" stroke="rgba(46,125,82,.4)" stroke-width="1.5"/>
@@ -273,6 +279,17 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       </svg></div>
       <p class="note" style="margin-top:10px">e.g. went → <span class='kw2'>goed</span> → went (overgeneralization 후 회복)</p>
     </div>
+    <div class="div"></div>
+    <details class="linguistic-depth" id="interlanguage-depth">
+      <summary>학습자의 발달 과정과 오류의 변화</summary>
+      <p class="note">Brown이 설명한 발달 단계를 학습자의 모든 언어 영역에 동일하게 적용할 수는 없다. 한 학생이 과거형에서는 지적받은 오류를 고치면서도 관계절에서는 같은 도움으로 고치지 못할 수 있다. 문법 영역별 반응을 살핀다.</p>
+      <div class="grid col2">
+        <div class="grid-item"><div class="gi-title">Backsliding / U-shaped learning</div><div class="gi-body">첫 번째 관찰: “bought” → 두 번째 관찰: “buyed” → 세 번째 관찰: “bought”. 첫 번째에서 두 번째로의 변화는 backsliding이고, 세 시점의 변화 전체는 U-shaped pattern이다. -ed 규칙을 새로 적용했다는 정보는 overgeneralization을 뒷받침한다.</div></div>
+        <div class="grid-item"><div class="gi-title">Fossilization 판단</div><div class="gi-body">한 번의 오답이나 한 수업의 교정 실패만으로 판단하지 않는다. 장기간 지속되는 비목표어 형태와 발달 정체의 증거가 필요하며, 관찰된 plateau가 영구적이라고 단정하지 않는다.</div></div>
+      </div>
+      <p class="note">2023 A-1: 이전에 맞게 쓴 불규칙 과거형에 -ed를 적용한 변화가 핵심이다. 빈칸의 한 단어는 <strong>backsliding</strong>이며, U-shaped development는 교사가 그 변화를 해석하는 발달 맥락이다.</p>
+      <p class="note">출처: Brown (2014), Principles of Language Learning and Teaching, 6th ed., pp.244–250, 264–266. 기출 연결: 2023학년도 전공 A 1번.</p>
+    </details>
   </div>
 </div>
 
@@ -303,7 +320,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       <div class="grid col2">
         <div class="grid-item">
           <div class="gi-title"><span class='kw3'>Global error</span></div>
-          <div class="gi-body"><span><span class='kw2'>hinders communication</span></span><span>→ must correct</span><span>wrong word order, inappropriate lexis</span></div>
+          <div class="gi-body"><span><span class='kw2'>hinders communication</span></span><span>→ 의사소통 회복을 위한 교정 우선</span><span>wrong word order, inappropriate lexis</span></div>
         </div>
         <div class="grid-item">
           <div class="gi-title"><span class='kw3'>Local error</span></div>
@@ -327,14 +344,27 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       <div class="grid col2">
         <div class="grid-item">
           <div class="gi-title">Fluency 목표</div>
-          <div class="gi-body"><span><span class='kw2'>Global error</span>만 교정</span></div>
+          <div class="gi-body"><span>의미 전달을 막는 오류에 우선 대응 · local error는 목표와 시점에 따라 선택</span></div>
         </div>
         <div class="grid-item">
           <div class="gi-title">Accuracy 목표</div>
-          <div class="gi-body"><span><span class='kw2'>Global + Local</span> 모두 교정</span><span>fossilization 예방</span></div>
+          <div class="gi-body"><span>목표 형태와 관련된 local error도 다룸 · 모든 오류의 즉각 교정은 아님</span><span>목표·학습자 반응에 맞춰 교정</span></div>
         </div>
       </div>
     </div>
+    <div class="div"></div>
+    <details class="linguistic-depth" id="error-depth">
+      <summary>원인·형식·의사소통에 미치는 영향에 따른 오류 분류</summary>
+      <p class="note">① <strong>원인</strong>: interlingual / intralingual / context of learning. ② <strong>형식·맥락</strong>: overt / covert. ③ <strong>이해에 미치는 영향</strong>: global / local. 분류 기준이 서로 다르므로 한 발화에도 여러 유형명이 함께 적용될 수 있다.</p>
+      <p class="note">작문에서 “Yesterday Mina walk home.”이라고 썼고 독자가 누가 언제 어디로 갔는지 정확히 이해했다면, 문장 형태의 오류는 overt, 이 상황에서의 영향은 local이다. 과거형 누락만 보고 L1 transfer라고 원인까지 확정할 수는 없다.</p>
+      <p class="note">교사가 학생의 이름을 묻는데 학생이 날씨가 맑다고 답했다면 문장 자체는 문법적일 수 있어도 질문에 맞는 의미를 전달하지 못한다. 문장 자체보다 맥락에 맞는지 판단해야 하므로 covert error에 해당한다.</p>
+      <div class="exam"><div class="exam-label">2025 A-8 · 제시된 분류표 적용</div>
+      <p>기출의 판단 근거: 첫 발화는 물건이 있는지 물으려는 의도와 실제 질문의 의미가 어긋난다. 두 번째 발화에는 전달하는 물건이 빠져 있으며, 이후 학생이 그 물건을 덧붙여 말한다.</p>
+      <p><strong>적용 사례 (별도 구성)</strong>: 상대 그림에 우산이 있는지 확인하려던 학생이 “Who is your umbrella?”라고 말하고, 상대의 확인 질문을 듣고 소유 여부를 묻고 싶었다고 설명한다. 의도한 질문과 실제 의미가 어긋나므로 <strong>Semantic deviation</strong>이다.</p>
+      <p><strong>적용 사례 (별도 구성)</strong>: 사진에서 민아가 지수에게 열쇠를 건네는 장면을 보고 “Mina handed Jisu.”라고 한다. 무엇을 건넸는지 묻자 학생이 “Mina handed Jisu a key.”라고 완성한다. 빠진 물건을 나타내는 argument가 추가되었으므로 <strong>Number of arguments</strong>에 해당한다.</p>
+      <p>이 문항은 &lt;A&gt;의 유형명을 요구한다. 같은 장면을 overt/covert나 global/local로 설명할 수 있는지와 별개로, 답안에는 발문이 지정한 분류표의 이름과 근거를 쓴다.</p></div>
+      <p class="note">출처: Brown (2014), Principles of Language Learning and Teaching, 6th ed., pp.251–254, 260–262. 기출 연결: 2025학년도 전공 A 8번.</p>
+    </details>
   </div>
 </div>
 
@@ -354,7 +384,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       <text x="170" y="55" text-anchor="middle" fill="#3a6b51" font-size="11" font-family="monospace">communicative flow 유지</text>
       <rect x="365" y="10" width="330" height="60" rx="10" fill="rgba(183,28,28,.07)" stroke="rgba(183,28,28,.25)" stroke-width="1.5"/>
       <text x="530" y="35" text-anchor="middle" fill="#b71c1c" font-size="13" font-weight="bold" font-family="monospace">Explicit Feedback</text>
-      <text x="530" y="55" text-anchor="middle" fill="#6b4400" font-size="11" font-family="monospace">오류 직접 지적 · flow 끊김</text>
+      <text x="530" y="55" text-anchor="middle" fill="#6b4400" font-size="11" font-family="monospace">오류를 명시적으로 지적</text>
     </svg></div>
 
     <div class="stage-wrap">
@@ -402,10 +432,11 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       <div class="exam-label">⚠️ Recast 핵심 정리 (★★★ 최빈출)</div>
       <p>① <span class='kw4'>Implicit</span> · communicative flow <span class='kw2'>유지</span></p>
       <p>② <span class='kw2'>Positive evidence</span>(correct form) + <span class='kw2'>Negative evidence</span>(오류 암시) 동시 포함</p>
-      <p>③ 학습자가 <span class='kw2'>confirmation check</span>로 오해 가능 → unsuccessful uptake</p>
+      <p>③ 학습자가 <span class='kw2'>confirmation check</span>로 오해 가능 → 교정 의도를 인식하지 못하면 no uptake 가능</p>
       <p>④ Meaning에 집중하느라 form 수정 인식 못할 수 있음</p>
       <p>⑤ Intonational signal 추가 → <span class='kw2'>explicitness↑</span></p>
     </div>
+    <p class="note">Feedback의 유형은 교사가 무엇을 했는지로 판별한다. Recast의 강조·억양과 교실 맥락에 따라 교정 의도가 더 두드러질 수 있으므로 implicit/explicit 표시는 전형적인 경향으로 읽는다. Explicit feedback도 반드시 대화를 중단시키는 것은 아니다.</p>
     <p class="note"><a href="./grammar_study.html?returnTo=linguistic_study.html%23s4#feedback-depth">같은 오류에 대한 feedback 비교와 uptake·repair 판단</a></p>
   </div>
 </div>
@@ -429,13 +460,13 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         </tr>
         <tr>
           <td><span class='kw3'>Modified output</span></td>
-          <td>피드백 이후 실제로 <span class='kw2'>수정이 이루어졌는지</span> 여부</td>
-          <td>수정 여부 focus · not all uptake = modified</td>
+          <td>학습자가 앞선 발화를 바꾸어 다시 산출한 발화</td>
+          <td>실제 변경 여부 · 변경되었어도 오류가 남을 수 있음</td>
         </tr>
         <tr>
           <td><span class='kw3'>Pushed output</span></td>
-          <td>T가 학습자를 올바른 형태로 <span class='kw2'>push</span>하는 과정</td>
-          <td>not all pushed = modified output</td>
+          <td>더 정확하고 적절하게 의미를 표현하도록 요구받는 상황에서의 학습자 산출</td>
+          <td>교사·상대방·과제 요구로 유도 가능</td>
         </tr>
       </table>
     </div>
@@ -443,7 +474,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       <div class="exam-label">🔑 3개념 구분 공식</div>
       <p><span class='kw4'>Uptake</span> = feedback 직후 <span class='kw2'>즉각 반응</span> (수정 여부 무관)</p>
       <p><span class='kw3'>Modified output</span> = 수정 <span class='kw2'>결과</span>에 focus (successful / unsuccessful)</p>
-      <p><span class='kw3'>Pushed output</span> = T가 push하는 <span class='kw2'>과정</span> → 반드시 modified는 아님</p>
+      <p><span class='kw3'>Pushed output</span> = 표현을 더 정확하고 적절하게 하도록 요구받는 산출 · 교사의 발화 자체가 아님</p>
     </div>
     <div class="div"></div>
     <div class="concept">
@@ -459,6 +490,14 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         </div>
       </div>
     </div>
+    <div class="div"></div>
+    <details class="linguistic-depth" id="output-depth">
+      <summary>교사의 feedback과 학습자의 output 구별</summary>
+      <p class="note">S: “She go yesterday.” → T: “Yesterday. Can you say that again?” → S: “She goed yesterday.” 학생이 발화를 바꾸었으므로 modified output이지만, 동사의 과거형을 여전히 잘못 사용했으므로 repair가 이루어진 것은 아니다. Lyster &amp; Ranta의 uptake 분류에서는 needs-repair에 해당한다.</p>
+      <p class="note">같은 교사 발화 뒤 학생이 “She went yesterday.”라고 고치면 repair이다. “Okay.”라고만 반응하면 acknowledgement로서 uptake이지만 목표 표현을 수정해서 말한 것은 아니다. 이때 교사의 질문은 output을 유도하는 feedback이고, 학습자의 발화가 output이다.</p>
+      <p class="note">Pushed output에서는 학습자가 더 정확하고 적절하게 표현하도록 요구받았는지를 본다. Modified output에서는 학습자가 앞서 한 말을 실제로 수정했는지를 본다. 한 사례가 두 개념에 모두 해당할 수 있으며 즉각적인 repair가 장기 습득을 보장하지는 않는다.</p>
+      <p class="note">출처: Brown (2014), Principles of Language Learning and Teaching, 6th ed., pp.272–275; Lyster &amp; Ranta (1997), Corrective Feedback and Learner Uptake, pp.49–50; <a href="https://www.cambridge.org/core/journals/studies-in-second-language-acquisition/article/abs/identifying-the-impact-of-negative-feedback-and-learners-responses-on-esl-question-development/E50A60C44843C2AFFF8AF436A513630F">McDonough (2005), Identifying the Impact of Negative Feedback and Learners’ Responses on ESL Question Development</a>. 새로 구성한 학습용 사례.</p>
+    </details>
   </div>
 </div>
 
@@ -508,7 +547,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         </div>
         <div class="grid-item">
           <div class="gi-title"><span class='kw1'>Elaboration</span></div>
-          <div class="gi-body"><span><span class='kw2'>restate/repeat</span> differently</span><span><span class='kw2'>positive effect</span> on SLA</span></div>
+          <div class="gi-body"><span><span class='kw2'>restate/repeat</span> differently</span><span>이해를 돕는 설명·반복 추가</span></div>
         </div>
         <div class="grid-item">
           <div class="gi-title"><span class='kw1'>Regularization</span></div>
@@ -523,6 +562,13 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       <p class="note">Corrective feedback → <span class='kw2'>step by step as scaffolding</span></p>
       <p class="note">Facilitates Ls' <span class='kw2'>ZPD</span></p>
     </div>
+    <div class="div"></div>
+    <details class="linguistic-depth" id="input-depth">
+      <summary>Simplification과 elaboration의 비교</summary>
+      <p class="note">원래 문장: “Please submit the assignment by Friday.” → “Give me your homework by Friday.”는 더 쉬운 어휘로 바꾼 simplification이다. “Please submit the assignment by Friday; hand in your homework on or before Friday.”는 원래 표현을 남기고 뜻을 풀어 준 elaboration이다.</p>
+      <p class="note">학습자가 뜻을 묻자 상대가 이렇게 바꾸어 말하면 input뿐 아니라 interaction도 조절된 것이다. 교사가 처음부터 쉬운 문장을 준비한 경우에는 그 사실만으로 negotiation of meaning이 있었다고 할 수 없다.</p>
+      <p class="note">출처: Brown (2014), Principles of Language Learning and Teaching, 6th ed., pp.262–263, 295–296. 새로 구성한 학습용 사례.</p>
+    </details>
   </div>
 </div>
 
@@ -559,6 +605,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
     <div class="div"></div>
     <div class="concept">
       <div class="c-title">IRE vs IRF <span class="badge-ex">기출 포인트</span></div>
+      <p class="note">IRF의 F는 feedback 또는 follow-up을 넓게 가리켜 evaluation을 포함하기도 한다. 아래 비교는 후속 turn의 기능에 초점을 둔다. 약어만으로 질문 유형이나 교사 중심성을 결정하지 않고 실제 질문과 응답 뒤의 발화를 함께 본다.</p>
       <div class="grid col2">
         <div class="grid-item">
           <div class="gi-title"><span class='kw3'>IRE</span> (Initiation–Response–Evaluation)</div>
@@ -573,11 +620,18 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
           <div class="gi-body">
             <span>T initiates → S responds → T <span class='kw2'>gives feedback</span></span>
             <span>referential question 가능</span>
-            <span>더 authentic한 interaction</span>
+            <span>후속 발화의 확장 가능 · 실제 반응 확인</span>
           </div>
         </div>
       </div>
     </div>
+    <div class="div"></div>
+    <details class="linguistic-depth" id="question-depth">
+      <summary>Display question과 referential question의 구분</summary>
+      <p class="note">교사가 정답이 3:00인 시간표를 함께 보며 “When does the club start?”라고 물으면 이미 아는 답을 확인하는 display question이다. 교사가 보지 못한 학생의 실제 동아리 일정에 대해 같은 문장으로 묻는다면 referential question이다.</p>
+      <p class="note">“What did you do last weekend?”도 교사가 이미 읽은 일기의 내용을 확인하는 상황에서는 display 기능을 할 수 있다. wh-question이라는 형태나 개인 경험을 묻는 주제만으로 분류하지 않는다.</p>
+      <p class="note">출처: Brown (2007), Teaching by Principles, 3rd ed., Ch.13, p.219. 예시는 새로 구성했다.</p>
+    </details>
   </div>
 </div>
 
@@ -598,3 +652,4 @@ function openSec(id){const s=document.getElementById(id);s.classList.add('open')
 <script src="./study-return.js"></script>
 </body>
 </html>
+

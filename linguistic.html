@@ -141,7 +141,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f5f4ee;background-image:r
 <script src="./score-popup.js"></script>
 <script src="./sounds.js"></script>
 <script>
-const SAVE_KEY='ox_linguistic_v2';
+const SAVE_KEY='ox_linguistic_v3'; // v2 remains untouched for legacy progress.
 const TOTAL=20;
 let cur=0;
 let answers=new Array(TOTAL).fill(null);
@@ -151,48 +151,410 @@ function updateModeUI(){document.getElementById('btn-normal').classList.toggle('
 function setMode(m){if(mode===m)return;mode=m;initOrder(m);cur=0;answers=new Array(TOTAL).fill(null);localStorage.removeItem(SAVE_KEY);document.getElementById('rb').style.display='none';document.getElementById('sc').classList.remove('show');updateModeUI();renderNav();render();}
 function getScore(){return answers.filter(a=>a&&a.correct).length;}
 const Q=[
-  {src:"Contrastive Analysis",cat:"Types of Transfer",text:"<span class='kw1'>Interference</span> is a type of <span class='kw2'>intralingual</span> transfer where a learner overgeneralizes a rule within the target language itself.",ans:false,correct:"<span class='kw1'>Interference</span> is <span class='kw2'>interlingual</span> transfer (L1 → L2). <span class='kw1'>Overgeneralization</span> is <span class='kw2'>intralingual</span> transfer (within L2).",why:"Transfer의 방향이 핵심입니다. Interference(= interlingual transfer)는 L1의 규칙이 L2에 잘못 적용되는 것이고, Overgeneralization(= intralingual transfer)은 L2 내에서 특정 규칙을 허용 범위 이상으로 일반화하는 것입니다.",source:"\"<span class='kw1'>Interference</span>: A type of <span class='kw2'>negative transfer</span> where a previous item is incorrectly transferred (= <span class='kw2'>interlingual</span>). <span class='kw1'>Overgeneralization</span>: A type of <span class='kw2'>intralingual</span> transfer.\"",compare:[{title:"<span class='kw4'>Interference</span>",desc:"<span class='kw2'>interlingual</span> · L1 → L2 · e.g. 'see an exam'"},{title:"<span class='kw4'>Overgeneralization</span>",desc:"<span class='kw2'>intralingual</span> · L2 내 · e.g. 'I goed'"}]},
-  {src:"Contrastive Analysis",cat:"Avoidance & Overuse",text:"<span class='kw1'>Avoidance</span> occurs when a learner overuses a certain expression in the target language even when it sounds unnatural, because the same expression exists in their L1.",ans:false,correct:"That describes <span class='kw1'>overuse</span>. <span class='kw1'>Avoidance</span> = learner <span class='kw2'>avoids</span> a structure because their L1 <span class='kw2'>lacks</span> that structure.",why:"Avoidance는 L1에 없는 구조를 TL에서 사용하지 않으려는 것이고, Overuse는 L1에 있는 표현을 TL에서 부자연스럽게 과용하는 것입니다.",source:"\"<span class='kw1'>Avoidance</span>: avoids structure because L1 does <span class='kw2'>not have</span> it. <span class='kw1'>Overuse</span>: <span class='kw2'>overuses</span> expression even if unnatural in TL.\"",compare:[{title:"<span class='kw1'>Avoidance</span>",desc:"L1에 <span class='kw2'>없어서</span> 안 씀"},{title:"<span class='kw1'>Overuse</span>",desc:"L1에 <span class='kw2'>있어서</span> 과용"}]},
-  {src:"Contrastive Analysis",cat:"Strong vs Weak CAH",text:"The <span class='kw3'>strong version</span> of CAH analyzes errors <span class='kw2'>after</span> they occur to identify L1 influence, while the <span class='kw3'>weak version</span> predicts errors <span class='kw2'>before</span> they occur.",ans:false,correct:"Reversed. <span class='kw3'>Strong version</span>: <span class='kw2'>predicts</span> errors BEFORE by comparing L1–L2. <span class='kw3'>Weak version</span>: analyzes errors <span class='kw2'>after</span> they occur.",why:"Strong version은 L1-L2 대조 분석으로 오류를 사전 예측하고 어려운 항목을 가르칩니다. Weak version은 오류 발생 후 L1 영향을 파악하는 사후 분석 방식입니다.",source:"\"<span class='kw3'>Strong version</span>: Description → Contrast → <span class='kw2'>Prediction</span> (before error). <span class='kw3'>Weak version</span>: Contrast <span class='kw2'>after error</span>.\"",compare:[{title:"<span class='kw3'>Strong CAH</span>",desc:"<span class='kw2'>predicts</span> errors BEFORE · L1 diff → teach"},{title:"<span class='kw3'>Weak CAH</span>",desc:"analyzes errors <span class='kw2'>after</span> · cross-linguistic influence"}]},
-  {src:"Interlanguage",cat:"Characteristics",text:"<span class='kw4'>Interlanguage</span> is a fixed, static system that reflects only the learner's L1 without any influence from the target language.",ans:false,correct:"<span class='kw4'>Interlanguage</span> is <span class='kw2'>systematic, variable, and dynamic</span> — an intermediate system between L1 and TL that evolves over time.",why:"Interlanguage는 L1과 TL 사이의 중간 체계로, 고정되어 있지 않고 체계적(systematic)이면서 가변적(variable)이고 역동적(dynamic)으로 발달합니다.",source:"\"<span class='kw4'>Interlanguage</span>: An intermediate system between L1 and TL. <span class='kw2'>Systematic, Variable, Dynamic</span>. Own unique, coherent rule system.\"",compare:[{title:"<span class='kw2'>Systematic</span>",desc:"own coherent rule system"},{title:"<span class='kw2'>Variable</span>",desc:"varies across contexts"},{title:"<span class='kw2'>Dynamic</span>",desc:"changes and develops"}]},
-  {src:"Interlanguage",cat:"Developmental Stages",text:"In the <span class='kw3'>emergent stage</span>, learners can self-correct when given feedback, and their production shows consistent rule application.",ans:false,correct:"<span class='kw3'>Emergent stage</span>: some consistency but <span class='kw2'>NO self-correction</span> with feedback (<span class='kw2'>backsliding</span> occurs). Self-correction appears in the <span class='kw3'>systematic stage</span>.",why:"Presystematic(random errors) → Emergent(일부 일관성, backsliding, self-correction X) → Systematic(self-correction O) → Stabilization(few errors, self-correction before feedback).",source:"\"<span class='kw3'>Emergent stage</span>: Some consistency; <span class='kw2'>Backsliding</span>; <span class='kw2'>No self-correction</span>. <span class='kw3'>Systematic stage</span>: <span class='kw2'>Ability to self-correct</span>.\"",compare:[{title:"<span class='kw3'>Emergent</span>",desc:"backsliding · NO self-correct"},{title:"<span class='kw3'>Systematic</span>",desc:"self-correct with feedback"},{title:"<span class='kw3'>Stabilization</span>",desc:"self-correct WITHOUT feedback"}]},
-  {src:"Interlanguage",cat:"Fossilization",text:"<span class='kw3'>Fossilization</span> is a temporary stage in interlanguage development where learners make consistent errors that can be easily corrected through explicit feedback.",ans:false,correct:"<span class='kw3'>Fossilization</span> is a <span class='kw2'>relatively permanent</span> incorporation of incorrect forms — caused by lack of negative feedback, insensitivity to feedback, or excessive automatization.",why:"Fossilization은 잘못된 언어 형식이 상대적으로 영구적으로 굳어지는 현상입니다. 예방을 위해 explicit corrective feedback이 필요합니다.",source:"\"<span class='kw3'>Fossilization</span>: A <span class='kw2'>relatively permanent</span> incorporation of incorrect linguistic forms. Caused by: <span class='kw2'>lack of negative feedback, insensitivity, too much automatization</span>.\"",compare:[{title:"<span class='kw3'>Fossilization</span>",desc:"<span class='kw2'>permanent</span> · no negative feedback"},{title:"Prevention",desc:"<span class='kw2'>explicit corrective feedback</span>"}]},
-  {src:"Interlanguage",cat:"U-shaped Learning",text:"<span class='kw3'>U-shaped learning</span> refers to a pattern where learners produce correct forms initially, then begin making errors, and eventually return to correct production.",ans:true,correct:"<span class='kw3'>U-shaped learning</span>: correct (imitation/lexical item) → <span class='kw2'>overgeneralization</span> (incorrect) → correct (rule internalized). 처음 정확한 형태는 모방이나 어휘 단위로 인식한 결과입니다.",why:"초기 정확한 생산은 imitation 또는 별도 어휘 항목으로 인식한 결과입니다. 이후 L2 규칙을 일반화하는 과정에서 overgeneralization으로 오류가 발생하고, 결국 올바른 형태로 돌아옵니다. (e.g. went → goed → went)",source:"\"<span class='kw3'>U-shaped learning</span>: correct form → incorrect form → back to correct form. Regression caused by <span class='kw2'>overgeneralization</span>.\"",compare:[{title:"Phase 1 (correct)",desc:"imitation · lexical item"},{title:"Phase 2 (incorrect)",desc:"<span class='kw2'>overgeneralization</span>"},{title:"Phase 3 (correct)",desc:"rule <span class='kw2'>internalized</span>"}]},
-  {src:"Error Analysis",cat:"Global vs Local",text:"<span class='kw3'>Local errors</span> are errors that hinder communication and must be corrected, while <span class='kw3'>global errors</span> do not prevent a message from being understood.",ans:false,correct:"Reversed. <span class='kw3'>Global errors</span> = <span class='kw2'>hinder communication</span> → must correct. <span class='kw3'>Local errors</span> = <span class='kw2'>message still understood</span> → not necessarily correct.",why:"Global errors는 의사소통을 방해하는 오류로 반드시 수정이 필요합니다. Local errors는 의미 전달은 되지만 형식적 오류가 있는 경우입니다.",source:"\"<span class='kw3'>Global errors</span>: <span class='kw2'>hinder communication</span>. <span class='kw3'>Local errors</span>: <span class='kw2'>does not prevent</span> message.\"",compare:[{title:"<span class='kw3'>Global error</span>",desc:"<span class='kw2'>hinders</span> communication · must correct"},{title:"<span class='kw3'>Local error</span>",desc:"message <span class='kw2'>delivered</span> · not necessarily correct"}]},
-  {src:"Error Analysis",cat:"Overt vs Covert",text:"<span class='kw1'>Covert errors</span> are errors that are clearly ungrammatical at the sentence level and can be easily identified by looking at the sentence structure alone.",ans:false,correct:"That describes <span class='kw1'>overt errors</span>. <span class='kw1'>Covert errors</span> are grammatically <span class='kw2'>well-formed at sentence level</span> but not interpretable in the <span class='kw2'>context of communication</span>.",why:"Overt errors는 문장 차원에서 명백히 비문법적인 오류입니다. Covert errors는 문장 자체는 문법적이지만 의사소통 맥락에서 해석이 불가능한 오류입니다.",source:"\"<span class='kw1'>Overt errors</span>: noticed on the <span class='kw2'>sentence level</span>. <span class='kw1'>Covert errors</span>: <span class='kw2'>grammatically well formed</span> but not interpretable within <span class='kw2'>context</span>.\"",compare:[{title:"<span class='kw1'>Overt error</span>",desc:"sentence level · <span class='kw2'>ungrammatical</span>"},{title:"<span class='kw1'>Covert error</span>",desc:"grammatically OK · <span class='kw2'>discourse level</span>"}]},
-  {src:"Corrective Feedback",cat:"Recast",text:"<span class='kw4'>Recast</span> is an explicit type of corrective feedback that interrupts the flow of communication to directly indicate the error and provide the correct form.",ans:false,correct:"<span class='kw4'>Recast</span> is <span class='kw2'>implicit</span> feedback — it <span class='kw2'>maintains communicative flow</span> by reformulating the erroneous utterance without overtly signaling it as an error.",why:"Recast의 핵심 특징: ① implicit ② maintains communicative flow ③ positive + negative evidence 모두 포함 ④ 학습자가 confirmation으로 오해 가능.",source:"\"<span class='kw4'>Recast</span>: Reformulation while <span class='kw2'>maintaining focus on meaning</span>. Contains both <span class='kw2'>positive and negative evidence</span>.\"",compare:[{title:"<span class='kw4'>Recast</span> (implicit)",desc:"<span class='kw2'>flow 유지</span> · positive+negative evidence"},{title:"<span class='kw2'>Explicit correction</span>",desc:"directly indicate error · <span class='kw2'>flow 끊김</span>"}]},
-  {src:"Corrective Feedback",cat:"Metalinguistic Feedback",text:"<span class='kw3'>Metalinguistic feedback</span> provides both a comment about the error AND the correct form, helping learners immediately understand what the correct structure should be.",ans:false,correct:"<span class='kw3'>Metalinguistic feedback</span> provides comments/questions about the error but does <span class='kw2'>NOT explicitly provide the correct form</span>.",why:"Metalinguistic feedback는 오류의 성격에 대한 언어적 설명을 제공하지만 올바른 형태를 직접 제시하지 않습니다. (e.g. 'Can you find the error?', 'What is the past tense of this verb?')",source:"\"<span class='kw3'>Metalinguistic feedback</span>: Points out nature of error <span class='kw2'>without explicitly providing the correct form</span>.\"",compare:[{title:"<span class='kw3'>Metalinguistic</span>",desc:"comment/question · <span class='kw2'>NO correct form</span>"},{title:"<span class='kw2'>Explicit correction</span>",desc:"indicate error + <span class='kw2'>provides correct form</span>"}]},
-  {src:"Corrective Feedback",cat:"Elicitation",text:"<span class='kw3'>Elicitation</span> is a technique that provides the correct form directly to the learner in response to their error, without requiring any learner participation.",ans:false,correct:"<span class='kw3'>Elicitation</span> <span class='kw2'>directly elicits the correct form FROM the learner</span> — pushes L to <span class='kw2'>self-correct</span> using incomplete sentences or questions.",why:"Elicitation은 교사가 정답을 주는 것이 아니라 학습자가 스스로 올바른 형태를 생산하도록 유도하는 기법입니다. (e.g. 'He comes...' / 'We are...?')",source:"\"<span class='kw3'>Elicitation</span>: directly elicit correct form <span class='kw2'>from the L</span>. Pushes L to <span class='kw2'>self-correct</span>.\"",compare:[{title:"<span class='kw3'>Elicitation</span>",desc:"L이 <span class='kw2'>self-correct</span>하도록 유도"},{title:"<span class='kw3'>Metalinguistic</span>",desc:"error 성격 설명 · no correct form"}]},
   {
-  "src": "Corrective Feedback",
-  "cat": "Uptake",
-  "text": "<span class='kw3'>Uptake</span> is a learner utterance that immediately follows corrective feedback and reacts to its corrective intent; it may involve repair or still need repair.",
-  "ans": true,
-  "correct": "<span class='kw3'>Uptake</span>는 교정 피드백의 의도에 대한 학습자의 즉각적인 반응입니다. 오류를 고친 <span class='kw2'>repair</span>와 추가 교정이 필요한 <span class='kw2'>needs-repair</span>로 나눕니다.",
-  "why": "단순히 교사 발화 뒤에 나온 모든 발화를 뜻하지는 않습니다. 교사가 특정 언어 형식에 주의를 돌리려 한 것에 반응해야 합니다. Lyster와 Ranta(1997)의 분류에서 acknowledgement는 needs-repair에 포함됩니다. Uptake가 관찰되었다는 사실만으로 지속적인 습득까지 입증할 수는 없습니다.",
-  "source": "출처 요약: Lyster & Ranta (1997), Corrective Feedback and Learner Uptake, pp.49–50. Uptake는 교정 의도에 반응하는 발화이며 repair와 needs-repair로 구분된다. 직접 인용이 아님.",
-  "compare": [
-    {
-      "title": "Repair",
-      "desc": "목표 오류가 교정된 반응"
-    },
-    {
-      "title": "Needs-repair",
-      "desc": "acknowledgement 또는 아직 교정이 필요한 반응"
-    },
-    {
-      "title": "No uptake",
-      "desc": "교정 의도에 대한 학습자의 반응이 나타나지 않음"
-    }
-  ]
-},
-  {src:"Corrective Feedback",cat:"Implicit vs Explicit",text:"<span class='kw4'>Recast</span> is categorized as explicit negative feedback because it clearly signals to learners that their utterance contained an error.",ans:false,correct:"<span class='kw4'>Recast</span> is <span class='kw2'>implicit</span> negative feedback — does not <span class='kw2'>overtly draw attention</span> to the error, which is why learners may miss it.",why:"Implicit feedback(recast)는 오류에 대한 직접적 언급 없이 의사소통 흐름 안에서 제공됩니다. Recast의 한계: 학습자가 confirmation으로 오해하거나 form 수정을 알아채지 못할 수 있습니다.",source:"\"<span class='kw2'>Implicit feedback</span>: does <span class='kw2'>not draw overt attention</span> to the error. <span class='kw4'>Recast</span> = implicit feedback.\"",compare:[{title:"<span class='kw2'>Implicit</span> (recast)",desc:"no overt attention · <span class='kw2'>flow 유지</span>"},{title:"<span class='kw2'>Explicit</span>",desc:"overt attention · <span class='kw2'>flow 끊김</span>"}]},
-  {src:"Modified Input",cat:"Foreigner Talk vs Teacher Talk",text:"<span class='kw3'>Foreigner talk</span> and <span class='kw3'>teacher talk</span> refer to the same type of modified input, as both involve simplification of speech for non-proficient speakers in a classroom context.",ans:false,correct:"<span class='kw3'>Foreigner talk</span> = used by <span class='kw2'>native speakers</span> speaking to non-proficient foreigners. <span class='kw3'>Teacher talk</span> = input provided by the <span class='kw2'>teacher</span> in classroom.",why:"두 개념은 다른 화자를 전제합니다. Foreigner talk는 교실 밖에서 원어민이 외국인에게, Teacher talk는 교실 내 교사가 학습자에게 제공하는 입력입니다.",source:"\"<span class='kw3'>Foreigner Talk</span>: used by <span class='kw2'>native speakers</span> to foreigners. <span class='kw3'>Teacher Talk</span>: input by <span class='kw2'>T</span> in classroom.\"",compare:[{title:"<span class='kw2'>Care-taker talk</span>",desc:"parents → young children"},{title:"<span class='kw3'>Foreigner talk</span>",desc:"native speakers → foreigners"},{title:"<span class='kw3'>Teacher talk</span>",desc:"teacher → classroom Ss"}]},
-  {src:"Modified Input",cat:"Input Modification Types",text:"<span class='kw1'>Elaboration</span> involves replacing complex vocabulary and grammar with simpler forms to make input more comprehensible.",ans:false,correct:"That describes <span class='kw1'>simplification</span>. <span class='kw1'>Elaboration</span> = <span class='kw2'>restating ideas in different ways</span> or repeating segments — has a <span class='kw2'>positive effect</span> on SLA.",why:"Simplification은 어휘·문법을 더 단순한 형태로 교체하는 것이고, Elaboration은 원본 내용을 다른 방식으로 재진술하거나 반복하는 것입니다.",source:"\"<span class='kw1'>Simplification</span>: replace complex → simple. <span class='kw1'>Elaboration</span>: <span class='kw2'>restate/repeat</span> differently; <span class='kw2'>positive effect</span> on SLA.\"",compare:[{title:"<span class='kw1'>Simplification</span>",desc:"replace complex → simple"},{title:"<span class='kw1'>Elaboration</span>",desc:"<span class='kw2'>restate/repeat</span> → SLA↑"},{title:"<span class='kw1'>Regularization</span>",desc:"more basic/explicit forms"}]},
-  {src:"Corrective Feedback",cat:"Display Q vs Referential Q",text:"A <span class='kw4'>referential question</span> is one to which the teacher already knows the answer and uses it to check students' comprehension of course content.",ans:false,correct:"That describes a <span class='kw4'>display question</span>. A <span class='kw4'>referential question</span> is one where the <span class='kw2'>teacher/questioner does NOT know</span> the answer beforehand.",why:"Display question은 교사가 이미 답을 알고 이해도를 확인하는 질문입니다. Referential question은 교사도 답을 모르는 진짜 정보 요청 질문으로 authentic communication을 촉진합니다.",source:"\"<span class='kw4'>Display question</span>: elicit information <span class='kw2'>already known</span>. <span class='kw4'>Referential question</span>: T does <span class='kw2'>not know</span> the answer beforehand.\"",compare:[{title:"<span class='kw4'>Display Q</span>",desc:"T <span class='kw2'>already knows</span> answer"},{title:"<span class='kw4'>Referential Q</span>",desc:"T does <span class='kw2'>NOT know</span> answer"}]},
-  {src:"Corrective Feedback",cat:"Pushed / Modified Output",text:"<span class='kw3'>Modified output</span> and <span class='kw3'>pushed output</span> refer to the same concept — any learner utterance that has been corrected following teacher feedback.",ans:false,correct:"<span class='kw2'>Not all pushed output is modified output</span>. <span class='kw3'>Pushed output</span> = T pushes S toward correct form. <span class='kw3'>Modified output</span> = whether the output was <span class='kw2'>actually corrected</span>.",why:"Pushed output은 교사가 학생의 발화를 올바른 방향으로 밀어붙이는 과정을 말하고, Modified output은 실제로 수정이 이루어졌는지에 초점을 맞춥니다.",source:"\"Not all pushed output is modified output. <span class='kw3'>Pushed output</span>: T pushes toward correct form. <span class='kw3'>Modified output</span>: whether actually <span class='kw2'>corrected</span>.\"",compare:[{title:"<span class='kw3'>Pushed output</span>",desc:"T pushes · process"},{title:"<span class='kw3'>Modified output</span>",desc:"actually <span class='kw2'>corrected</span> · result"},{title:"<span class='kw3'>Uptake</span>",desc:"<span class='kw2'>immediately follows</span> feedback"}]},
-  {src:"Corrective Feedback",cat:"Sociocultural Implication",text:"From a Sociocultural Theory perspective, corrective feedback should be delivered all at once for maximum effect, as gradual correction may confuse learners.",ans:false,correct:"Sociocultural Theory: corrective feedback should be provided <span class='kw2'>step by step as scaffolding</span>, taking the form of <span class='kw2'>other-regulation</span> to help L achieve <span class='kw2'>self-regulation</span>.",why:"사회문화 이론의 관점에서 corrective feedback은 other-regulation의 형태로 self-regulation 달성을 돕고, ZPD 내에서 scaffolding으로 단계적으로 제공되어야 합니다.",source:"\"CF from Sociocultural Theory: 1) <span class='kw2'>other-regulation</span> → self-regulation. 2) <span class='kw2'>step by step as scaffolding</span>. 3) facilitates <span class='kw2'>ZPD</span>.\"",compare:[{title:"<span class='kw2'>Other-regulation</span>",desc:"feedback → towards self-regulation"},{title:"<span class='kw2'>Step by step</span>",desc:"scaffolding · within ZPD"}]},
-  {src:"Error Analysis",cat:"Source of Error",text:"<span class='kw1'>Induced errors</span> are caused by the learner's L1 interfering with the target language, making them a type of interlingual transfer error.",ans:false,correct:"<span class='kw1'>Induced errors</span> are caused by <span class='kw2'>faulty teaching or misleading textbook presentation</span> — not L1 interference. That would be <span class='kw4'>interference</span>.",why:"Source of error 4가지: ① Interlingual transfer(interference) ② Intralingual transfer(overgeneralization) ③ Context of learning(induced error — teacher/textbook) ④ Communication strategies. Induced errors는 교사의 잘못된 설명이나 교재의 오류로 인해 발생합니다.",source:"\"<span class='kw1'>Induced errors</span>: caused by Ls' faulty hypotheses due to <span class='kw2'>teachers' misleading explanation or faulty presentation in textbooks</span>.\"",compare:[{title:"<span class='kw4'>Interference</span>",desc:"L1 → L2 transfer · interlingual"},{title:"<span class='kw1'>Induced error</span>",desc:"<span class='kw2'>teacher/textbook</span> → wrong hypothesis"}]}
+    "src": "Contrastive Analysis",
+    "cat": "Types of Transfer",
+    "text": "<span class='kw1'>Interference</span> is a type of <span class='kw2'>intralingual</span> transfer where a learner overgeneralizes a rule within the target language itself.",
+    "ans": false,
+    "correct": "<span class='kw1'>Interference</span> is <span class='kw2'>interlingual</span> transfer (L1 → L2). <span class='kw1'>Overgeneralization</span> is <span class='kw2'>intralingual</span> transfer (within L2).",
+    "why": "Interference는 언어 간 영향 중 학습을 방해하는 negative transfer이다. Interlingual transfer 전체가 항상 오류는 아니며 positive transfer도 가능하다. Overgeneralization은 L2 안에서 특정 규칙을 허용 범위 이상으로 적용하는 경우다.",
+    "source": "출처 요약: Brown (2014), Principles of Language Learning and Teaching, 6th ed., pp.254–260.",
+    "compare": [
+      {
+        "title": "<span class='kw4'>Interference</span>",
+        "desc": "<span class='kw2'>interlingual</span> · L1 → L2 · e.g. 'see an exam'"
+      },
+      {
+        "title": "<span class='kw4'>Overgeneralization</span>",
+        "desc": "<span class='kw2'>intralingual</span> · L2 내 · e.g. 'I goed'"
+      }
+    ]
+  },
+  {
+    "src": "Contrastive Analysis",
+    "cat": "Avoidance & Overuse",
+    "text": "<span class='kw1'>Avoidance</span> occurs when a learner overuses a certain expression in the target language even when it sounds unnatural, because the same expression exists in their L1.",
+    "ans": false,
+    "correct": "Overuse는 특정 표현을 과도하게 사용하는 것이다. Avoidance는 어렵거나 불확실한 구조·표현을 피하는 것이다. L1–L2 차이는 그 원인 중 하나일 수 있다.",
+    "why": "관계절을 요구하는 과제에서도 학생이 단문 두 개로 바꾸어 쓰면 avoidance의 근거가 된다. 관계절 오류가 없다는 사실만으로 그 구조를 잘 안다고 판단하지 않는다. L1에 없는 구조만 회피하는 것은 아니다.",
+    "source": "출처 요약: Brown (2014), Principles of Language Learning and Teaching, 6th ed., pp.250–251.",
+    "compare": [
+      {
+        "title": "Avoidance",
+        "desc": "어렵거나 불확실한 표현을 피함"
+      },
+      {
+        "title": "Overuse",
+        "desc": "특정 표현을 과도하게 사용함"
+      }
+    ]
+  },
+  {
+    "src": "Contrastive Analysis",
+    "cat": "Strong vs Weak CAH",
+    "text": "The <span class='kw3'>strong version</span> of CAH analyzes errors <span class='kw2'>after</span> they occur to identify L1 influence, while the <span class='kw3'>weak version</span> predicts errors <span class='kw2'>before</span> they occur.",
+    "ans": false,
+    "correct": "Reversed. <span class='kw3'>Strong version</span>: <span class='kw2'>predicts</span> errors BEFORE by comparing L1–L2. <span class='kw3'>Weak version</span>: analyzes errors <span class='kw2'>after</span> they occur.",
+    "why": "Strong version은 L1-L2 대조 분석으로 오류를 사전 예측하고 어려운 항목을 가르칩니다. Weak version은 오류 발생 후 L1 영향을 파악하는 사후 분석 방식입니다.",
+    "source": "\"<span class='kw3'>Strong version</span>: Description → Contrast → <span class='kw2'>Prediction</span> (before error). <span class='kw3'>Weak version</span>: Contrast <span class='kw2'>after error</span>.\"",
+    "compare": [
+      {
+        "title": "<span class='kw3'>Strong CAH</span>",
+        "desc": "<span class='kw2'>predicts</span> errors BEFORE · L1 diff → teach"
+      },
+      {
+        "title": "<span class='kw3'>Weak CAH</span>",
+        "desc": "analyzes errors <span class='kw2'>after</span> · cross-linguistic influence"
+      }
+    ]
+  },
+  {
+    "src": "Interlanguage",
+    "cat": "Characteristics",
+    "text": "<span class='kw4'>Interlanguage</span> is a fixed, static system that reflects only the learner's L1 without any influence from the target language.",
+    "ans": false,
+    "correct": "<span class='kw4'>Interlanguage</span> is <span class='kw2'>systematic, variable, and dynamic</span> — an intermediate system between L1 and TL that evolves over time.",
+    "why": "Interlanguage는 L1과 TL 사이의 중간 체계로, 고정되어 있지 않고 체계적(systematic)이면서 가변적(variable)이고 역동적(dynamic)으로 발달합니다.",
+    "source": "\"<span class='kw4'>Interlanguage</span>: An intermediate system between L1 and TL. <span class='kw2'>Systematic, Variable, Dynamic</span>. Own unique, coherent rule system.\"",
+    "compare": [
+      {
+        "title": "<span class='kw2'>Systematic</span>",
+        "desc": "own coherent rule system"
+      },
+      {
+        "title": "<span class='kw2'>Variable</span>",
+        "desc": "varies across contexts"
+      },
+      {
+        "title": "<span class='kw2'>Dynamic</span>",
+        "desc": "changes and develops"
+      }
+    ]
+  },
+  {
+    "src": "Interlanguage",
+    "cat": "Developmental Stages",
+    "text": "In the <span class='kw3'>emergent stage</span>, learners can self-correct when given feedback, and their production shows consistent rule application.",
+    "ans": false,
+    "correct": "<span class='kw3'>Emergent stage</span>: some consistency but <span class='kw2'>NO self-correction</span> with feedback (<span class='kw2'>backsliding</span> occurs). Self-correction appears in the <span class='kw3'>systematic stage</span>.",
+    "why": "Presystematic(random errors) → Emergent(일부 일관성, backsliding, self-correction X) → Systematic(self-correction O) → Stabilization(few errors, self-correction before feedback).",
+    "source": "\"<span class='kw3'>Emergent stage</span>: Some consistency; <span class='kw2'>Backsliding</span>; <span class='kw2'>No self-correction</span>. <span class='kw3'>Systematic stage</span>: <span class='kw2'>Ability to self-correct</span>.\"",
+    "compare": [
+      {
+        "title": "<span class='kw3'>Emergent</span>",
+        "desc": "backsliding · NO self-correct"
+      },
+      {
+        "title": "<span class='kw3'>Systematic</span>",
+        "desc": "self-correct with feedback"
+      },
+      {
+        "title": "<span class='kw3'>Stabilization</span>",
+        "desc": "self-correct WITHOUT feedback"
+      }
+    ]
+  },
+  {
+    "src": "Interlanguage",
+    "cat": "Fossilization",
+    "text": "<span class='kw3'>Fossilization</span> is a temporary stage in interlanguage development where learners make consistent errors that can be easily corrected through explicit feedback.",
+    "ans": false,
+    "correct": "Fossilization은 비목표어 형태가 상대적으로 오래 지속되는 현상이다. 일시적인 오류 증가와 다르며, explicit feedback만으로 쉽게 해소된다고 할 수 없다.",
+    "why": "Brown은 feedback 외에도 동기, 주의, input과 사회적 맥락 등을 논의한다. 한 번의 오류나 교정 실패만으로 fossilization을 판단하지 않는다. 관찰된 plateau에는 이후 발달 가능성이 남아 있으며, explicit feedback이 예방이나 해소를 보장하지는 않는다.",
+    "source": "출처 요약: Brown (2014), Principles of Language Learning and Teaching, 6th ed., pp.264–266.",
+    "compare": [
+      {
+        "title": "Fossilization",
+        "desc": "비목표어 형태의 상대적으로 지속적인 정착"
+      },
+      {
+        "title": "Teaching response",
+        "desc": "오류 인식과 재산출을 돕고 이후 발달을 관찰"
+      }
+    ]
+  },
+  {
+    "src": "Interlanguage",
+    "cat": "U-shaped Learning",
+    "text": "<span class='kw3'>U-shaped learning</span> refers to a pattern where learners produce correct forms initially, then begin making errors, and eventually return to correct production.",
+    "ans": true,
+    "correct": "U-shaped learning은 정확한 산출 → 부정확한 산출 → 다시 정확한 산출이라는 패턴이다. 불규칙 과거형에서 초기 정확성은 어휘 단위로 기억한 결과일 수 있고, 중간 오류는 규칙의 overgeneralization으로 설명할 수 있다.",
+    "why": "가령 bought → buyed → bought라는 세 시점의 변화가 관찰되면 전체가 U-shaped pattern이다. 앞의 정확한 형태가 틀린 형태로 바뀌는 구간은 backsliding이다. 한 번의 정답이나 오답만으로 전체 발달 패턴을 판단하지 않는다.",
+    "source": "출처 요약: Brown (2014), Principles of Language Learning and Teaching, 6th ed., pp.244–246.",
+    "compare": [
+      {
+        "title": "Phase 1 (correct)",
+        "desc": "imitation · lexical item"
+      },
+      {
+        "title": "Phase 2 (incorrect)",
+        "desc": "<span class='kw2'>overgeneralization</span>"
+      },
+      {
+        "title": "Phase 3 (correct)",
+        "desc": "rule <span class='kw2'>internalized</span>"
+      }
+    ]
+  },
+  {
+    "src": "Error Analysis",
+    "cat": "Global vs Local",
+    "text": "<span class='kw3'>Local errors</span> are errors that hinder communication and must be corrected, while <span class='kw3'>global errors</span> do not prevent a message from being understood.",
+    "ans": false,
+    "correct": "분류가 뒤바뀌었다. Global errors는 의사소통을 방해하고, local errors는 오류가 있어도 의도한 의미를 이해할 수 있다.",
+    "why": "판별 기준은 실제 이해에 미치는 영향이다. Global error는 의사소통 회복을 위한 feedback의 우선 대상이다. Local error의 교정 여부와 시점은 수업 목표, 오류의 중요성, 학습자의 상태에 따라 판단한다. Accuracy 수업이라도 모든 오류를 즉시 고쳐야 하는 것은 아니다.",
+    "source": "출처 요약: Brown (2014), Principles of Language Learning and Teaching, 6th ed., pp.252–254, 267–269.",
+    "compare": [
+      {
+        "title": "Global error",
+        "desc": "의미 전달을 막음 · 교정 우선"
+      },
+      {
+        "title": "Local error",
+        "desc": "의미는 전달됨 · 교정 여부와 시점 선택"
+      }
+    ]
+  },
+  {
+    "src": "Error Analysis",
+    "cat": "Overt vs Covert",
+    "text": "<span class='kw1'>Covert errors</span> are errors that are clearly ungrammatical at the sentence level and can be easily identified by looking at the sentence structure alone.",
+    "ans": false,
+    "correct": "That describes <span class='kw1'>overt errors</span>. <span class='kw1'>Covert errors</span> are grammatically <span class='kw2'>well-formed at sentence level</span> but not interpretable in the <span class='kw2'>context of communication</span>.",
+    "why": "Overt errors는 문장 차원에서 명백히 비문법적인 오류입니다. Covert errors는 문장 자체는 문법적이지만 의사소통 맥락에서 해석이 불가능한 오류입니다.",
+    "source": "\"<span class='kw1'>Overt errors</span>: noticed on the <span class='kw2'>sentence level</span>. <span class='kw1'>Covert errors</span>: <span class='kw2'>grammatically well formed</span> but not interpretable within <span class='kw2'>context</span>.\"",
+    "compare": [
+      {
+        "title": "<span class='kw1'>Overt error</span>",
+        "desc": "sentence level · <span class='kw2'>ungrammatical</span>"
+      },
+      {
+        "title": "<span class='kw1'>Covert error</span>",
+        "desc": "grammatically OK · <span class='kw2'>discourse level</span>"
+      }
+    ]
+  },
+  {
+    "src": "Corrective Feedback",
+    "cat": "Recast",
+    "text": "<span class='kw4'>Recast</span> is an explicit type of corrective feedback that interrupts the flow of communication to directly indicate the error and provide the correct form.",
+    "ans": false,
+    "correct": "Recast는 오류를 포함한 발화를 목표어 형태로 바꾸어 제시한다. 보통 오류를 직접 선언하지 않으며, 오류를 명시하고 정답을 제공하는 explicit correction과 구별한다.",
+    "why": "Recast는 의미를 이어가면서 올바른 형태를 제시할 수 있다. 다만 강조·억양·맥락에 따라 교정 의도가 더 두드러질 수도 있다. 항상 동일하게 implicit하거나 반드시 대화를 끊지 않는다고 절대화하지 않는다.",
+    "source": "출처 요약: Brown (2014), Principles of Language Learning and Teaching, 6th ed., pp.272–275.",
+    "compare": [
+      {
+        "title": "Recast",
+        "desc": "의미를 유지하며 발화를 재구성"
+      },
+      {
+        "title": "Explicit correction",
+        "desc": "오류를 명시하고 올바른 형태 제공"
+      }
+    ]
+  },
+  {
+    "src": "Corrective Feedback",
+    "cat": "Metalinguistic Feedback",
+    "text": "<span class='kw3'>Metalinguistic feedback</span> provides both a comment about the error AND the correct form, helping learners immediately understand what the correct structure should be.",
+    "ans": false,
+    "correct": "<span class='kw3'>Metalinguistic feedback</span> provides comments/questions about the error but does <span class='kw2'>NOT explicitly provide the correct form</span>.",
+    "why": "Metalinguistic feedback는 오류의 성격에 대한 언어적 설명을 제공하지만 올바른 형태를 직접 제시하지 않습니다. (e.g. 'Can you find the error?', 'What is the past tense of this verb?')",
+    "source": "\"<span class='kw3'>Metalinguistic feedback</span>: Points out nature of error <span class='kw2'>without explicitly providing the correct form</span>.\"",
+    "compare": [
+      {
+        "title": "<span class='kw3'>Metalinguistic</span>",
+        "desc": "comment/question · <span class='kw2'>NO correct form</span>"
+      },
+      {
+        "title": "<span class='kw2'>Explicit correction</span>",
+        "desc": "indicate error + <span class='kw2'>provides correct form</span>"
+      }
+    ]
+  },
+  {
+    "src": "Corrective Feedback",
+    "cat": "Elicitation",
+    "text": "<span class='kw3'>Elicitation</span> is a technique that provides the correct form directly to the learner in response to their error, without requiring any learner participation.",
+    "ans": false,
+    "correct": "<span class='kw3'>Elicitation</span> <span class='kw2'>directly elicits the correct form FROM the learner</span> — pushes L to <span class='kw2'>self-correct</span> using incomplete sentences or questions.",
+    "why": "Elicitation은 교사가 정답을 주는 것이 아니라 학습자가 스스로 올바른 형태를 생산하도록 유도하는 기법입니다. (e.g. 'He comes...' / 'We are...?')",
+    "source": "\"<span class='kw3'>Elicitation</span>: directly elicit correct form <span class='kw2'>from the L</span>. Pushes L to <span class='kw2'>self-correct</span>.\"",
+    "compare": [
+      {
+        "title": "<span class='kw3'>Elicitation</span>",
+        "desc": "L이 <span class='kw2'>self-correct</span>하도록 유도"
+      },
+      {
+        "title": "<span class='kw3'>Metalinguistic</span>",
+        "desc": "error 성격 설명 · no correct form"
+      }
+    ]
+  },
+  {
+    "src": "Corrective Feedback",
+    "cat": "Uptake",
+    "text": "<span class='kw3'>Uptake</span> is a learner utterance that immediately follows corrective feedback and reacts to its corrective intent; it may involve repair or still need repair.",
+    "ans": true,
+    "correct": "<span class='kw3'>Uptake</span>는 교정 피드백의 의도에 대한 학습자의 즉각적인 반응입니다. 오류를 고친 <span class='kw2'>repair</span>와 추가 교정이 필요한 <span class='kw2'>needs-repair</span>로 나눕니다.",
+    "why": "단순히 교사 발화 뒤에 나온 모든 발화를 뜻하지는 않습니다. 교사가 특정 언어 형식에 주의를 돌리려 한 것에 반응해야 합니다. Lyster와 Ranta(1997)의 분류에서 acknowledgement는 needs-repair에 포함됩니다. Uptake가 관찰되었다는 사실만으로 지속적인 습득까지 입증할 수는 없습니다.",
+    "source": "출처 요약: Lyster & Ranta (1997), Corrective Feedback and Learner Uptake, pp.49–50. Uptake는 교정 의도에 반응하는 발화이며 repair와 needs-repair로 구분된다. 직접 인용이 아님.",
+    "compare": [
+      {
+        "title": "Repair",
+        "desc": "목표 오류가 교정된 반응"
+      },
+      {
+        "title": "Needs-repair",
+        "desc": "acknowledgement 또는 아직 교정이 필요한 반응"
+      },
+      {
+        "title": "No uptake",
+        "desc": "교정 의도에 대한 학습자의 반응이 나타나지 않음"
+      }
+    ]
+  },
+  {
+    "src": "Corrective Feedback",
+    "cat": "Implicit vs Explicit",
+    "text": "<span class='kw4'>Recast</span> is categorized as explicit negative feedback because it clearly signals to learners that their utterance contained an error.",
+    "ans": false,
+    "correct": "Recast는 통상 implicit corrective feedback으로 설명한다. 오류라고 직접 지적하는 대신 수정한 형태를 제시하므로 학습자가 교정 의도를 놓칠 수 있다.",
+    "why": "형태를 다시 제시했다는 것과 오류임을 명시했다는 것은 다르다. 강조와 맥락에 따라 recast가 더 눈에 띌 수 있으나, 모든 recast가 오류를 명확히 알리는 explicit negative feedback이라는 주장은 틀리다.",
+    "source": "출처 요약: Brown (2014), Principles of Language Learning and Teaching, 6th ed., pp.272–275.",
+    "compare": [
+      {
+        "title": "Recast",
+        "desc": "수정 형태 제공 · 교정 의도 인식은 보장되지 않음"
+      },
+      {
+        "title": "Explicit correction",
+        "desc": "오류라는 점을 명시"
+      }
+    ]
+  },
+  {
+    "src": "Modified Input",
+    "cat": "Foreigner Talk vs Teacher Talk",
+    "text": "<span class='kw3'>Foreigner talk</span> and <span class='kw3'>teacher talk</span> refer to the same type of modified input, as both involve simplification of speech for non-proficient speakers in a classroom context.",
+    "ans": false,
+    "correct": "<span class='kw3'>Foreigner talk</span> = used by <span class='kw2'>native speakers</span> speaking to non-proficient foreigners. <span class='kw3'>Teacher talk</span> = input provided by the <span class='kw2'>teacher</span> in classroom.",
+    "why": "Foreigner talk는 능숙한 화자가 덜 능숙한 상대에게 조절한 말의 성격에, teacher talk는 교실에서 교사가 사용하는 말에 초점을 둔다. 두 범주는 같은 정의가 아니지만 겹칠 수 있으며, foreigner talk가 반드시 교실 밖에서만 일어나는 것은 아니다.",
+    "source": "출처 요약: Brown (2014), Principles of Language Learning and Teaching, 6th ed., pp.262–263, 296.",
+    "compare": [
+      {
+        "title": "<span class='kw2'>Care-taker talk</span>",
+        "desc": "parents → young children"
+      },
+      {
+        "title": "<span class='kw3'>Foreigner talk</span>",
+        "desc": "native speakers → foreigners"
+      },
+      {
+        "title": "<span class='kw3'>Teacher talk</span>",
+        "desc": "teacher → classroom Ss"
+      }
+    ]
+  },
+  {
+    "src": "Modified Input",
+    "cat": "Input Modification Types",
+    "text": "<span class='kw1'>Elaboration</span> involves replacing complex vocabulary and grammar with simpler forms to make input more comprehensible.",
+    "ans": false,
+    "correct": "제시된 설명은 simplification이다. Elaboration은 원래의 내용을 다른 말로 풀거나 반복해 이해를 돕는다.",
+    "why": "Simplification은 복잡한 어휘·구조를 단순한 것으로 바꾸는 데 초점을 둔다. Elaboration은 원래 표현에 재진술과 설명을 더할 수 있다. 입력을 이해하기 쉽게 만드는 것은 학습 기회를 돕지만 모든 elaboration이 자동으로 습득을 일으키는 것은 아니다.",
+    "source": "출처 요약: Brown (2014), Principles of Language Learning and Teaching, 6th ed., pp.262–263, 296.",
+    "compare": [
+      {
+        "title": "Simplification",
+        "desc": "복잡한 표현을 더 단순하게 바꿈"
+      },
+      {
+        "title": "Elaboration",
+        "desc": "재진술·반복·설명으로 이해를 도움"
+      }
+    ]
+  },
+  {
+    "src": "Corrective Feedback",
+    "cat": "Display Q vs Referential Q",
+    "text": "A <span class='kw4'>referential question</span> is one to which the teacher already knows the answer and uses it to check students' comprehension of course content.",
+    "ans": false,
+    "correct": "That describes a <span class='kw4'>display question</span>. A <span class='kw4'>referential question</span> is one where the <span class='kw2'>teacher/questioner does NOT know</span> the answer beforehand.",
+    "why": "Display question은 교사가 이미 답을 알고 이해도를 확인하는 질문입니다. Referential question은 교사도 답을 모르는 진짜 정보 요청 질문으로 authentic communication을 촉진합니다.",
+    "source": "\"<span class='kw4'>Display question</span>: elicit information <span class='kw2'>already known</span>. <span class='kw4'>Referential question</span>: T does <span class='kw2'>not know</span> the answer beforehand.\"",
+    "compare": [
+      {
+        "title": "<span class='kw4'>Display Q</span>",
+        "desc": "T <span class='kw2'>already knows</span> answer"
+      },
+      {
+        "title": "<span class='kw4'>Referential Q</span>",
+        "desc": "T does <span class='kw2'>NOT know</span> answer"
+      }
+    ]
+  },
+  {
+    "src": "Corrective Feedback",
+    "cat": "Pushed / Modified Output",
+    "text": "<span class='kw3'>Modified output</span> and <span class='kw3'>pushed output</span> refer to the same concept — any learner utterance that has been corrected following teacher feedback.",
+    "ans": false,
+    "correct": "Pushed output은 더 정확하고 적절한 표현을 요구받는 학습자의 산출이다. Modified output은 학습자가 이전 발화를 실제로 바꾸어 산출한 것이다. 두 개념은 겹칠 수 있지만 동일한 정의가 아니다.",
+    "why": "교사나 상대방의 요구는 output을 유도할 수 있지만 교사의 요구 자체가 학습자의 output은 아니다. “She go yesterday”를 “She goed yesterday”로 바꾸었다면 modified output이지만 완전한 repair는 아니다. 수정 여부와 정확성 여부를 따로 판단한다.",
+    "source": "출처 요약: Brown (2014), Principles of Language Learning and Teaching, 6th ed., pp.272–275; <a href=\"https://www.cambridge.org/core/journals/studies-in-second-language-acquisition/article/abs/identifying-the-impact-of-negative-feedback-and-learners-responses-on-esl-question-development/E50A60C44843C2AFFF8AF436A513630F\">McDonough (2005), Identifying the Impact of Negative Feedback and Learners’ Responses on ESL Question Development</a>.",
+    "compare": [
+      {
+        "title": "Pushed output",
+        "desc": "더 정확하고 적절한 표현을 요구받는 산출"
+      },
+      {
+        "title": "Modified output",
+        "desc": "앞선 발화를 실제로 변경한 산출"
+      },
+      {
+        "title": "Repair",
+        "desc": "목표 오류가 교정된 반응"
+      }
+    ]
+  },
+  {
+    "src": "Corrective Feedback",
+    "cat": "Sociocultural Implication",
+    "text": "From a Sociocultural Theory perspective, corrective feedback should be delivered all at once for maximum effect, as gradual correction may confuse learners.",
+    "ans": false,
+    "correct": "Sociocultural Theory: corrective feedback should be provided <span class='kw2'>step by step as scaffolding</span>, taking the form of <span class='kw2'>other-regulation</span> to help L achieve <span class='kw2'>self-regulation</span>.",
+    "why": "사회문화 관점에서 도움은 학습자가 현재 혼자 할 수 있는 일과 도움을 받아 할 수 있는 일에 맞춰 조절한다. 학생이 스스로 고치면 도움을 줄이고, 어려워하면 더 구체적인 단서를 제공할 수 있다. 모든 학생에게 정해진 순서와 양의 교정을 한꺼번에 주는 방식은 아니다.",
+    "source": "출처 요약: Brown (2014), Principles of Language Learning and Teaching, 6th ed., pp.295–296.",
+    "compare": [
+      {
+        "title": "<span class='kw2'>Other-regulation</span>",
+        "desc": "feedback → towards self-regulation"
+      },
+      {
+        "title": "<span class='kw2'>Step by step</span>",
+        "desc": "scaffolding · within ZPD"
+      }
+    ]
+  },
+  {
+    "src": "Error Analysis",
+    "cat": "Source of Error",
+    "text": "<span class='kw1'>Induced errors</span> are caused by the learner's L1 interfering with the target language, making them a type of interlingual transfer error.",
+    "ans": false,
+    "correct": "<span class='kw1'>Induced errors</span> are caused by <span class='kw2'>faulty teaching or misleading textbook presentation</span> — not L1 interference. That would be <span class='kw4'>interference</span>.",
+    "why": "Source of error 4가지: ① Interlingual transfer(interference) ② Intralingual transfer(overgeneralization) ③ Context of learning(induced error — teacher/textbook) ④ Communication strategies. Induced errors는 교사의 잘못된 설명이나 교재의 오류로 인해 발생합니다.",
+    "source": "\"<span class='kw1'>Induced errors</span>: caused by Ls' faulty hypotheses due to <span class='kw2'>teachers' misleading explanation or faulty presentation in textbooks</span>.\"",
+    "compare": [
+      {
+        "title": "<span class='kw4'>Interference</span>",
+        "desc": "L1 → L2 transfer · interlingual"
+      },
+      {
+        "title": "<span class='kw1'>Induced error</span>",
+        "desc": "<span class='kw2'>teacher/textbook</span> → wrong hypothesis"
+      }
+    ]
+  }
 ];
 function renderExp(q,isCorrect){
   const three=q.compare&&q.compare.length===3;
@@ -280,3 +642,4 @@ function freshStart(){localStorage.removeItem(SAVE_KEY);cur=0;answers=new Array(
 <script src="./study-return.js"></script>
 </body>
 </html>
+

@@ -142,183 +142,375 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f5f4ee;background-image:r
 <script src="./sounds.js"></script>
 <script>
 const Q=[
-  {src:"Three Approaches",cat:"Focus on Form",
-   text:"According to Long (1991), <span class='kw1'>Focus on Form</span> overtly draws students' attention to linguistic elements <span class='kw2'>as they arise incidentally</span> in lessons whose overriding focus is on <span class='kw2'>meaning or communication</span>.",
-   ans:true,
-   correct:"<span class='kw1'>Focus on Form (FonF)</span>의 핵심: 의미·소통 중심 수업에서 언어 형식에 <span class='kw2'>incidentally</span>(우발적으로) 주의를 기울이도록 하는 접근입니다.",
-   why:"FonF는 의미 중심 활동 중 언어 형식에 부수적으로 주의를 기울이는 것이며, FonFS(Focus on FormS)는 사전에 선정된 문법 항목을 체계적으로 가르치는 방식입니다. 핵심 차이: FonF는 meaning이 primary, FonFS는 form이 primary입니다.",
-   source:"\"Focus on Form: <span class='kw2'>overtly draws students' attention</span> to linguistic elements as they arise <span class='kw2'>incidentally</span> in lessons whose overriding focus is on <span class='kw2'>meaning or communication</span>.\" (Long, 1991)",
-   compare:[{title:"<span class='kw1'>Focus on Form (FonF)</span>",desc:"meaning primary · form attention incidental"},{title:"<span class='kw3'>Focus on Forms (FonFS)</span>",desc:"form primary · pre-selected items · isolated"}]},
-
-  {src:"Three Approaches",cat:"Focus on Forms",
-   text:"<span class='kw3'>Focus on Forms</span> is a traditional grammar approach in which <span class='kw4'>pre-selected</span> grammatical items are taught <span class='kw4'>in isolation</span> from meaningful context, making it a purely form-focused syllabus.",
-   ans:true,
-   correct:"<span class='kw3'>Focus on Forms (FonFS)</span>의 핵심: <span class='kw4'>pre-selected</span> 문법 항목을 의미 맥락과 분리하여(in isolation) 가르치는 전통적 문법 교수법입니다.",
-   why:"FonFS는 Grammar Translation Method(GTM), Audiolingual Method(ALM) 등 전통적 접근법의 특징으로, 미리 선정된 문법 항목을 순차적으로 가르칩니다. 의미보다 형식 중심이며, 실제 의사소통과 분리됩니다.",
-   source:"\"<span class='kw3'>Focus on Forms</span>: a grammar-based approach that <span class='kw4'>systematically teaches pre-selected grammatical items</span> in isolation from meaningful context and communication.\"",
-   compare:[{title:"<span class='kw3'>Focus on Forms</span>",desc:"pre-selected · isolated · form primary · GTM/ALM"},{title:"<span class='kw2'>Focus on Meaning</span>",desc:"no explicit form attention · incidental · Natural Approach"}]},
-
-  {src:"Types of FonF",cat:"Reactive vs Proactive",
-   text:"<span class='kw3'>Reactive Focus on Form</span> is planned in advance before the lesson based on anticipated learner problems, while <span class='kw3'>Proactive Focus on Form</span> occurs spontaneously in response to learner errors during communication.",
-   ans:false,
-   correct:"반대입니다. <span class='kw3'>Proactive FonF</span> = 사전 계획된(planned in advance) form 교수. <span class='kw3'>Reactive FonF</span> = 수업 중 learner error에 즉각 반응하는(spontaneous) form 교수.",
-   why:"Proactive FonF는 교사가 학습자들이 어려워할 것으로 예상되는 form을 사전에 계획하여 가르치는 방식입니다. Reactive FonF는 실제 의사소통 중 발생하는 오류에 즉각적으로 반응하는 방식입니다.",
-   source:"\"<span class='kw3'>Proactive FonF</span>: <span class='kw2'>planned in advance</span> by T. <span class='kw3'>Reactive FonF</span>: occurs <span class='kw2'>spontaneously</span> in response to Ss' errors during communicative activity.\"",
-   compare:[{title:"<span class='kw3'>Proactive</span>",desc:"planned before lesson · anticipated problems"},{title:"<span class='kw3'>Reactive</span>",desc:"spontaneous · in-response to actual errors"}]},
-
-  {src:"Explicit vs Implicit",cat:"Knowledge Types",
-   text:"<span class='kw2'>Explicit grammar instruction</span> primarily develops <span class='kw4'>implicit/procedural knowledge</span> that learners can use automatically, while <span class='kw2'>implicit instruction</span> develops <span class='kw4'>explicit/declarative knowledge</span>.",
-   ans:false,
-   correct:"반대입니다. <span class='kw2'>Explicit instruction</span> → <span class='kw1'>declarative/explicit knowledge</span>(의식적 규칙 이해). <span class='kw2'>Implicit instruction</span> → <span class='kw1'>procedural/implicit knowledge</span>(자동적 사용).",
-   why:"Explicit instruction(명시적 교수)은 의식적으로 규칙을 이해하는 declarative knowledge를 발달시킵니다. Implicit instruction(암시적 교수)은 학습자가 언어를 자동적으로 사용하는 procedural knowledge를 발달시킵니다.",
-   source:"\"<span class='kw2'>Explicit instruction</span> → <span class='kw1'>declarative/explicit knowledge</span>. <span class='kw2'>Implicit instruction</span> → <span class='kw1'>procedural/implicit knowledge</span>.\"",
-   compare:[{title:"<span class='kw2'>Explicit instruction</span>",desc:"conscious rule knowledge · declarative"},{title:"<span class='kw2'>Implicit instruction</span>",desc:"automatic use · procedural · ALM, input enhancement"}]},
-
-  {src:"Deductive vs Inductive",cat:"Deductive Approach",
-   text:"In the <span class='kw3'>deductive approach</span>, the teacher presents the grammatical <span class='kw2'>rule first</span>, followed by examples and practice, which is considered more <span class='kw2'>time-efficient</span> than the inductive approach.",
-   ans:true,
-   correct:"<span class='kw3'>Deductive approach</span>: rule 먼저 → examples → practice. 시간 효율적(time-efficient)이지만 학습 기억에는 덜 효과적입니다.",
-   why:"Deductive approach는 교사가 문법 규칙을 명시적으로 제시하고 학습자가 이를 연습하는 방식입니다. 장점: time-efficient(수업 시간 효율), 단점: 덜 memorable. GTM과 연결됩니다.",
-   source:"\"<span class='kw3'>Deductive approach</span>: rule-driven. <span class='kw2'>Rule presented first</span>, followed by examples and practice. <span class='kw2'>Time-efficient</span> but less memorable.\"",
-   compare:[{title:"<span class='kw3'>Deductive</span>",desc:"rule → examples → practice · time-efficient"},{title:"<span class='kw1'>Inductive</span>",desc:"examples → discover rule · memorable · time-consuming"}]},
-
-  {src:"Deductive vs Inductive",cat:"Inductive Approach",
-   text:"The <span class='kw1'>inductive approach</span> is faster and more efficient than the deductive approach, as learners can directly apply rules given by the teacher without spending time on rule discovery.",
-   ans:false,
-   correct:"Inductive approach는 deductive보다 <span class='kw4'>시간이 더 걸립니다(time-consuming)</span>. 학습자가 데이터에서 규칙을 직접 발견해야 하기 때문입니다.",
-   why:"Inductive approach는 학습자가 언어 데이터를 분석하여 스스로 규칙을 도출(discover)하는 방식입니다. 더 memorable하고 자율성을 키워주지만 time-consuming합니다. Deductive가 더 time-efficient합니다.",
-   source:"\"<span class='kw1'>Inductive approach</span>: data → Ss discover rule. <span class='kw2'>More memorable</span> and promotes learner autonomy, but <span class='kw4'>less time-efficient</span> than deductive.\"",
-   compare:[{title:"<span class='kw4'>Inductive 단점</span>",desc:"time-consuming · Ss may discover wrong rule"},{title:"<span class='kw2'>Inductive 장점</span>",desc:"more memorable · promotes learner autonomy"}]},
-
-  {src:"Corrective Feedback",cat:"Recast",
-   text:"<span class='kw4'>Recast</span> is a type of <span class='kw2'>implicit</span> corrective feedback in which the teacher <span class='kw2'>reformulates</span> a learner's erroneous utterance while maintaining the <span class='kw2'>conversational focus on meaning</span>.",
-   ans:true,
-   correct:"<span class='kw4'>Recast</span>의 핵심: ① implicit feedback ② 학습자 발화를 <span class='kw2'>reformulate</span>(교정하여 재말하기) ③ 의미 초점 유지. 학습자는 교사의 reformulation을 교정으로 인식하지 못할 수 있습니다.",
-   why:"Recast는 수업 중 가장 자주 발생하는 corrective feedback 유형입니다. Implicit하기 때문에 학습자가 교정임을 인식하지 못하는 경우가 많아 uptake 비율이 낮습니다.",
-   source:"\"<span class='kw4'>Recast</span>: T <span class='kw2'>reformulates</span> Ss' incorrect utterance, correcting the error while <span class='kw2'>maintaining conversational focus on meaning</span>. Type of <span class='kw2'>implicit</span> corrective feedback.\"",
-   compare:[{title:"<span class='kw4'>Recast</span>",desc:"implicit · reformulate · meaning focus"},{title:"<span class='kw1'>Explicit correction</span>",desc:"explicit · provides correct form directly · may signal error"}]},
-
-  {src:"Corrective Feedback",cat:"Recast Limitation",
-   text:"<span class='kw4'>Recast</span> is widely considered the most effective type of corrective feedback for L2 acquisition because learners are always aware that their utterance is being corrected.",
-   ans:false,
-   correct:"Recast의 핵심 한계: <span class='kw4'>implicit</span>하기 때문에 학습자가 교정을 받고 있다는 것을 <span class='kw4'>인식하지 못할 수 있어</span>(ambiguous) uptake 비율이 낮고 덜 효과적일 수 있습니다.",
-   why:"Recast의 문제점: 학습자가 교사의 reformulation을 교정으로 인식하지 않고 단순한 확인(confirmation)이나 반복(repetition)으로 받아들일 수 있습니다. Prompt(예: elicitation, clarification request)가 uptake 비율이 더 높은 경향이 있습니다.",
-   source:"\"Recast: <span class='kw4'>may not be noticed</span> by Ss as corrective feedback (ambiguous). Low uptake rate. Less effective when Ss are not developmentally ready.\"",
-   compare:[{title:"<span class='kw4'>Recast 한계</span>",desc:"ambiguous · learner may not notice · low uptake"},{title:"<span class='kw2'>Prompt 장점</span>",desc:"explicit signal · pushes self-repair · higher uptake"}]},
-
-  {src:"Corrective Feedback",cat:"Clarification Request",
-   text:"A <span class='kw1'>clarification request</span> is classified as a type of <span class='kw4'>input-providing</span> corrective feedback because the teacher directly supplies the learner with the grammatically correct form.",
-   ans:false,
-   correct:"<span class='kw1'>Clarification request</span>는 <span class='kw2'>prompt</span> 유형입니다. Teacher는 correct form을 직접 제공하지 않고, 이해하지 못했다는 신호를 보내어 학습자 스스로 repair하도록 push합니다.",
-   why:"Clarification request는 'Sorry?', 'What do you mean?' 등의 표현으로 메시지가 이해되지 않았음을 알립니다. Input-providing feedback(recast, explicit correction)과 달리, learner에게 self-repair 기회를 줍니다.",
-   source:"\"<span class='kw1'>Clarification request</span>: a <span class='kw2'>prompt</span> that signals non-understanding of Ss' message; <span class='kw2'>elicits self-repair</span>. NOT input-providing. Classified alongside metalinguistic feedback, elicitation, repetition.\"",
-   compare:[{title:"<span class='kw2'>Prompts</span>",desc:"CR · metalinguistic · elicitation · repetition → self-repair"},{title:"<span class='kw3'>Input-providing</span>",desc:"recast · explicit correction → correct form supplied"}]},
-
-  {src:"Corrective Feedback",cat:"Metalinguistic Feedback",
-   text:"<span class='kw3'>Metalinguistic feedback</span> directly provides the learner with the correct form and then gives a grammatical explanation of why the error occurred, functioning as explicit correction with added explanation.",
-   ans:false,
-   correct:"<span class='kw3'>Metalinguistic feedback</span>는 correct form을 <span class='kw4'>직접 제공하지 않습니다</span>. Error의 유형을 comment·question·metalinguistic information의 세 가지 방식으로 설명할 뿐입니다.",
-   why:"Metalinguistic feedback의 세 가지 유형: ① comment(예: 'Be careful with tense') ② question(예: 'Is that the right tense?') ③ metalinguistic information(예: 'Past tense is needed here'). 정확한 correct form을 직접 제시하지 않는 prompt입니다.",
-   source:"\"<span class='kw3'>Metalinguistic feedback</span>: T provides <span class='kw4'>comments, questions, or information</span> related to the Ss' error <span class='kw4'>without providing the correct form</span>. Three types: comment / question / metalinguistic information.\"",
-   compare:[{title:"<span class='kw3'>Metalinguistic feedback</span>",desc:"comment / question / info · no correct form"},{title:"<span class='kw1'>Explicit correction</span>",desc:"directly provides correct form · may add explanation"}]},
-
-  {src:"Corrective Feedback",cat:"Elicitation",
-   text:"<span class='kw3'>Elicitation</span> is a corrective feedback technique that <span class='kw2'>directly induces the learner</span> to produce the correct form through incomplete utterances, direct questions, or explicit invitations to reformulate.",
-   ans:true,
-   correct:"<span class='kw3'>Elicitation</span>의 핵심: 학습자가 correct form을 스스로 생성(produce)하도록 직접 유도합니다. 방법: ① incomplete utterance ② direct question ③ explicit invitation to reformulate.",
-   why:"Elicitation은 prompt의 한 유형으로, 예: 'Can you say that again?', 'What do we say?' 또는 문장을 완성하지 않고 멈추기 등의 방법을 사용합니다. Learner의 능동적 self-repair를 요구합니다.",
-   source:"\"<span class='kw3'>Elicitation</span>: T directly induces Ss to self-repair by using an <span class='kw2'>incomplete utterance, a question, or an explicit invitation</span> to reformulate the erroneous utterance.\"",
-   compare:[{title:"<span class='kw3'>Elicitation 방법</span>",desc:"incomplete sentence / direct question / invitation"},{title:"<span class='kw3'>Elicitation vs Recast</span>",desc:"elicitation = prompt · recast = input-providing"}]},
-
-  {src:"Corrective Feedback",cat:"Repetition",
-   text:"<span class='kw2'>Repetition</span> as corrective feedback involves the teacher <span class='kw2'>repeating the learner's erroneous utterance</span> with an <span class='kw2'>exaggerated or altered intonation</span> to signal the presence of an error and allow self-repair.",
-   ans:true,
-   correct:"<span class='kw2'>Repetition</span>의 핵심: 학습자의 <span class='kw2'>오류 발화를 그대로 반복</span>하되 <span class='kw2'>강조된 intonation</span>으로 발화하여 오류가 있음을 알리고 self-repair 기회를 줍니다.",
-   why:"Repetition은 prompt의 한 유형입니다. 올바른 형태를 직접 제공하지 않고 오류를 강조하여 반복함으로써 학습자 스스로 오류를 인식하도록 합니다. Implicit한 recast와 달리, 오류임을 더 명확히 신호합니다.",
-   source:"\"<span class='kw2'>Repetition</span>: T repeats the ill-formed utterance, <span class='kw2'>adjusting intonation to highlight the error</span>. Prompt type — learner expected to self-repair.\""},
-
-  {src:"Corrective Feedback",cat:"Explicit Correction",
-   text:"<span class='kw1'>Explicit correction</span> is classified as a <span class='kw2'>prompt</span> because it pushes learners to produce the target form on their own rather than directly supplying the correct form.",
-   ans:false,
-   correct:"<span class='kw1'>Explicit correction</span>는 <span class='kw4'>prompt가 아니라 input-providing</span> feedback입니다. Correct form을 직접 제공하며, 오류임을 명시적으로 알리고 금지 표현(예: 'No', 'Don't say') 또는 metalinguistic 정보와 함께 쓰입니다.",
-   why:"Corrective feedback 분류: Input-providing = recast + explicit correction. Prompts = elicitation + metalinguistic feedback + clarification request + repetition. Explicit correction은 correct form을 직접 제공하므로 input-providing입니다.",
-   source:"\"<span class='kw1'>Explicit correction</span>: T provides <span class='kw2'>the correct form explicitly</span>, clearly indicating that what Ss said was incorrect. <span class='kw4'>Input-providing feedback</span> (not a prompt).\"",
-   compare:[{title:"<span class='kw4'>Input-providing</span>",desc:"recast + explicit correction → correct form given"},{title:"<span class='kw2'>Prompts</span>",desc:"elicitation + metalinguistic + CR + repetition → self-repair"}]},
-
-  {src:"Consciousness-raising",cat:"CR Task",
-   text:"<span class='kw1'>Consciousness-raising (CR) tasks</span> are data-based activities in which learners engage in <span class='kw2'>meta-talk</span> about language form, developing <span class='kw1'>explicit/declarative knowledge</span> through inductive or deductive discovery.",
-   ans:true,
-   correct:"<span class='kw1'>CR task</span>의 핵심: ① data-based ② meta-talk(언어에 대해 말하기) ③ <span class='kw1'>explicit/declarative knowledge</span> 발달 ④ inductive 또는 deductive 방식의 rule discovery.",
-   why:"CR task는 의미 이해보다 form에 대한 명시적 이해를 목표로 합니다. 학습자들이 언어 데이터를 분석하고 토론하며 규칙을 발견합니다. Output이 필수적이지 않습니다.",
-   source:"\"<span class='kw1'>Consciousness-raising task</span>: data-driven activity that helps Ss develop <span class='kw1'>explicit/declarative knowledge</span> through engaging in <span class='kw2'>meta-talk</span>; proceeds inductively or deductively.\"",
-   compare:[{title:"<span class='kw1'>CR Task</span>",desc:"meta-talk · declarative knowledge · rule discovery"},{title:"<span class='kw3'>Garden Path</span>",desc:"overgeneralize → exception → notice gap"}]},
-
-  {src:"Consciousness-raising",cat:"Garden Path",
-   text:"The <span class='kw3'>garden path technique</span> deliberately leads learners to <span class='kw4'>overgeneralize</span> a grammatical rule, and then presents counterexamples that cause learners to <span class='kw2'>notice the exception</span> and correct their overgeneralization.",
-   ans:true,
-   correct:"<span class='kw3'>Garden path technique</span>의 핵심: 학습자를 의도적으로 <span class='kw4'>overgeneralization</span>으로 이끈 후, counterexamples(예외)을 제시하여 규칙의 한계를 인식하게 합니다.",
-   why:"Garden path는 inductive 활동으로, 학습자가 특정 패턴을 과잉일반화(overgeneralize)한 후 예외를 경험할 때 언어에 더 주의를 기울이게 됩니다. Noticing the gap을 유도하는 기법입니다.",
-   source:"\"<span class='kw3'>Garden path technique</span>: intentionally leads learners to <span class='kw4'>overgeneralize</span> a rule, then provides counterexamples that cause them to <span class='kw2'>notice</span> the exception.\""},
-
-  {src:"Input-based Instruction",cat:"Input Enhancement",
-   text:"<span class='kw2'>Input enhancement</span> draws learner attention to target forms through <span class='kw2'>typographic highlighting</span> techniques such as bolding, underlining, italicizing, or capitalizing the target form in authentic texts.",
-   ans:true,
-   correct:"<span class='kw2'>Input enhancement</span>의 핵심: <span class='kw2'>typographic highlighting</span>(bold, underline, italics, caps 등)을 사용하여 목표 형식에 주의를 유도합니다. Input flooding과의 차이는 highlighting 유무입니다.",
-   why:"Input enhancement는 학습자가 읽기/듣기 자료에서 target form을 자연스럽게 눈에 띄게 만들어 noticing을 유도합니다. Semi-implicit한 방식으로, 의미 초점을 유지하면서도 form에 주의를 줍니다.",
-   source:"\"<span class='kw2'>Input enhancement</span>: makes target form <span class='kw2'>perceptually salient</span> through typographic devices (bold, underline, italics, caps). Draws attention without explicit explanation.\"",
-   compare:[{title:"<span class='kw2'>Input enhancement</span>",desc:"typographic highlighting · salient · semi-implicit"},{title:"<span class='kw1'>Input flooding</span>",desc:"NO highlighting · many examples · fully implicit"}]},
-
-  {src:"Input-based Instruction",cat:"Input Flood",
-   text:"<span class='kw1'>Input flooding</span> exposes learners to a large number of examples of the target form in texts, and like input enhancement, uses <span class='kw4'>typographic highlighting</span> to make the target form visually salient.",
-   ans:false,
-   correct:"<span class='kw1'>Input flooding</span>은 <span class='kw4'>typographic highlighting을 사용하지 않습니다</span>. 많은 양의 target form 예시를 제공하지만, 강조 표시 없이 자연스럽게 노출하는 fully implicit 방식입니다.",
-   why:"Input flooding과 input enhancement의 핵심 차이: Input enhancement = highlighting 있음(bold/underline 등). Input flooding = highlighting 없음(implicit exposure). Input flooding은 Krashen의 comprehensible input 이론과 연결됩니다.",
-   source:"\"<span class='kw1'>Input flooding</span>: provides a <span class='kw2'>large quantity</span> of the target form in texts <span class='kw4'>without any typographic highlighting</span>. Fully implicit exposure.\"",
-   compare:[{title:"<span class='kw1'>Input flooding</span>",desc:"NO highlighting · quantity · fully implicit"},{title:"<span class='kw2'>Input enhancement</span>",desc:"highlighting · perceptual salience · semi-implicit"}]},
-
-  {src:"Types of FonF",cat:"Isolated vs Integrated",
-   text:"<span class='kw3'>Isolated Focus on Form</span> treats the target linguistic form separately from the communicative task in a distinct grammar phase, while <span class='kw1'>Integrated Focus on Form</span> embeds form attention within the communicative activity itself.",
-   ans:true,
-   correct:"<span class='kw3'>Isolated FonF</span>: 의사소통 활동과 분리된 별도 문법 단계에서 form 교수. <span class='kw1'>Integrated FonF</span>: 의사소통 활동 안에서 form 교수가 통합적으로 이루어짐.",
-   why:"Isolated FonF는 의사소통 활동과 분리된 별도의 문법 수업(separate grammar phase)입니다. Integrated FonF는 task 중간에 form attention이 일어나는 방식으로, 의미와 형식이 함께 다루어집니다.",
-   source:"\"<span class='kw3'>Isolated FonF</span>: treats form <span class='kw2'>separately</span> from communicative task. <span class='kw1'>Integrated FonF</span>: form attention is <span class='kw2'>embedded within</span> the communicative task.\"",
-   compare:[{title:"<span class='kw3'>Isolated FonF</span>",desc:"separate grammar phase · disconnected from task"},{title:"<span class='kw1'>Integrated FonF</span>",desc:"embedded within task · form + meaning together"}]},
-
   {
-  "src": "Corrective Feedback",
-  "cat": "Uptake",
-  "text": "<span class='kw3'>Uptake</span> is a learner utterance that immediately follows corrective feedback and reacts to its corrective intent; it may involve repair or still need repair.",
-  "ans": true,
-  "correct": "<span class='kw3'>Uptake</span>는 교정 피드백의 의도에 대한 학습자의 즉각적인 반응입니다. 오류를 고친 <span class='kw2'>repair</span>와 추가 교정이 필요한 <span class='kw2'>needs-repair</span>로 나눕니다.",
-  "why": "단순히 교사 발화 뒤에 나온 모든 발화를 뜻하지는 않습니다. 교사가 특정 언어 형식에 주의를 돌리려 한 것에 반응해야 합니다. Lyster와 Ranta(1997)의 분류에서 acknowledgement는 needs-repair에 포함됩니다. Uptake가 관찰되었다는 사실만으로 지속적인 습득까지 입증할 수는 없습니다.",
-  "source": "출처 요약: Lyster & Ranta (1997), Corrective Feedback and Learner Uptake, pp.49–50. Uptake는 교정 의도에 반응하는 발화이며 repair와 needs-repair로 구분된다. 직접 인용이 아님.",
-  "compare": [
-    {
-      "title": "Repair",
-      "desc": "목표 오류가 교정된 반응"
-    },
-    {
-      "title": "Needs-repair",
-      "desc": "acknowledgement 또는 아직 교정이 필요한 반응"
-    },
-    {
-      "title": "No uptake",
-      "desc": "교정 의도에 대한 학습자의 반응이 나타나지 않음"
-    }
-  ]
-},
-
-  {src:"Teaching Grammar",cat:"기출 종합",
-   text:"According to Lyster's (2004) research, <span class='kw2'>prompts</span> (elicitation, metalinguistic feedback, clarification request, repetition) tend to yield <span class='kw2'>higher successful uptake rates</span> than <span class='kw4'>recasts</span> in classroom contexts.",
-   ans:true,
-   correct:"Lyster(2004): Prompts가 recast보다 <span class='kw2'>successful uptake 비율이 높습니다</span>. Prompt는 학습자를 self-repair로 push하므로 형식 주의를 더 명확히 유도합니다.",
-   why:"Recast는 implicit하여 학습자가 교정임을 인식하지 못할 수 있습니다. Prompt는 명시적으로 repair를 요구하므로 uptake 비율이 더 높습니다. 단, 발달적 준비도(developmental readiness)가 되어 있어야 prompt도 효과적입니다.",
-   source:"\"Prompts lead to higher rates of <span class='kw2'>successful uptake</span> and <span class='kw2'>repair</span> compared to recasts, because they explicitly push Ss toward self-correction.\" (Lyster, 2004)",
-   compare:[{title:"<span class='kw2'>Prompts</span>",desc:"higher uptake · explicit signal · pushes self-repair"},{title:"<span class='kw4'>Recast</span>",desc:"lower uptake · ambiguous · implicit"}]}
+    "src": "Three Approaches",
+    "cat": "Focus on Form",
+    "text": "According to Long (1991), <span class='kw1'>Focus on Form</span> overtly draws students' attention to linguistic elements <span class='kw2'>as they arise incidentally</span> in lessons whose overriding focus is on <span class='kw2'>meaning or communication</span>.",
+    "ans": true,
+    "correct": "<span class='kw1'>Focus on Form (FonF)</span>의 핵심: 의미·소통 중심 수업에서 언어 형식에 <span class='kw2'>incidentally</span>(우발적으로) 주의를 기울이도록 하는 접근입니다.",
+    "why": "FonF는 의미 중심 활동 중 언어 형식에 부수적으로 주의를 기울이는 것이며, FonFS(Focus on FormS)는 사전에 선정된 문법 항목을 체계적으로 가르치는 방식입니다. 핵심 차이: FonF는 meaning이 primary, FonFS는 form이 primary입니다.",
+    "source": "출처 요약: Brown, PLLT, 6th ed. (2014), pp.269–271; Long (1991)의 초기 FonF 정의. 해당 정의를 학습용으로 재서술했으며 직접 인용이 아님.",
+    "compare": [
+      {
+        "title": "<span class='kw1'>Focus on Form (FonF)</span>",
+        "desc": "meaning primary · form attention incidental"
+      },
+      {
+        "title": "<span class='kw3'>Focus on Forms (FonFS)</span>",
+        "desc": "form primary · pre-selected items · isolated"
+      }
+    ]
+  },
+  {
+    "src": "Three Approaches",
+    "cat": "Focus on Forms",
+    "text": "<span class='kw3'>Focus on Forms</span> organizes instruction around <span class='kw2'>pre-selected linguistic items</span>, with learning these items as the primary focus rather than an overriding communicative task.",
+    "ans": true,
+    "correct": "Focus on Forms는 미리 선정한 항목의 학습을 중심으로 수업을 조직합니다. 단순히 문법을 다룬다는 사실보다 무엇이 수업의 중심인지 확인합니다.",
+    "why": "문맥 있는 예문이나 짝 활동이 포함될 수도 있습니다. 사전 선정만으로 FonFS라고 단정하지 말고, planned FonF처럼 의미 중심 과제 안에서 형태를 다루는지 구별합니다.",
+    "source": "출처 요약: Brown, Teaching by Principles, 3rd ed. (2007), Ch.22; 2017학년도 전공 B 1번의 FFI 구분. 직접 인용이 아님.",
+    "compare": [
+      {
+        "title": "Focus on Forms",
+        "desc": "selected items organize instruction · form primary"
+      },
+      {
+        "title": "Planned Focus on Form",
+        "desc": "predetermined form within a meaning-focused task"
+      }
+    ]
+  },
+  {
+    "src": "Types of FonF",
+    "cat": "Reactive vs Pre-emptive",
+    "text": "<span class='kw3'>Pre-emptive focus on form</span> must be planned before a lesson; it cannot occur when a student spontaneously asks about a linguistic form during a communicative task.",
+    "ans": false,
+    "correct": "X. 실제 오류에 대한 반응 없이 학생이 의미 중심 활동 중 표현을 질문하면 student-initiated pre-emptive focus on form이 될 수 있습니다.",
+    "why": "Planned / incidental은 사전 선정 여부이고 reactive / pre-emptive는 실제 오류가 계기가 되었는지에 관한 구분입니다. Pre-emptive를 반드시 수업 전의 계획된 지도라고 해석하지 않습니다.",
+    "source": "출처 요약: 2022학년도 전공 B 11번 <A>의 분류와 <B> Example 2; Brown, PLLT, 6th ed. (2014), pp.269–271. 직접 인용이 아님.",
+    "compare": [
+      {
+        "title": "Reactive",
+        "desc": "response to an actual problem utterance"
+      },
+      {
+        "title": "Pre-emptive",
+        "desc": "form becomes a topic without a preceding error"
+      }
+    ]
+  },
+  {
+    "src": "Explicit vs Implicit",
+    "cat": "Knowledge Types",
+    "text": "The label <span class='kw2'>implicit instruction</span> alone proves that a learner has acquired <span class='kw4'>automatic, implicit knowledge</span>, while explicit instruction can contribute only to conscious rule knowledge.",
+    "ans": false,
+    "correct": "X. 교수 방식의 이름만으로 학습자가 획득한 지식이나 자동적 사용을 입증할 수 없습니다.",
+    "why": "규칙 설명·규칙 탐색 여부는 교수 절차의 특징입니다. 규칙 이해와 의사소통에서의 사용은 별도로 확인해야 합니다. Explicit knowledge가 이후 수행·학습에 어떻게 기여하는지도 이론적 논의 대상입니다.",
+    "source": "출처 요약: Brown, PLLT, 6th ed. (2014), pp.293–294; Ellis (2006), Current Issues in the Teaching of Grammar, pp.95–98. 직접 인용이 아님.",
+    "compare": [
+      {
+        "title": "Instruction",
+        "desc": "teacher/task procedures"
+      },
+      {
+        "title": "Knowledge / performance",
+        "desc": "what the learner knows and can use; requires evidence"
+      }
+    ]
+  },
+  {
+    "src": "Deductive vs Inductive",
+    "cat": "Deductive Approach",
+    "text": "In a <span class='kw3'>deductive approach</span>, the grammatical <span class='kw2'>rule is presented before learners apply it</span> to examples or practice.",
+    "ans": true,
+    "correct": "O. 규칙을 먼저 제시하고 적용하도록 하는 절차가 deductive의 핵심입니다.",
+    "why": "시간을 절약할 수 있지만 항상 기억 유지에 불리하거나 초급자에게만 적합한 것은 아닙니다. 학습자의 특성, 규칙의 복잡성, 연습 과정을 함께 살핍니다.",
+    "source": "출처 요약: Brown, Teaching by Principles, 3rd ed. (2007), pp.421–424. 직접 인용이 아님.",
+    "compare": [
+      {
+        "title": "Deductive",
+        "desc": "rule → application"
+      },
+      {
+        "title": "Inductive",
+        "desc": "examples → generalization"
+      }
+    ]
+  },
+  {
+    "src": "Deductive vs Inductive",
+    "cat": "Inductive Approach",
+    "text": "The <span class='kw1'>inductive approach</span> is faster and more efficient than the deductive approach, as learners can directly apply rules given by the teacher without spending time on rule discovery.",
+    "ans": false,
+    "correct": "X. 교사가 먼저 준 규칙을 적용하는 것은 deductive 절차입니다. Inductive 절차는 예시에서 규칙을 도출합니다.",
+    "why": "탐색에 시간이 필요할 수 있지만 어느 방식이 언제나 더 빠르거나 기억에 더 유리하다고 단정하지 않습니다. 이 문항의 결정적 오류는 규칙 제시와 발견의 순서를 뒤바꾼 것입니다.",
+    "source": "출처 요약: Brown, Teaching by Principles, 3rd ed. (2007), pp.421–424. 직접 인용이 아님.",
+    "compare": [
+      {
+        "title": "Deductive",
+        "desc": "given rule → apply"
+      },
+      {
+        "title": "Inductive",
+        "desc": "data → infer a rule; may be explicit learning"
+      }
+    ]
+  },
+  {
+    "src": "Corrective Feedback",
+    "cat": "Recast",
+    "text": "<span class='kw4'>Recast</span> is a type of <span class='kw2'>implicit</span> corrective feedback in which the teacher <span class='kw2'>reformulates</span> a learner's erroneous utterance while maintaining the <span class='kw2'>conversational focus on meaning</span>.",
+    "ans": true,
+    "correct": "<span class='kw4'>Recast</span>의 핵심: ① implicit feedback ② 학습자 발화를 <span class='kw2'>reformulate</span>(교정하여 재말하기) ③ 의미 초점 유지. 학습자는 교사의 reformulation을 교정으로 인식하지 못할 수 있습니다.",
+    "why": "Recast는 내용 확인처럼 들려 교정 의도가 분명하지 않을 수 있습니다. 다만 명시성은 강조·억양·맥락에 따라 달라지며, 모든 수업에서 같은 uptake 비율을 보장하지 않습니다.",
+    "source": "출처 요약: Brown, PLLT, 6th ed. (2014), pp.272–276; Ellis (2009), Corrective Feedback and Teacher Development, p.8. 직접 인용이 아님.",
+    "compare": [
+      {
+        "title": "<span class='kw4'>Recast</span>",
+        "desc": "implicit · reformulate · meaning focus"
+      },
+      {
+        "title": "<span class='kw1'>Explicit correction</span>",
+        "desc": "clearly signals an error and supplies the correct form"
+      }
+    ]
+  },
+  {
+    "src": "Corrective Feedback",
+    "cat": "Recast Limitation",
+    "text": "<span class='kw4'>Recast</span> is widely considered the most effective type of corrective feedback for L2 acquisition because learners are always aware that their utterance is being corrected.",
+    "ans": false,
+    "correct": "X. 학습자가 recast의 교정 의도를 언제나 알아차리는 것은 아닙니다. 내용 확인이나 반복으로 받아들일 수도 있습니다.",
+    "why": "교정 의도의 모호성이 한계가 될 수 있지만, recast가 언제나 덜 효과적이라는 결론도 피합니다. 즉각적인 uptake·repair와 이후 습득은 다른 결과이며, prompt도 항상 explicit한 것은 아닙니다.",
+    "source": "출처 요약: Brown, PLLT, 6th ed. (2014), pp.272–276; Ellis (2009), Corrective Feedback and Teacher Development. 직접 인용이 아님.",
+    "compare": [
+      {
+        "title": "Recast",
+        "desc": "correct form supplied; corrective intent may be ambiguous"
+      },
+      {
+        "title": "Prompt",
+        "desc": "invites learner-generated repair; success not guaranteed"
+      }
+    ]
+  },
+  {
+    "src": "Corrective Feedback",
+    "cat": "Clarification Request",
+    "text": "A <span class='kw1'>clarification request</span> is classified as a type of <span class='kw4'>input-providing</span> corrective feedback because the teacher directly supplies the learner with the grammatically correct form.",
+    "ans": false,
+    "correct": "<span class='kw1'>Clarification request</span>는 <span class='kw2'>prompt</span> 유형입니다. Teacher는 correct form을 직접 제공하지 않고, 이해하지 못했다는 신호를 보내어 학습자 스스로 repair하도록 push합니다.",
+    "why": "Clarification request는 'Sorry?', 'What do you mean?' 등의 표현으로 메시지가 이해되지 않았음을 알립니다. Input-providing feedback(recast, explicit correction)과 달리, learner에게 self-repair 기회를 줍니다.",
+    "source": "출처 요약: Brown, PLLT, 6th ed. (2014), pp.272–273; Ellis (2009), Corrective Feedback and Teacher Development, p.8. 해당 정의를 학습용으로 재서술했으며 직접 인용이 아님.",
+    "compare": [
+      {
+        "title": "<span class='kw2'>Prompts</span>",
+        "desc": "CR · metalinguistic · elicitation · repetition → self-repair"
+      },
+      {
+        "title": "<span class='kw3'>Input-providing</span>",
+        "desc": "recast · explicit correction → correct form supplied"
+      }
+    ]
+  },
+  {
+    "src": "Corrective Feedback",
+    "cat": "Metalinguistic Feedback",
+    "text": "<span class='kw3'>Metalinguistic feedback</span> directly provides the learner with the correct form and then gives a grammatical explanation of why the error occurred, functioning as explicit correction with added explanation.",
+    "ans": false,
+    "correct": "<span class='kw3'>Metalinguistic feedback</span>는 correct form을 <span class='kw4'>직접 제공하지 않습니다</span>. Error의 유형을 comment·question·metalinguistic information의 세 가지 방식으로 설명할 뿐입니다.",
+    "why": "Metalinguistic feedback의 세 가지 유형: ① comment(예: 'Be careful with tense') ② question(예: 'Is that the right tense?') ③ metalinguistic information(예: 'Past tense is needed here'). 정확한 correct form을 직접 제시하지 않는 prompt입니다.",
+    "source": "출처 요약: Brown, PLLT, 6th ed. (2014), pp.272–273; Ellis (2009), Corrective Feedback and Teacher Development, p.8. 해당 정의를 학습용으로 재서술했으며 직접 인용이 아님.",
+    "compare": [
+      {
+        "title": "<span class='kw3'>Metalinguistic feedback</span>",
+        "desc": "comment / question / info · no correct form"
+      },
+      {
+        "title": "<span class='kw1'>Explicit correction</span>",
+        "desc": "directly provides correct form · may add explanation"
+      }
+    ]
+  },
+  {
+    "src": "Corrective Feedback",
+    "cat": "Elicitation",
+    "text": "<span class='kw3'>Elicitation</span> is a corrective feedback technique that <span class='kw2'>directly induces the learner</span> to produce the correct form through incomplete utterances, direct questions, or explicit invitations to reformulate.",
+    "ans": true,
+    "correct": "<span class='kw3'>Elicitation</span>의 핵심: 학습자가 correct form을 스스로 생성(produce)하도록 직접 유도합니다. 방법: ① incomplete utterance ② direct question ③ explicit invitation to reformulate.",
+    "why": "Elicitation은 prompt의 한 유형으로, 예: 'Can you say that again?', 'What do we say?' 또는 문장을 완성하지 않고 멈추기 등의 방법을 사용합니다. Learner의 능동적 self-repair를 요구합니다.",
+    "source": "출처 요약: Brown, PLLT, 6th ed. (2014), pp.272–273; Ellis (2009), Corrective Feedback and Teacher Development, p.8. 해당 정의를 학습용으로 재서술했으며 직접 인용이 아님.",
+    "compare": [
+      {
+        "title": "<span class='kw3'>Elicitation 방법</span>",
+        "desc": "incomplete sentence / direct question / invitation"
+      },
+      {
+        "title": "<span class='kw3'>Elicitation vs Recast</span>",
+        "desc": "elicitation = prompt · recast = input-providing"
+      }
+    ]
+  },
+  {
+    "src": "Corrective Feedback",
+    "cat": "Repetition",
+    "text": "<span class='kw2'>Repetition</span> as corrective feedback involves the teacher <span class='kw2'>repeating the learner's erroneous utterance</span> with an <span class='kw2'>exaggerated or altered intonation</span> to signal the presence of an error and allow self-repair.",
+    "ans": true,
+    "correct": "<span class='kw2'>Repetition</span>의 핵심: 학습자의 <span class='kw2'>오류 발화를 그대로 반복</span>하되 <span class='kw2'>강조된 intonation</span>으로 발화하여 오류가 있음을 알리고 self-repair 기회를 줍니다.",
+    "why": "Repetition은 잘못된 부분을 다시 말해 self-repair를 유도합니다. 올바른 형태로 바꾸어 말하는 recast와 구별합니다. 오류를 부각하더라도 이 페이지의 Ellis(2009) 분류에서는 implicit feedback이며, 실제 명시성은 맥락에 따라 달라질 수 있습니다.",
+    "source": "출처 요약: Ellis (2009), Corrective Feedback and Teacher Development, p.8. 직접 인용이 아님."
+  },
+  {
+    "src": "Corrective Feedback",
+    "cat": "Explicit Correction",
+    "text": "<span class='kw1'>Explicit correction</span> is classified as a <span class='kw2'>prompt</span> because it pushes learners to produce the target form on their own rather than directly supplying the correct form.",
+    "ans": false,
+    "correct": "<span class='kw1'>Explicit correction</span>는 <span class='kw4'>prompt가 아니라 input-providing</span> feedback입니다. Correct form을 직접 제공하며, 오류임을 명시적으로 알리고 금지 표현(예: 'No', 'Don't say') 또는 metalinguistic 정보와 함께 쓰입니다.",
+    "why": "Corrective feedback 분류: Input-providing = recast + explicit correction. Prompts = elicitation + metalinguistic feedback + clarification request + repetition. Explicit correction은 correct form을 직접 제공하므로 input-providing입니다.",
+    "source": "출처 요약: Brown, PLLT, 6th ed. (2014), pp.272–273; Ellis (2009), Corrective Feedback and Teacher Development, p.8. 해당 정의를 학습용으로 재서술했으며 직접 인용이 아님.",
+    "compare": [
+      {
+        "title": "<span class='kw4'>Input-providing</span>",
+        "desc": "recast + explicit correction → correct form given"
+      },
+      {
+        "title": "<span class='kw2'>Prompts</span>",
+        "desc": "elicitation + metalinguistic + CR + repetition → self-repair"
+      }
+    ]
+  },
+  {
+    "src": "Consciousness-raising",
+    "cat": "CR Task",
+    "text": "<span class='kw1'>Consciousness-raising tasks</span> aim at <span class='kw2'>explicit understanding</span> of a linguistic feature; learners may infer a rule from data or analyze data using a rule they have been given.",
+    "ans": true,
+    "correct": "O. CR의 중심은 explicit understanding입니다. 예시에서 규칙을 도출하는 inductive 절차와 제시된 규칙으로 자료를 분석하는 deductive 절차가 가능합니다.",
+    "why": "규칙을 토론하는 meta-talk이 있어도 목표 형태를 유창하게 사용하는 생산 연습과 동일하지 않습니다. Target-form production이 직접 목표가 아니라는 말은 학습자가 말하거나 쓰면 안 된다는 뜻이 아닙니다.",
+    "source": "출처 요약: Brown, PLLT, 6th ed. (2014), pp.271, 294; 2013학년도 15번의 Activity B. 직접 인용이 아님.",
+    "compare": [
+      {
+        "title": "<span class='kw1'>CR Task</span>",
+        "desc": "meta-talk · declarative knowledge · rule discovery"
+      },
+      {
+        "title": "<span class='kw3'>Garden Path</span>",
+        "desc": "overgeneralize → exception → notice gap"
+      }
+    ]
+  },
+  {
+    "src": "Consciousness-raising",
+    "cat": "Garden Path",
+    "text": "The <span class='kw3'>garden path technique</span> deliberately leads learners to <span class='kw4'>overgeneralize</span> a grammatical rule, and then presents counterexamples that cause learners to <span class='kw2'>notice the exception</span> and correct their overgeneralization.",
+    "ans": true,
+    "correct": "<span class='kw3'>Garden path technique</span>의 핵심: 학습자를 의도적으로 <span class='kw4'>overgeneralization</span>으로 이끈 후, counterexamples(예외)을 제시하여 규칙의 한계를 인식하게 합니다.",
+    "why": "Garden path는 inductive 활동으로, 학습자가 특정 패턴을 과잉일반화(overgeneralize)한 후 예외를 경험할 때 언어에 더 주의를 기울이게 됩니다. Noticing the gap을 유도하는 기법입니다.",
+    "source": "출처 요약: 2010학년도 19번의 교사-학생 대화와 오류 유도에 관한 선지. Garden path의 핵심 절차를 재서술한 것으로 직접 인용이 아님."
+  },
+  {
+    "src": "Input-based Instruction",
+    "cat": "Input Enhancement",
+    "text": "<span class='kw2'>Textual input enhancement</span> can make target forms more visually salient through bolding, underlining, italics, or other typographic devices.",
+    "ans": true,
+    "correct": "O. Textual input enhancement는 목표 형태의 시각적 두드러짐을 높이는 조작입니다. Input flood는 목표 형태의 노출 빈도를 높이는 조작입니다.",
+    "why": "두 조작을 함께 사용할 수도 있습니다. 강조된 자료를 읽게 했다는 사실만으로 모든 학생이 noticing하거나 특정 지식을 습득했다고 확정하지 않습니다.",
+    "source": "출처 요약: 2017학년도 전공 B 1번의 읽기 수업; Brown, PLLT, 6th ed. (2014), pp.274–276. 직접 인용이 아님.",
+    "compare": [
+      {
+        "title": "Textual enhancement",
+        "desc": "visual salience"
+      },
+      {
+        "title": "Input flood",
+        "desc": "frequency of target examples"
+      }
+    ]
+  },
+  {
+    "src": "Input-based Instruction",
+    "cat": "Input Flood",
+    "text": "<span class='kw1'>Input flooding</span> increases exposure to examples of a target form; <span class='kw4'>typographic highlighting is a required defining feature</span> of this technique.",
+    "ans": false,
+    "correct": "X. Input flood의 핵심은 목표 형태 예시의 빈도를 높이는 것이며 typographic highlighting은 필수 조건이 아닙니다.",
+    "why": "강조 없이 많은 예시를 줄 수 있습니다. 두 기법을 결합한 자료도 가능하므로 ‘flood라면 강조가 절대로 존재할 수 없다’고 확대하지 않습니다.",
+    "source": "출처 요약: Ellis (2006), Current Issues in the Teaching of Grammar, pp.98–99의 input-based options; Brown, PLLT, 6th ed. (2014), pp.275–276. 직접 인용이 아님.",
+    "compare": [
+      {
+        "title": "Flood",
+        "desc": "many exemplars; highlighting not required"
+      },
+      {
+        "title": "Textual enhancement",
+        "desc": "typographic salience; can be combined with flood"
+      }
+    ]
+  },
+  {
+    "src": "Types of FonF",
+    "cat": "Isolated vs Integrated",
+    "text": "<span class='kw3'>Isolated Focus on Form</span> treats the target linguistic form separately from the communicative task in a distinct grammar phase, while <span class='kw1'>Integrated Focus on Form</span> embeds form attention within the communicative activity itself.",
+    "ans": true,
+    "correct": "<span class='kw3'>Isolated FonF</span>: 의사소통 활동과 분리된 별도 문법 단계에서 form 교수. <span class='kw1'>Integrated FonF</span>: 의사소통 활동 안에서 form 교수가 통합적으로 이루어짐.",
+    "why": "Isolated FFI의 별도 단계도 앞뒤 의사소통 활동을 준비하거나 돌아보는 역할을 할 수 있습니다. ‘분리된 단계’를 ‘과제와 무관함’과 동일시하지 않습니다. Integrated FFI도 명시적 규칙 설명을 포함할 수 있습니다.",
+    "source": "출처 요약: Brown, Teaching by Principles, 3rd ed. (2007), pp.424–426; Spada et al. (2014), Isolated and Integrated form-focused instruction, Abstract and Appendix 1. 직접 인용이 아님.",
+    "compare": [
+      {
+        "title": "Isolated FFI",
+        "desc": "separate phase; may support communicative work"
+      },
+      {
+        "title": "Integrated FFI",
+        "desc": "attention to form within communicative practice"
+      }
+    ]
+  },
+  {
+    "src": "Corrective Feedback",
+    "cat": "Uptake",
+    "text": "<span class='kw3'>Uptake</span> is a learner utterance that immediately follows corrective feedback and reacts to its corrective intent; it may involve repair or still need repair.",
+    "ans": true,
+    "correct": "<span class='kw3'>Uptake</span>는 교정 피드백의 의도에 대한 학습자의 즉각적인 반응입니다. 오류를 고친 <span class='kw2'>repair</span>와 추가 교정이 필요한 <span class='kw2'>needs-repair</span>로 나눕니다.",
+    "why": "단순히 교사 발화 뒤에 나온 모든 발화를 뜻하지는 않습니다. 교사가 특정 언어 형식에 주의를 돌리려 한 것에 반응해야 합니다. Lyster와 Ranta(1997)의 분류에서 acknowledgement는 needs-repair에 포함됩니다. Uptake가 관찰되었다는 사실만으로 지속적인 습득까지 입증할 수는 없습니다.",
+    "source": "출처 요약: Lyster & Ranta (1997), Corrective Feedback and Learner Uptake, pp.49–50. Uptake는 교정 의도에 반응하는 발화이며 repair와 needs-repair로 구분된다. 직접 인용이 아님.",
+    "compare": [
+      {
+        "title": "Repair",
+        "desc": "목표 오류가 교정된 반응"
+      },
+      {
+        "title": "Needs-repair",
+        "desc": "acknowledgement 또는 아직 교정이 필요한 반응"
+      },
+      {
+        "title": "No uptake",
+        "desc": "교정 의도에 대한 학습자의 반응이 나타나지 않음"
+      }
+    ]
+  },
+  {
+    "src": "Corrective Feedback",
+    "cat": "Two Classification Criteria",
+    "text": "Because <span class='kw2'>prompts</span> invite learner-generated repair, every prompt is classified as <span class='kw4'>explicit feedback</span> in the Ellis (2009) framework used in this chapter.",
+    "ans": false,
+    "correct": "X. Prompt 여부와 implicit / explicit 여부는 서로 다른 기준입니다.",
+    "why": "Clarification request와 repetition은 이 분류에서 implicit prompts이고, metalinguistic feedback과 elicitation은 explicit prompts입니다. 올바른 형태를 누가 제공하는지와 교정 의도가 얼마나 직접 드러나는지를 나누어 봅니다.",
+    "source": "출처 요약: Ellis (2009), Corrective Feedback and Teacher Development, p.8. 직접 인용이 아님.",
+    "compare": [
+      {
+        "title": "Input-providing / prompts",
+        "desc": "correct form supplied / learner-generated repair invited"
+      },
+      {
+        "title": "Implicit / explicit",
+        "desc": "how directly the error is signaled"
+      }
+    ]
+  }
 ];
 
 const TOTAL=20;
-const SAVE_KEY='ox_grammar_v2';
+// Materially revised items use a new key; previous progress remains untouched.
+const SAVE_KEY='ox_grammar_v3';
 let cur=0,answers=new Array(TOTAL).fill(null);
 let mode='normal',order=[...Array(TOTAL).keys()];
 function initOrder(m){if(m==='random'){const a=[...Array(TOTAL).keys()];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}order=a;}else order=[...Array(TOTAL).keys()];}
@@ -419,3 +611,4 @@ function jumpTo(i){cur=i;render();document.getElementById('qa').scrollIntoView({
 <script src="./study-return.js"></script>
 </body>
 </html>
+
