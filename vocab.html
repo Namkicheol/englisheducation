@@ -142,49 +142,211 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f5f4ee;background-image:r
 <script src="./sounds.js"></script>
 <script>
 const Q=[
-  {src:"Word Knowledge",cat:"Core Concept",text:"<span class='kw1'>Word Knowledge</span> is best understood as frequency, collocation, register, word family, association, semantic feature, so it should be interpreted within its instructional or assessment context.",ans:true,correct:"맞습니다. <span class='kw1'>Word Knowledge</span>의 핵심은 frequency, collocation, register, word family, association, semantic feature입니다.",why:"이 문항은 Word Knowledge를 단순 명칭보다 기능과 classroom use 중심으로 확인합니다. 관련 개념을 비교할 때는 목적, learner role, teacher role, task condition을 함께 보아야 합니다.",source:"&quot;Word knowledge includes frequency, collocation, register, word family, association, and semantic feature.&quot;"},
-
-  {src:"Word Knowledge",cat:"Misconception",text:"<span class='kw4'>Word Knowledge</span> can be safely treated as the same as any neighboring concept because the distinction is mostly terminological.",ans:false,correct:"틀립니다. <span class='kw4'>Word Knowledge</span>는 인접 개념과 구분되는 condition, purpose, learner behavior가 있습니다.",why:"영교론 문항은 비슷한 key terms의 경계 조건을 묻는 경우가 많습니다. Word Knowledge는 정의 속 keyword를 기준으로 구분해야 합니다.",source:"&quot;Word knowledge includes frequency, collocation, register, word family, association, and semantic feature.&quot;",compare:[{title:"<span class='kw1'>Word Knowledge</span>",desc:"frequency, collocation, register, word family, association, semantic feature"},{title:"<span class='kw4'>Trap</span>",desc:"confusing it with a neighboring concept"}]},
-
-  {src:"Explicit vs Implicit",cat:"Core Concept",text:"<span class='kw1'>Explicit vs Implicit</span> is best understood as declarative attention vs incidental processing, so it should be interpreted within its instructional or assessment context.",ans:true,correct:"맞습니다. <span class='kw1'>Explicit vs Implicit</span>의 핵심은 declarative attention vs incidental processing입니다.",why:"이 문항은 Explicit vs Implicit를 단순 명칭보다 기능과 classroom use 중심으로 확인합니다. 관련 개념을 비교할 때는 목적, learner role, teacher role, task condition을 함께 보아야 합니다.",source:"&quot;Explicit vocabulary learning focuses overt attention; implicit learning occurs while processing meaningful text.&quot;"},
-
-  {src:"Explicit vs Implicit",cat:"Misconception",text:"<span class='kw4'>Explicit vs Implicit</span> can be safely treated as the same as any neighboring concept because the distinction is mostly terminological.",ans:false,correct:"틀립니다. <span class='kw4'>Explicit vs Implicit</span>는 인접 개념과 구분되는 condition, purpose, learner behavior가 있습니다.",why:"영교론 문항은 비슷한 key terms의 경계 조건을 묻는 경우가 많습니다. Explicit vs Implicit는 정의 속 keyword를 기준으로 구분해야 합니다.",source:"&quot;Explicit vocabulary learning focuses overt attention; implicit learning occurs while processing meaningful text.&quot;",compare:[{title:"<span class='kw1'>Explicit vs Implicit</span>",desc:"declarative attention vs incidental processing"},{title:"<span class='kw4'>Trap</span>",desc:"confusing it with a neighboring concept"}]},
-
-  {src:"High vs Low Frequency",cat:"Core Concept",text:"<span class='kw1'>High vs Low Frequency</span> is best understood as meaning-focused input/output and strategy training, so it should be interpreted within its instructional or assessment context.",ans:true,correct:"맞습니다. <span class='kw1'>High vs Low Frequency</span>의 핵심은 meaning-focused input/output and strategy training입니다.",why:"이 문항은 High vs Low Frequency를 단순 명칭보다 기능과 classroom use 중심으로 확인합니다. 관련 개념을 비교할 때는 목적, learner role, teacher role, task condition을 함께 보아야 합니다.",source:"&quot;High-frequency words deserve deliberate learning and fluency development; low-frequency words call for strategies.&quot;"},
-
-  {src:"High vs Low Frequency",cat:"Misconception",text:"<span class='kw4'>High vs Low Frequency</span> can be safely treated as the same as any neighboring concept because the distinction is mostly terminological.",ans:false,correct:"틀립니다. <span class='kw4'>High vs Low Frequency</span>는 인접 개념과 구분되는 condition, purpose, learner behavior가 있습니다.",why:"영교론 문항은 비슷한 key terms의 경계 조건을 묻는 경우가 많습니다. High vs Low Frequency는 정의 속 keyword를 기준으로 구분해야 합니다.",source:"&quot;High-frequency words deserve deliberate learning and fluency development; low-frequency words call for strategies.&quot;",compare:[{title:"<span class='kw1'>High vs Low Frequency</span>",desc:"meaning-focused input/output and strategy training"},{title:"<span class='kw4'>Trap</span>",desc:"confusing it with a neighboring concept"}]},
-
-  {src:"Keyword Method",cat:"Core Concept",text:"<span class='kw1'>Keyword Method</span> is best understood as mnemonic device와 depth of processing, so it should be interpreted within its instructional or assessment context.",ans:true,correct:"맞습니다. <span class='kw1'>Keyword Method</span>의 핵심은 mnemonic device와 depth of processing입니다.",why:"이 문항은 Keyword Method를 단순 명칭보다 기능과 classroom use 중심으로 확인합니다. 관련 개념을 비교할 때는 목적, learner role, teacher role, task condition을 함께 보아야 합니다.",source:"&quot;Keyword method uses mnemonic devices with familiar words and visual images.&quot;"},
-
-  {src:"Keyword Method",cat:"Misconception",text:"<span class='kw4'>Keyword Method</span> can be safely treated as the same as any neighboring concept because the distinction is mostly terminological.",ans:false,correct:"틀립니다. <span class='kw4'>Keyword Method</span>는 인접 개념과 구분되는 condition, purpose, learner behavior가 있습니다.",why:"영교론 문항은 비슷한 key terms의 경계 조건을 묻는 경우가 많습니다. Keyword Method는 정의 속 keyword를 기준으로 구분해야 합니다.",source:"&quot;Keyword method uses mnemonic devices with familiar words and visual images.&quot;",compare:[{title:"<span class='kw1'>Keyword Method</span>",desc:"mnemonic device와 depth of processing"},{title:"<span class='kw4'>Trap</span>",desc:"confusing it with a neighboring concept"}]},
-
-  {src:"Semantic Mapping",cat:"Core Concept",text:"<span class='kw1'>Semantic Mapping</span> is best understood as thematically related words의 visual network, so it should be interpreted within its instructional or assessment context.",ans:true,correct:"맞습니다. <span class='kw1'>Semantic Mapping</span>의 핵심은 thematically related words의 visual network입니다.",why:"이 문항은 Semantic Mapping를 단순 명칭보다 기능과 classroom use 중심으로 확인합니다. 관련 개념을 비교할 때는 목적, learner role, teacher role, task condition을 함께 보아야 합니다.",source:"&quot;Semantic mapping creates a visual network of thematically related words.&quot;"},
-
-  {src:"Semantic Mapping",cat:"Misconception",text:"<span class='kw4'>Semantic Mapping</span> can be safely treated as the same as any neighboring concept because the distinction is mostly terminological.",ans:false,correct:"틀립니다. <span class='kw4'>Semantic Mapping</span>는 인접 개념과 구분되는 condition, purpose, learner behavior가 있습니다.",why:"영교론 문항은 비슷한 key terms의 경계 조건을 묻는 경우가 많습니다. Semantic Mapping는 정의 속 keyword를 기준으로 구분해야 합니다.",source:"&quot;Semantic mapping creates a visual network of thematically related words.&quot;",compare:[{title:"<span class='kw1'>Semantic Mapping</span>",desc:"thematically related words의 visual network"},{title:"<span class='kw4'>Trap</span>",desc:"confusing it with a neighboring concept"}]},
-
-  {src:"Multi-word Units",cat:"Core Concept",text:"<span class='kw1'>Multi-word Units</span> is best understood as collocation과 lexical phrases, so it should be interpreted within its instructional or assessment context.",ans:true,correct:"맞습니다. <span class='kw1'>Multi-word Units</span>의 핵심은 collocation과 lexical phrases입니다.",why:"이 문항은 Multi-word Units를 단순 명칭보다 기능과 classroom use 중심으로 확인합니다. 관련 개념을 비교할 때는 목적, learner role, teacher role, task condition을 함께 보아야 합니다.",source:"&quot;Multi-word units include collocations, idioms, lexical phrases, discourse markers, and formulaic language.&quot;"},
-
-  {src:"Multi-word Units",cat:"Misconception",text:"<span class='kw4'>Multi-word Units</span> can be safely treated as the same as any neighboring concept because the distinction is mostly terminological.",ans:false,correct:"틀립니다. <span class='kw4'>Multi-word Units</span>는 인접 개념과 구분되는 condition, purpose, learner behavior가 있습니다.",why:"영교론 문항은 비슷한 key terms의 경계 조건을 묻는 경우가 많습니다. Multi-word Units는 정의 속 keyword를 기준으로 구분해야 합니다.",source:"&quot;Multi-word units include collocations, idioms, lexical phrases, discourse markers, and formulaic language.&quot;",compare:[{title:"<span class='kw1'>Multi-word Units</span>",desc:"collocation과 lexical phrases"},{title:"<span class='kw4'>Trap</span>",desc:"confusing it with a neighboring concept"}]},
-
-  {src:"Vocabulary Growth",cat:"Core Concept",text:"<span class='kw1'>Vocabulary Growth</span> is best understood as noticing, retrieval, elaboration, so it should be interpreted within its instructional or assessment context.",ans:true,correct:"맞습니다. <span class='kw1'>Vocabulary Growth</span>의 핵심은 noticing, retrieval, elaboration입니다.",why:"이 문항은 Vocabulary Growth를 단순 명칭보다 기능과 classroom use 중심으로 확인합니다. 관련 개념을 비교할 때는 목적, learner role, teacher role, task condition을 함께 보아야 합니다.",source:"&quot;Activities that foster vocabulary growth include noticing, retrieval, and elaboration.&quot;"},
-
-  {src:"Vocabulary Growth",cat:"Misconception",text:"<span class='kw4'>Vocabulary Growth</span> can be safely treated as the same as any neighboring concept because the distinction is mostly terminological.",ans:false,correct:"틀립니다. <span class='kw4'>Vocabulary Growth</span>는 인접 개념과 구분되는 condition, purpose, learner behavior가 있습니다.",why:"영교론 문항은 비슷한 key terms의 경계 조건을 묻는 경우가 많습니다. Vocabulary Growth는 정의 속 keyword를 기준으로 구분해야 합니다.",source:"&quot;Activities that foster vocabulary growth include noticing, retrieval, and elaboration.&quot;",compare:[{title:"<span class='kw1'>Vocabulary Growth</span>",desc:"noticing, retrieval, elaboration"},{title:"<span class='kw4'>Trap</span>",desc:"confusing it with a neighboring concept"}]},
-
-  {src:"Word Knowledge",cat:"Review",text:"A learner can identify <span class='kw2'>Word Knowledge</span> only by memorizing the label, without checking examples or classroom conditions.",ans:false,correct:"틀립니다. <span class='kw2'>Word Knowledge</span>는 label만 외우기보다 예시, 조건, 효과를 함께 확인해야 합니다.",why:"실전에서는 용어 단독보다 적용 맥락이 단서가 됩니다. frequency, collocation, register, word family, association, semantic feature를 기준으로 판단합니다.",source:"&quot;Word knowledge includes frequency, collocation, register, word family, association, and semantic feature.&quot;"},
-
-  {src:"Explicit vs Implicit",cat:"Review",text:"A learner can identify <span class='kw2'>Explicit vs Implicit</span> only by memorizing the label, without checking examples or classroom conditions.",ans:false,correct:"틀립니다. <span class='kw2'>Explicit vs Implicit</span>는 label만 외우기보다 예시, 조건, 효과를 함께 확인해야 합니다.",why:"실전에서는 용어 단독보다 적용 맥락이 단서가 됩니다. declarative attention vs incidental processing를 기준으로 판단합니다.",source:"&quot;Explicit vocabulary learning focuses overt attention; implicit learning occurs while processing meaningful text.&quot;"},
-
-  {src:"High vs Low Frequency",cat:"Review",text:"A learner can identify <span class='kw2'>High vs Low Frequency</span> only by memorizing the label, without checking examples or classroom conditions.",ans:false,correct:"틀립니다. <span class='kw2'>High vs Low Frequency</span>는 label만 외우기보다 예시, 조건, 효과를 함께 확인해야 합니다.",why:"실전에서는 용어 단독보다 적용 맥락이 단서가 됩니다. meaning-focused input/output and strategy training를 기준으로 판단합니다.",source:"&quot;High-frequency words deserve deliberate learning and fluency development; low-frequency words call for strategies.&quot;"},
-
-  {src:"Keyword Method",cat:"Review",text:"A learner can identify <span class='kw2'>Keyword Method</span> only by memorizing the label, without checking examples or classroom conditions.",ans:false,correct:"틀립니다. <span class='kw2'>Keyword Method</span>는 label만 외우기보다 예시, 조건, 효과를 함께 확인해야 합니다.",why:"실전에서는 용어 단독보다 적용 맥락이 단서가 됩니다. mnemonic device와 depth of processing를 기준으로 판단합니다.",source:"&quot;Keyword method uses mnemonic devices with familiar words and visual images.&quot;"},
-
-  {src:"Semantic Mapping",cat:"Review",text:"A learner can identify <span class='kw2'>Semantic Mapping</span> only by memorizing the label, without checking examples or classroom conditions.",ans:false,correct:"틀립니다. <span class='kw2'>Semantic Mapping</span>는 label만 외우기보다 예시, 조건, 효과를 함께 확인해야 합니다.",why:"실전에서는 용어 단독보다 적용 맥락이 단서가 됩니다. thematically related words의 visual network를 기준으로 판단합니다.",source:"&quot;Semantic mapping creates a visual network of thematically related words.&quot;"},
-
-  {src:"Multi-word Units",cat:"Review",text:"A learner can identify <span class='kw2'>Multi-word Units</span> only by memorizing the label, without checking examples or classroom conditions.",ans:false,correct:"틀립니다. <span class='kw2'>Multi-word Units</span>는 label만 외우기보다 예시, 조건, 효과를 함께 확인해야 합니다.",why:"실전에서는 용어 단독보다 적용 맥락이 단서가 됩니다. collocation과 lexical phrases를 기준으로 판단합니다.",source:"&quot;Multi-word units include collocations, idioms, lexical phrases, discourse markers, and formulaic language.&quot;"}
+  {
+    "src": "Word Knowledge",
+    "cat": "Application",
+    "text": "A learner knows that <b>advice</b> means 조언 but writes “two advices.” Teaching “two pieces of advice” develops knowledge of use beyond a form–meaning link.",
+    "ans": true,
+    "correct": "맞습니다. 뜻을 알아도 grammatical use까지 안다는 뜻은 아닙니다.",
+    "why": "Word knowledge에는 spoken/written form, meaning, word parts, grammatical patterns, collocation, register 등이 포함됩니다. 이 학생에게 필요한 것은 새로운 단어 수만 늘리는 활동보다 advice와 수량 표현을 함께 쓰는 연습입니다. 새로 배운 표현을 자신의 상담 상황에서 사용하게 하면 이해와 실제 사용을 구분해 확인할 수 있습니다.",
+    "source": "근거 요약 · Build-up II, Teaching Vocabulary, pp.166–177 · 문항과 예시는 새로 구성했습니다."
+  },
+  {
+    "src": "Word Knowledge",
+    "cat": "Application",
+    "text": "If learners recognize the meanings of 300 more words, this alone proves that their vocabulary <b>depth</b> has increased.",
+    "ans": false,
+    "correct": "틀립니다. 새로 아는 단어 수의 증가는 주로 breadth에 관한 증거입니다.",
+    "why": "Breadth는 얼마나 많은 단어를 아는지, depth는 개별 단어를 얼마나 풍부하게 아는지에 초점을 둡니다. 뜻 맞히기 점수만으로 collocation, grammatical pattern, register까지 좋아졌다고 결론낼 수 없습니다. 두 측면은 함께 발달할 수 있지만 같은 지표가 아닙니다.",
+    "source": "근거 요약 · 적용 기준: vocabulary breadth와 depth를 구분하는 평가 증거 · 문항과 예시는 새로 구성했습니다.",
+    "compare": [
+      {
+        "title": "Breadth",
+        "desc": "아는 단어의 범위·수"
+      },
+      {
+        "title": "Depth",
+        "desc": "개별 단어의 form, meaning, use에 관한 지식"
+      }
+    ]
+  },
+  {
+    "src": "Explicit vs Implicit",
+    "cat": "Application",
+    "text": "During story reading, a student asks about a word and the teacher briefly explains its meaning and use. This can be <b>unplanned yet explicit</b> vocabulary teaching.",
+    "ans": true,
+    "correct": "맞습니다. 미리 계획했는지와 단어에 주의를 직접 집중시키는지는 다른 기준입니다.",
+    "why": "Unplanned는 수업 전에 그 설명을 준비하지 않았다는 뜻입니다. 그 자리에서 교사가 단어를 가리키고 의미·용법을 설명하면 explicit attention이 생깁니다. 짧게 확인한 뒤 이야기로 돌아가면 읽기 목적과 단어 학습을 함께 살릴 수 있습니다.",
+    "source": "근거 요약 · Teaching by Principles 3rd ed., Ch.22, pp.435–439 · 문항과 예시는 새로 구성했습니다."
+  },
+  {
+    "src": "Explicit vs Implicit",
+    "cat": "Application",
+    "text": "Vocabulary learned incidentally while enjoying a story must have been learned without any conscious attention to the words.",
+    "ans": false,
+    "correct": "틀립니다. Incidental은 학습 의도에 관한 구분이며 awareness의 부재를 보장하지 않습니다.",
+    "why": "이야기 이해가 주목적이어도 낯선 표현을 잠시 알아차리거나 의미를 추측할 수 있습니다. Implicit은 awareness와 관련된 구분으로 다뤄야 합니다. 일부 수험 자료가 implicit/incidental을 묶어 쓰더라도, 글을 읽었다는 사실만으로 무의식적 학습이라고 판정하면 안 됩니다.",
+    "source": "근거 요약 · Hulstijn (2003), Incidental and Intentional Learning, §3.4, p.360; <a href=\"https://www.blackwellpublishing.com/content/BPl_Images/Content_Store/WWW_Content/9780631217541/13Chap12.pdf#page=12\" target=\"_blank\" rel=\"noopener\">출판사 원문</a> · 문항과 예시는 새로 구성했습니다."
+  },
+  {
+    "src": "High vs Low Frequency",
+    "cat": "Application",
+    "text": "For a generally rare word that is not central to the lesson, a teacher may give a brief meaning and spend more time on a reusable strategy such as checking a familiar prefix.",
+    "ans": true,
+    "correct": "맞습니다. 단어 하나에 오래 머무는 대신 다른 단어에도 쓸 수 있는 전략을 연습할 수 있습니다.",
+    "why": "High-frequency vocabulary에는 반복 학습과 사용 연습을 충분히 배정할 가치가 큽니다. Low-frequency word는 짧게 처리하거나 guessing, word parts, dictionary use 등으로 관심을 돌릴 수 있습니다. 다만 수업 목표에 꼭 필요한 전문어라면 일반 빈도가 낮더라도 직접 지도할 이유가 있습니다.",
+    "source": "근거 요약 · Build-up II, Teaching Vocabulary, pp.166–177; 적용 기준: word knowledge와 학습 활동의 조건 비교 · 문항과 예시는 새로 구성했습니다."
+  },
+  {
+    "src": "High vs Low Frequency",
+    "cat": "Application",
+    "text": "A fluency activity should introduce many unknown words and demand faster performance at the same time.",
+    "ans": false,
+    "correct": "틀립니다. Fluency development의 핵심은 주로 이미 아는 언어를 더 원활하게 사용하는 것입니다.",
+    "why": "새 단어 해독에 매달리면 빠른 의미 처리와 표현 연습이 어려워집니다. 익숙한 내용의 짧은 이야기 재말하기나 쉬운 글의 speed reading처럼, 의미에 집중하면서 충분한 양을 처리하게 합니다. 속도 목표는 이해와 성공적인 수행을 해치지 않는 범위에서 설정합니다.",
+    "source": "근거 요약 · 적용 기준: word knowledge와 학습 활동의 조건 비교 · 문항과 예시는 새로 구성했습니다."
+  },
+  {
+    "src": "Keyword Method",
+    "cat": "Application",
+    "text": "A learner links the sound of English <b>sew</b> to Korean 소 and imagines a cow sewing a coat. The sound link plus an image of the target meaning illustrates the keyword method.",
+    "ans": true,
+    "correct": "맞습니다. 소리 연결과 의미를 담은 장면이 함께 있어야 합니다.",
+    "why": "학습자가 이미 아는 소를 단서로 삼고, 소가 바느질하는 장면에서 sew의 의미를 회상하도록 만든 새 예시입니다. 소리 유사성은 근사한 연결일 뿐 정확한 발음 설명이 아니므로 sew의 발음은 별도로 확인해야 합니다. 이후 실제 문장에서 sew를 사용해야 용법까지 넓어집니다.",
+    "source": "근거 요약 · Build-up II, Teaching Vocabulary, pp.166–177 · 문항과 예시는 새로 구성했습니다."
+  },
+  {
+    "src": "Keyword Method",
+    "cat": "Application",
+    "text": "Once a learner remembers a word through a vivid keyword image, correct collocation and register are guaranteed.",
+    "ans": false,
+    "correct": "틀립니다. 기억 보조 장치는 form–meaning 연결을 도울 뿐 모든 사용 지식을 보장하지 않습니다.",
+    "why": "예를 들어 sew를 떠올려도 sew a button on이라는 패턴이나 다른 sewing 표현은 별도로 접하고 연습해야 합니다. Keyword method는 초기 기억을 돕는 한 방법이며, 문맥 속 반복 사용·retrieval과 결합할 때 학습 범위를 넓힐 수 있습니다.",
+    "source": "근거 요약 · Build-up II, Teaching Vocabulary, pp.166–177; 적용 기준: word knowledge와 학습 활동의 조건 비교 · 문항과 예시는 새로 구성했습니다."
+  },
+  {
+    "src": "Semantic Mapping",
+    "cat": "Application",
+    "text": "A word web for a community garden links tools, actions, and feelings. It can include nouns, verbs, and adjectives rather than only words from one part of speech.",
+    "ans": true,
+    "correct": "맞습니다. 같은 주제와 연결되는 다양한 품사의 단어를 묶을 수 있습니다.",
+    "why": "예를 들어 tools 아래 shovel, actions 아래 plant와 water, feelings 아래 proud를 넣고 연결 이유를 말하게 합니다. Semantic mapping은 단순 암기 목록을 그림으로 바꾸는 데 그치지 않고, 기존 지식을 떠올리고 관계를 설명하게 하는 활동입니다. 범주를 비교하면 친구에게 새 단어도 배울 수 있습니다.",
+    "source": "근거 요약 · Build-up II, Teaching Vocabulary, pp.166–177 (word web, pp.174–176) · 문항과 예시는 새로 구성했습니다."
+  },
+  {
+    "src": "Semantic Mapping",
+    "cat": "Application",
+    "text": "In a semantic map, every connecting line necessarily represents a synonym relation.",
+    "ans": false,
+    "correct": "틀립니다. 연결은 topic, category, part–whole, action 등 여러 관계를 나타낼 수 있습니다.",
+    "why": "Garden과 shovel은 유의어가 아니지만 같은 활동과 관련됩니다. 관계를 명시하지 않은 선만 늘리면 학습자가 무엇을 연결했는지 확인하기 어렵습니다. 연결에 “used for”나 “a kind of” 같은 짧은 설명을 붙이거나 구두로 이유를 말하게 할 수 있습니다.",
+    "source": "근거 요약 · Build-up II, Teaching Vocabulary, pp.166–177 · 문항과 예시는 새로 구성했습니다."
+  },
+  {
+    "src": "Multi-word Units",
+    "cat": "Application",
+    "text": "Comparing “make a decision” with the unsuitable combination “do a decision” directs attention to <b>collocation</b>, not merely the separate dictionary meanings of make and decision.",
+    "ans": true,
+    "correct": "맞습니다. 어떤 단어들이 관습적으로 함께 쓰이는지를 확인하는 활동입니다.",
+    "why": "문법적으로 동사와 명사를 놓을 수 있다는 사실만으로 모든 조합이 자연스러운 것은 아닙니다. 여러 문맥에서 make a decision을 확인하고 자신의 선택을 설명하게 하면, 조합을 알아보는 단계에서 실제 사용하는 단계로 연결됩니다.",
+    "source": "근거 요약 · Teaching by Principles 3rd ed., Ch.22, pp.435–439; 적용 기준: word knowledge와 학습 활동의 조건 비교 · 문항과 예시는 새로 구성했습니다."
+  },
+  {
+    "src": "Multi-word Units",
+    "cat": "Application",
+    "text": "Because “strong tea” is a collocation, its meaning must be nonliteral like every idiom.",
+    "ans": false,
+    "correct": "틀립니다. Collocation이라고 반드시 뜻을 구성 단어에서 알 수 없는 것은 아닙니다.",
+    "why": "Strong tea는 차의 진한 정도를 나타내며 뜻을 이해하기 비교적 쉽지만 함께 쓰이는 단어 선택은 관습적입니다. Idiom은 전체 의미가 개별 단어 의미만으로 예측되지 않는 경우가 대표적입니다. Collocation과 idiom은 관련 범주이지만 동일한 기준으로 정의하지 않습니다.",
+    "source": "근거 요약 · 적용 기준: word knowledge와 학습 활동의 조건 비교 · 문항과 예시는 새로 구성했습니다."
+  },
+  {
+    "src": "Vocabulary Growth",
+    "cat": "Application",
+    "text": "Seeing “generous” and recalling its meaning is receptive retrieval; wanting to describe a helpful donor and recalling “generous” without a word bank is productive retrieval.",
+    "ans": true,
+    "correct": "맞습니다. 무엇을 단서로 받고 무엇을 기억에서 꺼내는지가 다릅니다.",
+    "why": "Receptive retrieval은 주어진 form에서 meaning을 떠올리는 방향입니다. Productive retrieval은 표현하려는 meaning에서 form을 떠올려 쓰는 방향입니다. 단어를 보고 그대로 베껴 쓰는 활동은 쓰기를 포함해도 그 단어의 form을 기억에서 꺼낼 필요가 없으므로 같은 요구를 하지 않습니다.",
+    "source": "근거 요약 · 적용 기준: noticing, receptive/productive retrieval, creative/generative use · 문항과 예시는 새로 구성했습니다."
+  },
+  {
+    "src": "Vocabulary Growth",
+    "cat": "Application",
+    "text": "When noticing involves decontextualization, the teacher must remove all context and teach only isolated word lists.",
+    "ans": false,
+    "correct": "틀립니다. 여기서 decontextualization은 메시지에서 잠시 단어 자체로 주의를 옮기는 것을 뜻합니다.",
+    "why": "문장 속 charge를 보고 “여기서는 요금일까, 충전일까?”를 확인하는 것처럼 문맥을 유지해도 단어의 form과 meaning을 주목할 수 있습니다. Noticing 뒤에는 문장 전체의 뜻과 사용 상황으로 돌아갈 수 있습니다. 문맥 없는 단어 목록이 필수라는 주장이 아닙니다.",
+    "source": "근거 요약 · 적용 기준: noticing, receptive/productive retrieval, creative/generative use · 문항과 예시는 새로 구성했습니다."
+  },
+  {
+    "src": "Word Knowledge",
+    "cat": "Application",
+    "text": "The relation between “heavy” and “rain” in “heavy rain” is paradigmatic because the two words occur together.",
+    "ans": false,
+    "correct": "틀립니다. 함께 결합하는 관계는 syntagmatic relation으로 설명합니다.",
+    "why": "Heavy와 rain은 한 표현 안에서 결합합니다. Heavy와 light를 같은 위치에서 비교하는 것은 paradigmatic choices의 예가 될 수 있습니다. “함께 쓰이는가”와 “같은 자리에 선택할 수 있는가”를 구분하되, 대체 후보라도 의미·문맥·collocation이 모두 같지는 않습니다.",
+    "source": "근거 요약 · 적용 기준: word knowledge와 학습 활동의 조건 비교 · 문항과 예시는 새로 구성했습니다.",
+    "compare": [
+      {
+        "title": "Syntagmatic",
+        "desc": "heavy + rain: 함께 결합"
+      },
+      {
+        "title": "Paradigmatic",
+        "desc": "heavy / light rain: 같은 자리의 선택 비교"
+      }
+    ]
+  },
+  {
+    "src": "Explicit vs Implicit",
+    "cat": "Application",
+    "text": "If students use a dictionary during a reading lesson, all vocabulary learning in that lesson becomes incidental.",
+    "ans": false,
+    "correct": "틀립니다. Dictionary 사용 여부만으로 학습 의도를 판단할 수 없습니다.",
+    "why": "교사가 target words를 지정해 의미·용례를 정리하게 했다면 deliberate study입니다. 이야기 이해 중 필요한 단어만 확인하는 상황은 목적이 다릅니다. Dictionary 자체가 나쁜 것도 아닙니다. 필요한 뜻을 고른 뒤 문맥에 대입해 확인하고, 나중에 다시 떠올려 보는 활동을 연결해야 합니다.",
+    "source": "근거 요약 · Teaching by Principles 3rd ed., Ch.22, pp.435–439 · 문항과 예시는 새로 구성했습니다."
+  },
+  {
+    "src": "High vs Low Frequency",
+    "cat": "Application",
+    "text": "In “Mina placed the dax beside her bag,” the sentence gives enough information to identify exactly what <b>dax</b> means.",
+    "ans": false,
+    "correct": "틀립니다. 문법적 위치를 추정할 수 있어도 구체적 의미를 정할 단서는 부족합니다.",
+    "why": "Dax는 이 예시에서 만든 가상 단어입니다. The 뒤의 명사 자리와 placed의 목적어라는 단서로 물건일 가능성은 좁힐 수 있지만 책인지 도시락인지 알 수 없습니다. Guessing은 근거 있는 가설을 세우고 확인하는 과정입니다. 필수 단어이고 단서가 부족하면 설명이나 dictionary가 필요합니다.",
+    "source": "근거 요약 · Build-up II, Teaching Vocabulary, pp.166–177 (Guessing Strategies, pp.170–173) · 문항과 예시는 새로 구성했습니다."
+  },
+  {
+    "src": "Keyword Method",
+    "cat": "Application",
+    "text": "Any activity with a picture is the keyword method, including showing a photograph of a kettle to teach “kettle.”",
+    "ans": false,
+    "correct": "틀립니다. 그림으로 뜻을 직접 보여 주는 것과 keyword method는 구분해야 합니다.",
+    "why": "Keyword method는 target word와 소리 등이 비슷한 익숙한 keyword를 거쳐 의미를 기억하게 하는 연결을 만듭니다. Kettle 사진은 뜻을 직접 제시하는 visual aid이며 그 자체로 소리 연결을 쓰지 않습니다. 실제 주전자를 보여 주면 realia 활용 사례가 됩니다.",
+    "source": "근거 요약 · Build-up II, Teaching Vocabulary, pp.166–177 · 문항과 예시는 새로 구성했습니다."
+  },
+  {
+    "src": "Semantic Mapping",
+    "cat": "Application",
+    "text": "A semantic map containing only words the class already knows cannot contribute to vocabulary learning.",
+    "ans": false,
+    "correct": "틀립니다. 기존 단어를 떠올리고 관계를 새로 정리하는 것도 학습에 도움이 됩니다.",
+    "why": "새로운 단어를 추가하는 것만이 목표는 아닙니다. 학생이 알고 있던 단어를 회상하고 범주에 배치하며 친구의 연결 이유를 듣는 과정에서 지식을 정리할 수 있습니다. 다만 지도에 적힌 단어를 보기만 했다고 retrieval이 일어났다고 단정하지 말고, 먼저 스스로 떠올릴 기회를 줍니다.",
+    "source": "근거 요약 · Build-up II, Teaching Vocabulary, pp.166–177 (word web, pp.174–176) · 문항과 예시는 새로 구성했습니다."
+  },
+  {
+    "src": "Multi-word Units",
+    "cat": "Application",
+    "text": "A concordance is a corpus itself, and every line returned by a concordancer proves that the expression is appropriate in every register.",
+    "ans": false,
+    "correct": "틀립니다. Corpus, concordancer, concordance를 구분하고 사용 맥락도 확인해야 합니다.",
+    "why": "Corpus는 언어 자료의 집합, concordancer는 검색·분석 도구, concordance는 검색어 주변 문맥을 모아 보여 주는 결과입니다. 같은 표현도 자료의 genre와 register에 따라 분포가 다를 수 있습니다. 몇 줄만 보고 일반화하지 말고 여러 예를 비교한 뒤 자신의 문장에 적용합니다.",
+    "source": "근거 요약 · Teaching by Principles 3rd ed., Ch.22, pp.435–439; Build-up II, Teaching Vocabulary, pp.166–177 · 문항과 예시는 새로 구성했습니다."
+  }
 ];
 
 const TOTAL=20;
-const SAVE_KEY='ox_vocab_v1';
+// Revised item meanings: keep previous-version answers separate.
+const SAVE_KEY='ox_vocab_v2';
 let cur=0,answers=new Array(TOTAL).fill(null);
 let mode='normal',order=[...Array(TOTAL).keys()];
 function initOrder(m){if(m==='random'){const a=[...Array(TOTAL).keys()];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}order=a;}else order=[...Array(TOTAL).keys()];}
@@ -285,3 +447,4 @@ function jumpTo(i){cur=i;render();document.getElementById('qa').scrollIntoView({
 <script src="./study-return.js"></script>
 </body>
 </html>
+
