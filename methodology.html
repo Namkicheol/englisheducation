@@ -142,49 +142,200 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f5f4ee;background-image:r
 <script src="./sounds.js"></script>
 <script>
 const Q=[
-  {src:"CLT",cat:"Core Concept",text:"<span class='kw1'>CLT</span> is best understood as communicative activity, authentic material, small groups, functions and forms, so it should be interpreted within its instructional or assessment context.",ans:true,correct:"맞습니다. <span class='kw1'>CLT</span>의 핵심은 communicative activity, authentic material, small groups, functions and forms입니다.",why:"이 문항은 CLT를 단순 명칭보다 기능과 classroom use 중심으로 확인합니다. 관련 개념을 비교할 때는 목적, learner role, teacher role, task condition을 함께 보아야 합니다.",source:"&quot;Communicative activity includes information gap, learner choice, and feedback.&quot;"},
-
-  {src:"CLT",cat:"Misconception",text:"<span class='kw4'>CLT</span> can be safely treated as the same as any neighboring concept because the distinction is mostly terminological.",ans:false,correct:"틀립니다. <span class='kw4'>CLT</span>는 인접 개념과 구분되는 condition, purpose, learner behavior가 있습니다.",why:"영교론 문항은 비슷한 key terms의 경계 조건을 묻는 경우가 많습니다. CLT는 정의 속 keyword를 기준으로 구분해야 합니다.",source:"&quot;Communicative activity includes information gap, learner choice, and feedback.&quot;",compare:[{title:"<span class='kw1'>CLT</span>",desc:"communicative activity, authentic material, small groups, functions and forms"},{title:"<span class='kw4'>Trap</span>",desc:"confusing it with a neighboring concept"}]},
-
-  {src:"TBLT",cat:"Core Concept",text:"<span class='kw1'>TBLT</span> is best understood as meaning focus와 communicative outcome을 가진 task, so it should be interpreted within its instructional or assessment context.",ans:true,correct:"맞습니다. <span class='kw1'>TBLT</span>의 핵심은 meaning focus와 communicative outcome을 가진 task입니다.",why:"이 문항은 TBLT를 단순 명칭보다 기능과 classroom use 중심으로 확인합니다. 관련 개념을 비교할 때는 목적, learner role, teacher role, task condition을 함께 보아야 합니다.",source:"&quot;A task has primary focus on meaning and a clearly defined communicative outcome.&quot;"},
-
-  {src:"TBLT",cat:"Misconception",text:"<span class='kw4'>TBLT</span> can be safely treated as the same as any neighboring concept because the distinction is mostly terminological.",ans:false,correct:"틀립니다. <span class='kw4'>TBLT</span>는 인접 개념과 구분되는 condition, purpose, learner behavior가 있습니다.",why:"영교론 문항은 비슷한 key terms의 경계 조건을 묻는 경우가 많습니다. TBLT는 정의 속 keyword를 기준으로 구분해야 합니다.",source:"&quot;A task has primary focus on meaning and a clearly defined communicative outcome.&quot;",compare:[{title:"<span class='kw1'>TBLT</span>",desc:"meaning focus와 communicative outcome을 가진 task"},{title:"<span class='kw4'>Trap</span>",desc:"confusing it with a neighboring concept"}]},
-
-  {src:"Task Types",cat:"Core Concept",text:"<span class='kw1'>Task Types</span> is best understood as information-gap, opinion-gap, reasoning-gap, so it should be interpreted within its instructional or assessment context.",ans:true,correct:"맞습니다. <span class='kw1'>Task Types</span>의 핵심은 information-gap, opinion-gap, reasoning-gap입니다.",why:"이 문항은 Task Types를 단순 명칭보다 기능과 classroom use 중심으로 확인합니다. 관련 개념을 비교할 때는 목적, learner role, teacher role, task condition을 함께 보아야 합니다.",source:"&quot;Information-gap, opinion-gap, and reasoning-gap activities differ by the kind of exchange or inference required.&quot;"},
-
-  {src:"Task Types",cat:"Misconception",text:"<span class='kw4'>Task Types</span> can be safely treated as the same as any neighboring concept because the distinction is mostly terminological.",ans:false,correct:"틀립니다. <span class='kw4'>Task Types</span>는 인접 개념과 구분되는 condition, purpose, learner behavior가 있습니다.",why:"영교론 문항은 비슷한 key terms의 경계 조건을 묻는 경우가 많습니다. Task Types는 정의 속 keyword를 기준으로 구분해야 합니다.",source:"&quot;Information-gap, opinion-gap, and reasoning-gap activities differ by the kind of exchange or inference required.&quot;",compare:[{title:"<span class='kw1'>Task Types</span>",desc:"information-gap, opinion-gap, reasoning-gap"},{title:"<span class='kw4'>Trap</span>",desc:"confusing it with a neighboring concept"}]},
-
-  {src:"PPP vs TBLT",cat:"Core Concept",text:"<span class='kw1'>PPP vs TBLT</span> is best understood as presentation-practice-production과 task cycle, so it should be interpreted within its instructional or assessment context.",ans:true,correct:"맞습니다. <span class='kw1'>PPP vs TBLT</span>의 핵심은 presentation-practice-production과 task cycle입니다.",why:"이 문항은 PPP vs TBLT를 단순 명칭보다 기능과 classroom use 중심으로 확인합니다. 관련 개념을 비교할 때는 목적, learner role, teacher role, task condition을 함께 보아야 합니다.",source:"&quot;PPP moves from presentation to practice to production; TBLT organizes instruction around task completion.&quot;"},
-
-  {src:"PPP vs TBLT",cat:"Misconception",text:"<span class='kw4'>PPP vs TBLT</span> can be safely treated as the same as any neighboring concept because the distinction is mostly terminological.",ans:false,correct:"틀립니다. <span class='kw4'>PPP vs TBLT</span>는 인접 개념과 구분되는 condition, purpose, learner behavior가 있습니다.",why:"영교론 문항은 비슷한 key terms의 경계 조건을 묻는 경우가 많습니다. PPP vs TBLT는 정의 속 keyword를 기준으로 구분해야 합니다.",source:"&quot;PPP moves from presentation to practice to production; TBLT organizes instruction around task completion.&quot;",compare:[{title:"<span class='kw1'>PPP vs TBLT</span>",desc:"presentation-practice-production과 task cycle"},{title:"<span class='kw4'>Trap</span>",desc:"confusing it with a neighboring concept"}]},
-
-  {src:"Designer Methods",cat:"Core Concept",text:"<span class='kw1'>Designer Methods</span> is best understood as Silent Way, TPR, Suggestopedia, CLL, Natural Approach, so it should be interpreted within its instructional or assessment context.",ans:true,correct:"맞습니다. <span class='kw1'>Designer Methods</span>의 핵심은 Silent Way, TPR, Suggestopedia, CLL, Natural Approach입니다.",why:"이 문항은 Designer Methods를 단순 명칭보다 기능과 classroom use 중심으로 확인합니다. 관련 개념을 비교할 때는 목적, learner role, teacher role, task condition을 함께 보아야 합니다.",source:"&quot;Designer methods include Silent Way, Suggestopedia, TPR, CLL, and Natural Approach.&quot;"},
-
-  {src:"Designer Methods",cat:"Misconception",text:"<span class='kw4'>Designer Methods</span> can be safely treated as the same as any neighboring concept because the distinction is mostly terminological.",ans:false,correct:"틀립니다. <span class='kw4'>Designer Methods</span>는 인접 개념과 구분되는 condition, purpose, learner behavior가 있습니다.",why:"영교론 문항은 비슷한 key terms의 경계 조건을 묻는 경우가 많습니다. Designer Methods는 정의 속 keyword를 기준으로 구분해야 합니다.",source:"&quot;Designer methods include Silent Way, Suggestopedia, TPR, CLL, and Natural Approach.&quot;",compare:[{title:"<span class='kw1'>Designer Methods</span>",desc:"Silent Way, TPR, Suggestopedia, CLL, Natural Approach"},{title:"<span class='kw4'>Trap</span>",desc:"confusing it with a neighboring concept"}]},
-
-  {src:"Post-method",cat:"Core Concept",text:"<span class='kw1'>Post-method</span> is best understood as principled eclecticism과 teacher autonomy, so it should be interpreted within its instructional or assessment context.",ans:true,correct:"맞습니다. <span class='kw1'>Post-method</span>의 핵심은 principled eclecticism과 teacher autonomy입니다.",why:"이 문항은 Post-method를 단순 명칭보다 기능과 classroom use 중심으로 확인합니다. 관련 개념을 비교할 때는 목적, learner role, teacher role, task condition을 함께 보아야 합니다.",source:"&quot;Principled eclecticism selects techniques according to coherent principles and local needs.&quot;"},
-
-  {src:"Post-method",cat:"Misconception",text:"<span class='kw4'>Post-method</span> can be safely treated as the same as any neighboring concept because the distinction is mostly terminological.",ans:false,correct:"틀립니다. <span class='kw4'>Post-method</span>는 인접 개념과 구분되는 condition, purpose, learner behavior가 있습니다.",why:"영교론 문항은 비슷한 key terms의 경계 조건을 묻는 경우가 많습니다. Post-method는 정의 속 keyword를 기준으로 구분해야 합니다.",source:"&quot;Principled eclecticism selects techniques according to coherent principles and local needs.&quot;",compare:[{title:"<span class='kw1'>Post-method</span>",desc:"principled eclecticism과 teacher autonomy"},{title:"<span class='kw4'>Trap</span>",desc:"confusing it with a neighboring concept"}]},
-
-  {src:"CLT",cat:"Review",text:"A pair activity is <span class='kw4'>communicative</span> even when each learner repeats a fixed worksheet response and does not need to exchange information or choose content and form.",ans:false,correct:"틀립니다. 고정된 response만 반복하고 information exchange나 content/form 선택이 없으면 communicative activity의 조건을 충족하지 않습니다.",why:"<span class='kw4'>Communicative activity</span>는 information gap, learners' leeway in choosing content and form, feedback을 포함해야 합니다. 고정된 worksheet response만 반복하는 활동은 이 조건이 부족하므로 communicative activity라고 단정할 수 없습니다.",source:"&quot;Communicative activity: Information gap; Ls' leeway in choosing content and form; feedback.&quot;"},
-
-  {src:"TBLT",cat:"Review",text:"A learner can identify <span class='kw2'>TBLT</span> only by memorizing the label, without checking examples or classroom conditions.",ans:false,correct:"틀립니다. <span class='kw2'>TBLT</span>는 label만 외우기보다 예시, 조건, 효과를 함께 확인해야 합니다.",why:"실전에서는 용어 단독보다 적용 맥락이 단서가 됩니다. meaning focus와 communicative outcome을 가진 task를 가리킨다는 점을 기준으로 판단합니다.",source:"&quot;A task has primary focus on meaning and a clearly defined communicative outcome.&quot;"},
-
-  {src:"Task Types",cat:"Review",text:"A learner can identify <span class='kw2'>Task Types</span> only by memorizing the label, without checking examples or classroom conditions.",ans:false,correct:"틀립니다. <span class='kw2'>Task Types</span>는 label만 외우기보다 예시, 조건, 효과를 함께 확인해야 합니다.",why:"실전에서는 용어 단독보다 적용 맥락이 단서가 됩니다. information-gap, opinion-gap, reasoning-gap를 기준으로 판단합니다.",source:"&quot;Information-gap, opinion-gap, and reasoning-gap activities differ by the kind of exchange or inference required.&quot;"},
-
-  {src:"PPP vs TBLT",cat:"Review",text:"A learner can identify <span class='kw2'>PPP vs TBLT</span> only by memorizing the label, without checking examples or classroom conditions.",ans:false,correct:"틀립니다. <span class='kw2'>PPP vs TBLT</span>는 label만 외우기보다 예시, 조건, 효과를 함께 확인해야 합니다.",why:"실전에서는 용어 단독보다 적용 맥락이 단서가 됩니다. presentation-practice-production과 task cycle를 기준으로 판단합니다.",source:"&quot;PPP moves from presentation to practice to production; TBLT organizes instruction around task completion.&quot;"},
-
-  {src:"Designer Methods",cat:"Review",text:"A learner can identify <span class='kw2'>Designer Methods</span> only by memorizing the label, without checking examples or classroom conditions.",ans:false,correct:"틀립니다. <span class='kw2'>Designer Methods</span>는 label만 외우기보다 예시, 조건, 효과를 함께 확인해야 합니다.",why:"실전에서는 용어 단독보다 적용 맥락이 단서가 됩니다. Silent Way, TPR, Suggestopedia, CLL, Natural Approach를 기준으로 판단합니다.",source:"&quot;Designer methods include Silent Way, Suggestopedia, TPR, CLL, and Natural Approach.&quot;"},
-
-  {src:"Post-method",cat:"Review",text:"A learner can identify <span class='kw2'>Post-method</span> only by memorizing the label, without checking examples or classroom conditions.",ans:false,correct:"틀립니다. <span class='kw2'>Post-method</span>는 label만 외우기보다 예시, 조건, 효과를 함께 확인해야 합니다.",why:"실전에서는 용어 단독보다 적용 맥락이 단서가 됩니다. principled eclecticism과 teacher autonomy를 기준으로 판단합니다.",source:"&quot;Principled eclecticism selects techniques according to coherent principles and local needs.&quot;"},
-
-  {src:"CLT",cat:"Review",text:"A learner can identify <span class='kw2'>CLT</span> only by memorizing the label, without checking examples or classroom conditions.",ans:false,correct:"틀립니다. <span class='kw2'>CLT</span>는 label만 외우기보다 예시, 조건, 효과를 함께 확인해야 합니다.",why:"실전에서는 용어 단독보다 적용 맥락이 단서가 됩니다. communicative activity, authentic material, small groups, functions and forms를 기준으로 판단합니다.",source:"&quot;Communicative activity includes information gap, learner choice, and feedback.&quot;"},
-
-  {src:"TBLT",cat:"Review",text:"A form-focused exercise that asks students to manipulate preselected grammar forms, without exchanging information or producing a communicative outcome, qualifies as a <span class='kw2'>TBLT task</span>.",ans:false,correct:"틀립니다. Meaning focus와 clearly defined communicative outcome 없이 preselected grammar forms만 조작하는 활동은 TBLT task라고 보기 어렵습니다.",why:"<span class='kw2'>Task</span>는 primary focus on meaning, natural/real-world language use, clearly defined communicative outcomes를 가져야 합니다. Form manipulation만 수행하고 survey 결과와 같은 outcome을 report하지 않는 활동은 task 조건을 충족하지 않습니다.",source:"&quot;A task has primary focus on meaning, natural, real-world processes of language use, and clearly defined communicative outcomes. Task performance phase: Ss carry out meaning-focused activity; report phase: Ss present the results of their task.&quot;"}
+  {
+    "src": "CLT",
+    "cat": "Application",
+    "text": "During a class survey, students choose their own answers and learn previously unknown preferences. A brief correction followed by continued discussion is compatible with CLT.",
+    "ans": true,
+    "correct": "맞습니다. Meaning 중심 활동과 필요한 accuracy 지원은 함께 이루어질 수 있습니다.",
+    "why": "실제 답을 알아야 조사표를 완성하는 목적이 있고, 학생이 내용을 선택하며, 상대 반응으로 이해 여부를 확인합니다. CLT는 모든 오류 수정을 금지하지 않습니다. 오류의 영향과 활동 목적에 맞춰 짧게 지원한 뒤 의사소통을 이어 가는 것이 핵심입니다.",
+    "source": "개념 근거 요약 · Brown, Teaching by Principles (3rd ed., 2007), Ch.3, pp.46–48. 문항의 수업 사례는 새로 구성했습니다."
+  },
+  {
+    "src": "CLT",
+    "cat": "Application",
+    "text": "Using an authentic restaurant menu guarantees a communicative activity, even if students only copy its nouns into identical lists.",
+    "ans": false,
+    "correct": "틀립니다. 자료의 출처와 활동의 communicative 조건은 별개입니다.",
+    "why": "실제 메뉴라도 단어를 옮겨 적는 일만 하면 information exchange나 선택의 목적이 부족합니다. 서로 다른 식사 조건을 듣고 함께 주문을 정하게 바꾸면 같은 자료가 의사소통에 쓰입니다. Authentic material과 small-group 배치는 유용한 설계 요소이지 그 자체로 충분조건이 아닙니다.",
+    "source": "개념 근거 요약 · Brown, Teaching by Principles (3rd ed., 2007), Ch.3, pp.46–48. 문항의 수업 사례는 새로 구성했습니다."
+  },
+  {
+    "src": "Functional Syllabus",
+    "cat": "Application",
+    "text": "Organizing units around apologizing and requesting, rather than verb tenses, is consistent with a functional syllabus.",
+    "ans": true,
+    "correct": "맞습니다. 단원 배열의 중심이 communicative functions입니다.",
+    "why": "Notion은 time·quantity 같은 개념, function은 요청·사과처럼 언어로 수행하는 목적입니다. 다만 기능별 표현 목록만 외우게 하면 실제 상황에서 표현을 선택하고 상대 반응에 맞추는 능력까지 보장되지는 않습니다.",
+    "source": "개념 근거 요약 · Brown, Teaching by Principles (3rd ed., 2007), Ch.2, pp.32–34. 문항의 수업 사례는 새로 구성했습니다."
+  },
+  {
+    "src": "TBLT",
+    "cat": "Application",
+    "text": "Groups compare opening times, prices, and classmates’ needs to produce a feasible outing plan. Success is judged by whether the plan meets those constraints, not only by grammatical accuracy.",
+    "ans": true,
+    "correct": "맞습니다. 언어를 사용해 달성할 outcome과 성공 기준이 분명합니다.",
+    "why": "장소와 일정을 결정하는 데 의미 이해가 필요하고, 완성한 계획으로 task 성공을 확인할 수 있습니다. 문법을 보지 않는다는 뜻은 아닙니다. 의사소통을 돕는 language feedback을 주되 문장 수나 정답 문법만을 task outcome과 혼동하지 않습니다.",
+    "source": "개념 근거 요약 · Brown, Teaching by Principles (3rd ed., 2007), Ch.3, pp.50–52. 문항의 수업 사례는 새로 구성했습니다."
+  },
+  {
+    "src": "Focused Task",
+    "cat": "Application",
+    "text": "A picture-comparison task designed to encourage comparative forms cannot be a task because the teacher has selected a grammatical feature in advance.",
+    "ans": false,
+    "correct": "틀립니다. 사전에 form을 고려한 설계와 primary focus on meaning은 양립할 수 있습니다.",
+    "why": "Focused task도 그림의 실제 차이를 알아내는 목적, 정보 처리와 확인 가능한 결과를 유지할 수 있습니다. 모든 답을 정해 놓고 비교급 빈칸만 바꾸게 한다면 form exercise에 더 가깝습니다. 목표 form의 존재만으로 판정하지 않습니다.",
+    "source": "개념 근거 요약 · Nunan, Task-Based Language Teaching (2004), Ch.1, pp.3–4: Ellis의 task 정의에서 특정 형태 사용을 유도하는 설계와 의미 중심 수행의 양립. <a href=\"https://assets.cambridge.org/052184/0171/sample/0521840171ws.pdf\">출판사 원서 발췌</a>. 사례는 새로 구성했습니다."
+  },
+  {
+    "src": "Target vs Pedagogical Task",
+    "cat": "Application",
+    "text": "Calling a hotel to resolve a booking problem outside class is a target task; an in-class role play that rehearses it is a pedagogical task.",
+    "ans": true,
+    "correct": "맞습니다. 실제 수행 목적과 이를 준비하는 교실 활동을 구분합니다.",
+    "why": "교실 role play에 예약 조건과 해결할 문제가 있어야 단순 대사 읽기를 넘어설 수 있습니다. Rehearsal task는 실제 활동과 대응이 뚜렷합니다. Activation task도 의사소통 자원을 쓰게 하지만 실제 장면을 그대로 재현할 필요는 없습니다.",
+    "source": "Target/pedagogical task의 근거: Brown, Teaching by Principles (3rd ed., 2007), Ch.3, pp.50–52. Rehearsal/activation은 교실 밖 활동과의 대응 정도를 비교하는 보충 구분이며 이 쪽의 직접 인용이 아닙니다. 사례는 새로 구성했습니다."
+  },
+  {
+    "src": "Information-gap",
+    "cat": "Application",
+    "text": "Only student A has the club timetable. Student B must ask A questions to complete a planning sheet. An information gap can therefore be one-way.",
+    "ans": true,
+    "correct": "맞습니다. 두 학생 모두 서로 다른 정보를 가져야만 information gap인 것은 아닙니다.",
+    "why": "한 학생이 가진 정보를 다른 학생이 알아야 목표를 달성하는 one-way 구조도 가능합니다. 양쪽이 서로에게 필요한 정보를 가진 two-way 구조와 구분하세요. 단순히 짝으로 앉는 것만으로 information gap이 생기지는 않습니다.",
+    "source": "개념 근거 요약 · Brown, Teaching by Principles (3rd ed., 2007), Ch.14, pp.233–234. 문항의 수업 사례는 새로 구성했습니다."
+  },
+  {
+    "src": "Reasoning-gap",
+    "cat": "Application",
+    "text": "Students all receive the same timetable and infer the only route that meets a deadline. Because no student has a unique fact, this cannot be a reasoning-gap task.",
+    "ans": false,
+    "correct": "틀립니다. Reasoning-gap의 핵심은 주어진 정보에서 새 결론을 도출하는 과정입니다.",
+    "why": "출발·도착 시간과 조건을 결합해 가능한 경로를 판단해야 합니다. 서로 다른 사실을 전달하는 information-gap과 달리, 같은 자료에서도 추론이 필요할 수 있습니다. 결과만 베껴 적는 활동으로 바꾸면 이 추론 조건이 사라집니다.",
+    "source": "판별 기준: 주어진 정보의 전달과 새 결론의 추론을 구별합니다. 관련 원서 활동: Brown, Teaching by Principles (3rd ed., 2007), Ch.14, p.234 (problem solving). 이 쪽에서 reasoning-gap 명칭의 원정의를 직접 인용한 것은 아닙니다. 사례는 새로 구성했습니다."
+  },
+  {
+    "src": "Task Dimensions",
+    "cat": "Application",
+    "text": "A group must agree on one class outing, but several plans can satisfy the instructions. The task can have a convergent goal and an open outcome.",
+    "ans": true,
+    "correct": "맞습니다. 함께 하나로 결정하는지와 가능한 답이 몇 개인지는 서로 다른 기준입니다.",
+    "why": "Convergent는 구성원들이 공동 결론에 도달해야 한다는 뜻입니다. Open은 과제가 미리 정한 유일한 정답으로 결과를 제한하지 않는다는 뜻입니다. 하나를 골라 제출한다고 곧 closed인 것은 아닙니다.",
+    "source": "판별 기준: 합의 요구와 허용 결과 수는 별도 축입니다. 관련 원서 활동: Brown, Teaching by Principles (3rd ed., 2007), Ch.14, pp.234–235 (problem solving·decision making·opinion exchange). 이 쪽이 네 가지 분류 축 전체의 원정의를 제시한다는 뜻은 아닙니다. 사례는 새로 구성했습니다.",
+    "compare": [
+      {
+        "title": "Goal orientation",
+        "desc": "합의가 필요한가: convergent / divergent"
+      },
+      {
+        "title": "Outcome options",
+        "desc": "허용되는 답이 제한되는가: closed / open"
+      }
+    ]
+  },
+  {
+    "src": "Jigsaw",
+    "cat": "Application",
+    "text": "In a jigsaw reconstruction, every member holds an indispensable piece of the story and the group must combine the pieces to reconstruct the whole.",
+    "ans": true,
+    "correct": "맞습니다. 분산된 정보 때문에 각자의 기여가 과제 완성에 필요합니다.",
+    "why": "모두 같은 완성본을 갖고 한 명만 답을 읽어 주면 jigsaw의 핵심 조건이 약해집니다. 어떤 정보를 누가 가졌는지, 다른 사람의 기여 없이 완성 가능한지를 확인하세요. 역할 이름을 나눈 것만으로 jigsaw가 되는 것은 아닙니다.",
+    "source": "개념 근거 요약 · Brown, Teaching by Principles (3rd ed., 2007), Ch.14, pp.233–234. 문항의 수업 사례는 새로 구성했습니다."
+  },
+  {
+    "src": "PPP",
+    "cat": "Application",
+    "text": "In PPP, the presentation phase must always begin with a deductive statement of a grammar rule.",
+    "ans": false,
+    "correct": "틀립니다. Presentation은 target language 제시이며 반드시 rule-first 설명일 필요는 없습니다.",
+    "why": "상황이나 짧은 대화로 target form의 의미와 사용을 보여 줄 수 있습니다. 이후 통제된 practice와 더 자유로운 production으로 이어지는 조직 원리가 PPP의 단서입니다. Deductive / inductive의 구분을 PPP 단계와 동일시하지 않습니다.",
+    "source": "PPP 절차 근거 · Richard Frost, <a href=\"https://www.teachingenglish.org.uk/professional-development/teachers/knowing-subject/task-based-approach\">A task-based approach (TeachingEnglish)</a>, PPP section. Brown, Teaching by Principles (3rd ed.), Ch.3, pp.46–52는 form·function 비교의 보강 근거입니다. 사례는 새로 구성했습니다."
+  },
+  {
+    "src": "TBLT Cycle",
+    "cat": "Application",
+    "text": "In a task → planning → report sequence, preparing a report can make learners attend more carefully to language while retaining a meaning-focused purpose.",
+    "ans": true,
+    "correct": "맞습니다. Task cycle 안에서도 form에 대한 주의가 높아질 수 있습니다.",
+    "why": "Task에서 얻은 결과를 다른 사람에게 전달하려면 정보와 표현을 다듬게 됩니다. 이후 language focus의 analysis와 practice를 연결할 수도 있습니다. 모든 TBLT가 단 하나의 순서를 따르거나 form을 수업 끝에서만 다루어야 한다는 뜻은 아닙니다.",
+    "source": "Task cycle 근거 · Jane Willis, <a href=\"https://www.teachingenglish.org.uk/professional-development/teachers/knowing-subject/priming-tasks-and-target-tasks-language-focus-and\">From priming tasks and target tasks to language focus and grammar</a>, Task Cycle section. Brown, Teaching by Principles (3rd ed.), Ch.19, p.333. 사례는 새로 구성했습니다."
+  },
+  {
+    "src": "CLT",
+    "cat": "Review",
+    "text": "A pair activity is <span class='kw4'>communicative</span> even when each learner repeats a fixed worksheet response and does not need to exchange information or choose content and form.",
+    "ans": false,
+    "correct": "틀립니다. 고정된 response만 반복하고 information exchange나 content/form 선택이 없으면 communicative activity의 조건을 충족하지 않습니다.",
+    "why": "<span class='kw4'>Communicative activity</span>는 information gap, learners' leeway in choosing content and form, feedback을 포함해야 합니다. 고정된 worksheet response만 반복하는 활동은 이 조건이 부족하므로 communicative activity라고 단정할 수 없습니다.",
+    "source": "개념 근거 요약 · Brown, Teaching by Principles (3rd ed., 2007), Ch.3, pp.46–48; Ch.14, pp.233–234. 고정 응답 반복과 실제 정보 교환의 조건 비교."
+  },
+  {
+    "src": "Silent Way",
+    "cat": "Application",
+    "text": "When a teacher uses rods and gestures to prompt learners to discover and produce language, the learners must remain silent because the method is called the Silent Way.",
+    "ans": false,
+    "correct": "틀립니다. 상대적으로 말을 줄이는 쪽은 교사이며 학생의 발견과 산출이 중요합니다.",
+    "why": "교사는 자료·몸짓·제한된 모델을 통해 문제를 제시하고 학생이 시도·수정하도록 돕습니다. Natural Approach의 초기 silent period와 혼동하지 마세요. Silent Way에서도 교사가 전혀 말하거나 개입할 수 없다는 뜻은 아닙니다.",
+    "source": "개념 근거 요약 · Brown, Teaching by Principles (3rd ed., 2007), Ch.2, pp.28–29. 문항의 수업 사례는 새로 구성했습니다."
+  },
+  {
+    "src": "TPR",
+    "cat": "Application",
+    "text": "Students demonstrate comprehension by carrying out new combinations of commands before being required to say the commands themselves. This is compatible with TPR.",
+    "ans": true,
+    "correct": "맞습니다. Listening comprehension과 physical response를 먼저 연결합니다.",
+    "why": "교사는 행동으로 이해를 확인할 수 있고 학생에게 즉각적인 발화를 강요하지 않습니다. 나중에는 학생이 지시하거나 말할 수 있으므로 영원히 speaking을 금지하는 방법은 아닙니다. 신체 행동만으로 추상적 내용과 모든 의사소통 요구를 다루기는 어렵습니다.",
+    "source": "개념 근거 요약 · Brown, Teaching by Principles (3rd ed., 2007), Ch.2, pp.30–31. 문항의 수업 사례는 새로 구성했습니다."
+  },
+  {
+    "src": "CLL",
+    "cat": "Application",
+    "text": "A learner decides what to say in L1, the teacher supplies an L2 version, and the learner conveys it to peers. This can exemplify the teacher’s counselor role in CLL.",
+    "ans": true,
+    "correct": "맞습니다. Learner-selected meaning을 지지하며 의존에서 자율성으로 나아가도록 돕습니다.",
+    "why": "CLL의 단서는 단순 번역의 존재만이 아닙니다. 학생의 표현 의도, supportive relationship, counselor의 도움을 함께 봅니다. 교사가 정한 문법 문장을 일괄 번역하게 하는 활동과는 목적과 역할이 다릅니다.",
+    "source": "개념 근거 요약 · Brown, Teaching by Principles (3rd ed., 2007), Ch.2, pp.25–27. 문항의 수업 사례는 새로 구성했습니다."
+  },
+  {
+    "src": "Suggestopedia",
+    "cat": "Application",
+    "text": "Playing background music alone is enough to identify a lesson as Suggestopedia and to establish that it guarantees exceptional learning gains.",
+    "ans": false,
+    "correct": "틀립니다. 음악 하나로 방법 전체나 학습 효과를 입증할 수 없습니다.",
+    "why": "Suggestopedia는 relaxation, suggestion, 역할·환경 구성과 연결됩니다. 음악은 일부 특징일 뿐이며 효과에 관한 강한 주장에는 근거가 필요합니다. 편안한 분위기를 조성하는 실천과 특정 method의 모든 주장을 받아들이는 것은 별개입니다.",
+    "source": "개념 근거 요약 · Brown, Teaching by Principles (3rd ed., 2007), Ch.2, pp.27–28. 문항의 수업 사례는 새로 구성했습니다."
+  },
+  {
+    "src": "Natural Approach",
+    "cat": "Application",
+    "text": "In the Natural Approach, delaying oral production means that the teacher provides no language input until each student chooses to speak.",
+    "ans": false,
+    "correct": "틀립니다. Silent period에도 이해 가능한 input과 의미 이해 활동은 계속됩니다.",
+    "why": "발화를 강요하지 않는 것과 언어 경험을 중단하는 것은 다릅니다. 그림 선택·행동 반응 등으로 이해를 살피고 준비되면 산출을 확대합니다. 모든 학생에게 똑같은 기간의 침묵을 정하거나 침묵만으로 습득을 보장할 수는 없습니다.",
+    "source": "개념 근거 요약 · Brown, Teaching by Principles (3rd ed., 2007), Ch.2, pp.31–32. 문항의 수업 사례는 새로 구성했습니다."
+  },
+  {
+    "src": "Post-method",
+    "cat": "Application",
+    "text": "A teacher combines techniques because they are fashionable, without considering learner needs or checking outcomes. This is sufficient evidence of principled eclecticism.",
+    "ans": false,
+    "correct": "틀립니다. 여러 기법의 혼합만으로 principled 선택이 되지는 않습니다.",
+    "why": "목표와 학습자·기관 맥락에 비추어 선택 이유가 있어야 하고, 학생 수행을 관찰하여 선택을 수정해야 합니다. Teacher autonomy가 있다고 해서 근거 없이 아무 활동이나 선택해도 되는 것은 아닙니다.",
+    "source": "개념 근거 요약 · Brown, Teaching by Principles (3rd ed., 2007), Ch.3, pp.40–44. 문항의 수업 사례는 새로 구성했습니다."
+  },
+  {
+    "src": "TBLT",
+    "cat": "Review",
+    "text": "A form-focused exercise that asks students to manipulate preselected grammar forms, without exchanging information or producing a communicative outcome, qualifies as a <span class='kw2'>TBLT task</span>.",
+    "ans": false,
+    "correct": "틀립니다. Meaning focus와 clearly defined communicative outcome 없이 preselected grammar forms만 조작하는 활동은 TBLT task라고 보기 어렵습니다.",
+    "why": "<span class='kw2'>Task</span>는 primary focus on meaning, natural/real-world language use, clearly defined communicative outcomes를 가져야 합니다. Form manipulation만 수행하고 survey 결과와 같은 outcome을 report하지 않는 활동은 task 조건을 충족하지 않습니다.",
+    "source": "개념 근거 요약 · Brown, Teaching by Principles (3rd ed., 2007), Ch.3, pp.50–52. Form practice가 수업의 준비 단계에 들어갈 수 있다는 것과 독립된 meaning-focused task라는 것은 구분합니다."
+  }
 ];
 
 const TOTAL=20;
-const SAVE_KEY='ox_methodology_v1';
+const SAVE_KEY='ox_methodology_v2_content_20261017';
 let cur=0,answers=new Array(TOTAL).fill(null);
 let mode='normal',order=[...Array(TOTAL).keys()];
 function initOrder(m){if(m==='random'){const a=[...Array(TOTAL).keys()];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}order=a;}else order=[...Array(TOTAL).keys()];}
@@ -285,3 +436,4 @@ function jumpTo(i){cur=i;render();document.getElementById('qa').scrollIntoView({
 <script src="./study-return.js"></script>
 </body>
 </html>
+
