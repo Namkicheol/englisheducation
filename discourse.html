@@ -142,49 +142,191 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f5f4ee;background-image:r
 <script src="./sounds.js"></script>
 <script>
 const Q=[
-  {src:"Discourse Competence",cat:"Core Concept",text:"<span class='kw1'>Discourse Competence</span> is best understood as cohesion과 coherence를 사용해 suprasentential relationship을 조직하고 해석하는 능력, so it should be interpreted within its instructional or assessment context.",ans:true,correct:"맞습니다. <span class='kw1'>Discourse Competence</span>의 핵심은 cohesion과 coherence를 사용해 suprasentential relationship을 조직하고 해석하는 능력입니다.",why:"이 문항은 Discourse Competence를 단순 명칭보다 기능과 classroom use 중심으로 확인합니다. 관련 개념을 비교할 때는 목적, learner role, teacher role, task condition을 함께 보아야 합니다.",source:"&quot;Discourse competence: an ability to combine ideas to achieve cohesion in form and coherence in meaning.&quot;"},
-
-  {src:"Discourse Competence",cat:"Misconception",text:"<span class='kw4'>Discourse Competence</span> can be safely treated as the same as any neighboring concept because the distinction is mostly terminological.",ans:false,correct:"틀립니다. <span class='kw4'>Discourse Competence</span>는 인접 개념과 구분되는 condition, purpose, learner behavior가 있습니다.",why:"영교론 문항은 비슷한 key terms의 경계 조건을 묻는 경우가 많습니다. Discourse Competence는 정의 속 keyword를 기준으로 구분해야 합니다.",source:"&quot;Discourse competence: an ability to combine ideas to achieve cohesion in form and coherence in meaning.&quot;",compare:[{title:"<span class='kw1'>Discourse Competence</span>",desc:"cohesion과 coherence를 사용해 suprasentential relationship을 조직하고 해석하는 능력"},{title:"<span class='kw4'>Trap</span>",desc:"confusing it with a neighboring concept"}]},
-
-  {src:"IRE vs IRF",cat:"Core Concept",text:"<span class='kw1'>IRE vs IRF</span> is best understood as display question 중심의 IRE와 referential question 중심의 IRF 구분, so it should be interpreted within its instructional or assessment context.",ans:true,correct:"맞습니다. <span class='kw1'>IRE vs IRF</span>의 핵심은 display question 중심의 IRE와 referential question 중심의 IRF 구분입니다.",why:"이 문항은 IRE vs IRF를 단순 명칭보다 기능과 classroom use 중심으로 확인합니다. 관련 개념을 비교할 때는 목적, learner role, teacher role, task condition을 함께 보아야 합니다.",source:"&quot;Display questions elicit language practice; referential questions ask for real information not known to the teacher.&quot;"},
-
-  {src:"IRE vs IRF",cat:"Misconception",text:"<span class='kw4'>IRE vs IRF</span> can be safely treated as the same as any neighboring concept because the distinction is mostly terminological.",ans:false,correct:"틀립니다. <span class='kw4'>IRE vs IRF</span>는 인접 개념과 구분되는 condition, purpose, learner behavior가 있습니다.",why:"영교론 문항은 비슷한 key terms의 경계 조건을 묻는 경우가 많습니다. IRE vs IRF는 정의 속 keyword를 기준으로 구분해야 합니다.",source:"&quot;Display questions elicit language practice; referential questions ask for real information not known to the teacher.&quot;",compare:[{title:"<span class='kw1'>IRE vs IRF</span>",desc:"display question 중심의 IRE와 referential question 중심의 IRF 구분"},{title:"<span class='kw4'>Trap</span>",desc:"confusing it with a neighboring concept"}]},
-
-  {src:"Classroom Discourse Modes",cat:"Core Concept",text:"<span class='kw1'>Classroom Discourse Modes</span> is best understood as managerial, material, skills and systems, classroom context mode, so it should be interpreted within its instructional or assessment context.",ans:true,correct:"맞습니다. <span class='kw1'>Classroom Discourse Modes</span>의 핵심은 managerial, material, skills and systems, classroom context mode입니다.",why:"이 문항은 Classroom Discourse Modes를 단순 명칭보다 기능과 classroom use 중심으로 확인합니다. 관련 개념을 비교할 때는 목적, learner role, teacher role, task condition을 함께 보아야 합니다.",source:"&quot;Classroom context mode resembles natural conversations, with learners managing turn-taking and topic shift.&quot;"},
-
-  {src:"Classroom Discourse Modes",cat:"Misconception",text:"<span class='kw4'>Classroom Discourse Modes</span> can be safely treated as the same as any neighboring concept because the distinction is mostly terminological.",ans:false,correct:"틀립니다. <span class='kw4'>Classroom Discourse Modes</span>는 인접 개념과 구분되는 condition, purpose, learner behavior가 있습니다.",why:"영교론 문항은 비슷한 key terms의 경계 조건을 묻는 경우가 많습니다. Classroom Discourse Modes는 정의 속 keyword를 기준으로 구분해야 합니다.",source:"&quot;Classroom context mode resembles natural conversations, with learners managing turn-taking and topic shift.&quot;",compare:[{title:"<span class='kw1'>Classroom Discourse Modes</span>",desc:"managerial, material, skills and systems, classroom context mode"},{title:"<span class='kw4'>Trap</span>",desc:"confusing it with a neighboring concept"}]},
-
-  {src:"Cohesion vs Coherence",cat:"Core Concept",text:"<span class='kw1'>Cohesion vs Coherence</span> is best understood as grammatical·lexical relationships versus covert, logical connections, so it should be interpreted within its instructional or assessment context.",ans:true,correct:"맞습니다. <span class='kw1'>Cohesion</span>은 grammatical·lexical relationships이고, <span class='kw1'>Coherence</span>는 covert, logical connections입니다.",why:"이 문항은 Cohesion vs Coherence를 단순 명칭보다 기능과 classroom use 중심으로 확인합니다. Cohesion은 discourse나 text 안의 grammatical·lexical relationships를, Coherence는 utterance나 sentence의 meaning을 연결하는 covert, logical connections를 가리킵니다.",source:"&quot;Cohesion is grammatical and lexical relationship; coherence links meanings through covert logical connections.&quot;"},
-
-  {src:"Cohesion vs Coherence",cat:"Misconception",text:"<span class='kw4'>Cohesion vs Coherence</span> can be safely treated as the same as any neighboring concept because the distinction is mostly terminological.",ans:false,correct:"틀립니다. <span class='kw4'>Cohesion vs Coherence</span>는 인접 개념과 구분되는 condition, purpose, learner behavior가 있습니다.",why:"영교론 문항은 비슷한 key terms의 경계 조건을 묻는 경우가 많습니다. Cohesion은 grammatical·lexical relationships, Coherence는 covert, logical connections를 기준으로 판단해야 합니다.",source:"&quot;Cohesion is grammatical and lexical relationship; coherence links meanings through covert logical connections.&quot;",compare:[{title:"<span class='kw1'>Cohesion vs Coherence</span>",desc:"grammatical·lexical relationships vs covert, logical connections"},{title:"<span class='kw4'>Trap</span>",desc:"confusing it with a neighboring concept"}]},
-
-  {src:"Adjacency Pair",cat:"Core Concept",text:"<span class='kw1'>Adjacency Pair</span> is best understood as conversation에서 서로 맞물리는 두 turn, so it should be interpreted within its instructional or assessment context.",ans:true,correct:"맞습니다. <span class='kw1'>Adjacency Pair</span>의 핵심은 conversation에서 서로 맞물리는 두 turn입니다.",why:"이 문항은 Adjacency Pair를 단순 명칭보다 기능과 classroom use 중심으로 확인합니다. 관련 개념을 비교할 때는 목적, learner role, teacher role, task condition을 함께 보아야 합니다.",source:"&quot;Adjacency pair: a pair composed of two turns that go together in conversation.&quot;"},
-
-  {src:"Adjacency Pair",cat:"Misconception",text:"<span class='kw4'>Adjacency Pair</span> can be safely treated as the same as any neighboring concept because the distinction is mostly terminological.",ans:false,correct:"틀립니다. <span class='kw4'>Adjacency Pair</span>는 인접 개념과 구분되는 condition, purpose, learner behavior가 있습니다.",why:"영교론 문항은 비슷한 key terms의 경계 조건을 묻는 경우가 많습니다. Adjacency Pair는 정의 속 keyword를 기준으로 구분해야 합니다.",source:"&quot;Adjacency pair: a pair composed of two turns that go together in conversation.&quot;",compare:[{title:"<span class='kw1'>Adjacency Pair</span>",desc:"conversation에서 서로 맞물리는 두 turn"},{title:"<span class='kw4'>Trap</span>",desc:"confusing it with a neighboring concept"}]},
-
-  {src:"Direct vs Indirect Approach",cat:"Core Concept",text:"<span class='kw1'>Direct vs Indirect Approach</span> is best understood as conversation rule 명시 여부, so it should be interpreted within its instructional or assessment context.",ans:true,correct:"맞습니다. <span class='kw1'>Direct vs Indirect Approach</span>의 핵심은 conversation rule 명시 여부입니다.",why:"이 문항은 Direct vs Indirect Approach를 단순 명칭보다 기능과 classroom use 중심으로 확인합니다. 관련 개념을 비교할 때는 목적, learner role, teacher role, task condition을 함께 보아야 합니다.",source:"&quot;Direct approach explicitly directs learners attention to conversational rules, conventions, and strategies.&quot;"},
-
-  {src:"Direct vs Indirect Approach",cat:"Misconception",text:"<span class='kw4'>Direct vs Indirect Approach</span> can be safely treated as the same as any neighboring concept because the distinction is mostly terminological.",ans:false,correct:"틀립니다. <span class='kw4'>Direct vs Indirect Approach</span>는 인접 개념과 구분되는 condition, purpose, learner behavior가 있습니다.",why:"영교론 문항은 비슷한 key terms의 경계 조건을 묻는 경우가 많습니다. Direct vs Indirect Approach는 정의 속 keyword를 기준으로 구분해야 합니다.",source:"&quot;Direct approach explicitly directs learners attention to conversational rules, conventions, and strategies.&quot;",compare:[{title:"<span class='kw1'>Direct vs Indirect Approach</span>",desc:"conversation rule 명시 여부"},{title:"<span class='kw4'>Trap</span>",desc:"confusing it with a neighboring concept"}]},
-
-  {src:"Discourse Competence",cat:"Review",text:"A learner can identify <span class='kw2'>Discourse Competence</span> only by memorizing the label, without checking examples or classroom conditions.",ans:false,correct:"틀립니다. <span class='kw2'>Discourse Competence</span>는 label만 외우기보다 예시, 조건, 효과를 함께 확인해야 합니다.",why:"실전에서는 용어 단독보다 적용 맥락이 단서가 됩니다. cohesion과 coherence를 사용해 suprasentential relationship을 조직하고 해석하는 능력을 가리킨다는 점을 기준으로 판단합니다.",source:"&quot;Discourse competence: an ability to combine ideas to achieve cohesion in form and coherence in meaning.&quot;"},
-
-  {src:"IRE vs IRF",cat:"Review",text:"A learner can identify <span class='kw2'>IRE vs IRF</span> only by memorizing the label, without checking examples or classroom conditions.",ans:false,correct:"틀립니다. <span class='kw2'>IRE vs IRF</span>는 label만 외우기보다 예시, 조건, 효과를 함께 확인해야 합니다.",why:"실전에서는 용어 단독보다 적용 맥락이 단서가 됩니다. display question 중심의 IRE와 referential question 중심의 IRF 구분을 가리킨다는 점을 기준으로 판단합니다.",source:"&quot;Display questions elicit language practice; referential questions ask for real information not known to the teacher.&quot;"},
-
-  {src:"Classroom Discourse Modes",cat:"Review",text:"A learner can identify <span class='kw2'>Classroom Discourse Modes</span> only by memorizing the label, without checking examples or classroom conditions.",ans:false,correct:"틀립니다. <span class='kw2'>Classroom Discourse Modes</span>는 label만 외우기보다 예시, 조건, 효과를 함께 확인해야 합니다.",why:"실전에서는 용어 단독보다 적용 맥락이 단서가 됩니다. managerial, material, skills and systems, classroom context mode를 기준으로 판단합니다.",source:"&quot;Classroom context mode resembles natural conversations, with learners managing turn-taking and topic shift.&quot;"},
-
-  {src:"Cohesion vs Coherence",cat:"Review",text:"A learner can identify <span class='kw2'>Cohesion vs Coherence</span> only by memorizing the label, without checking examples or classroom conditions.",ans:false,correct:"틀립니다. <span class='kw2'>Cohesion vs Coherence</span>는 label만 외우기보다 예시, 조건, 효과를 함께 확인해야 합니다.",why:"실전에서는 용어 단독보다 적용 맥락이 단서가 됩니다. Cohesion은 grammatical·lexical relationships, Coherence는 covert, logical connections를 가리킨다는 점을 기준으로 판단합니다.",source:"&quot;Cohesion is grammatical and lexical relationship; coherence links meanings through covert logical connections.&quot;"},
-
-  {src:"Adjacency Pair",cat:"Review",text:"A learner can identify <span class='kw2'>Adjacency Pair</span> only by memorizing the label, without checking examples or classroom conditions.",ans:false,correct:"틀립니다. <span class='kw2'>Adjacency Pair</span>는 label만 외우기보다 예시, 조건, 효과를 함께 확인해야 합니다.",why:"실전에서는 용어 단독보다 적용 맥락이 단서가 됩니다. conversation에서 서로 맞물리는 두 turn를 기준으로 판단합니다.",source:"&quot;Adjacency pair: a pair composed of two turns that go together in conversation.&quot;"},
-
-  {src:"Direct vs Indirect Approach",cat:"Review",text:"A learner can identify <span class='kw2'>Direct vs Indirect Approach</span> only by memorizing the label, without checking examples or classroom conditions.",ans:false,correct:"틀립니다. <span class='kw2'>Direct vs Indirect Approach</span>는 label만 외우기보다 예시, 조건, 효과를 함께 확인해야 합니다.",why:"실전에서는 용어 단독보다 적용 맥락이 단서가 됩니다. conversation rule 명시 여부를 가리킨다는 점을 기준으로 판단합니다.",source:"&quot;Direct approach explicitly directs learners attention to conversational rules, conventions, and strategies.&quot;"},
-
-  {src:"Discourse Competence",cat:"Review",text:"<span class='kw4'>Lexical cohesion</span> is limited to exact repetition of the same word.",ans:false,correct:"틀립니다. Exact repetition은 <span class='kw4'>lexical cohesion</span>의 한 방식일 뿐입니다. Synonym, antonym, superordinate, collocation, part-whole relation도 lexical cohesion에 포함될 수 있습니다.",why:"<span class='kw4'>Lexical cohesion</span>은 exact repetition에 한정되지 않습니다. Collocation, synonym/antonym, superordinate, repetition, general things 등 lexical relationships가 text의 topic continuity를 연결할 수 있습니다.",source:"&quot;Lexical cohesion: Collocation, Synonym/Antonym, Superordinate, Repetition, General Things.&quot;"},
-
-  {src:"IRE vs IRF",cat:"Review",text:"A <span class='kw4'>referential question</span> always guarantees a communicative classroom exchange, even when the teacher immediately evaluates and closes the interaction after the student's answer.",ans:false,correct:"틀립니다. Referential question은 teacher가 모르는 real information을 묻고 communicative practice와 authentic communication에 유용하지만, 질문만으로 communicative exchange가 보장되지는 않습니다.",why:"<span class='kw4'>Referential question</span>은 IRF와 잘 연결될 수 있지만, teacher가 learner answer를 바로 평가하고 닫아 버리면 interaction이 확장되지 않을 수 있습니다. Teacher의 후속 feedback과 learner turn을 함께 확인해야 합니다.",source:"&quot;Referential question: Question that asks for real information that is not known to T. Merits: useful in communicative practice and promotes real, authentic communication.&quot;"}
+  {
+    "src": "Discourse Competence",
+    "cat": "적용·판별",
+    "text": "한 학습자의 문장들은 각각 문법적으로 정확하지만, 문단에서 대명사의 지시 대상과 주장·근거의 연결을 따라가기 어렵다. 이 문제는 grammatical accuracy만 점검해서 충분히 진단할 수 있다.",
+    "ans": false,
+    "correct": "문장 내부의 정확성과 문장 사이의 연결은 별도로 점검해야 합니다.",
+    "why": "Discourse competence는 여러 발화를 의미 있는 전체로 조직하고 해석하는 능력입니다. 교사는 모호한 대명사의 antecedent, 문장 배열, 주장과 근거의 관계를 확인해야 합니다. 각 문장에 문법 오류가 없다는 사실만으로 문단이 잘 연결되었다고 판단할 수 없습니다.",
+    "source": "개념 적용을 위한 자체 제작 예시입니다. 시험지 문장이나 원서 직접 인용이 아닙니다."
+  },
+  {
+    "src": "Discourse Competence",
+    "cat": "적용·판별",
+    "text": "학생들이 뒤섞인 문장들을 배열한 뒤, 대명사가 가리키는 대상과 문장 사이의 원인·결과 관계를 설명한다면 discourse competence를 연습할 수 있다.",
+    "ans": true,
+    "correct": "형식의 연결과 의미의 연결을 함께 설명하는 활동입니다.",
+    "why": "순서만 맞히고 끝내기보다 reference와 논리적 관계를 근거로 제시하게 합니다. 같은 문장도 배열에 따라 해석이 달라질 수 있으므로, 연결어 하나를 보고 자동으로 순서를 정하지 않도록 합니다.",
+    "source": "개념 적용을 위한 자체 제작 예시입니다. 시험지 문장이나 원서 직접 인용이 아닙니다."
+  },
+  {
+    "src": "IRE vs IRF",
+    "cat": "적용·판별",
+    "text": "교사가 답을 알고 묻는다: “What is the past tense of go?” 학생이 “Went.”라고 답하자 교사는 “Correct.”라고 하고 다음 문제로 넘어간다. 마지막 turn의 주된 기능은 evaluation이다.",
+    "ans": true,
+    "correct": "정오 판단으로 문답을 마무리하는 IRE 예시입니다.",
+    "why": "교사가 이미 아는 답을 요구하므로 display question이며, 마지막 발화는 답을 평가합니다. Display question이라는 단서와 evaluation이라는 단서를 각각 찾아야 합니다. 질문의 종류만으로 모든 후속 발화의 기능을 확정하지 않습니다.",
+    "source": "개념 적용을 위한 자체 제작 예시입니다. 시험지 문장이나 원서 직접 인용이 아닙니다."
+  },
+  {
+    "src": "IRE vs IRF",
+    "cat": "적용·판별",
+    "text": "교사가 이미 답을 알고 한 display question이라면, 학생 답변 뒤에 이유나 추가 설명을 요청해도 그 후속 turn은 반드시 정오 평가만 수행한다.",
+    "ans": false,
+    "correct": "질문 유형과 후속 발화의 기능은 같은 분류 기준이 아닙니다.",
+    "why": "“What makes you think so?”라는 후속 질문은 학생이 추론을 더 발전시키도록 지원할 수 있습니다. 이 자료에서 IRE/IRF를 대비할 때는 문답을 마무리하는 evaluation과 사고·발화를 이어 가는 feedback의 기능을 봅니다. 실제 IRF 분석에서는 feedback/follow-up이 evaluation을 포함하는 넓은 용어로 쓰이기도 합니다.",
+    "source": "개념 적용을 위한 자체 제작 예시입니다. 시험지 문장이나 원서 직접 인용이 아닙니다."
+  },
+  {
+    "src": "Classroom Discourse Modes",
+    "cat": "적용·판별",
+    "text": "교사가 “세 명씩 앉고, A는 질문지를 받으세요. 3분 뒤 역할을 바꿉니다.”라고 활동 절차를 안내하는 구간은 managerial mode로 분석할 수 있다.",
+    "ans": true,
+    "correct": "이 구간의 목표는 과제 수행을 조직하는 것입니다.",
+    "why": "말에 질문지나 짝 활동이 등장한다는 이유만으로 materials mode 또는 classroom context mode라고 분류하지 않습니다. 지금 teacher talk가 어떤 교수 목표를 위한 것인지 먼저 확인합니다.",
+    "source": "개념 적용을 위한 자체 제작 예시입니다. 시험지 문장이나 원서 직접 인용이 아닙니다."
+  },
+  {
+    "src": "Classroom Discourse Modes",
+    "cat": "적용·판별",
+    "text": "교사가 학생의 실제 주말 경험을 묻고, 학생들이 서로 후속 질문과 topic shift를 이끌며 교사는 대화 파트너로 참여한다. 이 구간은 classroom context mode와 잘 맞는다.",
+    "ans": true,
+    "correct": "학습자 경험과 의미 중심의 대화가 확장되는 구간입니다.",
+    "why": "학습자가 충분히 발언하고 화제를 발전시킬 수 있고, 교사가 매 발화의 오류를 고치며 끊지 않는다는 단서가 중요합니다. 짝 활동이라는 좌석 배치만으로 이 mode가 성립하는 것은 아닙니다.",
+    "source": "개념 적용을 위한 자체 제작 예시입니다. 시험지 문장이나 원서 직접 인용이 아닙니다."
+  },
+  {
+    "src": "Cohesion vs Coherence",
+    "cat": "적용·판별",
+    "text": "“Mina borrowed a map. She returned it after lunch.”에서 She와 it을 앞 문장의 표현에 연결해 해석하는 것은 reference를 통한 cohesion의 예이다.",
+    "ans": true,
+    "correct": "She는 Mina, it은 a map을 가리키며 문장들을 연결합니다.",
+    "why": "Reference는 같은 단어를 반복하지 않고도 이미 제시한 대상을 이어 갑니다. 교사는 대명사를 찾게 하는 데서 끝내지 말고 각 표현의 antecedent를 표시하게 할 수 있습니다.",
+    "source": "개념 적용을 위한 자체 제작 예시입니다. 시험지 문장이나 원서 직접 인용이 아닙니다."
+  },
+  {
+    "src": "Cohesion vs Coherence",
+    "cat": "적용·판별",
+    "text": "글에 however, therefore 같은 connector가 많이 쓰였다는 사실만으로, 문장 사이의 의미 관계도 반드시 coherent하다고 판단할 수 있다.",
+    "ans": false,
+    "correct": "연결 표현이 있다는 것과 그 관계가 문맥에 맞는다는 것은 다릅니다.",
+    "why": "“The shop is closed today. Therefore, triangles have three sides.”에는 결과를 표시하는 connector가 있지만 두 내용의 인과 관계가 제시되지 않습니다. Cohesive device의 존재와 관계의 타당성을 따로 점검해야 합니다.",
+    "source": "개념 적용을 위한 자체 제작 예시입니다. 시험지 문장이나 원서 직접 인용이 아닙니다."
+  },
+  {
+    "src": "Adjacency Pair",
+    "cat": "적용·판별",
+    "text": "“Would you like some tea?” 다음에 “Yes, please.”라고 답하는 두 turn은 offer–acceptance adjacency pair를 이룰 수 있다.",
+    "ans": true,
+    "correct": "앞 turn의 offer에 뒤 turn의 acceptance가 대응합니다.",
+    "why": "Adjacency pair는 단순히 문장 두 개가 연달아 있다는 뜻이 아닙니다. 첫 발화가 어떤 응답을 요구하는지, 두 번째 발화가 그 기대에 어떻게 대응하는지 설명해야 합니다.",
+    "source": "개념 적용을 위한 자체 제작 예시입니다. 시험지 문장이나 원서 직접 인용이 아닙니다."
+  },
+  {
+    "src": "Adjacency Pair",
+    "cat": "적용·판별",
+    "text": "“Want to join our study group?”에 “Well, I have another meeting, so I can’t.”라고 답하면, refusal이므로 adjacency pair의 두 번째 부분이 될 수 없다.",
+    "ans": false,
+    "correct": "Refusal도 invitation에 대한 second pair part가 될 수 있습니다.",
+    "why": "Acceptance와 refusal 모두 invitation에 응답합니다. 이 예시의 well과 사유 설명은 refusal을 조심스럽게 제시하는 방식입니다. Dispreferred라는 분석을 문법 오류나 대화 성립 실패와 동일시하지 않습니다.",
+    "source": "개념 적용을 위한 자체 제작 예시입니다. 시험지 문장이나 원서 직접 인용이 아닙니다."
+  },
+  {
+    "src": "Direct vs Indirect Approach",
+    "cat": "적용·판별",
+    "text": "학생들에게 대화 녹음을 비교하게 하고, turn을 넘길 때 쓰는 표현을 찾아 설명한 뒤 role-play에서 사용하게 하는 활동은 direct approach의 요소를 포함한다.",
+    "ans": true,
+    "correct": "교사가 conversational feature에 주의를 명시적으로 이끌고 있습니다.",
+    "why": "Direct approach의 기준은 교사가 계속 강의하는가가 아닙니다. 학습자가 자료를 분석하고 연습하더라도 규칙·관습·전략을 의식하도록 계획했다면 direct한 요소가 있습니다.",
+    "source": "개념 적용을 위한 자체 제작 예시입니다. 시험지 문장이나 원서 직접 인용이 아닙니다."
+  },
+  {
+    "src": "Direct vs Indirect Approach",
+    "cat": "적용·판별",
+    "text": "학생들이 함께 여행 일정을 정하도록 하고, 교사가 conversation 규칙을 따로 분석하거나 설명하지 않고 meaningful interaction을 통해 배우게 하는 것은 indirect approach와 맞는다.",
+    "ans": true,
+    "correct": "과제 참여를 통한 conversational competence 발달을 기대합니다.",
+    "why": "이 경우 목표 달성을 위해 질문하고 의견을 조정하는 기회가 핵심입니다. 다만 meaningful task라는 이름만으로 항상 indirect라고 할 수는 없습니다. 같은 task에 규칙 분석 단계를 더하면 direct한 요소가 결합됩니다.",
+    "source": "개념 적용을 위한 자체 제작 예시입니다. 시험지 문장이나 원서 직접 인용이 아닙니다."
+  },
+  {
+    "src": "Discourse Competence",
+    "cat": "적용·판별",
+    "text": "Bachman의 organizational competence에서 textual competence는 여러 문장을 text로 조직하는 능력과 관련되므로 grammatical competence와 구별해 볼 수 있다.",
+    "ans": true,
+    "correct": "Organizational competence 안에서 grammatical과 textual을 구별합니다.",
+    "why": "Grammatical competence는 언어 형식의 통제와 관련되고 textual competence는 글을 연결하고 구성하는 능력과 관련됩니다. 다른 framework의 discourse competence와 연결해 이해하되 모든 이론의 분류 체계가 완전히 같다고 외우지는 않습니다.",
+    "source": "개념 적용을 위한 자체 제작 예시입니다. 시험지 문장이나 원서 직접 인용이 아닙니다."
+  },
+  {
+    "src": "IRE vs IRF",
+    "cat": "적용·판별",
+    "text": "교사가 학생의 실제 선호를 모르고 “Do you prefer the library or the café?”라고 묻는다면, 선택지가 두 개뿐이어도 referential question일 수 있다.",
+    "ans": true,
+    "correct": "교사가 모르는 실제 정보를 묻는지가 기준입니다.",
+    "why": "답변 길이나 yes/no 형식 자체가 display/referential을 결정하지 않습니다. 이후 이유를 묻고 다른 학생이 반응하도록 하면 interaction을 확장할 수 있지만, 질문 유형만으로 그 결과를 보장하지는 않습니다.",
+    "source": "Brown, Teaching by Principles, Ch.13의 질문 유형 구분을 적용한 자체 제작 예시."
+  },
+  {
+    "src": "Classroom Discourse Modes",
+    "cat": "적용·판별",
+    "text": "그림 자료를 사용하기만 하면 그 수업의 모든 구간은 materials mode이며, 같은 수업 안에서는 다른 mode로 바뀔 수 없다.",
+    "ans": false,
+    "correct": "Mode는 자료의 유무나 수업 전체의 고정 이름이 아닙니다.",
+    "why": "그림의 내용을 확인하는 구간은 materials mode와 연결될 수 있지만, 활동 지시는 managerial, 특정 형태의 정확한 연습은 skills and systems, 개인 경험을 자유롭게 확장하는 구간은 classroom context와 연결됩니다. 구간별 목표와 interaction을 근거로 봅니다.",
+    "source": "개념 적용을 위한 자체 제작 예시입니다. 시험지 문장이나 원서 직접 인용이 아닙니다."
+  },
+  {
+    "src": "Cohesion vs Coherence",
+    "cat": "적용·판별",
+    "text": "A: “Why are you walking?” B: “My bike has a flat tire.”처럼 명시적인 because가 없어도, 문맥과 배경지식을 통해 두 turn의 관계를 coherent하게 이해할 수 있다.",
+    "ans": true,
+    "correct": "명시적 connector 없이도 이유 관계를 추론할 수 있습니다.",
+    "why": "타이어가 펑크 나면 자전거를 타기 어렵다는 지식과 why 질문이 이유 해석을 뒷받침합니다. 모든 관계가 반드시 표면의 connector로 표현되어야 하는 것은 아닙니다. 이 예시를 모든 종류의 cohesion이 전혀 없다는 주장으로 확대하지 않습니다.",
+    "source": "개념 적용을 위한 자체 제작 예시입니다. 시험지 문장이나 원서 직접 인용이 아닙니다."
+  },
+  {
+    "src": "Adjacency Pair",
+    "cat": "적용·판별",
+    "text": "A: “Could you open the window?” B: “Yes, I can.”이라고만 하고 아무 행동도 하지 않는 경우, 문법적으로 맞는 대답이라도 request의 function을 놓쳤을 가능성이 있다.",
+    "ans": true,
+    "correct": "Form과 communicative function을 함께 보아야 합니다.",
+    "why": "능력을 묻는 형식을 request로 쓰는 상황이라면 ability만 답하는 것은 의도된 action에 응답하지 못할 수 있습니다. 반대로 실제 능력을 확인하는 상황이라면 적절할 수 있으므로 문맥을 먼저 확인합니다.",
+    "source": "개념 적용을 위한 자체 제작 예시입니다. 시험지 문장이나 원서 직접 인용이 아닙니다."
+  },
+  {
+    "src": "Direct vs Indirect Approach",
+    "cat": "적용·판별",
+    "text": "Conversation 수업에서 direct approach를 선택하면 학생들의 meaningful task participation을 함께 넣어서는 안 된다.",
+    "ans": false,
+    "correct": "명시적인 attention과 meaningful task는 함께 설계할 수 있습니다.",
+    "why": "먼저 opening/closing 표현을 비교하고, 다음으로 실제 목적이 있는 role-play를 하며, 마지막에 자신의 표현을 돌아보게 할 수 있습니다. Brown의 설명도 meaningful tasks와 의식적인 form 분석·연습의 결합 가능성을 다룹니다.",
+    "source": "Brown, Teaching by Principles, Ch.19 Teaching Conversation의 논의를 재서술했습니다."
+  },
+  {
+    "src": "Discourse Competence",
+    "cat": "Review",
+    "text": "<span class='kw4'>Lexical cohesion</span> is limited to exact repetition of the same word.",
+    "ans": false,
+    "correct": "틀립니다. Exact repetition은 <span class='kw4'>lexical cohesion</span>의 한 방식일 뿐입니다. Synonym, antonym, superordinate, collocation, part-whole relation도 lexical cohesion에 포함될 수 있습니다.",
+    "why": "Exact repetition 외에도 의미 관계를 가진 단어들이 topic continuity를 만들 수 있습니다. 예를 들어 “A robin landed nearby. The bird began to sing.”에서 robin–bird는 specific–superordinate 관계로 연결됩니다. 단어 두 개가 관계있다는 사실만이 아니라 해당 text에서 같은 주제를 어떻게 이어 가는지 설명합니다.",
+    "source": "Lexical cohesion의 범위를 비교하는 자체 제작 진단 문항입니다. 정의를 원서 직접 인용처럼 표시하지 않습니다."
+  },
+  {
+    "src": "IRE vs IRF",
+    "cat": "Review",
+    "text": "A <span class='kw4'>referential question</span> always guarantees a communicative classroom exchange, even when the teacher immediately evaluates and closes the interaction after the student's answer.",
+    "ans": false,
+    "correct": "틀립니다. Referential question은 teacher가 모르는 real information을 묻고 communicative practice와 authentic communication에 유용하지만, 질문만으로 communicative exchange가 보장되지는 않습니다.",
+    "why": "<span class='kw4'>Referential question</span>은 IRF와 잘 연결될 수 있지만, 교사가 학습자의 응답을 바로 평가하며 문답을 마무리하면 interaction이 확장되지 않을 수 있습니다. 교사의 후속 피드백과 학습자의 발화를 함께 확인해야 합니다.",
+    "source": "Brown, Teaching by Principles, Ch.13: 질문의 종류뿐 아니라 교실 interaction을 함께 고려하는 논의를 적용했습니다."
+  }
 ];
 
 const TOTAL=20;
-const SAVE_KEY='ox_discourse_v1';
+// v1 progress is intentionally retained but not reused after question replacement.
+const SAVE_KEY='ox_discourse_v2';
 let cur=0,answers=new Array(TOTAL).fill(null);
 let mode='normal',order=[...Array(TOTAL).keys()];
 function initOrder(m){if(m==='random'){const a=[...Array(TOTAL).keys()];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}order=a;}else order=[...Array(TOTAL).keys()];}
@@ -285,3 +427,4 @@ function jumpTo(i){cur=i;render();document.getElementById('qa').scrollIntoView({
 <script src="./study-return.js"></script>
 </body>
 </html>
+
