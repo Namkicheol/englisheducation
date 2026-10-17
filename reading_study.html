@@ -73,6 +73,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 .learning-nav a{flex:1 1 140px;background:#fff;border:1.5px solid #b2dfcc;border-radius:8px;padding:8px 10px;color:#1b5e3a;text-decoration:none;text-align:center;font-size:12px;font-weight:700;line-height:1.4;transition:background .15s,border-color .15s}
 .learning-nav a:hover{background:#f0faf5;border-color:#2e7d52}
 @media(max-width:640px){.learning-nav a{flex-basis:calc(50% - 7px)}}
+.reading-case{margin:16px 0 4px;border:1px solid #a5c6b5;border-radius:8px;background:#f0f7f2;overflow-wrap:anywhere}.reading-case summary{padding:13px 14px;cursor:pointer;color:#1b5e3a;font-weight:700;font-size:14px;line-height:1.6}.reading-case-body{padding:0 14px 14px;font-size:14px;line-height:1.85}.reading-case-body p+p{margin-top:10px}
 </style>
 <link rel="stylesheet" href="./study-return.css">
 <link rel="stylesheet" href="./learning.css">
@@ -95,7 +96,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
   </div>
   <h1 class="header-title"><span class="title-hl">개념 정리</span> 노트</h1>
   <div class="header-script">Concept Notes · Teaching Reading</div>
-  <p class="header-sub">서브노트 순서 기반 · 기출 포인트 · 비교 도식</p>
+  <p class="header-sub">핵심 개념 · 기출 포인트 · 비교 도식</p>
   <div class="header-divider"></div>
   <div class="header-tip">
     📌 섹션 제목 클릭 → 접기/펼치기 &nbsp;|&nbsp; 목차 클릭 → 해당 섹션 이동 &nbsp;|&nbsp;
@@ -133,17 +134,16 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       <div class="stage-wrap">
         <table>
           <tr><th>연도</th><th>출제 내용</th><th>중요도</th></tr>
-          <tr><td>2009모의.23</td><td>Bottom-up / Top-down processing + content / formal schema</td><td><span class="kw4">★★★</span></td></tr>
-          <tr><td>2009.15</td><td>Analysis activity → Graphic organizer, top-down processing</td><td><span class="kw3">★★</span></td></tr>
+          <tr><td>2009.15</td><td>Graphic organizer를 통한 내용·구조 시각화</td><td><span class="kw3">★★</span></td></tr>
           <tr><td>2009.25</td><td>Think-aloud protocol + metacognitive awareness + extensive reading</td><td><span class="kw4">★★★</span></td></tr>
           <tr><td>2011.17</td><td>Reconstruction activity → Prediction, cohesion / coherence</td><td><span class="kw3">★★</span></td></tr>
-          <tr><td>2012.27</td><td>Analysis activity + integrative lesson</td><td><span class="kw3">★★</span></td></tr>
+          <tr><td>2012.27</td><td>정보 조직 + integrative lesson</td><td><span class="kw3">★★</span></td></tr>
           <tr><td>2013.22</td><td>Reconstruction activity → Sequencing, coherence</td><td><span class="kw3">★★</span></td></tr>
-          <tr><td>2014.10</td><td>Think-aloud protocol + inferencing</td><td><span class="kw4">★★★</span></td></tr>
+          <tr><td>2014.A.기입10</td><td>Think-aloud protocol + inferencing</td><td><span class="kw4">★★★</span></td></tr>
           <tr><td>2015.A.기입5</td><td>Extensive reading 특징</td><td><span class="kw4">★★★</span></td></tr>
           <tr><td>2017.A.6</td><td>Skimming / Scanning reading strategies</td><td><span class="kw4">★★★</span></td></tr>
           <tr><td>2020.A.10</td><td>Outlining, prediction technique</td><td><span class="kw3">★★</span></td></tr>
-          <tr><td>2021.A.9</td><td>Analysis activity + integrative lesson + achievement standards</td><td><span class="kw3">★★</span></td></tr>
+          <tr><td>2021.A.9</td><td>정보 조직 + integrative lesson + achievement standards</td><td><span class="kw3">★★</span></td></tr>
         </table>
       </div>
     </div>
@@ -182,10 +182,11 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
           </div>
         </div>
         <div class="exam">
-          <div class="exam-label">📌 기출 포인트 (2009모의.23)</div>
-          <p>같은 글을 읽어도 전공이 다른 두 집단이 다르게 추론 → <span class="kw3">content schemata</span>의 차이. 직접적 사실 파악 → bottom-up, 배경지식 활용 추론 → top-down + content schema.</p>
+          <div class="exam-label">📌 개념 적용</div>
+          <p>같은 글을 읽어도 전공이 다른 두 집단이 다르게 추론 → <span class="kw3">content schemata</span>의 차이. 텍스트의 표현을 확인하는 bottom-up 처리와 배경지식에 근거한 top-down 추론을 함께 활용한다.</p>
         </div>
       </div>
+      <details class="reading-case"><summary>Content schemata와 formal schemata의 적용</summary><div class="reading-case-body"><p><b>사례:</b> 학교 과학 전시회 안내문을 읽는다. 전시회에서 발표와 시연을 한다는 지식은 content schemata이고, 안내문에서 날짜·장소·신청 방법을 찾는 형식 지식은 formal schemata이다.</p><p><b>수업 판단:</b> 전시회 경험이 없는 학생에게 사진과 짧은 설명을 제공한 뒤 안내문의 구성 요소를 표시하게 한다. 내용 지식 제공과 장르 구조 안내를 구분할 수 있다.</p><p><b>확인:</b> 배경지식으로 예상한 장소가 실제 안내문과 다르면 텍스트 근거에 따라 수정해야 한다. Schema를 활용해 내용을 예상하더라도, 그 예상이 글의 내용과 맞는지 확인해야 한다.</p></div></details>
     </div>
   </div>
 
@@ -208,7 +209,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
               <span><span class="kw2">text-based</span></span>
               <span>Lower-level skill</span>
               <span>Phonics approach</span>
-              <span>Intensive reading</span>
+              <span>정확한 단어·구문 처리</span>
             </div>
           </div>
           <div class="grid-item">
@@ -219,13 +220,13 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
               <span><span class="kw2">knowledge-based</span></span>
               <span>Higher-level skill</span>
               <span>Whole Language Approach</span>
-              <span>Extensive reading</span>
+              <span>배경지식 기반 의미 예측</span>
             </div>
           </div>
           <div class="grid-item">
             <div class="gi-title"><span class="kw2">Interactive</span></div>
             <div class="gi-body">
-              <span>Bottom-up + Top-down 동시 작동</span>
+              <span>Bottom-up + Top-down 상호작용</span>
               <span style="margin-top:6px"><b>Interactive-compensatory:</b></span>
               <span>한 수준 결핍 →</span>
               <span>다른 수준으로 보완</span>
@@ -235,10 +236,11 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         </div>
         <div class="exam">
           <div class="exam-label">📌 기출 포인트</div>
-          <p><span class="kw4">Bottom-up</span> = data-driven, text-based, Phonics, Intensive reading / <span class="kw4">Top-down</span> = conceptually-driven, Whole Language, Extensive reading</p>
+          <p><span class="kw4">Bottom-up</span> = data-driven, text-based, Phonics / <span class="kw4">Top-down</span> = conceptually-driven, 배경지식 기반 예측</p>
           <p><span class="kw2">Interactive-compensatory</span>: deficiency at one level → compensated by another level. (단순 interactive와 구별)</p>
         </div>
       </div>
+      <details class="reading-case"><summary>읽기 처리 방식과 intensive·extensive reading의 구별</summary><div class="reading-case-body"><p><b>사례:</b> “The gate was closed, so visitors used the side entrance.”에서 closed와 so를 해독하고 인과 관계를 확인하는 것은 텍스트 기반 처리이다. 방문 경험으로 다른 입구를 예상했다가 문장을 확인하는 것은 배경지식과 텍스트의 상호작용이다.</p><p><b>비교:</b> Intensive reading에서도 함의를 추론하며, extensive reading에서도 단어를 정확하고 빠르게 인식해야 한다. 두 활동을 각각 bottom-up·top-down과 동일시하지 않는다.</p><p><b>한계:</b> Interactive-compensatory model은 한 처리 수준에서 부족한 정보를 다른 수준의 정보로 보완할 수 있다고 설명한다. 문맥 추측만으로 정확한 word recognition 학습을 대체하라는 교수 원칙은 아니다.</p></div></details>
     </div>
   </div>
 
@@ -253,29 +255,23 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
     <div class="sec-body">
       <div class="concept">
         <div class="c-title">Bottom-up Approaches (Decoding 중심)</div>
-        <div class="exam">
-          <div class="exam-label">📋 기출 이력</div>
-          <p><strong>2013 Q26</strong> — 읽기 교수의 상향식·하향식 처리(top-down, bottom-up)</p>
-          <p><strong>2016_A 기입9</strong> — 정독과 다독 비교(intensive reading = bottom-up)</p>
-          <p><strong>2019_A 기입8</strong> — 메타인지 읽기 전략과 자기 점검</p>
-          <p><strong>2020_A 서술3</strong> — 스키마 활성화와 읽기 전 활동</p>
-        </div>
+
         <div class="grid col2">
           <div class="grid-item">
             <div class="gi-title"><span class="kw2">Sight Word Method</span></div>
-            <div class="gi-body">Visual memory로 sound-writing 매칭. 고빈도 어휘를 decoding 없이 통째로 학습.</div>
+            <div class="gi-body">빈번한 단어의 표기와 의미·발음을 빠르게 알아보는 연습. 모든 새 단어를 통째로 외우라는 뜻은 아니다.</div>
           </div>
           <div class="grid-item">
             <div class="gi-title"><span class="kw2">Phonics Approach</span></div>
-            <div class="gi-body">Sound-letter relationship 명시적 교수. 개별 알파벳 발음 학습. 초보자·어린이 대상.</div>
+            <div class="gi-body">Letter–sound correspondence를 가르쳐 낯선 단어를 decoding하도록 돕는다. 개별 글자뿐 아니라 sh 같은 글자 조합도 다룬다.</div>
           </div>
           <div class="grid-item">
             <div class="gi-title"><span class="kw2">Linguistic Approach</span></div>
             <div class="gi-body">철자 패턴이 유사한 단어들 노출 (take-bake, -ate, -ight). 자연스럽게 letter-sound 관계 추론.</div>
           </div>
           <div class="grid-item">
-            <div class="gi-title"><span class="kw2">Basal Reader Approach</span> (=Graded Reader)</div>
-            <div class="gi-body">어휘·문법·기능을 난이도별로 엄밀히 통제·배열한 교재. 반복 연습·테스트 포함.</div>
+            <div class="gi-title"><span class="kw2">Basal Reader Approach</span></div>
+            <div class="gi-body">읽기 기능을 체계적으로 가르치는 교재 시리즈. 학생용 책·교사용 지도서·연습 및 평가 자료를 포함할 수 있다. Graded reader와 동의어는 아니다.</div>
           </div>
         </div>
         <div class="div"></div>
@@ -311,6 +307,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
           </div>
         </div>
       </div>
+      <details class="reading-case"><summary>Phonics·basal readers·LEA의 수업 사례</summary><div class="reading-case-body"><p><b>Phonics:</b> 교사가 sh가 나타내는 소리를 알려 주고 ship과 shop을 읽게 한다. 알파벳 이름을 외우는 것과 단어의 letter–sound correspondence를 사용하는 것은 다르다.</p><p><b>자료 비교:</b> 기능별 수업·연습·평가가 순차적으로 구성된 시리즈는 basal reader의 전형이다. 학습자가 자기 수준에 맞는 쉬운 이야기를 골라 읽는 graded reader는 extensive reading에 활용할 수 있다. 난이도가 조절되었다는 공통점만으로 두 자료를 동일시하지 않는다.</p><p><b>LEA:</b> 학생이 학교 텃밭 활동을 이야기하고, 교사와 함께 그 경험을 글로 만든 뒤 다시 읽는다. 기존 문학작품을 읽는 literature-based approach와 달리 학습자 자신의 경험을 바탕으로 읽기 자료를 만든다.</p></div></details>
     </div>
   </div>
 
@@ -325,7 +322,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
     <div class="sec-body">
       <div class="concept">
         <div class="c-title">Three Cue Systems</div>
-        <div class="def">독자가 텍스트를 소리 내어 읽을 때 사용하는 3가지 단서 체계</div>
+        <div class="def">Miscue analysis에서 낭독 반응을 검토할 때 사용하는 3가지 단서 체계</div>
         <div class="grid col3">
           <div class="grid-item">
             <div class="gi-title">Graphophonic cue</div>
@@ -342,17 +339,15 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         </div>
         <div class="div"></div>
         <div class="c-title">Miscue Analysis</div>
-        <div class="def">독자가 텍스트를 소리 내어 읽을 때 발생하는 오류 분석. 예: "He caught his small ball."<br>
-          • Graphophonic miscue: He <em>cough</em> his small ball.<br>
-          • Syntactic miscue: He caught <em>the</em> small ball.<br>
-          • Semantic miscue: He caught his <em>little</em> ball.</div>
+        <div class="def">낭독이 인쇄된 텍스트와 달라진 부분을 살펴, graphophonic similarity·문법적 적합성·의미 유지 여부를 각각 검토한다. 예: “He caught his small ball.”을 “He caught his little ball.”로 읽으면 의미와 문법은 대체로 유지되지만 인쇄된 단어와는 다르다. 하나의 반응을 단서 하나만의 오류로 단정하지 않는다.</div>
         <div class="div"></div>
         <div class="c-title">기타 주요 개념</div>
         <div class="note"><span class="kw1">Advance organizer</span>: 학습 전 제공하는 포괄적 개요. 기존 지식과 새 내용을 연결하여 retention 향상.</div>
         <div class="note"><span class="kw1">Glossing</span>: 텍스트 여백에 L1 또는 간단한 L2 정의 제공.</div>
         <div class="note"><span class="kw1">Elaboration</span>: 원문 내용을 제거하지 않고 추가 설명을 더하는 텍스트 수정 방식.</div>
-        <div class="note"><span class="kw1">KWL Chart</span>: Know(이미 아는 것) - Want(알고 싶은 것) - Learned(새로 배운 것). While-reading 전략.</div>
+        <div class="note"><span class="kw1">KWL Chart</span>: Know(이미 아는 것) - Want(알고 싶은 것) - Learned(새로 배운 것). 읽기 전 K·W를 정하고, 읽는 중과 읽은 뒤 L을 채우며 질문 해결 여부를 확인한다.</div>
       </div>
+      <details class="reading-case"><summary>낭독의 정확성과 내용 이해의 확인</summary><div class="reading-case-body"><p><b>사례:</b> “The birds are singing.”을 “The bird are singing.”으로 읽으면 복수 표기의 차이와 주어–동사 일치 문제를 함께 확인한다. “The birds are flying.”은 문법적으로 가능하지만 원문의 사건이 달라진다.</p><p><b>판단:</b> 문법적으로 자연스럽다는 사실만으로 정확히 읽었다고 볼 수 없다. 인쇄된 단어를 재확인하게 하고, 무엇이 일어났는지 질문하여 의미 이해도 별도로 확인한다.</p><p><b>지원 방식 비교:</b> 여백에 낱말 뜻을 붙이는 것은 glossing이다. 원문에 설명을 덧붙여 뜻을 풀어 주는 것은 elaboration이다. 단순히 문장을 삭제하거나 쉬운 단어로 교체하는 것과 구분한다.</p></div></details>
     </div>
   </div>
 
@@ -371,9 +366,9 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
           <tr><td>텍스트</td><td>짧은 텍스트</td><td>긴 텍스트 (책·잡지 등)</td></tr>
           <tr><td>목적</td><td>reading skill·vocabulary 명시적 학습</td><td>즐거움·실생활 목적 (pleasure &amp; real-world)</td></tr>
           <tr><td>텍스트 선택</td><td>교사 선택</td><td>학생 스스로 선택</td></tr>
-          <tr><td>처리 방식</td><td><span class="kw2">Bottom-up approach</span></td><td><span class="kw2">Top-down approach</span></td></tr>
-          <tr><td>후속 활동</td><td>Comprehension exercises 포함</td><td>교실 연습 없음</td></tr>
-          <tr><td>학습 유형</td><td>Explicit, mastery learning</td><td>Implicit learning, automatization</td></tr>
+          <tr><td>처리 방식</td><td>언어·내용 세부 이해에 두 처리 모두 활용</td><td>전체 의미 이해에 두 처리 모두 활용</td></tr>
+          <tr><td>후속 활동</td><td>Comprehension exercises 포함</td><td>세부 이해 문제풀이가 주목적은 아님</td></tr>
+          <tr><td>학습 유형</td><td>세부 이해·전략 및 언어 항목 학습</td><td>Implicit learning, automatization</td></tr>
           <tr><td>관련 활동</td><td>reading comprehension exercise</td><td><span class="kw1">book-conferencing</span>, <span class="kw1">sustained silent reading</span></td></tr>
         </table>
       </div>
@@ -381,11 +376,8 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         <div class="exam-label">📌 기출 포인트 (2015.A.기입5)</div>
         <p>방과 후 reading club에서의 지도 방식 → <span class="kw4">extensive reading</span>. 학생이 책을 선택하고 즐거움을 위해 읽는 것이 핵심.</p>
       </div>
-      <div class="exam">
-        <div class="exam-label">📋 기출 이력</div>
-        <p><strong>2016_A 기입9</strong> — 정독과 다독 비교(intensive, extensive reading)</p>
-        <p><strong>2019_B 논술2</strong> — 다독과 동기 유발 논술</p>
-      </div>
+
+      <details class="reading-case"><summary>Intensive reading과 extensive reading의 목적</summary><div class="reading-case-body"><p><b>Intensive:</b> 한 단락의 대명사 지시 대상과 however 앞뒤 관계를 확인하고, 인물의 말에 담긴 함의를 설명한다. 언어 형식뿐 아니라 내용의 세부 의미도 살펴본다.</p><p><b>Extensive:</b> 학생이 읽기 쉬운 이야기를 골라 여러 날 읽고, 마음에 든 장면을 짧게 소개한다. 가벼운 독서 대화가 있다고 해서 extensive reading이 아닌 것은 아니다. 매 문장의 분석·빈번한 시험이 중심이 되면 본래 목적과 멀어진다.</p><p><b>확인:</b> 분량만 보고 분류하지 말고 읽기 목적·난이도·학습자 선택·후속 활동의 부담을 함께 본다. 유창성은 이해를 유지하면서 적절한 속도로 읽는 것이므로 무조건 빨리 읽게 하지 않는다.</p></div></details>
     </div>
   </div>
 
@@ -425,6 +417,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
           </table>
         </div>
       </div>
+      <details class="reading-case"><summary>Authenticity와 난이도를 함께 판단하기</summary><div class="reading-case-body"><p><b>자료 비교:</b> 실제 도서관 행사 안내문은 authentic material이다. 교사가 같은 형식으로 쉬운 가상 안내문을 만들면 simulated authentic material이며, 실제 안내문의 어려운 문장을 고치면 modified material이다.</p><p><b>세 기준:</b> 학생에게 행사 주제가 흥미로운가는 suitability of content, 시간·장소 찾기라는 목표에 활용 가능한가는 exploitability, 어휘와 문장 구조의 난이도가 학습자에게 적절한지는 readability와 관련된다. 자료의 시각적 구성(presentation)이 좋더라도 내용, 활용 가능성, 읽기 난이도까지 적절하다고 볼 수는 없다.</p><p><b>교수 결정:</b> 먼저 필요한 정보만 찾는 쉬운 과제나 학습자의 수준에 맞는 쉬운 실제 자료를 고려한다. 필요하면 텍스트도 조정하되 의미 관계와 자연스러운 반복을 유지한다. Simplified text를 언제나 금지하거나 언제나 더 쉽다고 가정하지 않는다.</p></div></details>
     </div>
   </div>
 
@@ -438,7 +431,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
     </div>
     <div class="sec-body">
       <div class="concept">
-        <div class="def"><span class="kw3">DARTs</span> (Directed Activities Related to Texts): Activities which get students to interact with texts. Their aim is to improve students' reading comprehension and to make them critical readers. (Nunan)</div>
+        <div class="def"><span class="kw3">DARTs</span> (Directed Activities Related to Texts): Activities which get students to interact with texts. Their aim is to improve students' reading comprehension and to make them critical readers. </div>
         <div class="grid col2">
           <div class="grid-item">
             <div class="gi-title"><span class="kw3">Reconstruction Activities</span></div>
@@ -469,9 +462,10 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         </div>
         <div class="exam">
           <div class="exam-label">📌 기출 포인트</div>
-          <p>Reconstruction (2011.17 Prediction / 2013.22 Sequencing) vs Analysis (2009.15 Graphic organizer / 2012.27, 2021.A.9). 핵심 구별: <b>텍스트 변형 여부</b>(modified vs unmodified) + <b>학습 목표</b>(구조 이해 vs 분석 능력).</p>
+          <p>2011.17은 결말 예측, 2013.22는 분절된 글의 재구성을 다룬다. 2009.15는 graphic organizer, 2012.27과 2021.A.9는 정보 조직·기능 통합과 연결된다. DARTs 분류는 <b>주어진 텍스트·도표의 상태와 요구 행동</b>을 함께 확인한다. Organizer가 있다는 이유만으로 analysis로 단정하지 않는다.</p>
         </div>
       </div>
+      <details class="reading-case"><summary>Table completion과 table construction 구분하기</summary><div class="reading-case-body"><p><b>Reconstruction:</b> 완성된 짧은 이야기의 문장 순서를 섞어 주고 원래의 논리적 순서를 복원하게 한다. 학생은 대명사·연결어와 사건의 흐름을 근거로 순서를 설명한다.</p><p><b>Analysis:</b> 완전한 글을 그대로 준 뒤 학생이 비교 범주를 정하고 행·열 제목을 붙여 새로운 표를 구성하게 한다. 주어진 불완전한 표를 완성하는 table completion과 구분한다.</p><p><b>판단 기준:</b> 학생에게 주어진 텍스트·도표의 상태와 요구되는 행동을 함께 본다. 교사가 행·열 제목을 준 표의 빠진 내용을 채우게 하면 reconstruction으로 볼 수 있다. 원문이 완전하다는 이유만으로 모든 표 완성 활동을 analysis라고 단정하지 않는다.</p></div></details>
     </div>
   </div>
 
@@ -487,10 +481,10 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       <div class="stage-wrap">
         <table>
           <tr><th>전략</th><th>정의</th><th>특징</th></tr>
-          <tr><td><span class="kw4">Skimming</span></td><td>Glancing rapidly to get a <em>general idea</em></td><td>~30초 / 주제·요지 파악 / 매 단어 불필요</td></tr>
+          <tr><td><span class="kw4">Skimming</span></td><td>Glancing rapidly to get a <em>general idea</em></td><td>시간을 제한한 빠른 읽기 / 주제·요지 파악 / 매 단어 불필요</td></tr>
           <tr><td><span class="kw4">Scanning</span></td><td>Glancing rapidly to locate <em>specific information</em></td><td>특정 단어·숫자·discourse markers 탐색</td></tr>
           <tr><td><span class="kw3">Inferencing</span></td><td>Identify ideas <em>not explicitly stated</em></td><td>맥락 단서 / inferential comprehension level</td></tr>
-          <tr><td><span class="kw3">Graphic Organizer</span></td><td>Visual representation of relationships among ideas</td><td>Analysis activity / top-down / 쓰기·말하기 연계</td></tr>
+          <tr><td><span class="kw3">Graphic Organizer</span></td><td>Visual representation of relationships among ideas</td><td>내용 관계 시각화 / 새 도표 구성과 주어진 도표 완성을 구별</td></tr>
           <tr><td><span class="kw3">Outlining</span></td><td>Distinguish and list main ideas &amp; supporting details</td><td>계층 구조 파악 / organized representation</td></tr>
           <tr><td><span class="kw2">Semantic Mapping</span></td><td>Grouping ideas into meaningful clusters</td><td>Visual strategy / 지식 확장</td></tr>
           <tr><td><span class="kw2">Guessing</span></td><td>Using contextual clues to fill gaps in competence</td><td>Inferencing 포함 / 사전 없이 단어 추측</td></tr>
@@ -499,7 +493,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       </div>
       <div class="div"></div>
       <div class="concept">
-        <div class="c-title"><span class="kw4">Think-aloud Protocol</span> <span class="badge-ex">기출 2009.25 · 2014.10</span></div>
+        <div class="c-title"><span class="kw4">Think-aloud Protocol</span> <span class="badge-ex">기출 2009.25 · 2014.A.기입10</span></div>
         <div class="def">T encourages Ss to monitor their comprehension process while reading and report on what they are doing. → Ss verify strategies assisting in getting meaning. <span class="kw4">Metacognitive awareness</span> 함양의 핵심 기법.</div>
         <div class="c-title" style="margin-top:16px"><span class="kw4">Metacognitive Awareness</span></div>
         <div class="note">Before reading: 읽기 목표 달성을 위한 전략 선택</div>
@@ -508,8 +502,9 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       </div>
       <div class="exam">
         <div class="exam-label">📌 기출 포인트 (2017.A.6)</div>
-        <p><span class="kw4">Skimming</span> = 주제·요지 (general idea) / <span class="kw4">Scanning</span> = 특정 정보 (specific information). 이 둘을 혼동하는 오답 선지 자주 출제!</p>
+        <p><span class="kw4">Skimming</span> = 주제·요지 (general idea) / <span class="kw4">Scanning</span> = 특정 정보 (specific information). 해당 문항은 두 단계의 읽기 전략명을 순서대로 쓰도록 요구한다.</p>
       </div>
+      <details class="reading-case"><summary>읽기 목적에 따른 전략 선택</summary><div class="reading-case-body"><p><b>Skimming:</b> 교내 행사 안내문을 빠르게 읽고 행사의 전반적 목적을 말한다. <b>Scanning:</b> 신청 마감일만 찾아 표시한다. 교사가 활동 시간을 30초로 정할 수는 있지만, 제한 시간이 skimming이나 scanning의 정의를 결정하지는 않는다.</p><p><b>Inferencing:</b> 신청자가 많아 장소가 큰 강당으로 변경되었다는 표현들을 연결하여 예상 참가 규모를 추론한다. <b>Outlining:</b> 행사 목적·준비물·신청 절차를 상위 항목과 세부 사항으로 정리한다.</p><p><b>Think-aloud:</b> 학생이 “마감일을 찾는 중인데 여기는 개최일이네. 신청 부분을 다시 보자”라고 말하면 어떤 전략을 선택하고 어떻게 이해를 점검하는지 확인할 수 있다. 텍스트를 그대로 소리 내어 읽는 것만으로 think-aloud는 아니다.</p><p><b>SQ3R:</b> 제목 훑기 → 궁금한 점 만들기 → 답을 찾아 읽기 → 핵심을 자기 말로 말하거나 쓰기 → 질문과 답을 다시 검토하기. Recite는 원문을 그대로 암송하는 데 한정되지 않는다.</p></div></details>
     </div>
   </div>
 
@@ -517,7 +512,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
   <div class="sec" id="s7">
     <div class="sec-header" onclick="toggle(this)">
       <span class="sec-icon">📈</span>
-      <span class="sec-title">07 · Comprehension Levels (5단계)</span>
+      <span class="sec-title">07 · Comprehension Levels (5가지 구분)</span>
       <span class="sec-tag">★★★ 최빈출</span>
       <span class="sec-arrow">▼</span>
     </div>
@@ -560,9 +555,10 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         </table>
       </div>
       <div class="exam">
-        <div class="exam-label">📌 기출 포인트 (2021.A.9)</div>
-        <p>Inferential vs Evaluative 수준 구별. <span class="kw3">Inferential</span> = implied meaning 추론 / <span class="kw3">Evaluative</span> = 독자의 주관적 판단·비평.</p>
+        <div class="exam-label">📌 개념 구별</div>
+        <p>Inferential vs Evaluative 수준 구별. <span class="kw3">Inferential</span> = implied meaning 추론 / <span class="kw3">Evaluative</span> = 판단 기준과 텍스트 근거를 제시하는 비평.</p>
       </div>
+      <details class="reading-case"><summary>질문과 응답에 따른 읽기 이해 유형의 구분</summary><div class="reading-case-body"><p><b>짧은 자료:</b> “Mina left home at eight. At the station she saw the train leaving. She sighed and called her teacher.”</p><p><b>Literal / reorganization:</b> 출발 시각을 묻거나, 명시된 사건을 시간 순서로 정리하게 한다. 새 사건을 상상할 필요는 없다.</p><p><b>Inferential / evaluative:</b> 왜 교사에게 전화했을지 근거를 들어 설명하게 하면 inferential이다. Mina의 대처가 적절했는지 판단 기준과 이유를 제시하게 하면 evaluative이다. 단순한 호불호만으로 충분한 평가는 아니다.</p><p><b>Creative / appreciative:</b> 장면에서 느낀 정서와 표현의 효과를 설명하거나, 기존 상황과 일치하는 후속 장면을 창작하게 할 수 있다. 독서록을 썼다는 사실만으로 읽기 이해의 유형을 판단하지 않는다. 이 구분을 모든 독자가 반드시 순서대로 거치는 고정 발달 단계로 해석하지 않는다.</p></div></details>
     </div>
   </div>
 
@@ -604,17 +600,19 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         <div class="c-title" style="margin-top:16px">While-reading 주요 활동</div>
         <div class="note">전략 적용: <span class="kw4">skimming</span>, <span class="kw4">scanning</span>, <span class="kw3">inferencing</span>, guessing</div>
         <div class="note">Comprehension questions: literal → inferential level 순서로</div>
-        <div class="note">Flow chart / KWL Chart: Know - Want - Learned</div>
+        <div class="note">Flow chart로 내용 관계 정리 / KWL의 W 질문에 답하며 L 기록</div>
         <div class="c-title" style="margin-top:16px">Post-reading 주요 활동</div>
         <div class="note">Discussion, summarizing → 기능 통합 (writing·speaking)</div>
         <div class="note">Further practice (remedial exercise): 부족한 부분 보완</div>
         <div class="note">텍스트 기반 쓰기·말하기 활동으로 확장</div>
       </div>
+      <details class="reading-case"><summary>읽기 전·중·후 활동의 연결</summary><div class="reading-case-body"><p><b>Pre-reading:</b> 학교 급식 잔반에 관해 이미 아는 것(K)과 알고 싶은 질문(W)을 정한다. 제목과 사진으로 내용을 예상하되 정답을 먼저 알려 주지 않는다.</p><p><b>While-reading:</b> 문제와 대책을 표에 정리하고, 처음 예상과 다른 부분을 텍스트 근거로 수정한다. 이 과정에서 새로 알게 된 내용(L)을 기록한다.</p><p><b>Post-reading:</b> W의 질문 중 해결된 것과 남은 것을 확인하고, 글의 근거를 사용하여 학급 제안문을 쓴다. Reading과 writing을 연결하되 내용 이해와 언어 표현의 평가 기준을 구분한다.</p><p><b>확인:</b> Semantic mapping·KWL·comprehension questions를 특정 단계에만 고정하지 않는다. 특정 단계에만 쓰인다고 외우기보다, 각 단계에서 어떤 학습을 돕는지 설명한다.</p></div></details>
     </div>
   </div>
 
 </div>
 
+<div class="note" style="max-width:820px;margin:20px auto">개념 참고: H. Douglas Brown, <i>Teaching by Principles: An Interactive Approach to Language Pedagogy</i>, 3rd ed., Ch.20, pp.357–376. DARTs 분류 기준: <a href="https://www.teachingenglish.org.uk/professional-development/teachers/managing-resources/articles/interacting-texts-directed-activities">British Council, Interacting with texts</a>. KWL: <a href="https://eric.ed.gov/?id=EJ329558">D. M. Ogle (1986), K-W-L</a>. 위 수업 사례는 개념 비교를 위해 만든 예시이다. 활동 분류는 읽기 목적·입력 텍스트 상태·요구되는 응답을 기준으로 판단한다.</div>
 <script>
 function toggle(h){h.parentElement.classList.toggle('open')}
 function go(id){
@@ -637,3 +635,4 @@ function go(id){
 <script src="./study-return.js"></script>
 </body>
 </html>
+
