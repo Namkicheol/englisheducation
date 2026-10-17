@@ -100,6 +100,14 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 #feedback-depth .feedback-answer p{padding:0 16px 12px}
 </style>
 
+<style>
+.grammar-depth{margin:18px 0;border:1px solid var(--ew-border,#cddfd8);border-radius:10px;background:var(--ew-surface,#fff)}
+.grammar-depth>summary,.grammar-check>summary{min-height:44px;padding:13px 16px;cursor:pointer;font:inherit;font-weight:700;color:var(--ew-accent,#23654d)}
+.grammar-depth summary:focus-visible{outline:3px solid var(--ew-accent,#23654d);outline-offset:3px}
+.grammar-depth-body{padding:0 16px 16px;line-height:1.85;overflow-wrap:anywhere}
+.grammar-depth-body p{margin:10px 0}.grammar-depth-body h3{font-size:1.08rem;margin:20px 0 8px}
+.grammar-check{border:1px solid var(--ew-border,#cddfd8);border-radius:8px;margin-top:12px}.grammar-check p{padding:0 16px 12px}
+</style>
 </head>
 <body class="etwiki-learning">
 <header class="ew-header"><div class="ew-brand-row"><a class="ew-brand" href="https://etwiki.net/index.html">기출 WIKI</a><span class="ew-header-label">학습자료</span><a class="ew-back" href="https://etwiki.net/study.html">전체 자료 ↗</a></div><nav class="ew-subjects" aria-label="학습 영역"><a href="https://namkicheol.github.io/englisheducation/" aria-current="location">영어교육론</a><a href="https://namkicheol.github.io/linguistics/">영어학</a><a href="https://namkicheol.github.io/phonetics-phonology/phonetics.html">음성·음운론</a></nav></header>
@@ -143,8 +151,8 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 <!-- 범례 -->
 <div class="legend">
   <span class="legend-title">키워드</span>
-  <span class="legend-item"><span class="kw4">★★★ 최빈출</span></span>
-  <span class="legend-item"><span class="kw3">★★ 빈출</span></span>
+  <span class="legend-item"><span class="kw4">★★★ 핵심 비교</span></span>
+  <span class="legend-item"><span class="kw3">★★ 주요 개념</span></span>
   <span class="legend-item"><span class="kw1">★ 기본개념</span></span>
   <span class="legend-item"><span class="kw2">부키워드</span></span>
 </div>
@@ -152,7 +160,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 <!-- 기출분석 포인트 -->
 <div class="exam" style="margin-bottom:20px">
   <div class="exam-label">📝 기출분석 포인트 (Ch.10 Teaching Grammar)</div>
-  <p>① <span class='kw4'>Focus on Form</span> vs <span class='kw4'>Focus on FormS</span> vs Focus on Meaning — 3-way 구분 <span class='kw4'>최빈출</span></p>
+  <p>① <span class='kw4'>Focus on Form</span> vs <span class='kw4'>Focus on FormS</span> vs Focus on Meaning — 3-way 구분 <span class='kw4'>핵심 비교</span></p>
   <p>② <span class='kw4'>Reactive</span> vs <span class='kw4'>Pre-emptive</span> FonF 구분, <span class='kw3'>Planned</span> vs <span class='kw3'>Incidental</span> 포함</p>
   <p>③ corrective feedback 6종 — <span class='kw4'>Recast</span>(implicit) vs <span class='kw4'>Explicit Correction</span>, <span class='kw3'>Prompts</span> vs <span class='kw3'>Input-providing</span></p>
   <p>④ <span class='kw3'>CR task</span> = explicit / declarative knowledge; <span class='kw3'>Input Enhancement</span> vs <span class='kw3'>Input Flood</span> 구분</p>
@@ -170,25 +178,18 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
   <div class="sec-body">
 
     <div class="concept">
-      <div class="c-title">🔑 3-Way 핵심 비교 <span class="badge-ex">★★★ 최빈출</span></div>
+      <div class="c-title">🔑 3-Way 핵심 비교 <span class="badge-ex">★★★ 핵심 비교</span></div>
       <div class="exam">
         <div class="exam-label">📋 기출 이력</div>
-        <p><strong>2010 Q16</strong> — 의사소통 활동 중 형태 집중 교수법 적용</p>
-        <p><strong>2013 Q16</strong> — 형태 집중 교수법 유형 비교(focus on form vs focus on forms)</p>
-        <p><strong>2015_A 기입7</strong> — 형태 집중 피드백 유형</p>
-        <p><strong>2016_A 기입6</strong> — 암시적 형태 집중 피드백</p>
-        <p><strong>2017_B 서술3</strong> — TBLT 과제 유형과 형태 집중 통합</p>
-        <p><strong>2018_B 서술5</strong> — 과제 전 단계와 형태 집중</p>
-        <p><strong>2020_B 논술1</strong> — 문법 교수와 CLT 통합 논술</p>
-        <p><strong>2022 B-11</strong> — reactive vs. pre-emptive focus on form, explicit feedback</p>
-        <p><strong>2026 A-7</strong> — Pragmatic competence, Communicative drill, information gap</p>
+        <p><strong>2017 B-1</strong> — 두 교사의 수업에서 focus on forms와 focus on form을 구분하고 지문 근거 설명</p>
+        <p><strong>2022 B-11</strong> — reactive / pre-emptive 구분 안에서 A1·A2·B1·B2를 선택하고 대화 근거 설명</p>
       </div>
       <div class="grid col3" style="margin-top:12px">
         <div class="grid-item">
           <div class="gi-title"><span class='kw4'>Focus on FormS</span></div>
           <div class="gi-body">
             <span><strong>Synthetic approach</strong></span>
-            <span>문법 항목을 순서대로 명시적으로 가르침</span>
+            <span>미리 선정한 문법 항목을 중심으로 수업을 조직</span>
             <span>context-reduced, sentence level</span>
             <span>decontextualized 설명</span>
             <span>→ communicative usage (not primary)</span>
@@ -210,7 +211,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
             <span><strong>Analytic approach</strong></span>
             <span>자연스러운 의사소통에 몰입</span>
             <span>comprehensible input만으로 학습</span>
-            <span>형태에 대한 명시적 주의 없음</span>
+            <span>형태에 주의를 돌리는 교수적 개입 없음</span>
             <span>→ no focus on form</span>
           </div>
         </div>
@@ -224,7 +225,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       <svg id="fonf-svg" viewBox="0 0 700 90" style="width:100%;margin-top:12px;font-family:'JetBrains Mono',monospace" xmlns="http://www.w3.org/2000/svg">
         <rect x="4" y="10" width="200" height="70" rx="8" fill="rgba(183,28,28,.08)" stroke="rgba(183,28,28,.35)" stroke-width="1.5"/>
         <text x="104" y="38" text-anchor="middle" fill="#b71c1c" font-size="11" font-weight="bold">Focus on FormS</text>
-        <text x="104" y="55" text-anchor="middle" fill="#b71c1c" font-size="10">synthetic · form-only</text>
+        <text x="104" y="55" text-anchor="middle" fill="#b71c1c" font-size="10">synthetic · form primary</text>
         <text x="104" y="70" text-anchor="middle" fill="#b71c1c" font-size="10">decontextualized</text>
         <text x="217" y="52" text-anchor="middle" fill="#26a69a" font-size="22">⇄</text>
         <rect x="230" y="10" width="236" height="70" rx="8" fill="rgba(46,125,82,.1)" stroke="rgba(46,125,82,.4)" stroke-width="1.5"/>
@@ -243,9 +244,19 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 
     <div class="exam">
       <div class="exam-label">⚠️ 함정 포인트</div>
-      <p>• <span class='kw4'>Focus on Form ≠ Focus on FormS</span> — FonF는 의미 활동 <strong>안에서</strong> 형태를 다룸; FonFS는 형태만 독립적으로 가르침</p>
+      <p>• <span class='kw4'>Focus on Form ≠ Focus on FormS</span> — FonF는 의미 활동 <strong>안에서</strong> 형태를 다룸; FonFS는 미리 선정한 형태의 학습이 수업을 조직하는 중심</p>
       <p>• FonF는 <span class='kw2'>analytic</span> syllabus 기반 → FonFS의 <span class='kw2'>synthetic</span> syllabus와 구분</p>
     </div>
+
+    <details class="grammar-depth" id="grammar-focus-case"><summary>설명 더 보기 · Focus on forms·form·meaning의 수업 목표 비교</summary><div class="grammar-depth-body">
+<p>다음은 과거 경험을 다루는 세 가지 수업을 비교하기 위해 만든 예시다. <strong>문법 항목을 다룬다는 사실뿐 아니라 학생이 어떤 목적으로 언어를 사용하는지</strong> 확인한다.</p>
+<h3>문법 항목이 수업 순서를 정하는 경우</h3><p>이번 주는 regular past tense, 다음 주는 irregular past tense를 배운다. 각 시간은 해당 항목 설명과 연습으로 구성된다. 이때 수업의 중심은 선정된 항목의 정확한 학습이므로 focus on forms에 가깝다. 예문에 상황이 있거나 마지막에 짝 활동이 있다는 이유만으로 분류가 자동으로 바뀌지는 않는다.</p>
+<h3>경험을 전달하면서 필요한 형태를 살피는 경우</h3><p>학생들이 주말 경험을 듣고 학급 소식지에 실을 이야기를 고른다. 교사는 내용 전달 중 필요한 past tense에 잠시 주의를 돌린 뒤 이야기로 돌아간다. 이야기의 내용을 전달하는 활동이 주된 목적이므로 focus on form이다. 읽을 글의 목표 표현을 미리 강조하는 방식도 의미 이해가 중심인 경우 planned focus on form으로 설명할 수 있다.</p>
+<h3>교사가 언어 형태에 주의를 돌리도록 지도하지 않는 경우</h3><p>학생들은 이야기의 재미와 내용만을 중심으로 활동하고 교사는 문법에 주의를 돌리지 않는다. 이는 focus on meaning의 전형적인 설계다. 이러한 수업에서도 학습자가 스스로 언어 형태를 알아차릴 수 있다.</p>
+<p>Long의 초기 정의는 incidental attention을 강조한다. 이 페이지의 planned / incidental 구분은 이후의 확장된 분류다. <strong>사전 선정 자체가 곧 focus on forms라는 뜻은 아니다.</strong> 선정한 형태를 의미 중심 과제에 넣었는지, 언어 형태의 학습이 과제의 주된 목적인지 함께 본다.</p>
+<p><strong>기출 연결:</strong> 2017 B-1은 Mr. Song의 규칙 설명 중심 수업과 Miss Oh의 강조된 읽기 자료·내용 이해 활동을 비교한다. 두 수업 모두 형태를 다루므로, ‘문법을 가르친다’만으로는 구분 근거가 충분하지 않다.</p>
+<details class="grammar-check"><summary>적용 확인 · 목표 형태를 미리 고르면 무조건 FonFS일까?</summary><p>아니다. 미리 고른 형태를 사용하도록 설계했더라도 학생들의 주된 목적이 의미를 전달하고 과제 결과를 얻는 것이라면 planned focus on form일 수 있다. 판단 근거는 사전 계획 여부와 활동의 주된 초점을 함께 확인하는 것이다.</p></details>
+<p class="note">참고: Brown, <cite>Teaching by Principles</cite>, 3rd ed. (2007), Ch.22, pp.419–425; Ellis (2006), <cite>Current Issues in the Teaching of Grammar</cite>, pp.100–101. 수업 예시는 새로 구성했다.</p></div></details>
 
   </div>
 </div>
@@ -284,7 +295,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
     <div class="div"></div>
 
     <div class="concept">
-      <div class="c-title">🔑 Reactive vs Pre-emptive <span class="badge-ex">★★ 빈출</span></div>
+      <div class="c-title">🔑 Reactive vs Pre-emptive <span class="badge-ex">★★ 주요 개념</span></div>
       <div class="exam">
         <div class="exam-label">📋 기출 이력</div>
         <p><strong>2022 B-11</strong> — reactive vs. pre-emptive focus on form, explicit feedback(A2)</p>
@@ -304,12 +315,20 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
           <div class="gi-body">
             <span>오류가 발생하기 <strong>전에</strong> 문제가 예상되는 언어 형태를 미리 다룸</span>
             <span>교사 또는 학습자가 시작 가능</span>
-            <span>→ 예방적 형태 초점</span>
-            <span><em>e.g. T: "Before we do this task, let's review the past tense."</em></span>
+            <span>→ 실제 오류에 대한 반응이 아닌 형태 관련 질문·안내</span>
+            <span><em>e.g. 일정 조율 중 S: "Do we say ‘on Friday’ or ‘in Friday’?" → T: "On Friday."</em></span>
           </div>
         </div>
       </div>
     </div>
+
+    <details class="grammar-depth" id="grammar-timing-case"><summary>설명 더 보기 · Planned와 pre-emptive의 분류 기준</summary><div class="grammar-depth-body">
+<p>각 분류가 무엇을 기준으로 하는지 확인한다. <strong>Planned / incidental</strong>은 특정 형태를 사전에 정했는지, <strong>reactive / pre-emptive</strong>는 실제 문제 발화에 반응했는지를 묻는다. 여기서는 2022 B-11의 분류 기준을 따른다.</p>
+<p>① 교사가 비교급을 쓰도록 두 여행지를 비교하는 과제를 준비했다. 목표 형태를 미리 정했으므로 planned다. ② 과제 중 학생이 잘못된 비교급을 말하자 교사가 고친다. 그 feedback은 오류에 반응했으므로 reactive다. ③ 과제 중 학생이 아직 오류를 말하지 않은 상태에서 두 표현 중 어느 것을 쓸지 묻는다. 사전에 정하지 않은 질문이라도 student-initiated pre-emptive focus on form이 될 수 있다.</p>
+<p><strong>Pre-emptive는 반드시 과제 시작 전이라는 뜻이 아니다.</strong> 의미 중심 활동 도중에도 교사나 학생이 오류가 발생하기 전에 형태를 화제로 삼을 수 있다. 반대로 수업 전에 준비한 문법 복습이라는 사실만으로 2022 문항의 B1·B2라고 판정하지 않는다.</p>
+<p>2022 B-11 Example 1은 문제 발화 뒤 tense를 명시적으로 안내하므로 A2, Example 2는 일정 조율 중 학생이 날짜 표현을 질문하므로 B1이다. 학생이 질문했다는 사실뿐 아니라, 그 질문이 오류 교정에 대한 반응이 아니라 학생이 먼저 표현을 확인하려고 한 질문이라는 점을 확인한다.</p>
+<details class="grammar-check"><summary>적용 확인 · Pre-emptive도 incidental일 수 있을까?</summary><p>그렇다. 교사가 예정하지 않았던 표현을 학생이 의미 중심 활동 도중 질문하면 incidental이면서 student-initiated pre-emptive인 사례가 된다. 두 분류는 판단 기준이 서로 다르다.</p></details>
+<p class="note">참고: Brown, <cite>Principles of Language Learning and Teaching</cite>, 6th ed. (2014), pp.269–271; 2022학년도 전공 B 11번의 제시 기준.</p></div></details>
 
   </div>
 </div>
@@ -319,7 +338,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
   <div class="sec-header" onclick="toggle('s3')">
     <span class="sec-icon">🔗</span>
     <span class="sec-title">③ Isolated vs Integrated Focus on Form</span>
-    <span class="sec-tag">맥락 분리 여부</span>
+    <span class="sec-tag">형태 지도 단계의 배치</span>
     <span class="sec-arrow">▼</span>
   </div>
   <div class="sec-body">
@@ -331,7 +350,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
           <div class="gi-title"><span class='kw3'>Isolated Focus on Form</span></div>
           <div class="gi-body">
             <span>의사소통 활동과 <strong>분리</strong>하여 형태 집중 지도</span>
-            <span>communicative activity 흐름 중단</span>
+            <span>의사소통 활동 전·후의 별도 단계로도 구성 가능</span>
             <span><em>e.g. CR task를 의사소통 활동 밖에서 별도로 실시</em></span>
           </div>
         </div>
@@ -345,6 +364,12 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         </div>
       </div>
     </div>
+
+    <details class="grammar-depth" id="grammar-integration-case"><summary>설명 더 보기 · Isolated FFI와 integrated FFI의 수업 구성</summary><div class="grammar-depth-body">
+<p><strong>Isolated / integrated는 언어 형태를 지도하는 단계를 의사소통 활동과 별도로 두는지, 활동 안에 포함하는지</strong> 살피는 기준이다. 여기서 isolated를 ‘문맥도 목적도 전혀 없음’으로 바꾸어 외우지 않는다.</p>
+<p>학교 행사 안내문을 읽고 일정을 정하는 수업을 생각해 보자. 활동 전에 날짜의 전치사를 별도 단계에서 살펴본 뒤 실제 일정을 조율하면 isolated FFI로 구성할 수 있다. 일정 조율 도중 필요한 날짜 표현을 그 맥락 안에서 확인하고 계속 대화하면 integrated FFI에 해당한다. 앞의 별도 단계도 뒤의 과제를 준비할 수 있으므로 과제와 무관하다고 할 수는 없다.</p>
+<p>Integrated라는 이유만으로 implicit인 것도 아니다. 활동 중 교사가 규칙을 짧고 직접적으로 설명할 수 있다. 한 수업에서도 단계에 따라 isolated FFI와 integrated FFI를 함께 사용할 수 있다. 따라서 수업 전체를 분류할 때와 개별 feedback을 분류할 때를 구별한다.</p>
+<p class="note">참고: Brown, <cite>Teaching by Principles</cite>, 3rd ed. (2007), pp.424–426; Spada et al. (2014), <a href="https://journals.sagepub.com/doi/abs/10.1177/1362168813519883" target="_blank" rel="noopener"><cite>Isolated and Integrated form-focused instruction</cite></a>, Abstract and Appendix 1. 예시는 새로 구성했다.</p></div></details>
 
   </div>
 </div>
@@ -365,7 +390,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         <div class="grid-item">
           <div class="gi-title"><span class='kw3'>Explicit Grammar Instruction</span></div>
           <div class="gi-body">
-            <span>problem-solving + reasoning 포함</span>
+            <span>규칙을 설명하거나 학습자가 의식적으로 규칙을 찾도록 함</span>
             <span>→ <span class='kw2'>declarative knowledge</span> 발달 목표</span>
             <span><em>예: CR task, Garden Path, GTM</em></span>
           </div>
@@ -373,8 +398,8 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         <div class="grid-item">
           <div class="gi-title"><span class='kw3'>Implicit Grammar Instruction</span></div>
           <div class="gi-body">
-            <span>intellectually less demanding</span>
-            <span>→ <span class='kw2'>procedural knowledge</span> 발달 목표</span>
+            <span>규칙 설명·규칙 찾기 지시 없이 목표 형태를 접하고 처리하도록 함</span>
+            <span>→ 의미 처리 중 목표 형태에 대한 학습을 지원</span>
             <span><em>예: ALM, input flooding</em></span>
           </div>
         </div>
@@ -384,15 +409,15 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
     <div class="div"></div>
 
     <div class="concept">
-      <div class="c-title">🔑 Deductive vs Inductive <span class="badge-ex">★★ 빈출</span></div>
+      <div class="c-title">🔑 Deductive vs Inductive <span class="badge-ex">★★ 주요 개념</span></div>
       <div class="grid col2">
         <div class="grid-item">
           <div class="gi-title"><span class='kw3'>Deductive Approach</span></div>
           <div class="gi-body">
             <span>규칙 먼저 제시 → 예시에 적용</span>
             <span><strong>Rule-driven learning</strong></span>
-            <span>✅ 시간 절약; 분석적 학습자에 유리; 초급자에 적합</span>
-            <span>❌ 기억 유지 어려움; 어린 학습자 metalanguage 이해 어려움</span>
+            <span>✅ 규칙 설명으로 시간을 줄일 수 있음; 분석적 설명을 선호하는 학습자에게 유용</span>
+            <span>❌ 설명만으로 사용 능력이 보장되지 않음; 어린 학습자는 metalanguage가 어려울 수 있음</span>
           </div>
         </div>
         <div class="grid-item">
@@ -400,8 +425,8 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
           <div class="gi-body">
             <span>L2 data 제시 → 규칙을 학습자 스스로 도출</span>
             <span><strong>Discovery learning · Data-driven learning</strong></span>
-            <span>✅ 기억 유지 강함; 자율성·동기 증가; 중급 이상 적합</span>
-            <span>❌ 시간·에너지 비효율; 잘못된 규칙 가설 위험</span>
+            <span>✅ 규칙 탐색이 기억·자율성·동기를 도울 수 있음</span>
+            <span>❌ 탐색에 시간이 필요할 수 있음; 잘못된 규칙 가설은 확인·수정 필요</span>
           </div>
         </div>
       </div>
@@ -416,7 +441,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
           <tr>
             <th>기법</th>
             <th>Explicit / Implicit</th>
-            <th>지식 유형</th>
+            <th>직접적인 학습 초점</th>
             <th>비고</th>
           </tr>
           <tr>
@@ -434,24 +459,33 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
           <tr>
             <td><span class='kw3'>Input Enhancement</span></td>
             <td>Implicit</td>
-            <td>procedural</td>
+            <td>의미 처리 중 형태 주목 지원</td>
             <td>textual modification (highlighting 등)</td>
           </tr>
           <tr>
             <td><span class='kw3'>Input Flood</span></td>
             <td>Implicit</td>
-            <td>procedural</td>
-            <td>반복 노출, 강조 없음</td>
+            <td>의미 처리 중 형태 주목 지원</td>
+            <td>반복 노출; typographic highlighting은 필수 아님</td>
           </tr>
           <tr>
             <td><span class='kw1'>Structured Input</span></td>
-            <td>Explicit</td>
-            <td>declarative</td>
+            <td>규칙 설명의 유무와 별도 판단</td>
+            <td>form-meaning connection</td>
             <td>input processing instruction</td>
           </tr>
         </table>
       </div>
     </div>
+
+    <details class="grammar-depth" id="grammar-explicit-case"><summary>설명 더 보기 · Inductive·explicit 수업의 분류 기준</summary><div class="grammar-depth-body">
+<p><strong>Explicit / implicit instruction은 교수 방식, deductive / inductive는 규칙과 예시를 다루는 절차</strong>에 관한 구분이다. 학습 결과로 어떤 지식이 생겼는지는 또 다른 문제다.</p>
+<h3>규칙을 먼저 알려 주는 경우</h3><p>교사가 regular past tense의 기본 형태를 설명하고 학생이 예문에 적용한다. 규칙을 직접 설명하므로 explicit이고 규칙이 먼저이므로 deductive다.</p>
+<h3>규칙을 학생이 찾도록 하는 경우</h3><p>학생들이 여러 문장의 현재·과거 표현을 비교하고 공통점을 찾아 자신의 말로 규칙을 쓴다. 예시에서 일반화하므로 inductive지만, 의식적인 규칙 이해를 요구하므로 explicit instruction이다. 교사가 처음부터 설명하지 않았다는 이유로 implicit이라고 분류하지 않는다.</p>
+<h3>자료를 처리하지만 규칙 설명을 요구하지 않는 경우</h3><p>학생들이 여러 인물의 일기를 읽고 누가 어느 장소에 갔는지 고른다. 목표 형태가 반복되지만 규칙을 설명하거나 찾으라는 지시는 없다. 이는 implicit한 교수 설계가 될 수 있다. 다만 학생이 실제로 규칙을 알아차렸는지까지 수업 지시만으로 확정할 수는 없다.</p>
+<p>Explicit knowledge와 implicit knowledge는 의식적 접근 가능성에 관한 구분이고, declarative / procedural은 지식과 수행을 설명하는 다른 구분으로 쓰인다. 서로 연결해 설명하는 이론도 있지만 항상 동일한 용어 쌍이라고 단정하지 않는다. <strong>규칙을 잘 설명한다고 해서 실제 의사소통에서도 자동적으로 사용할 수 있는 것은 아니다. 빠르게 답했다는 사실만으로 어떤 지식을 사용했는지 판단할 수도 없다.</strong></p>
+<details class="grammar-check"><summary>적용 확인 · ‘설명 없이 스스로 규칙을 쓰게 했다’의 분류</summary><p>Inductive explicit instruction이다. ‘설명 없이’는 교사가 먼저 규칙을 전달하지 않았다는 뜻이다. 학습자가 의식적으로 규칙을 도출하도록 했으므로 implicit instruction이라고 판단할 근거가 되지 않는다.</p></details>
+<p class="note">참고: Brown, <cite>Teaching by Principles</cite>, 3rd ed. (2007), pp.421–424; Brown, <cite>Principles of Language Learning and Teaching</cite>, 6th ed. (2014), pp.293–294. 두 방식의 효과는 과제·규칙·학습자에 따라 달라지며 수준별 고정 처방이 아니다.</p></div></details>
 
   </div>
 </div>
@@ -467,7 +501,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
   <div class="sec-body">
 
     <div class="concept">
-      <div class="c-title">🔑 Prompts vs Input-providing <span class="badge-ex">★★★ 최빈출</span></div>
+      <div class="c-title">🔑 Prompts vs Input-providing <span class="badge-ex">★★★ 핵심 비교</span></div>
       <div class="grid col2">
         <div class="grid-item">
           <div class="gi-title"><span class='kw4'>Prompts</span> (4종)</div>
@@ -502,17 +536,10 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         <p class="note">오류를 직접 지적하지 않는 방식으로 제시되는 경우가 많음 → 의미 흐름 유지. 억양·강조·앞뒤 반응에 따라 명시성은 달라질 수 있음</p>
         <p class="note">ungrammaticality는 암시적으로 표현됨</p>
         <p class="note"><em>e.g. S: "She catched the dog." → T: "Oh, she CAUGHT the dog."</em></p>
-        <div class="exam" style="margin-top:10px">
-          <div class="exam-label">📋 기출 이력</div>
-          <p><strong>2012 Q22</strong> — 오류 수정 유형 구분(recasts, explicit correction)</p>
-          <p><strong>2013 Q22</strong> — 교정적 피드백 유형과 학습자 반응(uptake)</p>
-          <p><strong>2014_A 기입9</strong> — 오류 수정 유형 구분(recast, explicit correction)</p>
-          <p><strong>2016_B 서술5</strong> — 교정적 피드백 재주조와 촉진(prompts) 비교</p>
-          <p><strong>2020_A 서술1</strong> — 명시적 메타언어 피드백 유형과 효과</p>
-        </div>
+
         <div class="exam" style="margin-top:10px">
           <div class="exam-label">⚠️ Recast 한계</div>
-          <p>• 학습자가 developmentally ready하지 않으면 uptake 실패</p>
+          <p>• Developmental readiness는 학습 효과에 영향을 줄 수 있으나, 즉각적인 uptake의 유무만으로 readiness나 장기 습득을 판정하지 않음</p>
           <p>• 학습자의 의미 집중이 형태 인식을 방해할 수 있음</p>
         </div>
       </div>
@@ -674,7 +701,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
   <div class="sec-body">
 
     <div class="concept">
-      <div class="c-title">정의 <span class="badge-ex">★★ 빈출</span></div>
+      <div class="c-title">정의 <span class="badge-ex">★★ 주요 개념</span></div>
       <div class="def">Uptake: a student's reactive move that immediately follows the teacher's corrective feedback.</div>
       <p class="note">교사의 corrective feedback 직후 학습자가 보이는 반응</p>
       <p class="note">교정 의도에 대한 즉각적인 반응을 관찰하는 지표이며, 지속적인 습득이나 내면화를 입증하지는 않음</p>
@@ -704,11 +731,17 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         <div class="grid-item">
           <div class="gi-title"><span class='kw2'>No Uptake</span></div>
           <div class="gi-body">
-            <span>교사의 feedback에 <strong>아무 반응 없음</strong></span>
+            <span>교정 의도에 대한 <strong>반응이 나타나지 않음</strong>; 내용 대화는 계속될 수 있음</span>
           </div>
         </div>
       </div>
     </div>
+
+    <details class="grammar-depth" id="grammar-uptake-case"><summary>설명 더 보기 · Uptake와 repair의 구별</summary><div class="grammar-depth-body">
+<p>학생이 어제의 일을 현재형으로 말하고 교사가 올바른 과거형을 들려주었다고 하자. 뒤의 학생 반응을 각각 살핀다.</p>
+<p>① 학생이 교사가 고쳐 준 형태를 반복하면 repair가 포함된 uptake다. ② 교정 의도에 반응하여 ‘아, 네’라고 인정하지만 목표 표현을 수정하지 않으면 acknowledgement로서 needs-repair에 해당할 수 있다. ③ 교정에 대한 반응 없이 이야기의 다음 내용으로 넘어가면 no uptake다. 이 세 번째 경우도 학생이 침묵해야만 하는 것은 아니다.</p>
+<p><strong>Repair와 self-repair도 완전히 같은 말은 아니다.</strong> 교사가 제공한 올바른 형태를 학생이 반복해 repair할 수 있다. Prompt는 학생이 스스로 수정하도록 기회를 주지만, 그 기회를 주었다는 사실이 성공적인 수정이나 장기 학습의 증거는 아니다.</p>
+<p class="note">참고: Brown, <cite>Principles of Language Learning and Teaching</cite>, 6th ed. (2014), pp.272–276; Lyster &amp; Ranta (1997), <cite>Corrective Feedback and Learner Uptake</cite>, pp.49–50. 반응 예시는 새로 구성했다.</p></div></details>
 
   </div>
 </div>
@@ -730,7 +763,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       <p class="note">learners operate on data → verbalize rule with own words → T confirms</p>
       <p class="note">inductive 또는 deductive 절차 모두 가능</p>
       <p class="note">메타언어적 대화(meta-talk)를 통한 상호작용 → meaningful exchange</p>
-      <p class="note">minimal production 요구 (procedural knowledge X)</p>
+      <p class="note">목표 형태의 반복 산출·자동화가 직접 과제 목표는 아님; 규칙 토론·설명 발화는 가능</p>
       <div class="flow" style="margin-top:10px">
         <div class="flow-item">L2 data with target feature 제공</div>
         <div class="flow-arrow">→</div>
@@ -738,8 +771,15 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         <div class="flow-arrow">→</div>
         <div class="flow-item">자신의 언어로 규칙 언어화</div>
         <div class="flow-arrow">→</div>
-        <div class="flow-item">T 명시적 규칙 제공</div>
+        <div class="flow-item">T와 규칙 확인·필요시 보완</div>
       </div>
+    <details class="grammar-depth" id="grammar-cr-case"><summary>설명 더 보기 · 규칙에 관해 말하기와 목표 형태를 사용하기</summary><div class="grammar-depth-body">
+<p>학생 두 명이 <span lang="en">“The trip was exciting”</span>과 <span lang="en">“We were excited”</span>를 비교하여 두 형태가 전달하는 의미 차이를 설명한다. 이때 대화의 내용은 문법 규칙 자체다. 학생들이 말을 많이 했더라도, 주된 목표는 해당 형태의 규칙과 의미를 의식적으로 이해하는 것이다(explicit understanding).</p>
+<p>반면 학생들이 실제 여행 후기를 주고받고 다음 여행을 고르며 해당 표현을 사용한다면 목표 형태를 의사소통에 적용하는 production practice에 가깝다. <strong>짝 활동이라는 형식보다, 학생이 규칙을 설명하는지 아니면 정보를 교환하여 결정을 내리는지</strong> 확인한다.</p>
+<p>CR은 예시에서 규칙을 찾는 inductive 절차뿐 아니라, 규칙을 먼저 받고 자료가 그 규칙을 어떻게 보여 주는지 분석하는 deductive 절차로도 구성할 수 있다. 두 경우 모두 explicit understanding이 중심이다.</p>
+<p>2013학년도 15번의 Activity B는 자료 비교 후 규칙을 쓰도록 한다. Activity A는 서로의 일정을 조율한다. B의 discovery activity와 A의 실제 정보 교환을 구별하는 것이 핵심이며, B에서 규칙을 썼다는 사실을 곧바로 automatization이라고 설명하지 않는다.</p>
+<p class="note">참고: Brown, <cite>Principles of Language Learning and Teaching</cite>, 6th ed. (2014), pp.271, 294; 2013학년도 15번. 대화 예시는 새로 구성했다.</p></div></details>
+
     </div>
 
     <div class="div"></div>
@@ -750,13 +790,19 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       <p class="note">목표: <span class='kw2'>예외 규칙</span> 학습 (일반화 오류 → 즉각적 피드백 → 갭 인식)</p>
       <p class="note">explicit technique (정확한 명시적 규칙 학습) + inductive 접근 (deep processing)</p>
       <p class="note">즉각적인 corrective feedback 필수 → learners notice the gap</p>
-      <p class="note">그룹 활동으로 진행 권장 (affective factor 고려)</p>
+      <p class="note">학습자 부담을 고려해 짝·그룹 등 활동 방식 조절 가능</p>
+    <details class="grammar-depth" id="grammar-garden-case"><summary>설명 더 보기 · 오류를 유도한 뒤 예외를 확인하는 절차</summary><div class="grammar-depth-body">
+<p>교사가 regular past tense의 예를 연이어 준 뒤 불규칙 동사를 제시한다. 학생이 같은 규칙을 적용해 <span lang="en">“buyed”</span>라고 말했을 때 교사는 <span lang="en">“bought”</span>를 알려 주고 적용 범위를 확인하게 한다. 이 예에서는 <strong>오류가 우연히 나온 것이 아니라 과잉일반화가 일어나도록 자료 순서를 설계했다</strong>는 점이 중요하다.</p>
+<p>교사가 처음부터 regular / irregular 목록을 모두 설명하는 경우와 구별한다. 또한 학생의 모든 오류를 garden path라고 부르지 않는다. 유도된 일반화, 맞지 않는 사례, 바로 이어지는 feedback을 함께 확인한다. 감정적 부담을 줄이는 방식은 필요하지만, 그룹 활동 자체가 기법의 정의는 아니다.</p>
+<p>2010학년도 19번은 앞선 동사들에서 사용한 전치사를 다른 동사에도 쓰도록 유도한 뒤 교정하는 대화다. 발문은 기법 이름을 쓰게 하지 않고 교사가 의도적으로 오류를 유도한다는 설명을 고르게 한다. 이를 근거로 모든 garden path를 의미 중심의 실제 대화라고 분류하지 않는다.</p>
+<p class="note">참고: 2010학년도 19번의 대화·선지; Brown, <cite>Teaching by Principles</cite>, 3rd ed. (2007), pp.423–425의 규칙 탐색·교수 맥락 고려. 동사 예시는 새로 구성했다.</p></div></details>
+
     </div>
 
     <div class="div"></div>
 
     <div class="concept">
-      <div class="c-title">🔑 Input Enhancement vs Input Flood <span class="badge-ex">★★★ 함정 단골</span></div>
+      <div class="c-title">🔑 Input Enhancement vs Input Flood <span class="badge-ex">★★★ 혼동 주의</span></div>
       <div class="grid col2">
         <div class="grid-item">
           <div class="gi-title"><span class='kw4'>Input Enhancement</span></div>
@@ -771,8 +817,8 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         <div class="grid-item">
           <div class="gi-title"><span class='kw4'>Input Flood</span></div>
           <div class="gi-body">
-            <span>목표 형태의 <strong>예시를 반복 노출</strong> — typographic 강조 없음</span>
-            <span>→ highlighting 사용 안 함</span>
+            <span>목표 형태의 <strong>예시를 반복 노출</strong> — 여기서는 typographic 강조 없이 비교</span>
+            <span>→ 빈도 증가 자체는 highlighting을 요구하지 않음</span>
             <span>반복 노출로 자연스럽게 salience 증가</span>
             <span><strong>implicit technique</strong></span>
             <span>FonF 범주</span>
@@ -781,9 +827,9 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       </div>
       <div class="exam" style="margin-top:12px">
         <div class="exam-label">⚠️ 핵심 구분</div>
-        <p>• Input Enhancement = 텍스트 <strong>강조(highlighting 등) 있음</strong></p>
-        <p>• Input Flood = 반복 노출만, <strong>강조 없음</strong></p>
-        <p>• 둘 다 implicit + FonF 범주 — 혼동 금지</p>
+        <p>• Textual Input Enhancement = 목표 형태의 <strong>시각적 두드러짐</strong> 증가</p>
+        <p>• Input Flood = 목표 형태의 <strong>노출 빈도</strong> 증가; 강조 없이 제시 가능</p>
+        <p>• 두 조작은 함께 사용할 수도 있음. 아래 비교는 각각의 효과를 구분한 경우이며, 학습 성과를 보장하는 분류는 아님</p>
       </div>
     </div>
 
@@ -795,6 +841,14 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       <p class="note">form-meaning connection 형성 지원</p>
       <p class="note"><span class='kw2'>Referential activity</span>: 정답/오답 있음 (right/wrong answer)</p>
       <p class="note"><span class='kw2'>Affective activity</span>: 의견·동의 표현 (no right/wrong answer)</p>
+    <details class="grammar-depth" id="grammar-structured-case"><summary>설명 더 보기 · 정답을 얻으려면 형태를 처리해야 하는가?</summary><div class="grammar-depth-body">
+<p><strong>Referential activity:</strong> 학생은 <span lang="en">“Jina mailed the letter”</span>와 <span lang="en">“Jina will mail the letter”</span>를 듣고 이미 일어난 일인지 앞으로 일어날 일인지 고른다. 시간 부사로 답을 미리 알려 주지 않아 동사 형태를 처리해야 의미를 구별할 수 있다. 목표 형태를 직접 말하게 하지 않아도 form-meaning connection을 요구한다.</p>
+<p><strong>Affective activity:</strong> 이어서 과거 행동을 나타내는 문장들을 듣고 자기 경험에도 해당하면 표시한다. 개인마다 응답이 다를 수 있다. 다만 ‘정답이 없다’는 말은 어떤 문장이든 잘못 이해해도 괜찮다는 뜻이 아니다. 의견·경험 응답이 개인별로 달라진다는 뜻이다.</p>
+<p>교사가 먼저 규칙을 설명하는 단계와 structured input practice는 구별한다. 전체 processing instruction에 explicit information이 포함될 수 있어도, structured input 활동의 핵심을 ‘규칙을 말로 설명하게 하기’로 바꾸지 않는다. 자료를 이해하려면 목표 형태를 해석해야 하는지 확인한다.</p>
+<p>2013학년도 26번은 동사 형태에서 시간 의미를 파악하고 form-meaning connection을 만드는 활동이다. 해당 절차에 없는 metalinguistic explanation을 덧붙이면 안 된다. 학습자 자신의 경험을 묻는 질문과 정답이 정해진 첫 이해 활동도 구별한다.</p>
+<details class="grammar-check"><summary>적용 확인 · yesterday만 보고 정답을 고를 수 있다면?</summary><p>목표가 past-tense morphology 처리라면 시간 부사가 정답을 대신 알려 줄 수 있다. 입력을 조정하여 목표 형태를 해석해야 의미 판단을 할 수 있게 하는 것이 중요하다. 단순히 과거형 문장이 많이 나온다는 사실만으로 structured input 설계가 완성되지는 않는다.</p></details>
+<p class="note">참고: 2013학년도 26번; Ellis (2006), <cite>Current Issues in the Teaching of Grammar</cite>, pp.98–99. 위 인물·문장·응답 예시는 새로 구성했다.</p></div></details>
+
     </div>
 
     <div class="div"></div>
@@ -806,7 +860,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
           <tr>
             <th>기법</th>
             <th>Explicit/Implicit</th>
-            <th>지식 유형</th>
+            <th>직접적인 학습 초점</th>
             <th>강조 여부</th>
             <th>핵심 특징</th>
           </tr>
@@ -815,7 +869,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
             <td>Explicit</td>
             <td>declarative</td>
             <td>—</td>
-            <td>rule 스스로 도출 (inductive/deductive)</td>
+            <td>규칙 이해: 스스로 도출하거나 제시된 규칙으로 자료 분석</td>
           </tr>
           <tr>
             <td><span class='kw3'>Garden Path</span></td>
@@ -827,27 +881,33 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
           <tr>
             <td><span class='kw4'>Input Enhancement</span></td>
             <td>Implicit</td>
-            <td>procedural</td>
+            <td>의미 처리 중 형태 주목 지원</td>
             <td>✅ 있음</td>
             <td>textual modification으로 형태 부각</td>
           </tr>
           <tr>
             <td><span class='kw4'>Input Flood</span></td>
             <td>Implicit</td>
-            <td>procedural</td>
-            <td>❌ 없음</td>
-            <td>반복 노출만, 강조 없음</td>
+            <td>의미 처리 중 형태 주목 지원</td>
+            <td>필수 아님 · 별도 조작</td>
+            <td>많은 예시; 강조는 별도 조작</td>
           </tr>
           <tr>
             <td><span class='kw1'>Structured Input</span></td>
-            <td>Explicit</td>
-            <td>declarative</td>
+            <td>규칙 설명의 유무와 별도 판단</td>
+            <td>form-meaning connection</td>
             <td>—</td>
             <td>input processing instruction</td>
           </tr>
         </table>
       </div>
     </div>
+
+    <details class="grammar-depth" id="grammar-input-case"><summary>설명 더 보기 · Input flood와 textual enhancement의 차이</summary><div class="grammar-depth-body">
+<p>학급 소식지에서 학생들이 여러 팀의 활동 내용을 읽는다. 목표 과거형을 글에 여러 번 제시하는 것은 input flood이고, 목표 과거형을 굵게 표시하는 것은 textual input enhancement이다. <strong>전자는 빈도, 후자는 지각적 두드러짐</strong>을 바꾼다. 같은 자료에 두 방법을 함께 적용할 수 있다.</p>
+<p>읽은 뒤 ‘어느 팀이 전시를 준비했는가’를 답하게 하면 의미 이해가 중심이다. 같은 자료를 주고 모든 과거형을 분류한 뒤 규칙을 쓰게 하면 별도의 explicit 분석 과제가 추가된다. 따라서 강조 표시 하나만 보고 수업 전체의 교수 방식과 학습 결과를 모두 판단하지 않는다.</p>
+<p>시각적 강조가 있어도 학습자가 형태를 놓칠 수 있고, 반복 노출만으로도 일부 학습자는 규칙을 의식적으로 찾을 수 있다. Noticing을 돕도록 자료를 만들었다고 해서 학습자가 실제로 그 형태를 알아차리거나 습득했다고 단정할 수는 없다.</p>
+<p class="note">참고: Brown, <cite>Principles of Language Learning and Teaching</cite>, 6th ed. (2014), pp.274–276; 2017학년도 전공 B 1번의 읽기 수업. Textual enhancement와 flood를 분리한 예시는 새로 구성했다.</p></div></details>
 
   </div>
 </div>
@@ -870,4 +930,5 @@ function openSec(id){ const s=document.getElementById(id); s.classList.add('open
 <script src="./study-return.js"></script>
 </body>
 </html>
+
 
