@@ -142,49 +142,280 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f5f4ee;background-image:r
 <script src="./sounds.js"></script>
 <script>
 const Q=[
-  {src:"Practicality",cat:"Core Concept",text:"<span class='kw1'>Practicality</span> is best understood as financial, time, administration constraints, so it should be interpreted within its instructional or assessment context.",ans:true,correct:"맞습니다. <span class='kw1'>Practicality</span>의 핵심은 financial, time, administration constraints입니다.",why:"이 문항은 Practicality를 단순 명칭보다 기능과 classroom use 중심으로 확인합니다. 관련 개념을 비교할 때는 목적, learner role, teacher role, task condition을 함께 보아야 합니다.",source:"&quot;Practicality concerns financial limitations, time constraints, and ease of administration.&quot;"},
-
-  {src:"Practicality",cat:"Misconception",text:"<span class='kw4'>Practicality</span> can be safely treated as the same as any neighboring concept because the distinction is mostly terminological.",ans:false,correct:"틀립니다. <span class='kw4'>Practicality</span>는 인접 개념과 구분되는 condition, purpose, learner behavior가 있습니다.",why:"영교론 문항은 비슷한 key terms의 경계 조건을 묻는 경우가 많습니다. Practicality는 정의 속 keyword를 기준으로 구분해야 합니다.",source:"&quot;Practicality concerns financial limitations, time constraints, and ease of administration.&quot;",compare:[{title:"<span class='kw1'>Practicality</span>",desc:"financial, time, administration constraints"},{title:"<span class='kw4'>Trap</span>",desc:"confusing it with a neighboring concept"}]},
-
-  {src:"Reliability",cat:"Core Concept",text:"<span class='kw1'>Reliability</span> is best understood as consistent and dependable results, so it should be interpreted within its instructional or assessment context.",ans:true,correct:"맞습니다. <span class='kw1'>Reliability</span>의 핵심은 consistent and dependable results입니다.",why:"이 문항은 Reliability를 단순 명칭보다 기능과 classroom use 중심으로 확인합니다. 관련 개념을 비교할 때는 목적, learner role, teacher role, task condition을 함께 보아야 합니다.",source:"&quot;Reliability is the degree to which a test gives consistent and dependable results.&quot;"},
-
-  {src:"Reliability",cat:"Misconception",text:"<span class='kw4'>Reliability</span> can be safely treated as the same as any neighboring concept because the distinction is mostly terminological.",ans:false,correct:"틀립니다. <span class='kw4'>Reliability</span>는 인접 개념과 구분되는 condition, purpose, learner behavior가 있습니다.",why:"영교론 문항은 비슷한 key terms의 경계 조건을 묻는 경우가 많습니다. Reliability는 정의 속 keyword를 기준으로 구분해야 합니다.",source:"&quot;Reliability is the degree to which a test gives consistent and dependable results.&quot;",compare:[{title:"<span class='kw1'>Reliability</span>",desc:"consistent and dependable results"},{title:"<span class='kw4'>Trap</span>",desc:"confusing it with a neighboring concept"}]},
-
-  {src:"Validity",cat:"Core Concept",text:"<span class='kw1'>Validity</span> is best understood as content, face, construct, criterion-related, so it should be interpreted within its instructional or assessment context.",ans:true,correct:"맞습니다. <span class='kw1'>Validity</span>의 핵심은 content, face, construct, criterion-related입니다.",why:"이 문항은 Validity를 단순 명칭보다 기능과 classroom use 중심으로 확인합니다. 관련 개념을 비교할 때는 목적, learner role, teacher role, task condition을 함께 보아야 합니다.",source:"&quot;Validity is the degree to which a test measures what it is supposed to measure.&quot;"},
-
-  {src:"Validity",cat:"Misconception",text:"<span class='kw4'>Validity</span> can be safely treated as the same as any neighboring concept because the distinction is mostly terminological.",ans:false,correct:"틀립니다. <span class='kw4'>Validity</span>는 인접 개념과 구분되는 condition, purpose, learner behavior가 있습니다.",why:"영교론 문항은 비슷한 key terms의 경계 조건을 묻는 경우가 많습니다. Validity는 정의 속 keyword를 기준으로 구분해야 합니다.",source:"&quot;Validity is the degree to which a test measures what it is supposed to measure.&quot;",compare:[{title:"<span class='kw1'>Validity</span>",desc:"content, face, construct, criterion-related"},{title:"<span class='kw4'>Trap</span>",desc:"confusing it with a neighboring concept"}]},
-
-  {src:"Authenticity and Interactiveness",cat:"Core Concept",text:"<span class='kw1'>Authenticity and Interactiveness</span> is best understood as target language use와 individual characteristics involvement, so it should be interpreted within its instructional or assessment context.",ans:true,correct:"맞습니다. <span class='kw1'>Authenticity and Interactiveness</span>의 핵심은 target language use와 individual characteristics involvement입니다.",why:"이 문항은 Authenticity and Interactiveness를 단순 명칭보다 기능과 classroom use 중심으로 확인합니다. 관련 개념을 비교할 때는 목적, learner role, teacher role, task condition을 함께 보아야 합니다.",source:"&quot;Authenticity concerns correspondence with target language use; interactiveness concerns individual involvement.&quot;"},
-
-  {src:"Authenticity and Interactiveness",cat:"Misconception",text:"<span class='kw4'>Authenticity and Interactiveness</span> can be safely treated as the same as any neighboring concept because the distinction is mostly terminological.",ans:false,correct:"틀립니다. <span class='kw4'>Authenticity and Interactiveness</span>는 인접 개념과 구분되는 condition, purpose, learner behavior가 있습니다.",why:"영교론 문항은 비슷한 key terms의 경계 조건을 묻는 경우가 많습니다. Authenticity and Interactiveness는 정의 속 keyword를 기준으로 구분해야 합니다.",source:"&quot;Authenticity concerns correspondence with target language use; interactiveness concerns individual involvement.&quot;",compare:[{title:"<span class='kw1'>Authenticity and Interactiveness</span>",desc:"target language use와 individual characteristics involvement"},{title:"<span class='kw4'>Trap</span>",desc:"confusing it with a neighboring concept"}]},
-
-  {src:"Washback",cat:"Core Concept",text:"<span class='kw1'>Washback</span> is best understood as testing이 teaching/learning에 미치는 영향, so it should be interpreted within its instructional or assessment context.",ans:true,correct:"맞습니다. <span class='kw1'>Washback</span>의 핵심은 testing이 teaching/learning에 미치는 영향입니다.",why:"이 문항은 Washback를 단순 명칭보다 기능과 classroom use 중심으로 확인합니다. 관련 개념을 비교할 때는 목적, learner role, teacher role, task condition을 함께 보아야 합니다.",source:"&quot;Washback effect is the effect of testing on teaching and learning.&quot;"},
-
-  {src:"Washback",cat:"Misconception",text:"<span class='kw4'>Washback</span> can be safely treated as the same as any neighboring concept because the distinction is mostly terminological.",ans:false,correct:"틀립니다. <span class='kw4'>Washback</span>는 인접 개념과 구분되는 condition, purpose, learner behavior가 있습니다.",why:"영교론 문항은 비슷한 key terms의 경계 조건을 묻는 경우가 많습니다. Washback는 정의 속 keyword를 기준으로 구분해야 합니다.",source:"&quot;Washback effect is the effect of testing on teaching and learning.&quot;",compare:[{title:"<span class='kw1'>Washback</span>",desc:"testing이 teaching/learning에 미치는 영향"},{title:"<span class='kw4'>Trap</span>",desc:"confusing it with a neighboring concept"}]},
-
-  {src:"Test Types",cat:"Core Concept",text:"<span class='kw1'>Test Types</span> is best understood as formative/summative, norm/criterion, direct/indirect, so it should be interpreted within its instructional or assessment context.",ans:true,correct:"맞습니다. <span class='kw1'>Test Types</span>의 핵심은 formative/summative, norm/criterion, direct/indirect입니다.",why:"이 문항은 Test Types를 단순 명칭보다 기능과 classroom use 중심으로 확인합니다. 관련 개념을 비교할 때는 목적, learner role, teacher role, task condition을 함께 보아야 합니다.",source:"&quot;Norm-referenced testing compares learners; criterion-referenced testing evaluates performance against mastery criteria.&quot;"},
-
-  {src:"Test Types",cat:"Misconception",text:"<span class='kw4'>Test Types</span> can be safely treated as the same as any neighboring concept because the distinction is mostly terminological.",ans:false,correct:"틀립니다. <span class='kw4'>Test Types</span>는 인접 개념과 구분되는 condition, purpose, learner behavior가 있습니다.",why:"영교론 문항은 비슷한 key terms의 경계 조건을 묻는 경우가 많습니다. Test Types는 정의 속 keyword를 기준으로 구분해야 합니다.",source:"&quot;Norm-referenced testing compares learners; criterion-referenced testing evaluates performance against mastery criteria.&quot;",compare:[{title:"<span class='kw1'>Test Types</span>",desc:"formative/summative, norm/criterion, direct/indirect"},{title:"<span class='kw4'>Trap</span>",desc:"confusing it with a neighboring concept"}]},
-
-  {src:"Alternative Assessment",cat:"Core Concept",text:"<span class='kw1'>Alternative Assessment</span> is best understood as portfolio, self-assessment, performance-based assessment, so it should be interpreted within its instructional or assessment context.",ans:true,correct:"맞습니다. <span class='kw1'>Alternative Assessment</span>의 핵심은 portfolio, self-assessment, performance-based assessment입니다.",why:"이 문항은 Alternative Assessment를 단순 명칭보다 기능과 classroom use 중심으로 확인합니다. 관련 개념을 비교할 때는 목적, learner role, teacher role, task condition을 함께 보아야 합니다.",source:"&quot;Portfolio is a purposeful collection of student work representing progress and achievement.&quot;"},
-
-  {src:"Alternative Assessment",cat:"Misconception",text:"<span class='kw4'>Alternative Assessment</span> can be safely treated as the same as any neighboring concept because the distinction is mostly terminological.",ans:false,correct:"틀립니다. <span class='kw4'>Alternative Assessment</span>는 인접 개념과 구분되는 condition, purpose, learner behavior가 있습니다.",why:"영교론 문항은 비슷한 key terms의 경계 조건을 묻는 경우가 많습니다. Alternative Assessment는 정의 속 keyword를 기준으로 구분해야 합니다.",source:"&quot;Portfolio is a purposeful collection of student work representing progress and achievement.&quot;",compare:[{title:"<span class='kw1'>Alternative Assessment</span>",desc:"portfolio, self-assessment, performance-based assessment"},{title:"<span class='kw4'>Trap</span>",desc:"confusing it with a neighboring concept"}]},
-
-  {src:"Scoring and Items",cat:"Core Concept",text:"<span class='kw1'>Scoring and Items</span> is best understood as holistic/analytic scoring, MC guidelines, item analysis, so it should be interpreted within its instructional or assessment context.",ans:true,correct:"맞습니다. <span class='kw1'>Scoring and Items</span>의 핵심은 holistic/analytic scoring, MC guidelines, item analysis입니다.",why:"이 문항은 Scoring and Items를 단순 명칭보다 기능과 classroom use 중심으로 확인합니다. 관련 개념을 비교할 때는 목적, learner role, teacher role, task condition을 함께 보아야 합니다.",source:"&quot;Analytic scoring separately rates components; holistic scoring gives a single overall score.&quot;"},
-
-  {src:"Scoring and Items",cat:"Misconception",text:"<span class='kw4'>Scoring and Items</span> can be safely treated as the same as any neighboring concept because the distinction is mostly terminological.",ans:false,correct:"틀립니다. <span class='kw4'>Scoring and Items</span>는 인접 개념과 구분되는 condition, purpose, learner behavior가 있습니다.",why:"영교론 문항은 비슷한 key terms의 경계 조건을 묻는 경우가 많습니다. Scoring and Items는 정의 속 keyword를 기준으로 구분해야 합니다.",source:"&quot;Analytic scoring separately rates components; holistic scoring gives a single overall score.&quot;",compare:[{title:"<span class='kw1'>Scoring and Items</span>",desc:"holistic/analytic scoring, MC guidelines, item analysis"},{title:"<span class='kw4'>Trap</span>",desc:"confusing it with a neighboring concept"}]},
-
-  {src:"Practicality",cat:"Review",text:"A learner can identify <span class='kw2'>Practicality</span> only by memorizing the label, without checking examples or classroom conditions.",ans:false,correct:"틀립니다. <span class='kw2'>Practicality</span>는 label만 외우기보다 예시, 조건, 효과를 함께 확인해야 합니다.",why:"실전에서는 용어 단독보다 적용 맥락이 단서가 됩니다. financial, time, administration constraints를 기준으로 판단합니다.",source:"&quot;Practicality concerns financial limitations, time constraints, and ease of administration.&quot;"},
-
-  {src:"Reliability",cat:"Review",text:"A learner can identify <span class='kw2'>Reliability</span> only by memorizing the label, without checking examples or classroom conditions.",ans:false,correct:"틀립니다. <span class='kw2'>Reliability</span>는 label만 외우기보다 예시, 조건, 효과를 함께 확인해야 합니다.",why:"실전에서는 용어 단독보다 적용 맥락이 단서가 됩니다. consistent and dependable results를 기준으로 판단합니다.",source:"&quot;Reliability is the degree to which a test gives consistent and dependable results.&quot;"},
-
-  {src:"Validity",cat:"Review",text:"A learner can identify <span class='kw2'>Validity</span> only by memorizing the label, without checking examples or classroom conditions.",ans:false,correct:"틀립니다. <span class='kw2'>Validity</span>는 label만 외우기보다 예시, 조건, 효과를 함께 확인해야 합니다.",why:"실전에서는 용어 단독보다 적용 맥락이 단서가 됩니다. content, face, construct, criterion-related를 기준으로 판단합니다.",source:"&quot;Validity is the degree to which a test measures what it is supposed to measure.&quot;"},
-
-  {src:"Authenticity and Interactiveness",cat:"Review",text:"A learner can identify <span class='kw2'>Authenticity and Interactiveness</span> only by memorizing the label, without checking examples or classroom conditions.",ans:false,correct:"틀립니다. <span class='kw2'>Authenticity and Interactiveness</span>는 label만 외우기보다 예시, 조건, 효과를 함께 확인해야 합니다.",why:"실전에서는 용어 단독보다 적용 맥락이 단서가 됩니다. target language use와 individual characteristics involvement를 기준으로 판단합니다.",source:"&quot;Authenticity concerns correspondence with target language use; interactiveness concerns individual involvement.&quot;"}
+  {
+    "src": "Practicality",
+    "cat": "Application",
+    "text": "A test may match the course objectives but still be impractical if its scoring cannot be completed with the available time and staff.",
+    "ans": true,
+    "correct": "맞습니다. Practicality는 준비·실시·채점에 필요한 시간과 자원에 관한 판단입니다.",
+    "why": "Practicality는 준비·실시·채점에 필요한 시간과 자원에 관한 판단입니다. 목표와의 일치가 운영 가능성까지 보장하지는 않습니다.",
+    "source": "근거를 바탕으로 재서술: Build-up II, Assessment, Practicality section (직접 인용 아님)"
+  },
+  {
+    "src": "Inter-rater reliability",
+    "cat": "Application",
+    "text": "Two teachers give substantially different scores to the same essays. This is primarily a problem of intra-rater reliability.",
+    "ans": false,
+    "correct": "틀립니다. 같은 답안에 두 채점자가 다른 점수를 주므로 inter-rater reliability 문제입니다.",
+    "why": "같은 답안에 두 채점자가 다른 점수를 주므로 inter-rater reliability 문제입니다. Intra-rater는 한 채점자가 기준을 일관되게 적용하는지입니다. 2014 A-7의 평가자 간 점수 불일치 원리를 바꾼 학습용 예시이며 기출 원문이 아닙니다.",
+    "source": "근거를 바탕으로 재서술: Build-up II, Assessment, Rater Reliability; 2014 A-7 원문 대조 (직접 인용 아님)",
+    "compare": [
+      {
+        "title": "Inter-rater",
+        "desc": "서로 다른 채점자 사이 consistency"
+      },
+      {
+        "title": "Intra-rater",
+        "desc": "한 채점자의 기준 적용 consistency"
+      }
+    ]
+  },
+  {
+    "src": "Intra-rater reliability",
+    "cat": "Application",
+    "text": "A teacher becomes tired and applies the rubric more leniently to the final essays than to the first ones. This threatens intra-rater reliability.",
+    "ans": true,
+    "correct": "맞습니다. 채점자가 한 명이어도 피로 때문에 기준이 달라지면 consistency가 흔들립니다.",
+    "why": "채점자가 한 명이어도 피로 때문에 기준이 달라지면 consistency가 흔들립니다. 공통 sample 재확인과 채점 중 기준 점검이 도움이 됩니다.",
+    "source": "근거를 바탕으로 재서술: Build-up II, Assessment, Rater Reliability (직접 인용 아님)"
+  },
+  {
+    "src": "Validity and reliability",
+    "cat": "Application",
+    "text": "If raters consistently score only grammatical accuracy, those scores must be valid measures of overall communicative speaking ability.",
+    "ans": false,
+    "correct": "틀립니다. 일관성은 reliability의 근거일 수 있지만 충분한 construct coverage를 보장하지 않습니다.",
+    "why": "일관성은 reliability의 근거일 수 있지만 충분한 construct coverage를 보장하지 않습니다. 목표가 전체 communicative speaking ability라면 grammar 외의 필요한 측면도 평가해야 합니다.",
+    "source": "근거를 바탕으로 재서술: Handbook, Language Assessment, pp.282–285 (직접 인용 아님)",
+    "compare": [
+      {
+        "title": "Reliability",
+        "desc": "측정 결과의 consistency"
+      },
+      {
+        "title": "Validity",
+        "desc": "의도한 목적에 맞는 점수 해석의 근거"
+      }
+    ]
+  },
+  {
+    "src": "Content validity",
+    "cat": "Application",
+    "text": "A reading achievement test covers reference questions but omits the inference and main-idea skills taught as major course objectives. Its domain coverage is inadequate.",
+    "ans": true,
+    "correct": "맞습니다. 개별 reference 문항이 적절해도 주요 목표가 빠지면 내용 표집이 불충분합니다.",
+    "why": "개별 reference 문항이 적절해도 주요 목표가 빠지면 내용 표집이 불충분합니다. Item representativeness와 domain coverage를 함께 확인해야 합니다.",
+    "source": "근거를 바탕으로 재서술: Handbook, Language Assessment, pp.282–283 (직접 인용 아님)"
+  },
+  {
+    "src": "Construct validity",
+    "cat": "Application",
+    "text": "In a listening-only assessment, heavily penalizing written spelling errors is automatically justified because every response must be scored.",
+    "ans": false,
+    "correct": "틀립니다. 의도한 construct가 listening comprehension이라면 spelling 능력이 점수를 크게 좌우하는 것은 construct-irrelevant variance가 될 수 있습니다.",
+    "why": "의도한 construct가 listening comprehension이라면 spelling 능력이 점수를 크게 좌우하는 것은 construct-irrelevant variance가 될 수 있습니다. Listening과 writing의 통합 능력을 재려는 평가인지 먼저 확인해야 합니다.",
+    "source": "근거를 바탕으로 재서술: Handbook, Language Assessment, p.283 (직접 인용 아님)"
+  },
+  {
+    "src": "Criterion-related validity",
+    "cat": "Application",
+    "text": "Asking colleagues to compare a new test with its specifications directly establishes concurrent validity.",
+    "ans": false,
+    "correct": "틀립니다. 문항과 specification의 대조는 내용·설계 검토입니다.",
+    "why": "문항과 specification의 대조는 내용·설계 검토입니다. Concurrent evidence에는 비슷한 시점의 적절한 외적 criterion과 점수의 관계가 필요합니다.",
+    "source": "근거를 바탕으로 재서술: Build-up II, Assessment, Criterion-related Validity; Handbook p.282 (직접 인용 아님)",
+    "compare": [
+      {
+        "title": "Concurrent",
+        "desc": "비슷한 시점의 관련 criterion"
+      },
+      {
+        "title": "Predictive",
+        "desc": "이후의 관련 수행 criterion"
+      }
+    ]
+  },
+  {
+    "src": "Criterion-related validity",
+    "cat": "Application",
+    "text": "Evidence that an entrance language test predicts later performance in the target academic program is relevant to predictive validity.",
+    "ans": true,
+    "correct": "맞습니다. 현재 점수와 이후의 관련 수행을 연결하므로 predictive evidence입니다.",
+    "why": "현재 점수와 이후의 관련 수행을 연결하므로 predictive evidence입니다. 단순히 시간 간격이 있다는 사실이 아니라 의도한 미래 criterion과의 관계가 중요합니다.",
+    "source": "근거를 바탕으로 재서술: Build-up II, Assessment, Criterion-related Validity; Handbook p.282 (직접 인용 아님)",
+    "compare": [
+      {
+        "title": "Concurrent",
+        "desc": "비슷한 시점의 관련 criterion"
+      },
+      {
+        "title": "Predictive",
+        "desc": "이후의 관련 수행 criterion"
+      }
+    ]
+  },
+  {
+    "src": "Authenticity",
+    "cat": "Application",
+    "text": "Using a real newspaper article guarantees that every test task based on it has high authenticity for the intended target language use.",
+    "ans": false,
+    "correct": "틀립니다. 실제 자료를 사용해도 과제의 response와 목적이 target language use에 대응하지 않을 수 있습니다.",
+    "why": "실제 자료를 사용해도 과제의 response와 목적이 target language use에 대응하지 않을 수 있습니다. 자료의 출처뿐 아니라 학생이 무엇을 하도록 요구받는지 확인합니다.",
+    "source": "근거를 바탕으로 재서술: Handbook, Language Assessment, pp.285–288 (직접 인용 아님)",
+    "compare": [
+      {
+        "title": "Authenticity",
+        "desc": "시험 과제와 target language use의 대응"
+      },
+      {
+        "title": "Interactiveness",
+        "desc": "과제 수행에 learner 자원이 관여하는 정도"
+      }
+    ]
+  },
+  {
+    "src": "Interactiveness",
+    "cat": "Application",
+    "text": "Interactiveness requires two people to speak to each other; an individual written task cannot be interactive in this assessment sense.",
+    "ans": false,
+    "correct": "틀립니다. 여기서 interactiveness는 learner의 language ability, topical knowledge, affective schemata와 전략의 관여를 뜻합니다.",
+    "why": "여기서 interactiveness는 learner의 language ability, topical knowledge, affective schemata와 전략의 관여를 뜻합니다. 혼자 읽고 의견을 구성하는 과제에서도 나타날 수 있습니다.",
+    "source": "근거를 바탕으로 재서술: Handbook, Language Assessment, pp.286–288 (직접 인용 아님)"
+  },
+  {
+    "src": "Washback",
+    "cat": "Application",
+    "text": "Students stop practising conversation because an upcoming examination rewards only isolated grammar recognition. This illustrates possible negative washback before the test.",
+    "ans": true,
+    "correct": "맞습니다. 시험이 준비 과정의 학습 행동을 바꾸고 있으므로 washback입니다.",
+    "why": "시험이 준비 과정의 학습 행동을 바꾸고 있으므로 washback입니다. 시험 후 feedback뿐 아니라 시험 전 교수·학습에 대한 영향도 포함합니다.",
+    "source": "근거를 바탕으로 재서술: Handbook, Language Assessment, p.289 (직접 인용 아님)"
+  },
+  {
+    "src": "Formative and summative",
+    "cat": "Application",
+    "text": "A teacher may use the same quiz results both to assign an achievement grade and to plan remedial teaching.",
+    "ans": true,
+    "correct": "맞습니다. 성취를 기록하는 summative 용도와 다음 교수·학습을 조정하는 formative 용도가 함께 있습니다.",
+    "why": "성취를 기록하는 summative 용도와 다음 교수·학습을 조정하는 formative 용도가 함께 있습니다. 결과를 실제로 어떻게 사용하는지가 핵심입니다.",
+    "source": "근거를 바탕으로 재서술: Handbook, Language Assessment, pp.294–295 (직접 인용 아님)",
+    "compare": [
+      {
+        "title": "Formative",
+        "desc": "후속 교수·학습을 조정"
+      },
+      {
+        "title": "Summative",
+        "desc": "성취를 요약·기록"
+      }
+    ]
+  },
+  {
+    "src": "Criterion-referenced testing",
+    "cat": "Application",
+    "text": "If every learner meets a stated performance criterion, a criterion-referenced test must still fail some learners to preserve a rank order.",
+    "ans": false,
+    "correct": "틀립니다. Criterion-referenced interpretation은 정해진 수행 기준과 비교하므로 모두 기준을 충족할 수 있습니다.",
+    "why": "Criterion-referenced interpretation은 정해진 수행 기준과 비교하므로 모두 기준을 충족할 수 있습니다. 다른 응시자와의 상대적 위치를 기준으로 삼는 것은 norm-referenced interpretation입니다.",
+    "source": "근거를 바탕으로 재서술: Handbook, Language Assessment, pp.293–294 (직접 인용 아님)"
+  },
+  {
+    "src": "Placement and diagnostic tests",
+    "cat": "Application",
+    "text": "Using results to assign learners to appropriate course levels is a placement purpose; using them to identify specific weaknesses is a diagnostic purpose.",
+    "ans": true,
+    "correct": "맞습니다. 실시 시기가 같아도 결정 목적이 다릅니다.",
+    "why": "실시 시기가 같아도 결정 목적이 다릅니다. 반·과정 배치인지, 구체적 보완 영역 파악인지를 근거로 구분합니다.",
+    "source": "근거를 바탕으로 재서술: Build-up II, Assessment, Purpose-based Tests (직접 인용 아님)",
+    "compare": [
+      {
+        "title": "Placement",
+        "desc": "적절한 과정·수준에 배치"
+      },
+      {
+        "title": "Diagnostic",
+        "desc": "강점·약점과 보완할 영역을 파악"
+      }
+    ]
+  },
+  {
+    "src": "Integrative testing",
+    "cat": "Application",
+    "text": "A task requiring learners to listen to a report and write a summary draws on more than one language skill and can be classified as integrative testing.",
+    "ans": true,
+    "correct": "맞습니다. Listening과 writing을 하나의 과제에서 함께 요구합니다.",
+    "why": "Listening과 writing을 하나의 과제에서 함께 요구합니다. 2014 A-7의 skill 결합 원리를 변형한 예시이며 기출 원문이 아닙니다. Integrative라는 사실만으로 모든 scoring 문제가 해결되지는 않습니다.",
+    "source": "근거를 바탕으로 재서술: Handbook pp.292–293; 2014 A-7 원문 대조 (직접 인용 아님)"
+  },
+  {
+    "src": "Portfolio",
+    "cat": "Application",
+    "text": "Collecting every assignment in a folder automatically makes the assessment formative, even if no one reviews or uses the work to guide further learning.",
+    "ans": false,
+    "correct": "틀립니다. Portfolio의 formative 기능에는 목적 있는 선정, reflection, feedback과 후속 학습의 연결이 필요합니다.",
+    "why": "Portfolio의 formative 기능에는 목적 있는 선정, reflection, feedback과 후속 학습의 연결이 필요합니다. 보관 자체는 학습 조정을 보장하지 않으며 portfolio를 최종 성취 판단에 사용할 수도 있습니다.",
+    "source": "근거를 바탕으로 재서술: Handbook, Language Assessment, pp.309–311 (직접 인용 아님)"
+  },
+  {
+    "src": "Analytic scoring",
+    "cat": "Application",
+    "text": "Once separate scores for content, organization and language are added to produce a total, the scoring procedure becomes holistic.",
+    "ans": false,
+    "correct": "틀립니다. 하위 기준별로 점수를 부여했다면 합산해도 analytic scoring입니다.",
+    "why": "하위 기준별로 점수를 부여했다면 합산해도 analytic scoring입니다. Holistic scoring은 수행 전체에 한 평정을 내리는 방식이며, 기준이 없다는 뜻은 아닙니다.",
+    "source": "근거를 바탕으로 재서술: Handbook, Language Assessment, p.316; Build-up II, Analytic Scoring (직접 인용 아님)",
+    "compare": [
+      {
+        "title": "Analytic",
+        "desc": "하위 기준별 점수, 필요하면 합산"
+      },
+      {
+        "title": "Holistic",
+        "desc": "전체 수행에 한 평정"
+      }
+    ]
+  },
+  {
+    "src": "Selected-response items",
+    "cat": "Application",
+    "text": "Keeping tense constant across options while varying word order can help an item focus on embedded-question word order rather than mixed content.",
+    "ans": true,
+    "correct": "맞습니다. 목표와 무관한 tense 변이를 통제하면 word order라는 한 문제에 집중할 수 있습니다.",
+    "why": "목표와 무관한 tense 변이를 통제하면 word order라는 한 문제에 집중할 수 있습니다. 2023 B-11의 guideline ③을 재구성한 설명입니다. Stem을 짧게 하는 guideline ②와 구분해야 합니다.",
+    "source": "근거를 바탕으로 재서술: 2023 B-11 원문 대조; Handbook pp.298–305 (직접 인용 아님)"
+  },
+  {
+    "src": "Item facility",
+    "cat": "Application",
+    "text": "If 18 of 24 learners answer an item correctly, its item facility is .75, meaning it was harder for this group than an item with facility .25.",
+    "ans": false,
+    "correct": "틀립니다. 계산 .75는 맞지만 해석이 반대입니다.",
+    "why": "계산 .75는 맞지만 해석이 반대입니다. Facility는 정답 비율이므로 같은 집단에서 값이 클수록 쉬웠습니다. 문항의 유지 여부는 검사 목적도 고려해야 합니다.",
+    "source": "근거를 바탕으로 재서술: Handbook, Language Assessment, p.306 (직접 인용 아님)"
+  },
+  {
+    "src": "Item discrimination",
+    "cat": "Application",
+    "text": "If 9 of 12 learners in the upper group and 3 of 12 in the lower group answer correctly, the upper-minus-lower discrimination index is .50.",
+    "ans": true,
+    "correct": "맞습니다. 상위 정답률 .75에서 하위 정답률 .25를 빼면 .50입니다.",
+    "why": "상위 정답률 .75에서 하위 정답률 .25를 빼면 .50입니다. Facility는 정답 비율, discrimination은 두 집단을 구별하는 정도입니다. 이 지수 하나로 검사 전체 reliability를 단정하지 않습니다.",
+    "source": "근거를 바탕으로 재서술: Handbook, Language Assessment, pp.307–309 (직접 인용 아님)",
+    "compare": [
+      {
+        "title": "Facility",
+        "desc": "응답자 중 정답 비율"
+      },
+      {
+        "title": "Discrimination",
+        "desc": "상·하위 집단 정답률의 차이"
+      }
+    ]
+  }
 ];
 
 const TOTAL=20;
-const SAVE_KEY='ox_assessment_v1';
+const SAVE_KEY='ox_assessment_v2_content_20261017';
 let cur=0,answers=new Array(TOTAL).fill(null);
 let mode='normal',order=[...Array(TOTAL).keys()];
 function initOrder(m){if(m==='random'){const a=[...Array(TOTAL).keys()];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}order=a;}else order=[...Array(TOTAL).keys()];}
@@ -285,3 +516,4 @@ function jumpTo(i){cur=i;render();document.getElementById('qa').scrollIntoView({
 <script src="./study-return.js"></script>
 </body>
 </html>
+
