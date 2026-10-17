@@ -632,7 +632,6 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 </div><!-- /wrap -->
 
 <script>
-window.addEventListener("DOMContentLoaded",function(){if(!location.hash)return;var t=document.querySelector(location.hash);if(!t)return;var s=t;while(s&&!s.classList.contains("sec"))s=s.parentElement;if(s)s.classList.add("open");setTimeout(function(){t.scrollIntoView({behavior:"smooth",block:"start"});},150);});
 function toggle(id){
   const s=document.getElementById(id);
   s.classList.toggle('open');
@@ -642,10 +641,6 @@ function openSec(id){
   s.classList.add('open');
   s.scrollIntoView({behavior:'smooth',block:'start'});
 }
-document.addEventListener('DOMContentLoaded',function(){
-  var h=window.location.hash.slice(1);
-  if(h){var el=document.getElementById(h);if(el&&el.classList.contains('sec')){el.classList.add('open');setTimeout(function(){el.scrollIntoView({behavior:'smooth',block:'start'})},150);}}
-});
 </script>
 <nav class="learning-nav bottom" aria-label="하단 학습 내비게이션">
   <a href="https://etwiki.net/index.html">기출 WIKI</a>

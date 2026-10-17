@@ -57,9 +57,37 @@
     link.title = link.getAttribute('aria-label');
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeReturnLink, { once: true });
-  } else {
+  function revealHashTarget() {
+    var hash = window.location.hash;
+    if (!hash || hash === '#') return;
+    var id;
+    try {
+      id = decodeURIComponent(hash.slice(1));
+    } catch (_) {
+      return;
+    }
+    // IDs are not CSS selectors: punctuation and encoded Unicode are valid.
+    var target = document.getElementById(id);
+    if (!target) return;
+
+    for (var element = target; element; element = element.parentElement) {
+      if (element.classList.contains('sec')) element.classList.add('open');
+      if (element.tagName === 'DETAILS') element.open = true;
+    }
+    // Reveal only the target's path; nested answers remain learner-controlled.
+    target.scrollIntoView({ block: 'start' });
+  }
+
+  function initializeStudyPage() {
     initializeReturnLink();
+    revealHashTarget();
+  }
+
+  window.addEventListener('hashchange', revealHashTarget);
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeStudyPage, { once: true });
+  } else {
+    initializeStudyPage();
   }
 })();
