@@ -73,6 +73,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 .learning-nav a{flex:1 1 140px;background:#fff;border:1.5px solid #b2dfcc;border-radius:8px;padding:8px 10px;color:#1b5e3a;text-decoration:none;text-align:center;font-size:12px;font-weight:700;line-height:1.4;transition:background .15s,border-color .15s}
 .learning-nav a:hover{background:#f0faf5;border-color:#2e7d52}
 @media(max-width:640px){.learning-nav a{flex-basis:calc(50% - 7px)}}
+details.learner-deep{border:1px solid #b2dfcc;border-radius:10px;padding:12px 14px;margin-top:18px;background:#f5fdf8;overflow-wrap:anywhere}details.learner-deep summary{cursor:pointer;color:#1b5e3a;font-weight:700;font-size:16px;line-height:1.7}details.learner-deep[open] summary{margin-bottom:12px}details.learner-deep .note{margin:10px 0;font-size:16px;line-height:1.85}details.learner-deep small{font-size:14px}
 </style>
 <link rel="stylesheet" href="./study-return.css">
 <link rel="stylesheet" href="./learning.css">
@@ -95,7 +96,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
   </div>
   <h1 class="header-title"><span class="title-hl">개념 정리</span> 노트</h1>
   <div class="header-script">Concept Notes · Learner Variables</div>
-  <p class="header-sub">서브노트 순서 기반 · 기출 포인트 · 비교 도식</p>
+  <p class="header-sub">핵심 개념 · 적용 사례 · 비교 도식</p>
   <div class="header-divider"></div>
   <p class="header-tip">📌 목차 버튼 클릭 → 해당 섹션으로 이동 &nbsp;·&nbsp; ▼ 섹션 제목 클릭 → 열고 닫기</p>
 </div>
@@ -119,23 +120,23 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 <!-- 범례 -->
 <div class="legend">
   <span class="legend-title">키워드</span>
-  <span class="legend-item"><span class="kw4">★★★ 최빈출</span></span>
-  <span class="legend-item"><span class="kw3">★★ 빈출</span></span>
+  <span class="legend-item"><span class="kw4">★★★ 핵심</span></span>
+  <span class="legend-item"><span class="kw3">★★ 중요</span></span>
   <span class="legend-item"><span class="kw1">★ 기본개념</span></span>
   <span class="legend-item"><span class="kw2">부키워드</span></span>
 </div>
 
 <!-- 기출분석 -->
 <div class="exam" style="margin-bottom:20px">
-  <div class="exam-label">📝 기출분석 포인트 (Ch.3 Learner Variables)</div>
-  <p>① <span class='kw4'>Compensatory strategies</span> — 사례 제시 후 전략 identify 유형 최빈출 (모든 하위유형 고루 출제)</p>
-  <p>② <span class='kw4'>Metacognitive strategy</span> 3키워드: <span class='kw2'>Plan · Monitor · Evaluate</span> — learning log/자기녹화 예시 기출 직답</p>
+  <div class="exam-label">📝 개념 판별 포인트 (Ch.3 Learner Variables)</div>
+  <p>① <span class='kw4'>Compensatory strategies</span> — 사례의 목적·행동·언어 자원을 근거로 전략 identify</p>
+  <p>② <span class='kw4'>Metacognitive strategy</span> 3키워드: <span class='kw2'>Plan · Monitor · Evaluate</span> — 기록 내용에 나타난 계획·점검·평가를 확인</p>
   <p>③ <span class='kw3'>Socioaffective(Social) strategies</span> — <span class='kw2'>clarification request</span> 주저가 대표 오답 사례</p>
   <p>④ <span class='kw3'>Anxiety</span>: <span class='kw2'>Facilitative vs Debilitative</span> — 예문 판별 (tension 도움 vs 방해)</p>
   <p>⑤ <span class='kw3'>Motivation</span>: Integrative/Instrumental 사례 구분 + <span class='kw2'>Motivation ≠ Orientation</span> 용어 구분</p>
   <p>⑥ <span class='kw3'>Field Dependence/Independence</span>: FD는 global·holistic 지각, FI는 analytic 지각과 관련됩니다. bottom-up/top-down processing과 CLT는 별도 구분이 필요합니다.</p>
   <p>⑦ <span class='kw3'>Ambiguity Tolerance</span>: High/Low 양면성 — Optimum level 필요</p>
-  <p>⑧ <span class='kw3'>Acculturation Model</span>: Preservation → Acculturation → Assimilation 3단계 정의 혼동 주의</p>
+  <p>⑧ <span class='kw3'>Acculturation Model</span>: Preservation · Acculturation · Assimilation의 구분 (필수 진행 단계가 아님)</p>
 </div>
 
 <!-- ① Learner Style -->
@@ -153,11 +154,11 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       <div class="grid col2">
         <div class="grid-item">
           <div class="gi-title"><span class='kw1'>Visual</span> / <span class='kw1'>Auditory</span></div>
-          <div class="gi-body"><span>Visual: reading, flow chart, semantic mapping</span><span>Auditory: verbal explanation, listening (Suggestopedia)</span></div>
+          <div class="gi-body"><span>Visual: reading, flow chart, semantic mapping</span><span>Auditory: verbal explanation, listening 선호</span></div>
         </div>
         <div class="grid-item">
           <div class="gi-title"><span class='kw1'>Kinesthetic</span> / <span class='kw1'>Tactile</span></div>
-          <div class="gi-body"><span>Kinesthetic: demonstration, physical activity (TPR, Realia)</span><span>Tactile: hands-on, manipulating objects</span></div>
+          <div class="gi-body"><span>Kinesthetic: demonstration, physical activity 선호</span><span>Tactile: hands-on, manipulating objects</span></div>
         </div>
       </div>
     </div>
@@ -166,20 +167,20 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 
     <div class="concept">
       <div class="c-title">2) Personality Preference</div>
-      <p class="note"><span class='kw1'>Extroverted</span>: sociable · ego enhancement from others · risk-taking</p>
+      <p class="note"><span class='kw1'>Extroverted</span>: 다른 사람과의 상호작용에서 충족감·확인을 얻는 성향. 항상 말이 많거나 risk-taking이 높다는 뜻은 아님</p>
       <p class="note"><span class='kw1'>Introverted</span>: 자신의 내적 경험에서 충족감과 에너지를 얻는 성향. 비사교성과 같은 뜻은 아님 (Brown, 2014, p.154)</p>
       <p class="note"><span class='kw3'>Ambiguity Tolerance (AT)</span>: willingness to deal with uncertainty or contradictory propositions</p>
       <div class="grid col2">
         <div class="grid-item">
           <div class="gi-title"><span class='kw2'>High AT</span> (tolerance)</div>
-          <div class="gi-body"><span>✅ <strong>장점</strong>: open-minded · <span class='kw2'>creative possibilities</span> 수용</span><span>❌ <strong>단점</strong>: 너무 높으면 틀린 형태 수용 → <span class='kw4'>fossilization of incorrect knowledge</span></span><span><em>e.g. Sujin doesn't understand everything, but it does not bother her</em></span></div>
+          <div class="gi-body"><span>✅ <strong>장점</strong>: open-minded · <span class='kw2'>creative possibilities</span> 수용</span><span>❌ <strong>단점</strong>: 불확실한 해석을 계속 검증하지 않으면 오류 수정 기회를 놓칠 수 있음</span><span><em>e.g. Sujin doesn't understand everything, but it does not bother her</em></span></div>
         </div>
         <div class="grid-item">
           <div class="gi-title"><span class='kw2'>Low AT</span> (intolerance)</div>
-          <div class="gi-body"><span>✅ <strong>장점</strong>: deal with reality · 체계적·꼼꼼</span><span>❌ <strong>단점</strong>: <span class='kw2'>dogmatic, not creative</span> · 사전 집착 · 경직</span><span><em>e.g. Mijin feels she should always look up unfamiliar words</em></span></div>
+          <div class="gi-body"><span>✅ <strong>장점</strong>: deal with reality · 체계적·꼼꼼</span><span>❌ <strong>단점</strong>: 불확실성을 지나치게 피하면 읽기를 자주 중단할 수 있음</span><span><em>e.g. Mijin feels she should always look up unfamiliar words</em></span></div>
         </div>
       </div>
-      <p class="note" style="margin-top:10px">💡 <strong>Optimum level 필요</strong> — High/Low 각각 양면성이 있으므로 "중간 수준의 모호 관용"이 이상적.</p>
+      <p class="note" style="margin-top:10px">💡 <strong>Optimum level 필요</strong> — 불확실성을 잠시 허용하되 중요한 해석은 다시 확인한다. 모든 학습자에게 같은 수치의 중간값을 처방하지 않는다.</p>
     </div>
 
     <div class="div"></div>
@@ -198,9 +199,9 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         </div>
       </div>
       <p class="note" style="margin-top:10px">🔑 <strong>구분</strong>: FD/FI는 지각 방식의 차이이고, bottom-up/top-down processing은 듣기·읽기에서 사용하는 처리 전략이다. 둘을 일대일로 대응시키지 않는다.</p>
-      <p class="note" style="margin-top:12px"><span class='kw1'>Reflectivity</span>: slow · accurate / <span class='kw1'>Impulsivity</span>: fast · inaccurate</p>
-      <p class="note">→ preparation time이 주어지면 reflective Ls는 <span class='kw2'>confidence</span>, impulsive Ls는 <span class='kw2'>accuracy</span>를 얻음</p>
-      <p class="note"><span class='kw1'>Left-brain</span>: details, analysis, form / <span class='kw1'>Right-brain</span>: holistic, intuition, meaning</p>
+      <p class="note" style="margin-top:12px"><span class='kw1'>Reflectivity</span>: 숙고 후 응답하는 경향 / <span class='kw1'>Impulsivity</span>: 빠르게 시도하는 경향. 속도만으로 정확도를 단정하지 않는다.</p>
+      <p class="note">→ preparation time이 주어지면 reflective Ls는 <span class='kw2'>confidence</span>, impulsive Ls는 <span class='kw2'>accuracy</span>를 얻을 수 있음</p>
+      <p class="note">Left-brain/right-brain은 역사적 설명에서 등장하는 구분이다. 학습자를 두뇌 유형으로 진단하거나 특정 교수법에 고정 배정하는 근거로 쓰지 않는다. 두 hemisphere는 함께 작동한다.</p>
       <p class="note">Synthetic/Analytic · Deductive/Inductive · Global/Detail-oriented</p>
     </div>
 
@@ -230,12 +231,19 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
     </div>
 
     <div class="exam">
-      <div class="exam-label">📝 출제 포인트</div>
-      <p>• FI는 selective listening·drill에 강함 (객관식 1번 빈출)</p>
-      <p>• Ambiguity Tolerance 과도 → fossilization 위험</p>
+      <div class="exam-label">📝 판별 포인트</div>
+      <p>• FI는 전체에서 관련 부분을 분리하는 경향. 특정 활동의 성적을 보장하지 않음</p>
+      <p>• Ambiguity Tolerance와 해석의 재검증을 함께 고려</p>
       <p>• Reflective/Impulsive에 preparation time 효과 구분</p>
       <p>• 4 learning context style 설명-용어 매칭</p>
     </div>
+    <details class="concept learner-deep"><summary>Style·strategy·aptitude 구별하기 · 심화 적용</summary>
+<p class="note"><strong>개념 대비</strong> Style은 비교적 지속적인 선호·경향, strategy는 과제 목표를 위해 선택하는 구체적 행동이다. Aptitude는 학습에 관련된 여러 능력을 가리키며 현재 proficiency나 노력의 양과 같지 않다. 한 번의 점수로 미래 성취를 결정하지 않는다.</p>
+<p class="note"><strong>적용 사례</strong> 학습자가 “도표가 편하다”고 말하면서 낯선 단어를 문맥에서 추론한다. 전자는 시각적 선호의 자기보고이고 후자는 inferencing strategy이다. 도표 선호만으로 듣기 학습이 불가능하다고 판단할 수 없다.</p>
+<p class="note"><strong>교사의 선택과 확인</strong> 그림·음성·짧은 글을 과제 목적에 맞게 제공하고, 처음에는 전체 의미를 파악한 뒤 필요한 부분을 분석하게 한다. 준비 시간과 점검표를 제공한 전후의 수행을 비교한다. 선호에 맞춘 자료를 주었다는 사실만으로 더 잘 학습했다고 결론 내리지 않는다.</p>
+<p class="note"><strong>확인 문제 · 해설</strong> “빠른 응답자는 늘 부정확하며 낮은 aptitude 점수는 학습 불가능을 뜻한다.” → X. 속도와 정확도는 따로 관찰해야 하며 aptitude는 어떤 지원이 필요한지 살필 때 참고할 정보이지 학습 가능성을 확정하는 기준이 아니다.</p>
+<p class="note"><small>근거·읽을거리: Brown (2014), pp.98–100, 111–121. 사례는 별도 표시가 없는 한 자체 제작이다.</small></p></details>
+
   </div>
 </div>
 
@@ -244,7 +252,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
   <div class="sec-header" onclick="toggle('s2')">
     <span class="sec-icon">🧠</span>
     <span class="sec-title">② Learning Strategies</span>
-    <span class="sec-tag red">★★★ Metacognitive 빈출</span>
+    <span class="sec-tag red">★★★ Metacognitive</span>
     <span class="sec-arrow">▼</span>
   </div>
   <div class="sec-body">
@@ -268,8 +276,8 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         <text x="581" y="55" text-anchor="middle" fill="#00796b" font-size="10">self-evaluation</text>
         <text x="581" y="71" text-anchor="middle" fill="#00796b" font-size="10">learning log</text>
       </svg></div>
-      <p class="note" style="margin-top:12px">예시: Writing a <span class='kw2'>learning log</span> = employing metacognitive strategy</p>
-      <p class="note">Data types: <span class='kw1'>Self-report</span>(low validity) / <span class='kw1'>Self-observation</span> / <span class='kw1'>Self-revelation</span>(Think-aloud)</p>
+      <p class="note" style="margin-top:12px">예시: learning log에서 목표와 수행을 비교·평가한다면 metacognitive strategy의 근거가 된다.</p>
+      <p class="note">Data types: <span class='kw1'>Self-report</span>(회상·응답 편향에 유의) / <span class='kw1'>Self-observation</span> / <span class='kw1'>Self-revelation</span>(Think-aloud)</p>
     </div>
 
     <div class="div"></div>
@@ -322,16 +330,23 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
     </div>
 
     <div class="exam">
-      <div class="exam-label">📝 출제 포인트</div>
+      <div class="exam-label">📝 판별 포인트</div>
       <p>• Metacognitive 3키워드: <span class='kw4'>Plan · Monitor · Evaluate</span></p>
-      <p>• <span class='kw2'>Learning log · 자기녹화 · self-evaluation</span> → Metacognitive (기출 직답)</p>
-      <p>• <span class='kw2'>Clarification request</span> 주저 → Socioaffective(Social) 결여 (기출)</p>
+      <p>• <span class='kw2'>자기 수행을 기준과 비교하여 평가</span> → Metacognitive</p>
+      <p>• 이해 문제를 겪고도 clarification request를 하지 않았다면 해당 장면에서 그 전략이 관찰되지 않음</p>
       <p>• <span class='kw2'>Cognitive vs Metacognitive</span> 구분 (specific task vs high-order)</p>
     </div>
     <div class="exam" style="margin-top:10px">
       <div class="exam-label">📋 기출 이력</div>
-      <p><strong>2022 A-9</strong> — cognitive strategy, social strategy, metacognitive strategy 분류</p>
+      <p><strong>2010학년도 1차 15번</strong> — video를 본 뒤 수행상의 문제와 개선 계획을 적는 장면. 도구명이 아니라 평가 행위가 metacognitive 판단의 근거이다.</p>
     </div>
+    <details class="concept learner-deep"><summary>같은 도구, 다른 전략: learning log · 심화 적용</summary>
+<p class="note"><strong>사례</strong> A는 새 단어를 의미별로 묶어 적는다. B는 목표로 정한 연결 표현을 사용했는지 녹화를 보며 점검하고 다음 과제 계획을 쓴다. C는 긴장을 낮추려고 스스로 격려한다. D는 이해되지 않은 설명을 파트너에게 다시 말해 달라고 요청한다.</p>
+<p class="note"><strong>판별과 근거</strong> A: cognitive(grouping), B: metacognitive(monitoring/evaluating/planning)이다. O’Malley/Chamot의 metacognitive·cognitive·social/affective 구분에서 C의 감정 조절과 D의 도움 요청은 마지막 범주의 서로 다른 기능이다. Brown 6판의 Oxford(2011) 기반 meta-strategy 분류는 항목을 묶는 방식이 다르므로 두 체계를 섞어 유일한 분류라고 하지 않는다.</p>
+<p class="note"><strong>교사의 후속 조치</strong> 기록란에 목표·실제 수행 증거·다음 시도를 나누어 제시한다. 학습자가 기록을 다음 수행에 활용했는지 살핀다. 단순히 수업 활동 이름을 옮겨 쓴 log에는 metacognitive 판단 근거가 충분하지 않다.</p>
+<p class="note"><strong>확인 문제 · 해설</strong> “녹화를 했으므로 self-evaluation을 했다.” → X. 녹화는 자료 수집이며, 수행을 기준과 비교하여 판단하는 행동이 추가로 제시되어야 한다.</p>
+<p class="note"><small>근거·읽을거리: Brown (2014), pp.124–130; 2010학년도 중등 영어 1차 15번. 사례는 별도 표시가 없는 한 자체 제작이다.</small></p></details>
+
   </div>
 </div>
 
@@ -340,7 +355,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
   <div class="sec-header" onclick="toggle('s3')">
     <span class="sec-icon">💬</span>
     <span class="sec-title">③ Communication Strategies</span>
-    <span class="sec-tag red">★★★ Compensatory 최빈출</span>
+    <span class="sec-tag red">★★★ Compensatory</span>
     <span class="sec-arrow">▼</span>
   </div>
   <div class="sec-body">
@@ -377,7 +392,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
     <div class="div"></div>
 
     <div class="concept">
-      <div class="c-title">2) Compensatory Strategies <span class="badge-ex">★★★ 최빈출</span></div>
+      <div class="c-title">2) Compensatory Strategies <span class="badge-ex">★★★ 핵심</span></div>
       <div class="def">Strategic options used by Ls to <span class='kw2'>overcome self-perceived weaknesses</span> and maintain communication flow, preventing communication breakdown.</div>
 
       <div class="grid col2" style="margin-top:12px">
@@ -403,7 +418,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         </div>
         <div class="grid-item">
           <div class="gi-title"><span class='kw4'>Approximation</span></div>
-          <div class="gi-body"><span>의미 유사한 <span class='kw2'>대체 용어</span></span><span><em>e.g. 'squirrel' for chipmunk · 'counting machine' for calculator</em></span></div>
+          <div class="gi-body"><span>의미 유사한 <span class='kw2'>대체 용어</span></span><span><em>e.g. 'boat' for sailboat (자체 제작)</em></span></div>
         </div>
         <div class="grid-item">
           <div class="gi-title"><span class='kw4'>Circumlocution</span></div>
@@ -411,7 +426,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         </div>
         <div class="grid-item">
           <div class="gi-title"><span class='kw4'>Word coinage</span></div>
-          <div class="gi-body"><span>유추 규칙으로 없는 단어 생성</span><span><em>e.g. 'vegetarianist' · 'cooker' for a person who cooks</em></span></div>
+          <div class="gi-body"><span>유추 규칙으로 새 명칭 생성</span><span><em>e.g. 'unlock-person' for locksmith (자체 제작: 학습자가 새로 만든 명칭)</em></span></div>
         </div>
         <div class="grid-item">
           <div class="gi-title"><span class='kw4'>All-purpose words</span></div>
@@ -433,7 +448,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       <div class="grid col2">
         <div class="grid-item">
           <div class="gi-title">① <span class='kw4'>Code-switching</span> vs <span class='kw4'>Foreignizing</span></div>
-          <div class="gi-body"><span><strong>Code-switching</strong>: L1 단어 + <span class='kw2'>L1 발음</span> 그대로 ("I used Korean words")</span><span><strong>Foreignizing</strong>: L1 어근 + <span class='kw2'>L2 접사/음운</span> 적용 (유아tic, 공부행-ing)</span><span>🔍 발음/형태 변형 유무가 구분점</span></div>
+          <div class="gi-body"><span><strong>Code-switching</strong>: L1 단어 + <span class='kw2'>L1 발음</span> 그대로 ("I used Korean words")</span><span><strong>Foreignizing</strong>: L1 어근 + <span class='kw2'>L2 접사/음운</span> 적용 (L1 형태의 변형 과정이 명시된 경우)</span><span>🔍 발음/형태 변형 유무가 구분점</span></div>
         </div>
         <div class="grid-item">
           <div class="gi-title">② <span class='kw4'>Approximation</span> vs <span class='kw4'>Circumlocution</span></div>
@@ -441,7 +456,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         </div>
         <div class="grid-item">
           <div class="gi-title">③ <span class='kw4'>Literal translation</span> vs <span class='kw4'>Word coinage</span></div>
-          <div class="gi-body"><span><strong>Literal translation</strong>: L1을 그대로 직역 (pig meat=돼지+고기)</span><span><strong>Word coinage</strong>: L2 파생규칙 과잉 (vegetarianist, cooker)</span><span>🔍 L1 직역 vs L2 규칙 남용</span></div>
+          <div class="gi-body"><span><strong>Literal translation</strong>: L1을 그대로 직역 (pig meat=돼지+고기)</span><span><strong>Word coinage</strong>: L2의 익숙한 요소로 새 명칭 구성 (unlock-person: 자체 제작)</span><span>🔍 L1 직역 vs L2 규칙 남용</span></div>
         </div>
         <div class="grid-item">
           <div class="gi-title">④ <span class='kw4'>Appeal for assistance</span> 하위</div>
@@ -451,13 +466,20 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
     </div>
 
     <div class="exam">
-      <div class="exam-label">📝 출제 포인트</div>
-      <p>• 사례 → 전략 identify 유형이 매년 1회 이상 출제 (2010.15, 2013, 2017 등)</p>
+      <div class="exam-label">📝 판별 포인트</div>
+      <p>• 사례의 발화와 문제 해결 방식을 근거로 전략을 판별한다.</p>
       <p>• <span class='kw2'>Code-switching vs Foreignizing</span> 혼동 주의 (L1 발음 그대로 vs L2 음운 적용)</p>
       <p>• <span class='kw2'>Approximation vs Circumlocution</span> 구분 (비슷한 의미의 표현으로 대체 vs 특징·기능 설명)</p>
       <p>• <span class='kw2'>Literal translation vs Word coinage</span> 구분 (L1 직역 vs 규칙 과잉)</p>
       <p>• <span class='kw2'>Message abandonment</span> (avoidance) — 시작 후 미종결</p>
     </div>
+    <details class="concept learner-deep"><summary>표면 표현보다 문제 해결 과정으로 전략 구분 · 심화 적용</summary>
+<p class="note"><strong>세 장면</strong> 모르는 sailboat를 아는 단어 boat로 대신한다 → approximation. corkscrew를 몰라 “the tool that pulls a cork out of a bottle”이라고 기능을 설명한다 → circumlocution. 영어 단어를 몰라 L1 단어를 그대로 삽입한다 → compensatory code-switching.</p>
+<p class="note"><strong>경계 확인</strong> Literal translation은 L1 표현을 단어별로 옮겼다는 근거가 필요하다. Foreignizing은 L1 형태를 L2 음운·형태에 맞추는 경우이고, word coinage는 L2 자원으로 새 표현을 만드는 경우다. 어색한 발화 하나만으로 어떤 과정인지 확정하지 않는다.</p>
+<p class="note"><strong>수업 적용</strong> 짝에게 물건을 설명하되 이름을 모르면 기능·모양 설명을 허용한다. 교사는 의사소통이 유지되었는지 먼저 보고, 이후 목표 표현을 제공하여 재사용하게 한다. 모든 code-switching을 부족한 능력의 증거로 보지 않는다. 유창한 이중언어 사용자도 여러 사회적 목적으로 언어를 바꾼다.</p>
+<p class="note"><strong>확인 문제 · 해설</strong> “문장이 길면 circumlocution이고 짧으면 approximation이다.” → X. 길이가 아니라 의미가 가까운 대체어를 골랐는지, 특징·기능을 풀어 설명했는지가 기준이다.</p>
+<p class="note"><small>근거·읽을거리: Brown (2014), pp.128–130. 사례는 별도 표시가 없는 한 자체 제작이다.</small></p></details>
+
   </div>
 </div>
 
@@ -506,7 +528,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 
     <div class="concept">
       <div class="c-title">3) 🔑 Motivation vs Orientation 용어 구분 (★★★ 헷갈 키텀)</div>
-      <p class="note"><strong>Brown 공식 구분</strong>: 두 용어는 다르게 사용되며, 시험에서 용어 정확성이 요구됨.</p>
+      <p class="note"><strong>Brown (2014, pp.159–164)</strong>: 학습 목적(orientation)과 동기의 강도(motivational intensity)를 구별한다.</p>
       <div class="grid col2">
         <div class="grid-item">
           <div class="gi-title"><span class='kw4'>Motivation</span> (동기)</div>
@@ -514,18 +536,25 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         </div>
         <div class="grid-item">
           <div class="gi-title"><span class='kw4'>Orientation</span> (지향)</div>
-          <div class="gi-body"><span>다른 문화·언어권에 대한 <span class='kw2'>개인의 관점</span>과 그것이 동기 강도에 미치는 영향</span><span>하위: <span class='kw1'>Integrative / Instrumental</span></span><span>→ 문화적 통합 vs 실용적 목적</span></div>
+          <div class="gi-body"><span>언어를 배우려는 <span class='kw2'>목적·지향</span> (실용 목적 또는 사회·문화적 참여 등)</span><span>하위: <span class='kw1'>Integrative / Instrumental</span></span><span>→ 문화적 통합 vs 실용적 목적</span></div>
         </div>
       </div>
-      <p class="note" style="margin-top:12px">⚠️ 주의: "Integrative motivation"이라는 표현도 통용되지만, 엄밀히는 <span class='kw2'>Integrative orientation</span>이 정확. 서술형에서 용어 선택 주의.</p>
+      <p class="note" style="margin-top:12px">⚠️ Integrative motivation도 연구 전통에서 쓰인다. 용어 자체를 틀렸다고 하지 말고, 지문이 목적·보상·노력 중 무엇을 묻는지 확인한다. Integrative와 instrumental은 함께 나타날 수 있다.</p>
     </div>
 
     <div class="exam">
-      <div class="exam-label">📝 출제 포인트</div>
-      <p>• 예시 → Integrative/Instrumental 구분 (기출 단골)</p>
+      <div class="exam-label">📝 판별 포인트</div>
+      <p>• 예시 → Integrative/Instrumental 구분 (사례 판별)</p>
       <p>• 내적동기 유발 교수법 서술형</p>
       <p>• <span class='kw3'>Motivation ≠ Orientation</span> 용어 구분 — Intrinsic/Extrinsic은 motivation, Integrative/Instrumental은 orientation</p>
     </div>
+    <details class="concept learner-deep"><summary>학습 목적·보상·노력의 강도 구별하기 · 심화 적용</summary>
+<p class="note"><strong>사례</strong> 민서는 해외 동료와 친해지고 업무 기회를 넓히려고 영어를 배우며, 영어로 이야기를 만드는 활동 자체도 즐긴다. 같은 목적을 말하는 준서는 실제 연습을 거의 하지 않는다.</p>
+<p class="note"><strong>판별</strong> 민서에게 integrative와 instrumental orientation이 함께 나타날 수 있고, 활동을 즐긴다는 부분은 intrinsic motivation의 근거이다. 목적이 같아도 실제 지속적 노력으로 드러나는 motivational intensity는 다를 수 있다. Instrumental을 곧바로 extrinsic과 같은 뜻으로 쓰지 않는다.</p>
+<p class="note"><strong>수업 적용</strong> 업무 대화·이야기 만들기 중 의미 있는 목표를 선택하게 하고 작은 목표와 수행 기록을 연결한다. 피드백은 성취한 행동을 구체적으로 알려 준다. 칭찬이나 성적이 존재한다는 이유만으로 intrinsic involvement가 없다고 단정하지 않는다.</p>
+<p class="note"><strong>확인 문제 · 해설</strong> “Integrative orientation이 있으면 언제나 더 강한 motivation을 보인다.” → X. Orientation은 목적에 관한 정보이며 강도와 성공을 자동으로 결정하지 않는다.</p>
+<p class="note"><small>근거·읽을거리: Brown (2014), pp.159–164. 사례는 별도 표시가 없는 한 자체 제작이다.</small></p></details>
+
   </div>
 </div>
 
@@ -563,10 +592,17 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
     </div>
 
     <div class="exam">
-      <div class="exam-label">📝 출제 포인트</div>
+      <div class="exam-label">📝 판별 포인트</div>
       <p>• 예시 문장 → Facilitative/Debilitative 판별 (tension이 도움인가 방해인가)</p>
       <p>• Adaptive language ego의 <span class='kw2'>permeable</span> 특성</p>
     </div>
+    <details class="concept learner-deep"><summary>불안이 나타나는 범위와 수행에 미치는 영향 구별하기 · 심화 적용</summary>
+<p class="note"><strong>개념 대비</strong> Trait anxiety는 여러 상황에 걸친 비교적 지속적인 경향, state anxiety는 특정 순간·사건과 관련된 불안이다. Facilitative/debilitative는 수행에 어떤 영향을 주는지에 관한 구분이므로 trait/state와 같은 축이 아니다.</p>
+<p class="note"><strong>적용 사례</strong> 학생은 친한 짝과는 말하지만 전체 발표에서 평가가 두려워 멈춘다. 이 한 장면만으로 전반적인 성격을 진단하지 않는다. 긴장 덕분에 준비를 더 한 것과 긴장 때문에 알고 있는 말을 못한 것은 효과가 다르다.</p>
+<p class="note"><strong>교사의 조치</strong> 먼저 짝과 연습하고 준비 시간을 제공한 뒤 선택 가능한 발표 기회를 마련한다. 학생을 조롱하지 않는 방식으로 피드백하고 같은 학습자의 과제별 반응과 참여 변화를 확인한다. Facilitative anxiety라는 개념이 학생에게 의도적으로 위협이나 경쟁을 가해도 된다는 뜻은 아니다.</p>
+<p class="note"><strong>확인 문제 · 해설</strong> “Nervous라는 말만 있으면 debilitative anxiety이다.” → X. 준비·참여를 돕는지 또는 수행·참여를 방해하는지 추가 증거가 필요하다.</p>
+<p class="note"><small>근거·읽을거리: Brown (2014), pp.147–152. 사례는 별도 표시가 없는 한 자체 제작이다.</small></p></details>
+
   </div>
 </div>
 
@@ -583,8 +619,8 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
     <div class="concept">
       <div class="c-title">Risk-taking</div>
       <div class="def">Willingness to <span class='kw2'>use the TL system</span> with an attitude to take the risk of making errors.</div>
-      <p class="note"><span class='kw2'>Optimum level</span> 필요 — 너무 높으면 부정확, 너무 낮으면 fossilization</p>
-      <p class="note">High: meaning > form, fluency > accuracy / Low: form 집착, fossilization 위험</p>
+      <p class="note">계산된 시도와 점검을 함께 지원한다. Risk-taking 수준만으로 정확도나 fossilization을 예측하지 않는다.</p>
+      <p class="note">교사는 오류를 조롱하지 않고 의미 전달을 지원한 뒤 필요한 형태를 다시 확인하게 한다.</p>
       <p class="note"><em>e.g. "Even though she feels nervous, she tried to speak whenever she can"</em></p>
     </div>
 
@@ -604,6 +640,13 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       <p class="note"><em>e.g. High WTC: one enjoys participating in small group speaking activities</em></p>
       <p class="note">영향 요인: motivation · personality · self-confidence</p>
     </div>
+
+    <details class="concept learner-deep"><summary>WTC·proficiency·risk-taking 구별하기 · 심화 적용</summary>
+<p class="note"><strong>사례</strong> 문법과 어휘를 잘 사용하는 학생이 낯선 집단에서는 발언하지 않지만 친한 파트너에게는 먼저 말을 건다. 다른 학생은 단어가 부족해도 설명과 도움 요청으로 대화를 시작한다.</p>
+<p class="note"><strong>판별</strong> Proficiency는 언어 수행 능력, WTC는 선택권이 있을 때 의사소통을 시작하려는 의향이다. 높은 proficiency가 높은 WTC를 보장하지 않는다. Risk-taking은 오류 가능성을 감수하는 시도이며, 무작위 추측이나 대화 독점과 다르다.</p>
+<p class="note"><strong>교사의 조치</strong> 익숙한 짝·명확한 역할·질문 시작 표현을 제공한다. 자발적으로 대화를 시작하는지, 상호작용은 어떻게 이루어지는지를 여러 조건에서 관찰한다. 발화 횟수 하나로 introversion, motivation, competence를 동시에 판단하지 않는다.</p>
+<p class="note"><strong>확인 문제 · 해설</strong> “한 번 침묵했으므로 WTC는 변하지 않는 낮은 성격 특성이다.” → X. WTC는 상대·집단 분위기·시간에 따라 달라질 수 있다.</p>
+<p class="note"><small>근거·읽을거리: Brown (2014), pp.146–150. 사례는 별도 표시가 없는 한 자체 제작이다.</small></p></details>
 
   </div>
 </div>
@@ -626,7 +669,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
     <div class="div"></div>
 
     <div class="concept">
-      <div class="c-title">Three Types of Learners</div>
+      <div class="c-title">Historical Acculturation Categories</div>
       <div class="grid col3">
         <div class="grid-item">
           <div class="gi-title"><span class='kw3'>Preservation</span></div>
@@ -654,7 +697,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         </div>
         <div class="grid-item">
           <div class="gi-title"><span class='kw1'>Psychological distance</span></div>
-          <div class="gi-body"><span>학습자 개인의 <span class='kw2'>주관적 감정</span> (더 큰 개념)</span><span>motivation · attitude · culture shock</span></div>
+          <div class="gi-body"><span>학습자 개인의 <span class='kw2'>주관적 감정</span> (social distance와 구분)</span><span>motivation · attitude · culture shock</span></div>
         </div>
       </div>
     </div>
@@ -662,7 +705,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
     <div class="div"></div>
 
     <div class="concept">
-      <div class="c-title">Culture Shock (4 Stages)</div>
+      <div class="c-title">Culture Acquisition: Historical Four-stage Account</div>
       <div class="stage-wrap"><svg viewBox="0 0 700 110" style="width:100%;margin-top:12px;font-family:'JetBrains Mono',monospace" xmlns="http://www.w3.org/2000/svg">
         <rect x="4" y="10" width="142" height="90" rx="8" fill="rgba(46,125,82,.1)" stroke="rgba(46,125,82,.4)" stroke-width="1.5"/>
         <text x="75" y="38" text-anchor="middle" fill="#1b5e3a" font-size="13" font-weight="bold">Euphoria</text>
@@ -675,16 +718,23 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         <text x="233" y="76" text-anchor="middle" fill="#b71c1c" font-size="11">breakdown</text>
         <text x="312" y="58" text-anchor="middle" fill="#26a69a" font-size="20">→</text>
         <rect x="320" y="10" width="142" height="90" rx="8" fill="rgba(230,119,0,.1)" stroke="rgba(230,119,0,.35)" stroke-width="1.5"/>
-        <text x="391" y="38" text-anchor="middle" fill="#bf6000" font-size="13" font-weight="bold">Culture stress</text>
+        <text x="391" y="38" text-anchor="middle" fill="#bf6000" font-size="13" font-weight="bold">Recovery</text>
         <text x="391" y="58" text-anchor="middle" fill="#bf6000" font-size="11">anomie</text>
         <text x="391" y="76" text-anchor="middle" fill="#bf6000" font-size="11">cultural homelessness</text>
         <text x="470" y="58" text-anchor="middle" fill="#26a69a" font-size="20">→</text>
         <rect x="478" y="10" width="218" height="90" rx="8" fill="rgba(46,125,82,.15)" stroke="rgba(46,125,82,.5)" stroke-width="1.5"/>
-        <text x="587" y="38" text-anchor="middle" fill="#1b5e3a" font-size="13" font-weight="bold">Acculturation</text>
-        <text x="587" y="58" text-anchor="middle" fill="#1b5e3a" font-size="11">assimilation / adaptation</text>
+        <text x="587" y="38" text-anchor="middle" fill="#1b5e3a" font-size="13" font-weight="bold">Adaptation</text>
+        <text x="587" y="58" text-anchor="middle" fill="#1b5e3a" font-size="11">integration / adaptation</text>
         <text x="587" y="76" text-anchor="middle" fill="#1b5e3a" font-size="11">new identity · confidence</text>
       </svg></div>
     </div>
+
+    <details class="concept learner-deep"><summary>Acculturation 모형의 의미와 적용 범위 · 심화 적용</summary>
+<p class="note"><strong>구분</strong> Preservation·acculturation·assimilation은 모든 학습자가 순서대로 거치는 세 단계가 아니다. 별도로 제시되는 euphoria·culture shock·recovery·adaptation은 역사적 문화 적응 과정 설명이며 실제 경로와 강도는 개인·맥락에 따라 다르다.</p>
+<p class="note"><strong>사례</strong> 새 공동체에서 상호작용이 늘면서도 가정에서는 L1과 기존 문화를 유지하는 학습자가 있다. 이를 “아직 assimilation에 도달하지 못해 실패했다”고 평가해서는 안 된다.</p>
+<p class="note"><strong>수업 적용</strong> 어떤 참여 기회가 있는지, 학습자가 그 기회를 어떻게 느끼는지 나누어 묻는다. Social distance에 관한 집단 관계 설명과 psychological distance에 관한 개인의 경험을 구분한다. 국적만으로 거리나 학습 성공을 예측하지 않는다.</p>
+<p class="note"><strong>확인 문제 · 해설</strong> “L2를 잘하려면 L1 문화와 정체성을 버려야 한다.” → X. Brown의 identity 논의는 다양한 참여 방식과 변화하는 정체성을 강조한다. 이 모형을 근거로 기존 문화를 포기해야 한다고 주장해서는 안 된다.</p>
+<p class="note"><small>근거·읽을거리: Brown (2014), pp.185–190. 사례는 별도 표시가 없는 한 자체 제작이다.</small></p></details>
 
   </div>
 </div>
@@ -700,7 +750,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
   <div class="sec-body">
 
     <div class="concept">
-      <div class="c-title">Four Core Techniques</div>
+      <div class="c-title">Culture Teaching Techniques</div>
       <div class="grid col2">
         <div class="grid-item">
           <div class="gi-title"><span class='kw3'>Culture Capsules</span></div>
@@ -716,7 +766,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         </div>
         <div class="grid-item">
           <div class="gi-title"><span class='kw3'>Role play</span></div>
-          <div class="gi-body"><span>다른 문화적 맥락의 역할 수행</span><span>cultural stereotype·fatigue 극복</span></div>
+          <div class="gi-body"><span>다른 문화적 맥락의 역할 수행</span><span>관점을 비교·성찰할 기회 제공 (효과가 자동 보장되지는 않음)</span></div>
         </div>
         <div class="grid-item">
           <div class="gi-title"><span class='kw3'>Cultural Minidrama</span></div>
@@ -724,6 +774,13 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         </div>
       </div>
     </div>
+
+    <details class="concept learner-deep"><summary>Culture assimilator의 활동 절차 확인하기 · 심화 적용</summary>
+<p class="note"><strong>자체 제작 사례</strong> 수업 규칙이 서로 다른 두 학교의 학생이 모둠 토론을 한다. 한 학생은 상대가 말을 끝낸 뒤 3초를 기다리지만, 다른 학생은 이를 발언 의사가 없는 것으로 해석한다. 교사는 가능한 설명으로 ① 관심이 없음 ② 발언 차례에 대한 기대가 다름 ③ 언어 능력이 부족함을 제시한다.</p>
+<p class="note"><strong>판별 · 해설</strong> 사례에서 두 사람 모두 토론에 참여하려 했다는 추가 정보가 있으므로 ②가 가장 타당하다. 의사소통 오해 사례와 여러 해석을 제시하고, 각 선택지가 타당하거나 타당하지 않은 이유를 피드백하면 culture assimilator 절차이다. 국적 집단 전체의 성격으로 일반화하지 않는다.</p>
+<p class="note"><strong>대비와 적용</strong> 짧은 문화 차이 설명을 출발점으로 토의하는 culture capsule과 구분한다. 이후 “잠깐 생각하고 말할게요”처럼 차례를 협의하는 role play로 확장할 수 있다. Role play만 있었다고 assimilator로 판정하지 않는다.</p>
+<p class="note"><strong>확인 문제 · 해설</strong> “학생의 국적만 알면 오해 원인을 확정할 수 있다.” → X. 사건의 행동·참여 의도·맥락 증거를 확인해야 한다.</p>
+<p class="note"><small>근거·읽을거리: 활동 판별 기준: 사건 → 대안 해석 선택 → 선택지별 피드백. 문화 일반화의 한계: Brown (2014), pp.185–187. 사례는 별도 표시가 없는 한 자체 제작이다.</small></p></details>
 
   </div>
 </div>
@@ -743,18 +800,18 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       <div class="grid col3">
         <div class="grid-item">
           <div class="gi-title"><span class='kw1'>Coordinate</span></div>
-          <div class="gi-body"><span>두 언어 시스템 <span class='kw2'>독립 운영</span></span><span>Eng: Apple / Kor: …?</span></div>
+          <div class="gi-body"><span>두 언어 표현에 <span class='kw2'>서로 다른 의미 표상</span>을 연결하는 역사적 설명</span><span>언어별 경험 맥락을 구분하는 모형</span></div>
         </div>
         <div class="grid-item">
           <div class="gi-title"><span class='kw1'>Compound</span></div>
-          <div class="gi-body"><span><span class='kw2'>단일 혼합 시스템</span>으로 두 언어 처리</span><span>Eng: Apple / Kor: 사과</span></div>
+          <div class="gi-body"><span>두 언어 표현이 <span class='kw2'>공유된 의미 표상</span>에 연결되는 역사적 설명</span><span>두 언어의 문법이 하나라는 뜻은 아님</span></div>
         </div>
         <div class="grid-item">
           <div class="gi-title"><span class='kw1'>Subordinate</span></div>
-          <div class="gi-body"><span>모국어를 통해 L2 처리</span><span>"사과" → Apple</span></div>
+          <div class="gi-body"><span>모국어를 통해 L2 처리</span><span>L2 표현 → L1 표현을 통한 의미 접근</span></div>
         </div>
       </div>
-      <p class="note" style="margin-top:12px"><span class='kw1'>Additive bilingual</span>: L2 습득이 긍정적 / <span class='kw1'>Subtractive bilingual</span>: L2 습득이 L1에 해로움</p>
+      <p class="note" style="margin-top:12px"><span class='kw1'>Additive bilingualism</span>: L1을 유지·발달시키며 L2를 더함 / <span class='kw1'>Subtractive bilingualism</span>: L2 확장과 함께 L1의 사용·발달이 약화되는 상황. L2 학습 자체가 L1 손실을 필연적으로 일으키는 것은 아님</p>
     </div>
 
     <div class="div"></div>
@@ -769,14 +826,22 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         </div>
         <div class="grid-item">
           <div class="gi-title">Weak version</div>
-          <div class="gi-body"><span>linguistic <span class='kw2'>relativism</span></span><span>언어가 사고에 영향</span></div>
+          <div class="gi-body"><span>linguistic <span class='kw2'>relativity</span></span><span>언어가 사고에 영향</span></div>
         </div>
       </div>
     </div>
 
+    <details class="concept learner-deep"><summary>이중언어의 의미 처리와 사회적 조건, 언어와 사고의 관계 · 심화 적용</summary>
+<p class="note"><strong>개념 대비</strong> Coordinate/compound/subordinate는 두 언어 표현과 의미 접근의 관계를 설명한 역사적 모형이다. Additive/subtractive는 L2 확장과 L1 유지·발달의 관계이다. 서로 다른 축이며 한 가지 모형으로 모든 bilingual의 실제 처리를 고정 분류하지 않는다.</p>
+<p class="note"><strong>사례와 수업 적용</strong> 같은 장면에 서로 다른 언어 표현을 붙이고 학습자가 주목하는 특징을 비교한다. 어떤 언어에 단일 단어가 없더라도 설명·새 표현을 통해 개념을 전달할 수 있다. 어휘 차이가 해당 개념을 생각할 수 없다는 증거는 아니다.</p>
+<p class="note"><strong>강한 주장과 약한 주장</strong> Linguistic determinism은 언어가 사고를 결정한다는 강한 주장이다. Linguistic relativity는 언어와 사고의 관계·영향을 검토한다. 특정 언어 표현이 주의나 기억에 영향을 주었다는 관찰에서 언어가 사고 전체를 결정한다는 결론으로 넘어가지 않는다.</p>
+<p class="note"><strong>확인 문제 · 해설</strong> “L2를 배우면 반드시 L1을 잃고, L1에 없는 단어의 개념은 생각할 수 없다.” → X. 두 주장은 각각 사회·교육 조건과 언어·사고 관계를 지나치게 결정적으로 단순화한다.</p>
+<p class="note"><small>근거·읽을거리: Brown (2014), pp.66–67, 87, 180–184; subordinate는 L1을 통한 의미 접근이라는 판별 기준으로 제시. 사례는 별도 표시가 없는 한 자체 제작이다.</small></p></details>
+
   </div>
 </div>
 
+<p class="note">참고문헌: Brown, H. D. (2014). <em>Principles of Language Learning and Teaching</em> (6th ed.). Pearson. 학습용 설명과 자체 제작 사례는 원문 직접 인용이 아니다.</p>
 </div><!-- /wrap -->
 <script>
 function toggle(id){document.getElementById(id).classList.toggle('open')}
