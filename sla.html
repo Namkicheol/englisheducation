@@ -141,7 +141,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f5f4ee;background-image:r
 <script src="./score-popup.js"></script>
 <script src="./sounds.js"></script>
 <script>
-const SAVE_KEY='ox_sla_v1';
+const SAVE_KEY='ox_sla_v2_content_20261017';
 const TOTAL=20;
 let cur=0;
 let answers=new Array(TOTAL).fill(null);
@@ -151,84 +151,398 @@ function updateModeUI(){document.getElementById('btn-normal').classList.toggle('
 function setMode(m){if(mode===m)return;mode=m;initOrder(m);cur=0;answers=new Array(TOTAL).fill(null);localStorage.removeItem(SAVE_KEY);document.getElementById('rb').style.display='none';document.getElementById('sc').classList.remove('show');updateModeUI();renderNav();render();}
 function getScore(){return answers.filter(a=>a&&a.correct).length;}
 const Q=[
-  {src:"Behaviorism",cat:"Structuralism / ALM",text:"<span class='kw1'>Rote learning</span> involves storing new information by connecting it to existing cognitive structures, which promotes strong retention and meaningful understanding.",ans:false,correct:"<span class='kw1'>Rote learning</span> involves <span class='kw2'>isolated</span> storage with <span class='kw2'>no association</span> to existing cognitive structure. That is <span class='kw4'>meaningful learning (Subsumption)</span>.",why:"Rote learning은 기존 인지 구조와의 연결 없이 개별 항목을 고립적으로 저장하는 방식입니다. 반대로 <span class='kw4'>Meaningful learning (Subsumption)</span>은 새 정보를 기존 인지 구조에 연결·통합하여 강한 retention을 이끌어냅니다.",source:"\"<span class='kw1'>Rote learning</span>: a learning type which involves the mental storage of <span class='kw2'>isolated bits and pieces of items having little or no association with existing cognitive structure</span>.\"",compare:[{title:"<span class='kw1'>Rote learning</span>",desc:"<span class='kw2'>isolated</span> · no cognitive connection · weak retention"},{title:"<span class='kw4'>Meaningful learning</span>",desc:"<span class='kw2'>anchoring</span> to existing structure · strong retention"}]},
-  {src:"Behaviorism",cat:"Pattern Drills",text:"In the <span class='kw1'>Audiolingual Method</span>, <span class='kw1'>pattern drills</span> are communicative activities where students use language meaningfully to express their own ideas and opinions.",ans:false,correct:"<span class='kw1'>Pattern drills</span> in ALM are <span class='kw2'>rote, decontextualized</span> practice — repetition of sounds <span class='kw2'>without understanding of meaning</span>.",why:"ALM의 pattern drills는 의미 이해 없이 소리를 반복 연습하는 기계적(rote) 활동입니다. 의미보다 form에 집중하며 habit formation을 목표로 합니다.",source:"\"<span class='kw1'>Pattern drills</span>: a <span class='kw2'>rote, intensive, controlled practice</span> where there is a repetition of sounds by the Ss <span class='kw2'>without the vaguest understanding of what the sound might possibly mean</span>.\"",compare:[{title:"<span class='kw1'>Pattern drills (ALM)</span>",desc:"rote · <span class='kw2'>form-focused</span> · no meaning · habit formation"},{title:"<span class='kw3'>Communicative activity</span>",desc:"<span class='kw2'>meaning-focused</span> · authentic purpose · CLT"}]},
-  {src:"Krashen",cat:"Acquisition vs Learning",text:"According to Krashen's <span class='kw4'>Non-interface position</span>, <span class='kw2'>acquired knowledge</span> and <span class='kw2'>learnt knowledge</span> can be integrated through sufficient practice, eventually allowing learned rules to become acquired.",ans:false,correct:"<span class='kw4'>Non-interface position</span>: acquired and learnt knowledge are <span class='kw2'>separated and unrelated</span> — learnt knowledge <span class='kw2'>cannot</span> become acquired knowledge.",why:"Krashen의 non-interface position은 acquisition(무의식적, 의미 중심)과 learning(의식적, 형식 중심)이 완전히 분리되어 있다는 입장입니다. 연습을 통한 전환을 주장하는 interface position과 대비됩니다.",source:"\"<span class='kw4'>Non-interface position</span>: <span class='kw2'>acquired knowledge and learnt knowledge are separated and unrelated</span>.\"",compare:[{title:"<span class='kw4'>Non-interface (Krashen)</span>",desc:"Acquisition ≠ Learning · <span class='kw2'>no transfer</span>"},{title:"<span class='kw3'>Interface position (Bialystok)</span>",desc:"Explicit → Implicit <span class='kw2'>through practice</span>"}]},
   {
-  "src": "Krashen",
-  "cat": "Monitor Hypothesis",
-  "text": "According to Krashen's <span class='kw4'>Monitor Hypothesis</span>, the monitor functions effectively in all communicative situations, automatically editing output during spontaneous conversation.",
-  "ans": false,
-  "correct": "Monitor의 사용에는 충분한 시간, 규칙에 대한 지식, 형식·정확성에 대한 주의가 필요합니다. 자발적 대화에서 항상 자동으로 작동하는 것은 아닙니다.",
-  "why": "자발적 대화에서는 Monitor의 사용 조건을 충족하기 어렵지만, 대화 중 사용이 전혀 불가능하다고 단정할 수도 없습니다. Krashen은 규칙과 상황에 따라 대화에서도 제한적으로 Monitor를 사용할 수 있음을 설명합니다.",
-  "source": "출처 요약: Krashen (1982), Principles and Practice in Second Language Acquisition, pp.16, 89–90. Monitor의 조건과 대화 중 제한적 사용 가능성을 구분한다. 직접 인용이 아님.",
-  "compare": [
-    {
-      "title": "사용 조건",
-      "desc": "충분한 시간 · 규칙 지식 · 형식에 대한 주의"
-    },
-    {
-      "title": "자발적 대화",
-      "desc": "조건 충족이 어려울 수 있으나 사용이 항상 불가능한 것은 아님"
-    }
-  ]
-},
-  {src:"Krashen",cat:"Affective Filter",text:"According to Krashen's <span class='kw4'>Affective Filter Hypothesis</span>, learners with high motivation, low anxiety, and high self-esteem have a <span class='kw2'>higher</span> affective filter, which facilitates language acquisition.",ans:false,correct:"High motivation + low anxiety + high self-esteem = <span class='kw2'>LOWER</span> affective filter → <span class='kw2'>better acquisition</span>. A high filter <span class='kw2'>blocks</span> input.",why:"Affective filter는 comprehensible input이 intake로 전환되는 것을 막는 mental block입니다. Filter가 낮을수록 input이 더 잘 흡수됩니다.",source:"\"<span class='kw4'>Affective filter</span>: a <span class='kw2'>mental block which prevents L from fully utilizing the comprehensible input</span>. Best acquisition: <span class='kw2'>low anxiety, absent defensiveness</span>.\"",compare:[{title:"<span class='kw2'>Low filter</span>",desc:"low anxiety · high motivation → acquisition↑"},{title:"<span class='kw2'>High filter</span>",desc:"high anxiety · low confidence → input blocked"}]},
-  {src:"Swain's Output Hypothesis",cat:"3 Functions",text:"<span class='kw4'>Swain's Output Hypothesis</span> argues that output is important because it requires <span class='kw2'>syntactic processing</span>, whereas input only requires <span class='kw2'>semantic processing</span>.",ans:true,correct:"<span class='kw4'>Output Hypothesis</span>의 핵심: output은 <span class='kw2'>syntactic processing</span>을 요구하고 input은 <span class='kw2'>semantic processing</span>만으로 이해 가능합니다.",why:"Swain은 Krashen의 input 중심 이론을 비판하며 output의 독자적 역할을 주장했습니다. Output의 3기능: ① noticing/triggering ② hypothesis testing ③ metalinguistic function.",source:"\"<span class='kw4'>Output Hypothesis</span>: Output requires <span class='kw2'>syntactic processing</span> while input only requires <span class='kw2'>semantic processing</span>.\"",compare:[{title:"<span class='kw3'>Noticing/Triggering</span>",desc:"gap between what S can/wants to say"},{title:"<span class='kw3'>Hypothesis testing</span>",desc:"try rules → feedback → modify"},{title:"<span class='kw3'>Metalinguistic</span>",desc:"reflect on own/others' language"}]},
-  {src:"Swain's Output Hypothesis",cat:"Pushed Output",text:"<span class='kw3'>Pushed output</span> refers to comprehensible input that is adjusted to be slightly beyond the learner's current proficiency level (i+1).",ans:false,correct:"That describes <span class='kw4'>comprehensible input (i+1)</span>. <span class='kw3'>Pushed output</span> = learners are <span class='kw2'>pushed to produce</span> more accurate/complex output than they normally would.",why:"Pushed output은 학습자가 평소보다 더 정확하거나 복잡한 output을 생성하도록 push되는 상황입니다. i+1은 Krashen의 comprehensible input 개념입니다.",source:"\"<span class='kw3'>Pushed output</span> encourages Ls to formulate syntactically slightly more advanced structure.\"",compare:[{title:"<span class='kw4'>Comprehensible input (i+1)</span>",desc:"Krashen · input · slightly beyond proficiency"},{title:"<span class='kw3'>Pushed output</span>",desc:"Swain · output · pushed to produce more accurately"}]},
-  {src:"Schmidt's Noticing Hypothesis",cat:"Noticing / Intake",text:"Schmidt's <span class='kw4'>Noticing Hypothesis</span> claims that <span class='kw2'>noticing</span> is an essential prerequisite for input to be converted into <span class='kw2'>intake</span> and integrated into the learner's interlanguage system.",ans:true,correct:"<span class='kw4'>Noticing Hypothesis</span>의 핵심: <span class='kw2'>noticing</span>이 input → intake 전환의 <span class='kw2'>필수 전제 조건</span>입니다.",why:"의식적 주의(noticing)가 input을 intake로 전환하는 데 필수적입니다. Noticing the gap은 interlanguage와 TL을 비교하는 과정으로, recast와 dictogloss가 이를 유도합니다.",source:"\"<span class='kw4'>Noticing hypothesis</span>: noticing may be an <span class='kw2'>essential prerequisite</span> for input to be converted into <span class='kw2'>intake</span>.\"",compare:[{title:"<span class='kw4'>Noticing</span>",desc:"input → <span class='kw2'>intake</span> 전환의 필수 조건"},{title:"<span class='kw3'>Noticing the gap</span>",desc:"interlanguage vs TL 비교 · recast · dictogloss"}]},
-  {src:"Krashen Criticism",cat:"HIG / LIG",text:"According to the criticism of Krashen's input-only view, <span class='kw3'>LIGs</span> outperform <span class='kw3'>HIGs</span> in SLA because they receive more carefully processed input.",ans:false,correct:"<span class='kw3'>HIGs</span> outperform <span class='kw3'>LIGs</span>. HIGs <span class='kw2'>initiate and sustain turns</span>, try more hypotheses, and convert more input to <span class='kw2'>intake</span>.",why:"HIGs는 적극적으로 발화하며 다양한 가설을 시험하고 더 많은 input을 intake로 전환합니다. LIGs는 수동적으로 input을 받기만 합니다.",source:"\"<span class='kw3'>HIG</span>: Ls who <span class='kw2'>generate high levels of input</span> by initiating and sustaining their turns. They convert more input to intake.\"",compare:[{title:"<span class='kw3'>HIG</span>",desc:"active · initiate turns · more intake"},{title:"<span class='kw3'>LIG</span>",desc:"passive · less output · less intake"}]},
+    "src": "Behaviorism",
+    "cat": "Structuralism / ALM",
+    "text": "<span class='kw1'>Rote learning</span> involves storing new information by connecting it to existing cognitive structures, which promotes strong retention and meaningful understanding.",
+    "ans": false,
+    "correct": "<span class='kw1'>Rote learning</span> involves <span class='kw2'>isolated</span> storage with <span class='kw2'>no association</span> to existing cognitive structure. That is <span class='kw4'>meaningful learning (Subsumption)</span>.",
+    "why": "Rote learning은 기존 인지 구조와의 연결 없이 개별 항목을 고립적으로 저장하는 방식입니다. 반대로 <span class='kw4'>Meaningful learning (Subsumption)</span>은 새 정보를 기존 인지 구조에 연결·통합하여 오래 기억하도록 돕습니다.",
+    "source": "출처 요약: Brown (2014), Principles of Language Learning and Teaching, 6th ed., pp.83–86. 직접 인용이 아닙니다.",
+    "compare": [
+      {
+        "title": "<span class='kw1'>Rote learning</span>",
+        "desc": "<span class='kw2'>isolated</span> · no cognitive connection · weak retention"
+      },
+      {
+        "title": "<span class='kw4'>Meaningful learning</span>",
+        "desc": "<span class='kw2'>anchoring</span> to existing structure · strong retention"
+      }
+    ]
+  },
   {
-  "src": "Information Processing",
-  "cat": "Automatization",
-  "text": "<span class='kw4'>Automatization</span> refers to the process by which <span class='kw2'>controlled processing</span> becomes <span class='kw2'>automatic processing</span> through meaningful practice.",
-  "ans": true,
-  "correct": "Automatization은 연습을 통해 처리에 필요한 주의 요구가 줄고, controlled processing이 automatic processing으로 바뀌는 과정입니다.",
-  "why": "McLaughlin 모형에서는 controlled/automatic processing과 focal/peripheral attention을 서로 다른 축으로 구분합니다. Automatic processing을 무의식과 같은 뜻으로 보아서는 안 됩니다. 자동화된 처리에도 주의가 집중될 수 있습니다.",
-  "source": "출처 요약: Brown (2014), Principles of Language Learning and Teaching, 6판, pp.292–293, Table 10.5. 처리의 자동화 여부와 주의가 향하는 위치를 구분한다. 직접 인용이 아님.",
-  "compare": [
-    {
-      "title": "Controlled / Automatic",
-      "desc": "처리에 요구되는 주의와 자동화 정도"
-    },
-    {
-      "title": "Focal / Peripheral",
-      "desc": "주의가 중심적으로 또는 주변적으로 향하는 위치"
-    }
-  ]
-},
-  {src:"Bialystok",cat:"Interface Position",text:"Bialystok's <span class='kw4'>interface position</span> states that <span class='kw2'>explicit knowledge</span> can become <span class='kw2'>implicit knowledge</span> through practice, which is called <span class='kw1'>proceduralization</span>.",ans:true,correct:"<span class='kw4'>Interface position</span>: explicit → implicit through <span class='kw2'>practice</span> = <span class='kw1'>proceduralization</span>. Krashen의 non-interface position과 대비됩니다.",why:"Bialystok의 interface position은 explicit knowledge가 충분한 연습을 통해 implicit knowledge로 전환될 수 있다는 입장입니다. 이를 proceduralization(= automatization)이라 합니다.",source:"\"<span class='kw4'>Interface position</span>: explicit knowledge can turn into implicit knowledge through practice (<span class='kw1'>proceduralization</span>).\"",compare:[{title:"<span class='kw1'>Explicit knowledge</span>",desc:"conscious · declarative · formal instruction"},{title:"<span class='kw1'>Implicit knowledge</span>",desc:"automatic · procedural · meaningful use"}]},
-  {src:"Skill-acquisition",cat:"Declarative vs Procedural",text:"In Skill-acquisition Theory, <span class='kw1'>declarative knowledge</span> refers to the ability to actually use the language, while <span class='kw1'>procedural knowledge</span> is knowledge that can be stated or declared.",ans:false,correct:"Reversed. <span class='kw1'>Declarative knowledge</span> = <span class='kw2'>knowledge that can be stated</span>. <span class='kw1'>Procedural knowledge</span> = <span class='kw2'>ability to USE</span> the knowledge.",why:"Declarative knowledge(서술 가능한 지식)가 practice를 통해 procedural knowledge(실제 사용 능력)로 전환됩니다. Proceduralized knowledge는 working memory 부담을 줄여줍니다.",source:"\"<span class='kw1'>Declarative knowledge</span>: knowledge that can be <span class='kw2'>stated or declared</span>. <span class='kw1'>Procedural knowledge</span>: ability to <span class='kw2'>use</span> the knowledge.\"",compare:[{title:"<span class='kw1'>Declarative</span>",desc:"'know about' · can state rules"},{title:"<span class='kw1'>Procedural</span>",desc:"'know how' · use automatically"}]},
-  {src:"Processability",cat:"Teachability Hypothesis",text:"The <span class='kw3'>Teachability Hypothesis</span> agrees with Krashen in asserting that formal grammar instruction has no effect on the order of acquisition.",ans:false,correct:"<span class='kw3'>Teachability Hypothesis</span> <span class='kw2'>disagrees</span> with Krashen. Formal instruction <span class='kw2'>IS effective</span> when <span class='kw2'>compatible with Ss' developmental status</span>.",why:"Teachability Hypothesis(Pienemann)는 Krashen의 zero option에 반대합니다. 형식 교수는 학습자의 interlanguage가 준비된 시점에서만 효과적입니다.",source:"\"<span class='kw3'>Teachability Hypothesis</span>: language structure can be learnt from formal instruction only if Ls' interlanguage approximates the point of <span class='kw2'>natural acquisition</span>.\"",compare:[{title:"<span class='kw4'>Krashen</span>",desc:"zero option for grammar instruction"},{title:"<span class='kw3'>Teachability Hypo.</span>",desc:"grammar works if <span class='kw2'>developmentally ready</span>"}]},
-  {src:"Interaction Hypothesis",cat:"Original vs Updated",text:"In the <span class='kw4'>original version</span> of Long's Interaction Hypothesis, both <span class='kw2'>comprehensible input</span> and <span class='kw2'>comprehensible output</span> are emphasized as equally essential for language acquisition.",ans:false,correct:"<span class='kw4'>Original version</span>: comprehensible input + <span class='kw2'>interactional modification</span> must precede. <span class='kw3'>Updated version</span>: added <span class='kw2'>comprehensible output</span> and corrective feedback.",why:"Original version은 interactional modification이 comprehensible input을 만들어낸다고 합니다. Updated version에서 comprehensible output의 중요성을 추가했습니다.",source:"\"<span class='kw4'>Original version</span>: <span class='kw2'>interactional modification</span> must be preceded. <span class='kw3'>Updated version</span>: added <span class='kw2'>comprehensible output</span>.\"",compare:[{title:"<span class='kw4'>Original</span>",desc:"interactional modification → comprehensible input"},{title:"<span class='kw3'>Updated</span>",desc:"+ comprehensible output + corrective feedback"}]},
+    "src": "Behaviorism",
+    "cat": "Pattern Drills",
+    "text": "In the <span class='kw1'>Audiolingual Method</span>, <span class='kw1'>pattern drills</span> are communicative activities where students use language meaningfully to express their own ideas and opinions.",
+    "ans": false,
+    "correct": "ALM의 pattern drills는 모델의 반복·대치 등 통제된 형태 연습으로 habit formation을 목표로 합니다. 학습자 자신의 정보를 교환하는 communicative activity와는 목적이 다릅니다.",
+    "why": "내용을 모른 채 소리를 반복하는 기계적 연습이 될 수 있으나, 모든 drill에서 의미 이해가 완전히 배제된다고 정의하지 않습니다. ALM에서는 명시적 문법 설명보다 패턴의 반복과 inductive analogy를 강조합니다.",
+    "source": "출처 요약: Brown (2007), Teaching by Principles, 3rd ed., pp.22–24. 직접 인용이 아닙니다.",
+    "compare": [
+      {
+        "title": "Pattern drill",
+        "desc": "정해진 모델·형태 연습·habit formation"
+      },
+      {
+        "title": "Communicative activity",
+        "desc": "학습자 자신의 정보·의미 전달·상대방 반응"
+      }
+    ]
+  },
   {
-  "src": "Interaction Hypothesis",
-  "cat": "Negotiation of Meaning",
-  "text": "<span class='kw4'>Negotiation of meaning</span> occurs when interlocutors modify their interaction to achieve mutual comprehension, including <span class='kw2'>clarification requests</span>, <span class='kw2'>confirmation checks</span>, and <span class='kw2'>comprehension checks</span>.",
-  "ans": true,
-  "correct": "의미 협상에는 clarification request, confirmation check, comprehension check 등이 포함됩니다. 특정 전략 하나가 모든 상황에서 가장 효과적인 것은 아닙니다.",
-  "why": "참여자들은 서로 이해하기 위해 질문하거나 발화를 조정합니다. Clarification request는 재설명이나 수정을 유도할 수 있지만, 효과는 학습자·목표·과제와 측정 기준에 따라 달라집니다. 즉각적인 repair와 장기적인 학습 효과도 구분해야 합니다.",
-  "source": "출처 요약: Brown (2014), Principles of Language Learning and Teaching, 6판, pp.274–276. 교정 피드백의 효과를 학습자와 수업 맥락에 비추어 판단한다. 직접 인용이 아님.",
-  "compare": [
-    {
-      "title": "Clarification request",
-      "desc": "명확하지 않은 내용을 다시 설명해 달라고 요청"
-    },
-    {
-      "title": "Confirmation check",
-      "desc": "자신이 이해한 내용이 맞는지 확인"
-    },
-    {
-      "title": "Comprehension check",
-      "desc": "상대방이 자신의 발화를 이해했는지 확인"
-    }
-  ]
-},
-  {src:"Sociocultural Theory",cat:"ZPD",text:"Vygotsky's <span class='kw4'>ZPD</span> refers to what a learner can already do independently without any assistance.",ans:false,correct:"<span class='kw4'>ZPD</span> = distance between <span class='kw2'>actual development</span> (independent) and <span class='kw2'>potential development</span> (with guidance/peers).",why:"ZPD는 혼자 할 수 있는 것(actual)과 타인의 도움으로 할 수 있는 것(potential) 사이의 거리입니다. 이 간격에서 scaffolding이 이루어집니다.",source:"\"<span class='kw4'>ZPD</span>: distance between <span class='kw2'>actual/potential development</span>. Adult guidance / collaboration with capable peers.\"",compare:[{title:"<span class='kw2'>Actual development</span>",desc:"what L can do independently"},{title:"<span class='kw2'>Potential development</span>",desc:"what L can do with guidance/peers"}]},
-  {src:"Sociocultural Theory",cat:"Scaffolding",text:"<span class='kw3'>Scaffolding</span> in Sociocultural Theory has only one definition: the supportive environment created through guidance or feedback during collaboration.",ans:false,correct:"<span class='kw3'>Scaffolding</span> has <span class='kw2'>TWO definitions</span>: ① supportive environment through guidance/feedback ② interactional supports enabling L to perform what one cannot do independently.",why:"① 협력 과정에서 더 유능한 타인이 제공하는 지원적 환경 ② 학습자가 독립적으로 수행할 수 없는 것을 가능하게 하는 interactional supports. 기출에서 이 두 정의 구분이 중요합니다.",source:"\"<span class='kw3'>Scaffolding</span>: 1) Supportive environment through <span class='kw2'>guidance/feedback</span>. 2) <span class='kw2'>Interactional supports</span> enabling L to perform what one cannot do independently.\"",compare:[{title:"Definition ①",desc:"supportive environment · guidance/feedback"},{title:"Definition ②",desc:"interactional supports · independent performance"}]},
-  {src:"Sociocultural Theory",cat:"Regulation",text:"In Sociocultural Theory, the learning process progresses from <span class='kw1'>self-regulation</span> → <span class='kw1'>other-regulation</span> → <span class='kw1'>object-regulation</span> as learners become more proficient.",ans:false,correct:"Reversed: <span class='kw1'>object-regulation</span> → <span class='kw1'>other-regulation</span> → <span class='kw1'>self-regulation</span>. Self-regulation is the <span class='kw2'>goal</span>.",why:"object-regulation(물리적 도구 의존) → other-regulation(타인 안내 의존) → self-regulation(자율적 수행). 자기조절이 최종 목표입니다.",source:"\"Learning: '<span class='kw1'>object-regulation</span>' → '<span class='kw1'>other-regulation</span>' → '<span class='kw1'>self-regulation</span>'. Self-regulation: act <span class='kw2'>independently and autonomously</span>.\"",compare:[{title:"<span class='kw1'>Object-regulation</span>",desc:"physical objects · early stage"},{title:"<span class='kw1'>Other-regulation</span>",desc:"verbal guidance · middle stage"},{title:"<span class='kw1'>Self-regulation</span>",desc:"autonomous · goal"}]},
-  {src:"Sociocultural Theory",cat:"Imitation",text:"In Sociocultural Theory, <span class='kw2'>imitation</span> is viewed the same as in Behaviorism — as a mechanical, non-creative mimicry used for habit formation.",ans:false,correct:"In Sociocultural Theory, imitation is a <span class='kw2'>creative and transformative activity</span>. In Behaviorism, it is <span class='kw2'>mechanical mimicry</span>.",why:"Sociocultural Theory에서 imitation은 아직 이해하지 못한 L2 features를 의도적으로 모방하여 internalization으로 이어지는 창의적·변형적 활동입니다.",source:"\"<span class='kw2'>Behaviorism</span>: imitation = <span class='kw2'>non-creative, mechanical mimicry</span>. <span class='kw2'>Sociocultural Theory</span>: imitation = <span class='kw2'>creative and transformative activity</span>.\"",compare:[{title:"<span class='kw2'>Behaviorism</span>",desc:"mechanical · non-creative · habit formation"},{title:"<span class='kw3'>Sociocultural</span>",desc:"creative · transformative → internalization"}]},
-  {src:"SLA Theory",cat:"기출 종합",text:"According to Krashen, the most effective way to acquire a language is through explicit grammar instruction combined with form-focused drills, as this directly builds both <span class='kw2'>acquired</span> and <span class='kw2'>learnt</span> knowledge simultaneously.",ans:false,correct:"Krashen advocates <span class='kw2'>natural communication</span> with <span class='kw4'>comprehensible input</span>, <span class='kw2'>minimal error correction</span>, and <span class='kw2'>zero option for grammar instruction</span>.",why:"Krashen의 교육적 시사점: comprehensible input · silent period 존중 · minimal error correction · grammar instruction 불필요(zero option). 문법 드릴은 Behaviorism 방식입니다.",source:"\"Krashen: <span class='kw2'>Minimal error correction</span> / <span class='kw2'>silent period</span> / Input (<span class='kw2'>comprehensible, interesting, relevant</span>) / <span class='kw2'>Zero option for grammar instruction</span>.\"",compare:[{title:"<span class='kw4'>Krashen</span>",desc:"comprehensible input · no grammar drill"},{title:"<span class='kw2'>Behaviorism</span>",desc:"explicit grammar · pattern drill"}]}
+    "src": "Krashen",
+    "cat": "Acquisition vs Learning",
+    "text": "According to Krashen's <span class='kw4'>Non-interface position</span>, <span class='kw2'>acquired knowledge</span> and <span class='kw2'>learnt knowledge</span> can be integrated through sufficient practice, eventually allowing learned rules to become acquired.",
+    "ans": false,
+    "correct": "Krashen의 non-interface position에서는 learnt knowledge가 acquired knowledge로 직접 전환되지 않습니다.",
+    "why": "두 체계의 전환을 부정하는 것과 두 체계가 같은 수행에 기여하지 못한다는 것은 다릅니다. Acquired system이 발화를 시작하고 learnt knowledge는 조건이 맞으면 Monitor로 편집할 수 있습니다.",
+    "source": "출처 요약: Krashen (1982), Principles and Practice in Second Language Acquisition, pp.15–16, 83–90. 직접 인용이 아닙니다.",
+    "compare": [
+      {
+        "title": "<span class='kw4'>Non-interface (Krashen)</span>",
+        "desc": "Acquisition ≠ Learning · <span class='kw2'>no transfer</span>"
+      },
+      {
+        "title": "<span class='kw3'>Interface position (Bialystok)</span>",
+        "desc": "Explicit → Implicit <span class='kw2'>through practice</span>"
+      }
+    ]
+  },
+  {
+    "src": "Krashen",
+    "cat": "Monitor Hypothesis",
+    "text": "According to Krashen's <span class='kw4'>Monitor Hypothesis</span>, the monitor functions effectively in all communicative situations, automatically editing output during spontaneous conversation.",
+    "ans": false,
+    "correct": "Monitor의 사용에는 충분한 시간, 규칙에 대한 지식, 형식·정확성에 대한 주의가 필요합니다. 자발적 대화에서 항상 자동으로 작동하는 것은 아닙니다.",
+    "why": "자발적 대화에서는 Monitor의 사용 조건을 충족하기 어렵지만, 대화 중 사용이 전혀 불가능하다고 단정할 수도 없습니다. Krashen은 규칙과 상황에 따라 대화에서도 제한적으로 Monitor를 사용할 수 있음을 설명합니다.",
+    "source": "출처 요약: Krashen (1982), Principles and Practice in Second Language Acquisition, pp.16, 89–90. Monitor의 조건과 대화 중 제한적 사용 가능성을 구분한다. 직접 인용이 아님.",
+    "compare": [
+      {
+        "title": "사용 조건",
+        "desc": "충분한 시간 · 규칙 지식 · 형식에 대한 주의"
+      },
+      {
+        "title": "자발적 대화",
+        "desc": "조건 충족이 어려울 수 있으나 사용이 항상 불가능한 것은 아님"
+      }
+    ]
+  },
+  {
+    "src": "Krashen",
+    "cat": "Affective Filter",
+    "text": "According to Krashen's <span class='kw4'>Affective Filter Hypothesis</span>, learners with high motivation, low anxiety, and high self-esteem have a <span class='kw2'>higher</span> affective filter, which facilitates language acquisition.",
+    "ans": false,
+    "correct": "High motivation + low anxiety + high self-esteem = <span class='kw2'>LOWER</span> affective filter → <span class='kw2'>better acquisition</span>. A high filter <span class='kw2'>blocks</span> input.",
+    "why": "Affective filter는 comprehensible input이 intake로 전환되는 것을 막는 mental block입니다. Filter가 낮을수록 input이 더 잘 흡수됩니다.",
+    "source": "출처 요약: Brown (2014), Principles of Language Learning and Teaching, 6th ed., p.289. 직접 인용이 아닙니다.",
+    "compare": [
+      {
+        "title": "<span class='kw2'>Low filter</span>",
+        "desc": "low anxiety · high motivation → acquisition↑"
+      },
+      {
+        "title": "<span class='kw2'>High filter</span>",
+        "desc": "high anxiety · low confidence → input blocked"
+      }
+    ]
+  },
+  {
+    "src": "Swain's Output Hypothesis",
+    "cat": "3 Functions",
+    "text": "According to the Output Hypothesis, producing language can push learners to attend to grammatical form that they might bypass when understanding a message from context.",
+    "ans": true,
+    "correct": "Output은 학습자가 뜻을 직접 표현하는 데 필요한 형태를 선택하도록 유도할 수 있습니다. Input 이해에서도 문법 처리는 가능합니다.",
+    "why": "핵심은 input=의미만, output=문법만이라는 고정 분리가 아닙니다. 문맥으로 메시지를 이해한 학습자도 직접 표현하려면 표현에 필요한 형태를 모른다는 점을 알아차리고 가설을 시험하거나 언어를 검토할 수 있습니다. Output이 언제나 습득을 보장하지는 않습니다.",
+    "source": "출처 요약: Swain & Lapkin (1995), Problems in Output and the Cognitive Processes They Generate: A Step towards Second Language Learning, Applied Linguistics 16(3), 371–391; Swain (2005), The Output Hypothesis: Theory and Research, pp.473–474. 직접 인용이 아닙니다.",
+    "compare": [
+      {
+        "title": "<span class='kw3'>Noticing/Triggering</span>",
+        "desc": "gap between what S can/wants to say"
+      },
+      {
+        "title": "<span class='kw3'>Hypothesis testing</span>",
+        "desc": "try rules → feedback → modify"
+      },
+      {
+        "title": "<span class='kw3'>Metalinguistic</span>",
+        "desc": "reflect on own/others' language"
+      }
+    ]
+  },
+  {
+    "src": "Swain's Output Hypothesis",
+    "cat": "Pushed Output",
+    "text": "<span class='kw3'>Pushed output</span> refers to comprehensible input that is adjusted to be slightly beyond the learner's current proficiency level (i+1).",
+    "ans": false,
+    "correct": "Pushed output은 표현하려는 뜻을 더 정확하고 분명하며 상황에 적절하게 전달하도록 요구되는 output입니다. i+1은 Krashen의 input에 관한 설명입니다.",
+    "why": "더 많은 말이나 더 긴 문장을 만들었다는 사실만으로 pushed output을 판정하지 않습니다. 표현을 더 정확하거나 적절하게 만들도록 요구받는지 확인합니다.",
+    "source": "출처 요약: Swain (2005), The Output Hypothesis: Theory and Research, pp.473–474. 직접 인용이 아닙니다.",
+    "compare": [
+      {
+        "title": "<span class='kw4'>Comprehensible input (i+1)</span>",
+        "desc": "Krashen · input · slightly beyond proficiency"
+      },
+      {
+        "title": "<span class='kw3'>Pushed output</span>",
+        "desc": "Swain · output · pushed to produce more accurately"
+      }
+    ]
+  },
+  {
+    "src": "Schmidt's Noticing Hypothesis",
+    "cat": "Noticing / Intake",
+    "text": "Schmidt's Noticing Hypothesis proposes that noticing is necessary for input to become intake; noticing a form is not the same as fully acquiring it.",
+    "ans": true,
+    "correct": "<span class='kw4'>Noticing Hypothesis</span>의 핵심: <span class='kw2'>noticing</span>이 input → intake 전환의 <span class='kw2'>필수 전제 조건</span>입니다.",
+    "why": "Noticing은 특정 input에 대한 알아차림입니다. 일반화된 규칙을 설명하는 understanding과 구분하며, 학습 의도가 없던 incidental learning에서도 일어날 수 있습니다. Recast 제공만으로 실제 noticing을 보장할 수 없습니다.",
+    "source": "출처 요약: Schmidt (1990), The Role of Consciousness in Second Language Learning, Applied Linguistics 11(2), pp.132–134, 139–140. 직접 인용이 아닙니다.",
+    "compare": [
+      {
+        "title": "<span class='kw4'>Noticing</span>",
+        "desc": "input → <span class='kw2'>intake</span> 전환의 필수 조건"
+      },
+      {
+        "title": "<span class='kw3'>Noticing the gap</span>",
+        "desc": "interlanguage vs TL 비교 · recast · dictogloss"
+      }
+    ]
+  },
+  {
+    "src": "Krashen Criticism",
+    "cat": "HIG / LIG",
+    "text": "According to the criticism of Krashen's input-only view, <span class='kw3'>LIGs</span> outperform <span class='kw3'>HIGs</span> in SLA because they receive more carefully processed input.",
+    "ans": false,
+    "correct": "Brown이 소개한 Seliger의 연구에서는 HIG가 더 우수한 학습자로 나타났습니다. HIG는 상호작용을 시작하고 유지하며 input을 얻을 기회를 만듭니다.",
+    "why": "이 연구 결과를 모든 학습자에 대한 외향성 법칙으로 넓히지 않습니다. 관찰할 기준은 단순 발화량보다 상호작용을 시작·유지하는 행동입니다. LIG도 input을 처리하고 학습할 수 있습니다.",
+    "source": "출처 요약: Brown (2014), Principles of Language Learning and Teaching, 6th ed., p.290 (Seliger, 1983 연구 소개). 직접 인용이 아닙니다.",
+    "compare": [
+      {
+        "title": "HIG",
+        "desc": "상호작용 시작·유지로 input 기회 확보"
+      },
+      {
+        "title": "LIG",
+        "desc": "상대적으로 소극적인 상호작용 참여"
+      }
+    ]
+  },
+  {
+    "src": "Information Processing",
+    "cat": "Automatization",
+    "text": "<span class='kw4'>Automatization</span> refers to the process by which <span class='kw2'>controlled processing</span> becomes <span class='kw2'>automatic processing</span> through meaningful practice.",
+    "ans": true,
+    "correct": "Automatization은 연습을 통해 처리에 필요한 주의 요구가 줄고, controlled processing이 automatic processing으로 바뀌는 과정입니다.",
+    "why": "McLaughlin 모형에서는 controlled/automatic processing과 focal/peripheral attention을 서로 다른 축으로 구분합니다. Automatic processing을 무의식과 같은 뜻으로 보아서는 안 됩니다. 자동화된 처리에도 주의가 집중될 수 있습니다.",
+    "source": "출처 요약: Brown (2014), Principles of Language Learning and Teaching, 6판, pp.292–293, Table 10.5. 처리의 자동화 여부와 주의가 향하는 위치를 구분한다. 직접 인용이 아님.",
+    "compare": [
+      {
+        "title": "Controlled / Automatic",
+        "desc": "처리에 요구되는 주의와 자동화 정도"
+      },
+      {
+        "title": "Focal / Peripheral",
+        "desc": "주의가 중심적으로 또는 주변적으로 향하는 위치"
+      }
+    ]
+  },
+  {
+    "src": "Implicit / Explicit Knowledge",
+    "cat": "Knowledge vs Processing",
+    "text": "A learner may use a linguistic form spontaneously without being able to explain its rule; implicit knowledge and explicit knowledge are therefore distinguished.",
+    "ans": true,
+    "correct": "Implicit knowledge는 자발적인 언어 사용에 나타날 수 있고, explicit knowledge는 언어에 관해 설명할 수 있는 지식을 포함합니다.",
+    "why": "규칙 설명 능력과 실제 수행을 따로 봅니다. 모든 implicit knowledge가 명시적인 규칙 학습을 거쳐야 한다고 단정하지 않습니다. Knowledge의 구분과 processing의 controlled/automatic 구분도 완전히 같은 축은 아닙니다.",
+    "source": "출처 요약: Brown (2014), Principles of Language Learning and Teaching, 6th ed., p.294. 직접 인용이 아닙니다.",
+    "compare": [
+      {
+        "title": "Explicit knowledge",
+        "desc": "언어의 규칙·사실을 설명할 수 있음"
+      },
+      {
+        "title": "Implicit knowledge",
+        "desc": "언어 사용에 나타나지만 규칙 설명은 어려울 수 있음"
+      }
+    ]
+  },
+  {
+    "src": "Skill-acquisition",
+    "cat": "Declarative vs Procedural",
+    "text": "In Skill-acquisition Theory, <span class='kw1'>declarative knowledge</span> refers to the ability to actually use the language, while <span class='kw1'>procedural knowledge</span> is knowledge that can be stated or declared.",
+    "ans": false,
+    "correct": "Reversed. <span class='kw1'>Declarative knowledge</span> = <span class='kw2'>knowledge that can be stated</span>. <span class='kw1'>Procedural knowledge</span> = <span class='kw2'>ability to USE</span> the knowledge.",
+    "why": "규칙을 설명할 수 있는 것과 실제 과제에서 적용하는 능력을 구별합니다. 연습을 통한 proceduralization과 이후 수행의 automatization을 구분하며, 사용 능력이 생긴 즉시 완전히 자동화되는 것은 아닙니다.",
+    "source": "출처 요약: Brown (2014), Principles of Language Learning and Teaching, 6th ed., pp.294, 300. 직접 인용이 아닙니다.",
+    "compare": [
+      {
+        "title": "Declarative",
+        "desc": "know that · 규칙이나 사실에 관한 지식"
+      },
+      {
+        "title": "Procedural",
+        "desc": "know how · 수행에 사용하는 지식"
+      }
+    ]
+  },
+  {
+    "src": "Processability",
+    "cat": "Teachability Hypothesis",
+    "text": "According to the Teachability Hypothesis, instruction can make learners skip a developmental stage even when its prerequisite processing procedures are not yet available.",
+    "ans": false,
+    "correct": "Teachability Hypothesis는 필요한 processing procedures가 없는 developmental stage를 교수로 건너뛰게 할 수 없다고 봅니다.",
+    "why": "교수 효과가 제한된다는 주장과 교수가 무용하다는 주장은 다릅니다. 준비된 단계에 맞춘 교수는 도움이 될 수 있으나, 그 사실이 단계 순서를 바꾼다는 뜻은 아닙니다. 모든 언어 항목의 보편적 고정 순서를 주장하는 것도 아닙니다.",
+    "source": "출처 요약: Pienemann (1984), Psychological Constraints on the Teachability of Languages, Studies in Second Language Acquisition 6(2), 186–214, 저자 Extract; Pienemann (1989), Is Language Teachable?, Applied Linguistics 10(1), 52–79, Abstract. 직접 인용이 아닙니다.",
+    "compare": [
+      {
+        "title": "Readiness constraint",
+        "desc": "앞 단계의 처리 절차가 필요함"
+      },
+      {
+        "title": "Instructional benefit",
+        "desc": "준비된 발달 단계에 맞추어 교수할 수 있음"
+      }
+    ]
+  },
+  {
+    "src": "Interaction Hypothesis",
+    "cat": "Original vs Updated",
+    "text": "In the <span class='kw4'>original version</span> of Long's Interaction Hypothesis, both <span class='kw2'>comprehensible input</span> and <span class='kw2'>comprehensible output</span> are emphasized as equally essential for language acquisition.",
+    "ans": false,
+    "correct": "초기 Interaction Hypothesis는 상호작용을 통한 input의 이해를 강조합니다. 이후 논의에서는 feedback, attention, output의 역할이 함께 중요해집니다.",
+    "why": "Interactional modification은 input을 이해하기 쉽게 만들 수 있습니다. 그러나 모든 comprehensible input이 반드시 먼저 협상을 거쳐야 한다는 뜻은 아닙니다. 질문·재설명·수정 기회가 학습자의 처리와 어떻게 연결되는지 봅니다.",
+    "source": "출처 요약: Brown (2014), Principles of Language Learning and Teaching, 6th ed., pp.296–297. 직접 인용이 아닙니다.",
+    "compare": [
+      {
+        "title": "<span class='kw4'>Original</span>",
+        "desc": "interactional modification → comprehensible input"
+      },
+      {
+        "title": "<span class='kw3'>Updated</span>",
+        "desc": "+ comprehensible output + corrective feedback"
+      }
+    ]
+  },
+  {
+    "src": "Interaction Hypothesis",
+    "cat": "Negotiation of Meaning",
+    "text": "<span class='kw4'>Negotiation of meaning</span> occurs when interlocutors modify their interaction to achieve mutual comprehension, including <span class='kw2'>clarification requests</span>, <span class='kw2'>confirmation checks</span>, and <span class='kw2'>comprehension checks</span>.",
+    "ans": true,
+    "correct": "의미 협상에는 clarification request, confirmation check, comprehension check 등이 포함됩니다. 특정 전략 하나가 모든 상황에서 가장 효과적인 것은 아닙니다.",
+    "why": "참여자들은 서로 이해하기 위해 질문하거나 발화를 조정합니다. Clarification request는 재설명이나 수정을 유도할 수 있지만, 효과는 학습자·목표·과제와 측정 기준에 따라 달라집니다. 즉각적인 repair와 장기적인 학습 효과도 구분해야 합니다.",
+    "source": "출처 요약: Brown (2014), Principles of Language Learning and Teaching, 6판, pp.274–276. 교정 피드백의 효과를 학습자와 수업 맥락에 비추어 판단한다. 직접 인용이 아님.",
+    "compare": [
+      {
+        "title": "Clarification request",
+        "desc": "명확하지 않은 내용을 다시 설명해 달라고 요청"
+      },
+      {
+        "title": "Confirmation check",
+        "desc": "자신이 이해한 내용이 맞는지 확인"
+      },
+      {
+        "title": "Comprehension check",
+        "desc": "상대방이 자신의 발화를 이해했는지 확인"
+      }
+    ]
+  },
+  {
+    "src": "Sociocultural Theory",
+    "cat": "ZPD",
+    "text": "Vygotsky's <span class='kw4'>ZPD</span> refers to what a learner can already do independently without any assistance.",
+    "ans": false,
+    "correct": "<span class='kw4'>ZPD</span> = distance between <span class='kw2'>actual development</span> (independent) and <span class='kw2'>potential development</span> (with guidance/peers).",
+    "why": "ZPD는 혼자 할 수 있는 것(actual)과 타인의 도움으로 할 수 있는 것(potential) 사이의 거리입니다. 이 간격에서 scaffolding이 이루어집니다.",
+    "source": "출처 요약: Brown (2014), Principles of Language Learning and Teaching, 6th ed., pp.295–296. 직접 인용이 아닙니다.",
+    "compare": [
+      {
+        "title": "<span class='kw2'>Actual development</span>",
+        "desc": "what L can do independently"
+      },
+      {
+        "title": "<span class='kw2'>Potential development</span>",
+        "desc": "what L can do with guidance/peers"
+      }
+    ]
+  },
+  {
+    "src": "Sociocultural Theory",
+    "cat": "Scaffolding",
+    "text": "If a teacher completes a difficult task for a learner while the learner only watches, this alone demonstrates scaffolding of the learner’s own performance.",
+    "ans": false,
+    "correct": "학습자가 도움을 받아 자신이 혼자 하지 못하던 수행을 하도록 지원하는지 확인해야 합니다. 교사가 대신 완성했다는 사실만으로는 부족합니다.",
+    "why": "Scaffolding은 정의의 개수가 아니라 지원이 학습자의 수행에 어떤 도움을 주는지로 판단합니다. 과제 나누기, 핵심 단서 제시, 적절한 질문 등이 학습자의 수행을 가능하게 할 수 있습니다.",
+    "source": "출처 요약: Brown (2014), Principles of Language Learning and Teaching, 6th ed., pp.295–296. 직접 인용이 아닙니다.",
+    "compare": [
+      {
+        "title": "Supported performance",
+        "desc": "도움이 학습자의 수행을 가능하게 함"
+      },
+      {
+        "title": "Task done for learner",
+        "desc": "교사의 완성만으로 학습자 수행을 입증하지 못함"
+      }
+    ]
+  },
+  {
+    "src": "Sociocultural Theory",
+    "cat": "Regulation",
+    "text": "In Sociocultural Theory, the learning process progresses from <span class='kw1'>self-regulation</span> → <span class='kw1'>other-regulation</span> → <span class='kw1'>object-regulation</span> as learners become more proficient.",
+    "ans": false,
+    "correct": "Reversed: <span class='kw1'>object-regulation</span> → <span class='kw1'>other-regulation</span> → <span class='kw1'>self-regulation</span>. Self-regulation is the <span class='kw2'>goal</span>.",
+    "why": "Object-regulation, other-regulation, self-regulation은 외부 지원과 자기 조절의 관계를 설명합니다. 다만 사전 사용 한 번이나 도움 요청 한 번으로 학습자의 전체 발달 수준을 결정하지 않습니다. Self-regulation은 해당 과제에서의 독립적 수행에 초점을 둡니다.",
+    "source": "출처 요약: Brown (2014), Principles of Language Learning and Teaching, 6th ed., pp.295–296. 직접 인용이 아닙니다.",
+    "compare": [
+      {
+        "title": "<span class='kw1'>Object-regulation</span>",
+        "desc": "physical objects · early stage"
+      },
+      {
+        "title": "<span class='kw1'>Other-regulation</span>",
+        "desc": "verbal guidance · middle stage"
+      },
+      {
+        "title": "<span class='kw1'>Self-regulation</span>",
+        "desc": "autonomous · goal"
+      }
+    ]
+  },
+  {
+    "src": "Sociocultural Theory",
+    "cat": "Imitation",
+    "text": "In Sociocultural Theory, <span class='kw2'>imitation</span> is viewed the same as in Behaviorism — as a mechanical, non-creative mimicry used for habit formation.",
+    "ans": false,
+    "correct": "In Sociocultural Theory, imitation is a <span class='kw2'>creative and transformative activity</span>. In Behaviorism, it is <span class='kw2'>mechanical mimicry</span>.",
+    "why": "SCT의 imitation은 단순히 같은 소리를 되풀이하는 것에 한정되지 않고, 다른 사람의 표현을 자기 수행에 맞게 변형하는 활동이 될 수 있습니다. 단 한 번의 따라 말하기만으로 internalization이나 이후 독립적 사용을 입증하지는 않습니다.",
+    "source": "출처 요약: Lantolf (2006), Sociocultural Theory and L2: State of the Art, Studies in Second Language Acquisition 28(1), pp.90–95. doi:10.1017/S0272263106060037. 직접 인용이 아닙니다.",
+    "compare": [
+      {
+        "title": "<span class='kw2'>Behaviorism</span>",
+        "desc": "mechanical · non-creative · habit formation"
+      },
+      {
+        "title": "<span class='kw3'>Sociocultural</span>",
+        "desc": "creative · transformative → internalization"
+      }
+    ]
+  },
+  {
+    "src": "SLA Theory",
+    "cat": "이론 종합",
+    "text": "According to Krashen, the most effective way to acquire a language is through explicit grammar instruction combined with form-focused drills, as this directly builds both <span class='kw2'>acquired</span> and <span class='kw2'>learnt</span> knowledge simultaneously.",
+    "ans": false,
+    "correct": "Krashen은 meaning-focused comprehensible input을 통한 acquisition을 강조하며, learnt knowledge는 조건이 맞을 때 Monitor로 사용할 수 있다고 봅니다.",
+    "why": "명시적 규칙 학습이 acquired knowledge로 직접 전환된다는 설명은 Krashen의 non-interface position과 맞지 않습니다. 그렇다고 conscious learning의 역할을 모두 부정하는 것도 아닙니다.",
+    "source": "출처 요약: Krashen (1982), Principles and Practice in Second Language Acquisition, pp.15–16, 83–90. 직접 인용이 아닙니다.",
+    "compare": [
+      {
+        "title": "Acquisition",
+        "desc": "이해 가능한 메시지·의미 중심"
+      },
+      {
+        "title": "Learning / Monitor",
+        "desc": "규칙 지식·제한적 편집 역할"
+      }
+    ]
+  }
 ];
 function renderExp(q,isCorrect){
   const three=q.compare&&q.compare.length===3;
@@ -316,3 +630,4 @@ function freshStart(){localStorage.removeItem(SAVE_KEY);cur=0;answers=new Array(
 <script src="./study-return.js"></script>
 </body>
 </html>
+
