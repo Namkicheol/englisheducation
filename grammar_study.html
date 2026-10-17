@@ -87,6 +87,19 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 <link rel="stylesheet" href="./study-return.css">
 <link rel="stylesheet" href="./learning.css">
 <link rel="stylesheet" href="./mint-learning.css">
+<style>
+/* Scoped explanatory content; shared navigation and mint theme are unchanged. */
+#feedback-depth{margin:18px 0;border:1px solid var(--ew-border,#cddfd8);border-radius:10px;background:var(--ew-surface,#fff)}
+#feedback-depth>summary,#feedback-depth .feedback-answer>summary{min-height:44px;padding:13px 16px;cursor:pointer;font:inherit;font-weight:700;color:var(--ew-accent,#23654d)}
+#feedback-depth summary:focus-visible{outline:3px solid var(--ew-accent,#23654d);outline-offset:3px}
+#feedback-depth .feedback-content{padding:0 16px 16px;line-height:1.85;overflow-wrap:anywhere}
+#feedback-depth h3{font-size:1.08rem;margin:20px 0 8px}
+#feedback-depth p{margin:10px 0}
+#feedback-depth .feedback-dialogue{padding:12px 14px;border-left:3px solid var(--ew-accent,#23654d);background:var(--ew-soft,#eff8f3)}
+#feedback-depth .feedback-answer{border:1px solid var(--ew-border,#cddfd8);border-radius:8px;margin-top:12px}
+#feedback-depth .feedback-answer p{padding:0 16px 12px}
+</style>
+
 </head>
 <body class="etwiki-learning">
 <header class="ew-header"><div class="ew-brand-row"><a class="ew-brand" href="https://etwiki.net/index.html">기출 WIKI</a><span class="ew-header-label">학습자료</span><a class="ew-back" href="https://etwiki.net/study.html">전체 자료 ↗</a></div><nav class="ew-subjects" aria-label="학습 영역"><a href="https://namkicheol.github.io/englisheducation/" aria-current="location">영어교육론</a><a href="https://namkicheol.github.io/linguistics/">영어학</a><a href="https://namkicheol.github.io/phonetics-phonology/phonetics.html">음성·음운론</a></nav></header>
@@ -486,7 +499,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         <div class="c-title"><span class='kw4'>① Recast</span> <span class="badge-ex">★★★</span></div>
         <div class="def">Reformulation of the whole or part of a learner's erroneous utterance into a correct form while maintaining the overall focus on meaning without altering the central meaning.</div>
         <p class="note">positive + negative evidence 동시 포함</p>
-        <p class="note">오류에 대해 <strong>명시적 주의를 끌지 않음</strong> (implicit) → 의미 흐름 유지</p>
+        <p class="note">오류를 직접 지적하지 않는 방식으로 제시되는 경우가 많음 → 의미 흐름 유지. 억양·강조·앞뒤 반응에 따라 명시성은 달라질 수 있음</p>
         <p class="note">ungrammaticality는 암시적으로 표현됨</p>
         <p class="note"><em>e.g. S: "She catched the dog." → T: "Oh, she CAUGHT the dog."</em></p>
         <div class="exam" style="margin-top:10px">
@@ -557,7 +570,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
             <span>학습자의 오류 발화를 <strong>강조된 억양으로</strong> 반복</span>
             <span>ill-formed 부분을 억양 변화로 부각</span>
             <span>self-repair 기회 제공</span>
-            <span><em>S: "I pay 10 dollars." → T: "I PAY?" (rising intonation)</em></span>
+            <span><em>어제 지출을 말하는 상황 — S: "Yesterday, I pay 10 dollars." → T: "You PAY?" (rising intonation)</em></span>
           </div>
         </div>
       </div>
@@ -614,6 +627,38 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         </table>
       </div>
     </div>
+
+
+    <p class="note">위 표의 implicit/explicit 구분은 Ellis(2009, p.8)의 분류에 따른다. 실제 feedback의 명시성은 억양과 강조, 앞뒤 대화에 따라 달라질 수 있다. Recast도 항상 같은 정도로 implicit한 것은 아니다.</p>
+    <details id="feedback-depth">
+      <summary>설명 더 보기 · 같은 오류에 어떻게 반응할까?</summary>
+      <div class="feedback-content">
+        <p>교사가 올바른 표현을 직접 말했는지, 오류라는 점을 어떻게 알렸는지 나누어 본다. 교사가 무엇을 했는지 판단한 뒤에 학습자의 반응을 살핀다.</p>
+        <p class="note">아래 대화는 유형을 비교하기 위해 만든 학습용 예시다.</p>
+        <p class="feedback-dialogue">어제 한 일을 말하는 학생: <span lang="en">"Yesterday, I go to the museum."</span></p>
+        <h3>Recast: 표현을 바꾸어 들려주기</h3>
+        <p class="feedback-dialogue">교사: <span lang="en">"Oh, you went to the museum yesterday. What did you see?"</span></p>
+        <p>교사는 <strong>go를 went로 바꾸어</strong> 들려주면서 학생이 전하려던 뜻을 유지한다. 이어서 무엇을 봤는지 물으며 대화를 계속한다. 이 예에서는 오류를 직접 지적하지 않아, 학생이 교정 의도를 알아차리지 못하고 내용 확인으로 받아들일 수도 있다.</p>
+        <h3>Explicit correction: 오류를 알리고 올바른 표현 주기</h3>
+        <p class="feedback-dialogue">교사: <span lang="en">"Not ‘go’. You should say ‘went’: ‘I went to the museum yesterday.’"</span></p>
+        <p>이번에는 잘못된 표현을 지적하고 올바른 표현도 제공했다. 앞의 Recast도 went를 들려주지만, 이 반응은 <strong>어떤 표현이 잘못되었는지 명시했다</strong>는 점에서 다르다.</p>
+        <h3>Metalinguistic feedback: 규칙에 관한 단서 주기</h3>
+        <p class="feedback-dialogue">교사: <span lang="en">"You’re talking about yesterday. Which tense do you need?"</span></p>
+        <p>교사는 tense에 관한 단서를 주었지만 went라는 답은 말하지 않았다. 학생이 사용한 표현을 돌아보고 스스로 고치도록 유도한다. 질문이라는 모양만 보고 분류하지 않고, <strong>표현의 규칙이나 적절성에 관한 정보를 주는지</strong> 확인한다.</p>
+        <h3>두 분류 기준을 구별하기</h3>
+        <p>Input-providing과 prompts는 올바른 표현을 제공하는지에 관한 구분이다. Implicit과 explicit은 오류에 주의를 얼마나 직접적으로 돌리는지에 관한 구분이다. 따라서 prompt라는 이유만으로 항상 explicit이라고 결론 내리지는 않는다. 억양과 강조, 앞뒤 대화도 판단에 영향을 준다.</p>
+        <h3>Uptake와 repair는 학습자의 반응</h3>
+        <p>교사가 단서를 준 뒤 학생이 <span lang="en">"Oh, I went to the museum."</span>이라고 고치면 feedback에 대한 uptake가 나타났고 repair도 이루어진 것이다. 반응했더라도 오류가 남아 있다면 성공적인 repair라고 할 수 없다. 여기서 확인한 즉각적인 반응만으로 이후에도 정확히 사용하거나 장기적으로 습득했다고 판단하지 않는다.</p>
+        <p><strong>Recast는 교사의 feedback 유형이고, uptake는 그에 대한 학습자의 반응</strong>이다. 둘을 같은 수준의 분류로 혼동하지 않는다.</p>
+        <h3>기출에 연결하기</h3>
+        <p><a href="https://etwiki.net/index.html?id=education_2022_B11" target="_blank" rel="noopener">2022학년도 전공 B 11번 · 직접 출제: explicit feedback</a></p>
+        <p>이 문제는 주어진 네 분류 중 각 대화에 해당하는 것을 고르고 근거를 설명하도록 한다. Example 1에서는 오류 뒤 교사가 필요한 tense를 직접 말한다는 점을 근거로 A2를 고른다. Example 2는 오류가 나오기 전에 학생이 날짜 표현을 질문하므로 B1이다. 이 단원의 metalinguistic feedback 설명은 첫 대화의 단서를 이해하는 데 연결되지만, 발문이 여섯 feedback 유형이나 uptake의 이름을 직접 요구하는 것은 아니다.</p>
+        <h3>적용해 보기</h3>
+        <p>교사가 <span lang="en">"Which tense do you need?"</span>라고 물은 뒤 학생이 <span lang="en">"I went …"</span>라고 고쳤다. 교사의 반응과 학생의 반응을 각각 어떻게 설명할까?</p>
+        <details class="feedback-answer"><summary>해설 확인</summary><p>교사는 tense에 관한 단서를 제공했으므로 metalinguistic feedback이다. 학생은 그 feedback에 반응하여 잘못된 표현을 수정했으므로 uptake와 repair가 모두 관찰된다. 교사가 올바른 표현을 직접 제공하지 않았다는 점도 확인한다.</p></details>
+        <p class="note">참고: Brown, <cite>Principles of Language Learning and Teaching</cite>, 6th ed. (2014), pp.272–273; Ellis, <a href="https://escholarship.org/uc/item/2504d6w3" target="_blank" rel="noopener"><cite>Corrective Feedback and Teacher Development</cite></a> (2009), p.8. 대화 예문은 새로 구성했다.</p>
+      </div>
+    </details>
 
   </div>
 </div>
@@ -825,3 +870,4 @@ function openSec(id){ const s=document.getElementById(id); s.classList.add('open
 <script src="./study-return.js"></script>
 </body>
 </html>
+
