@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch.01 SLA Theory — Public Preview</title>
+<link rel="stylesheet" href="./study-return.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=JetBrains+Mono:wght@400;600&family=Caveat:wght@600&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans KR',sans-serif;background:#f4f3ed;background-image:repeating-linear-gradient(transparent,transparent 27px,#d5d8cf 28px);color:#1a1a1a;min-height:100vh;padding:16px;font-size:17px;line-height:1.75}
+.header-wrap{max-width:820px;margin:0 auto;padding:24px 8px 0}
+.header-topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.header-sticker{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;background:#1a3326;color:#e8f5e9;padding:5px 13px;border-radius:3px;letter-spacing:2px;text-transform:uppercase}
+.header-chapter{font-family:'JetBrains Mono',monospace;font-size:12px;color:#4a5a44;letter-spacing:.5px}
+.header-title{font-size:clamp(30px,7vw,46px);font-weight:900;color:#1a1a1a;line-height:1.1;margin-bottom:5px;letter-spacing:-1px}
+.title-hl{background:#00695c;color:#fff;padding:1px 6px}
+.header-script{font-family:'Caveat',cursive;font-size:21px;color:#00695c;margin-bottom:4px;font-weight:600}
+.header-sub{font-size:13px;color:#555;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#aaa;margin-bottom:10px}
+.header-divider{border:none;border-top:2px dashed #888;margin-bottom:10px}
+.header-tip{font-size:12px;color:#2e4a3a;font-family:'JetBrains Mono',monospace;margin-bottom:20px;background:rgba(0,105,92,.06);border:1px solid rgba(0,105,92,.2);border-radius:8px;padding:9px 14px;line-height:1.7}
+.wrap{max-width:820px;margin:0 auto}
+.sec{background:#fff;border:1.5px solid #b2dfcc;border-radius:16px;margin-bottom:20px;overflow:hidden;box-shadow:0 2px 8px rgba(46,125,82,.08)}
+@media(max-width:600px){.grid.col2,.grid.col3{grid-template-columns:1fr}}
+.sec-header{width:100%;background:linear-gradient(135deg,rgba(46,125,82,.08),rgba(38,166,154,.05));border:0;border-bottom:1.5px solid #b2dfcc;padding:16px 22px;display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none;text-align:left;color:inherit;font:inherit}
+.sec-icon{font-size:20px}
+.sec-title{font-size:16px;font-weight:700;color:#1b5e3a;font-family:'JetBrains Mono',monospace}
+.sec-tag{font-size:11px;color:#2e7d52;background:rgba(46,125,82,.1);padding:3px 10px;border-radius:6px;margin-left:auto;font-weight:600}
+.sec-tag.red{background:rgba(183,28,28,.12);color:#b71c1c;border:1px solid rgba(183,28,28,.2)}
+.sec-tag.orange{background:rgba(230,119,0,.12);color:#bf6000;border:1px solid rgba(230,119,0,.2)}
+.sec-arrow{font-size:13px;color:#4a7a62;transition:transform .3s;margin-left:6px}
+.sec.open .sec-arrow{transform:rotate(180deg)}
+.sec-body{display:none;padding:24px}
+.sec.open .sec-body{display:block}
+.concept{margin-bottom:28px;min-width:0}
+.concept:last-child{margin-bottom:0}
+.c-title{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;color:#1b5e3a;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.badge-ex{font-size:10px;background:rgba(230,119,0,.12);color:#e67c00;border:1px solid rgba(230,119,0,.3);padding:2px 7px;border-radius:4px;letter-spacing:0;text-transform:none;font-weight:700}
+.def{background:rgba(46,125,82,.06);border-left:4px solid #2e7d52;padding:15px 18px;border-radius:0 10px 10px 0;margin-bottom:12px;font-size:18px;line-height:1.85;color:#1a1a1a}
+.note{font-size:17px;color:#3a6b51;line-height:1.8;margin-bottom:8px;padding-left:6px;overflow-wrap:anywhere}
+.note::before{content:"• ";color:#26a69a;font-weight:700}
+.kw1{background:rgba(46,125,82,.15);color:#1b5e3a;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(46,125,82,.25);overflow-wrap:anywhere}
+.kw2{color:#00796b;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border-bottom:2px solid rgba(0,121,107,.45);overflow-wrap:anywhere}
+.kw3{background:rgba(230,119,0,.13);color:#bf6000;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(230,119,0,.3);overflow-wrap:anywhere}
+.kw4{background:rgba(183,28,28,.11);color:#b71c1c;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(183,28,28,.25);overflow-wrap:anywhere}
+.grid{display:grid;gap:10px;margin-top:12px}
+.grid.col2{grid-template-columns:1fr 1fr}
+.grid.col3{grid-template-columns:1fr 1fr 1fr}
+.grid-item{background:#f5fdf8;border:1.5px solid #b2dfcc;border-radius:10px;padding:14px 16px}
+.gi-title{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#2e7d52;margin-bottom:7px}
+.gi-body{font-size:16px;color:#3a6b51;line-height:1.75;overflow-wrap:anywhere}
+.gi-body span{display:block}
+.flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px}
+.flow-item{background:#f5fdf8;border:1.5px solid #b2dfcc;border-radius:8px;padding:10px 16px;font-size:13px;color:#1a1a1a;text-align:center;line-height:1.5}
+.flow-arrow{color:#26a69a;font-size:18px;font-weight:700}
+.stage-wrap{margin-top:12px;overflow:visible;min-width:0}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{background:rgba(46,125,82,.1);color:#1b5e3a;font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;padding:10px 14px;border:1.5px solid #b2dfcc;text-align:left;font-weight:700}
+td{padding:10px 14px;border:1.5px solid #b2dfcc;color:#2a5040;vertical-align:top;line-height:1.65}
+tr:nth-child(even) td{background:rgba(46,125,82,.04)}
+.exam{background:rgba(230,119,0,.06);border:1.5px solid rgba(230,119,0,.25);border-radius:10px;padding:14px 16px;margin-top:14px}
+.exam-label{font-size:11px;font-family:'JetBrains Mono',monospace;color:#e67c00;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;font-weight:700}
+.exam p{font-size:15.5px;color:#6b4400;line-height:1.8;margin-bottom:7px;overflow-wrap:anywhere}
+.div{height:1px;background:rgba(38,166,154,.2);margin:18px 0}
+.toc{max-width:820px;margin:0 auto 20px;background:#fff;border:1.5px solid #b2dfcc;border-radius:12px;padding:16px 20px;box-shadow:0 2px 8px rgba(46,125,82,.06)}
+.toc-title{font-size:11px;font-family:'JetBrains Mono',monospace;color:#4a7a62;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;font-weight:700}
+.toc-list{display:flex;flex-wrap:wrap;gap:7px}
+.toc-item{font-size:13px;color:#2e7d52;background:rgba(46,125,82,.08);border:1.5px solid rgba(46,125,82,.2);padding:7px 12px;border-radius:8px;cursor:pointer;transition:all .15s;font-family:'JetBrains Mono',monospace;font-weight:600}
+.toc-item:hover{background:rgba(46,125,82,.18)}
+.toc-item:focus-visible,.sec-header:focus-visible,a:focus-visible,.explain-more summary:focus-visible{outline:3px solid #b45309;outline-offset:3px;position:relative;z-index:1}
+.exam a{color:#7c3d00;font-weight:800;text-decoration-thickness:1.5px;text-underline-offset:3px}
+.exam a:hover{color:#1b5e3a}
+.exam .exam-context{margin-top:12px;padding-top:12px;border-top:1px dashed rgba(230,119,0,.4)}
+.explain-more{margin-top:22px;border:1.5px solid #b2dfcc;border-radius:12px;background:#fbfffc;overflow:hidden}
+.explain-more summary{list-style:none;cursor:pointer;min-height:50px;padding:12px 16px;display:flex;align-items:center;gap:9px;color:#1b5e3a;font-size:16px;font-weight:800}
+.explain-more summary::-webkit-details-marker{display:none}
+.explain-more summary::before{content:'＋';display:inline-grid;place-items:center;width:25px;height:25px;border-radius:50%;background:#e6f3eb;color:#1b5e3a;flex:none}
+.explain-more[open] summary::before{content:'−'}
+.explain-more .summary-hint{font-size:14px;font-weight:500;color:#4a7a62}
+.explain-content{border-top:1px solid #c8ead8;padding:20px 22px 22px;color:#24372b;font-size:17px;line-height:1.85}
+.explain-content p{margin:0 0 12px}
+.explain-content p:last-child{margin-bottom:0}
+.explain-content h3{font-size:17px;color:#1b5e3a;margin:18px 0 8px}
+.explain-content ul,.explain-content ol{padding-left:1.35em;margin:8px 0 14px}
+.explain-content li{margin:5px 0}
+.explain-content .exam{margin-top:14px}
+.explain-content .decision-cue{text-decoration-line:underline;text-decoration-color:#7c3d00;text-decoration-thickness:2px;text-underline-offset:3px;font-weight:700;text-decoration-skip-ink:none}
+.explain-content mark.key-highlight{color:#17231b;background:#ffe66d;padding:0 .16em;border-radius:3px;box-decoration-break:clone;-webkit-box-decoration-break:clone;font-weight:800}
+.explain-content mark.key-highlight.green{background:#b9f2cf}
+.explain-content mark.key-highlight.blue{background:#bde7ff}
+.exam-year-row{display:flex;flex-wrap:wrap;gap:7px;margin:9px 0 12px}
+.exam-year{display:inline-flex;align-items:center;min-height:28px;padding:3px 9px;border:1px solid #b71c1c;border-radius:999px;background:#fff;color:#b71c1c;font-size:13px;font-weight:900;line-height:1.25;text-decoration:none}
+.exam-year:hover{background:#fff0ef;text-decoration:underline}
+.concept-term-link{color:inherit;text-decoration:underline dotted;text-decoration-thickness:1px;text-underline-offset:3px}
+.concept-term-link:hover{text-decoration-style:solid}
+.diagram-concept-link{cursor:pointer}
+.diagram-concept-link:hover rect,.diagram-concept-link:focus-visible rect{stroke:#b71c1c;stroke-width:3}
+.frequent-topic{margin:18px 0 4px;border:2px solid #e6bd3e;border-radius:12px;background:#fffdf3;overflow:hidden}
+.frequent-topic summary{list-style:none;cursor:pointer;padding:12px 15px;color:#b71c1c;font-size:16px;font-weight:900;line-height:1.5}
+.frequent-topic summary::-webkit-details-marker{display:none}
+.frequent-topic summary::before{content:'＋';display:inline-grid;place-items:center;width:24px;height:24px;margin-right:8px;border-radius:50%;background:#fff0cf;color:#b71c1c}
+.frequent-topic[open] summary::before{content:'−'}
+.frequent-topic .frequent-title{color:#b71c1c;font-weight:900}
+.frequent-topic .frequent-body{padding:14px 17px 17px;border-top:1px solid #f0d87d;color:#24372b;font-size:16px;line-height:1.8}
+.frequent-topic .frequent-body p{margin:0 0 10px}
+.frequent-topic .frequent-body p:last-child{margin-bottom:0}
+.flow-mobile{display:none}
+.study-sources{background:#fff;border:1.5px solid #b2dfcc;border-radius:14px;padding:20px 22px;margin:22px 0 0}
+.study-sources h2{font-size:18px;color:#1b5e3a;margin-bottom:8px}
+.study-sources p{font-size:15px;line-height:1.8;color:#3a6b51;margin:5px 0}
+.legend{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 16px;padding:10px 14px;background:#fff;border:1.5px solid #b2dfcc;border-radius:10px;align-items:center}
+@media(max-width:640px){
+  body{padding:10px;font-size:16.5px;line-height:1.8}
+  .grid.col3,.grid.col2{grid-template-columns:1fr}
+  .sec-body{padding:16px}
+  .sec-header{padding:15px 14px;gap:8px;align-items:flex-start}
+  .sec-title{font-size:14px;line-height:1.5}
+  .sec-tag{font-size:10px;line-height:1.4}
+  .def{font-size:17px;padding:13px 14px}
+  .note{font-size:16.5px}
+  .gi-body{font-size:16px}
+  .stage-wrap{overflow:visible}
+  .stage-wrap svg{display:none;min-width:0;width:100%;height:auto}
+  .flow-mobile{display:grid;gap:7px;margin-top:10px}
+  .flow-mobile div{background:#f5fdf8;border:1px solid #b2dfcc;border-radius:9px;padding:9px 12px;font-size:15.5px;line-height:1.55}
+  .flow-mobile .flow-down{text-align:center;background:transparent;border:0;padding:0;color:#00796b;font-size:18px;font-weight:800;line-height:1}
+  .flow-mobile .flow-term-label{background:#fff7f5;border:1px solid #e5a7a0;border-radius:9px;padding:9px 12px;color:#7a2620;font-size:15px;font-weight:750;line-height:1.55}
+  .stage-wrap table,.stage-wrap tbody,.stage-wrap tr,.stage-wrap td{display:block;width:100%}
+  .stage-wrap thead{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  .stage-wrap tr{background:#fff;border:1px solid #b2dfcc;border-radius:9px;margin:0 0 9px;overflow:hidden}
+  .stage-wrap td{display:grid;grid-template-columns:minmax(7rem,34%) minmax(0,1fr);gap:9px;padding:9px 10px;border:0;border-bottom:1px solid #e1eee5;font-size:15px;line-height:1.55}
+  .stage-wrap td:last-child{border-bottom:0}
+  .stage-wrap td::before{content:attr(data-label);font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#1b5e3a}
+  .explain-content{padding:16px;font-size:16px}
+  .frequent-topic summary{font-size:15.5px;padding:11px 12px}
+  .frequent-topic .frequent-body{padding:13px;font-size:15.5px}
+  .exam-year{min-height:32px;padding:5px 10px}
+  .explain-more summary{align-items:flex-start;flex-wrap:wrap;font-size:15.5px}
+  .explain-more .summary-hint{flex-basis:100%;padding-left:34px}
+  .study-sources{padding:16px}
+  .study-return-link{position:static;transform:none;display:flex;width:max-content;margin:0 auto 16px}
+}
+.learning-nav{max-width:820px;margin:0 auto 16px;padding:0 8px;display:flex;flex-wrap:wrap;gap:7px}
+.learning-nav.bottom{margin-top:24px;margin-bottom:72px}
+.learning-nav a{flex:1 1 140px;background:#fff;border:1.5px solid #b2dfcc;border-radius:8px;padding:8px 10px;color:#1b5e3a;text-decoration:none;text-align:center;font-size:12px;font-weight:700;line-height:1.4;transition:background .15s,border-color .15s}
+.learning-nav a:hover{background:#f0faf5;border-color:#2e7d52}
+@media(max-width:640px){.learning-nav a{flex-basis:calc(50% - 7px)}}
+</style>
+</head>
+<body>
+<nav class="learning-nav" aria-label="SLA 미리보기 내비게이션">
+  <a href="https://etwiki.net/index.html">기출 WIKI</a>
+  <a href="#page-top">미리보기 상단</a>
+  <a href="#s1">① 기초 이론</a>
+  <a href="#s3">③ Input Hypothesis</a>
+  <a href="#s4">④ Output Hypothesis</a>
+  <a href="#s8">⑧ Interaction</a>
+  <a href="#s9">⑨ Sociocultural Theory</a>
+</nav>
+  <a href="https://etwiki.net/index.html">기출 WIKI</a>
+  <a href="#page-top">영어교육론 허브</a>
+  <a href="#page-top">📝 이 챕터 OX 퀴즈</a>
+  <a href="https://namkicheol.github.io/linguistics/">영어학</a>
+  <a href="https://namkicheol.github.io/phonetics-phonology/phonetics.html">음성·음운론</a>
+  <a href="https://etwiki.net/keyterm-quiz.html">영어교육론 키텀</a>
+</nav>
+<div class="header-wrap" id="page-top">
+  <div class="header-topbar">
+    <span class="header-sticker">STUDY NOTE</span>
+    <span class="header-chapter">Ch.01 · SLA Theory</span>
+  </div>
+  <h1 class="header-title"><span class="title-hl">개념 정리</span> 노트</h1>
+  <div class="header-script">Concept Notes · SLA Theory</div>
+  <p class="header-sub">서브노트 순서 기반 · 기출 포인트 · 비교 도식</p>
+  <div class="header-divider"></div>
+  <p class="header-tip">📌 목차 버튼 클릭 → 해당 섹션으로 이동 &nbsp;·&nbsp; ▼ 섹션 제목 클릭 → 열고 닫기</p>
+</div>
+<div class="wrap">
+<!-- TOC -->
+<div class="toc">
+  <div class="toc-title">📋 목차</div>
+  <div class="toc-list">
+    <button class="toc-item" type="button" onclick="openSec('s1')">① Behaviorism</button>
+    <button class="toc-item" type="button" onclick="openSec('s2')">② Universal Grammar</button>
+    <button class="toc-item" type="button" onclick="openSec('s3')">③ Krashen's 5 Hypotheses</button>
+    <button class="toc-item" type="button" onclick="openSec('s4')">④ Output Hypothesis</button>
+    <button class="toc-item" type="button" onclick="openSec('s5')">⑤ Noticing / HIG·LIG</button>
+    <button class="toc-item" type="button" onclick="openSec('s6')">⑥ Information Processing</button>
+    <button class="toc-item" type="button" onclick="openSec('s7')">⑦ Processability</button>
+    <button class="toc-item" type="button" onclick="openSec('s8')">⑧ Interaction Hypothesis</button>
+    <button class="toc-item" type="button" onclick="openSec('s9')">⑨ Sociocultural Theory</button>
+  </div>
+</div>
+
+<!-- 범례 -->
+<div class="legend">
+  <span class="legend-title">키워드</span>
+  <span class="legend-item"><span class="kw4">★★★ 최빈출</span></span>
+  <span class="legend-item"><span class="kw3">★★ 빈출</span></span>
+  <span class="legend-item"><span class="kw1">★ 기본개념</span></span>
+  <span class="legend-item"><span class="kw2">부키워드</span></span>
+</div>
+
+<!-- 기출분석 -->
+<div class="exam" style="margin-bottom:20px">
+  <div class="exam-label">📝 기출분석 포인트</div>
+  <p>① <a class='kw4 concept-term-link' href="https://etwiki.net/concept.html?term=input%20hypothesis">Input Hypothesis</a> · <a class='kw4 concept-term-link' href="https://etwiki.net/concept.html?term=Interaction%20Hypothesis">Interaction Hypothesis</a> · <a class='kw4 concept-term-link' href="https://etwiki.net/concept.html?term=Output%20Hypothesis">Output Hypothesis</a> 3대 가설 → 최빈출</p>
+  <p>② <a class='kw4 concept-term-link' href="https://etwiki.net/concept.html?term=Interaction%20Hypothesis">Interaction Hypothesis</a>: <span class='kw3'>original version</span>(input comprehensible하게) vs <span class='kw3'>updated version</span>(output comprehensible하게) 구분 필수</p>
+  <p>③ <a class='kw4 concept-term-link' href="https://etwiki.net/concept.html?term=negotiation%20of%20meaning">Negotiation of meaning</a>은 질문 이름만 외우지 말고, 실제로 누가 무엇을 확인하려는지 단서를 찾습니다.</p>
+  <p>④ Scaffolding 두 가지 정의 구분 (supportive environment vs interactional supports)</p>
+  <p>⑤ <span class='kw3'>Non-interface position</span>(Krashen) vs <span class='kw3'>Interface position</span>(Bialystok) 대비</p>
+  <p>⑥ Teachability Hypothesis vs Krashen's <span class='kw2'>zero option</span> 대비</p>
+</div>
+
+<!-- ① Behaviorism -->
+<div class="sec open" id="s1">
+  <button class="sec-header" type="button" aria-expanded="true" aria-controls="s1-body" onclick="toggle('s1',this)">
+    <span class="sec-icon">🔨</span>
+    <span class="sec-title"><a class="concept-term-link" href="https://etwiki.net/concept.html?term=Behaviorism">① Behaviorism</a></span>
+    <span class="sec-tag">Structuralism · ALM · Rote Learning</span>
+    <span class="sec-arrow">▼</span>
+  </button>
+  <div class="sec-body" id="s1-body">
+    <div class="concept">
+      <div class="c-title"><a class="concept-term-link" href="https://etwiki.net/concept.html?term=structuralism">Structuralism</a></div>
+      <div class="def"><span class='kw2'>Structural linguistics</span> describes a language by identifying its units and the patterned relations among them. It focuses on observable forms and regular structures; this is not the same claim as a theory of how learners acquire a language.</div>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">Audiolingual Method (ALM)</div>
+      <div class="def"><span class='kw2'>Audiolingual Method (ALM)</span> drew on structural descriptions of language and behaviorist ideas about learning. It gives a prominent role to listening and speaking, model dialogues, controlled pattern practice, repetition, and feedback, with the aim of developing reliable language habits.</div>
+      <p class="note"><span class='kw1'>Pattern drills</span> give learners repeated, controlled chances to produce a target pattern. A drill can carry meaning; the key contrast is how much learners choose and communicate, not whether every repetition is meaningless.</p>
+      <p class="note"><a class='kw1 concept-term-link' href="https://etwiki.net/concept.html?term=rote%20learning">Rote learning</a> stores an item with little connection to what the learner already knows. It can support short-term recall, but alone it gives fewer links for later retrieval and transfer.</p>
+      <p class="note">↔ <a class='kw3 concept-term-link' href="https://etwiki.net/concept.html?term=meaningful%20learning">Meaningful learning</a> connects new material to relevant existing knowledge. <a class='kw2 concept-term-link' href="https://etwiki.net/concept.html?term=subsumption">Subsumption</a> names the anchoring relationship; it predicts a better basis for retention, not perfect recall.</p>
+    </div>
+    <div class="grid col2">
+      <div class="grid-item">
+        <div class="gi-title"><span class='kw1'>Rote learning</span></div>
+        <div class="gi-body">
+          <span>isolated · no cognitive connection</span>
+          <span>few links to prior knowledge</span>
+        </div>
+      </div>
+      <div class="grid-item">
+        <div class="gi-title"><span class='kw3'>Meaningful learning</span></div>
+        <div class="gi-body">
+          <span><span class='kw2'>anchoring</span> to existing structure</span>
+          <span>connected to prior knowledge · Ausubel</span>
+        </div>
+      </div>
+    </div>
+  <details class="explain-more"><summary>자세히 보기 <span class="summary-hint">구조 기술·학습 이론·교수법</span></summary><div class="explain-content"><p><b>Structural linguistics</b>는 언어의 단위와 패턴을 기술합니다. <b>Behaviorism</b>은 반복·모방·피드백이 습관 형성에 하는 역할을 설명합니다. 두 관점을 활용한 예가 <b>ALM</b>이지 구조주의가 행동주의라는 뜻은 아닙니다.</p><p><b>Pattern drill</b>은 목표형을 통제해 반복합니다. 의미 있는 문장으로도 할 수 있으므로 의미 유무만으로 분류하지 마세요. <b>Rote learning</b>은 선행 지식과 적게 연결하고, <b>meaningful learning</b>은 새 지식을 기존 구조에 연결합니다. <b>Subsumption</b>은 이 anchoring 관계입니다.</p><p class="ox"><b>OX</b> 의미 있는 문장 반복은 pattern drill이 아니다. <b>정답 X</b>: 통제된 반복인지가 기준입니다. <b>변형:</b> 학습자가 목적에 맞는 형태를 고르고 새 뜻을 전하면 자율적인 의미 중심 사용 단서가 늘어납니다.</p></div></details>
+    </div>
+</div>
+
+<!-- ② Universal Grammar -->
+<div class="sec" id="s2">
+  <button class="sec-header" type="button" aria-expanded="false" aria-controls="s2-body" onclick="toggle('s2',this)">
+    <span class="sec-icon">🧬</span>
+    <span class="sec-title">② Universal Grammar Model</span>
+    <span class="sec-tag">Innatism · LAD</span>
+    <span class="sec-arrow">▼</span>
+  </button>
+  <div class="sec-body" id="s2-body">
+    <div class="concept">
+      <div class="def"><span class='kw2'>Universal Grammar (UG)</span> is a nativist account of constraints on possible human grammars. In <span class='kw1'>Principles-and-Parameters</span> accounts, principles express broad constraints and parameters represent points of variation among languages.</div>
+      <p class="note"><span class='kw1'>LAD (Language Acquisition Device)</span> is a theoretical label for an innate human capacity that helps explain children's language development; it is not a literal classroom tool that teachers can observe directly.</p>
+      <p class="note">In SLA, researchers ask what access learners retain to the grammatical knowledge proposed by UG and how their prior language knowledge matters. Do not reduce this theoretical question to a fixed, observable reset step for every learner.</p>
+      <p class="note"><a class='kw2 concept-term-link' href="https://etwiki.net/concept.html?term=comprehensible%20input">Comprehensible input</a> and <a class='kw2 concept-term-link' href="https://etwiki.net/concept.html?term=i%2B1">i+1</a> belong to Krashen's Input Hypothesis. Do not use them as a definition of UG.</p>
+    </div>
+    <details class="explain-more"><summary>자세히 보기 <span class="summary-hint">UG와 Krashen 용어 분리하기</span></summary><div class="explain-content"><h3>모형의 범위</h3><p><b>UG</b>는 인간 언어 문법의 가능성을 제약하는 선천적 지식에 관한 이론적 설명입니다. <b>Principles-and-Parameters</b>에서 원리(principles)는 넓은 제약을, 매개변수(parameters)는 언어 간 변이 지점을 가리킵니다. <b>LAD</b>는 이런 능력을 설명하는 이론 용어입니다. 이를 관찰 가능한 기관이나 수업 기법처럼 다루지 마세요.</p><p>제2언어 습득에서 선천적 언어 지식과 이전 언어 지식이 어떤 역할을 하는지는 이론과 연구에서 논의되는 쟁점입니다. 특정한 매개변수 재설정을 모든 학습자에게 공통된 습득 단계로 단정할 수는 없습니다. 이해 가능한 입력과 i+1은 Krashen의 가설 용어입니다.</p><p class="ox"><b>OX</b> i+1은 UG의 매개변수 재설정 과정을 뜻한다. <b>정답: X.</b> 전자는 Krashen의 입력 수준 표기이고, 후자는 UG 관련 문법 변이 설명입니다.</p><p><b>조건 바꾸기:</b> 지문에 원리·매개변수·선천적 제약이 나오면 UG를, 이해 가능한 메시지·현재 수준보다 조금 앞선 입력이 나오면 Krashen을 우선 검토합니다.</p></div></details>
+  </div>
+</div>
+
+<!-- ③ Krashen -->
+<div class="sec" id="s3">
+  <button class="sec-header" type="button" aria-expanded="false" aria-controls="s3-body" onclick="toggle('s3',this)">
+    <span class="sec-icon">📥</span>
+    <span class="sec-title">③ Krashen's 5 Hypotheses</span>
+    <span class="sec-tag red">★★★ 최빈출</span>
+    <span class="sec-arrow">▼</span>
+  </button>
+  <div class="sec-body" id="s3-body">
+    <div class="concept">
+      <div class="c-title">1. Acquisition / Learning Hypothesis <span class="badge-ex">★★★</span></div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw4'>Acquisition</span></div>
+          <div class="gi-body">
+            <span><span class='kw2'>unconscious</span> · naturalistic</span>
+            <span>natural communication · meaning focus</span>
+            <span>comprehensible input 조건</span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw4'>Learning</span></div>
+          <div class="gi-body">
+            <span><span class='kw2'>conscious</span> · explicit knowledge</span>
+            <span>formal instruction · form focus</span>
+            <span>monitor로만 사용 가능</span>
+          </div>
+        </div>
+      </div>
+      <p class="note" style="margin-top:10px"><span class='kw4'>Non-interface position</span>: in Krashen's model, learned knowledge does not directly turn into acquired competence. This is a claim about development; it does not mean that conscious rule use can never appear alongside more fluent language use.</p>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">2. <a class="concept-term-link" href="https://etwiki.net/concept.html?term=input%20hypothesis">Input Hypothesis</a> (i+1) <span class="badge-ex">★★★</span></div>
+      <div class="def">Krashen's <a class='kw4 concept-term-link' href="https://etwiki.net/concept.html?term=input%20hypothesis">Input Hypothesis</a> proposes that acquisition can develop when learners understand messages containing language a little beyond their current level, often represented as <a class='kw2 concept-term-link' href="https://etwiki.net/concept.html?term=i%2B1">i+1</a>.</div>
+      <p class="note">Input 조건은 단순히 문법 난도를 올리는 일이 아닙니다. 학습자는 문맥과 배경 지식의 도움으로 메시지를 이해해야 하며, 흥미·충분한 노출·낮은 불안은 Krashen이 함께 제안한 조건입니다.</p>
+      <p class="note"><span class='kw3'>Silent period</span>는 학습자가 말할 준비가 되기 전 발화를 강요하지 말자는 Krashen의 권고입니다. 모든 학습자에게 적용되는 보편적 수업 규칙으로 확대하지 않습니다.</p>
+      <div class="exam-year-row" aria-label="확인한 관련 기출">
+        <a class="exam-year" href="https://etwiki.net/index.html?id=education_2011_X20" aria-label="2011학년도 1차 20번 기출 원문">11 · X20</a>
+      </div>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">3. Affective Filter Hypothesis <span class="badge-ex">★★</span></div>
+      <div class="def">Affective Filter Hypothesis: a <span class='kw2'>mental block</span> which may prevent learners from fully using otherwise comprehensible input.</div>
+      <p class="note">Krashen의 도식에서 낮은 불안과 높은 동기·자신감은 input이 더 잘 활용될 수 있는 조건으로 연결됩니다. 화살표는 이론의 설명이지, 낮은 불안만 있으면 습득이 보장된다는 뜻은 아닙니다.</p>
+      <p class="note">높은 불안은 input을 충분히 활용하기 어렵게 할 수 있다고 설명합니다. 이를 실제 뇌 속의 고정된 장벽이나 단일 점수로 읽지 않습니다.</p>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">4. Natural Order Hypothesis</div>
+      <div class="def">Grammatical structures in SL follow a <span class='kw2'>predictable natural order</span>.</div>
+      <p class="note"><span class='kw3'>Zero option</span>은 acquisition을 위해 문법 설명이 반드시 필요하지 않다는 Krashen의 입장입니다. Monitor에 쓸 수 있는 명시적 지식까지 없다고 주장하는 것은 아닙니다.</p>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">5. Monitor Hypothesis <span class="badge-ex">★★</span></div>
+      <div class="def">Conscious learning functions only as a <span class='kw2'>monitor/editor</span> that checks and repairs output.</div>
+      <p class="note">성공적 작동 3조건: ① <span class='kw2'>sufficient time</span> ② <span class='kw2'>know the rule</span> ③ <span class='kw2'>focus on form/accuracy</span></p>
+      <p class="note">이 세 조건을 동시에 갖추기 어려운 spontaneous conversation에서는 Monitor를 쓸 기회가 줄 수 있습니다. 의식적으로 편집할 수 있는 제한적 상황까지 부정하는 것은 아닙니다.</p>
+      <div class="exam">
+        <div class="exam-label">핵심 구별</div>
+        <p><span class='kw2'>Natural Order</span>는 습득에서 관찰되는 발달 순서에 관한 설명이고, 교사가 문법 항목을 가르칠 순서를 그대로 정하라는 지침이 아닙니다. <span class='kw2'>Monitor</span>는 이미 만들어진 발화를 점검하는 역할에 관한 별도 가설입니다.</p>
+      </div>
+    </div>
+    <div class="exam">
+      <div class="exam-label">⚠️ Krashen 비판점</div>
+      <p>① Acquisition & Learning <span class='kw2'>both beneficial</span> (interface position)</p>
+      <p>② <span class='kw3'>HIGs/LIGs</span> — output 생성의 중요성 간과</p>
+      <p>③ <span class='kw2'>Silent period forever</span> 문제</p>
+      <p>④ 학습자가 상호작용을 시작하고 발화를 산출하는 역할을 충분히 설명하지 못한다는 비판이 나왔습니다. Output과 Interaction 관점은 그 빈틈을 다루지만 input의 가치를 지우지는 않습니다.</p>
+    </div>
+    <details class="explain-more"><summary>자세히 보기 <span class="summary-hint">다섯 가설의 판단 기준</span></summary><div class="explain-content">
+      <h3>다섯 가설은 서로 다른 질문에 답합니다</h3><p><b>Acquisition/Learning</b>은 암묵적 발달과 의식적 규칙 지식을 구분합니다. <b>Monitor</b>는 후자가 발화를 점검하는 제한적 역할을 한다고 설명합니다. <b>Natural Order</b>는 습득 형태의 발달 순서에 관한 주장이고, <b>Input</b>은 이해 가능한 메시지와 현재 수준보다 조금 앞선 형태(<u>i+1</u>)를 제안합니다. <b>Affective Filter</b>는 불안·동기·자신감이 입력을 활용하는 데 관련된다고 설명합니다. 가설 이름이 비슷해도 각각의 지문 단서를 따로 찾으세요.</p>
+      <p>실제 기출에서 교사의 recast가 입력 단서가 되는 장면과 학생이 자기 발화를 고치는 장면을 구분합니다. <a href="#frequent-2011-x20">2011 · X20의 기출 적용</a>에는 답을 가르는 단서만 모았습니다.</p>
+      <p class="ox"><b>OX</b> 낮은 불안만 확보하면 i+1 입력으로 습득이 보장된다. <b>정답: X.</b> 이 가설의 설명을 충분조건이나 보장으로 읽을 수 없습니다.</p>
+    </div></details>
+  </div>
+</div>
+
+<!-- ④ Output Hypothesis -->
+<div class="sec" id="s4">
+  <button class="sec-header" type="button" aria-expanded="false" aria-controls="s4-body" onclick="toggle('s4',this)">
+    <span class="sec-icon">📤</span>
+    <span class="sec-title">④ <a class="concept-term-link" href="https://etwiki.net/concept.html?term=Output%20Hypothesis">Output Hypothesis</a> (Swain)</span>
+    <span class="sec-tag red">★★★ 최빈출</span>
+    <span class="sec-arrow">▼</span>
+  </button>
+  <div class="sec-body" id="s4-body">
+    <div class="concept">
+      <div class="def"><a class='kw4 concept-term-link' href="https://etwiki.net/concept.html?term=Output%20Hypothesis">Output Hypothesis</a> proposes that producing language can help learning when production makes a gap noticeable, lets learners test a possible form, or gives them a reason to reflect on language.</div>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">3 Functions of Output <span class="badge-ex">★★★</span></div>
+      <div class="grid col3">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>① Noticing / Triggering</span></div>
+          <div class="gi-body">
+            <span>gap between what S</span>
+            <span><span class='kw2'>can say vs wants to say</span></span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>② Hypothesis Testing</span></div>
+          <div class="gi-body">
+            <span>try new rules</span>
+            <span>get feedback → <span class='kw2'>modify</span></span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>③ Metalinguistic</span></div>
+          <div class="gi-body">
+            <span>reflect on own/</span>
+            <span>others' language</span>
+          </div>
+        </div>
+      </div>
+      <p class="note" style="margin-top:10px"><a class='kw3 concept-term-link' href="https://etwiki.net/concept.html?term=pushed%20output">Pushed output</a> prompts the learner to express a meaning more precisely or appropriately than an easy, incomplete form allows. More words or a longer sentence alone do not establish pushed output.</p>
+      <div class="exam-year-row" aria-label="확인한 관련 기출">
+        <a class="exam-year" href="https://etwiki.net/index.html?id=education_2007_S08" aria-label="2007학년도 서울·인천 8번 기출 원문">07 · S08</a>
+        <a class="exam-year" href="https://etwiki.net/index.html?id=education_2011_X20" aria-label="2011학년도 1차 20번 기출 원문">11 · X20</a>
+      </div>
+      <details class="frequent-topic" id="frequent-2011-x20">
+        <summary>빈출 기출 포인트 · Output Hypothesis 판단</summary>
+        <div class="frequent-body">
+          <p><b>지문 단서 → 개념 판단:</b> 교사가 목표 과거형을 들려준 뒤에도 학습자는 기존 현재형을 반복합니다. 정확한 형태가 input에 들어왔지만, 학습자가 자기 output을 바꿨다는 증거는 없습니다.</p>
+          <p><b>답의 이유:</b> 이 장면은 past-tense recast가 주는 입력과 반복 연습을 설명하는 선택지에 맞습니다. pushed output의 근거인 자기 발화 수정은 관찰되지 않습니다. 원문에서 묻는 정답은 <b>④ (b, d)</b>입니다. <a href="https://etwiki.net/index.html?id=education_2011_X20" aria-label="2011학년도 1차 20번 기출 원문 열기">2011학년도 1차 20번 원문</a></p>
+          <p><b>조건 변경:</b> 학습자가 반응 뒤 목표 형태로 발화를 스스로 고친다면 output 수정 단서가 생깁니다. 한 번의 수정만으로 지속적인 습득까지 단정하지는 않습니다.</p>
+          <p class="ox"><b>OX</b> 교사가 정답 형태를 recast했으므로 학습자의 output도 수정되었다. <b>정답 X</b>: 입력 제공과 학습자의 산출 수정은 다른 관찰입니다.</p>
+        </div>
+      </details>
+    </div>
+  <details class="explain-more"><summary>자세히 보기 <span class="summary-hint">Output 기능을 발화 단서로 판단</span></summary><div class="explain-content"><p>말하고 싶은 내용과 현재 표현의 차이를 깨닫는 것은 <b>noticing/triggering</b>, 새 형태를 써 보고 반응에 따라 고치는 것은 <b>hypothesis testing</b>, 형태를 비교·설명하는 것은 <b>metalinguistic reflection</b> 단서입니다. 기능은 겹칠 수 있습니다.</p><p><b>Pushed output</b>은 발화를 길게 하는 게 아니라 더 정확한 표현을 요구하는 상황입니다. 학습자가 목표형으로 고쳐 말했는지 지문에서 찾아야 합니다. <a href="#frequent-2011-x20">2011 · X20 적용 포인트</a>에서 확인할 수 있습니다.</p><p class="ox"><b>OX</b> 한 번 고쳐 말했으므로 과거형을 습득했다. <b>정답 X</b>: 일회 수행은 지속적 지식 변화의 증거가 아닙니다.</p></div></details>
+    </div>
+</div>
+
+<!-- ⑤ Noticing / HIG·LIG -->
+<div class="sec" id="s5">
+  <button class="sec-header" type="button" aria-expanded="false" aria-controls="s5-body" onclick="toggle('s5',this)">
+    <span class="sec-icon">🔍</span>
+    <span class="sec-title">⑤ Noticing Hypothesis · HIG/LIG</span>
+    <span class="sec-tag orange">★★ 빈출</span>
+    <span class="sec-arrow">▼</span>
+  </button>
+  <div class="sec-body" id="s5-body">
+    <div class="concept">
+      <div class="c-title">Schmidt's Noticing Hypothesis <span class="badge-ex">★★</span></div>
+      <div class="def"><a class='kw4 concept-term-link' href="https://etwiki.net/concept.html?term=Noticing%20Hypothesis">Noticing Hypothesis</a> argues that consciously registering a language feature is important for it to become available for learning. <span class='kw2'>Noticing</span> is the learner's attention to a feature; it is not the same as the input feature's salience.</div>
+      <p class="note"><a class='kw3 concept-term-link' href="https://etwiki.net/concept.html?term=noticing%20the%20gap">Noticing the gap</a> means comparing one's current expression or interlanguage with a form needed to express the intended meaning.</p>
+      <p class="note">A <span class='kw2'>recast</span>, highlighted form, or <span class='kw2'>dictogloss</span> can create a chance to notice. The teacher's action does not prove that the learner noticed it.</p>
+      <div class="exam-year-row" aria-label="확인한 관련 기출">
+        <a class="exam-year" href="https://etwiki.net/index.html?id=education_2024_A02" aria-label="2024학년도 전공 A 2번 기출 원문">24 · A2</a>
+      </div>
+      <details class="frequent-topic" id="frequent-2024-a02">
+        <summary>빈출 기출 포인트 · Salience와 Noticing 구분</summary>
+        <div class="frequent-body">
+          <p><b>지문 단서 → 개념 판단:</b> 입력의 특정 형태가 주변 형태보다 얼마나 두드러지거나 지각하기 쉬운지를 정의합니다. 이는 입력의 속성인 <a class="concept-term-link" href="https://etwiki.net/concept.html?term=Salience">Salience</a>입니다. <a href="https://etwiki.net/index.html?id=education_2024_A02" aria-label="2024학년도 전공 A 2번 기출 원문 열기">2024학년도 전공 A 2번 원문</a></p>
+          <p><b>답의 이유:</b> 교사가 형태를 강조해 제시했다는 사실은 입력을 두드러지게 만들 수 있지만, 학습자가 실제로 주의를 기울였다는 증거와 같지 않습니다. 학습자의 주의 과정은 <a class="concept-term-link" href="https://etwiki.net/concept.html?term=Noticing%20Hypothesis">Noticing Hypothesis</a>와 연결해 판단합니다.</p>
+          <p><b>조건 변경:</b> 학습자가 해당 형태를 알아차렸다고 말하거나, 이후의 발화에서 그것을 반영하는 단서가 추가되면 noticing을 검토할 수 있습니다. 입력의 두드러짐만 주어진 상태에서 noticing을 단정하지 않습니다.</p>
+          <p class="ox"><b>OX</b> 목표 형태가 눈에 띄게 제시되었으니 학습자가 알아차렸다. <b>정답 X</b>: 입력 salience는 학습자 noticing의 증거가 아닙니다.</p>
+        </div>
+      </details>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">HIG / LIG (Krashen 비판)</div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>HIG (High Input Generator)</span></div>
+          <div class="gi-body">
+            <span>can initiate & sustain turns</span>
+            <span>may test more hypotheses</span>
+            <span>opportunities for input to become <span class='kw2'>intake</span></span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>LIG (Low Input Generator)</span></div>
+          <div class="gi-body">
+            <span>may initiate fewer turns</span>
+            <span>fewer opportunities to produce output</span>
+            <span>not a fixed learner type or outcome</span>
+          </div>
+        </div>
+      </div>
+      <p class="note">HIG/LIG는 상호작용에서 입력을 더 만들어 내는 역할의 차이를 설명하는 비유적 구분입니다. 말이 적은 학습자가 이해·주의·학습을 덜 한다고 단정하지 마세요.</p>
+      <details class="explain-more"><summary>자세히 보기 <span class="summary-hint">salience, noticing, HIG/LIG를 구분하는 법</span></summary><div class="explain-content"><h3>입력의 속성과 학습자의 주의는 다릅니다</h3><p><b>Salience</b>는 입력 특징이 주변 요소보다 두드러지거나 지각하기 쉬운 정도입니다. <b>Noticing</b>은 학습자가 그 형태를 실제로 알아차리는 과정입니다. 교사의 recast나 강조 표시는 알아차릴 기회를 만들 수 있지만, 학습자의 주의를 대신 증명하지는 않습니다. <a href="#frequent-2024-a02">2024 · A2 적용 포인트</a>에서 이 구분을 기출에 적용합니다.</p><p>HIG/LIG 구분은 대화에서 입력을 만들어 내는 참여 방식과 출력·가설 시험 기회를 설명합니다. <b>발화량을 능력이나 학습량의 직접 지표로 삼지 않습니다.</b> 말수가 적어도 주의 깊게 듣고 과업에 기여할 수 있습니다.</p><p class="ox"><b>OX</b> 교사가 목표형을 recast했으므로 학습자가 그것을 noticing했다. <b>정답: X.</b> 학습자의 주의나 후속 반응 증거가 필요합니다.</p></div></details>
+    </div>
+  </div>
+</div>
+
+<!-- ⑥ Information Processing -->
+<div class="sec" id="s6">
+  <button class="sec-header" type="button" aria-expanded="false" aria-controls="s6-body" onclick="toggle('s6',this)">
+    <span class="sec-icon">⚙️</span>
+    <span class="sec-title">⑥ Information Processing Theories</span>
+    <span class="sec-tag orange">★★ 빈출</span>
+    <span class="sec-arrow">▼</span>
+  </button>
+  <div class="sec-body" id="s6-body">
+    <div class="concept">
+      <div class="c-title">McLaughlin's Information Processing Model</div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw1'>Controlled processing</span></div>
+          <div class="gi-body">
+            <span>requires attention · less practiced</span>
+            <span>uses limited processing capacity</span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw1'>Automatic processing</span></div>
+          <div class="gi-body">
+            <span>needs less conscious attention</span>
+            <span>well-practiced routines</span>
+          </div>
+        </div>
+      </div>
+      <div class="stage-wrap"><svg role="img" aria-label="Controlled practice may support automatic performance" viewBox="0 0 700 90" style="width:100%;margin-top:12px;font-family:'JetBrains Mono',monospace" xmlns="http://www.w3.org/2000/svg">
+        <rect x="4" y="10" width="148" height="70" rx="8" fill="rgba(46,125,82,.1)" stroke="rgba(46,125,82,.4)" stroke-width="1.5"/>
+        <text x="78" y="38" text-anchor="middle" fill="#1b5e3a" font-size="12" font-weight="bold">Controlled</text>
+        <text x="78" y="55" text-anchor="middle" fill="#3a6b51" font-size="10">conscious effort</text>
+        <text x="78" y="70" text-anchor="middle" fill="#3a6b51" font-size="10">high attention demand</text>
+        <text x="163" y="52" text-anchor="middle" fill="#26a69a" font-size="20">→</text>
+        <rect x="176" y="10" width="148" height="70" rx="8" fill="rgba(0,121,107,.08)" stroke="rgba(0,121,107,.35)" stroke-width="1.5"/>
+        <text x="250" y="43" text-anchor="middle" fill="#00695c" font-size="12" font-weight="bold">practice</text>
+        <text x="250" y="60" text-anchor="middle" fill="#00796b" font-size="10">quality matters</text>
+        <text x="336" y="52" text-anchor="middle" fill="#26a69a" font-size="20">→</text>
+        <rect x="348" y="10" width="148" height="70" rx="8" fill="rgba(46,125,82,.1)" stroke="rgba(46,125,82,.4)" stroke-width="1.5"/>
+        <text x="422" y="38" text-anchor="middle" fill="#1b5e3a" font-size="12" font-weight="bold">Automatic</text>
+        <text x="422" y="55" text-anchor="middle" fill="#3a6b51" font-size="10">less conscious attention</text>
+        <text x="422" y="70" text-anchor="middle" fill="#3a6b51" font-size="10">well-practiced performance</text>
+        <text x="508" y="52" text-anchor="middle" fill="#b71c1c" font-size="20">→</text>
+        <rect x="519" y="10" width="177" height="70" rx="8" fill="rgba(183,28,28,.08)" stroke="rgba(183,28,28,.35)" stroke-width="1.5"/><text x="607" y="43" text-anchor="middle" fill="#b71c1c" font-size="12" font-weight="bold">Automatization</text><text x="607" y="60" text-anchor="middle" fill="#b71c1c" font-size="10">possible outcome</text>
+      </svg><div class="flow-mobile" aria-label="Processing sequence"><div>Controlled processing: conscious attention and effort</div><div class="flow-down" aria-hidden="true">↓ practice may support</div><div>Automatic processing: familiar performance needs less attention</div><div class="flow-down" aria-hidden="true">↓ possible outcome</div><div class="flow-term-label">Automatization: gradual change in attention demand, not a guaranteed result</div></div></div>
+      <p class="note" style="margin-top:10px">Automatization means performance needs less conscious attention after practice; it is a tendency, not a guaranteed one-step result or synonym for moving from short-term to long-term memory.</p>
+      <p class="note"><a class='kw1 concept-term-link' href="https://etwiki.net/concept.html?term=restructuring">Restructuring</a> adjusts existing knowledge to accommodate new information. A new rule may change how the learner organizes a pattern.</p>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">Bialystok's Implicit / Explicit Model <span class="badge-ex">★★</span></div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw1'>Explicit knowledge</span></div>
+          <div class="gi-body">
+            <span>knowledge <span class='kw2'>about</span> lg</span>
+            <span>can articulate · declarative</span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw1'>Implicit knowledge</span></div>
+          <div class="gi-body">
+            <span><span class='kw2'>automatically</span> used</span>
+            <span>procedural · spontaneous</span>
+          </div>
+        </div>
+      </div>
+      <div class="stage-wrap"><svg role="img" aria-label="Possible relationship between explicit and implicit knowledge" viewBox="0 0 700 90" style="width:100%;margin-top:10px;font-family:'JetBrains Mono',monospace" xmlns="http://www.w3.org/2000/svg">
+        <rect x="4" y="10" width="148" height="70" rx="8" fill="rgba(46,125,82,.1)" stroke="rgba(46,125,82,.4)" stroke-width="1.5"/>
+        <text x="78" y="38" text-anchor="middle" fill="#1b5e3a" font-size="12" font-weight="bold">Explicit</text>
+        <text x="78" y="55" text-anchor="middle" fill="#3a6b51" font-size="10">declarative</text>
+        <text x="78" y="70" text-anchor="middle" fill="#3a6b51" font-size="10">can explain a rule</text>
+        <text x="163" y="52" text-anchor="middle" fill="#26a69a" font-size="20">→</text>
+        <rect x="176" y="10" width="148" height="70" rx="8" fill="rgba(0,121,107,.08)" stroke="rgba(0,121,107,.35)" stroke-width="1.5"/>
+        <text x="250" y="43" text-anchor="middle" fill="#00695c" font-size="12" font-weight="bold">practice +</text>
+        <text x="250" y="60" text-anchor="middle" fill="#00796b" font-size="10">feedback</text>
+        <text x="336" y="52" text-anchor="middle" fill="#26a69a" font-size="20">→</text>
+        <rect x="348" y="10" width="148" height="70" rx="8" fill="rgba(46,125,82,.1)" stroke="rgba(46,125,82,.4)" stroke-width="1.5"/>
+        <text x="422" y="38" text-anchor="middle" fill="#1b5e3a" font-size="12" font-weight="bold">Implicit</text>
+        <text x="422" y="55" text-anchor="middle" fill="#3a6b51" font-size="10">procedural</text>
+        <text x="422" y="70" text-anchor="middle" fill="#3a6b51" font-size="10">use with less attention</text>
+        <text x="508" y="52" text-anchor="middle" fill="#b71c1c" font-size="20">→</text>
+        <rect x="519" y="10" width="177" height="70" rx="8" fill="rgba(183,28,28,.08)" stroke="rgba(183,28,28,.35)" stroke-width="1.5"/>
+        <text x="607" y="43" text-anchor="middle" fill="#b71c1c" font-size="12" font-weight="bold">Proceduralization</text>
+        <text x="607" y="60" text-anchor="middle" fill="#b71c1c" font-size="10">a debated interface account</text>
+      </svg><div class="flow-mobile" aria-label="Possible knowledge relationship"><div>Explicit knowledge: can explain a rule</div><div class="flow-down" aria-hidden="true">↓ practice may contribute in interface accounts</div><div>Implicit knowledge: use with less conscious attention</div><div class="flow-down" aria-hidden="true">↔ disputed in Krashen’s non-interface account</div></div></div>
+      <p class="note" style="margin-top:10px"><span class='kw3'>Interface position</span> allows explicit knowledge to contribute to implicit ability in some account of learning. The exact route and extent are debated. Krashen’s <span class='kw4'>non-interface position</span> denies direct conversion in his model.</p>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">Skill-acquisition Theory</div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><a class='kw1 concept-term-link' href="https://etwiki.net/concept.html?term=declarative%20knowledge">Declarative knowledge</a></div>
+          <div class="gi-body"><span>knowledge that can be <span class='kw2'>stated/declared</span></span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><a class='kw1 concept-term-link' href="https://etwiki.net/concept.html?term=procedural%20knowledge">Procedural knowledge</a></div>
+          <div class="gi-body"><span>ability to <span class='kw2'>use</span> the knowledge</span></div>
+        </div>
+      </div>
+      <p class="note" style="margin-top:8px">In Skill Acquisition Theory, practice can help turn <span class='kw2'>declarative</span> knowledge into more <span class='kw2'>procedural</span> skill and reduce the attention needed for familiar steps. Practice quality and learner differences matter.</p>
+    </div>
+  <details class="explain-more"><summary>자세히 보기 <span class="summary-hint">처리 부담과 지식 유형 비교</span></summary><div class="explain-content"><h3>처리 방식과 주의 초점은 같은 분류가 아닙니다</h3><p><b>Controlled processing</b>는 덜 익숙한 과제를 처리할 때 주의와 처리 자원을 더 많이 요구합니다. <b>Automatic processing</b>은 숙련된 수행에서 여러 요소를 더 적은 의식적 주의로 처리할 수 있다는 설명입니다. 이는 초보자가 규칙을 의식적으로 연습한 뒤 전문가처럼 자동 수행하는 한 줄짜리 단계표를 뜻하지 않습니다. 양 끝의 처리 방식은 <span class="decision-cue">과제에 쏟는 focal / peripheral attention과도 별개의 축</span>입니다.</p><div class="stage-wrap"><table aria-label="Controlled processing과 automatic processing 비교"><thead><tr><th>구분</th><th>Controlled</th><th>Automatic</th></tr></thead><tbody><tr><td data-label="구분">주의·처리 부담</td><td data-label="Controlled">주의와 처리 자원을 더 요구</td><td data-label="Automatic">익숙한 수행은 의식적 주의가 덜 필요</td></tr><tr><td data-label="구분">시험 단서</td><td data-label="Controlled">새롭거나 아직 덜 익숙한 기술</td><td data-label="Automatic">숙련된 하위 기술·빠른 동시 처리</td></tr></tbody></table></div><p><b>조건 바꾸기:</b> 학습자가 대화문을 외워 그대로 말할 때와 처음 보는 상황에서 뜻에 맞춰 표현을 바꿔 말할 때를 비교하세요. 두 번째 수행은 외운 구절을 되풀이한다는 사실만으로 자동화라 판단할 수 없고, 새로운 선택을 계속 의식적으로 해야 한다면 통제 처리가 필요합니다.</p><h3>연습은 경향을 바꾸지만 자동화를 보장하지 않습니다</h3><p>연습은 하위 기술의 자동화를 도울 수 있지만, <mark class="key-highlight green">연습만으로 자동화가 반드시 일어나지는 않으며</mark> 수행이 일시적으로 나빠지는 재구조화도 일어날 수 있습니다. 자동화는 short-term에서 long-term memory로 정보를 옮기는 것과 같은 말이 아닙니다.</p><h3>지식의 종류를 섞지 않고 읽기</h3><p><b>Declarative</b>는 설명할 수 있는 지식, <b>procedural</b>은 수행할 수 있는 지식입니다. Skill Acquisition Theory에서는 연습이 지식의 절차화를 도울 수 있다고 설명하지만, Bialystok의 explicit/implicit 구분과 완전히 같은 용어표는 아닙니다. <span class="decision-cue">Krashen의 non-interface 주장에서는 학습 지식이 습득 지식으로 직접 바뀌지 않습니다.</span></p><p class="ox"><b>OX</b> 연습이 늘면 모든 규칙이 자동으로 implicit knowledge가 된다. <b>정답 X</b>: <mark class="key-highlight">자동화는 가능한 변화이지 필연적 전환이 아닙니다.</mark></p></div></details>
+    </div>
+</div>
+
+<!-- ⑦ Processability -->
+<div class="sec" id="s7">
+  <button class="sec-header" type="button" aria-expanded="false" aria-controls="s7-body" onclick="toggle('s7',this)">
+    <span class="sec-icon">🏗️</span>
+    <span class="sec-title">⑦ Processability / Teachability</span>
+    <span class="sec-tag">Pienemann</span>
+    <span class="sec-arrow">▼</span>
+  </button>
+  <div class="sec-body" id="s7-body">
+    <div class="concept">
+      <div class="c-title">Processability Theory</div>
+      <p class="note"><span class='kw1'>Developmental readiness</span>: instruction cannot make a learner skip the processing procedures of an earlier developmental stage.</p>
+      <p class="note"><span class='kw2'>Processing hierarchy</span>: the learner must be able to process a prerequisite procedure before reliably handling structures that require more complex exchanges of grammatical information. This is not a claim that every lesson must be taught “bottom-up.”</p>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">Teachability Hypothesis <span class="badge-ex">기출 포인트</span></div>
+      <div class="def">Teachability Hypothesis: in Pienemann’s 1984 instructional experiment, a structure tended to be learnable when the learner’s interlanguage was already <span class="decision-cue">one stage before that structure’s acquisition stage</span>. Formal instruction could not skip a processing stage. The finding concerned the study’s child learners and target structures; it is not a universal timetable for every learner or grammar item.</div>
+      <div class="grid col2" style="margin-top:10px">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw4'>Krashen</span></div>
+          <div class="gi-body"><span><span class='kw2'>zero option</span> for grammar instruction · natural order only</span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>Teachability Hypo.</span></div>
+          <div class="gi-body"><span>grammar works if <span class='kw2'>developmentally compatible</span></span></div>
+        </div>
+      </div>
+    </div>
+  <details class="explain-more"><summary>자세히 보기 <span class="summary-hint">발달 준비도와 교수 시점</span></summary><div class="explain-content"><h3>처리 단계가 수업의 효과 범위를 정합니다</h3><p><b>Processability Theory</b>는 학습자가 현재 처리 체계로 만들고 이해할 수 있는 언어 형태에 발달상 제약이 있다고 봅니다. 단계마다 쓰이는 처리 절차가 앞 단계 절차를 바탕으로 확장되므로 교수로 중간 절차를 건너뛸 수 없다는 설명입니다.</p><h3>Teachability: 목표 형태와 학습자 단계 확인</h3><p>Pienemann의 1984년 논문은 아동 학습자를 대상으로 한 수업 실험에서, 목표 형태의 습득 단계보다 <mark class="key-highlight green">바로 한 단계 앞선 interlanguage에 도달한 학습자에게 해당 형태의 교수가 학습 가능성을 보였다</mark>고 보고합니다. 따라서 시험에서 <span class="decision-cue">“수업을 했으니 곧바로 습득”이라고 단정하지 말고 학습자의 발달 단계와 목표 형태의 관계</span>를 확인합니다. 한편 이 결과만으로 모든 연령·언어·구조에 같은 교수 시점을 일반화하지 않습니다.</p><div class="stage-wrap"><table aria-label="Teachability와 Krashen zero option 비교"><thead><tr><th>질문</th><th>Teachability</th><th>Krashen zero option</th></tr></thead><tbody><tr><td data-label="질문">무엇을 판단?</td><td data-label="Teachability">목표 구조가 학습자 처리 발달 단계상 준비되었는가</td><td data-label="Zero option">문법 교수 없이도 습득은 가능한가</td></tr><tr><td data-label="질문">핵심 결론</td><td data-label="Teachability">교수 효과는 발달 준비도에 제한될 수 있음</td><td data-label="Zero option">문법 교수는 습득에 필수 조건이 아님</td></tr></tbody></table></div><p><b>조건 바꾸기:</b> 목표 구조보다 발달 단계가 두 단계 이상 앞선 학습자에게 해당 문법을 집중적으로 가르쳐도 즉시 습득할 것이라고 단정할 수는 없습니다. <mark class="key-highlight">수업량이 늘어도 발달 절차를 건너뛸 수 없다는 점</mark>이 선택지 판단 기준입니다. Krashen의 <b>zero option</b>은 문법 교수 없이 습득이 가능하다는 입장이고, Teachability는 <mark class="key-highlight">교수의 효과가 학습자의 발달 준비도에 의해 제한될 수 있는지</mark>를 묻습니다. 둘은 문법 교수 효과에 대한 질문이 다릅니다.</p><p class="ox"><b>OX</b> 지금 수업에서 아직 안정적으로 쓰지 못하는 구조는 영원히 배울 수 없다. <b>정답 X</b>: <mark class="key-highlight">준비도는 ‘아직 아님’을 뜻할 수 있으며 ‘영원히 불가’와 같지 않습니다.</mark></p></div></details>
+    </div>
+</div>
+
+<!-- ⑧ Interaction Hypothesis -->
+<div class="sec" id="s8">
+  <button class="sec-header" type="button" aria-expanded="false" aria-controls="s8-body" onclick="toggle('s8',this)">
+    <span class="sec-icon">🤝</span>
+    <span class="sec-title">⑧ <a class="concept-term-link" href="https://etwiki.net/concept.html?term=Interaction%20Hypothesis">Interaction Hypothesis</a> (Long)</span>
+    <span class="sec-tag red">★★★ 최빈출</span>
+    <span class="sec-arrow">▼</span>
+  </button>
+  <div class="sec-body" id="s8-body">
+    <div class="concept">
+      <div class="c-title">Original vs Updated Version <span class="badge-ex">★★★</span></div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw4'>Original version</span></div>
+          <div class="gi-body">
+            <span>comprehensible input 필요</span>
+            <span>→ <span class='kw2'>interactional modification</span> can help</span>
+            <span>input을 comprehensible하게 만듦</span>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>Updated version</span></div>
+          <div class="gi-body">
+            <span>+ <span class='kw2'>comprehensible output</span> 중요</span>
+            <span>corrective feedback 제공</span>
+            <span>output 생성 기회</span>
+          </div>
+        </div>
+      </div>
+      <div class="exam-year-row" aria-label="확인한 관련 기출">
+        <a class="exam-year" href="https://etwiki.net/index.html?id=education_2007_N19" aria-label="2007학년도 전국 19번 기출 원문">07 · N19</a>
+        <a class="exam-year" href="https://etwiki.net/index.html?id=education_2008_N09" aria-label="2008학년도 전국 9번 기출 원문">08 · N09</a>
+      </div>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">Negotiation of Meaning <span class="badge-ex">★★★</span></div>
+      <div class="def"><a class='kw4 concept-term-link' href="https://etwiki.net/concept.html?term=negotiation%20of%20meaning">Negotiation of meaning</a>: interlocutors modify interaction to achieve <span class='kw2'>mutual comprehension</span>.</div>
+      <div class="stage-wrap">
+        <table>
+          <thead><tr><th>Strategy</th><th>Who</th><th>Purpose</th></tr></thead><tbody>
+          <tr><td data-label="Strategy"><a class='kw4 concept-term-link' href="https://etwiki.net/concept.html?term=clarification%20request">Clarification request</a></td><td data-label="Who">listener</td><td data-label="Purpose">signal trouble and ask for clarification</td></tr>
+          <tr><td data-label="Strategy">Confirmation check</td><td data-label="Who">listener</td><td data-label="Purpose">check whether an interpretation is correct</td></tr>
+          <tr><td data-label="Strategy">Comprehension check</td><td data-label="Who">speaker</td><td data-label="Purpose">check whether the listener understood</td></tr></tbody>
+        </table>
+      </div>
+      <div class="exam-year-row" aria-label="확인한 관련 기출">
+        <a class="exam-year" href="https://etwiki.net/index.html?id=education_2009_X24" aria-label="2009학년도 1차 24번 기출 원문">09 · X24</a>
+        <a class="exam-year" href="https://etwiki.net/index.html?id=education_2012_X17" aria-label="2012학년도 1차 17번 기출 원문">12 · X17</a>
+        <a class="exam-year" href="https://etwiki.net/index.html?id=education_2020_B04" aria-label="2020학년도 전공 B 4번 기출 원문">20 · B04</a>
+      </div>
+      <p class="note" style="margin-top:10px">A clarification request invites the original speaker to make a message clearer. Whether learners modify their speech depends on the interaction and the response; do not treat one strategy as universally most effective.</p>
+      <details class="explain-more"><summary>자세히 보기 <span class="summary-hint">의미 협상의 주체·목적·적용</span></summary><div class="explain-content"><p><b>Clarification request</b>는 청자가 다시 설명해 달라고 합니다. <b>Confirmation check</b>는 자기 해석을 확인하고, <b>Comprehension check</b>는 화자가 상대의 이해를 확인합니다. 누가 무엇을 묻는지 찾으세요.</p><p>의미 협상은 수정된 입력, 학습자의 표현 수정, feedback 기회를 만들 수 있습니다. 화살표는 가능한 지원 경로이지 습득 보장이 아닙니다. “You mean it starts at nine?”는 confirmation check, “Could you say that again?”은 clarification request 단서.</p><p class="ox"><b>OX</b> “Do you understand?”는 comprehension check다. <b>정답 O</b>: 화자가 청자의 이해를 확인합니다. 단, 유형 이름만 외우지 말고 발화자와 발화의 목적을 확인하세요.</p></div></details>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">Positive vs Negative Evidence</div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw2'>Positive evidence</span></div>
+          <div class="gi-body"><span>model of <span class='kw2'>correct form</span></span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw2'>Negative evidence</span></div>
+          <div class="gi-body"><span>negative / <span class='kw2'>corrective feedback</span></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ⑨ Sociocultural Theory -->
+<div class="sec" id="s9">
+  <button class="sec-header" type="button" aria-expanded="false" aria-controls="s9-body" onclick="toggle('s9',this)">
+    <span class="sec-icon">🌱</span>
+    <span class="sec-title">⑨ <a class="concept-term-link" href="https://etwiki.net/concept.html?term=Sociocultural%20Theory">Sociocultural Theory</a> (Vygotsky)</span>
+    <span class="sec-tag orange">★★ 빈출</span>
+    <span class="sec-arrow">▼</span>
+  </button>
+  <div class="sec-body" id="s9-body">
+    <div class="concept">
+      <div class="c-title">Zone of Proximal Development (ZPD) <span class="badge-ex">★★</span></div>
+      <div class="def">ZPD: the distance between <span class='kw2'>actual development</span> (independent) and <span class='kw2'>potential development</span> (with guidance/peers).</div>
+      <p class="note">Adult guidance / collaboration with <span class='kw2'>capable peers</span></p>
+      <p class="note">혼합 수준 편성만으로 ZPD가 생기는 것은 아닙니다. 과제가 학습자의 현재 독립 수행을 조금 넘어가고, 동료나 교사의 적절한 도움이 있어야 ZPD를 적용해 설명할 수 있습니다.</p>
+      <div class="exam-year-row" aria-label="확인한 관련 기출">
+        <a class="exam-year" href="https://etwiki.net/index.html?id=education_2008_N16" aria-label="2008학년도 전국 16번 기출 원문">08 · N16</a>
+        <a class="exam-year" href="https://etwiki.net/index.html?id=education_2013_X36" aria-label="2013학년도 1차 36번 기출 원문">13 · X36</a>
+      </div>
+      <details class="explain-more"><summary>자세히 보기 <span class="summary-hint">ZPD와 비계를 문제에 적용</span></summary><div class="explain-content"><p><b>ZPD</b>는 독립 수행과 안내를 받아 가능한 수행 사이의 간격입니다. 수준이 다른 모둠 편성만으로 성립하지 않습니다. 과제가 독립 능력을 넘고 실제로 적절한 도움을 받은 단서가 필요합니다.</p><p><b>Scaffolding</b>은 과제를 가능하게 하는 일시적 지원입니다. 반응에 맞춰 도움을 조절하고 독립성이 늘면 줄입니다. 도구·타인·자기 조절 화살표는 가능한 변화이지 모두가 같은 순서를 밟는 법칙은 아닙니다. 모방이 내면화에 도움이 될 수 있지만 모든 모방이 자동으로 변형적 학습인 것도 아닙니다.</p><p class="ox"><b>OX</b> 혼합 수준 모둠은 모두 ZPD 학습을 보장한다. <b>정답 X</b>: 과제와 실제 상호작용의 도움을 확인합니다.</p></div></details>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">Scaffolding <span class="badge-ex">★★ 두 정의 필수!</span></div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title">Definition ①</div>
+          <div class="gi-body"><span>supportive environment through <span class='kw2'>guidance/feedback</span> during collaboration</span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title">Definition ②</div>
+          <div class="gi-body"><span><span class='kw2'>interactional supports</span> enabling L to perform what one cannot do independently</span></div>
+        </div>
+      </div>
+      <p class="note" style="margin-top:8px"><span class='kw1'>Verbal guidance</span>: supportive behaviors from T/capable Ls → complete task beyond independent means</p>
+      <p class="note"><span class='kw1'>Peer scaffolding</span>: among peers → task too difficult for any one individually</p>
+      <div class="exam-year-row" aria-label="확인한 관련 기출">
+        <a class="exam-year" href="https://etwiki.net/index.html?id=education_2018_A07" aria-label="2018학년도 전공 A 7번 기출 원문">18 · A07</a>
+      </div>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">Regulation <span class="badge-ex">기출 포인트</span></div>
+      <div class="stage-wrap"><svg role="img" aria-label="Ways regulation can shift with support" viewBox="0 0 700 100" style="width:100%;margin-top:12px;font-family:'JetBrains Mono',monospace" xmlns="http://www.w3.org/2000/svg">
+        <rect x="4" y="10" width="208" height="80" rx="8" fill="rgba(46,125,82,.1)" stroke="rgba(46,125,82,.4)" stroke-width="1.5"/>
+        <text x="108" y="38" text-anchor="middle" fill="#1b5e3a" font-size="12" font-weight="bold">Object-regulation</text>
+        <text x="108" y="56" text-anchor="middle" fill="#3a6b51" font-size="10">dictionary 등</text>
+        <text x="108" y="72" text-anchor="middle" fill="#3a6b51" font-size="10">물리적 도구</text>
+        <text x="222" y="55" text-anchor="middle" fill="#26a69a" font-size="22">→</text>
+        <rect x="236" y="10" width="208" height="80" rx="8" fill="rgba(46,125,82,.1)" stroke="rgba(46,125,82,.4)" stroke-width="1.5"/>
+        <text x="340" y="38" text-anchor="middle" fill="#1b5e3a" font-size="12" font-weight="bold">Other-regulation</text>
+        <text x="340" y="56" text-anchor="middle" fill="#3a6b51" font-size="10">타인 언어적 안내</text>
+        <text x="340" y="72" text-anchor="middle" fill="#3a6b51" font-size="10">verbal guidance</text>
+        <text x="454" y="55" text-anchor="middle" fill="#26a69a" font-size="22">→</text>
+        <rect x="466" y="10" width="230" height="80" rx="8" fill="rgba(183,28,28,.08)" stroke="rgba(183,28,28,.35)" stroke-width="1.5"/>
+        <text x="581" y="38" text-anchor="middle" fill="#b71c1c" font-size="12" font-weight="bold">Self-regulation</text>
+        <text x="581" y="56" text-anchor="middle" fill="#b71c1c" font-size="10">자율·독립적 수행</text>
+        <text x="581" y="72" text-anchor="middle" fill="#b71c1c" font-size="10">지원 속 독립성의 증가</text>
+      </svg><div class="flow-mobile" aria-label="Possible changes in regulation"><div>Object-regulation: a tool supports action</div><div class="flow-down" aria-hidden="true">↓ may shift</div><div>Other-regulation: another person guides</div><div class="flow-down" aria-hidden="true">↓ learner may internalize strategies</div><div>Self-regulation: increasingly independent performance</div></div></div>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">Imitation & Internalization</div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw2'>Behaviorism</span>: imitation</div>
+          <div class="gi-body"><span>imitation and practice can support habit formation</span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw3'>Sociocultural</span>: imitation</div>
+          <div class="gi-body"><span>assisted imitation can be adapted and internalized</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="div"></div>
+    <div class="concept">
+      <div class="c-title">Cooperative vs Collaborative Learning</div>
+      <div class="grid col2">
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw1'>Cooperative learning</span></div>
+          <div class="gi-body"><span>pairs/groups · share info · <span class='kw2'>common goals</span> · socially structured exchange</span></div>
+        </div>
+        <div class="grid-item">
+          <div class="gi-title"><span class='kw1'>Collaborative learning</span></div>
+          <div class="gi-body"><span>joint work may involve guidance from a more capable peer</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="study-sources" aria-labelledby="source-heading"><h2 id="source-heading">직접 확인한 원서와 연결 기출</h2><p>Brown, H. D. (2014). <i>Principles of Language Learning and Teaching</i> (6th ed.), Ch. 1, pp. 9–12 (structural linguistics / behaviorism / generative perspectives); Ch. 2, pp. 23–30 (behavioral and nativist approaches); Ch. 4, pp. 83–85, 89–92 (meaningful learning and Vygotsky); Ch. 9, pp. 270–273 (noticing and feedback); Ch. 10, pp. 288–297 (SLA perspectives, Krashen, output, interaction, sociocultural approaches).</p><p>Brown, H. D. (2007). <i>Teaching by Principles</i> (3rd ed.), Ch. 4, pp. 66–67 (meaningful learning and subsumption).</p><p>검증된 기출 원문: <a href="https://etwiki.net/index.html?id=education_2007_N19" aria-label="2007학년도 전국 19번 기출 원문 열기">2007 전국 19번</a> · <a href="https://etwiki.net/index.html?id=education_2007_S08" aria-label="2007학년도 서울·인천 8번 기출 원문 열기">2007 서울·인천 8번</a> · <a href="https://etwiki.net/index.html?id=education_2008_N09" aria-label="2008학년도 전국 9번 기출 원문 열기">2008 전국 9번</a> · <a href="https://etwiki.net/index.html?id=education_2008_N16" aria-label="2008학년도 전국 16번 기출 원문 열기">2008 전국 16번</a> · <a href="https://etwiki.net/index.html?id=education_2009_X24" aria-label="2009학년도 1차 24번 기출 원문 열기">2009 1차 24번</a> · <a href="https://etwiki.net/index.html?id=education_2011_X20" aria-label="2011학년도 1차 20번 기출 원문 열기">2011 1차 20번</a> · <a href="https://etwiki.net/index.html?id=education_2012_X17" aria-label="2012학년도 1차 17번 기출 원문 열기">2012 1차 17번</a> · <a href="https://etwiki.net/index.html?id=education_2013_X36" aria-label="2013학년도 1차 36번 기출 원문 열기">2013 1차 36번</a> · <a href="https://etwiki.net/index.html?id=education_2018_A07" aria-label="2018학년도 전공 A 7번 기출 원문 열기">2018 전공 A 7번</a> · <a href="https://etwiki.net/index.html?id=education_2020_B04" aria-label="2020학년도 전공 B 4번 기출 원문 열기">2020 전공 B 4번</a> · <a href="https://etwiki.net/index.html?id=education_2024_A02" aria-label="2024학년도 전공 A 2번 기출 원문 열기">2024 전공 A 2번</a>.</p></section>
+</div><!-- /wrap -->
+<script>
+function syncSection(s){var b=s.querySelector('.sec-header');if(b)b.setAttribute('aria-expanded',s.classList.contains('open')?'true':'false')}
+function toggle(id,button){var s=document.getElementById(id);s.classList.toggle('open');if(button)button.setAttribute('aria-expanded',s.classList.contains('open')?'true':'false')}
+function openSec(id){var s=document.getElementById(id);s.classList.add('open');syncSection(s);s.scrollIntoView({behavior:'smooth',block:'start'})}
+window.addEventListener('DOMContentLoaded',function(){var h=window.location.hash.slice(1);if(!h)return;var t=document.getElementById(h);if(!t)return;if(t.matches('details'))t.open=true;var s=t;while(s&&!s.classList.contains('sec'))s=s.parentElement;if(s){s.classList.add('open');syncSection(s);setTimeout(function(){t.scrollIntoView({behavior:'smooth',block:'start'})},150)}});
+</script>
+<nav class="learning-nav bottom" aria-label="SLA 미리보기 내비게이션">
+  <a href="#page-top">미리보기 상단</a>
+  <a href="#s1">① 기초 이론</a>
+  <a href="#s4">④ Output Hypothesis</a>
+  <a href="#s8">⑧ Interaction</a>
+  <a href="#s9">⑨ Sociocultural Theory</a>
+  <a href="https://etwiki.net/index.html">기출 WIKI</a>
+</nav>
+  <a href="https://etwiki.net/index.html">기출 WIKI</a>
+  <a href="#page-top">영어교육론 허브</a>
+  <a href="#page-top">📝 이 챕터 OX 퀴즈</a>
+  <a href="https://namkicheol.github.io/linguistics/">영어학</a>
+  <a href="https://namkicheol.github.io/phonetics-phonology/phonetics.html">음성·음운론</a>
+  <a href="https://etwiki.net/keyterm-quiz.html">영어교육론 키텀</a>
+</nav>
+<a class="study-return-link" href="#page-top" aria-label="미리보기 상단으로 이동">↑ 미리보기 상단으로</a>
+<script src="./study-return.js"></script>
+</body>
+</html>
