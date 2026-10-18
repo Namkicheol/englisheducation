@@ -80,12 +80,82 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 
 /* Local explanation-depth additions: preserve existing typography and runtime. */
 .depth-table-wrap{overflow-x:auto;margin:14px 0}.depth-table{border-collapse:collapse;width:100%;font:inherit;line-height:1.75}.depth-table caption{text-align:left;font-weight:700;margin-bottom:8px}.depth-table th,.depth-table td{border:1px solid #bdd8cc;padding:10px;text-align:left;vertical-align:top;overflow-wrap:anywhere}.depth-table th{background:#edf8f3}.depth-svg{display:block;width:100%;max-width:600px;height:auto;margin:16px auto}
+
+/* Ch.02 only: reading size, disclosures and narrow-screen reflow */
+.deep-dive{margin:18px 0 4px;border:1px solid #bdd8c6;border-radius:12px;background:#f8fcf9;overflow:hidden}
+.deep-dive>summary{cursor:pointer;list-style:none;padding:14px 16px;font-size:16px;line-height:1.55;font-weight:700;color:#174c35}
+.deep-dive>summary::-webkit-details-marker{display:none}
+.deep-dive>summary:before{content:"＋";margin-right:8px;color:#087d68}
+.deep-dive[open]>summary:before{content:"−"}
+.deep-body{padding:2px 18px 18px;font-size:16px;line-height:1.85;color:#24362c}
+.deep-body h3{font-size:17px;line-height:1.45;margin:18px 0 7px;color:#174c35}
+.deep-body p{margin:8px 0}
+.deep-body .compare{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+.compare>div{padding:12px;background:white;border:1px solid #d1e4d7;border-radius:9px}
+.compare p{margin:5px 0 0}
+.mark{background:linear-gradient(transparent 57%,#c7f0d1 57%);font-weight:700}
+.mark-warn{background:linear-gradient(transparent 57%,#ffe0bd 57%);font-weight:700}
+.exam-year{display:inline-flex!important;align-items:center;gap:7px;margin:0 0 6px!important;padding:3px 8px;border-radius:4px;background:#fff0f0;color:#9b1c1c;font-size:13px!important;font-weight:700;border:1px solid #efc4c4}
+.exam-link{color:#075f53;font-weight:700;text-underline-offset:3px}
+.exam-link:focus-visible,.toc-item:focus-visible,.sec-header:focus-visible,.deep-dive summary:focus-visible{outline:3px solid #f0a500;outline-offset:3px}
+.source-note{padding-top:10px;border-top:1px solid #d9e7dd;color:#526257;font-size:13px}
+.def,.note,.gi-body,td{font-size:16px}
+.def{line-height:1.85}.note{line-height:1.8}.toc-item{font-size:14px}
+.sec-header{width:100%;text-align:left;font:inherit;color:inherit;border:0;appearance:none}
+.sec-header:focus-visible{outline:3px solid #b42318;outline-offset:-3px}
+.toc-item{cursor:pointer}
+.toc-item:focus-visible{outline:3px solid #b42318;outline-offset:2px}
+@media(max-width:640px){
+ body{padding:10px}.header-wrap{padding:18px 4px 0}
+ .header-topbar{align-items:flex-start;gap:8px;flex-wrap:wrap}.header-chapter{font-size:11px}
+ .header-tip{font-size:13px;line-height:1.65}.sec-header{padding:14px;flex-wrap:wrap}
+ .sec-title{font-size:15px;line-height:1.45;min-width:0;overflow-wrap:anywhere}
+ .sec-tag{margin-left:0}.sec-arrow{margin-left:auto}
+ .deep-body{padding:2px 14px 16px;font-size:16px}.deep-body .compare{grid-template-columns:1fr}
+ .deep-body h3{font-size:16px}
+ table{display:block;width:100%;font-size:15px}
+ table tr{display:grid;grid-template-columns:1fr;border:1px solid #b2dfcc;border-radius:8px;overflow:hidden;margin-bottom:9px}
+ table th{display:none}
+ table td{display:grid;grid-template-columns:minmax(82px,32%) minmax(0,1fr);gap:8px;border:0;border-bottom:1px solid #e4eee7;padding:9px 10px;overflow-wrap:anywhere}
+ table td:last-child{border-bottom:0}
+ table td:before{content:attr(data-label);font-size:12px;font-weight:700;color:#1b5e3a;overflow-wrap:anywhere}
+ .stage-wrap svg{min-width:520px}
+ .stage-wrap:has(svg):after{content:"도식은 좌우로 이동해 읽을 수 있습니다";display:block;font-size:12px;color:#526257;padding:5px 2px}
+ .exam p{font-size:15px}
+}
+@media(max-width:370px){
+ .header-title{font-size:28px}.sec-title{font-size:14px}
+ table td{grid-template-columns:76px minmax(0,1fr);font-size:14px}
+ .kw1,.kw2,.kw3,.kw4{white-space:normal;overflow-wrap:anywhere}
+}
+
+.study-return-link{position:static;left:auto;bottom:auto;transform:none;display:flex;width:max-content;max-width:calc(100vw - 32px);margin:24px auto 24px}
+.source-list{max-width:780px;margin:4px auto 28px;padding:14px 18px;background:#fff;border:1px solid #cbdccf;border-radius:10px;color:#526257;font-size:14px;line-height:1.7}
+.source-list summary{cursor:pointer;color:#174c35;font-weight:700}
+.source-list p{margin:8px 0 0}
 </style>
 <link rel="stylesheet" href="./study-return.css">
 <link rel="stylesheet" href="./learning.css">
 <link rel="stylesheet" href="./mint-learning.css">
+<style>
+/* Ch.02 overrides only. */
+.ch02-study .def,.ch02-study .note,.ch02-study .gi-body,.ch02-study td,.ch02-study .exam p{font-size:16px;line-height:1.85}
+.ch02-study .sec-header{width:100%;text-align:left;font:inherit;color:inherit;appearance:none;border:0;border-bottom:1px solid var(--ew-border)}
+.ch02-study .toc-item{font-family:inherit;cursor:pointer;text-align:left;min-height:44px}
+.ch02-study :is(.kw1,.kw2,.kw3,.kw4) :is(.kw1,.kw2,.kw3,.kw4){border:0;box-shadow:none;background:none;text-decoration:none;padding:0;font-size:inherit}
+.ch02-study .concept-exams{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 12px}
+.ch02-study .concept-exams a{color:#9b1c1c;background:#fff0f0;border:1px solid #efc4c4;border-radius:4px;padding:3px 8px;font-size:13px;font-weight:700;text-decoration:none;min-height:32px;display:inline-flex;align-items:center}
+.ch02-study .concept-exams a:hover{text-decoration:underline;text-underline-offset:3px}
+@media(max-width:640px){
+ .ch02-study table thead{display:none}
+ .ch02-study table tbody th{display:block;grid-column:1/-1;font-size:15px;line-height:1.6}
+ .ch02-study table td{font-size:15px}
+ .ch02-study .sec-title{min-width:0;overflow-wrap:anywhere}
+ .ch02-study .sec-header{flex-wrap:wrap}
+}
+</style>
 </head>
-<body class="etwiki-learning">
+<body class="etwiki-learning ch02-study">
 <header class="ew-header"><div class="ew-brand-row"><a class="ew-brand" href="https://etwiki.net/index.html">기출 WIKI</a><span class="ew-header-label">학습자료</span><a class="ew-back" href="https://etwiki.net/study.html">전체 자료 ↗</a></div><nav class="ew-subjects" aria-label="학습 영역"><a href="https://namkicheol.github.io/englisheducation/" aria-current="location">영어교육론</a><a href="https://namkicheol.github.io/linguistics/">영어학</a><a href="https://namkicheol.github.io/phonetics-phonology/phonetics.html">음성·음운론</a></nav></header>
 <nav class="learning-nav" aria-label="상단 학습 내비게이션">
   <a href="https://etwiki.net/index.html">기출 WIKI</a>
@@ -111,45 +181,45 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 <div class="toc">
   <div class="toc-title">📋 목차</div>
   <div class="toc-list">
-    <div class="toc-item" onclick="openSec('s1')">① CAH & Transfer</div>
-    <div class="toc-item" onclick="openSec('s2')">② Interlanguage</div>
-    <div class="toc-item" onclick="openSec('s3')">③ Error Types</div>
-    <div class="toc-item" onclick="openSec('s4')">④ Corrective Feedback</div>
-    <div class="toc-item" onclick="openSec('s5')">⑤ Uptake & Output</div>
-    <div class="toc-item" onclick="openSec('s6')">⑥ Modified Input</div>
-    <div class="toc-item" onclick="openSec('s7')">⑦ Display Q / IRE·IRF</div>
+    <button type="button" class="toc-item" aria-controls="s1" onclick="openSec('s1')">① CAH & Transfer</button>
+    <button type="button" class="toc-item" aria-controls="s2" onclick="openSec('s2')">② Interlanguage</button>
+    <button type="button" class="toc-item" aria-controls="s3" onclick="openSec('s3')">③ Error Types</button>
+    <button type="button" class="toc-item" aria-controls="s4" onclick="openSec('s4')">④ Corrective Feedback</button>
+    <button type="button" class="toc-item" aria-controls="s5" onclick="openSec('s5')">⑤ Uptake & Output</button>
+    <button type="button" class="toc-item" aria-controls="s6" onclick="openSec('s6')">⑥ Modified Input</button>
+    <button type="button" class="toc-item" aria-controls="s7" onclick="openSec('s7')">⑦ Display Q / IRE·IRF</button>
   </div>
 </div>
 
 <!-- 범례 -->
 <div class="legend">
   <span style="font-size:10px;font-family:'JetBrains Mono',monospace;color:#4a7a62;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-right:4px">키워드</span>
-  <span style="font-size:11px;color:#3a6b51"><span class="kw4">★★★ 최빈출</span></span>
-  <span style="font-size:11px;color:#3a6b51"><span class="kw3">★★ 빈출</span></span>
+  <span style="font-size:11px;color:#3a6b51"><span class="kw4">핵심 개념</span></span>
+  <span style="font-size:11px;color:#3a6b51"><span class="kw3">비교 기준</span></span>
   <span style="font-size:11px;color:#3a6b51"><span class="kw1">★ 기본개념</span></span>
   <span style="font-size:11px;color:#3a6b51"><span class="kw2">부키워드</span></span>
 </div>
 
 <!-- 기출분석 -->
 <div class="exam" style="margin-bottom:20px">
-  <div class="exam-label">📝 기출분석 포인트</div>
-  <p>① <span class='kw4'>Recast</span> — 엄청 빈출! implicit 특성, communicative flow 유지, positive+negative evidence, 학습자가 오해 가능</p>
+  <div class="exam-label">개념을 읽을 때 주의할 점</div>
+  <p>① <span class='kw4'>Recast</span> — 학습자 발화를 목표형으로 다시 구성하는 implicit corrective feedback</p>
   <p>② <span class='kw4'>Source of error</span>: <span class='kw3'>intralingual(overgeneralization)</span> vs <span class='kw3'>interlingual(interference)</span> 구분 필수</p>
-  <p>③ <span class='kw3'>Interlanguage</span> 발달단계 4단계 + <span class='kw3'>fossilization</span> 조건 알기</p>
-  <p>④ <span class='kw3'>Clarification request</span> — self-repair 유도 가능 · 효과는 학습자와 수업 맥락에 따라 다름</p>
-  <p>⑤ <span class='kw3'>Metalinguistic feedback</span> = correct form 포함 <span class='kw2'>X</span> / <span class='kw3'>Elicitation</span> = 'We are...?' 형태 대표적</p>
-  <p>⑥ <span class='kw4'>Display Q</span> vs <span class='kw4'>Referential Q</span> 빈출 / <span class='kw3'>Uptake</span> successful/unsuccessful 구분</p>
+  <p>③ <span class='kw3'>Interlanguage</span>는 학습자의 변화하는 체계. 단계 이름을 보편 순서로 단정하지 않기</p>
+  <p>④ <span class='kw3'>Clarification request</span> — 이해가 어렵다는 신호. 문법 오류 교정인지 맥락으로 판단</p>
+  <p>⑤ <span class='kw3'>Metalinguistic feedback</span> = 정확성·규칙을 언급; 목표형 제공 여부는 발화별 확인 / <span class='kw3'>Elicitation</span> = 'We are...?' 형태 대표적</p>
+  <p>⑥ <span class='kw4'>Display Q</span>와 <span class='kw4'>Referential Q</span>는 질문자의 정보 상태로 구분 / <span class='kw3'>Uptake</span>와 repair는 별도 판단</p>
 </div>
 
 <!-- ① CAH & Transfer -->
 <div class="sec open" id="s1">
-  <div class="sec-header" onclick="toggle('s1')">
+  <button type="button" class="sec-header" aria-controls="s1-body" aria-expanded="true" onclick="toggle('s1')">
     <span class="sec-icon">🔀</span>
     <span class="sec-title">① Contrastive Analysis & Transfer</span>
-    <span class="sec-tag orange">★★ 빈출</span>
+    <span class="sec-tag orange">비교 기준</span>
     <span class="sec-arrow">▼</span>
-  </div>
-  <div class="sec-body">
+  </button>
+  <div class="sec-body" id="s1-body">
     <div class="concept">
       <div class="c-title">Types of Transfer</div>
       <div class="grid col2">
@@ -165,11 +235,11 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       <div class="grid col2" style="margin-top:10px">
         <div class="grid-item">
           <div class="gi-title"><span class='kw4'>Interference</span> = Interlingual</div>
-          <div class="gi-body"><span>L1 규칙 → L2에 잘못 적용</span><span>e.g. 'see an exam'</span></div>
+          <div class="gi-body"><span>L1 규칙 → L2에 잘못 적용</span><span>언어 간 대비는 실제 발화와 문맥에서 확인</span></div>
         </div>
         <div class="grid-item">
           <div class="gi-title"><span class='kw4'>Overgeneralization</span> = Intralingual</div>
-          <div class="gi-body"><span>L2 규칙을 과잉 일반화</span><span>e.g. 'I goed to school'</span></div>
+          <div class="gi-body"><span>L2 규칙을 과잉 일반화</span><span>e.g. <i>I goed</i> (영어 과거 규칙 과잉 일반화)</span></div>
         </div>
       </div>
       <div class="grid col2" style="margin-top:10px">
@@ -199,7 +269,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
           <div class="gi-title"><span class='kw3'>Weak version</span></div>
           <div class="gi-body">
             <span>오류 <span class='kw2'>사후 분석</span></span>
-            <span>cross-linguistic influence 강조</span>
+            <span>L1 대조는 여러 단서 중 하나</span>
             <span>관찰된 오류 중 L1 영향 설명 · 모든 오류를 설명하지 않음</span>
           </div>
         </div>
@@ -216,24 +286,27 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       <p class="note">사례 D: 관계절을 쓸 수 있는 과제에서 학생이 계속 두 단문으로 바꾸고, 관계절을 사용해 보라는 요청에도 응하지 않는다 → <strong>avoidance</strong>의 근거. 관계절 오류가 0개라는 기록만으로 관계절을 습득했다고 결론 내릴 수 없다.</p>
       <p class="note">출처: Brown (2014), Principles of Language Learning and Teaching, 6th ed., Ch.9, pp.250–257, 260–261. 예시는 개념을 설명하기 위해 새로 구성했다.</p>
     <p class="note"><strong>개념사전 연결</strong> <a href="https://etwiki.net/concept.html?term=Contrastive%20Analysis%20Hypothesis%20(CAH)">Contrastive Analysis Hypothesis (CAH)</a> · <a href="https://etwiki.net/concept.html?term=Error%20analysis">Error analysis</a></p></details>
+<details class="deep-dive"><summary>자세히 보기 · Transfer와 대조 분석의 범위</summary><div class="deep-body"><h3>Transfer는 지식의 영향</h3><p>이미 아는 지식이 새 학습에 영향을 주는 것을 <b>transfer</b>라고 합니다. 도움이 되면 positive transfer, 방해하면 negative transfer입니다. 언어 간 차이가 있다고 오류가 반드시 생기는 것은 아닙니다. Strong CAH는 L1·L2 대조로 어려움을 미리 예측한다는 역사적 주장입니다. 실제 오류에는 L1 영향 이외에도 L2 규칙의 과잉 일반화나 학습 맥락이 작용할 수 있습니다.</p><p>보기에서 오류의 원인을 고를 때는 L1에 실제 대응 형태가 있는지, 학습자가 그 형태를 문장에 적용했는지 먼저 확인하세요. <i>goed</i>처럼 영어 과거 규칙을 불규칙 동사에 적용한 형태는 intralingual overgeneralization의 예입니다. Avoidance나 overuse를 관찰해도 L1 전이만으로 설명하지 않습니다.</p><h3>조건 변경</h3><p>두 언어의 어순이 다르다는 정보만으로 산출 오류를 예측하지 말고, 학습자의 실제 발화와 다른 원인을 함께 비교합니다.</p><p class="source-note">Brown, <i>Principles of Language Learning and Teaching</i> (6th ed.), pp. 94–96, 254–260.</p></div></details>
+
   </div>
 </div>
 
 <!-- ② Interlanguage -->
 <div class="sec" id="s2">
-  <div class="sec-header" onclick="toggle('s2')">
+  <button type="button" class="sec-header" aria-controls="s2-body" aria-expanded="false" onclick="toggle('s2')">
     <span class="sec-icon">🔄</span>
     <span class="sec-title">② Interlanguage</span>
-    <span class="sec-tag red">★★★ 최빈출</span>
+    <span class="sec-tag red">핵심 개념</span>
     <span class="sec-arrow">▼</span>
-  </div>
-  <div class="sec-body">
+  </button>
+  <div class="sec-body" id="s2-body">
     <div class="concept">
       <div class="c-title">특징</div>
+      <div class="concept-exams" aria-label="관련 기출"><a href="https://etwiki.net/index.html?id=education_2023_A01" target="_blank" rel="noopener">2023 · 전공 A 1번 ↗</a></div>
       <div class="def"><span class='kw4'>Interlanguage</span>: An intermediate system between L1 and TL — <span class='kw2'>systematic, variable, dynamic</span>. Own unique, coherent rule system.</div>
       <div class="exam">
         <div class="exam-label">📋 기출 이력</div>
-        <p><strong>2025 A-8</strong> — interlanguage, semantic deviation, number of arguments</p>
+
       </div>
     </div>
     <div class="div"></div>
@@ -245,7 +318,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
           <tr><td><span class='kw3'>Presystematic</span></td><td>random errors · vague rule awareness</td><td>❌</td></tr>
           <tr><td><span class='kw3'>Emergent</span></td><td>some consistency · <span class='kw2'>backsliding</span> · 오류를 지적받아도 repair 어려움</td><td>❌ (with feedback)</td></tr>
           <tr><td><span class='kw3'>Systematic</span></td><td>consistent · 지적받은 오류 repair 가능</td><td>✅ (with feedback)</td></tr>
-          <tr><td><span class='kw3'>Stabilization</span></td><td>few errors · <span class='kw2'>fossilization</span> 가능</td><td>✅ (without feedback)</td></tr>
+          <tr><td><span class='kw3'>Stabilization</span></td><td>더 안정적인 산출 · 일부 특징은 장기 안정 가능</td><td>✅ (without feedback)</td></tr>
         </table>
       </div>
       <p class="note" style="margin-top:10px"><span class='kw3'>Backsliding</span>: 규칙을 이해한 것 같지만 이전 단계로 퇴행하는 현상 (emergent stage)</p>
@@ -297,20 +370,22 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       <p class="note">2023 A-1: 이전에 맞게 쓴 불규칙 과거형에 -ed를 적용한 변화가 핵심이다. 빈칸의 한 단어는 <strong>backsliding</strong>이며, U-shaped development는 교사가 그 변화를 해석하는 발달 맥락이다.</p>
       <p class="note">출처: Brown (2014), Principles of Language Learning and Teaching, 6th ed., Ch.9, pp.243–250, 264–266. 기출 연결: 2023학년도 전공 A 1번.</p>
     <p class="note"><strong>개념사전 연결</strong> <a href="https://etwiki.net/concept.html?term=interlanguage">interlanguage</a></p></details>
+<details class="deep-dive"><summary>자세히 보기 · Interlanguage의 변화와 화석화</summary><div class="deep-body"><p><b>Interlanguage</b>는 학습자가 구성해 가는 자체 언어 체계입니다. 목표어와 다른 문장에도 반복 규칙이 있을 수 있으므로 산출 자료에서 규칙을 찾아야 합니다. 단계 명칭은 관찰을 설명하는 틀이며 모든 학습자가 같은 순서로 진행한다는 보편 시간표는 아닙니다.</p><h3>2023학년도 전공 A 1번 · 지문 단서 → 개념 → 답</h3><p class="exam-year">2023학년도 전공 A 1번 <a class="exam-link" href="https://etwiki.net/index.html?id=education_2023_A01" target="_blank" rel="noopener">원문 보기 ↗</a></p><p>학생이 처음에는 <i>drank, wore, heard</i>를 정확히 쓰다가 뒤에 <i>drinked, weared, heared</i>로 바꿉니다. 불규칙 동사를 규칙처럼 처리하는 overgeneralization이 보입니다. 이 문항이 묻는, 이전에 맞게 쓰던 형태로부터의 후퇴는 <b>backsliding</b>입니다. 이후 정확한 형태를 회복하는 세 번째 시점까지 주어지면 전체 경로를 U-shaped development로 설명할 수 있습니다. 오류가 늘었다는 사실만 보면 안 되고, 초기에 정확했던 형태가 규칙 적용 뒤 다시 오류가 된 변화를 읽습니다.</p><p><b>Fossilization</b>은 한 번의 오류가 아니라 비목표어 특징이 장기간 안정되는 현상입니다. 오류 하나, 잠시 정체, 즉시 고친 문장만으로 화석화라 판정하지 않습니다.</p><p class="source-note">Brown, <i>Principles of Language Learning and Teaching</i> (6th ed.), pp. 243–250, 264–266.</p></div></details>
+
   </div>
 </div>
 
 <!-- ③ Error Types -->
 <div class="sec" id="s3">
-  <div class="sec-header" onclick="toggle('s3')">
+  <button type="button" class="sec-header" aria-controls="s3-body" aria-expanded="false" onclick="toggle('s3')">
     <span class="sec-icon">❗</span>
     <span class="sec-title">③ Error Types</span>
-    <span class="sec-tag orange">★★ 빈출</span>
+    <span class="sec-tag orange">비교 기준</span>
     <span class="sec-arrow">▼</span>
-  </div>
-  <div class="sec-body">
+  </button>
+  <div class="sec-body" id="s3-body">
     <div class="concept">
-      <div class="c-title">Source of Error <span class="badge-ex">★★★ 구분 필수</span></div>
+      <div class="c-title">Source of Error <span class="badge-ex">구분 기준</span></div>
       <div class="stage-wrap">
         <table>
           <tr><th>Source</th><th>Type</th><th>예시</th></tr>
@@ -324,6 +399,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
     <div class="div"></div>
     <div class="concept">
       <div class="c-title">Error Classification</div>
+      <div class="concept-exams" aria-label="관련 기출"><a href="https://etwiki.net/index.html?id=education_2025_A08" target="_blank" rel="noopener">2025 · 전공 A 8번 ↗</a></div>
       <div class="grid col2">
         <div class="grid-item">
           <div class="gi-title"><span class='kw3'>Global error</span></div>
@@ -331,7 +407,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         </div>
         <div class="grid-item">
           <div class="gi-title"><span class='kw3'>Local error</span></div>
-          <div class="gi-body"><span>message <span class='kw2'>still delivered</span></span><span>→ not necessarily correct</span><span>morphological markers 누락</span></div>
+          <div class="gi-body"><span>message <span class='kw2'>still delivered</span></span><span>→ 목표 형태와 학습 단계에 따라 처리 결정</span><span>morphological markers 누락</span></div>
         </div>
       </div>
       <div class="grid col2" style="margin-top:10px">
@@ -364,28 +440,31 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       <summary>원인·형식·의사소통에 미치는 영향에 따른 오류 분류</summary>
 <p class="note"><strong>오류를 발견하는 것과 원인을 설명하는 것</strong> Mistake는 알고 있는 체계를 순간적으로 제대로 사용하지 못한 경우, error는 현재 학습자의 체계와 관련된 비목표 형태를 가리킨다. 한 번의 수정 성공만으로 둘을 완벽히 나눌 수는 없다. 힌트를 따라 고친 뒤 같은 형태가 반복되는지, 다른 과제에서도 스스로 사용할 수 있는지 함께 관찰해야 한다.</p><div class="depth-table-wrap"><table class="depth-table"><caption>한 발화를 세 질문으로 분석한다</caption><thead><tr><th scope="col">축</th><th scope="col">질문</th><th scope="col">필요한 근거</th></tr></thead><tbody><tr><th scope="row">원인</th><td>왜 이 형태가 나왔는가?</td><td>L1·L2 규칙·학습 맥락과 반복 양상</td></tr><tr><th scope="row">Overt / covert</th><td>문장 자체의 형태가 잘못되었는가, 맥락에서 의미가 맞지 않는가?</td><td>문장과 앞뒤 담화·의도</td></tr><tr><th scope="row">Global / local</th><td>상대가 의도한 뜻을 이해할 수 있는가?</td><td>실제 해석 가능성과 대화 맥락</td></tr></tbody></table></div><p class="note"><strong>독립적인 축이라는 말의 의미</strong> Overt라고 해서 반드시 global인 것은 아니다. 문법 오류가 보여도 시간 표현과 맥락 덕분에 뜻을 알 수 있다. 반대로 문법적으로 완전한 문장이 질문의 의도와 맞지 않으면 covert일 수 있다. 원인 분류는 여기서 한 단계 더 나아간 설명이다. 오류가 보이는 위치나 이해 가능성만으로 L1 transfer라고 정할 수 없다.</p><p class="note"><strong>기출의 분류표를 우선하는 이유</strong> 2025 A-8은 문항이 제공한 분류표의 이름을 적용하도록 요구한다. 먼저 학습자가 의도한 의미와 실제 발화, 상대의 반응, 수정된 발화를 연결한 뒤 그 표의 기준에 맞춘다. 익숙한 global/local 용어가 떠올라도 발문이 다른 축을 지정했다면 답안 이름을 바꾸어 쓰지 않는다. 아래 새 사례는 이 증거 연결을 연습하기 위한 것이며 원문 대화가 아니다.</p>
 
-      
+
       <p class="note">작문에서 “Yesterday Mina walk home.”이라고 썼고 독자가 누가 언제 어디로 갔는지 정확히 이해했다면, 문장 형태의 오류는 overt, 이 상황에서의 영향은 local이다. 과거형 누락만 보고 L1 transfer라고 원인까지 확정할 수는 없다.</p>
       <p class="note">교사가 학생의 이름을 묻는데 학생이 날씨가 맑다고 답했다면 문장 자체는 문법적일 수 있어도 질문에 맞는 의미를 전달하지 못한다. 문장 자체보다 맥락에 맞는지 판단해야 하므로 covert error에 해당한다.</p>
-      <div class="exam"><div class="exam-label">2025 A-8 · 제시된 분류표 적용</div>
+      <div class="exam"><div class="exam-label"><span class="exam-year">2025학년도 전공 A 8번</span> · 제시된 분류표 적용 <a class="exam-link" href="https://etwiki.net/index.html?id=education_2025_A08" target="_blank" rel="noopener">원문 보기 ↗</a></div>
       <p>기출의 판단 근거: 첫 발화는 <u>물건이 있는지 물으려는 의도와 실제 질문의 의미가 어긋난다.</u> 두 번째 발화에는 <u>전달하는 물건이 빠져 있으며</u>, 이후 학생이 그 물건을 덧붙여 말한다.</p>
       <p><strong>적용 사례 (별도 구성)</strong>: 상대 그림에 우산이 있는지 확인하려던 학생이 “Who is your umbrella?”라고 말하고, 상대의 확인 질문을 듣고 소유 여부를 묻고 싶었다고 설명한다. 의도한 질문과 실제 의미가 어긋나므로 <strong>Semantic deviation</strong>이다.</p>
       <p><strong>적용 사례 (별도 구성)</strong>: 사진에서 민아가 지수에게 열쇠를 건네는 장면을 보고 “Mina handed Jisu.”라고 한다. 무엇을 건넸는지 묻자 학생이 “Mina handed Jisu a key.”라고 완성한다. 빠진 물건을 나타내는 argument가 추가되었으므로 <strong>Number of arguments</strong>에 해당한다.</p>
       <p>이 문항은 &lt;A&gt;의 유형명을 요구한다. 같은 장면을 overt/covert나 global/local로 설명할 수 있는지와 별개로, 답안에는 발문이 지정한 분류표의 이름과 근거를 쓴다.</p></div>
       <p class="note">출처: Brown (2014), Principles of Language Learning and Teaching, 6th ed., Ch.9, pp.249–254, 260–262. 기출 연결: 2025학년도 전공 A 8번.</p>
     <p class="note"><strong>개념사전 연결</strong> <a href="https://etwiki.net/concept.html?term=overt%20error">overt error</a> · <a href="https://etwiki.net/concept.html?term=global%20error">global error</a></p></details>
+<details class="deep-dive"><summary>자세히 보기 · 오류의 원인과 의사소통 영향</summary><div class="deep-body"><p><b>Interlingual / intralingual</b>은 원인 축, <b>global / local</b>은 의미 이해에 미치는 영향 축입니다. 서로 다른 질문이므로 L1 전이 오류가 반드시 global인 것은 아닙니다.</p><p><i>goed</i>는 형태 오류지만 보통 의도는 복원됩니다. 문제에서는 문장·담화 맥락을 확인해 핵심 뜻이 막히는지 살핍니다. 수업에서 유창성을 기르는지 특정 형태의 정확성을 연습하는지도 교정 우선순위에 영향을 줍니다. “유창성에서는 절대 local error를 고치지 않는다” 같은 고정 규칙으로 외우지 마세요.</p><p class="source-note">Brown, <i>Principles of Language Learning and Teaching</i> (6th ed.), pp. 248–253, 260–263.</p></div></details>
+
   </div>
 </div>
 
 <!-- ④ Corrective Feedback -->
 <div class="sec" id="s4">
-  <div class="sec-header" onclick="toggle('s4')">
+  <button type="button" class="sec-header" aria-controls="s4-body" aria-expanded="false" onclick="toggle('s4')">
     <span class="sec-icon">💬</span>
     <span class="sec-title">④ Corrective Feedback Types</span>
-    <span class="sec-tag red">★★★ 최빈출</span>
+    <span class="sec-tag red">핵심 개념</span>
     <span class="sec-arrow">▼</span>
-  </div>
-  <div class="sec-body">
+  </button>
+  <div class="sec-body" id="s4-body">
+    <div class="concept-exams" aria-label="관련 기출"><a href="https://etwiki.net/index.html?id=education_2016_A12" target="_blank" rel="noopener">2016 · 전공 A 12번 ↗</a></div>
     <!-- Implicit vs Explicit 구분 SVG -->
     <div class="stage-wrap"><svg viewBox="0 0 700 80" style="width:100%;margin-bottom:14px" xmlns="http://www.w3.org/2000/svg">
       <rect x="5" y="10" width="330" height="60" rx="10" fill="rgba(46,125,82,.08)" stroke="rgba(46,125,82,.3)" stroke-width="1.5"/>
@@ -402,24 +481,24 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         <tr>
           <td><span class='kw4'>Recast</span></td>
           <td><span class='kw2'>Implicit</span></td>
-          <td>erroneous utterance 재구성 · <span class='kw2'>flow 유지</span> · positive+negative evidence · 학습자가 confirmation으로 오해 가능</td>
+          <td>erroneous utterance 재구성 · <span class='kw2'>flow 유지</span> · 목표형을 제시하며, 이를 단순 확인으로 받아들일 수도 있음</td>
           <td>S: "I goed."<br>T: "Oh, you <span class='kw2'>went</span>?"</td>
         </tr>
         <tr>
           <td><span class='kw3'>Clarification request</span></td>
-          <td><span class='kw2'>Implicit</span></td>
+          <td>대개 implicit, 문맥 의존</td>
           <td><span class='kw2'>self-repair 유도 가능</span> · 효과는 맥락과 측정 기준에 따라 다름</td>
           <td>"I'm sorry?" / "Pardon?"</td>
         </tr>
         <tr>
           <td><span class='kw3'>Metalinguistic feedback</span></td>
-          <td>Implicit/Explicit</td>
+          <td>대개 explicit</td>
           <td>오류 성격 설명 · <span class='kw2'>correct form 제공 X</span></td>
           <td>"What is the past tense?"</td>
         </tr>
         <tr>
           <td><span class='kw3'>Elicitation</span></td>
-          <td>Implicit/Explicit</td>
+          <td>맥락에 따라 다름</td>
           <td>incomplete sentence/question → <span class='kw2'>self-correct 유도</span></td>
           <td>"He comes... / We are...?"</td>
         </tr>
@@ -438,27 +517,29 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       </table>
     </div>
     <div class="exam" style="margin-top:14px">
-      <div class="exam-label">⚠️ Recast 핵심 정리 (★★★ 최빈출)</div>
+      <div class="exam-label">⚠️ Recast 핵심 정리 (핵심 개념)</div>
       <p>① <span class='kw4'>Implicit</span> · communicative flow <span class='kw2'>유지</span></p>
-      <p>② <span class='kw2'>Positive evidence</span>(correct form) + <span class='kw2'>Negative evidence</span>(오류 암시) 동시 포함</p>
+      <p>② 목표형을 제공하며 오류 신호의 해석은 맥락·학습자에 따라 달라질 수 있음</p>
       <p>③ 학습자가 <span class='kw2'>confirmation check</span>로 오해 가능 → 교정 의도를 인식하지 못하면 no uptake 가능</p>
       <p>④ Meaning에 집중하느라 form 수정 인식 못할 수 있음</p>
       <p>⑤ Intonational signal 추가 → <span class='kw2'>explicitness↑</span></p>
     </div>
     <p class="note">Feedback의 유형은 교사가 무엇을 했는지로 판별한다. Recast의 강조·억양과 교실 맥락에 따라 교정 의도가 더 두드러질 수 있으므로 implicit/explicit 표시는 전형적인 경향으로 읽는다. Explicit feedback도 반드시 대화를 중단시키는 것은 아니다.</p>
     <p class="note"><a href="./grammar_study.html?returnTo=linguistic_study.html%23s4#feedback-depth">같은 오류에 대한 feedback 비교와 uptake·repair 판단</a></p>
+<details class="deep-dive"><summary>자세히 보기 · Corrective feedback 발화 판별</summary><div class="deep-body"><p><b>Recast</b>는 학습자의 잘못되거나 불완전한 발화를 목표형으로 다시 말하는 방식입니다. <b>Clarification request</b>는 이해가 어렵다는 신호로 다시 말해 달라고 요청합니다. 문법 오류 교정으로 바로 단정하지 말고 대화 맥락을 확인합니다. <b>Metalinguistic feedback</b>는 규칙이나 정확성을 언급하며, <b>elicitation</b>은 학습자가 스스로 완성·수정하도록 말할 기회를 줍니다.</p><h3>2016학년도 전공 A 12번 · 실제 발화 연결</h3><p class="exam-year">2016학년도 전공 A 12번 <a class="exam-link" href="https://etwiki.net/index.html?id=education_2016_A12" target="_blank" rel="noopener">원문 보기 ↗</a></p><p>교사 “You didn’t study yesterday?”는 학생의 발화를 목표형으로 다시 말하며 오류를 직접 알리지는 않습니다. 이어 “don’t had is not the right past tense form”은 오류를 지적하지만 목표형 대안은 제공하지 않습니다. 그러므로 질문의 조건(오류를 드러내지 않기 + 목표형 대안 포함)을 만족하는 발화를 골라야 합니다. 유형 이름과 조건 충족을 따로 판별합니다.</p><p>Clarification request나 recast 중 무엇이 일반적으로 가장 효과적이라고 단정하지 않습니다. Brown은 feedback 효과 연구의 결론이 조건에 따라 다르다고 정리합니다.</p><p class="source-note">Brown, <i>Principles of Language Learning and Teaching</i> (6th ed.), pp. 271–275.</p></div></details>
+
   </div>
 </div>
 
 <!-- ⑤ Uptake & Output -->
 <div class="sec" id="s5">
-  <div class="sec-header" onclick="toggle('s5')">
+  <button type="button" class="sec-header" aria-controls="s5-body" aria-expanded="false" onclick="toggle('s5')">
     <span class="sec-icon">🔁</span>
     <span class="sec-title">⑤ Uptake · Modified Output · Pushed Output</span>
-    <span class="sec-tag red">★★★ 최빈출</span>
+    <span class="sec-tag red">핵심 개념</span>
     <span class="sec-arrow">▼</span>
-  </div>
-  <div class="sec-body">
+  </button>
+  <div class="sec-body" id="s5-body">
     <div class="stage-wrap">
       <table>
         <tr><th>개념</th><th>정의</th><th>핵심</th></tr>
@@ -488,6 +569,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
     <div class="div"></div>
     <div class="concept">
       <div class="c-title">Positive vs Negative Evidence</div>
+      <div class="concept-exams" aria-label="관련 기출"><a href="https://etwiki.net/index.html?id=education_2011_X28" target="_blank" rel="noopener">2011 · 1차 28번 ↗</a></div>
       <div class="grid col2">
         <div class="grid-item">
           <div class="gi-title"><span class='kw2'>Positive evidence</span></div>
@@ -509,18 +591,20 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       <p class="note">Pushed output에서는 학습자가 더 정확하고 적절하게 표현하도록 요구받았는지를 본다. Modified output에서는 학습자가 앞서 한 말을 실제로 수정했는지를 본다. 한 사례가 두 개념에 모두 해당할 수 있으며 즉각적인 repair가 장기 습득을 보장하지는 않는다.</p>
       <p class="note">출처: Brown (2014), Principles of Language Learning and Teaching, 6th ed., Ch.9–10, pp.272–275, 290; Lyster &amp; Ranta (1997), Corrective Feedback and Learner Uptake, pp.49–50; <a href="https://www.cambridge.org/core/journals/studies-in-second-language-acquisition/article/abs/identifying-the-impact-of-negative-feedback-and-learners-responses-on-esl-question-development/E50A60C44843C2AFFF8AF436A513630F">McDonough (2005), Identifying the Impact of Negative Feedback and Learners’ Responses on ESL Question Development</a>. 새로 구성한 학습용 사례.</p>
     <p class="note"><strong>개념사전 연결</strong> <a href="https://etwiki.net/concept.html?term=pushed%20output">pushed output</a> · <a href="https://etwiki.net/concept.html?term=Output%20Hypothesis">Output Hypothesis</a></p></details>
+<details class="deep-dive"><summary>자세히 보기 · Uptake, repair와 output</summary><div class="deep-body"><p><b>Uptake</b>는 corrective feedback 직후의 학습자 반응입니다. 반응이 있어도 오류가 수정되지 않을 수 있습니다. <b>Repair</b>는 실제로 형태가 수정된 경우입니다. 따라서 반응, 수정, 장기 습득을 각각 확인하세요. 바로 정답을 반복했다고 습득이 완료된 것은 아닙니다.</p><h3>2011학년도 1차 시험 28번 · 지문 단서 → 답</h3><p class="exam-year">2011학년도 1차 시험 28번 <a class="exam-link" href="https://etwiki.net/index.html?id=education_2011_X28" target="_blank" rel="noopener">원문 보기 ↗</a></p><p>“When mosquitoes … eat me”에 교사가 “mosquitoes bite me”로 모델링합니다. 바로 뒤 학생이 “When mosquitoes bite me”라고 말해 feedback 뒤 uptake와 수정 반응을 확인할 수 있습니다. 다음 학생도 같은 문형을 사용하므로 다른 학습자의 interlanguage를 접합니다. 따라서 b와 c, 선택지 ③입니다. 교사는 다시 말해 달라고 요청하지 않았으므로 이를 clarification request로 고르지 않습니다.</p><p><b>Pushed output</b>은 더 정확하거나 분명한 표현을 산출하도록 요구받는 과정에 초점을 둡니다. 교사가 말할 기회를 준 사실만으로 수정 산출이나 습득을 입증하지는 않습니다.</p><p class="source-note">Brown, <i>Principles of Language Learning and Teaching</i> (6th ed.), pp. 272–275.</p></div></details>
+
   </div>
 </div>
 
 <!-- ⑥ Modified Input -->
 <div class="sec" id="s6">
-  <div class="sec-header" onclick="toggle('s6')">
+  <button type="button" class="sec-header" aria-controls="s6-body" aria-expanded="false" onclick="toggle('s6')">
     <span class="sec-icon">🔧</span>
     <span class="sec-title">⑥ Modified Input</span>
     <span class="sec-tag">Foreigner Talk · Teacher Talk</span>
     <span class="sec-arrow">▼</span>
-  </div>
-  <div class="sec-body">
+  </button>
+  <div class="sec-body" id="s6-body">
     <div class="concept">
       <div class="c-title">Types of Modified Input</div>
       <div class="grid col3">
@@ -571,7 +655,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       <div class="c-title">Sociocultural Implication of CF</div>
       <p class="note">Error correction = <span class='kw2'>other-regulation</span> → help L achieve <span class='kw2'>self-regulation</span></p>
       <p class="note">Corrective feedback → <span class='kw2'>step by step as scaffolding</span></p>
-      <p class="note">Facilitates Ls' <span class='kw2'>ZPD</span></p>
+      <p class="note">ZPD와 연결하려면 실제 상호작용 근거를 확인</p>
     </div>
     <div class="div"></div>
     <details class="linguistic-depth" id="input-depth">
@@ -582,20 +666,23 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       <p class="note">학습자가 뜻을 묻자 상대가 이렇게 바꾸어 말하면 input뿐 아니라 interaction도 조절된 것이다. 교사가 처음부터 쉬운 문장을 준비한 경우에는 그 사실만으로 negotiation of meaning이 있었다고 할 수 없다.</p>
       <p class="note">출처: Brown (2014), Principles of Language Learning and Teaching, 6th ed., Ch.9–10, pp.262–263, 295–296. 새로 구성한 학습용 사례.</p>
     </details>
+<details class="deep-dive"><summary>자세히 보기 · Modified input의 유형과 한계</summary><div class="deep-body"><p><b>Care-taker talk</b>는 어린이에게, <b>foreigner talk</b>는 제2언어 학습자에게, <b>teacher talk</b>는 교실에서 제공되는 말하기를 가리킵니다. 실제 발화는 목적과 청자에 따라 단순화·속도 조절·반복·설명 추가를 조합할 수 있습니다.</p><p><b>Simplification</b>은 표현 구조를 단순하게 하고, <b>elaboration</b>은 다시 말하거나 내용을 덧붙여 이해를 돕습니다. 입력을 조정했다고 학습자가 이해·주의·습득했다는 뜻은 아닙니다. 문제에서 입력 조정 자체를 묻는지, 실제 이해 확인이나 의미 협상을 묻는지 구분하세요.</p><p class="source-note">Brown, <i>Principles of Language Learning and Teaching</i> (6th ed.), pp. 262–264.</p></div></details>
+
   </div>
 </div>
 
 <!-- ⑦ Display Q / IRE·IRF -->
 <div class="sec" id="s7">
-  <div class="sec-header" onclick="toggle('s7')">
+  <button type="button" class="sec-header" aria-controls="s7-body" aria-expanded="false" onclick="toggle('s7')">
     <span class="sec-icon">❓</span>
     <span class="sec-title">⑦ Display Q · Referential Q · IRE · IRF</span>
-    <span class="sec-tag red">★★★ 최빈출</span>
+    <span class="sec-tag red">핵심 개념</span>
     <span class="sec-arrow">▼</span>
-  </div>
-  <div class="sec-body">
+  </button>
+  <div class="sec-body" id="s7-body">
     <div class="concept">
       <div class="c-title">Display Q vs Referential Q <span class="badge-ex">★★★</span></div>
+      <div class="concept-exams" aria-label="관련 기출"><a href="https://etwiki.net/index.html?id=education_2010_X16" target="_blank" rel="noopener">2010 · 1차 16번 ↗</a></div>
       <div class="grid col2">
         <div class="grid-item">
           <div class="gi-title"><span class='kw4'>Display question</span></div>
@@ -624,7 +711,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
           <div class="gi-title"><span class='kw3'>IRE</span> (Initiation–Response–Evaluation)</div>
           <div class="gi-body">
             <span>T initiates → S responds → T <span class='kw2'>evaluates</span></span>
-            <span>display question 중심</span>
+            <span>display 질문과 함께 나타날 수 있음</span>
             <span>teacher-centered · form check</span>
           </div>
         </div>
@@ -632,7 +719,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
           <div class="gi-title"><span class='kw3'>IRF</span> (Initiation–Response–Feedback)</div>
           <div class="gi-body">
             <span>T initiates → S responds → T <span class='kw2'>gives feedback</span></span>
-            <span>referential question 가능</span>
+            <span>referential 질문과 함께 나타날 수 있음</span>
             <span>후속 발화의 확장 가능 · 실제 반응 확인</span>
           </div>
         </div>
@@ -645,15 +732,23 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 
       <p class="note">교사가 정답이 3:00인 시간표를 함께 보며 “When does the club start?”라고 물으면 이미 아는 답을 확인하는 display question이다. 교사가 보지 못한 학생의 실제 동아리 일정에 대해 같은 문장으로 묻는다면 referential question이다.</p>
       <p class="note">“What did you do last weekend?”도 교사가 이미 읽은 일기의 내용을 확인하는 상황에서는 display 기능을 할 수 있다. wh-question이라는 형태나 개인 경험을 묻는 주제만으로 분류하지 않는다.</p>
-      <p class="note">출처: Brown (2007), Teaching by Principles, 3rd ed., Ch.13, p.219. 예시는 새로 구성했다.</p>
+      <p class="note">출처: Brown (2007), Teaching by Principles, 3rd ed., Ch.13, classroom interaction. 예시는 새로 구성했다.</p>
     <p class="note"><strong>개념사전 연결</strong> <a href="https://etwiki.net/concept.html?term=display%20questions">display questions</a> · <a href="https://etwiki.net/concept.html?term=referential%20questions">referential questions</a></p></details>
+
+<details class="deep-dive"><summary>자세히 보기 · 질문 목적과 IRE/IRF의 연결</summary><div class="deep-body"><p><b>Display question</b>은 질문자가 답을 알고 학습자의 지식을 확인하는 질문입니다. <b>Referential question</b>은 질문자가 실제 정보를 얻으려는 질문입니다. 의문사·문장 형식보다 질문자의 정보 상태와 대화 목적을 봅니다.</p><p><b>IRE/IRF</b>는 Initiation–Response–Evaluation/Feedback의 대화 흐름을 나타냅니다. 질문 종류와 흐름은 연결될 수 있지만, IRE가 반드시 display, IRF가 반드시 referential이라는 일대일 대응은 아닙니다.</p><h3>2010학년도 1차 시험 16번 · display question 오판 교정</h3><p class="exam-year">2010학년도 1차 시험 16번 <a class="exam-link" href="https://etwiki.net/index.html?id=education_2010_X16" target="_blank" rel="noopener">원문 보기 ↗</a></p><p>S1은 초고에서 낯선 개념 “pluralism”의 뜻을 몰라 설명을 요청합니다. 이미 알고 있는 답으로 학생을 시험하는 것이 아니라 실제 정보를 구하는 질문이므로 display question이라는 주장은 틀립니다. 의미 협상과 초고 내용·구성에 대한 동료 피드백은 대화에서 확인됩니다. 정답 조합은 a, c, e입니다.</p><p>변형 문제는 교사가 답을 아는지, 학생의 답을 평가하는지, 실제 정보를 얻는지 확인합니다. 물음표가 있다는 이유만으로 display question이 되지는 않습니다.</p><p class="source-note">Brown, <i>Teaching by Principles</i> (3rd ed.), Ch.13, classroom interaction.</p></div></details>
+
   </div>
 </div>
 
+<details class="source-list"><summary>참고 원서</summary><p>Brown, H. Douglas. <i>Principles of Language Learning and Teaching</i>, 6th ed. Pearson, 2014.</p><p>Brown, H. Douglas. <i>Teaching by Principles: An Interactive Approach to Language Pedagogy</i>, 3rd ed. Pearson, 2007.</p></details>
 </div><!-- /wrap -->
 <script>
-function toggle(id){document.getElementById(id).classList.toggle('open')}
-function openSec(id){const s=document.getElementById(id);s.classList.add('open');s.scrollIntoView({behavior:'smooth',block:'start'})}
+function syncSec(s){s.querySelector('.sec-header').setAttribute('aria-expanded',s.classList.contains('open')?'true':'false')}
+function toggle(id){const s=document.getElementById(id);s.classList.toggle('open');syncSec(s)}
+document.querySelectorAll('.sec').forEach(syncSec);
+function openSec(id){const s=document.getElementById(id);s.classList.add('open');syncSec(s);s.scrollIntoView({behavior:'smooth',block:'start'})}
+
+document.querySelectorAll("table").forEach(t=>{const labels=Array.from(t.rows[0]?.cells||[],x=>x.textContent.trim());Array.from(t.rows).slice(1).forEach(r=>Array.from(r.cells).forEach((c,i)=>{if(c.tagName==="TD")c.setAttribute("data-label",labels[i]||"항목")}))});
 </script>
 <nav class="learning-nav bottom" aria-label="하단 학습 내비게이션">
   <a href="https://etwiki.net/index.html">기출 WIKI</a>
