@@ -81,6 +81,39 @@ details.learner-deep{border:1px solid #b2dfcc;border-radius:10px;padding:12px 14
 <link rel="stylesheet" href="./study-return.css">
 <link rel="stylesheet" href="./learning.css">
 <link rel="stylesheet" href="./mint-learning.css">
+<style>
+/* Ch.03 only: the original palette and diagrams are retained. */
+.etwiki-learning .exam-year{display:inline-block;color:#b71c1c;background:#fff3f2;border:1px solid #e8b5af;border-radius:4px;padding:0 6px;font-size:13px;font-weight:700;line-height:1.8;text-decoration:none;white-space:nowrap;vertical-align:baseline}
+.etwiki-learning .concept-term{text-decoration:none;white-space:normal;overflow-wrap:anywhere}
+.etwiki-learning a.kw2{border-bottom:0;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.etwiki-learning u{text-decoration-thickness:1px;text-underline-offset:3px}
+.etwiki-learning .source-note{margin:12px 0;padding:10px 12px;border:1px solid #b2dfcc;border-radius:8px;font-size:14px;line-height:1.8;overflow-wrap:anywhere}
+.source-note summary{cursor:pointer;color:#1b5e3a;font-weight:700}.source-note p{margin-top:8px}
+.etwiki-learning .sec-header{width:100%;text-align:left;font:inherit;color:inherit;border:0;border-bottom:1.5px solid #b2dfcc;border-radius:0;flex-wrap:wrap}
+.etwiki-learning .sec-title{flex:1 1 180px;overflow-wrap:anywhere}.etwiki-learning .sec-tag{white-space:normal}
+.etwiki-learning .c-title{flex-wrap:wrap}.etwiki-learning .gi-body span{overflow-wrap:anywhere}
+.etwiki-learning .learner-deep p{color:#2a5040}.etwiki-learning .learner-deep mark{background:#edf5cf;color:inherit}
+.etwiki-learning .depth-table{min-width:0}.etwiki-learning .stage-wrap svg{min-width:700px}.etwiki-learning .depth-svg{min-width:360px}
+@media(max-width:640px){.etwiki-learning .sec-body{padding:14px}.etwiki-learning .learner-deep{padding:10px}.etwiki-learning .grid-item{padding:12px}.etwiki-learning .kw1,.etwiki-learning .kw2,.etwiki-learning .kw3,.etwiki-learning .kw4{white-space:normal;overflow-wrap:anywhere}.etwiki-learning .sec-header{padding:14px}.etwiki-learning .sec-tag{margin-left:30px}.etwiki-learning .depth-table-wrap,.etwiki-learning .stage-wrap{border:1px solid #c8ead8;border-radius:6px}}
+@media(max-width:640px){
+ .etwiki-learning .depth-table{display:block;width:100%;min-width:0}
+ .etwiki-learning .depth-table thead{display:none}
+ .etwiki-learning .depth-table tbody{display:block}
+ .etwiki-learning .depth-table tr{display:block;margin:0 0 12px;border:1px solid #b2dfcc;border-radius:6px;overflow:hidden}
+ .etwiki-learning .depth-table th,.etwiki-learning .depth-table td{display:block;width:auto;min-width:0;border:0;padding:9px 10px;overflow-wrap:anywhere}
+ .etwiki-learning .depth-table td{border-top:1px solid #dcebe2}
+ .etwiki-learning .depth-table td::before{content:attr(data-label);display:block;font-size:12px;font-weight:700;color:#1b5e3a;margin-bottom:3px}
+}
+.etwiki-learning :is(.kw1,.kw2,.kw3,.kw4) :is(.kw1,.kw2,.kw3,.kw4){border:0;box-shadow:none;background:none;text-decoration:none;padding:0;font-size:inherit}
+
+.etwiki-learning .def,.etwiki-learning .gi-body,.etwiki-learning .note,.etwiki-learning td{font-size:16px;line-height:1.85;word-break:keep-all;overflow-wrap:anywhere}
+.etwiki-learning .study-return-link{position:static;left:auto;bottom:auto;transform:none;display:flex;width:fit-content;max-width:calc(100% - 32px);margin:24px auto;white-space:normal}
+.etwiki-learning .stage-wrap svg{min-width:980px}
+.etwiki-learning .regulation-wrap{overflow-x:auto;margin:12px 0}
+.etwiki-learning .regulation-wrap svg{width:420px;min-width:420px;max-width:none;height:auto}
+.etwiki-learning .regulation-help{display:none}
+@media(max-width:640px){.etwiki-learning .regulation-help{display:block;font-size:13px}.etwiki-learning .regulation-wrap{border:1px solid #c8ead8;border-radius:6px}}
+</style>
 </head>
 <body class="etwiki-learning">
 <header class="ew-header"><div class="ew-brand-row"><a class="ew-brand" href="https://etwiki.net/index.html">기출 WIKI</a><span class="ew-header-label">학습자료</span><a class="ew-back" href="https://etwiki.net/study.html">전체 자료 ↗</a></div><nav class="ew-subjects" aria-label="학습 영역"><a href="https://namkicheol.github.io/englisheducation/" aria-current="location">영어교육론</a><a href="https://namkicheol.github.io/linguistics/">영어학</a><a href="https://namkicheol.github.io/phonetics-phonology/phonetics.html">음성·음운론</a></nav></header>
@@ -101,22 +134,22 @@ details.learner-deep{border:1px solid #b2dfcc;border-radius:10px;padding:12px 14
   <div class="header-script">Concept Notes · Learner Variables</div>
   <p class="header-sub">핵심 개념 · 적용 사례 · 비교 도식</p>
   <div class="header-divider"></div>
-  <p class="header-tip">📌 목차 버튼 클릭 → 해당 섹션으로 이동 &nbsp;·&nbsp; ▼ 섹션 제목 클릭 → 열고 닫기</p>
+  <p class="header-tip">📌 밑줄·연한 강조는 학습을 위해 추가한 단서입니다. 빨간 연도는 확인한 기출 원문·해설로 연결됩니다.<br>목차 버튼 클릭 → 해당 섹션으로 이동 &nbsp;·&nbsp; ▼ 섹션 제목 클릭 → 열고 닫기</p>
 </div>
 <div class="wrap">
 <!-- TOC -->
 <div class="toc">
   <div class="toc-title">📋 목차</div>
   <div class="toc-list">
-    <div class="toc-item" onclick="openSec('s1')">① Learner Style</div>
-    <div class="toc-item" onclick="openSec('s2')">② Learning Strategies</div>
-    <div class="toc-item" onclick="openSec('s3')">③ Communication Strategies</div>
-    <div class="toc-item" onclick="openSec('s4')">④ Motivation</div>
-    <div class="toc-item" onclick="openSec('s5')">⑤ Inhibition / Anxiety</div>
-    <div class="toc-item" onclick="openSec('s6')">⑥ Risk-taking · Empathy · WTC</div>
-    <div class="toc-item" onclick="openSec('s7')">⑦ Acculturation</div>
-    <div class="toc-item" onclick="openSec('s8')">⑧ Culture Teaching</div>
-    <div class="toc-item" onclick="openSec('s9')">⑨ Bilingualism · Sapir-Whorf</div>
+    <button type="button" class="toc-item" onclick="openSec('s1')">① Learner Style</button>
+    <button type="button" class="toc-item" onclick="openSec('s2')">② Learning Strategies</button>
+    <button type="button" class="toc-item" onclick="openSec('s3')">③ Communication Strategies</button>
+    <button type="button" class="toc-item" onclick="openSec('s4')">④ Motivation</button>
+    <button type="button" class="toc-item" onclick="openSec('s5')">⑤ Inhibition / Anxiety</button>
+    <button type="button" class="toc-item" onclick="openSec('s6')">⑥ Risk-taking · Empathy · WTC</button>
+    <button type="button" class="toc-item" onclick="openSec('s7')">⑦ Acculturation</button>
+    <button type="button" class="toc-item" onclick="openSec('s8')">⑧ Culture Teaching</button>
+    <button type="button" class="toc-item" onclick="openSec('s9')">⑨ Bilingualism · Sapir-Whorf</button>
   </div>
 </div>
 
@@ -132,25 +165,25 @@ details.learner-deep{border:1px solid #b2dfcc;border-radius:10px;padding:12px 14
 <!-- 기출분석 -->
 <div class="exam" style="margin-bottom:20px">
   <div class="exam-label">📝 개념 판별 포인트 (Ch.3 Learner Variables)</div>
-  <p>① <span class='kw4'>Compensatory strategies</span> — 사례의 목적·행동·언어 자원을 근거로 전략 identify</p>
+  <p>① <a class="kw4 concept-term" href="https://etwiki.net/concept.html?term=compensatory%20strategies">Compensatory strategies</a> — 사례의 목적·행동·언어 자원을 근거로 전략 identify</p>
   <p>② <span class='kw4'>Metacognitive strategy</span> 3키워드: <span class='kw2'>Plan · Monitor · Evaluate</span> — 기록 내용에 나타난 계획·점검·평가를 확인</p>
-  <p>③ <span class='kw3'>Socioaffective(Social) strategies</span> — <span class='kw2'>clarification request</span> 주저가 대표 오답 사례</p>
+  <p>③ <a class="kw3 concept-term" href="https://etwiki.net/concept.html?term=socioaffective%20strategies">Socioaffective strategies</a> — <a class="kw2 concept-term" href="https://etwiki.net/concept.html?term=clarification%20request">clarification request</a>를 실제로 했는지 확인</p>
   <p>④ <span class='kw3'>Anxiety</span>: <span class='kw2'>Facilitative vs Debilitative</span> — 예문 판별 (tension 도움 vs 방해)</p>
-  <p>⑤ <span class='kw3'>Motivation</span>: Integrative/Instrumental 사례 구분 + <span class='kw2'>Motivation ≠ Orientation</span> 용어 구분</p>
+  <p>⑤ <a class="kw3 concept-term" href="https://etwiki.net/concept.html?term=Motivation">Motivation</a>: Integrative/Instrumental 사례 구분 + <span class='kw2'>Motivation ≠ Orientation</span> 용어 구분</p>
   <p>⑥ <span class='kw3'>Field Dependence/Independence</span>: FD는 global·holistic 지각, FI는 analytic 지각과 관련됩니다. bottom-up/top-down processing과 CLT는 별도 구분이 필요합니다.</p>
   <p>⑦ <span class='kw3'>Ambiguity Tolerance</span>: High/Low 양면성 — Optimum level 필요</p>
-  <p>⑧ <span class='kw3'>Acculturation Model</span>: Preservation · Acculturation · Assimilation의 구분 (필수 진행 단계가 아님)</p>
+  <p>⑧ <a class="kw3 concept-term" href="https://etwiki.net/concept.html?term=Acculturation%20Model">Acculturation Model</a>: Preservation · Acculturation · Assimilation의 구분 (필수 진행 단계가 아님)</p>
 </div>
 
 <!-- ① Learner Style -->
 <div class="sec open" id="s1">
-  <div class="sec-header" onclick="toggle('s1')">
+  <button type="button" class="sec-header" onclick="toggle('s1')" aria-controls="s1-body" aria-expanded="true">
     <span class="sec-icon">🎨</span>
     <span class="sec-title">① Learner Style</span>
     <span class="sec-tag">Perceptive · Personality · Processing · Context</span>
     <span class="sec-arrow">▼</span>
-  </div>
-  <div class="sec-body">
+  </button>
+  <div class="sec-body" id="s1-body">
 
     <div class="concept">
       <div class="c-title">1) Perceptive Preference</div>
@@ -172,7 +205,7 @@ details.learner-deep{border:1px solid #b2dfcc;border-radius:10px;padding:12px 14
       <div class="c-title">2) Personality Preference</div>
       <p class="note"><span class='kw1'>Extroverted</span>: 다른 사람과의 상호작용에서 충족감·확인을 얻는 성향. 항상 말이 많거나 risk-taking이 높다는 뜻은 아님</p>
       <p class="note"><span class='kw1'>Introverted</span>: 자신의 내적 경험에서 충족감과 에너지를 얻는 성향. 비사교성과 같은 뜻은 아님 (Brown, 2014, p.154)</p>
-      <p class="note"><span class='kw3'>Ambiguity Tolerance (AT)</span>: willingness to deal with uncertainty or contradictory propositions</p>
+      <p class="note"><a class="kw3 concept-term" href="https://etwiki.net/concept.html?term=tolerance%20of%20ambiguity">Ambiguity Tolerance (AT)</a> <a class="exam-year" href="https://etwiki.net/index.html?id=education_2009_X20" aria-label="2009학년도 1차 20번 원문과 해설">09</a>: willingness to deal with uncertainty or contradictory propositions</p>
       <div class="grid col2">
         <div class="grid-item">
           <div class="gi-title"><span class='kw2'>High AT</span> (tolerance)</div>
@@ -190,7 +223,7 @@ details.learner-deep{border:1px solid #b2dfcc;border-radius:10px;padding:12px 14
 
     <div class="concept">
       <div class="c-title">3) Processing Preference</div>
-      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding-left:6px;margin-bottom:8px"><span class='kw4'>Field Dependence (FD)</span><span style="color:#888;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:12px">vs</span><span class='kw4'>Field Independence (FI)</span></div>
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding-left:6px;margin-bottom:8px"><a class="kw4 concept-term" href="https://etwiki.net/concept.html?term=field%20dependence">Field Dependence (FD)</a><span style="color:#888;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:12px">vs</span><span class='kw4'>Field Independence (FI)</span></div>
       <div class="grid col2">
         <div class="grid-item">
           <div class="gi-title"><span class='kw4'>FD</span>: holistic</div>
@@ -203,7 +236,7 @@ details.learner-deep{border:1px solid #b2dfcc;border-radius:10px;padding:12px 14
       </div>
       <p class="note" style="margin-top:10px">🔑 <strong>구분</strong>: FD/FI는 지각 방식의 차이이고, bottom-up/top-down processing은 듣기·읽기에서 사용하는 처리 전략이다. 둘을 일대일로 대응시키지 않는다.</p>
       <p class="note" style="margin-top:12px"><span class='kw1'>Reflectivity</span>: 숙고 후 응답하는 경향 / <span class='kw1'>Impulsivity</span>: 빠르게 시도하는 경향. 속도만으로 정확도를 단정하지 않는다.</p>
-      <p class="note">→ preparation time이 주어지면 reflective Ls는 <span class='kw2'>confidence</span>, impulsive Ls는 <span class='kw2'>accuracy</span>를 얻을 수 있음</p>
+      <p class="note">→ preparation time이 주어지면 reflective Ls는 <span class='kw2'>confidence</span>, impulsive Ls는 <a class="kw2 concept-term" href="https://etwiki.net/concept.html?term=accuracy">accuracy</a>를 얻을 수 있음</p>
       <p class="note">Left-brain/right-brain은 역사적 설명에서 등장하는 구분이다. 학습자를 두뇌 유형으로 진단하거나 특정 교수법에 고정 배정하는 근거로 쓰지 않는다. 두 hemisphere는 함께 작동한다.</p>
       <p class="note">Synthetic/Analytic · Deductive/Inductive · Global/Detail-oriented</p>
     </div>
@@ -241,31 +274,33 @@ details.learner-deep{border:1px solid #b2dfcc;border-radius:10px;padding:12px 14
       <p>• 4 learning context style 설명-용어 매칭</p>
     </div>
     <details class="concept learner-deep"><summary>Style·strategy·aptitude 구별하기</summary>
-<p class="note"><strong>먼저, 무엇이 다른 개념인가</strong> Style은 여러 과제에서 반복해서 드러나는 접근 경향이다. Strategy는 지금의 목표를 이루려고 선택한 행동이다. 따라서 시각 자료를 선호하는 한 사람도 단어를 외울 때는 imagery를, 대화를 이해할 때는 inferencing을 사용할 수 있다. 선호가 행동을 제한하는 고정된 유형표는 아니다. Aptitude는 새 언어를 학습하는 데 관련되는 능력들을, proficiency는 현재 언어를 얼마나 사용할 수 있는지를 가리킨다. 현재 잘하는 것과 앞으로 어떤 조건에서 잘 배울 수 있는지는 다른 질문이다.</p><p class="note"><strong>짧은 원문으로 확인</strong> Brown은 style을 “consistent and rather enduring tendencies or preferences”라고 설명한다 (2014, Ch.5, p.111). 비교적 지속되는 경향이라는 뜻이지, 상황을 넘어 변하지 않는 능력 등급이라는 뜻은 아니다.</p><div class="depth-table-wrap"><table class="depth-table"><caption>같은 학습자도 네 질문에 다르게 답할 수 있다</caption><thead><tr><th scope="col">개념</th><th scope="col">묻는 질문</th><th scope="col">필요한 근거</th></tr></thead><tbody><tr><th scope="row">Style</th><td>어떤 접근을 선호하는가?</td><td>여러 상황에 걸친 경향; 한 번의 성공은 부족</td></tr><tr><th scope="row">Strategy</th><td>이번 목표를 위해 무엇을 했는가?</td><td>실제로 선택한 행동과 그 목적</td></tr><tr><th scope="row">Aptitude</th><td>학습에 관련된 어떤 능력이 있는가?</td><td>기억·패턴 파악 등 학습 관련 능력</td></tr><tr><th scope="row">Proficiency</th><td>현재 무엇을 할 수 있는가?</td><td>실제 이해·표현 수행</td></tr></tbody></table></div><p class="note"><strong>왜 수업 조건을 함께 보는가</strong> Reflective 학습자의 느린 답변은 지식 부족이 아니라 답을 검토하는 방식과 관련될 수 있다. 준비 시간이 늘면 답변 양상이 달라지는지 확인해야 한다. Field independence도 전체에서 관련 부분을 분리하는 경향이지 문맥을 전혀 쓰지 않는 능력이 아니다. 교사는 선호를 출발점으로 삼되 다른 접근을 연습할 기회를 제공한다. “Visual이므로 음성을 주지 않는다”는 결론은 style과 학습 가능성을 혼동한다.</p><p class="note"><strong>조건을 바꾸어 읽기</strong> 아래 사례에서 “도표가 편하다”를 “오늘 단어를 기억하려고 도표를 만들었다”로 바꾸면 초점이 <strong>선호에서 의도적인 행동</strong>으로 옮겨 간다. 문장에 visual이라는 표현이 있는지가 아니라, 묻는 대상이 지속적 경향인지 과제별 행동인지 설명해야 한다.</p>
+<p class="note"><strong>네 가지 preference 묶음 읽기</strong> Perceptive는 그림·소리·움직임 등 어떤 자료와 활동을 선호하는지, personality는 불확실성이나 타인과의 관계에 어떻게 반응하는지, processing은 전체와 부분을 어떻게 살피는지에 초점을 둔다. Learning context의 concrete·analytic·communicative·authority-oriented는 학습 환경에 대한 선호이다. Authority-oriented는 교사의 명확한 설명·지시를 선호한다는 뜻이며, 능력이 낮다는 뜻은 아니다. 서로 다른 질문에 대한 분류이므로 한 사람이 여러 특성을 함께 보일 수 있다.</p><p class="note"><a class="exam-year" href="https://etwiki.net/index.html?id=education_2009_X20" aria-label="2009학년도 1차 20번 원문과 해설">09</a> <strong>출제 포인트</strong> 불완전한 이해를 견디는 반응과 모르는 단어를 모두 확인하려는 반응을 구별한다. Tolerance of ambiguity는 불안을 느끼는지와 별도로 판단한다. <a href="https://etwiki.net/index.html?id=education_2009_X20">출처: 2009학년도 1차 20번 · 원문과 해설</a></p>
+<p class="note"><strong>먼저, 무엇이 다른 개념인가</strong> Style은 여러 과제에서 반복해서 드러나는 접근 경향이다. Strategy는 지금의 목표를 이루려고 선택한 행동이다. 따라서 시각 자료를 선호하는 한 사람도 단어를 외울 때는 imagery를, 대화를 이해할 때는 inferencing을 사용할 수 있다. 선호가 행동을 제한하는 고정된 유형표는 아니다. Aptitude는 새 언어를 학습하는 데 관련되는 능력들을, proficiency는 현재 언어를 얼마나 사용할 수 있는지를 가리킨다. 현재 잘하는 것과 앞으로 어떤 조건에서 잘 배울 수 있는지는 다른 질문이다.</p><p class="note"><strong>짧은 원문으로 확인</strong> Brown은 style을 “consistent and rather enduring tendencies or preferences”라고 설명한다 (2014, Ch.5, p.111). 비교적 지속되는 경향이라는 뜻이지, 상황을 넘어 변하지 않는 능력 등급이라는 뜻은 아니다.</p><div class="depth-table-wrap" role="region" aria-label="개념 비교표"><table class="depth-table"><caption>같은 학습자도 네 질문에 다르게 답할 수 있다</caption><thead><tr><th scope="col">개념</th><th scope="col">묻는 질문</th><th scope="col">필요한 근거</th></tr></thead><tbody><tr><th scope="row">Style</th><td>어떤 접근을 선호하는가?</td><td>여러 상황에 걸친 경향; 한 번의 성공은 부족</td></tr><tr><th scope="row">Strategy</th><td>이번 목표를 위해 무엇을 했는가?</td><td>실제로 선택한 행동과 그 목적</td></tr><tr><th scope="row">Aptitude</th><td>학습에 관련된 어떤 능력이 있는가?</td><td>기억·패턴 파악 등 학습 관련 능력</td></tr><tr><th scope="row">Proficiency</th><td>현재 무엇을 할 수 있는가?</td><td>실제 이해·표현 수행</td></tr></tbody></table></div><p class="note"><strong>왜 수업 조건을 함께 보는가</strong> Reflective 학습자의 느린 답변은 지식 부족이 아니라 답을 검토하는 방식과 관련될 수 있다. 준비 시간이 늘면 답변 양상이 달라지는지 확인해야 한다. Field independence도 전체에서 관련 부분을 분리하는 경향이지 문맥을 전혀 쓰지 않는 능력이 아니다. 교사는 선호를 출발점으로 삼되 다른 접근을 연습할 기회를 제공한다. “Visual이므로 음성을 주지 않는다”는 결론은 style과 학습 가능성을 혼동한다.</p><p class="note"><strong>조건을 바꾸어 읽기</strong> 아래 사례에서 “도표가 편하다”를 “오늘 단어를 기억하려고 도표를 만들었다”로 바꾸면 초점이 <strong>선호에서 의도적인 행동</strong>으로 옮겨 간다. 문장에 visual이라는 표현이 있는지가 아니라, 묻는 대상이 지속적 경향인지 과제별 행동인지 설명해야 한다.</p>
 
 
 <p class="note"><strong>적용 사례</strong> 학습자가 “도표가 편하다”고 말하면서 낯선 단어를 문맥에서 추론한다. 전자는 시각적 선호의 자기보고이고 후자는 inferencing strategy이다. 도표 선호만으로 듣기 학습이 불가능하다고 판단할 수 없다.</p>
 <p class="note"><strong>교사의 선택과 확인</strong> 그림·음성·짧은 글을 과제 목적에 맞게 제공하고, 처음에는 전체 의미를 파악한 뒤 필요한 부분을 분석하게 한다. 준비 시간과 점검표를 제공한 전후의 수행을 비교한다. 선호에 맞춘 자료를 주었다는 사실만으로 더 잘 학습했다고 결론 내리지 않는다.</p>
-<p class="note"><strong>확인 문제 · 해설</strong> “빠른 응답자는 늘 부정확하며 낮은 aptitude 점수는 학습 불가능을 뜻한다.” → X. 속도와 정확도는 따로 관찰해야 하며 aptitude는 어떤 지원이 필요한지 살필 때 참고할 정보이지 학습 가능성을 확정하는 기준이 아니다.</p>
-<p class="note"><small>근거·읽을거리: Brown (2014), Principles of Language Learning and Teaching, 6th ed., Ch.4–5, pp.98–100, 111–121. 사례는 별도 표시가 없는 한 자체 제작이다.</small></p><p class="note"><strong>개념사전 연결</strong> <a href="https://etwiki.net/concept.html?term=Learning%20style">Learning style</a> · <a href="https://etwiki.net/concept.html?term=strategy">strategy</a></p></details>
+<p class="note"><strong>해석의 한계</strong> 속도와 정확도는 따로 관찰해야 하며 aptitude는 어떤 지원이 필요한지 살필 때 참고할 정보이지 학습 가능성을 확정하는 기준이 아니다.</p>
+<details class="source-note" data-study-details="off"><summary>원서 서지·설명 범위</summary><p>Brown (2014), Principles of Language Learning and Teaching, 6th ed., Ch.4–5, pp.98–100, 111–121. 사례는 별도 표시가 없는 한 자체 제작이다.</p></details><p class="note"><strong>개념사전 연결</strong> <a href="https://etwiki.net/concept.html?term=Learning%20style">Learning style</a> · <a href="https://etwiki.net/concept.html?term=strategy">strategy</a></p></details>
 
   </div>
 </div>
 
 <!-- ② Learning Strategies -->
 <div class="sec" id="s2">
-  <div class="sec-header" onclick="toggle('s2')">
+  <button type="button" class="sec-header" onclick="toggle('s2')" aria-controls="s2-body" aria-expanded="false">
     <span class="sec-icon">🧠</span>
     <span class="sec-title">② Learning Strategies</span>
     <span class="sec-tag red">★★★ Metacognitive</span>
     <span class="sec-arrow">▼</span>
-  </div>
-  <div class="sec-body">
+  </button>
+  <div class="sec-body" id="s2-body">
 
     <div class="concept">
-      <div class="c-title">1) Metacognitive Strategies <span class="badge-ex">★★★</span></div>
+      <div class="c-title">1) Metacognitive Strategies <span class="badge-ex">★★★</span> <a class="exam-year" href="https://etwiki.net/index.html?id=education_2010_X15" aria-label="2010학년도 1차 15번 원문과 해설">10</a></div>
       <div class="def">High-order strategies that <span class='kw4'>plan</span> upcoming learning, <span class='kw4'>monitor</span> comprehension during learning, and <span class='kw4'>evaluate</span> outcomes after learning.</div>
-      <div class="stage-wrap"><svg viewBox="0 0 700 100" style="width:100%;margin-top:12px;font-family:'JetBrains Mono',monospace" xmlns="http://www.w3.org/2000/svg">
+      <p class="diagram-help">도식이 화면보다 넓으면 좌우로 밀어 읽으세요. 아래 자세히 보기에서 용어와 화살표를 설명합니다.</p>
+<div class="stage-wrap" tabindex="0" role="region" aria-label="가로로 읽는 개념 도식"><svg viewBox="0 0 700 100" style="width:100%;margin-top:12px;font-family:'JetBrains Mono',monospace" xmlns="http://www.w3.org/2000/svg">
         <rect x="4" y="10" width="208" height="80" rx="8" fill="rgba(0,121,107,.08)" stroke="rgba(0,121,107,.35)" stroke-width="1.5"/>
         <text x="108" y="37" text-anchor="middle" fill="#00695c" font-size="13" font-weight="bold">Plan</text>
         <text x="108" y="55" text-anchor="middle" fill="#00796b" font-size="10">advance organizers</text>
@@ -296,15 +331,15 @@ details.learner-deep{border:1px solid #b2dfcc;border-radius:10px;padding:12px 14
     <div class="div"></div>
 
     <div class="concept">
-      <div class="c-title">3) Socioaffective Strategies</div>
+      <div class="c-title">3) Socioaffective Strategies <a class="exam-year" href="https://etwiki.net/index.html?id=education_2010_X15" aria-label="2010학년도 1차 15번 원문과 해설">10</a></div>
       <div class="grid col2">
         <div class="grid-item">
           <div class="gi-title"><span class='kw1'>Social</span></div>
-          <div class="gi-body"><span>대인 상호작용 · L2 사용량 증가</span><span>Cooperation · <span class='kw4'>Clarification request</span> · Self-talk</span></div>
+          <div class="gi-body"><span>대인 상호작용 · L2 사용량 증가</span><span>Cooperation · <a class="kw4 concept-term" href="https://etwiki.net/concept.html?term=clarification%20request">Clarification request</a></span></div>
         </div>
         <div class="grid-item">
           <div class="gi-title"><span class='kw1'>Affective</span></div>
-          <div class="gi-body"><span>감정 상태 통제</span><span>anxiety 관리 · self-encouragement</span></div>
+          <div class="gi-body"><span>감정 상태 통제</span><span>anxiety 관리 · self-talk · self-encouragement</span></div>
         </div>
       </div>
       <p class="note" style="margin-top:12px">Lack of social strategies 예: "I didn't ask her to repeat it because I wasn't sure if it was okay"</p>
@@ -316,16 +351,16 @@ details.learner-deep{border:1px solid #b2dfcc;border-radius:10px;padding:12px 14
       <div class="c-title">4) 🔑 3대 전략 한눈 비교</div>
       <div class="grid col2">
         <div class="grid-item">
-          <div class="gi-title"><span class='kw4'>Metacognitive</span></div>
-          <div class="gi-body"><span>high-order · 전체 학습 과정 총괄</span><span>Plan / Monitor / Evaluate</span><span><em>e.g. video 녹화, learning log 작성</em></span></div>
+          <div class="gi-title"><a class="kw4 concept-term" href="https://etwiki.net/concept.html?term=metacognitive%20strategies">Metacognitive</a></div>
+          <div class="gi-body"><span>high-order · 전체 학습 과정 총괄</span><span>Plan / Monitor / Evaluate</span><span><em>e.g. 녹화와 목표를 비교해 평가하고 다음 학습 계획 작성</em></span></div>
         </div>
         <div class="grid-item">
-          <div class="gi-title"><span class='kw1'>Cognitive</span></div>
+          <div class="gi-title"><a class="kw1 concept-term" href="https://etwiki.net/concept.html?term=cognitive%20strategy">Cognitive</a></div>
           <div class="gi-body"><span>task-specific · 학습 자료 직접 조작</span><span>repetition, inferencing, keyword, translation</span><span><em>e.g. 단어 반복 암기, 추론 독해</em></span></div>
         </div>
         <div class="grid-item">
-          <div class="gi-title"><span class='kw1'>Socioaffective</span></div>
-          <div class="gi-body"><span>사회적 상호작용 + 감정 통제</span><span>Cooperation · <span class='kw4'>Clarification request</span> · Self-talk</span><span><em>e.g. 친구에게 다시 말해달라 요청</em></span></div>
+          <div class="gi-title"><a class="kw1 concept-term" href="https://etwiki.net/concept.html?term=socioaffective%20strategies">Socioaffective</a></div>
+          <div class="gi-body"><span>사회적 상호작용 + 감정 통제</span><span>Cooperation · <a class="kw4 concept-term" href="https://etwiki.net/concept.html?term=clarification%20request">Clarification request</a> · Self-talk</span><span><em>e.g. 친구에게 다시 말해달라 요청</em></span></div>
         </div>
         <div class="grid-item">
           <div class="gi-title">🎯 구분 포인트</div>
@@ -343,29 +378,30 @@ details.learner-deep{border:1px solid #b2dfcc;border-radius:10px;padding:12px 14
     </div>
     <div class="exam" style="margin-top:10px">
       <div class="exam-label">📋 기출 이력</div>
-      <p><strong>2010학년도 1차 15번</strong> — video를 본 뒤 수행상의 문제와 개선 계획을 적는 장면. 도구명이 아니라 평가 행위가 metacognitive 판단의 근거이다.</p>
+      <p class="note"><a class="exam-year" href="https://etwiki.net/index.html?id=education_2010_X15" aria-label="2010학년도 1차 15번 원문과 해설">10</a> <strong>출제 포인트</strong> 자신의 수행을 돌아보고 개선을 계획한 행동이 metacognitive 판단의 근거이다. 짝 활동이라는 형식만으로 social strategy를 인정하지 않는다. <a href="https://etwiki.net/index.html?id=education_2010_X15">출처: 2010학년도 1차 15번 · 원문과 해설</a></p>
     </div>
     <details class="concept learner-deep"><summary>같은 도구, 다른 전략: learning log</summary>
-<p class="note"><strong>학습하는 행동과 학습을 조절하는 행동</strong> Cognitive strategy는 자료를 묶고, 의미를 추론하고, 기존 지식과 연결하는 등 학습 내용 자체를 다루는 행동이다. Metacognitive strategy는 그 행동이 목표에 맞는지 계획·점검·평가하는 것이다. 두 과정은 별개의 사람에게 나타나는 유형이 아니다. 단어를 의미별로 묶으면서 “이 방법으로 지난번 혼동을 줄일 수 있을까?”를 점검하면 내용 처리와 조절이 함께 일어난다.</p><p class="note"><strong>Planning·monitoring·evaluation이 이어지는 이유</strong> 목표가 있어야 무엇을 점검할지 정할 수 있고, 수행 기록이 있어야 목표와 결과를 비교할 수 있다. Evaluation의 결과로 다음 방법을 바꾸면 기록이 실제 학습 조절에 쓰인다. 다만 세 행동을 시간표처럼 엄격히 나누지는 않는다. 과제 도중 이해가 안 된다고 판단해 방법을 바꾸는 순간에도 monitoring과 planning이 연결된다.</p><svg id="learning-regulation-diagram" class="depth-svg" viewBox="0 0 360 265" role="img" aria-labelledby="reg-title reg-desc"><title id="reg-title">학습을 조절하는 순환</title><desc id="reg-desc">목표와 계획을 세우고 수행하면서 점검하며, 결과를 기준과 비교한 뒤 다음 계획을 바꾼다. 수행 중에도 계획을 수정할 수 있고 각 과정은 겹칠 수 있다.</desc><g fill="#edf8f3" stroke="#35765c"><rect x="25" y="20" width="310" height="48" rx="9"/><rect x="25" y="95" width="310" height="48" rx="9"/><rect x="25" y="170" width="310" height="48" rx="9"/></g><g fill="#183e30" text-anchor="middle" font-size="16"><text x="180" y="50">Planning · 목표와 방법 정하기</text><text x="180" y="116">Performance + monitoring</text><text x="180" y="136">하면서 점검</text><text x="180" y="200">Evaluation · 결과를 기준과 비교</text><text x="180" y="89">↓</text><text x="180" y="164">↓</text><text x="180" y="250">평가를 다음 계획에 반영 ↺</text></g><path d="M25 194 H8 V43 H20" fill="none" stroke="#35765c" stroke-width="2"/></svg><div class="depth-table-wrap"><table class="depth-table"><caption>도구 이름 대신 기록의 기능을 읽는다</caption><thead><tr><th scope="col">행동</th><th scope="col">직접 다루는 대상</th><th scope="col">판단</th></tr></thead><tbody><tr><th scope="row">새 단어를 의미별로 묶기</th><td>학습할 내용</td><td>Cognitive</td></tr><tr><th scope="row">목표 표현 사용 여부를 녹화와 대조하기</th><td>자신의 수행과 목표의 차이</td><td>Metacognitive</td></tr><tr><th scope="row">긴장을 낮추기 위해 self-talk 사용</th><td>감정 상태</td><td>Affective</td></tr><tr><th scope="row">이해를 위해 파트너에게 재설명 요청</th><td>상호작용을 통한 도움</td><td>Social</td></tr></tbody></table></div><p class="note"><strong>기출에서 변형으로</strong> 2010학년도 1차 15번에서 중요한 것은 video나 log의 존재가 아니라 <u>수행상의 문제를 평가하고 개선을 계획한 행동</u>이다. 변형 장면에서 학생이 <u>녹화를 단순히 보관하기만 한다면</u> 평가의 증거가 사라진다. 반대로 종이 없이 말로 목표와 수행을 비교해도 self-evaluation의 기능은 남는다. 분류명은 문항이 채택한 체계에 맞추어 쓴다.</p>
+<p class="note"><strong>위 화살표를 따라 읽기</strong> Plan은 수행 전에 목표·주의 대상을 정하고 준비하는 것, monitor는 수행 중 이해·표현이 목표에 맞는지 점검하는 것, evaluate는 결과를 기준과 비교하는 것이다. 결과에서 다시 계획으로 돌아가는 화살표는 평가에서 찾은 문제를 다음 시도에 반영한다는 뜻이다. 실제 활동에서는 세 기능이 반복되거나 겹칠 수 있다. 예를 들어 발표 전 연결 표현 두 개를 쓰기로 정하고, 발표 중 사용 여부를 점검한 뒤 녹화로 결과를 확인한다.</p><p class="note"><strong>분류 체계 확인</strong> 위 표는 metacognitive·cognitive·socioaffective를 구별하는 학습용 틀이다. Brown 6판의 Table 5.3은 planning·monitoring·evaluating을 cognitive strategies 아래에 놓고, Table 5.4는 감정 조절을 별도로 다룬다. 같은 기능이라도 체계에 따라 상위 범주가 달라지므로 기출이 사용하는 분류를 먼저 확인한다.</p>
+<p class="note"><strong>학습하는 행동과 학습을 조절하는 행동</strong> Cognitive strategy는 자료를 묶고, 의미를 추론하고, 기존 지식과 연결하는 등 학습 내용 자체를 다루는 행동이다. Metacognitive strategy는 그 행동이 목표에 맞는지 계획·점검·평가하는 것이다. 두 과정은 별개의 사람에게 나타나는 유형이 아니다. 단어를 의미별로 묶으면서 “이 방법으로 지난번 혼동을 줄일 수 있을까?”를 점검하면 내용 처리와 조절이 함께 일어난다.</p><p class="note"><strong>Planning·monitoring·evaluation이 이어지는 이유</strong> 목표가 있어야 무엇을 점검할지 정할 수 있고, 수행 기록이 있어야 목표와 결과를 비교할 수 있다. Evaluation의 결과로 다음 방법을 바꾸면 기록이 실제 학습 조절에 쓰인다. 다만 세 행동을 시간표처럼 엄격히 나누지는 않는다. 과제 도중 이해가 안 된다고 판단해 방법을 바꾸는 순간에도 monitoring과 planning이 연결된다.</p><p class="regulation-help">작은 화면에서는 도식을 좌우로 밀어 읽으세요.</p><div class="regulation-wrap" tabindex="0" role="region" aria-label="좌우로 읽는 학습 조절 순환 도식"><svg id="learning-regulation-diagram" class="depth-svg" viewBox="0 0 360 265" role="img" aria-labelledby="reg-title reg-desc"><title id="reg-title">학습을 조절하는 순환</title><desc id="reg-desc">목표와 계획을 세우고 수행하면서 점검하며, 결과를 기준과 비교한 뒤 다음 계획을 바꾼다. 수행 중에도 계획을 수정할 수 있고 각 과정은 겹칠 수 있다.</desc><g fill="#edf8f3" stroke="#35765c"><rect x="25" y="20" width="310" height="48" rx="9"/><rect x="25" y="95" width="310" height="48" rx="9"/><rect x="25" y="170" width="310" height="48" rx="9"/></g><g fill="#183e30" text-anchor="middle" font-size="16"><text x="180" y="50">Planning · 목표와 방법 정하기</text><text x="180" y="116">Performance + monitoring</text><text x="180" y="136">하면서 점검</text><text x="180" y="200">Evaluation · 결과를 기준과 비교</text><text x="180" y="89">↓</text><text x="180" y="164">↓</text><text x="180" y="250">평가를 다음 계획에 반영 ↺</text></g><path d="M25 194 H8 V43 H20" fill="none" stroke="#35765c" stroke-width="2"/></svg></div><div class="depth-table-wrap" role="region" aria-label="개념 비교표"><table class="depth-table"><caption>도구 이름 대신 기록의 기능을 읽는다</caption><thead><tr><th scope="col">행동</th><th scope="col">직접 다루는 대상</th><th scope="col">판단</th></tr></thead><tbody><tr><th scope="row">새 단어를 의미별로 묶기</th><td>학습할 내용</td><td>Cognitive</td></tr><tr><th scope="row">목표 표현 사용 여부를 녹화와 대조하기</th><td>자신의 수행과 목표의 차이</td><td>Metacognitive</td></tr><tr><th scope="row">긴장을 낮추기 위해 self-talk 사용</th><td>감정 상태</td><td>Affective</td></tr><tr><th scope="row">이해를 위해 파트너에게 재설명 요청</th><td>상호작용을 통한 도움</td><td>Social</td></tr></tbody></table></div><p class="note"><a class="exam-year" href="https://etwiki.net/index.html?id=education_2010_X15" aria-label="2010학년도 1차 15번 원문과 해설">10</a> <strong>기출에서 변형으로</strong> <a href="https://etwiki.net/index.html?id=education_2010_X15">2010학년도 1차 15번</a>에서 중요한 것은 video나 log의 존재가 아니라 <u>수행상의 문제를 평가하고 개선을 계획한 행동</u>이다. 변형 장면에서 학생이 <u>녹화를 단순히 보관하기만 한다면</u> 평가의 증거가 사라진다. 반대로 종이 없이 말로 목표와 수행을 비교해도 self-evaluation의 기능은 남는다. 분류명은 문항이 채택한 체계에 맞추어 쓴다.</p>
 
 <p class="note"><strong>사례</strong> A는 새 단어를 의미별로 묶어 적는다. B는 목표로 정한 연결 표현을 사용했는지 녹화를 보며 점검하고 다음 과제 계획을 쓴다. C는 긴장을 낮추려고 스스로 격려한다. D는 이해되지 않은 설명을 파트너에게 다시 말해 달라고 요청한다.</p>
 <p class="note"><strong>판별과 근거</strong> A: cognitive(grouping), B: metacognitive(monitoring/evaluating/planning)이다. O’Malley/Chamot의 metacognitive·cognitive·social/affective 구분에서 C의 감정 조절과 D의 도움 요청은 마지막 범주의 서로 다른 기능이다. Brown 6판의 Oxford(2011) 기반 meta-strategy 분류는 항목을 묶는 방식이 다르므로 두 체계를 섞어 유일한 분류라고 하지 않는다.</p>
-<p class="note"><strong>교사의 후속 조치</strong> 기록란에 목표·실제 수행 증거·다음 시도를 나누어 제시한다. 학습자가 기록을 다음 수행에 활용했는지 살핀다. 단순히 수업 활동 이름을 옮겨 쓴 log에는 metacognitive 판단 근거가 충분하지 않다.</p>
-<p class="note"><strong>확인 문제 · 해설</strong> “녹화를 했으므로 self-evaluation을 했다.” → X. 녹화는 자료 수집이며, 수행을 기준과 비교하여 판단하는 행동이 추가로 제시되어야 한다.</p>
-<p class="note"><small>근거·읽을거리: Brown (2014), Principles of Language Learning and Teaching, 6th ed., Ch.5, pp.123–130; 2010학년도 중등 영어 1차 15번. 사례는 별도 표시가 없는 한 자체 제작이다.</small></p><p class="note"><strong>개념사전 연결</strong> <a href="https://etwiki.net/concept.html?term=metacognitive%20strategies">metacognitive strategies</a> · <a href="https://etwiki.net/concept.html?term=cognitive%20strategy">cognitive strategy</a></p></details>
+<p class="note"><strong>교사의 후속 조치</strong> 기록란에 목표·실제 수행 증거·다음 시도를 나누어 제시한다. 학습자가 <u>기록을 다음 수행에 활용했는지</u> 살핀다. 단순히 수업 활동 이름을 옮겨 쓴 log에는 metacognitive 판단 근거가 충분하지 않다.</p>
+<p class="note"><strong>해석의 한계</strong> 녹화는 자료 수집이며, 수행을 기준과 비교하여 판단하는 행동이 추가로 제시되어야 한다.</p>
+<details class="source-note" data-study-details="off"><summary>원서 서지·설명 범위</summary><p>Brown (2014), Principles of Language Learning and Teaching, 6th ed., Ch.5, pp.123–130; 2010학년도 중등 영어 1차 15번. 사례는 별도 표시가 없는 한 자체 제작이다.</p></details><p class="note"><strong>개념사전 연결</strong> <a href="https://etwiki.net/concept.html?term=metacognitive%20strategies">metacognitive strategies</a> · <a href="https://etwiki.net/concept.html?term=cognitive%20strategy">cognitive strategy</a></p></details>
 
   </div>
 </div>
 
 <!-- ③ Communication Strategies -->
 <div class="sec" id="s3">
-  <div class="sec-header" onclick="toggle('s3')">
+  <button type="button" class="sec-header" onclick="toggle('s3')" aria-controls="s3-body" aria-expanded="false">
     <span class="sec-icon">💬</span>
     <span class="sec-title">③ Communication Strategies</span>
     <span class="sec-tag red">★★★ Compensatory</span>
     <span class="sec-arrow">▼</span>
-  </div>
-  <div class="sec-body">
+  </button>
+  <div class="sec-body" id="s3-body">
 
     <div class="concept">
       <div class="c-title">Definition</div>
@@ -391,7 +427,7 @@ details.learner-deep{border:1px solid #b2dfcc;border-radius:10px;padding:12px 14
         </div>
         <div class="grid-item">
           <div class="gi-title"><span class='kw3'>Message abandonment</span></div>
-          <div class="gi-body"><span>시작했으나 <span class='kw2'>미종결 상태로 두기</span></span></div>
+          <div class="gi-body"><span>시작했으나 <span class='kw2'>완료 전에 말하려던 내용을 포기</span></span></div>
         </div>
       </div>
     </div>
@@ -399,7 +435,7 @@ details.learner-deep{border:1px solid #b2dfcc;border-radius:10px;padding:12px 14
     <div class="div"></div>
 
     <div class="concept">
-      <div class="c-title">2) Compensatory Strategies <span class="badge-ex">★★★ 핵심</span></div>
+      <div class="c-title">2) Compensatory Strategies <span class="badge-ex">★★★ 핵심</span> <a class="exam-year" href="https://etwiki.net/index.html?id=education_2007_N14" aria-label="2007학년도 전국 14번 원문과 해설">07</a></div>
       <div class="def">Strategic options used by Ls to <span class='kw2'>overcome self-perceived weaknesses</span> and maintain communication flow, preventing communication breakdown.</div>
 
       <div class="grid col2" style="margin-top:12px">
@@ -409,15 +445,15 @@ details.learner-deep{border:1px solid #b2dfcc;border-radius:10px;padding:12px 14
         </div>
         <div class="grid-item">
           <div class="gi-title"><span class='kw4'>Appeal for assistance</span></div>
-          <div class="gi-body"><span>도움 요청 · 직접/간접</span><span><em>e.g. "What do you X in Spanish?" / 눈빛·표정</em></span></div>
+          <div class="gi-body"><span>도움 요청 · 직접/간접</span><span><em>e.g. "What is the English word for this tool?" / 질문하는 표정</em></span></div>
         </div>
         <div class="grid-item">
-          <div class="gi-title"><span class='kw4'>Code-switching</span></div>
+          <div class="gi-title"><a class="kw4 concept-term" href="https://etwiki.net/concept.html?term=code-switching">Code-switching</a> <a class="exam-year" href="https://etwiki.net/index.html?id=education_2010_X15" aria-label="2010학년도 1차 15번 원문과 해설">10</a></div>
           <div class="gi-body"><span>L1 단어 · <span class='kw2'>L1 발음 그대로</span> 끼워 쓰기</span><span><em>e.g. "When I didn't have enough words, I simply used Korean words"</em></span></div>
         </div>
         <div class="grid-item">
           <div class="gi-title"><span class='kw4'>Foreignizing</span></div>
-          <div class="gi-body"><span>L1 단어에 <span class='kw2'>L2 음운/형태 규칙</span> 적용</span><span><em>e.g. You are so 유아tic, borrow your yeon-pill?</em></span></div>
+          <div class="gi-body"><span>L1 단어에 <span class='kw2'>L2 음운/형태 규칙</span> 적용</span><span><em>e.g. 학습자가 L1 어근에 L2 접사를 붙였다고 설명한 경우</em></span></div>
         </div>
         <div class="grid-item">
           <div class="gi-title"><span class='kw4'>Literal translation</span></div>
@@ -428,11 +464,11 @@ details.learner-deep{border:1px solid #b2dfcc;border-radius:10px;padding:12px 14
           <div class="gi-body"><span>의미 유사한 <span class='kw2'>대체 용어</span></span><span><em>e.g. 'boat' for sailboat (자체 제작)</em></span></div>
         </div>
         <div class="grid-item">
-          <div class="gi-title"><span class='kw4'>Circumlocution</span></div>
-          <div class="gi-body"><span><span class='kw2'>특징·요소 묘사</span>하기</span><span><em>e.g. "the thing that make hair hot" for blow dryer</em></span></div>
+          <div class="gi-title"><a class="kw4 concept-term" href="https://etwiki.net/concept.html?term=Circumlocution">Circumlocution</a></div>
+          <div class="gi-body"><span><span class='kw2'>특징·요소 묘사</span>하기</span><span><em>e.g. "a device that blows warm air to dry hair" for hair dryer</em></span></div>
         </div>
         <div class="grid-item">
-          <div class="gi-title"><span class='kw4'>Word coinage</span></div>
+          <div class="gi-title"><a class="kw4 concept-term" href="https://etwiki.net/concept.html?term=word%20coinage">Word coinage</a></div>
           <div class="gi-body"><span>유추 규칙으로 새 명칭 생성</span><span><em>e.g. 'unlock-person' for locksmith (자체 제작: 학습자가 새로 만든 명칭)</em></span></div>
         </div>
         <div class="grid-item">
@@ -451,19 +487,19 @@ details.learner-deep{border:1px solid #b2dfcc;border-radius:10px;padding:12px 14
     <div class="div"></div>
 
     <div class="concept">
-      <div class="c-title">3) 🔑 헷갈리는 키텀 3대 비교 (★★★ 함정 단골)</div>
+      <div class="c-title">3) 🔑 헷갈리는 키텀 비교: 표현을 만든 과정</div>
       <div class="grid col2">
         <div class="grid-item">
-          <div class="gi-title">① <span class='kw4'>Code-switching</span> vs <span class='kw4'>Foreignizing</span></div>
+          <div class="gi-title">① <a class="kw4 concept-term" href="https://etwiki.net/concept.html?term=code-switching">Code-switching</a> vs <span class='kw4'>Foreignizing</span></div>
           <div class="gi-body"><span><strong>Code-switching</strong>: L1 단어 + <span class='kw2'>L1 발음</span> 그대로 ("I used Korean words")</span><span><strong>Foreignizing</strong>: L1 어근 + <span class='kw2'>L2 접사/음운</span> 적용 (L1 형태의 변형 과정이 명시된 경우)</span><span>🔍 발음/형태 변형 유무가 구분점</span></div>
         </div>
         <div class="grid-item">
-          <div class="gi-title">② <span class='kw4'>Approximation</span> vs <span class='kw4'>Circumlocution</span></div>
-          <div class="gi-body"><span><strong>Approximation</strong>: <span class='kw2'>비슷한 의미의 표현으로 대체</span> (squirrel↔chipmunk)</span><span><strong>Circumlocution</strong>: <span class='kw2'>특징이나 기능을 설명</span> ("the thing that make hair hot" / "put chickens in oil, bake them" for frying)</span><span>🔍 길이가 아니라 대체 표현 사용과 특징·기능 설명의 차이 (Brown, 2014, p.129)</span></div>
+          <div class="gi-title">② <span class='kw4'>Approximation</span> vs <a class="kw4 concept-term" href="https://etwiki.net/concept.html?term=Circumlocution">Circumlocution</a></div>
+          <div class="gi-body"><span><strong>Approximation</strong>: <span class='kw2'>비슷한 의미의 표현으로 대체</span> (squirrel↔chipmunk)</span><span><strong>Circumlocution</strong>: <span class='kw2'>특징이나 기능을 설명</span> (예: 이름 대신 도구의 기능·모양 설명)</span><span>🔍 길이가 아니라 대체 표현 사용과 특징·기능 설명의 차이 (Brown, 2014, p.129)</span></div>
         </div>
         <div class="grid-item">
-          <div class="gi-title">③ <span class='kw4'>Literal translation</span> vs <span class='kw4'>Word coinage</span></div>
-          <div class="gi-body"><span><strong>Literal translation</strong>: L1을 그대로 직역 (pig meat=돼지+고기)</span><span><strong>Word coinage</strong>: L2의 익숙한 요소로 새 명칭 구성 (unlock-person: 자체 제작)</span><span>🔍 L1 직역 vs L2 규칙 남용</span></div>
+          <div class="gi-title">③ <span class='kw4'>Literal translation</span> vs <a class="kw4 concept-term" href="https://etwiki.net/concept.html?term=word%20coinage">Word coinage</a></div>
+          <div class="gi-body"><span><strong>Literal translation</strong>: L1을 그대로 직역 (pig meat=돼지+고기)</span><span><strong>Word coinage</strong>: L2의 익숙한 요소로 새 명칭 구성 (unlock-person: 자체 제작)</span><span>🔍 L1 직역 vs L2 요소로 새 명칭 구성</span></div>
         </div>
         <div class="grid-item">
           <div class="gi-title">④ <span class='kw4'>Appeal for assistance</span> 하위</div>
@@ -477,37 +513,38 @@ details.learner-deep{border:1px solid #b2dfcc;border-radius:10px;padding:12px 14
       <p>• 사례의 발화와 문제 해결 방식을 근거로 전략을 판별한다.</p>
       <p>• <span class='kw2'>Code-switching vs Foreignizing</span> 혼동 주의 (L1 발음 그대로 vs L2 음운 적용)</p>
       <p>• <span class='kw2'>Approximation vs Circumlocution</span> 구분 (비슷한 의미의 표현으로 대체 vs 특징·기능 설명)</p>
-      <p>• <span class='kw2'>Literal translation vs Word coinage</span> 구분 (L1 직역 vs 규칙 과잉)</p>
+      <p>• <span class='kw2'>Literal translation vs Word coinage</span> 구분 (L1 직역 vs 새 명칭 구성)</p>
       <p>• <span class='kw2'>Message abandonment</span> (avoidance) — 시작 후 미종결</p>
     </div>
     <details class="concept learner-deep"><summary>표면 표현보다 문제 해결 과정으로 전략 구분</summary>
-<p class="note"><strong>Communication strategy가 필요한 순간</strong> 말하려는 의미는 있지만 필요한 표현을 바로 사용할 수 없을 때, 학습자는 목표를 줄이거나 다른 자원을 동원한다. Avoidance는 어려운 내용·형태를 피하는 쪽이고 compensatory strategy는 표현 수단을 바꾸어 대화를 이어 가려는 쪽이다. 대화가 이어졌다는 결과만으로 둘을 구분하기는 어렵다. 원래 전달하려던 의미를 포기했는지, 유지하면서 대안을 찾았는지를 함께 읽는다.</p><div class="depth-table-wrap"><table class="depth-table"><caption>표현 길이가 아니라 대체 방식이 기준이다</caption><thead><tr><th scope="col">비교</th><th scope="col">사용한 자원</th><th scope="col">결정적 차이</th></tr></thead><tbody><tr><th scope="row">Approximation</th><td>의미가 가까운 기존 단어</td><td>대상을 넓은 범주나 비슷한 이름으로 가리킴</td></tr><tr><th scope="row">Circumlocution</th><td>대상의 특징·기능 설명</td><td>이름 대신 설명으로 대상을 알아보게 함</td></tr><tr><th scope="row">Word coinage</th><td>L2에서 추정한 형성 규칙</td><td>기존에 없는 L2 형태를 만듦</td></tr><tr><th scope="row">Compensatory code-switching</th><td>다른 언어의 표현</td><td>부족한 L2 표현을 다른 언어로 메움</td></tr></tbody></table></div><p class="note"><strong>결과와 학습을 구분하기</strong> 우회 설명으로 상대가 물건을 찾았다면 당장의 의사소통 목표는 달성할 수 있다. 그러나 목표 단어를 배웠다고 결론 내리려면 이후 그 표현을 이해하거나 사용하는 증거가 더 필요하다. 교사가 뒤에 목표 표현을 제공하고 새로운 상황에서 다시 쓰게 하는 이유가 여기에 있다. 여러 언어를 섞었다는 사실만으로 결핍 보상이라고 단정하지 말고, 표현을 몰라 대체했다는 맥락을 확인한다.</p>
+<p class="note"><a class="exam-year" href="https://etwiki.net/index.html?id=education_2007_N14" aria-label="2007학년도 전국 14번 원문과 해설">07</a> <strong>출제 포인트</strong> L1 표현을 직역한 경우, 새 명칭을 만든 경우, 특징을 설명한 경우를 구별한다. 상대가 이해했다는 결과보다 대체 표현이 만들어진 과정이 기준이다. <a href="https://etwiki.net/index.html?id=education_2007_N14">출처: 2007학년도 전국 14번 · 원문과 해설</a></p><p class="note"><a class="exam-year" href="https://etwiki.net/index.html?id=education_2010_X15" aria-label="2010학년도 1차 15번 원문과 해설">10</a> <strong>출제 포인트</strong> 부족한 영어 표현을 한국어로 메웠다는 행동은 code-switching의 근거다. 언어를 바꾼 과정이 명시되지 않은 어색한 표현만으로 foreignizing을 추정하지 않는다. <a href="https://etwiki.net/index.html?id=education_2010_X15">출처: 2010학년도 1차 15번 · 원문과 해설</a></p>
+<p class="note"><strong>Communication strategy가 필요한 순간</strong> 말하려는 의미는 있지만 필요한 표현을 바로 사용할 수 없을 때, 학습자는 목표를 줄이거나 다른 자원을 동원한다. Avoidance는 어려운 내용·형태를 피하는 쪽이고 compensatory strategy는 표현 수단을 바꾸어 대화를 이어 가려는 쪽이다. 대화가 이어졌다는 결과만으로 둘을 구분하기는 어렵다. <mark>원래 전달하려던 의미를 포기했는지, 유지하면서 대안을 찾았는지</mark>를 함께 읽는다.</p><div class="depth-table-wrap" role="region" aria-label="개념 비교표"><table class="depth-table"><caption>표현 길이가 아니라 대체 방식이 기준이다</caption><thead><tr><th scope="col">비교</th><th scope="col">사용한 자원</th><th scope="col">결정적 차이</th></tr></thead><tbody><tr><th scope="row">Approximation</th><td>의미가 가까운 기존 단어</td><td>대상을 넓은 범주나 비슷한 이름으로 가리킴</td></tr><tr><th scope="row">Circumlocution</th><td>대상의 특징·기능 설명</td><td>이름 대신 설명으로 대상을 알아보게 함</td></tr><tr><th scope="row">Word coinage</th><td>L2에서 추정한 형성 규칙</td><td>기존에 없는 L2 형태를 만듦</td></tr><tr><th scope="row">Compensatory code-switching</th><td>다른 언어의 표현</td><td>부족한 L2 표현을 다른 언어로 메움</td></tr></tbody></table></div><p class="note"><strong>결과와 학습을 구분하기</strong> 우회 설명으로 상대가 물건을 찾았다면 당장의 의사소통 목표는 달성할 수 있다. 그러나 목표 단어를 배웠다고 결론 내리려면 이후 그 표현을 이해하거나 사용하는 증거가 더 필요하다. 교사가 뒤에 목표 표현을 제공하고 새로운 상황에서 다시 쓰게 하는 이유가 여기에 있다. 여러 언어를 섞었다는 사실만으로 결핍 보상이라고 단정하지 말고, 표현을 몰라 대체했다는 맥락을 확인한다.</p>
 
 <p class="note"><strong>세 장면</strong> 모르는 sailboat를 아는 단어 boat로 대신한다 → approximation. corkscrew를 몰라 “the tool that pulls a cork out of a bottle”이라고 기능을 설명한다 → circumlocution. 영어 단어를 몰라 L1 단어를 그대로 삽입한다 → compensatory code-switching.</p>
 <p class="note"><strong>경계 확인</strong> Literal translation은 L1 표현을 단어별로 옮겼다는 근거가 필요하다. Foreignizing은 L1 형태를 L2 음운·형태에 맞추는 경우이고, word coinage는 L2 자원으로 새 표현을 만드는 경우다. 어색한 발화 하나만으로 어떤 과정인지 확정하지 않는다.</p>
 <p class="note"><strong>수업 적용</strong> 짝에게 물건을 설명하되 이름을 모르면 기능·모양 설명을 허용한다. 교사는 의사소통이 유지되었는지 먼저 보고, 이후 목표 표현을 제공하여 재사용하게 한다. 모든 code-switching을 부족한 능력의 증거로 보지 않는다. 유창한 이중언어 사용자도 여러 사회적 목적으로 언어를 바꾼다.</p>
-<p class="note"><strong>확인 문제 · 해설</strong> “문장이 길면 circumlocution이고 짧으면 approximation이다.” → X. 길이가 아니라 의미가 가까운 대체어를 골랐는지, 특징·기능을 풀어 설명했는지가 기준이다.</p>
-<p class="note"><small>근거·읽을거리: Brown (2014), pp.128–130. 사례는 별도 표시가 없는 한 자체 제작이다.</small></p><p class="note"><strong>개념사전 연결</strong> <a href="https://etwiki.net/concept.html?term=Communication%20strategies">Communication strategies</a> · <a href="https://etwiki.net/concept.html?term=compensatory%20strategies">compensatory strategies</a></p></details>
+<p class="note"><strong>해석의 한계</strong> 길이가 아니라 의미가 가까운 대체어를 골랐는지, 특징·기능을 풀어 설명했는지가 기준이다.</p>
+<details class="source-note" data-study-details="off"><summary>원서 서지·설명 범위</summary><p>Brown (2014), pp.128–130. 사례는 별도 표시가 없는 한 자체 제작이다.</p></details><p class="note"><strong>개념사전 연결</strong> <a href="https://etwiki.net/concept.html?term=Communication%20strategies">Communication strategies</a> · <a href="https://etwiki.net/concept.html?term=compensatory%20strategies">compensatory strategies</a></p></details>
 
   </div>
 </div>
 
 <!-- ④ Motivation -->
 <div class="sec" id="s4">
-  <div class="sec-header" onclick="toggle('s4')">
+  <button type="button" class="sec-header" onclick="toggle('s4')" aria-controls="s4-body" aria-expanded="false">
     <span class="sec-icon">🎯</span>
     <span class="sec-title">④ Motivation</span>
     <span class="sec-tag">Integrative · Instrumental · Intrinsic · Extrinsic</span>
     <span class="sec-arrow">▼</span>
-  </div>
-  <div class="sec-body">
+  </button>
+  <div class="sec-body" id="s4-body">
 
     <div class="concept">
-      <div class="c-title">1) Integrative vs Instrumental Orientation</div>
+      <div class="c-title">1) Integrative vs Instrumental Orientation <a class="exam-year" href="https://etwiki.net/index.html?id=education_2009_X20" aria-label="2009학년도 1차 20번 원문과 해설">09</a></div>
       <div class="grid col2">
         <div class="grid-item">
           <div class="gi-title"><span class='kw3'>Integrative</span></div>
-          <div class="gi-body"><span>L2 공동체에 통합되려는 동기</span><span><em>e.g. converse with international English speakers</em></span></div>
+          <div class="gi-body"><span>L2 공동체와 교류·참여하려는 목적</span><span><em>e.g. converse with international English speakers</em></span></div>
         </div>
         <div class="grid-item">
           <div class="gi-title"><span class='kw3'>Instrumental</span></div>
@@ -519,14 +556,14 @@ details.learner-deep{border:1px solid #b2dfcc;border-radius:10px;padding:12px 14
     <div class="div"></div>
 
     <div class="concept">
-      <div class="c-title">2) Intrinsic vs Extrinsic Motivation</div>
+      <div class="c-title">2) Intrinsic vs Extrinsic Motivation <a class="exam-year" href="https://etwiki.net/index.html?id=education_2009_X20" aria-label="2009학년도 1차 20번 원문과 해설">09</a></div>
       <div class="grid col2">
         <div class="grid-item">
-          <div class="gi-title"><span class='kw1'>Intrinsic</span></div>
+          <div class="gi-title"><a class="kw1 concept-term" href="https://etwiki.net/concept.html?term=Intrinsic%20motivation">Intrinsic</a></div>
           <div class="gi-body"><span>언어 자체·즐거움 위해 학습</span><span><span class='kw2'>internal rewards</span>: satisfaction · competence · self-determination</span></div>
         </div>
         <div class="grid-item">
-          <div class="gi-title"><span class='kw1'>Extrinsic</span></div>
+          <div class="gi-title"><a class="kw1 concept-term" href="https://etwiki.net/concept.html?term=extrinsic%20motivation">Extrinsic</a></div>
           <div class="gi-body"><span>외적 보상 기대</span><span>prize · grade · praise · showing off</span></div>
         </div>
       </div>
@@ -540,11 +577,11 @@ details.learner-deep{border:1px solid #b2dfcc;border-radius:10px;padding:12px 14
       <p class="note"><strong>Brown (2014, pp.159–164)</strong>: 학습 목적(orientation)과 동기의 강도(motivational intensity)를 구별한다.</p>
       <div class="grid col2">
         <div class="grid-item">
-          <div class="gi-title"><span class='kw4'>Motivation</span> (동기)</div>
+          <div class="gi-title"><a class="kw4 concept-term" href="https://etwiki.net/concept.html?term=Motivation">Motivation</a> (동기)</div>
           <div class="gi-body"><span>보상에 대한 <span class='kw2'>기대·목표·노력</span>의 정도</span><span>하위: <span class='kw1'>Intrinsic / Extrinsic</span></span><span>→ 내부/외부 보상 유발 여부</span></div>
         </div>
         <div class="grid-item">
-          <div class="gi-title"><span class='kw4'>Orientation</span> (지향)</div>
+          <div class="gi-title"><a class="kw4 concept-term" href="https://etwiki.net/concept.html?term=orientation">Orientation</a> (지향)</div>
           <div class="gi-body"><span>언어를 배우려는 <span class='kw2'>목적·지향</span> (실용 목적 또는 사회·문화적 참여 등)</span><span>하위: <span class='kw1'>Integrative / Instrumental</span></span><span>→ 문화적 통합 vs 실용적 목적</span></div>
         </div>
       </div>
@@ -558,30 +595,31 @@ details.learner-deep{border:1px solid #b2dfcc;border-radius:10px;padding:12px 14
       <p>• <span class='kw3'>Motivation ≠ Orientation</span> 용어 구분 — Intrinsic/Extrinsic은 motivation, Integrative/Instrumental은 orientation</p>
     </div>
     <details class="concept learner-deep"><summary>학습 목적·보상·노력의 강도 구별하기</summary>
-<p class="note"><strong>목표의 종류와 행동을 지속하는 힘</strong> Orientation은 언어를 배우려는 목적의 방향을 설명한다. Instrumental은 취업·학업 같은 실용 목적, integrative는 언어 공동체와의 사회·문화적 교류에 관련된다. Motivation은 목표를 선택하고 노력하며 지속하는 과정에 관한 개념이다. 목적을 말하는 것과 실제로 계속 연습하는 것은 같지 않으므로 orientation만으로 motivational intensity를 정할 수 없다.</p><div class="depth-table-wrap"><table class="depth-table"><caption>서로 다른 질문을 분리한다</caption><thead><tr><th scope="col">비교 축</th><th scope="col">핵심 질문</th><th scope="col">한 학습자에게 함께 가능한 것</th></tr></thead><tbody><tr><th scope="row">Instrumental / integrative</th><td>어떤 목적을 위해 배우는가?</td><td>직업 목표와 공동체 교류 목표</td></tr><tr><th scope="row">Intrinsic / extrinsic</th><td>활동 자체의 즐거움인가, 활동 밖의 결과인가?</td><td>이야기 만들기의 재미와 성적에 대한 관심</td></tr><tr><th scope="row">Motivational intensity</th><td>얼마나 노력하고 지속하는가?</td><td>같은 목적을 가진 사람 사이의 강도 차이</td></tr></tbody></table></div><p class="note"><strong>보상이 있는지보다 행동의 이유를 읽기</strong> 활동 자체의 흥미·만족이 중심이면 intrinsic motivation을 뒷받침한다. 상이나 벌의 회피처럼 활동 밖의 결과를 얻으려 한다면 extrinsic motivation의 근거다. 다만 성적이 주어지는 수업에서도 활동을 즐길 수 있고, 실용 목적을 스스로 중요하게 여길 수도 있다. 그래서 instrumental을 extrinsic과 자동으로 짝짓지 않는다. 교사가 선택권과 달성 가능한 목표를 제공하는 것은 학생이 활동의 의미를 찾고 노력을 조절하도록 돕기 위한 것이다.</p><p class="note"><strong>변형 조건에서 답을 고르는 순서</strong> “해외 동료와 친해지고 싶다”는 목적, “이야기 만드는 것이 즐겁다”는 활동의 이유, “매일 연습한다”는 노력의 증거다. 하나만 남기거나 바꾼 변형 문항에서는 그 단서가 답하는 질문도 달라진다. 특정 orientation이 언제나 성공을 보장한다는 문장은 목적에서 결과로 근거 없이 건너뛴 것이다.</p>
+<p class="note"><a class="exam-year" href="https://etwiki.net/index.html?id=education_2009_X20" aria-label="2009학년도 1차 20번 원문과 해설">09</a> <strong>출제 포인트</strong> 영어 활동을 즐기는 이유, 다른 영어 사용자와 교류하려는 목적, 사회적 인정이라는 외부 결과를 각각 구분한다. 하나의 학습자에게 여러 단서가 함께 있을 수 있다. <a href="https://etwiki.net/index.html?id=education_2009_X20">출처: 2009학년도 1차 20번 · 원문과 해설</a></p>
+<p class="note"><strong>목표의 종류와 행동을 지속하는 힘</strong> Orientation은 언어를 배우려는 목적의 방향을 설명한다. Instrumental은 취업·학업 같은 실용 목적, integrative는 언어 공동체와의 사회·문화적 교류에 관련된다. Motivation은 목표를 선택하고 노력하며 지속하는 과정에 관한 개념이다. 목적을 말하는 것과 실제로 계속 연습하는 것은 같지 않으므로 orientation만으로 motivational intensity를 정할 수 없다.</p><div class="depth-table-wrap" role="region" aria-label="개념 비교표"><table class="depth-table"><caption>서로 다른 질문을 분리한다</caption><thead><tr><th scope="col">비교 축</th><th scope="col">핵심 질문</th><th scope="col">한 학습자에게 함께 가능한 것</th></tr></thead><tbody><tr><th scope="row">Instrumental / integrative</th><td>어떤 목적을 위해 배우는가?</td><td>직업 목표와 공동체 교류 목표</td></tr><tr><th scope="row">Intrinsic / extrinsic</th><td>활동 자체의 즐거움인가, 활동 밖의 결과인가?</td><td>이야기 만들기의 재미와 성적에 대한 관심</td></tr><tr><th scope="row">Motivational intensity</th><td>얼마나 노력하고 지속하는가?</td><td>같은 목적을 가진 사람 사이의 강도 차이</td></tr></tbody></table></div><p class="note"><strong>보상이 있는지보다 행동의 이유를 읽기</strong> 활동 자체의 흥미·만족이 중심이면 intrinsic motivation을 뒷받침한다. 상이나 벌의 회피처럼 <u>활동 밖의 결과</u>를 얻으려 한다면 extrinsic motivation의 근거다. 다만 성적이 주어지는 수업에서도 활동을 즐길 수 있고, 실용 목적을 스스로 중요하게 여길 수도 있다. 그래서 instrumental을 extrinsic과 자동으로 짝짓지 않는다. 교사가 선택권과 달성 가능한 목표를 제공하는 것은 학생이 활동의 의미를 찾고 노력을 조절하도록 돕기 위한 것이다.</p><p class="note"><strong>변형 조건에서 답을 고르는 순서</strong> “해외 동료와 친해지고 싶다”는 목적, “이야기 만드는 것이 즐겁다”는 활동의 이유, “매일 연습한다”는 노력의 증거다. 하나만 남기거나 바꾼 변형 문항에서는 그 단서가 답하는 질문도 달라진다. 특정 orientation이 언제나 성공을 보장한다는 문장은 목적에서 결과로 근거 없이 건너뛴 것이다.</p>
 
 <p class="note"><strong>사례</strong> 민서는 해외 동료와 친해지고 업무 기회를 넓히려고 영어를 배우며, 영어로 이야기를 만드는 활동 자체도 즐긴다. 같은 목적을 말하는 준서는 실제 연습을 거의 하지 않는다.</p>
 <p class="note"><strong>판별</strong> 민서에게 integrative와 instrumental orientation이 함께 나타날 수 있고, 활동을 즐긴다는 부분은 intrinsic motivation의 근거이다. 목적이 같아도 실제 지속적 노력으로 드러나는 motivational intensity는 다를 수 있다. Instrumental을 곧바로 extrinsic과 같은 뜻으로 쓰지 않는다.</p>
 <p class="note"><strong>수업 적용</strong> 업무 대화·이야기 만들기 중 의미 있는 목표를 선택하게 하고 작은 목표와 수행 기록을 연결한다. 피드백은 성취한 행동을 구체적으로 알려 준다. 칭찬이나 성적이 존재한다는 이유만으로 intrinsic involvement가 없다고 단정하지 않는다.</p>
-<p class="note"><strong>확인 문제 · 해설</strong> “Integrative orientation이 있으면 언제나 더 강한 motivation을 보인다.” → X. Orientation은 목적에 관한 정보이며 강도와 성공을 자동으로 결정하지 않는다.</p>
-<p class="note"><small>근거·읽을거리: Brown (2014), Principles of Language Learning and Teaching, 6th ed., Ch.6, pp.159–164. 사례는 별도 표시가 없는 한 자체 제작이다.</small></p><p class="note"><strong>개념사전 연결</strong> <a href="https://etwiki.net/concept.html?term=Motivation">Motivation</a> · <a href="https://etwiki.net/concept.html?term=Intrinsic%20motivation">Intrinsic motivation</a></p></details>
+<p class="note"><strong>해석의 한계</strong> Orientation은 목적에 관한 정보이며 강도와 성공을 자동으로 결정하지 않는다.</p>
+<details class="source-note" data-study-details="off"><summary>원서 서지·설명 범위</summary><p>Brown (2014), Principles of Language Learning and Teaching, 6th ed., Ch.6, pp.159–164. 사례는 별도 표시가 없는 한 자체 제작이다.</p></details><p class="note"><strong>개념사전 연결</strong> <a href="https://etwiki.net/concept.html?term=Motivation">Motivation</a> · <a href="https://etwiki.net/concept.html?term=Intrinsic%20motivation">Intrinsic motivation</a></p></details>
 
   </div>
 </div>
 
 <!-- ⑤ Inhibition / Anxiety -->
 <div class="sec" id="s5">
-  <div class="sec-header" onclick="toggle('s5')">
+  <button type="button" class="sec-header" onclick="toggle('s5')" aria-controls="s5-body" aria-expanded="false">
     <span class="sec-icon">🛡️</span>
     <span class="sec-title">⑤ Inhibition · Language Ego · Anxiety</span>
     <span class="sec-tag">Affective Domain</span>
     <span class="sec-arrow">▼</span>
-  </div>
-  <div class="sec-body">
+  </button>
+  <div class="sec-body" id="s5-body">
 
     <div class="concept">
       <div class="c-title">Language Ego & Inhibition</div>
-      <div class="def"><span class='kw3'>Language ego</span>: 언어와 관련해 형성되는 정체성. <span class='kw3'>Inhibition</span>: 취약한 ego를 보호하려는 <span class='kw2'>mental defensive mechanism</span>.</div>
+      <div class="def"><span class='kw3'>Language ego</span>: 언어와 관련해 형성되는 정체성. <a class="kw3 concept-term" href="https://etwiki.net/concept.html?term=Inhibition">Inhibition</a>: 취약한 ego를 보호하려는 <span class='kw2'>mental defensive mechanism</span>.</div>
       <p class="note"><span class='kw3'>Adaptive language ego</span>: <span class='kw2'>permeable ego boundary</span>로 L2 정체성 위기를 유연히 다룸</p>
       <p class="note">Lowering inhibition 방법: guessing games · meaning-centered, fluency-based activities · T's empathy & patience · challenging but not overwhelming tasks</p>
     </div>
@@ -589,14 +627,14 @@ details.learner-deep{border:1px solid #b2dfcc;border-radius:10px;padding:12px 14
     <div class="div"></div>
 
     <div class="concept">
-      <div class="c-title">Anxiety</div>
+      <div class="c-title">Anxiety <a class="exam-year" href="https://etwiki.net/index.html?id=education_2009_X20" aria-label="2009학년도 1차 20번 원문과 해설">09</a></div>
       <div class="grid col2">
         <div class="grid-item">
-          <div class="gi-title"><span class='kw4'>Facilitative</span></div>
+          <div class="gi-title"><a class="kw4 concept-term" href="https://etwiki.net/concept.html?term=facilitative%20anxiety">Facilitative</a></div>
           <div class="gi-body"><span>helpful tension · 경쟁·도전과 연결</span><span><span class='kw2'>motivates</span> efforts to overcome</span><span><em>e.g. "tension pushes me to do well"</em></span></div>
         </div>
         <div class="grid-item">
-          <div class="gi-title"><span class='kw4'>Debilitative</span></div>
+          <div class="gi-title"><a class="kw4 concept-term" href="https://etwiki.net/concept.html?term=debilitative%20anxiety">Debilitative</a></div>
           <div class="gi-body"><span>worry · self-efficacy 저해</span><span>source를 <span class='kw2'>회피</span></span><span><em>e.g. "flee the learning task"</em></span></div>
         </div>
       </div>
@@ -608,29 +646,30 @@ details.learner-deep{border:1px solid #b2dfcc;border-radius:10px;padding:12px 14
       <p>• Adaptive language ego의 <span class='kw2'>permeable</span> 특성</p>
     </div>
     <details class="concept learner-deep"><summary>불안이 나타나는 범위와 수행에 미치는 영향 구별하기</summary>
-<p class="note"><strong>Anxiety를 한 축으로만 읽으면 생기는 오류</strong> Anxiety는 긴장·걱정·자기 의심 같은 경험을 포함한다. Trait/state는 그 경험이 얼마나 넓고 지속적으로 나타나는지를 묻는다. Facilitative/debilitative는 그 경험이 준비나 수행에 어떤 영향을 주는지를 묻는다. 특정 발표에서 생긴 state anxiety가 준비를 촉진할 수도, 말을 막을 수도 있으므로 두 쌍을 같은 분류로 묶지 않는다.</p><div class="depth-table-wrap"><table class="depth-table"><caption>불안의 범위와 효과는 독립적으로 확인한다</caption><thead><tr><th scope="col">축</th><th scope="col">구분</th><th scope="col">자료에서 찾아야 할 것</th></tr></thead><tbody><tr><th scope="row">범위·지속성</th><td>Trait / state</td><td>여러 상황에 반복되는가, 특정 사건과 연결되는가</td></tr><tr><th scope="row">수행과의 관계</th><td>Facilitative / debilitative</td><td>준비·참여를 돕는가, 표현·참여를 방해하는가</td></tr></tbody></table></div><p class="note"><strong>왜 원인을 단정하면 안 되는가</strong> 발표 중 멈춘 행동만으로 불안이 낮은 성취의 원인이라고 확정할 수 없다. 표현의 어려움 때문에 불안이 커졌을 수도 있고, 두 요인이 함께 작용할 수도 있다. 준비 시간·상대·평가 조건을 바꾸어 같은 학생의 반응을 살핀다. 이는 진단 이름을 붙이려는 것이 아니라 어떤 수업 지원이 필요한지 확인하는 절차다.</p>
+<p class="note"><a class="exam-year" href="https://etwiki.net/index.html?id=education_2009_X20" aria-label="2009학년도 1차 20번 원문과 해설">09</a> <strong>출제 포인트</strong> 긴장이 과제 수행을 돕는다는 정보는 facilitative anxiety의 근거다. 긴장하면서도 말하기를 시도했다는 정보만으로 debilitative anxiety를 단정하지 않는다. <a href="https://etwiki.net/index.html?id=education_2009_X20">출처: 2009학년도 1차 20번 · 원문과 해설</a></p>
+<p class="note"><strong>Anxiety를 한 축으로만 읽으면 생기는 오류</strong> Anxiety는 긴장·걱정·자기 의심 같은 경험을 포함한다. Trait/state는 그 경험이 얼마나 넓고 지속적으로 나타나는지를 묻는다. Facilitative/debilitative는 그 경험이 준비나 수행에 어떤 영향을 주는지를 묻는다. 특정 발표에서 생긴 state anxiety가 준비를 촉진할 수도, 말을 막을 수도 있으므로 두 쌍을 같은 분류로 묶지 않는다.</p><div class="depth-table-wrap" role="region" aria-label="개념 비교표"><table class="depth-table"><caption>불안의 범위와 효과는 독립적으로 확인한다</caption><thead><tr><th scope="col">축</th><th scope="col">구분</th><th scope="col">자료에서 찾아야 할 것</th></tr></thead><tbody><tr><th scope="row">범위·지속성</th><td>Trait / state</td><td>여러 상황에 반복되는가, 특정 사건과 연결되는가</td></tr><tr><th scope="row">수행과의 관계</th><td>Facilitative / debilitative</td><td>준비·참여를 돕는가, 표현·참여를 방해하는가</td></tr></tbody></table></div><p class="note"><strong>왜 원인을 단정하면 안 되는가</strong> 발표 중 멈춘 행동만으로 불안이 낮은 성취의 원인이라고 확정할 수 없다. 표현의 어려움 때문에 불안이 커졌을 수도 있고, 두 요인이 함께 작용할 수도 있다. 준비 시간·상대·평가 조건을 바꾸어 같은 학생의 반응을 살핀다. 이는 진단 이름을 붙이려는 것이 아니라 어떤 수업 지원이 필요한지 확인하는 절차다.</p>
 
 
 <p class="note"><strong>적용 사례</strong> 학생은 친한 짝과는 말하지만 전체 발표에서 평가가 두려워 멈춘다. 이 한 장면만으로 전반적인 성격을 진단하지 않는다. 긴장 덕분에 준비를 더 한 것과 긴장 때문에 알고 있는 말을 못한 것은 효과가 다르다.</p>
 <p class="note"><strong>교사의 조치</strong> 먼저 짝과 연습하고 준비 시간을 제공한 뒤 선택 가능한 발표 기회를 마련한다. 학생을 조롱하지 않는 방식으로 피드백하고 같은 학습자의 과제별 반응과 참여 변화를 확인한다. Facilitative anxiety라는 개념이 학생에게 의도적으로 위협이나 경쟁을 가해도 된다는 뜻은 아니다.</p>
-<p class="note"><strong>확인 문제 · 해설</strong> “Nervous라는 말만 있으면 debilitative anxiety이다.” → X. 준비·참여를 돕는지 또는 수행·참여를 방해하는지 추가 증거가 필요하다.</p>
-<p class="note"><small>근거·읽을거리: Brown (2014), Principles of Language Learning and Teaching, 6th ed., Ch.6, pp.147–152. 사례는 별도 표시가 없는 한 자체 제작이다.</small></p><p class="note"><strong>개념사전 연결</strong> <a href="https://etwiki.net/concept.html?term=trait%20anxiety">trait anxiety</a> · <a href="https://etwiki.net/concept.html?term=state%20anxiety">state anxiety</a></p></details>
+<p class="note"><strong>해석의 한계</strong> 준비·참여를 돕는지 또는 수행·참여를 방해하는지 추가 증거가 필요하다.</p>
+<details class="source-note" data-study-details="off"><summary>원서 서지·설명 범위</summary><p>Brown (2014), Principles of Language Learning and Teaching, 6th ed., Ch.6, pp.147–152. 사례는 별도 표시가 없는 한 자체 제작이다.</p></details><p class="note"><strong>개념사전 연결</strong> <a href="https://etwiki.net/concept.html?term=trait%20anxiety">trait anxiety</a> · <a href="https://etwiki.net/concept.html?term=state%20anxiety">state anxiety</a></p></details>
 
   </div>
 </div>
 
 <!-- ⑥ Risk-taking, Empathy, WTC -->
 <div class="sec" id="s6">
-  <div class="sec-header" onclick="toggle('s6')">
+  <button type="button" class="sec-header" onclick="toggle('s6')" aria-controls="s6-body" aria-expanded="false">
     <span class="sec-icon">🎲</span>
     <span class="sec-title">⑥ Risk-taking · Empathy · WTC</span>
     <span class="sec-tag">기타 정의적 요인</span>
     <span class="sec-arrow">▼</span>
-  </div>
-  <div class="sec-body">
+  </button>
+  <div class="sec-body" id="s6-body">
 
     <div class="concept">
-      <div class="c-title">Risk-taking</div>
+      <div class="c-title">Risk-taking <a class="exam-year" href="https://etwiki.net/index.html?id=education_2009_X20" aria-label="2009학년도 1차 20번 원문과 해설">09</a></div>
       <div class="def">Willingness to <span class='kw2'>use the TL system</span> with an attitude to take the risk of making errors.</div>
       <p class="note">계산된 시도와 점검을 함께 지원한다. Risk-taking 수준만으로 정확도나 fossilization을 예측하지 않는다.</p>
       <p class="note">교사는 오류를 조롱하지 않고 의미 전달을 지원한 뒤 필요한 형태를 다시 확인하게 한다.</p>
@@ -648,37 +687,38 @@ details.learner-deep{border:1px solid #b2dfcc;border-radius:10px;padding:12px 14
     <div class="div"></div>
 
     <div class="concept">
-      <div class="c-title">Willingness to Communicate (WTC)</div>
+      <div class="c-title">Willingness to Communicate (WTC) <a class="exam-year" href="https://etwiki.net/index.html?id=education_2009_X20" aria-label="2009학년도 1차 20번 원문과 해설">09</a></div>
       <div class="def">The <span class='kw2'>intention to initiate communication</span>, given a choice.</div>
       <p class="note"><em>e.g. High WTC: one enjoys participating in small group speaking activities</em></p>
       <p class="note">영향 요인: motivation · personality · self-confidence</p>
     </div>
 
     <details class="concept learner-deep"><summary>WTC·proficiency·risk-taking 구별하기</summary>
+<p class="note"><a class="exam-year" href="https://etwiki.net/index.html?id=education_2009_X20" aria-label="2009학년도 1차 20번 원문과 해설">09</a> <strong>출제 포인트</strong> 긴장해도 말하려는 시도는 risk-taking, 소집단 말하기 참여 의향은 WTC와 연결한다. 각 행동을 보여 준 상황을 함께 읽는다. <a href="https://etwiki.net/index.html?id=education_2009_X20">출처: 2009학년도 1차 20번 · 원문과 해설</a></p>
 <p class="note"><strong>할 수 있음, 하려 함, 위험을 감수함</strong> Proficiency는 사용할 수 있는 언어 능력이고 WTC는 선택권이 있을 때 특정 상대와 의사소통을 시작하려는 의향이다. 자신의 능력에 대한 인식과 실제 능력도 완전히 같지는 않다. 표현을 충분히 알아도 평가가 두려워 말하지 않을 수 있고, 아는 말이 적어도 도움을 요청하며 시작할 수 있다. Risk-taking은 오류 가능성을 감수하고 시도하는 태도이므로 WTC와 관련되지만 같은 정의는 아니다.</p><p class="note"><strong>WTC를 상황과 연결하는 이유</strong> 친숙한 상대, 주제에 대한 준비, 집단의 반응이 달라지면 같은 사람의 시작 의향도 바뀔 수 있다. 따라서 한 번의 침묵을 고정 성격이나 낮은 proficiency의 증거로 읽지 않는다. 교사가 익숙한 짝과 준비 시간을 제공하는 것은 의사소통의 진입 조건을 바꾸는 지원이다. 이후 자발적으로 시작했는지 따로 확인해야 한다.</p><p class="note"><strong>변형 장면의 결정적 단서</strong> 자발적으로 먼저 질문했다면 WTC의 근거가 있고, 틀릴 수 있음을 알면서 시도했다면 risk-taking의 근거가 있다. 지명받아 정답을 읽은 장면에는 자발적 시작 여부가 드러나지 않는다. 활동에 참여했다는 공통 결과보다 선택권과 시도의 조건을 먼저 확인한다.</p>
 
 <p class="note"><strong>사례</strong> 문법과 어휘를 잘 사용하는 학생이 낯선 집단에서는 발언하지 않지만 친한 파트너에게는 먼저 말을 건다. 다른 학생은 단어가 부족해도 설명과 도움 요청으로 대화를 시작한다.</p>
 <p class="note"><strong>판별</strong> Proficiency는 언어 수행 능력, WTC는 선택권이 있을 때 의사소통을 시작하려는 의향이다. 높은 proficiency가 높은 WTC를 보장하지 않는다. Risk-taking은 오류 가능성을 감수하는 시도이며, 무작위 추측이나 대화 독점과 다르다.</p>
 <p class="note"><strong>교사의 조치</strong> 익숙한 짝·명확한 역할·질문 시작 표현을 제공한다. 자발적으로 대화를 시작하는지, 상호작용은 어떻게 이루어지는지를 여러 조건에서 관찰한다. 발화 횟수 하나로 introversion, motivation, competence를 동시에 판단하지 않는다.</p>
-<p class="note"><strong>확인 문제 · 해설</strong> “한 번 침묵했으므로 WTC는 변하지 않는 낮은 성격 특성이다.” → X. WTC는 상대·집단 분위기·시간에 따라 달라질 수 있다.</p>
-<p class="note"><small>근거·읽을거리: Brown (2014), Principles of Language Learning and Teaching, 6th ed., Ch.6, pp.146–150. 사례는 별도 표시가 없는 한 자체 제작이다.</small></p><p class="note"><strong>개념사전 연결</strong> <a href="https://etwiki.net/concept.html?term=Willingness%20to%20communicate%20(WTC)">Willingness to communicate (WTC)</a></p></details>
+<p class="note"><strong>해석의 한계</strong> WTC는 상대·집단 분위기·시간에 따라 달라질 수 있다.</p>
+<details class="source-note" data-study-details="off"><summary>원서 서지·설명 범위</summary><p>Brown (2014), Principles of Language Learning and Teaching, 6th ed., Ch.6, pp.146–150. 사례는 별도 표시가 없는 한 자체 제작이다.</p></details><p class="note"><strong>개념사전 연결</strong> <a href="https://etwiki.net/concept.html?term=Willingness%20to%20communicate%20(WTC)">Willingness to communicate (WTC)</a></p></details>
 
   </div>
 </div>
 
 <!-- ⑦ Acculturation -->
 <div class="sec" id="s7">
-  <div class="sec-header" onclick="toggle('s7')">
+  <button type="button" class="sec-header" onclick="toggle('s7')" aria-controls="s7-body" aria-expanded="false">
     <span class="sec-icon">🌍</span>
     <span class="sec-title">⑦ Acculturation Model</span>
     <span class="sec-tag">Sociocultural · Schumann</span>
     <span class="sec-arrow">▼</span>
-  </div>
-  <div class="sec-body">
+  </button>
+  <div class="sec-body" id="s7-body">
 
     <div class="concept">
       <div class="c-title">Definition</div>
-      <div class="def">Acculturation involves: (a) acquisition of a <span class='kw2'>second identity</span>, (b) learning the <span class='kw2'>culture</span> of the L2 community, (c) adapting to those <span class='kw2'>values and behavioral patterns</span>.</div>
+      <div class="def">Acculturation involves: (a) acquisition of a <span class='kw2'>second identity</span>, (b) learning the <a class="kw2 concept-term" href="https://etwiki.net/concept.html?term=culture">culture</a> of the L2 community, (c) adapting to those <span class='kw2'>values and behavioral patterns</span>.</div>
     </div>
 
     <div class="div"></div>
@@ -687,15 +727,15 @@ details.learner-deep{border:1px solid #b2dfcc;border-radius:10px;padding:12px 14
       <div class="c-title">Historical Acculturation Categories</div>
       <div class="grid col3">
         <div class="grid-item">
-          <div class="gi-title"><span class='kw3'>Preservation</span></div>
+          <div class="gi-title"><span class="kw3">Preservation</span></div>
           <div class="gi-body"><span>TL 문화 <span class='kw2'>거부</span></span><span>모국 문화 고수</span></div>
         </div>
         <div class="grid-item">
-          <div class="gi-title"><span class='kw3'>Acculturation</span></div>
+          <div class="gi-title"><a class="kw3 concept-term" href="https://etwiki.net/concept.html?term=acculturation">Acculturation</a></div>
           <div class="gi-body"><span>TL 문화 <span class='kw2'>호의적</span></span><span>모국 문화도 유지</span></div>
         </div>
         <div class="grid-item">
-          <div class="gi-title"><span class='kw3'>Assimilation</span></div>
+          <div class="gi-title"><a class="kw3 concept-term" href="https://etwiki.net/concept.html?term=assimilation">Assimilation</a></div>
           <div class="gi-body"><span>TL 문화에 흡수</span><span>모국 문화·언어 <span class='kw2'>희생</span></span></div>
         </div>
       </div>
@@ -707,11 +747,11 @@ details.learner-deep{border:1px solid #b2dfcc;border-radius:10px;padding:12px 14
       <div class="c-title">Distance</div>
       <div class="grid col2">
         <div class="grid-item">
-          <div class="gi-title"><span class='kw1'>Social distance</span></div>
+          <div class="gi-title"><a class="kw1 concept-term" href="https://etwiki.net/concept.html?term=social%20distance">Social distance</a></div>
           <div class="gi-body"><span>L2 학습자 집단과 TL 집단 간 <span class='kw2'>사회적 관계</span></span><span>계층·직업·종교·민족 차이</span></div>
         </div>
         <div class="grid-item">
-          <div class="gi-title"><span class='kw1'>Psychological distance</span></div>
+          <div class="gi-title"><a class="kw1 concept-term" href="https://etwiki.net/concept.html?term=psychological%20distance">Psychological distance</a></div>
           <div class="gi-body"><span>학습자 개인의 <span class='kw2'>주관적 감정</span> (social distance와 구분)</span><span>motivation · attitude · culture shock</span></div>
         </div>
       </div>
@@ -721,7 +761,8 @@ details.learner-deep{border:1px solid #b2dfcc;border-radius:10px;padding:12px 14
 
     <div class="concept">
       <div class="c-title">Culture Acquisition: Historical Four-stage Account</div>
-      <div class="stage-wrap"><svg viewBox="0 0 700 110" style="width:100%;margin-top:12px;font-family:'JetBrains Mono',monospace" xmlns="http://www.w3.org/2000/svg">
+      <p class="diagram-help">도식이 화면보다 넓으면 좌우로 밀어 읽으세요. 아래 자세히 보기에서 용어와 화살표를 설명합니다.</p>
+<div class="stage-wrap" tabindex="0" role="region" aria-label="가로로 읽는 개념 도식"><svg viewBox="0 0 700 110" style="width:100%;margin-top:12px;font-family:'JetBrains Mono',monospace" xmlns="http://www.w3.org/2000/svg">
         <rect x="4" y="10" width="142" height="90" rx="8" fill="rgba(46,125,82,.1)" stroke="rgba(46,125,82,.4)" stroke-width="1.5"/>
         <text x="75" y="38" text-anchor="middle" fill="#1b5e3a" font-size="13" font-weight="bold">Euphoria</text>
         <text x="75" y="58" text-anchor="middle" fill="#3a6b51" font-size="11">excitement</text>
@@ -745,26 +786,27 @@ details.learner-deep{border:1px solid #b2dfcc;border-radius:10px;padding:12px 14
     </div>
 
     <details class="concept learner-deep"><summary>Acculturation 모형의 의미와 적용 범위</summary>
+<p class="note"><strong>네 단계 도식의 화살표</strong> Euphoria는 새 환경에 대한 초기의 흥분, culture shock은 익숙한 해석·행동 방식이 통하지 않아 생기는 혼란, recovery는 새 방식에 조금씩 적응하는 과정, adaptation은 새 환경에서 행동하고 자신을 이해하는 방식이 자리 잡는 상태를 뜻한다. Recovery 아래의 anomie는 두 문화 어디에도 완전히 속하지 못하는 듯한 불확실성을 가리킨다. 화살표는 역사적 모형의 설명 순서이며, 모든 사람이 같은 기간에 모든 단계를 거친다는 규칙은 아니다. 위의 preservation·acculturation·assimilation 세 범주와 일대일로 연결하지 않는다.</p>
 <p class="note"><strong>문화 적응이 언어 학습과 연결되는 경로</strong> Acculturation 논의는 새 공동체에서 의미·가치·행동 방식을 이해하고 참여하는 경험과 언어 학습을 연결한다. 상호작용 기회가 적으면 언어를 접하고 사용해 볼 기회도 줄 수 있다. 다만 집단 간 관계인 social distance와 개인이 느끼는 심리적 거리는 같은 자료로 곧바로 판단할 수 없다. 접촉 기회가 있어도 위축될 수 있고, 처음에는 낯설어도 참여하려는 의향이 있을 수 있다.</p><p class="note"><strong>서로 다른 모형을 한 단계표로 만들지 않기</strong> Preservation·acculturation·assimilation은 기존 문화와 새 문화에 대한 관계를 설명하는 구분이다. Euphoria·culture shock·recovery·adaptation은 적응 경험의 변화를 설명한 역사적 모형이다. 앞의 구분을 뒤의 시간 순서처럼 읽으면 “기존 문화를 버려야 최종 단계에 도달한다”는 잘못된 결론이 나온다. 언어 능력 향상과 L1·기존 정체성의 유지는 함께 가능하다.</p><p class="note"><strong>학습용 변형에서 확인할 조건</strong> 같은 참여 장면에서도 “가정에서 L1을 유지한다”는 정보는 문화 유지에 관한 것이고 “새 공동체와 대화할 기회가 없다”는 정보는 접촉 조건에 관한 것이다. 국적이나 이주 기간만 제시되었다면 심리 상태나 최종 성취를 확정할 근거가 부족하다.</p>
 
 
 <p class="note"><strong>사례</strong> 새 공동체에서 상호작용이 늘면서도 가정에서는 L1과 기존 문화를 유지하는 학습자가 있다. 이를 “아직 assimilation에 도달하지 못해 실패했다”고 평가해서는 안 된다.</p>
 <p class="note"><strong>수업 적용</strong> 어떤 참여 기회가 있는지, 학습자가 그 기회를 어떻게 느끼는지 나누어 묻는다. Social distance에 관한 집단 관계 설명과 psychological distance에 관한 개인의 경험을 구분한다. 국적만으로 거리나 학습 성공을 예측하지 않는다.</p>
-<p class="note"><strong>확인 문제 · 해설</strong> “L2를 잘하려면 L1 문화와 정체성을 버려야 한다.” → X. Brown의 identity 논의는 다양한 참여 방식과 변화하는 정체성을 강조한다. 이 모형을 근거로 기존 문화를 포기해야 한다고 주장해서는 안 된다.</p>
-<p class="note"><small>근거·읽을거리: Brown (2014), Principles of Language Learning and Teaching, 6th ed., Ch.7, pp.185–190. 사례는 별도 표시가 없는 한 자체 제작이다.</small></p><p class="note"><strong>개념사전 연결</strong> <a href="https://etwiki.net/concept.html?term=Acculturation%20Model">Acculturation Model</a></p></details>
+<p class="note"><strong>해석의 한계</strong> Brown의 identity 논의는 다양한 참여 방식과 변화하는 정체성을 강조한다. 이 모형을 근거로 기존 문화를 포기해야 한다고 주장해서는 안 된다.</p>
+<details class="source-note" data-study-details="off"><summary>원서 서지·설명 범위</summary><p>Brown (2014), Principles of Language Learning and Teaching, 6th ed., Ch.7, pp.185–190. 사례는 별도 표시가 없는 한 자체 제작이다.</p></details><p class="note"><strong>개념사전 연결</strong> <a href="https://etwiki.net/concept.html?term=Acculturation%20Model">Acculturation Model</a></p></details>
 
   </div>
 </div>
 
 <!-- ⑧ Culture Teaching -->
 <div class="sec" id="s8">
-  <div class="sec-header" onclick="toggle('s8')">
+  <button type="button" class="sec-header" onclick="toggle('s8')" aria-controls="s8-body" aria-expanded="false">
     <span class="sec-icon">🎭</span>
     <span class="sec-title">⑧ Culture Teaching Techniques</span>
-    <span class="sec-tag orange">지문 근거로 자주 활용</span>
+    <span class="sec-tag orange">활동 절차 비교</span>
     <span class="sec-arrow">▼</span>
-  </div>
-  <div class="sec-body">
+  </button>
+  <div class="sec-body" id="s8-body">
 
     <div class="concept">
       <div class="c-title">Culture Teaching Techniques</div>
@@ -778,7 +820,7 @@ details.learner-deep{border:1px solid #b2dfcc;border-radius:10px;padding:12px 14
           <div class="gi-body"><span>① cross-cultural <span class='kw2'>miscommunication episode</span> 제시</span><span>② <span class='kw2'>multiple-choice</span>로 이유 선택</span><span>③ 각 선택지에 대한 feedback 설명</span></div>
         </div>
         <div class="grid-item">
-          <div class="gi-title"><span class='kw3'>Audio-motor Unit</span></div>
+          <div class="gi-title"><a class="kw3 concept-term" href="https://etwiki.net/concept.html?term=Audio-Motor%20Unit">Audio-motor Unit</a></div>
           <div class="gi-body"><span>TPR을 문화적 행동에 적용</span><span>논리적으로 배열된 명령문</span></div>
         </div>
         <div class="grid-item">
@@ -798,21 +840,21 @@ details.learner-deep{border:1px solid #b2dfcc;border-radius:10px;padding:12px 14
 <p class="note"><strong>자체 제작 사례</strong> 수업 규칙이 서로 다른 두 학교의 학생이 모둠 토론을 한다. 한 학생은 상대가 말을 끝낸 뒤 3초를 기다리지만, 다른 학생은 이를 발언 의사가 없는 것으로 해석한다. 교사는 가능한 설명으로 ① 관심이 없음 ② 발언 차례에 대한 기대가 다름 ③ 언어 능력이 부족함을 제시한다.</p>
 <p class="note"><strong>판별 · 해설</strong> 사례에서 두 사람 모두 토론에 참여하려 했다는 추가 정보가 있으므로 ②가 가장 타당하다. 의사소통 오해 사례와 여러 해석을 제시하고, 각 선택지가 타당하거나 타당하지 않은 이유를 피드백하면 culture assimilator 절차이다. 국적 집단 전체의 성격으로 일반화하지 않는다.</p>
 <p class="note"><strong>대비와 적용</strong> 짧은 문화 차이 설명을 출발점으로 토의하는 culture capsule과 구분한다. 이후 “잠깐 생각하고 말할게요”처럼 차례를 협의하는 role play로 확장할 수 있다. Role play만 있었다고 assimilator로 판정하지 않는다.</p>
-<p class="note"><strong>확인 문제 · 해설</strong> “학생의 국적만 알면 오해 원인을 확정할 수 있다.” → X. 사건의 행동·참여 의도·맥락 증거를 확인해야 한다.</p>
-<p class="note"><small>근거·읽을거리: 활동 판별 기준: 사건 → 대안 해석 선택 → 선택지별 피드백. 문화 일반화의 한계: Brown (2014), pp.185–187. 사례는 별도 표시가 없는 한 자체 제작이다.</small></p></details>
+<p class="note"><strong>해석의 한계</strong> 사건의 행동·참여 의도·맥락 증거를 확인해야 한다.</p>
+<details class="source-note" data-study-details="off"><summary>원서 서지·설명 범위</summary><p>활동 판별 기준: 사건 → 대안 해석 선택 → 선택지별 피드백. 문화 일반화의 한계: Brown (2014), pp.185–187. 사례는 별도 표시가 없는 한 자체 제작이다.</p></details></details>
 
   </div>
 </div>
 
 <!-- ⑨ Bilingualism, Sapir-Whorf -->
 <div class="sec" id="s9">
-  <div class="sec-header" onclick="toggle('s9')">
+  <button type="button" class="sec-header" onclick="toggle('s9')" aria-controls="s9-body" aria-expanded="false">
     <span class="sec-icon">🗣️</span>
     <span class="sec-title">⑨ Bilingualism · Sapir-Whorf</span>
     <span class="sec-tag">기타 개념</span>
     <span class="sec-arrow">▼</span>
-  </div>
-  <div class="sec-body">
+  </button>
+  <div class="sec-body" id="s9-body">
 
     <div class="concept">
       <div class="c-title">Bilingualism Types</div>
@@ -851,22 +893,25 @@ details.learner-deep{border:1px solid #b2dfcc;border-radius:10px;padding:12px 14
     </div>
 
     <details class="concept learner-deep"><summary>이중언어의 의미 처리와 사회적 조건, 언어와 사고의 관계</summary>
-<p class="note"><strong>먼저 설명 대상부터 나누기</strong> Bilingualism을 다룰 때는 두 언어의 표현이 의미와 연결되는 방식과, 사회·교육 환경에서 두 언어가 유지되는 조건을 구별해야 한다. Coordinate/compound/subordinate는 의미 접근을 설명한 역사적 구분이다. Additive/subtractive는 L2 발달이 L1의 유지·발달과 어떤 관계를 맺는지를 묻는다. L2 표현을 L1을 거쳐 이해한다고 해서 L1이 쇠퇴한다고 결론 내릴 수 없다.</p><div class="depth-table-wrap"><table class="depth-table"><caption>하나의 이름으로 모두 설명하지 않는다</caption><thead><tr><th scope="col">질문</th><th scope="col">관련 개념</th><th scope="col">추론할 수 없는 것</th></tr></thead><tbody><tr><th scope="row">두 언어 표현이 의미에 어떻게 연결되는가?</th><td>Coordinate / compound / subordinate</td><td>그 학습자의 사회적 지원이나 L1 유지 여부</td></tr><tr><th scope="row">L2 발달과 L1 유지가 어떤 관계인가?</th><td>Additive / subtractive</td><td>모든 단어의 순간적 의미 처리 방식</td></tr><tr><th scope="row">언어와 사고는 어떤 관계인가?</th><td>Determinism / relativity</td><td>어휘 하나가 없으면 생각 자체가 불가능하다는 결론</td></tr></tbody></table></div><p class="note"><strong>언어의 영향에서 결정으로 넘어가지 않기</strong> 표현 방식이 어떤 구분에 주의를 기울이게 할 수 있다는 설명과, 그 언어 없이는 해당 생각을 할 수 없다는 주장은 강도가 다르다. 언어 간 이름 붙이기가 다르다는 관찰만으로 후자를 입증할 수 없다. 기출·변형의 단서가 “영향을 준다”인지 “결정하여 다른 사고를 불가능하게 한다”인지 읽고, 실제 자료가 그 강한 결론을 지지하는지 따져야 한다.</p>
+<p class="note"><strong>먼저 설명 대상부터 나누기</strong> Bilingualism을 다룰 때는 두 언어의 표현이 의미와 연결되는 방식과, 사회·교육 환경에서 두 언어가 유지되는 조건을 구별해야 한다. Coordinate/compound/subordinate는 의미 접근을 설명한 역사적 구분이다. Additive/subtractive는 L2 발달이 L1의 유지·발달과 어떤 관계를 맺는지를 묻는다. L2 표현을 L1을 거쳐 이해한다고 해서 L1이 쇠퇴한다고 결론 내릴 수 없다.</p><div class="depth-table-wrap" role="region" aria-label="개념 비교표"><table class="depth-table"><caption>하나의 이름으로 모두 설명하지 않는다</caption><thead><tr><th scope="col">질문</th><th scope="col">관련 개념</th><th scope="col">추론할 수 없는 것</th></tr></thead><tbody><tr><th scope="row">두 언어 표현이 의미에 어떻게 연결되는가?</th><td>Coordinate / compound / subordinate</td><td>그 학습자의 사회적 지원이나 L1 유지 여부</td></tr><tr><th scope="row">L2 발달과 L1 유지가 어떤 관계인가?</th><td>Additive / subtractive</td><td>모든 단어의 순간적 의미 처리 방식</td></tr><tr><th scope="row">언어와 사고는 어떤 관계인가?</th><td>Determinism / relativity</td><td>어휘 하나가 없으면 생각 자체가 불가능하다는 결론</td></tr></tbody></table></div><p class="note"><strong>언어의 영향에서 결정으로 넘어가지 않기</strong> 표현 방식이 어떤 구분에 주의를 기울이게 할 수 있다는 설명과, 그 언어 없이는 해당 생각을 할 수 없다는 주장은 강도가 다르다. 언어 간 이름 붙이기가 다르다는 관찰만으로 후자를 입증할 수 없다. 기출·변형의 단서가 “영향을 준다”인지 “결정하여 다른 사고를 불가능하게 한다”인지 읽고, 실제 자료가 그 강한 결론을 지지하는지 따져야 한다.</p>
 
 
 <p class="note"><strong>사례와 수업 적용</strong> 같은 장면에 서로 다른 언어 표현을 붙이고 학습자가 주목하는 특징을 비교한다. 어떤 언어에 단일 단어가 없더라도 설명·새 표현을 통해 개념을 전달할 수 있다. 어휘 차이가 해당 개념을 생각할 수 없다는 증거는 아니다.</p>
 <p class="note"><strong>강한 주장과 약한 주장</strong> Linguistic determinism은 언어가 사고를 결정한다는 강한 주장이다. Linguistic relativity는 언어와 사고의 관계·영향을 검토한다. 특정 언어 표현이 주의나 기억에 영향을 주었다는 관찰에서 언어가 사고 전체를 결정한다는 결론으로 넘어가지 않는다.</p>
-<p class="note"><strong>확인 문제 · 해설</strong> “L2를 배우면 반드시 L1을 잃고, L1에 없는 단어의 개념은 생각할 수 없다.” → X. 두 주장은 각각 사회·교육 조건과 언어·사고 관계를 지나치게 결정적으로 단순화한다.</p>
-<p class="note"><small>근거·읽을거리: Brown (2014), Principles of Language Learning and Teaching, 6th ed., Ch.3–4, 7, pp.66–67, 87, 180–184; subordinate는 L1을 통한 의미 접근이라는 판별 기준으로 제시. 사례는 별도 표시가 없는 한 자체 제작이다.</small></p><p class="note"><strong>개념사전 연결</strong> <a href="https://etwiki.net/concept.html?term=Bilingualism">Bilingualism</a></p></details>
+<p class="note"><strong>해석의 한계</strong> 두 주장은 각각 사회·교육 조건과 언어·사고 관계를 지나치게 결정적으로 단순화한다.</p>
+<details class="source-note" data-study-details="off"><summary>원서 서지·설명 범위</summary><p>Brown (2014), Principles of Language Learning and Teaching, 6th ed., Ch.3–4, 7, pp.66–67, 87, 180–184; subordinate는 L1을 통한 의미 접근이라는 판별 기준으로 제시. 사례는 별도 표시가 없는 한 자체 제작이다.</p></details><p class="note"><strong>개념사전 연결</strong> <a href="https://etwiki.net/concept.html?term=Bilingualism">Bilingualism</a></p></details>
 
   </div>
 </div>
 
-<p class="note">참고문헌: Brown, H. D. (2014). <em>Principles of Language Learning and Teaching</em> (6th ed.). Pearson. 학습용 설명과 자체 제작 사례는 원문 직접 인용이 아니다.</p>
+<details class="source-note" data-study-details="off"><summary>참고문헌</summary><p>Brown, H. D. (2014). <em>Principles of Language Learning and Teaching</em> (6th ed.). Pearson. Ch.3–7. 학습용 설명과 자체 제작 사례는 원문 직접 인용이 아니다.</p></details>
 </div><!-- /wrap -->
 <script>
-function toggle(id){document.getElementById(id).classList.toggle('open')}
-function openSec(id){const s=document.getElementById(id);s.classList.add('open');s.scrollIntoView({behavior:'smooth',block:'start'})}
+document.querySelectorAll('.depth-table').forEach(t=>{const labels=Array.from(t.rows[0]?.cells||[],c=>c.textContent.trim());Array.from(t.rows).slice(1).forEach(r=>Array.from(r.cells).forEach((c,i)=>{if(c.tagName==='TD')c.dataset.label=labels[i]||'항목'}))});
+function syncSections(){document.querySelectorAll('.sec').forEach(s=>s.querySelector('.sec-header').setAttribute('aria-expanded',String(s.classList.contains('open'))))}
+function toggle(id){document.getElementById(id).classList.toggle('open');syncSections()}
+function openSec(id){const s=document.getElementById(id);s.classList.add('open');s.scrollIntoView({behavior:'smooth',block:'start'});syncSections()}
+new MutationObserver(syncSections).observe(document.querySelector('.wrap'),{subtree:true,attributes:true,attributeFilter:['class']});
 </script>
 <nav class="learning-nav bottom" aria-label="하단 학습 내비게이션">
   <a href="https://etwiki.net/index.html">기출 WIKI</a>
