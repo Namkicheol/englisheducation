@@ -140,7 +140,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 <style>
 /* Ch.02 overrides only. */
 .ch02-study .study-return-link{position:static;left:auto;bottom:auto;transform:none;display:flex;width:fit-content;max-width:calc(100% - 32px);margin:24px auto;white-space:normal}
-.ch02-study .def,.ch02-study .note,.ch02-study .gi-body,.ch02-study td,.ch02-study .exam p{font-size:16px;line-height:1.85}
+.ch02-study .def,.ch02-study .note,.ch02-study .gi-body,.ch02-study td,.ch02-study .exam p{font-size:16px;line-height:1.85;word-break:keep-all;overflow-wrap:anywhere}
 .ch02-study .sec-header{width:100%;text-align:left;font:inherit;color:inherit;appearance:none;border:0;border-bottom:1px solid var(--ew-border)}
 .ch02-study .toc-item{font-family:inherit;cursor:pointer;text-align:left;min-height:44px}
 .ch02-study :is(.kw1,.kw2,.kw3,.kw4) :is(.kw1,.kw2,.kw3,.kw4){border:0;box-shadow:none;background:none;text-decoration:none;padding:0;font-size:inherit}
@@ -148,7 +148,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 .ch02-study .concept-exams a{color:#9b1c1c;background:#fff0f0;border:1px solid #efc4c4;border-radius:4px;padding:3px 8px;font-size:13px;font-weight:700;text-decoration:none;min-height:32px;display:inline-flex;align-items:center}
 .ch02-study .concept-exams a:hover{text-decoration:underline;text-underline-offset:3px}
 @media(max-width:640px){
- .ch02-study table thead{display:none}
+ .ch02-study table thead,.ch02-study table tr:first-child:has(>th:not([scope="row"])){display:none}
  .ch02-study table tbody th{display:block;grid-column:1/-1;font-size:15px;line-height:1.6}
  .ch02-study table td{font-size:15px}
  .ch02-study .sec-title{min-width:0;overflow-wrap:anywhere}
@@ -305,10 +305,6 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       <div class="c-title">특징</div>
       <div class="concept-exams" aria-label="관련 기출"><a href="https://etwiki.net/index.html?id=education_2023_A01" target="_blank" rel="noopener">2023 · 전공 A 1번 ↗</a></div>
       <div class="def"><span class='kw4'>Interlanguage</span>: An intermediate system between L1 and TL — <span class='kw2'>systematic, variable, dynamic</span>. Own unique, coherent rule system.</div>
-      <div class="exam">
-        <div class="exam-label">📋 기출 이력</div>
-
-      </div>
     </div>
     <div class="div"></div>
     <div class="concept">
