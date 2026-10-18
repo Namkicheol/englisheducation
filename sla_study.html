@@ -21,7 +21,8 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f4f3ed;background-image:r
 .wrap{max-width:820px;margin:0 auto}
 .sec{background:#fff;border:1.5px solid #b2dfcc;border-radius:16px;margin-bottom:20px;overflow:hidden;box-shadow:0 2px 8px rgba(46,125,82,.08)}
 @media(max-width:600px){.grid.col2,.grid.col3{grid-template-columns:1fr}}
-.sec-header{background:linear-gradient(135deg,rgba(46,125,82,.08),rgba(38,166,154,.05));border-bottom:1.5px solid #b2dfcc;padding:16px 22px;display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none}
+.sec-header{appearance:none;-webkit-appearance:none;width:100%;border:0;border-bottom:1.5px solid #b2dfcc;text-align:left;color:inherit;font:inherit;background:linear-gradient(135deg,rgba(46,125,82,.08),rgba(38,166,154,.05));padding:16px 22px;display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none}
+.sec-header:focus-visible{outline:3px solid #b45309;outline-offset:-3px;position:relative;z-index:1}
 .sec-icon{font-size:20px}
 .sec-title{font-size:16px;font-weight:700;color:#1b5e3a;font-family:'JetBrains Mono',monospace}
 .sec-tag{font-size:11px;color:#2e7d52;background:rgba(46,125,82,.1);padding:3px 10px;border-radius:6px;margin-left:auto;font-weight:600}
@@ -38,6 +39,42 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f4f3ed;background-image:r
 .def{background:rgba(46,125,82,.06);border-left:4px solid #2e7d52;padding:12px 16px;border-radius:0 10px 10px 0;margin-bottom:10px;font-size:16px;line-height:1.8;color:#1a1a1a}
 .note{font-size:16px;color:#3a6b51;line-height:1.75;margin-bottom:6px;padding-left:6px}
 .note::before{content:"• ";color:#26a69a;font-weight:700}
+.key-highlight{color:#17231b;background:#fff2b3;padding:0 .12em;border-radius:3px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.decision-cue{text-decoration-line:underline;text-decoration-color:#7c3d00;text-decoration-thickness:2px;text-underline-offset:3px;text-decoration-skip-ink:none;font-weight:700}
+.chapter-detail{padding:12px 16px 4px;font-size:16px;line-height:1.8;color:#24372b}
+.chapter-detail>p{margin:0 0 13px}
+.chapter-detail h3{margin:16px 0 7px;color:#1b5e3a;font-size:16px;line-height:1.5}
+#s1 .learning-contrast{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:9px 0 14px}
+#s1 .learning-contrast>div{border:1px solid #b2dfcc;border-radius:9px;background:#f7fcf8;padding:11px 13px;line-height:1.7}
+#s1 .learning-contrast b{display:block;margin-bottom:5px;color:#1b5e3a}
+#s1 .note .kw1,#s1 .note .kw2,#s1 .note .kw3,#s1 .note .kw4{white-space:normal;overflow-wrap:anywhere}
+#s3 .note .kw1,#s3 .note .kw2,#s3 .note .kw3,#s3 .note .kw4,#s4 .note .kw1,#s4 .note .kw2,#s4 .note .kw3,#s4 .note .kw4{white-space:normal;overflow-wrap:anywhere}
+#s1 .evidence-more,#s1 .source-citation,#s3 .evidence-more,#s3 .source-citation{margin:11px 0 14px;border:1px solid #b2dfcc;border-radius:9px;background:#f7fcf8}
+#s1 .evidence-more>summary,#s1 .source-citation>summary,#s3 .evidence-more>summary,#s3 .source-citation>summary{cursor:pointer;list-style:none;padding:9px 12px;color:#1b5e3a;font-size:14px;font-weight:750;line-height:1.5}
+#s1 .evidence-more>summary::-webkit-details-marker,#s1 .source-citation>summary::-webkit-details-marker,#s3 .evidence-more>summary::-webkit-details-marker,#s3 .source-citation>summary::-webkit-details-marker{display:none}
+#s1 .evidence-more>summary::before,#s1 .source-citation>summary::before,#s3 .evidence-more>summary::before,#s3 .source-citation>summary::before{content:'＋';display:inline-grid;place-items:center;width:20px;height:20px;margin-right:7px;border-radius:50%;background:#e6f3eb}
+#s1 .evidence-more[open]>summary::before,#s1 .source-citation[open]>summary::before,#s3 .evidence-more[open]>summary::before,#s3 .source-citation[open]>summary::before{content:'−'}
+#s1 .evidence-more>summary:focus-visible,#s1 .source-citation>summary:focus-visible,#s3 .evidence-more>summary:focus-visible,#s3 .source-citation>summary:focus-visible{outline:3px solid #b45309;outline-offset:3px;position:relative;z-index:1}
+#s1 .evidence-body,#s1 .source-citation>p,#s3 .evidence-body,#s3 .source-citation>p{padding:0 10px 12px;margin:0;line-height:1.8}
+#s1 .evidence-body p,#s3 .evidence-body p{margin:0 0 9px}
+#s1 .evidence-body p:last-child,#s3 .evidence-body p:last-child{margin-bottom:0}
+#s1 .detail-ox{margin:12px 0 14px;border:1px solid #b2dfcc;border-radius:9px;background:#f8fffb;overflow:hidden}
+#s1 .detail-ox>summary{display:flex;flex-wrap:wrap;gap:7px;align-items:flex-start;cursor:pointer;list-style:none;padding:10px 12px;line-height:1.65}
+#s1 .detail-ox>summary::-webkit-details-marker{display:none}
+#s1 .detail-ox>summary:focus-visible{outline:3px solid #b45309;outline-offset:-3px;position:relative;z-index:1}
+#s1 .detail-ox>summary b{color:#7c2d12}
+#s1 .detail-ox .answer-prompt{margin-left:auto;color:#1b5e3a;font-size:13px;font-weight:800;white-space:nowrap}
+#s1 .detail-ox[open] .answer-prompt::before{content:'− '}
+#s1 .detail-ox:not([open]) .answer-prompt::before{content:'＋ '}
+#s1 .detail-ox .ox-reveal{padding:1px 12px 11px;border-top:1px solid #d7ebdc;line-height:1.75}
+#s1 .detail-ox .ox-reveal p{margin:8px 0 0}
+#s3 .input-conditions{margin:10px 0 14px;padding:12px 14px;border:1px solid #b2dfcc;border-radius:10px;background:#fff}
+#s3 .input-conditions h4{margin:0 0 7px;color:#1b5e3a;font-size:15px;line-height:1.5}
+#s3 .input-conditions ol{display:grid;grid-template-columns:minmax(0,1fr);gap:5px;margin:0;padding-left:1.45em}
+#s3 .input-conditions li{min-width:0;padding-left:2px;line-height:1.65;overflow-wrap:anywhere}
+#s3 .input-filter-note{margin:9px 0 0;padding-top:9px;border-top:1px solid #dbeade}
+#s4 .output-functions-label{margin:10px 0 7px;color:#1b5e3a;font-size:15px;line-height:1.5}
+.diagram-scroll-hint{display:none}
 .kw1{background:rgba(46,125,82,.15);color:#1b5e3a;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(46,125,82,.25);white-space:nowrap}
 .kw2{color:#00796b;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border-bottom:2px solid rgba(0,121,107,.45);white-space:nowrap}
 .kw3{background:rgba(230,119,0,.13);color:#bf6000;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border:1px solid rgba(230,119,0,.3);white-space:nowrap}
@@ -67,7 +104,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 .toc-item{font-size:12px;color:#2e7d52;background:rgba(46,125,82,.08);border:1.5px solid rgba(46,125,82,.2);padding:5px 12px;border-radius:8px;cursor:pointer;transition:all .15s;font-family:'JetBrains Mono',monospace;font-weight:600}
 .toc-item:hover{background:rgba(46,125,82,.18)}
 .legend{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 16px;padding:10px 14px;background:#fff;border:1.5px solid #b2dfcc;border-radius:10px;align-items:center}
-@media(max-width:640px){.grid.col3,.grid.col2{grid-template-columns:1fr}.sec-body{padding:16px}.gi-body{font-size:14px}th{font-size:14px;padding:8px 10px}td{font-size:14px;padding:8px 10px}table{font-size:14px}.concept{overflow-x:auto}svg{min-width:480px;display:block}}
+@media(max-width:640px){.grid.col3,.grid.col2{grid-template-columns:1fr}.sec-body{padding:16px}.gi-body{font-size:14px}th{font-size:14px;padding:8px 10px}td{font-size:14px;padding:8px 10px}table{font-size:14px}.concept{overflow-x:auto}svg{min-width:480px;display:block}#s1 .learning-contrast{grid-template-columns:1fr}#s1 .chapter-detail,#s3 .chapter-detail{padding:12px 12px 4px}#s3 .concept{overflow-x:visible}}
 .learning-nav{max-width:820px;margin:0 auto 16px;padding:0 8px;display:flex;flex-wrap:wrap;gap:7px}
 .learning-nav.bottom{margin-top:24px;margin-bottom:72px}
 .learning-nav a{flex:1 1 140px;background:#fff;border:1.5px solid #b2dfcc;border-radius:8px;padding:8px 10px;color:#1b5e3a;text-decoration:none;text-align:center;font-size:12px;font-weight:700;line-height:1.4;transition:background .15s,border-color .15s}
@@ -86,6 +123,18 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
   #output-depth .output-comparison tbody td{background:#fff;font-size:15px;line-height:1.8}
   #output-depth .output-comparison tbody td+td{border-top:1px solid #c8ead8}
   #output-depth .output-mobile-label{display:block;margin-bottom:4px;color:#1b5e3a;font-size:12px;font-weight:700;line-height:1.6}
+}
+@media(max-width:640px){
+  #s8 .stage-wrap{overflow-x:visible}
+  #s8 .stage-wrap table,#s8 #sla-interaction-evidence{display:block;width:100%;border-collapse:separate}
+  #s8 .stage-wrap table thead,#s8 #sla-interaction-evidence thead{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+  #s8 .stage-wrap table tbody,#s8 #sla-interaction-evidence tbody{display:grid;gap:10px}
+  #s8 .stage-wrap table tbody tr,#s8 #sla-interaction-evidence tbody tr{display:block;border:1.5px solid #b2dfcc;border-radius:9px;overflow:hidden}
+  #s8 .stage-wrap table tbody td,#s8 #sla-interaction-evidence tbody td{display:block;width:100%;border:0;padding:10px 12px;white-space:normal;overflow-wrap:anywhere;background:#fff}
+  #s8 .stage-wrap table tbody td+td,#s8 #sla-interaction-evidence tbody td+td{border-top:1px solid #dbeade}
+  #s8 .stage-wrap table tbody td::before,#s8 #sla-interaction-evidence tbody td::before{content:attr(data-label);display:block;margin-bottom:3px;color:#1b5e3a;font-size:12px;font-weight:750;line-height:1.5}
+  #s6 .diagram-scroll-hint,#s9 .diagram-scroll-hint{display:block;margin:8px 0 3px;padding:4px 8px;border-left:3px solid #2e7d52;background:#f3faf5;color:#42654f;font-size:12px;line-height:1.5}
+  #s6 .stage-wrap:has(svg),#s9 .stage-wrap:has(svg){scrollbar-width:thin;scrollbar-color:#4a7a62 #e6f3eb}
 }
 </style>
 <link rel="stylesheet" href="./study-return.css">
@@ -152,13 +201,13 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 
 <!-- ① Behaviorism -->
 <div class="sec open" id="s1">
-  <div class="sec-header" onclick="toggle('s1')">
+  <button class="sec-header" type="button" aria-expanded="true" aria-controls="s1-body" onclick="toggle('s1',this)">
     <span class="sec-icon">🔨</span>
     <span class="sec-title">① Behaviorism</span>
     <span class="sec-tag">Structuralism · ALM · Rote Learning</span>
     <span class="sec-arrow">▼</span>
-  </div>
-  <div class="sec-body">
+  </button>
+  <div class="sec-body" id="s1-body">
     <div class="concept">
       <div class="c-title">Structuralism</div>
       <div class="def">Language can be <span class='kw2'>dismantled into small units</span> and added up again to form the whole. → <span class='kw2'>discrete point</span> view of language.</div>
@@ -189,24 +238,35 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
     </div>
     <details class="concept" style="margin-top:16px">
       <summary style="cursor:pointer;font-weight:700;padding:12px 0">자세히 보기 · 기계적 반복과 기존 지식에 연결하는 학습 구별하기</summary>
-<p><strong>왜 학습을 다르게 설명하는가?</strong> Behaviorism은 관찰할 수 있는 반응이 어떤 결과를 받아 반복되는지에 초점을 둔다. 원하는 발화 뒤의 reinforcement가 그 반응을 유지하게 한다는 설명이다. 따라서 반복 횟수만이 아니라 반응과 그 결과의 관계가 중요하다. 다만 처음 듣는 문장도 만들어 내는 언어의 창조성 전체를 이미 강화된 반응의 목록만으로 설명하기는 어렵다.</p>
-<p>Ausubel의 meaningful learning은 새 내용을 이미 아는 개념에 연결해 조직하는 과정을 설명한다. 관련된 기존 지식이 새 항목을 이해하고 나중에 떠올릴 바탕이 된다. 이에 비해 rote learning에서는 항목들이 서로 연결되지 않은 채 저장되기 쉽다. 그래서 같은 반복 활동이라도 학습자가 의미와 관계를 파악하는 방식에 따라 다르게 해석할 수 있다. <strong>수업 형식인 drill과 학습 과정인 rote learning을 동의어로 놓지 않는 이유</strong>다.</p>
-
-      <p><strong>학습용 사례</strong> — “I bought a ticket”을 뜻과 무관하게 열 번 따라 하는 것과, 자신의 지난 여행을 떠올리며 <em>bought</em>를 이미 아는 buy와 연결하는 것은 다릅니다. Ausubel의 구분은 반복의 유무보다 <strong>새 자료가 <u>기존 cognitive structure에 연결되는가</u></strong>에 있습니다.</p><p>ALM은 structural patterns와 habit formation을 강조하지만 모든 drill이 무의미한 소리인 것은 아닙니다. 짧은 pattern practice 뒤에 실제 정보를 교환하는 활동을 붙일 수도 있습니다. 반대로 실제 여행 소재를 썼어도 기계적으로 외우기만 했다면 meaningful learning을 단정할 수 없습니다.</p><p><strong>확인</strong> — Meaningful learning이면 절대 잊지 않을까요? 아닙니다. 세부 항목이 더 큰 개념에 통합되면서 개별 형태를 떠올리기 어려워지는 systematic forgetting도 설명합니다. 또한 ALM의 form 연습을 긴 명시적 문법 설명과 동일시하지 않습니다.</p>
-      <p class="note">근거: <em>Principles of Language Learning and Teaching</em>, 6th ed. (Brown, 2014), Ch.1, pp.9–10; Ch.4, pp.83–86; <em>Teaching by Principles: An Interactive Approach to Language Pedagogy</em>, 3rd ed. (Brown, 2007), Ch.2, pp.22–24.</p>
+      <div class="chapter-detail">
+        <h3>반응과 그 결과의 관계</h3>
+        <p><b>Behaviorism</b>은 관찰 가능한 반응과 그 뒤의 결과를 연결해 학습을 설명합니다. <mark class="key-highlight"><u class="decision-cue">반응 뒤에 reinforcement가 주어져 그 반응이 유지되는가</u></mark>가 판단 단서입니다. 반복 횟수만으로는 충분하지 않으며, 결과가 어떤 반응을 강화하는지 살펴야 합니다.</p>
+        <h3>이미 아는 개념에 연결되는가</h3>
+        <div class="learning-contrast" aria-label="기계적 암기와 유의미 학습의 구별">
+          <div><b>Rote learning · 기계적 암기</b><span>새 항목이 <mark class="key-highlight"><u class="decision-cue">기존 cognitive structure와 연결되지 않은 채 저장</u></mark>되기 쉽습니다.</span></div>
+          <div><b>Meaningful learning · 유의미 학습</b><span>새 내용이 <mark class="key-highlight"><u class="decision-cue">이미 아는 개념에 연결</u></mark>되어 이해와 회상의 바탕이 됩니다.</span></div>
+        </div>
+        <p>“I bought a ticket”을 뜻과 무관하게 열 번 따라 하는 장면과, 지난 여행을 떠올리며 <em>bought</em>를 이미 아는 <em>buy</em> 및 과거 경험에 연결하는 장면을 비교하세요. <u class="decision-cue">반복 유무가 아니라 새 자료가 기존 지식에 연결되는지</u>가 구별 근거입니다.</p>
+        <details class="evidence-more" data-study-details="off"><summary>근거 보기</summary><div class="evidence-body">
+          <p>Pattern drill은 목표형과 반복을 통제하는 <b>수업 연습의 형식</b>이고, rote learning은 새 항목이 기존 지식과 맺는 관계에 관한 <b>학습 과정</b>입니다. 둘을 같은 말로 쓰지 않습니다. ALM의 drill이 뜻 없는 소리 반복일 필요는 없지만, 여행이라는 실제 소재를 사용했다는 사실만으로 유의미 학습이 증명되는 것도 아닙니다.</p>
+          <p>Ausubel의 설명에서 새 세부 항목은 더 큰 기존 개념에 통합될 수 있습니다. 이때 하위 세부 항목의 구체적 형태를 잊는 systematic forgetting이 가능하므로, meaningful learning이 완벽한 영구 기억을 보장한다고 단정하지 않습니다.</p>
+        </div></details>
+        <details class="source-citation" data-study-details="off"><summary>출처 보기</summary><p>Brown, H. D. (2014). <em>Principles of Language Learning and Teaching</em>, 6th ed., Ch. 1, pp. 9–10; Ch. 4, pp. 83–86. Brown, H. D. (2007). <em>Teaching by Principles: An Interactive Approach to Language Pedagogy</em>, 3rd ed., Ch. 2, pp. 22–24.</p></details>
+        <details class="detail-ox" data-study-details="off"><summary><b>OX</b> 뜻이 있는 문장을 통제해서 반복해도 pattern drill일 수 있다.<span class="answer-prompt">정답 확인</span></summary><div class="ox-reveal"><p><b>정답 O</b> — 문장에 뜻이 있는지만으로 drill 여부를 정하지 않습니다. <u>목표형과 반복이 통제되는지</u>를 확인합니다. 학습이 유의미한지는 새 내용을 기존 지식에 연결했는지도 따로 봅니다.</p></div></details>
+      </div>
     </details>
   </div>
 </div>
 
 <!-- ② Universal Grammar -->
 <div class="sec" id="s2">
-  <div class="sec-header" onclick="toggle('s2')">
+  <button class="sec-header" type="button" aria-expanded="false" aria-controls="s2-body" onclick="toggle('s2',this)">
     <span class="sec-icon">🧬</span>
     <span class="sec-title">② Universal Grammar Model</span>
     <span class="sec-tag">Innatism · LAD</span>
     <span class="sec-arrow">▼</span>
-  </div>
-  <div class="sec-body">
+  </button>
+  <div class="sec-body" id="s2-body">
     <div class="concept">
       <div class="def">Principles-and-parameters 접근에서는 문법을 <span class='kw2'>principles와 parameters</span>로 설명하며, SLA에서 L1과 다른 parameter 설정이 가능한지를 연구합니다.</div>
       <p class="note"><span class='kw1'>LAD (Language Acquisition Device)</span>: 모든 인간에게 보편적으로 존재하는 언어습득 장치</p>
@@ -222,13 +282,13 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 
 <!-- ③ Krashen -->
 <div class="sec" id="s3">
-  <div class="sec-header" onclick="toggle('s3')">
+  <button class="sec-header" type="button" aria-expanded="false" aria-controls="s3-body" onclick="toggle('s3',this)">
     <span class="sec-icon">📥</span>
     <span class="sec-title">③ Krashen's 5 Hypotheses</span>
     <span class="sec-tag red">핵심 비교</span>
     <span class="sec-arrow">▼</span>
-  </div>
-  <div class="sec-body">
+  </button>
+  <div class="sec-body" id="s3-body">
     <div class="concept">
       <div class="c-title">1. Acquisition / Learning Hypothesis <span class="badge-ex">★★★</span></div>
       <div class="grid col2">
@@ -254,8 +314,17 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
     <div class="div"></div>
     <div class="concept">
       <div class="c-title">2. Input Hypothesis (i+1) <span class="badge-ex">★★★</span></div>
-      <div class="def">Krashen은 <span class='kw4'>comprehensible input</span>을 acquisition의 핵심 원인으로 보고, 충분한 input과 낮은 affective filter를 강조합니다.</div>
-      <p class="note">Optimum input 조건: <span class='kw2'>comprehensible, interesting/relevant, not grammatically sequenced, sufficient amount, low affective filter</span></p>
+      <div class="def">Krashen의 <span class='kw4'>Input Hypothesis</span>는 학습자가 <mark class="key-highlight"><u class="decision-cue">현재 수준보다 조금 앞선 언어를 포함한 메시지를 이해할 때</u></mark> acquisition이 일어날 수 있다고 설명합니다. 이를 <span class='kw2'>i+1</span>로 나타냅니다.</div>
+      <div class="input-conditions" aria-label="Krashen이 제시한 optimal input의 네 조건">
+        <h4>Optimal input의 네 조건</h4>
+        <ol>
+          <li><b>Comprehensible</b> — 메시지를 이해할 수 있음</li>
+          <li><b>Interesting and/or relevant</b> — 학습자에게 흥미롭거나 관련 있음</li>
+          <li><b>Not grammatically sequenced</b> — 문법 항목 순서에 맞춰 입력을 배열하지 않음</li>
+          <li><b>Provided in sufficient quantity</b> — 충분한 양으로 제공됨</li>
+        </ol>
+        <p class="input-filter-note"><b>Low affective filter</b>는 입력을 충분히 활용하는 데 유리한 별도 정서 조건입니다. optimal input 네 항목과 섞어 다섯 번째 항목처럼 외우지 않습니다.</p>
+      </div>
       <p class="note"><span class='kw3'>Silent period</span>: Ss should never be required to produce speech unless ready</p>
     </div>
     <div class="div"></div>
@@ -287,24 +356,33 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
     </div>
     <details class="concept" style="margin-top:16px">
       <summary style="cursor:pointer;font-weight:700;padding:12px 0">자세히 보기 · 다섯 가설을 장면에 연결하기</summary>
-<p><strong>Monitor Model의 설명 구조.</strong> Krashen은 메시지를 이해하는 과정에서 발달하는 acquisition과 규칙을 의식적으로 아는 learning을 구별한다. 이 모형에서 자연스러운 발화를 만들어 내는 바탕은 acquired system이며, learned system은 시간과 주의가 허용될 때 이미 만든 발화를 점검하는 Monitor 역할을 한다. 이 구별은 교실/교실 밖이라는 장소 구분이 아니라 지식이 형성되고 사용되는 방식에 관한 주장이다.</p>
-<p>Input Hypothesis의 <em>i+1</em>은 지금보다 조금 앞선 언어 요소가 포함된 메시지를 문맥·배경지식 등의 도움으로 이해한다는 생각이다. 모르는 단어 하나를 넣거나 문장을 무조건 어렵게 만드는 교수법이 아니다. Affective Filter Hypothesis는 input이 제공되어도 불안 등으로 acquisition에 충분히 활용되지 못할 수 있다는 모형 내 설명을 더한다. 따라서 편안한 분위기는 이해할 언어 자료를 대신하지 않는다. 이 다섯 가설은 하나의 역사적 이론 체계이며, 이후의 output·interaction·attention 연구를 모두 배제하는 확정된 사실로 외우지 않는다.</p>
-
-      <p><strong>학습용 사례</strong> — 그림을 보며 새 표현이 포함된 이야기를 이해하는 장면은 Input Hypothesis와 연결됩니다. 같은 학습자가 제출 전 글을 읽고 알고 있던 규칙으로 동사 형태를 고친다면 Monitor 사용의 단서입니다. 교실 안에서도 meaning-focused input을 통한 acquisition이 가능하므로 장소만으로 acquisition/learning을 나누지 않습니다.</p><p><strong>Monitor 사용에 필요한 세 조건</strong> — <u>시간·규칙 지식·form에 대한 주의</u>는 Monitor 사용의 필요조건입니다. 세 조건을 충족하더라도 반드시 성공적으로 편집할 수 있는 것은 아닙니다. Non-interface는 learning이 acquisition으로 직접 바뀌지 않는다는 뜻이며, 두 체계가 한 번의 언어 수행에 함께 기여하지 못한다는 뜻은 아닙니다.</p><p><strong>자연적 순서와 수업 순서</strong> — Natural Order는 개인 간 100% 동일한 순서를 뜻하지 않습니다. 또한 관찰된 순서대로 문법 syllabus를 짜라는 권고도 아닙니다. Krashen은 acquisition을 위한 input을 문법 항목별로 배열하는 데 반대하면서도 learning의 제한적 Monitor 역할을 인정합니다.</p>
-      <p class="note">근거: <a href="https://sdkrashen.com/content/books/principles_and_practice.pdf">Krashen (1982), <em>Principles and Practice in Second Language Acquisition</em></a>, pp.12–16, 20–22, 83–90; <em>Principles of Language Learning and Teaching</em>, 6th ed. (Brown, 2014), pp.288–290.</p>
+      <div class="chapter-detail">
+        <h3>다섯 가설은 서로 다른 질문을 합니다</h3>
+        <p><b>Acquisition/Learning</b>은 <mark class="key-highlight"><u class="decision-cue">암묵적으로 발달하는 능력과 의식적으로 아는 규칙</u></mark>을 구별합니다. <b>Monitor</b>는 배운 규칙이 이미 만들어진 발화를 점검하는 제한적 역할을 설명합니다. 장소가 교실인지 바깥인지보다 지문에 어떤 지식 사용이 나타나는지 확인합니다.</p>
+        <h3>Input과 정서 조건</h3>
+        <p><b>Input Hypothesis</b>의 <em>i+1</em>은 문맥·배경 지식의 도움을 받아 <mark class="key-highlight"><u class="decision-cue">현재 수준보다 조금 앞선 언어가 포함된 메시지를 이해</u></mark>하는 설명입니다. 모르는 단어 하나를 더하거나 문장을 무조건 어렵게 만드는 교수법이 아닙니다.</p>
+        <p><b>Affective Filter</b>는 입력이 제공되어도 불안 등으로 acquisition에 충분히 활용되지 못할 수 있다고 설명합니다. <u class="decision-cue">편안한 분위기는 이해할 입력 자체를 대신하지 않습니다.</u></p>
+        <h3>지문에 적용하기</h3>
+        <p>그림과 사건을 보며 새 표현이 든 이야기를 이해하면 Input Hypothesis, 글을 제출하기 전 알고 있던 규칙으로 동사 형태를 고치면 Monitor 사용의 단서를 찾습니다. 교실에서도 meaning-focused input을 통한 acquisition이 가능하므로 장소만으로 둘을 나누지 않습니다.</p>
+        <details class="evidence-more" data-study-details="off"><summary>근거 보기</summary><div class="evidence-body">
+          <p>Monitor를 사용하려면 <u class="decision-cue">시간, 규칙 지식, form/accuracy에 대한 주의</u>가 필요합니다. 세 조건이 있어도 성공적인 편집이 반드시 보장되는 것은 아닙니다. Non-interface는 learning이 acquisition으로 직접 바뀌지 않는다는 뜻이지, 한 번의 수행에서 두 체계가 함께 작용할 수 없다는 뜻은 아닙니다.</p>
+          <p>Natural Order는 습득 과정에서 관찰되는 발달 경향에 관한 주장입니다. 이를 모든 학습자가 같은 순서로 발달한다거나 수업이 그 순서를 그대로 따라야 한다는 처방으로 바꾸지 않습니다. Krashen의 input 조건은 네 항목이며, 낮은 affective filter는 별도의 정서 조건입니다.</p>
+        </div></details>
+        <details class="source-citation" data-study-details="off"><summary>출처 보기</summary><p>Krashen, S. D. (1982). <em>Principles and Practice in Second Language Acquisition</em>, Ch. II, pp. 12–16, 20–22; Ch. III, pp. 62–73; Ch. IV, pp. 83–90. Brown, H. D. (2014). <em>Principles of Language Learning and Teaching</em>, 6th ed., pp. 288–290.</p></details>
+      </div>
     </details>
   </div>
 </div>
 
 <!-- ④ Output Hypothesis -->
 <div class="sec" id="s4">
-  <div class="sec-header" onclick="toggle('s4')">
+  <button class="sec-header" type="button" aria-expanded="false" aria-controls="s4-body" onclick="toggle('s4',this)">
     <span class="sec-icon">📤</span>
     <span class="sec-title">④ Output Hypothesis (Swain)</span>
     <span class="sec-tag red">★★★ 최빈출</span>
     <span class="sec-arrow">▼</span>
-  </div>
-  <div class="sec-body">
+  </button>
+  <div class="sec-body" id="s4-body">
     <div class="concept">
       <div class="def"><span class='kw4'>Output Hypothesis</span>: Producing language can, under certain conditions, contribute to <span class='kw2'>second language learning</span> through noticing, hypothesis testing, and reflection on language.</div>
       <p>말하거나 쓰는 과정은 학습한 것을 보여 주는 데 그치지 않고 학습의 기회가 될 수 있습니다. 뜻을 표현하려다가 모르는 부분을 알아차리고, 가능한 표현을 시험하며, 자신이나 다른 사람의 언어를 언어로 검토할 수 있습니다.</p>
@@ -312,6 +390,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
     <div class="div"></div>
     <div class="concept">
       <div class="c-title">3 Functions of Output <span class="badge-ex">★★★</span></div>
+      <h3 class="output-functions-label">Output이 학습을 도울 수 있는 세 기능</h3>
       <div class="grid col3">
         <div class="grid-item">
           <div class="gi-title"><span class='kw3'>① Noticing / Triggering</span></div>
@@ -370,13 +449,13 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 
 <!-- ⑤ Noticing / HIG·LIG -->
 <div class="sec" id="s5">
-  <div class="sec-header" onclick="toggle('s5')">
+  <button class="sec-header" type="button" aria-expanded="false" aria-controls="s5-body" onclick="toggle('s5',this)">
     <span class="sec-icon">🔍</span>
     <span class="sec-title">⑤ Noticing Hypothesis · HIG/LIG</span>
     <span class="sec-tag orange">개념 적용</span>
     <span class="sec-arrow">▼</span>
-  </div>
-  <div class="sec-body">
+  </button>
+  <div class="sec-body" id="s5-body">
     <div class="concept">
       <div class="c-title">Schmidt's Noticing Hypothesis <span class="badge-ex">★★</span></div>
       <div class="def">Schmidt는 <span class='kw4'>noticing</span>을 <span class='kw2'>input → intake</span> 전환의 필수 조건으로 제안합니다. 알아차림과 장기적인 습득 완료는 구분합니다.</div>
@@ -422,13 +501,13 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 
 <!-- ⑥ Information Processing -->
 <div class="sec" id="s6">
-  <div class="sec-header" onclick="toggle('s6')">
+  <button class="sec-header" type="button" aria-expanded="false" aria-controls="s6-body" onclick="toggle('s6',this)">
     <span class="sec-icon">⚙️</span>
     <span class="sec-title">⑥ Information Processing Theories</span>
     <span class="sec-tag orange">개념 적용</span>
     <span class="sec-arrow">▼</span>
-  </div>
-  <div class="sec-body">
+  </button>
+  <div class="sec-body" id="s6-body">
     <div class="concept">
       <div class="c-title">McLaughlin's Information Processing Model</div>
       <div class="grid col2">
@@ -447,7 +526,8 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
           </div>
         </div>
       </div>
-      <div class="stage-wrap"><svg viewBox="0 0 700 90" style="width:100%;margin-top:12px;font-family:'JetBrains Mono',monospace" xmlns="http://www.w3.org/2000/svg">
+      <p class="diagram-scroll-hint">도식은 좌우로 이동해 전체 연결을 확인할 수 있습니다.</p>
+      <div class="stage-wrap"><svg viewBox="0 0 700 90" role="img" aria-label="통제 처리에서 의미 있는 연습과 자동화 과정을 거쳐 자동 처리로 이어질 수 있는 관계" style="width:100%;margin-top:12px;font-family:'JetBrains Mono',monospace" xmlns="http://www.w3.org/2000/svg">
         <rect x="4" y="10" width="148" height="70" rx="8" fill="rgba(46,125,82,.1)" stroke="rgba(46,125,82,.4)" stroke-width="1.5"/>
         <text x="78" y="38" text-anchor="middle" fill="#1b5e3a" font-size="12" font-weight="bold">Controlled</text>
         <text x="78" y="55" text-anchor="middle" fill="#3a6b51" font-size="10">주의 요구 큼</text>
@@ -458,13 +538,14 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         <text x="250" y="60" text-anchor="middle" fill="#00796b" font-size="10">practice</text>
         <text x="336" y="52" text-anchor="middle" fill="#26a69a" font-size="20">→</text>
         <rect x="348" y="10" width="148" height="70" rx="8" fill="rgba(46,125,82,.1)" stroke="rgba(46,125,82,.4)" stroke-width="1.5"/>
-        <text x="422" y="38" text-anchor="middle" fill="#1b5e3a" font-size="12" font-weight="bold">Automatic</text>
-        <text x="422" y="55" text-anchor="middle" fill="#3a6b51" font-size="10">주의 요구 감소</text>
-        <text x="422" y="70" text-anchor="middle" fill="#3a6b51" font-size="10">long-term memory</text>
-        <text x="508" y="52" text-anchor="middle" fill="#b71c1c" font-size="20">=</text>
+        <text x="422" y="38" text-anchor="middle" fill="#1b5e3a" font-size="12" font-weight="bold">Automatization</text>
+        <text x="422" y="55" text-anchor="middle" fill="#3a6b51" font-size="10">practice may support</text>
+        <text x="422" y="70" text-anchor="middle" fill="#3a6b51" font-size="10">not guaranteed</text>
+        <text x="508" y="52" text-anchor="middle" fill="#26a69a" font-size="20">→</text>
         <rect x="519" y="10" width="177" height="70" rx="8" fill="rgba(183,28,28,.08)" stroke="rgba(183,28,28,.35)" stroke-width="1.5"/>
-        <text x="607" y="43" text-anchor="middle" fill="#b71c1c" font-size="12" font-weight="bold">Automatization</text>
-        <text x="607" y="60" text-anchor="middle" fill="#b71c1c" font-size="10">proceduralized · fluent</text>
+        <text x="607" y="38" text-anchor="middle" fill="#b71c1c" font-size="12" font-weight="bold">Automatic processing</text>
+        <text x="607" y="55" text-anchor="middle" fill="#b71c1c" font-size="10">less attention for</text>
+        <text x="607" y="70" text-anchor="middle" fill="#b71c1c" font-size="10">familiar procedures</text>
       </svg></div>
       <p class="note">Controlled/automatic과 focal/peripheral attention은 서로 다른 축입니다. 자동화된 처리도 주의의 중심에 놓일 수 있습니다 (Brown, 2014, pp.292–293).</p>
       <p class="note" style="margin-top:10px"><span class='kw1'>Restructuring</span>: adjusts existing knowledge to accommodate new info in long-term memory</p>
@@ -488,7 +569,8 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
           </div>
         </div>
       </div>
-      <div class="stage-wrap"><svg viewBox="0 0 700 90" style="width:100%;margin-top:10px;font-family:'JetBrains Mono',monospace" xmlns="http://www.w3.org/2000/svg">
+      <p class="diagram-scroll-hint">도식은 좌우로 이동해 전체 연결을 확인할 수 있습니다.</p>
+      <div class="stage-wrap"><svg viewBox="0 0 700 90" role="img" aria-label="Interface position이 제안하는 explicit knowledge와 연습, proceduralization, implicit performance 사이의 가능한 연결" style="width:100%;margin-top:10px;font-family:'JetBrains Mono',monospace" xmlns="http://www.w3.org/2000/svg">
         <rect x="4" y="10" width="148" height="70" rx="8" fill="rgba(46,125,82,.1)" stroke="rgba(46,125,82,.4)" stroke-width="1.5"/>
         <text x="78" y="38" text-anchor="middle" fill="#1b5e3a" font-size="12" font-weight="bold">Explicit</text>
         <text x="78" y="55" text-anchor="middle" fill="#3a6b51" font-size="10">declarative</text>
@@ -499,13 +581,14 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         <text x="250" y="60" text-anchor="middle" fill="#00796b" font-size="10">feedback</text>
         <text x="336" y="52" text-anchor="middle" fill="#26a69a" font-size="20">→</text>
         <rect x="348" y="10" width="148" height="70" rx="8" fill="rgba(46,125,82,.1)" stroke="rgba(46,125,82,.4)" stroke-width="1.5"/>
-        <text x="422" y="38" text-anchor="middle" fill="#1b5e3a" font-size="12" font-weight="bold">Implicit</text>
-        <text x="422" y="55" text-anchor="middle" fill="#3a6b51" font-size="10">procedural</text>
-        <text x="422" y="70" text-anchor="middle" fill="#3a6b51" font-size="10">automatic use</text>
-        <text x="508" y="52" text-anchor="middle" fill="#b71c1c" font-size="20">=</text>
+        <text x="422" y="38" text-anchor="middle" fill="#1b5e3a" font-size="12" font-weight="bold">Proceduralization</text>
+        <text x="422" y="55" text-anchor="middle" fill="#3a6b51" font-size="10">possible process in</text>
+        <text x="422" y="70" text-anchor="middle" fill="#3a6b51" font-size="10">interface account</text>
+        <text x="508" y="52" text-anchor="middle" fill="#26a69a" font-size="20">→</text>
         <rect x="519" y="10" width="177" height="70" rx="8" fill="rgba(183,28,28,.08)" stroke="rgba(183,28,28,.35)" stroke-width="1.5"/>
-        <text x="607" y="43" text-anchor="middle" fill="#b71c1c" font-size="12" font-weight="bold">Proceduralization</text>
-        <text x="607" y="60" text-anchor="middle" fill="#b71c1c" font-size="10">interface position</text>
+        <text x="607" y="38" text-anchor="middle" fill="#b71c1c" font-size="12" font-weight="bold">Implicit performance</text>
+        <text x="607" y="55" text-anchor="middle" fill="#b71c1c" font-size="10">more fluent use</text>
+        <text x="607" y="70" text-anchor="middle" fill="#b71c1c" font-size="10">not a universal path</text>
       </svg></div>
       <p class="note" style="margin-top:10px"><span class='kw3'>Interface position</span>은 explicit knowledge와 implicit performance의 연결 가능성을 인정하는 입장입니다. 위 도식은 연습을 통한 발달 경로를 나타내며 모든 implicit knowledge의 필수 경로는 아닙니다. Automatization과 proceduralization도 설명 초점이 다릅니다.</p>
     </div>
@@ -537,13 +620,13 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 
 <!-- ⑦ Processability -->
 <div class="sec" id="s7">
-  <div class="sec-header" onclick="toggle('s7')">
+  <button class="sec-header" type="button" aria-expanded="false" aria-controls="s7-body" onclick="toggle('s7',this)">
     <span class="sec-icon">🏗️</span>
     <span class="sec-title">⑦ Processability / Teachability</span>
     <span class="sec-tag">Pienemann</span>
     <span class="sec-arrow">▼</span>
-  </div>
-  <div class="sec-body">
+  </button>
+  <div class="sec-body" id="s7-body">
     <div class="concept">
       <div class="c-title">Processability Model</div>
       <p class="note"><span class='kw1'>Developmental readiness</span>: L2 structure acquired only if L is developmentally ready</p>
@@ -574,13 +657,13 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 
 <!-- ⑧ Interaction Hypothesis -->
 <div class="sec" id="s8">
-  <div class="sec-header" onclick="toggle('s8')">
+  <button class="sec-header" type="button" aria-expanded="false" aria-controls="s8-body" onclick="toggle('s8',this)">
     <span class="sec-icon">🤝</span>
     <span class="sec-title">⑧ Interaction Hypothesis (Long)</span>
     <span class="sec-tag red">핵심 비교</span>
     <span class="sec-arrow">▼</span>
-  </div>
-  <div class="sec-body">
+  </button>
+  <div class="sec-body" id="s8-body">
     <div class="concept">
       <div class="c-title">Original vs Updated Version <span class="badge-ex">★★★</span></div>
       <div class="grid col2">
@@ -608,10 +691,11 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       <div class="def"><span class='kw4'>Negotiation of meaning</span>: interlocutors modify interaction to achieve <span class='kw2'>mutual comprehension</span>.</div>
       <div class="stage-wrap">
         <table>
-          <tr><th>Strategy</th><th>Who</th><th>Purpose</th></tr>
-          <tr><td><span class='kw4'>Clarification request</span></td><td>listener</td><td>재설명 요청 · 효과는 맥락과 측정 기준에 따라 다름</td></tr>
-          <tr><td><span class='kw3'>Confirmation check</span></td><td>listener</td><td>confirm own understanding</td></tr>
-          <tr><td><span class='kw3'>Comprehension check</span></td><td>speaker</td><td>check listener's understanding</td></tr>
+          <thead><tr><th scope="col">Strategy</th><th scope="col">Who</th><th scope="col">Purpose</th></tr></thead><tbody>
+          <tr><td data-label="Strategy"><span class='kw4'>Clarification request</span></td><td data-label="Who">listener</td><td data-label="Purpose">재설명 요청 · 효과는 맥락과 측정 기준에 따라 다름</td></tr>
+          <tr><td data-label="Strategy"><span class='kw3'>Confirmation check</span></td><td data-label="Who">listener</td><td data-label="Purpose">confirm own understanding</td></tr>
+          <tr><td data-label="Strategy"><span class='kw3'>Comprehension check</span></td><td data-label="Who">speaker</td><td data-label="Purpose">check listener's understanding</td></tr>
+          </tbody>
         </table>
       </div>
       <p class="note" style="margin-top:10px"><span class='kw4'>Clarification request</span>는 수정 기회를 만들 수 있으나, 즉각적 repair와 장기적 습득은 다르며 전략 간 효과도 맥락에 따라 달라집니다.</p>
@@ -649,13 +733,13 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 
 <!-- ⑨ Sociocultural Theory -->
 <div class="sec" id="s9">
-  <div class="sec-header" onclick="toggle('s9')">
+  <button class="sec-header" type="button" aria-expanded="false" aria-controls="s9-body" onclick="toggle('s9',this)">
     <span class="sec-icon">🌱</span>
     <span class="sec-title">⑨ Sociocultural Theory (Vygotsky)</span>
     <span class="sec-tag orange">개념 적용</span>
     <span class="sec-arrow">▼</span>
-  </div>
-  <div class="sec-body">
+  </button>
+  <div class="sec-body" id="s9-body">
     <div class="concept">
       <div class="c-title">Zone of Proximal Development (ZPD) <span class="badge-ex">★★</span></div>
       <div class="def"><span class='kw4'>ZPD</span>: the distance between <span class='kw2'>actual development</span> (independent) and <span class='kw2'>potential development</span> (with guidance/peers).</div>
@@ -681,7 +765,8 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
     <div class="div"></div>
     <div class="concept">
       <div class="c-title">Regulation <span class="badge-ex">기출 포인트</span></div>
-      <div class="stage-wrap"><svg viewBox="0 0 700 100" style="width:100%;margin-top:12px;font-family:'JetBrains Mono',monospace" xmlns="http://www.w3.org/2000/svg">
+      <p class="diagram-scroll-hint">도식은 좌우로 이동해 전체 연결을 확인할 수 있습니다.</p>
+      <div class="stage-wrap"><svg viewBox="0 0 700 100" role="img" aria-label="외부 도구의 object-regulation에서 타인의 안내를 통한 other-regulation, 자기 조절을 통한 self-regulation로 이어질 수 있는 관계" style="width:100%;margin-top:12px;font-family:'JetBrains Mono',monospace" xmlns="http://www.w3.org/2000/svg">
         <rect x="4" y="10" width="208" height="80" rx="8" fill="rgba(46,125,82,.1)" stroke="rgba(46,125,82,.4)" stroke-width="1.5"/>
         <text x="108" y="38" text-anchor="middle" fill="#1b5e3a" font-size="12" font-weight="bold">Object-regulation</text>
         <text x="108" y="56" text-anchor="middle" fill="#3a6b51" font-size="10">dictionary 등</text>
@@ -743,8 +828,9 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 
 </div><!-- /wrap -->
 <script>
-function toggle(id){document.getElementById(id).classList.toggle('open')}
-function openSec(id){const s=document.getElementById(id);s.classList.add('open');s.scrollIntoView({behavior:'smooth',block:'start'})}
+function syncSection(s){const b=s.querySelector('.sec-header');if(b)b.setAttribute('aria-expanded',s.classList.contains('open')?'true':'false')}
+function toggle(id,button){const s=document.getElementById(id);s.classList.toggle('open');(button||s.querySelector('.sec-header'))?.setAttribute('aria-expanded',s.classList.contains('open')?'true':'false')}
+function openSec(id){const s=document.getElementById(id);s.classList.add('open');syncSection(s);s.scrollIntoView({behavior:'smooth',block:'start'})}
 </script>
 <nav class="learning-nav bottom" aria-label="하단 학습 내비게이션">
   <a href="https://etwiki.net/index.html">기출 WIKI</a>
