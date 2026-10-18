@@ -139,6 +139,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 <link rel="stylesheet" href="./mint-learning.css">
 <style>
 /* Ch.02 overrides only. */
+.ch02-study .study-return-link{position:static;left:auto;bottom:auto;transform:none;display:flex;width:fit-content;max-width:calc(100% - 32px);margin:24px auto;white-space:normal}
 .ch02-study .def,.ch02-study .note,.ch02-study .gi-body,.ch02-study td,.ch02-study .exam p{font-size:16px;line-height:1.85}
 .ch02-study .sec-header{width:100%;text-align:left;font:inherit;color:inherit;appearance:none;border:0;border-bottom:1px solid var(--ew-border)}
 .ch02-study .toc-item{font-family:inherit;cursor:pointer;text-align:left;min-height:44px}
@@ -746,6 +747,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 function syncSec(s){s.querySelector('.sec-header').setAttribute('aria-expanded',s.classList.contains('open')?'true':'false')}
 function toggle(id){const s=document.getElementById(id);s.classList.toggle('open');syncSec(s)}
 document.querySelectorAll('.sec').forEach(syncSec);
+new MutationObserver(()=>document.querySelectorAll('.sec').forEach(syncSec)).observe(document.querySelector('.wrap'),{subtree:true,attributes:true,attributeFilter:['class']});
 function openSec(id){const s=document.getElementById(id);s.classList.add('open');syncSec(s);s.scrollIntoView({behavior:'smooth',block:'start'})}
 
 document.querySelectorAll("table").forEach(t=>{const labels=Array.from(t.rows[0]?.cells||[],x=>x.textContent.trim());Array.from(t.rows).slice(1).forEach(r=>Array.from(r.cells).forEach((c,i)=>{if(c.tagName==="TD")c.setAttribute("data-label",labels[i]||"항목")}))});
