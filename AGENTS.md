@@ -13,8 +13,9 @@
 .claude/worktrees/laughing-sutherland-0a1f66/docs/codex_workorder.md
 ```
 
-3. 기존 챕터의 HTML 구조, OX 데이터 형식, study page 섹션 구조를 먼저 맞춘다.
-4. 작업 후 변경 파일만 선별해 검증, commit, push한다. 관련 없는 dirty/untracked 파일은 건드리지 않는다.
+3. 학습자료 챕터의 범위·출처·기출 연결·자세히 보기·UI/접근성 검수는 [학습자료 제작·검수 방침](docs/학습자료_제작검수_방침.md)을 함께 따른다.
+4. 기존 챕터의 HTML 구조, OX 데이터 형식, study page 섹션 구조를 먼저 맞춘다.
+5. 작업 후 변경 파일만 선별해 검증, commit, push한다. 관련 없는 dirty/untracked 파일은 건드리지 않는다.
 
 ## 한국어 용어 규칙
 
