@@ -123,7 +123,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
   .sec-header{padding:15px 14px;gap:8px;align-items:flex-start}
   .sec-title{font-size:14px;line-height:1.5}
   .sec-tag{font-size:10px;line-height:1.4}
-  .sec-tag{white-space:nowrap;flex-shrink:0}
+  .sec-tag{white-space:normal;flex-shrink:1;min-width:0;overflow-wrap:anywhere}
   .badge-ex{white-space:nowrap;flex:none}
   .def{font-size:17px;padding:13px 14px}
   .note{font-size:16.5px}
@@ -181,6 +181,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 .all-exam-links li{break-inside:avoid;margin:4px 0}
 .all-exam-links a{color:#1b5e3a;text-decoration-thickness:1px;text-underline-offset:3px}
 @media(max-width:640px){.ox-check summary{font-size:15px;padding:11px 12px}.ox-reveal{font-size:15px;padding:0 12px 11px}.answer-prompt{font-size:12px}.study-sources{padding:14px}.all-exam-links ul{columns:1}.krashen-map{max-width:100%}}
+@media(max-width:360px){.sec-header{display:grid;grid-template-columns:auto minmax(0,1fr) auto;column-gap:8px;row-gap:5px}.sec-icon{grid-column:1;grid-row:1}.sec-title{grid-column:2;grid-row:1;min-width:0;overflow-wrap:anywhere}.sec-arrow{grid-column:3;grid-row:1;margin-left:0}.sec-tag{grid-column:2 / 4;grid-row:2;margin-left:0;justify-self:start;max-width:100%}}
 </style>
 </head>
 <body>
@@ -300,7 +301,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
   <button class="sec-header" type="button" aria-expanded="false" aria-controls="s3-body" onclick="toggle('s3',this)">
     <span class="sec-icon">📥</span>
     <span class="sec-title">③ Krashen's 5 Hypotheses</span>
-    <span class="sec-tag red">기출 연결</span>
+    <span class="sec-tag">핵심 개념</span>
     <span class="sec-arrow">▼</span>
   </button>
   <div class="sec-body" id="s3-body">
@@ -396,8 +397,8 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         <tr><td data-label="가설이 묻는 것"><b>Input · i+1</b><br>이해 가능한 메시지와 조금 앞선 형태</td><td data-label="구체적인 장면">그림책의 사건을 이해하는 학습자가 그림과 문맥을 보며 처음 듣는 “hid”의 뜻을 짐작합니다. 뜻을 따라갈 수 있는 메시지 안에 익숙한 형태보다 조금 앞선 표현이 있습니다.</td><td data-label="해석의 한계">i+1은 교사가 매번 난도를 한 단계씩 올리라는 계산식이 아닙니다. 이해 가능한 입력도 그 자체로 특정 항목의 습득을 보장하지 않습니다.</td></tr>
         <tr><td data-label="가설이 묻는 것"><b>Affective Filter</b><br>정서와 입력 활용</td><td data-label="구체적인 장면">같은 이야기를 들을 때 실수해도 괜찮은 분위기에서 질문하고 내용을 확인할 수 있습니다. Krashen은 낮은 불안·높은 동기·자신감을 입력 활용에 유리한 조건으로 봅니다.</td><td data-label="해석의 한계">필터는 설명을 위한 가설이지 실제 뇌의 물리적 막이나 단일 점수가 아닙니다. 불안이 낮다는 사실만으로 습득이 일어났다고 결론 내릴 수 없습니다.</td></tr>
       </tbody></table></div>
-      <h3>지문 단서를 붙잡는 순서</h3>
-      <ol><li><b>무엇을 관찰했는가:</b> 이해하며 듣기, 규칙 설명, 자기 교정, 발달 형태 중 지문에 실제로 나온 행동을 표시합니다.</li><li><b>어느 질문에 답하는가:</b> 말하기 전 규칙을 편집했다면 Monitor, 의미를 이해할 수 있는 새 형태가 input에 있었다면 Input, 정서적 여건을 설명하면 Affective Filter를 검토합니다.</li><li><b>결론의 범위를 제한:</b> 입력을 들었다는 사실은 학습자의 noticing이나 output 수정까지 입증하지 않습니다. 답에는 지문에서 관찰된 행동만 씁니다.</li></ol>
+      <h3>이 장면에서 확인할 점</h3>
+      <ul><li>지문에 실제로 나온 행동이 이해하며 듣기, 규칙 설명, 자기 교정, 발달 형태 중 무엇인지 확인합니다.</li><li>말하기 전 규칙을 적용하는 장면은 Monitor, 이해 가능한 새 형태가 입력에 있는 장면은 Input, 정서적 여건을 말하는 장면은 Affective Filter와 연결할 수 있습니다.</li><li>입력을 들었다는 사실만으로 학습자의 noticing이나 output 수정까지 단정할 수는 없습니다.</li></ul>
       <details class="ox-check"><summary><b>OX</b> 낮은 불안만 확보하면 i+1 입력으로 습득이 보장된다.<span class="answer-prompt">정답 확인</span></summary><div class="ox-reveal"><p><b>정답 X</b> — 낮은 불안과 이해 가능한 입력은 습득을 보장하는 충분조건이 아닙니다.</p></div></details>
     </div></details>
   </div>
@@ -447,8 +448,8 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         <summary>기출 적용 · 실제 대화에서 pushed output 판단</summary>
         <div class="frequent-body">
           <p><b>2007학년도 서울·인천 8번:</b> 학습자가 “I go cinema.” 뒤에 “last night”를 덧붙여도 과거형 표지는 말하지 않습니다. 원문은 <mark class="key-highlight">의사소통은 성공했지만 학습자가 past-tense marker를 output에 넣어 고칠 필요는 없었다</mark>고 설명합니다. 지문에서 묻는 것은 상호작용의 존재 자체가 아니라 학습자가 실제로 형태를 고쳤는지입니다. <a href="https://etwiki.net/index.html?id=education_2007_S08" aria-label="2007학년도 서울·인천 8번 기출 원문 열기">2007학년도 서울·인천 8번 원문</a></p>
-          <p><b>지문 단서:</b> 교사의 past-tense recast 뒤에도 학생은 현재형을 반복합니다. <b>개념 판단:</b> <mark class="key-highlight">recast는 목표형을 포함한 입력</mark>이지만, <u>학습자가 자기 output을 바꿨다는 증거는 없습니다</u>. 입력 제공과 pushed output을 따로 봅니다.</p>
-          <p><b>조건 변경:</b> 학습자가 반응 뒤 목표 형태로 발화를 스스로 고친다면 output 수정 단서가 생깁니다. 한 번의 수정만으로 지속적인 습득까지 단정하지는 않습니다.</p>
+          <p>교사가 과거형 recast를 제공한 뒤에도 학생은 현재형을 반복합니다. <mark class="key-highlight">목표형 입력은 있었지만 학습자가 자기 output을 바꿨다는 증거는 없습니다.</mark> 따라서 이 대화만으로 pushed output을 관찰했다고 볼 수 없습니다.</p>
+          <p>학생이 반응 뒤 목표 형태로 자기 발화를 고쳐 말했다면 output 수정의 단서가 됩니다. 그래도 한 번의 수정만으로 지속적인 습득까지 단정할 수는 없습니다.</p>
           <details class="ox-check"><summary><b>OX</b> 교사가 정답 형태를 recast했으므로 학습자의 output도 수정되었다.<span class="answer-prompt">정답 확인</span></summary><div class="ox-reveal"><p><b>정답 X</b> — 교사의 recast는 목표형 입력을 제공할 수 있지만, 학습자 output 수정은 학습자가 자기 발화를 바꿨을 때 관찰됩니다.</p></div></details>
         </div>
       </details>
@@ -475,10 +476,9 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       <details class="frequent-topic" id="frequent-2024-a02">
         <summary>기출 적용 · Salience와 Noticing 구분</summary>
         <div class="frequent-body">
-          <p><b>지문 단서 → 개념 판단:</b> 입력의 특정 형태가 <u class="decision-cue">주변 형태보다 두드러지거나 지각하기 쉬운 정도</u>를 말합니다. 이는 입력의 속성인 <a class="concept-term-link" href="https://etwiki.net/concept.html?term=Salience">Salience</a>입니다.</p>
+          <p>문항에서 목표 형태가 주변 형태보다 <u class="decision-cue">두드러지거나 지각하기 쉬운 정도</u>를 묻는다면, 이는 입력의 속성인 <a class="concept-term-link" href="https://etwiki.net/concept.html?term=Salience">salience</a>입니다. 이 구분을 실제 문항에 적용하면, 형태가 눈에 띄게 제시되었다는 사실만으로 학습자의 noticing을 증명할 수 없습니다.</p>
           <p class="exam-citations"><b>출처:</b> <a href="https://etwiki.net/index.html?id=education_2024_A02" aria-label="2024학년도 전공 A 2번 기출 원문 열기">2024학년도 전공 A 2번</a></p>
-          <p><b>개념 판단:</b> <mark class="key-highlight"><u class="decision-cue">형태가 눈에 띄게 제시된 것</u></mark>은 입력의 salience 단서입니다. 학습자가 실제로 주의를 기울였다는 관찰과는 구분합니다.</p>
-          <p><b>조건 변경:</b> 학습자가 해당 형태를 알아차렸다고 말하거나, 이후의 발화에서 그것을 반영하는 단서가 추가되면 noticing을 검토할 수 있습니다. <u class="decision-cue">입력의 두드러짐만으로는 noticing을 단정할 수 없습니다.</u></p>
+          <p>학습자가 해당 형태를 알아차렸다고 말하거나 이후 발화에서 그것을 반영하는 단서가 나타나면 noticing을 검토할 수 있습니다. <u class="decision-cue">입력의 두드러짐만으로는 학습자의 noticing을 단정할 수 없습니다.</u></p>
           <details class="ox-check"><summary><b>OX</b> 목표 형태가 눈에 띄게 제시되었으니 학습자가 알아차렸다.<span class="answer-prompt">정답 확인</span></summary><div class="ox-reveal"><p><b>정답 X</b> — 입력의 salience는 학습자의 noticing을 직접 입증하지 않습니다.</p></div></details>
         </div>
       </details>
@@ -515,7 +515,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
   <button class="sec-header" type="button" aria-expanded="false" aria-controls="s6-body" onclick="toggle('s6',this)">
     <span class="sec-icon">⚙️</span>
     <span class="sec-title">⑥ Information Processing Theories</span>
-    <span class="sec-tag orange">기출 연결</span>
+    <span class="sec-tag">핵심 개념</span>
     <span class="sec-arrow">▼</span>
   </button>
   <div class="sec-body" id="s6-body">
@@ -543,7 +543,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         <text x="350" y="34" text-anchor="middle" fill="#7c2d12" font-size="10" font-weight="bold">meaningful practice may support</text><text x="350" y="49" text-anchor="middle" fill="#b71c1c" font-size="10" font-weight="bold">automatization</text><path d="M246 62 H449" stroke="#26a69a" stroke-width="2" fill="none" marker-end="url(#processingArrow)"/>
         <rect x="471" y="10" width="205" height="70" rx="8" fill="rgba(46,125,82,.1)" stroke="rgba(46,125,82,.4)" stroke-width="1.5"/><text x="574" y="35" text-anchor="middle" fill="#1b5e3a" font-size="12" font-weight="bold">Automatic processing</text><text x="574" y="53" text-anchor="middle" fill="#3a6b51" font-size="10">less conscious attention</text><text x="574" y="68" text-anchor="middle" fill="#3a6b51" font-size="10">familiar, practiced routines</text>
         <defs><marker id="processingArrow" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7" fill="#26a69a"/></marker></defs>
-      </svg><div class="flow-mobile" aria-label="Processing relationship"><div>Controlled processing: conscious effort and greater attention demand</div><div class="flow-down" aria-hidden="true">↓ meaningful practice may support automatization</div><div>Automatic processing: familiar performance needs less conscious attention</div></div></div></div>
+      </svg><div class="flow-mobile" aria-label="Processing relationship"><div>Controlled processing: conscious effort and greater attention demand</div><div class="flow-down" aria-hidden="true">↓ meaningful practice may support automatization</div><div>Automatic processing: familiar performance needs less conscious attention</div></div></div>
       <p class="note" style="margin-top:10px">Automatization means performance needs less conscious attention after practice; it is a tendency, not a guaranteed one-step result or synonym for moving from short-term to long-term memory.</p>
       <p class="note"><a class='kw1 concept-term-link' href="https://etwiki.net/concept.html?term=restructuring">Restructuring</a> adjusts existing knowledge to accommodate new information. A new rule may change how the learner organizes a pattern.</p>
     </div>
@@ -571,7 +571,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         <text x="350" y="34" text-anchor="middle" fill="#7c2d12" font-size="10" font-weight="bold">practice may support</text><text x="350" y="49" text-anchor="middle" fill="#b71c1c" font-size="10" font-weight="bold">proceduralization</text><path d="M246 62 H449" stroke="#26a69a" stroke-width="2" fill="none" marker-end="url(#knowledgeArrow)"/>
         <rect x="471" y="10" width="205" height="70" rx="8" fill="rgba(46,125,82,.1)" stroke="rgba(46,125,82,.4)" stroke-width="1.5"/><text x="574" y="35" text-anchor="middle" fill="#1b5e3a" font-size="12" font-weight="bold">Implicit knowledge</text><text x="574" y="53" text-anchor="middle" fill="#3a6b51" font-size="10">procedural · use with less attention</text>
         <defs><marker id="knowledgeArrow" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7" fill="#26a69a"/></marker></defs>
-      </svg><div class="flow-mobile" aria-label="Possible knowledge relationship"><div>Explicit knowledge: can explain a rule</div><div class="flow-down" aria-hidden="true">↓ practice may support proceduralization in some interface accounts</div><div>Implicit knowledge: use with less conscious attention</div></div></div></div>
+      </svg><div class="flow-mobile" aria-label="Possible knowledge relationship"><div>Explicit knowledge: can explain a rule</div><div class="flow-down" aria-hidden="true">↓ practice may support proceduralization in some interface accounts</div><div>Implicit knowledge: use with less conscious attention</div></div></div>
       <p class="note" style="margin-top:10px"><span class='kw4'>Proceduralization</span> labels a possible transition in some interface accounts: practice can help explicit knowledge contribute to implicit performance. It is a process label on the arrow, not a stage after implicit/procedural knowledge. The route and extent are debated. Krashen’s <span class='kw4'>non-interface position</span> denies direct conversion in his model.</p>
     </div>
     <div class="div"></div>
@@ -678,7 +678,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
           <p><b>2009학년도 1차 24번:</b> “High marks?”에 화자가 “Good grades. A’s and B’s.”라고 뜻을 풀어 말합니다. 문항의 정답은 ③이며, 학습자가 정확한 output을 하도록 pushed 되었다는 선택지가 대화에 맞지 않습니다. <mark class="key-highlight">뜻을 확인하고 입력을 다시 말해 준 사실만으로 정확한 학습자 산출을 추론할 수 없습니다.</mark> <a href="https://etwiki.net/index.html?id=education_2009_X24" aria-label="2009학년도 1차 24번 기출 원문 열기">2009학년도 1차 24번 원문</a></p>
           <p><b>2012학년도 1차 17번:</b> 교사의 “You bought chocolate for your brother.”는 recast이고, 학습자는 “Chocolate for brother.”라고 이어 말합니다. 발화 유형, 학습자의 반응, 목표형을 실제로 산출했는지를 분리해 기록합니다. 한 번의 반복을 지속적인 습득으로 확대하지 않습니다. <a href="https://etwiki.net/index.html?id=education_2012_X17" aria-label="2012학년도 1차 17번 기출 원문 열기">2012학년도 1차 17번 원문</a></p>
           <p><b>2020학년도 전공 B 4번:</b> 학습자가 “Drained? What do you mean?”이라고 문제를 표시하자 상대는 “It’s similar to ‘tired.’”라고 응답하고, “Oh, I see. Yeah, I am very tired.”가 뒤따릅니다. 앞의 utterance는 <b>indicator</b>, 친숙한 낱말로 바꾸어 설명한 발화는 <b>response</b>, 이해를 드러낸 후속 발화는 <b>reaction to response</b>입니다. <a href="https://etwiki.net/index.html?id=education_2020_B04" aria-label="2020학년도 전공 B 4번 기출 원문 열기">2020학년도 전공 B 4번 원문</a></p>
-          <p><b>조건 변경:</b> 학습자가 교정 뒤 목표형으로 자기 발화를 고치면 output modification 근거가 생깁니다. 상대가 같은 말을 다시 제시한 것만으로는 학습자 산출 수정이 되지 않습니다.</p>
+          <p>학습자가 교정 뒤 목표형으로 자기 발화를 고쳤다면 output modification의 근거가 됩니다. 상대가 같은 말을 다시 제시한 것만으로는 학습자 산출 수정이 되지 않습니다.</p>
         </div>
       </details>
       <p class="note" style="margin-top:10px">A clarification request invites the original speaker to make a message clearer. Whether learners modify their speech depends on the interaction and the response; do not treat one strategy as universally most effective.</p>
@@ -721,7 +721,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         <div class="frequent-body">
           <p><b>2008학년도 전국 16번:</b> 지문은 ZPD 안의 학습을 사람들과 상호작용하고 또래와 협력할 때 작동하는 발달 과정으로 설명합니다. 빈칸은 도움을 받는 동안의 조절을 가리키는 <b>other-regulation</b>입니다. 도움을 받는 단계와 이미 혼자 조절하는 단계를 구분하세요. <a href="https://etwiki.net/index.html?id=education_2008_N16" aria-label="2008학년도 전국 16번 기출 원문 열기">2008학년도 전국 16번 원문</a></p>
           <p><b>2018학년도 전공 A 7번:</b> 야구 장면을 말로 설명하기 어려워하던 학생에게 교사가 “A ball was thrown by the pitcher.”처럼 발화를 나누고 구성 요소를 보태 줍니다. 문항은 “혼자 가능한 수행”과 “scaffolded help로 가능한 수행”의 거리를 정의로 제시하고 <b>zone of proximal development</b> 네 단어를 요구합니다. <u>수준 차이만이 아니라 과제 수행에 실제로 제공된 도움</u>이 단서입니다. <a href="https://etwiki.net/index.html?id=education_2018_A07" aria-label="2018학년도 전공 A 7번 기출 원문 열기">2018학년도 전공 A 7번 원문</a></p>
-          <p><b>조건 변경:</b> 학생이 혼자 이미 수행할 수 있는 과제라면 그 장면만으로 ZPD에 있다고 판단하기 어렵습니다. 독립 수행을 넘어선 과제와 적절한 상호작용 지원이 함께 나타나는지 확인합니다.</p>
+          <p>과제가 달라져 학생이 혼자 이미 수행할 수 있다면 그 장면만으로 ZPD에 있다고 판단하기 어렵습니다. 독립 수행을 넘어선 과제와 적절한 상호작용 지원이 함께 나타나는지 확인합니다.</p>
         </div>
       </details>
       <details class="explain-more"><summary>자세히 보기 <span class="summary-hint">ZPD와 비계를 문제에 적용</span></summary><div class="explain-content"><p><b>ZPD</b>는 독립 수행과 안내를 받아 가능한 수행 사이의 간격입니다. 수준이 다른 모둠 편성만으로 성립하지 않습니다. 과제가 독립 능력을 넘고 실제로 적절한 도움을 받은 단서가 필요합니다.</p><p><b>Scaffolding</b>은 과제를 가능하게 하는 일시적 지원입니다. 반응에 맞춰 도움을 조절하고 독립성이 늘면 줄입니다. 도구·타인·자기 조절 화살표는 가능한 변화이지 모두가 같은 순서를 밟는 법칙은 아닙니다. 모방이 내면화에 도움이 될 수 있지만 모든 모방이 자동으로 변형적 학습인 것도 아닙니다.</p><details class="ox-check"><summary><b>OX</b> 혼합 수준 모둠은 모두 ZPD 학습을 보장한다.<span class="answer-prompt">정답 확인</span></summary><div class="ox-reveal"><p><b>정답 X</b> — 수준이 다른 모둠만으로는 충분하지 않습니다. 과제가 독립 수행을 넘는지, 실제 도움과 반응이 있었는지 확인하세요.</p></div></details></div></details>
@@ -752,7 +752,7 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         <summary>기출 적용 · 참여 기회와 학습자 주도성</summary>
         <div class="frequent-body">
           <p><b>2013학년도 1차 36번:</b> Maria는 영어를 쓸 기회가 드문 직장·지역 환경에 있다가 회사의 social outing에 참여하고, 동료와 관계를 맺으며 활동 방식이 달라집니다. 문항은 SCT의 mediation·social participation·human agency 관점에서 읽어야 하며, 정답은 언어를 이미 완성된 생각의 단순 전달 수단으로 보는 진술 ⑤입니다. <mark class="key-highlight">배경의 언어 접근성, 새 관계, 참여 방식의 변화</mark>를 이어서 근거로 삼습니다. <a href="https://etwiki.net/index.html?id=education_2013_X36" aria-label="2013학년도 1차 36번 기출 원문 열기">2013학년도 1차 36번 원문</a></p>
-          <p><b>조건 변경:</b> 인물이 영어를 거의 쓰지 않는다고 해서 혼자 학습할 의지가 없다고 추론하지 않습니다. 실제 상호작용 기회와 사회적 참여가 달라지는 단서를 먼저 확인합니다.</p>
+          <p>인물이 영어를 거의 쓰지 않는 장면에서도 혼자 학습할 의지가 없다고 추론해서는 안 됩니다. 실제 상호작용 기회와 사회적 참여가 달라지는 단서를 확인해야 합니다.</p>
         </div>
       </details>
     </div>
