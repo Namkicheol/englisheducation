@@ -87,6 +87,10 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 .vocabulary-detail>summary{display:list-item;cursor:pointer;padding:10px 0;}
 .vocabulary-detail .note::before{content:none;}
 .vocabulary-detail .note p+p{margin-top:10px;}
+
+/* Keep short word-knowledge row labels intact on narrow screens. */
+.etwiki-learning #vocabulary-detail-1-1 .stage-wrap th:first-child,
+.etwiki-learning #vocabulary-detail-1-1 .stage-wrap td:first-child{white-space:nowrap;word-break:normal;overflow-wrap:normal;min-width:6.5em}
 </style>
 <link href="./study-return.css" rel="stylesheet"/>
 <link href="./learning.css" rel="stylesheet"/>
