@@ -217,6 +217,27 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 /* Keep compact overview terms intact; normal prose still wraps. */
 .etwiki-learning .sla-exam-overview :is(.kw3,.kw4){display:inline-block;white-space:nowrap;max-width:100%;vertical-align:baseline}
 </style>
+
+<style id="sla-figure-scoped-css">
+/* Only the two new native details figures use this class. */
+.sla-figure-toggle{margin:16px 0;border:1px solid #b2dfcc;border-radius:10px;background:#f7fcf8;min-width:0}
+.sla-figure-toggle>summary{padding:12px;cursor:pointer;color:#1b5e3a;font-weight:700;font-size:16px;overflow-wrap:anywhere}
+.sla-figure-toggle>summary:focus-visible{outline:3px solid #b45309;outline-offset:3px}
+.sla-figure-toggle .sla-figure-body{padding:0 8px 12px;min-width:0}
+.sla-figure-toggle .sla-figure-body p{margin:8px 0;overflow-wrap:anywhere}
+.sla-figure-toggle .sla-figure-heading{font-size:17px;font-weight:700;color:#1b5e3a;margin:14px 0 8px}
+.sla-figure-toggle .sla-figure-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(202px,1fr));gap:10px;min-width:0}
+.sla-figure-toggle .sla-figure-panel{margin:0;min-width:0;border:1px solid #b2dfcc;border-radius:8px;background:#fff}
+.sla-figure-toggle .sla-figure-panel svg{display:block;width:200px;height:210px;max-width:none;margin:0 auto;font-family:'Noto Sans KR',sans-serif}
+.sla-figure-toggle .sla-figure-panel svg text{font-size:17px;fill:#1a3326}
+.sla-figure-toggle .sla-figure-panel svg .sla-svg-heading{font-size:18px;font-weight:700}
+.sla-figure-toggle .sla-figure-panel svg .sla-svg-caption{font-size:16px}
+.sla-figure-toggle .sla-figure-panel figcaption{padding:0 10px 10px;font-size:16px;line-height:1.7;overflow-wrap:anywhere}
+.sla-figure-toggle .sla-figure-note{padding:10px;border-left:3px solid #00695c;background:#e8f5ee;font-size:16px;line-height:1.75}
+@media(max-width:600px){
+  .sla-figure-toggle .sla-figure-grid{grid-template-columns:minmax(0,1fr)}
+}
+</style>
 </head>
 <body class="etwiki-learning">
 <header class="ew-header"><div class="ew-brand-row"><a class="ew-brand" href="https://etwiki.net/index.html">기출 WIKI</a><span class="ew-header-label">학습자료</span><a class="ew-back" href="https://etwiki.net/study.html">전체 자료 ↗</a></div><nav class="ew-subjects" aria-label="학습 영역"><a href="https://namkicheol.github.io/englisheducation/" aria-current="location">영어교육론</a><a href="https://namkicheol.github.io/linguistics/">영어학</a><a href="https://namkicheol.github.io/phonetics-phonology/phonetics.html">음성·음운론</a></nav></header>
@@ -507,13 +528,95 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
         <div class="frequent-body">
           <p><span class="exam-point-year" aria-label="2007학년도 출제 이력">07</span><b>2007학년도 서울·인천 8번:</b> 학습자가 “I go cinema.” 뒤에 “last night”를 덧붙여도 과거형 표지는 말하지 않습니다. 원문은 <mark class="key-highlight">의사소통은 성공했지만 학습자가 past-tense marker를 output에 넣어 고칠 필요는 없었다</mark>고 설명합니다. 지문에서 묻는 것은 상호작용의 존재 자체가 아니라 <u class="decision-cue">학습자가 실제로 형태를 고쳤는지</u>입니다. <a href="https://etwiki.net/index.html?id=education_2007_S08" aria-label="2007학년도 서울·인천 8번 기출 원문 열기">2007학년도 서울·인천 8번 원문</a></p>
           <p><span class="exam-point-year" aria-label="2011학년도 출제 이력">11</span><b>2011학년도 1차 20번:</b> 교사의 목표형 recast 뒤에도 학습자가 <span class="kw4">자기 발화</span>를 <span class="kw4">목표형으로 바꿨다</span>는 증거는 없습니다. <u class="decision-cue">교사의 수정 입력을 학습자 output 수정으로 고르면 안 됩니다.</u> 따라서 선택지를 판단할 때 실제 학습자 발화 변화부터 확인합니다. <a href="https://etwiki.net/index.html?id=education_2011_X20" aria-label="2011학년도 1차 20번 기출 원문 열기">2011학년도 1차 20번 원문</a></p>
-          <p>교사가 과거형 recast를 제공한 뒤에도 학생은 현재형을 반복합니다. <mark class="key-highlight">목표형 입력은 있었지만 학습자가 자기 output을 바꿨다는 증거는 없습니다.</mark> 따라서 이 대화만으로 pushed output을 관찰했다고 볼 수 없습니다.</p>
+          <p>교사가 과거형 recast를 제공한 뒤에도 학생은 현재형을 반복합니다. <mark class="key-highlight">목표형 입력은 있었지만 학습자가 자기 output을 바꿨다는 증거는 없습니다.</mark> 이 사례에서 확인되지 않은 것은 목표 과거형으로 수정된 output이며, push를 받았다는 사실과 목표형 수정·습득의 성공은 구분해야 합니다.</p>
           <p>학생이 반응 뒤 목표 형태로 자기 발화를 고쳐 말했다면 output 수정의 단서가 됩니다. 그래도 한 번의 수정만으로 지속적인 습득까지 단정할 수는 없습니다.</p>
           
         </div>
       </details>
     </div>
-  <details class="explain-more"><summary>자세히 보기 <span class="summary-hint">Output 기능을 발화 단서로 판단</span></summary><div class="explain-content"><p><u class="decision-cue">말하고 싶은 내용과 현재 표현의 차이를 깨닫는 것</u>은 <b>noticing/triggering</b>, <u class="decision-cue">새 형태를 써 보고 반응에 따라 고치는 것</u>은 <b>hypothesis testing</b>, <u class="decision-cue">형태를 비교·설명하는 것</u>은 <b>metalinguistic reflection</b> 단서입니다. 기능은 겹칠 수 있습니다.</p><p><b>Pushed output</b>은 발화를 길게 하는 게 아니라 더 정확한 표현을 요구하는 상황입니다. 학습자가 목표형으로 고쳐 말했는지 지문에서 찾아야 합니다. <a href="#frequent-2011-x20">2011학년도 1차 20번 적용 포인트</a>에서 확인할 수 있습니다.</p></div></details>
+  <details class="explain-more"><summary>자세히 보기 <span class="summary-hint">Output 기능을 발화 단서로 판단</span></summary><div class="explain-content"><p><u class="decision-cue">말하고 싶은 내용과 현재 표현의 차이를 깨닫는 것</u>은 <b>noticing/triggering</b>, <u class="decision-cue">새 형태를 써 보고 반응에 따라 고치는 것</u>은 <b>hypothesis testing</b>, <u class="decision-cue">형태를 비교·설명하는 것</u>은 <b>metalinguistic reflection</b> 단서입니다. 기능은 겹칠 수 있습니다.</p><p><b>Pushed output</b>은 발화를 길게 하는 게 아니라 더 정확하거나 적절한 표현을 요구받는 상황과 관련됩니다. 요구를 받은 뒤에도 같은 형태를 반복할 수 있으므로, <u class="decision-cue">push를 받았는지와 실제로 무엇을 수정했는지</u>를 각각 확인합니다. 목표형으로 고쳐 말해도 한 번의 수정만으로 지속적인 습득을 확정하지 않습니다. <a href="#frequent-2011-x20">2011학년도 1차 20번 적용 포인트</a>에서 이 차이를 확인할 수 있습니다.</p></div></details>
+  <details class="sla-figure-toggle" id="sla-output-figure">
+    <summary>그림으로 이해하기 · 요구받음과 실제 수정은 다릅니다</summary>
+    <div class="sla-figure-body">
+      <p><b>새 학습용 예:</b> 교사와 학습자는 처음부터 <b>지난주(last week)에 산 가방</b>을 이야기하고 있습니다. 실제 기출 대화의 인용은 아닙니다.</p>
+      <h3 class="sla-figure-heading">대화의 순서</h3>
+      <div class="sla-figure-grid">
+      <figure class="sla-figure-panel">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 210" width="200" height="210" role="img" aria-labelledby="sla-output-turn1-title sla-output-turn1-desc">
+          <title id="sla-output-turn1-title">1. 학습자</title>
+          <desc id="sla-output-turn1-desc">처음부터 지난주에 산 가방을 이야기하는 상황입니다.</desc>
+          <rect x="8" y="12" width="184" height="40" rx="6" fill="#e8f5ee"/>
+          <text class="sla-svg-heading" x="100" y="38" text-anchor="middle">1. 학습자</text>
+          <text x="100" y="87" text-anchor="middle">I buy a bag.</text>
+          <text x="100" y="116" text-anchor="middle">(지난주 일)</text>
+        </svg>
+        <figcaption>처음부터 지난주에 산 가방을 이야기하는 상황입니다.</figcaption>
+      </figure>
+      <figure class="sla-figure-panel">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 210" width="200" height="210" role="img" aria-labelledby="sla-output-turn2-title sla-output-turn2-desc">
+          <title id="sla-output-turn2-title">2. 교사</title>
+          <desc id="sla-output-turn2-desc">교사는 시간 정보만이 아니라 과거형 사용을 요구합니다.</desc>
+          <rect x="8" y="12" width="184" height="40" rx="6" fill="#fff4dc"/>
+          <text class="sla-svg-heading" x="100" y="38" text-anchor="middle">2. 교사</text>
+          <text x="100" y="87" text-anchor="middle">지난주 일이니</text>
+          <text x="100" y="116" text-anchor="middle">buy의 과거형으로</text>
+          <text x="100" y="145" text-anchor="middle">다시 말해 볼까요?</text>
+        </svg>
+        <figcaption>교사는 시간 정보만이 아니라 과거형 사용을 요구합니다.</figcaption>
+      </figure>
+      <figure class="sla-figure-panel">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 210" width="200" height="210" role="img" aria-labelledby="sla-output-turn3-title sla-output-turn3-desc">
+          <title id="sla-output-turn3-title">3. 학습자</title>
+          <desc id="sla-output-turn3-desc">last week는 추가했지만 buy는 그대로입니다.</desc>
+          <rect x="8" y="12" width="184" height="40" rx="6" fill="#e8f5ee"/>
+          <text class="sla-svg-heading" x="100" y="38" text-anchor="middle">3. 학습자</text>
+          <text x="100" y="87" text-anchor="middle">I buy a bag</text>
+          <text x="100" y="116" text-anchor="middle">last week.</text>
+        </svg>
+        <figcaption>last week는 추가했지만 buy는 그대로입니다.</figcaption>
+      </figure>
+      </div>
+      <h3 class="sla-figure-heading">서로 따로 확인할 세 가지</h3>
+      <div class="sla-figure-grid">
+      <figure class="sla-figure-panel">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 210" width="200" height="210" role="img" aria-labelledby="sla-output-push-title sla-output-push-desc">
+          <title id="sla-output-push-title">요구받음</title>
+          <desc id="sla-output-push-desc">정확한 과거형을 사용하라는 push가 있었습니다.</desc>
+          <rect x="8" y="12" width="184" height="40" rx="6" fill="#e9f3f8"/>
+          <text class="sla-svg-heading" x="100" y="38" text-anchor="middle">요구받음</text>
+          <text x="100" y="87" text-anchor="middle">더 정확한 표현을</text>
+          <text x="100" y="116" text-anchor="middle">요구받음: 있음</text>
+        </svg>
+        <figcaption>정확한 과거형을 사용하라는 push가 있었습니다.</figcaption>
+      </figure>
+      <figure class="sla-figure-panel">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 210" width="200" height="210" role="img" aria-labelledby="sla-output-form-title sla-output-form-desc">
+          <title id="sla-output-form-title">목표형 수정</title>
+          <desc id="sla-output-form-desc">표현이 달라진 것과 목표 과거형의 수정을 구별합니다.</desc>
+          <rect x="8" y="12" width="184" height="40" rx="6" fill="#e9f3f8"/>
+          <text class="sla-svg-heading" x="100" y="38" text-anchor="middle">목표형 수정</text>
+          <text x="100" y="87" text-anchor="middle">시간 표현: 추가</text>
+          <text x="100" y="116" text-anchor="middle">목표 형태: bought</text>
+          <text x="100" y="145" text-anchor="middle">목표형 수정: 없음</text>
+        </svg>
+        <figcaption>표현이 달라진 것과 목표 과거형의 수정을 구별합니다.</figcaption>
+      </figure>
+      <figure class="sla-figure-panel">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 210" width="200" height="210" role="img" aria-labelledby="sla-output-learning-title sla-output-learning-desc">
+          <title id="sla-output-learning-title">지속적 습득</title>
+          <desc id="sla-output-learning-desc">한 번의 수정이 관찰되더라도 이후 독립적 사용은 별도 증거가 필요합니다.</desc>
+          <rect x="8" y="12" width="184" height="40" rx="6" fill="#e9f3f8"/>
+          <text class="sla-svg-heading" x="100" y="38" text-anchor="middle">지속적 습득</text>
+          <text x="100" y="87" text-anchor="middle">이 장면만으로</text>
+          <text x="100" y="116" text-anchor="middle">확정할 수 없음</text>
+        </svg>
+        <figcaption>한 번의 수정이 관찰되더라도 이후 독립적 사용은 별도 증거가 필요합니다.</figcaption>
+      </figure>
+      </div>
+      <p class="sla-figure-note">더 정확하게 말하라는 요구를 받았어도 목표 형태를 고치지 못할 수 있습니다. <b>시간 표현을 덧붙인 변화, 목표형 수정, 지속적 습득</b>은 각각 다른 증거로 판단합니다.</p>
+    </div>
+  </details>
+
     </div>
 </div>
 
@@ -648,6 +751,46 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       </div>
       <p class="note" style="margin-top:8px">In Skill Acquisition Theory, practice can help turn <span class='kw2'>declarative</span> knowledge into more <span class='kw2'>procedural</span> skill and reduce the attention needed for familiar steps. Practice quality and learner differences matter.</p>
     </div>
+    <div class="exam" id="sla-case-2012-e2-03-2">
+      <div class="exam-label">기출 적용 · 규칙 설명과 대화 속 사용</div>
+      <p>2012학년도 2차 논술 3-2는 <b>-s 규칙을 설명할 수 있지만 대화에서는 사용하지 못하는 상황</b>을 두 관점에서 묻습니다. Cognitive 관점은 규칙 지식과 실시간 사용의 차이 및 의미 있는 사용 연습에, Sociocultural 관점은 타인과의 공동 활동과 상호작용 기회에 초점을 둡니다. <b>같은 활동도 두 관점에서 분석할 수 있습니다.</b> <a href="https://etwiki.net/index.html?id=education_2012_E2_03_2" aria-label="2012학년도 2차 논술 3-2 기출 원문 열기">2012학년도 2차 논술 3-2 원문</a></p>
+    </div>
+    <details class="sla-figure-toggle" id="sla-perspective-figure">
+      <summary>그림으로 이해하기 · 같은 -s 사례, 두 관점</summary>
+      <div class="sla-figure-body">
+        <p><b>공통 사실:</b> 학습자는 -s 규칙을 설명할 수 있지만 즉석 대화에서는 -s를 빠뜨립니다.</p>
+        <p><b>아래는 각 관점의 초점과 과제 예입니다. 서로 배타적인 수업 방법의 분류가 아닙니다.</b> 같은 활동을 두 관점에서 분석할 수 있습니다.</p>
+        <div class="sla-figure-grid">
+      <figure class="sla-figure-panel">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 210" width="200" height="210" role="img" aria-labelledby="sla-cognitive-panel-title sla-cognitive-panel-desc">
+          <title id="sla-cognitive-panel-title">Cognitive</title>
+          <desc id="sla-cognitive-panel-desc">초점: 알고 있는 규칙을 실제 사용에 적용하는가? Information-gap 인물 묘사에서 목표형 사용을 살핍니다.</desc>
+          <rect x="8" y="12" width="184" height="40" rx="6" fill="#e9f3f8"/>
+          <text class="sla-svg-heading" x="100" y="38" text-anchor="middle">Cognitive</text>
+          <text x="100" y="87" text-anchor="middle">규칙은 설명 가능</text>
+          <text x="100" y="116" text-anchor="middle">실시간 사용은?</text>
+          <text x="100" y="145" text-anchor="middle">그림 속 인물의</text>
+          <text x="100" y="174" text-anchor="middle">특징을 말하고 찾기</text>
+        </svg>
+        <figcaption>초점: 알고 있는 규칙을 실제 사용에 적용하는가? Information-gap 인물 묘사에서 목표형 사용을 살핍니다.</figcaption>
+      </figure>
+      <figure class="sla-figure-panel">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 210" width="200" height="210" role="img" aria-labelledby="sla-sociocultural-panel-title sla-sociocultural-panel-desc">
+          <title id="sla-sociocultural-panel-title">Sociocultural</title>
+          <desc id="sla-sociocultural-panel-desc">초점: 타인과 어떤 공동 활동에 참여하는가? 실제 상호작용과 참여 기회를 살핍니다.</desc>
+          <rect x="8" y="12" width="184" height="40" rx="6" fill="#e9f3f8"/>
+          <text class="sla-svg-heading" x="100" y="38" text-anchor="middle">Sociocultural</text>
+          <text x="100" y="87" text-anchor="middle">누구와 공동 활동?</text>
+          <text x="100" y="116" text-anchor="middle">목격자와 질문자가</text>
+          <text x="100" y="145" text-anchor="middle">설명하고 질문하는</text>
+          <text x="100" y="174" text-anchor="middle">role-play</text>
+        </svg>
+        <figcaption>초점: 타인과 어떤 공동 활동에 참여하는가? 실제 상호작용과 참여 기회를 살핍니다.</figcaption>
+      </figure>
+        </div>
+        <p class="sla-figure-note">규칙을 아는 것과 대화에서 쓰는 것은 다릅니다. 인지 관점은 <b>지식의 사용</b>을, 사회문화 관점은 <b>타인과의 공동 활동</b>을 살핍니다. 활동 이름만으로 학습 효과를 확정하지 않습니다.</p>
+      </div>
+    </details>
   <details class="explain-more"><summary>자세히 보기 <span class="summary-hint">처리 부담과 지식 유형 비교</span></summary><div class="explain-content"><h3>처리 방식과 주의 초점은 같은 분류가 아닙니다</h3><p><b>Controlled processing</b>는 덜 익숙한 과제를 처리할 때 주의와 처리 자원을 더 많이 요구합니다. <b>Automatic processing</b>은 숙련된 수행에서 여러 요소를 더 적은 의식적 주의로 처리할 수 있다는 설명입니다. 이는 초보자가 규칙을 의식적으로 연습한 뒤 전문가처럼 자동 수행하는 한 줄짜리 단계표를 뜻하지 않습니다. 양 끝의 처리 방식은 <span class="decision-cue"><u>과제에 쏟는 focal / peripheral attention과도 별개의 축</u></span>입니다.</p><div class="stage-wrap"><table aria-label="Controlled processing과 automatic processing 비교"><thead><tr><th>구분</th><th>Controlled</th><th>Automatic</th></tr></thead><tbody><tr><td data-label="구분">주의·처리 부담</td><td data-label="Controlled">주의와 처리 자원을 더 요구</td><td data-label="Automatic">익숙한 수행은 의식적 주의가 덜 필요</td></tr><tr><td data-label="구분">시험 단서</td><td data-label="Controlled">새롭거나 아직 덜 익숙한 기술</td><td data-label="Automatic">숙련된 하위 기술·빠른 동시 처리</td></tr></tbody></table></div><p><b>조건 바꾸기:</b> 학습자가 대화문을 외워 그대로 말할 때와 처음 보는 상황에서 뜻에 맞춰 표현을 바꿔 말할 때를 비교하세요. 두 번째 수행은 외운 구절을 되풀이한다는 사실만으로 자동화라 판단할 수 없고, 새로운 선택을 계속 의식적으로 해야 한다면 통제 처리가 필요합니다.</p><h3>연습은 경향을 바꾸지만 자동화를 보장하지 않습니다</h3><p>연습은 하위 기술의 자동화를 도울 수 있지만, <mark class="key-highlight green">연습만으로 자동화가 반드시 일어나지는 않으며</mark> 수행이 일시적으로 나빠지는 재구조화도 일어날 수 있습니다. 자동화는 short-term에서 long-term memory로 정보를 옮기는 것과 같은 말이 아닙니다.</p><h3>지식의 종류를 섞지 않고 읽기</h3><p><b>Declarative</b>는 설명할 수 있는 지식, <b>procedural</b>은 수행할 수 있는 지식입니다. Skill Acquisition Theory에서는 연습이 지식의 절차화를 도울 수 있다고 설명하지만, 두 분류는 서로 겹칠 수 있으나 동일한 용어 체계는 아닙니다. <span class="decision-cue">Krashen의 non-interface 주장에서는 학습 지식이 습득 지식으로 직접 바뀌지 않습니다.</span></p></div></details>
     </div>
 </div>
