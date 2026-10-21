@@ -1015,9 +1015,6 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 function syncSection(s){var b=s.querySelector('.sec-header');if(b)b.setAttribute('aria-expanded',s.classList.contains('open')?'true':'false')}
 function toggle(id,button){var s=document.getElementById(id);s.classList.toggle('open');if(button)button.setAttribute('aria-expanded',s.classList.contains('open')?'true':'false')}
 function openSec(id){var s=document.getElementById(id);s.classList.add('open');syncSection(s);s.scrollIntoView({behavior:'smooth',block:'start'})}
-function revealHashTarget(){var h=window.location.hash.slice(1);if(!h)return;var t=document.getElementById(h);if(!t)return;if(t.matches('details'))t.open=true;var s=t;while(s&&!s.classList.contains('sec'))s=s.parentElement;if(s){s.classList.add('open');syncSection(s);setTimeout(function(){t.scrollIntoView({behavior:'smooth',block:'start'})},150)}}
-window.addEventListener('DOMContentLoaded',revealHashTarget);
-window.addEventListener('hashchange',revealHashTarget);
 (function(){
   var positionKey='sla-study-reading-position:'+window.location.pathname+window.location.search;
   function saveReadingPosition(){

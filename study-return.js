@@ -71,7 +71,11 @@
     if (!target) return;
 
     for (var element = target; element; element = element.parentElement) {
-      if (element.classList.contains('sec')) element.classList.add('open');
+      if (element.classList.contains('sec')) {
+        element.classList.add('open');
+        var header = element.querySelector('.sec-header');
+        if (header) header.setAttribute('aria-expanded', 'true');
+      }
       if (element.tagName === 'DETAILS') element.open = true;
     }
     // Reveal only the target's path; nested answers remain learner-controlled.
