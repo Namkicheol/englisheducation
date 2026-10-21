@@ -4,7 +4,7 @@ const vm = require('node:vm');
 const assert = require('node:assert/strict');
 const script = fs.readFileSync('study-return.js', 'utf8');
 
-function boot(hash = '', readyState = 'complete', search = '') {
+function boot(hash = '', readyState = 'complete', search = '', pageScript = '') {
   const elements = new Map(), scrolls = [], events = {};
   function element(id, tagName = 'DIV', parentElement = null, classes = []) {
     const tokens = new Set(classes), attributes = new Map();
@@ -13,6 +13,7 @@ function boot(hash = '', readyState = 'complete', search = '') {
         remove: key => tokens.delete(key) },
       setAttribute: (key, value) => attributes.set(key, value),
       getAttribute: key => attributes.get(key),
+      querySelector: () => elements.get(id + '-header') || null,
       scrollIntoView: options => scrolls.push({ id, block: options.block }),
       focus() { throw new Error('Hash reveal must not steal focus'); }
     };
@@ -25,16 +26,20 @@ function boot(hash = '', readyState = 'complete', search = '') {
   const nested = element('answer', 'DETAILS', details);
   const target = element('answer:예시.1', 'P', nested);
   const sibling = element('s6', 'DIV', root, ['sec']);
+  const sectionHeader = element('s5-header', 'BUTTON', section);
+  sectionHeader.setAttribute('aria-expanded', 'false');
   const link = element('back-btn', 'A', root);
   const location = new URL('https://namkicheol.github.io/englisheducation/grammar_study.html' + search + hash);
   const listen = (name, callback) => { (events[name] ||= []).push(callback); };
-  vm.runInNewContext(script, { URL, URLSearchParams,
+  const context = vm.createContext({ URL, URLSearchParams,
     window: { location, addEventListener: listen },
     document: { readyState, referrer: '', getElementById: id => elements.get(id) || null,
       addEventListener: listen }
   });
+  if (pageScript) vm.runInContext(pageScript, context);
+  vm.runInContext(script, context);
   const fire = name => (events[name] || []).forEach(callback => callback());
-  return { first, section, details, nested, target, sibling, link, scrolls, events, fire,
+  return { first, section, sectionHeader, details, nested, target, sibling, link, scrolls, events, fire,
     hash(value) { location.hash = value; fire('hashchange'); }
   };
 }
@@ -47,10 +52,24 @@ for (const readyState of ['loading', 'complete']) {
     r.fire('DOMContentLoaded');
   }
   assert(r.section.classList.contains('open'));
+  assert.equal(r.sectionHeader.getAttribute('aria-expanded'), 'true');
   assert(r.details.open);
   assert.equal(r.nested.open, false, 'answers stay closed');
   assert.equal(r.sibling.classList.contains('open'), false);
   assert.deepEqual(r.scrolls, [{ id: 'feedback-depth', block: 'start' }]);
+}
+
+const slaScript = [...fs.readFileSync('sla_study.html', 'utf8').matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)]
+  .map(match => match[1]).find(source => source.includes('function syncSection'));
+assert(slaScript, 'exercise the real SLA section controls with the shared handler');
+for (const pageScript of ['', slaScript]) for (const hash of ['#s5', '#%73%35']) {
+  const r = boot(hash, 'complete', '', pageScript);
+  assert(r.section.classList.contains('open'));
+  assert.equal(r.sectionHeader.getAttribute('aria-expanded'), 'true');
+  assert.equal(r.scrolls.length, 1, 'one initial hash scroll');
+  assert.equal(r.events.hashchange.length, 1, 'one shared hash handler');
+  r.hash(hash);
+  assert.equal(r.scrolls.length, 2, 'one scroll per hashchange');
 }
 
 for (const hash of ['', '#', '#unknown', '#[', '#%E0%A4%A']) {
