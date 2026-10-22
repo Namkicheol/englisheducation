@@ -134,6 +134,17 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
  .etwiki-learning .mobile-table-exams{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:8px 0}
 }
 </style>
+
+<style id="grammar-comparison-style">
+.grammar-comparison-wrap{max-width:100%;overflow-x:auto;margin:16px 0;-webkit-overflow-scrolling:touch}
+.grammar-comparison-wrap:focus-visible{outline:2px solid #00796b;outline-offset:3px}
+.etwiki-learning table.grammar-comparison{width:100%;min-width:560px;table-layout:fixed}
+.grammar-comparison caption{text-align:left;font-weight:700;color:#1b5e3a;padding:0 0 8px;font-size:15px}
+.etwiki-learning .grammar-comparison th,.etwiki-learning .grammar-comparison td{font-size:15px;line-height:1.75;white-space:normal;overflow-wrap:anywhere;text-transform:none;vertical-align:top}
+.grammar-comparison th:first-child{width:24%}.grammar-comparison th:nth-child(2){width:35%}
+.grammar-comparison mark{background:#e5f3df;color:inherit;padding:0 2px}
+.grammar-comparison u{text-underline-offset:3px;text-decoration-color:#598f78}
+</style>
 </head>
 <body class="etwiki-learning">
 <header class="ew-header"><div class="ew-brand-row"><a class="ew-brand" href="https://etwiki.net/index.html">기출 WIKI</a><span class="ew-header-label">학습자료</span><a class="ew-back" href="https://etwiki.net/study.html">전체 자료 ↗</a></div><nav class="ew-subjects" aria-label="학습 영역"><a href="https://namkicheol.github.io/englisheducation/" aria-current="location">영어교육론</a><a href="https://namkicheol.github.io/linguistics/">영어학</a><a href="https://namkicheol.github.io/phonetics-phonology/phonetics.html">음성·음운론</a></nav></header>
@@ -274,7 +285,17 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       <p>• FonF는 <span class='kw2'>analytic</span> syllabus 기반 → FonFS의 <span class='kw2'>synthetic</span> syllabus와 구분</p>
     </div>
 
-    <details class="grammar-depth" id="grammar-focus-case"><summary>자세히 보기 · Focus on forms·form·meaning의 수업 목표 비교</summary><p><strong>위 도식의 ⇄:</strong> 세 칸은 수업의 주된 조직 원리를 비교합니다. 왼쪽부터 반드시 거쳐야 하는 발달 단계는 아닙니다. Forms는 선정된 언어 항목, form은 의미 활동 안에서의 형태 주목, meaning은 메시지 이해·전달을 전면에 둡니다. 예문에 맥락이 있다는 사실과 수업의 중심이 의미 전달이라는 사실은 다르므로, <u>decontextualized/contextualized라는 보조 라벨만으로 결정하지 않습니다.</u></p>
+    
+<!-- comparison-summary:grammar-focus-comparison -->
+<div class="grammar-comparison-wrap" role="region" aria-label="수업의 중심 목적과 형태 지도를 비교" tabindex="0">
+<table class="grammar-comparison" id="grammar-focus-comparison"><caption>수업의 중심 목적과 형태 지도를 비교</caption><thead><tr><th scope="col">구분</th><th scope="col">수업을 조직하는 기준</th><th scope="col">수업 예시</th></tr></thead><tbody>
+<tr><th scope="row">Focus on FormS</th><td><mark>선정한 언어 항목의 학습</mark>이 중심</td><td>이번 주 regular past tense, 다음 주 irregular past tense를 설명하고 연습한다.</td></tr>
+<tr><th scope="row">Focus on Form</th><td><mark>의미 중심 활동</mark>을 유지하며 필요한 형태에 잠시 주목</td><td>주말 이야기를 듣고 소식지에 실을 내용을 고르다가 past tense를 확인하고 이야기로 돌아간다.</td></tr>
+<tr><th scope="row">Focus on Meaning</th><td>메시지 이해·전달에 집중하며 <u>형태 주목을 유도하는 교수적 개입 없음</u></td><td>이야기의 재미와 내용을 중심으로 활동하며 교사는 문법에 주의를 돌리지 않는다.</td></tr>
+</tbody></table></div>
+<p class="note grammar-comparison-note">맥락 있는 예문인지보다 <u>주된 활동 목표</u>를 먼저 본다. Long의 초기 정의와 이후의 planned / incidental 분류는 아래 설명처럼 구별한다.</p>
+<!-- /comparison-summary:grammar-focus-comparison -->
+<details class="grammar-depth" id="grammar-focus-case"><summary>자세히 보기 · Focus on forms·form·meaning의 수업 목표 비교</summary><p><strong>위 도식의 ⇄:</strong> 세 칸은 수업의 주된 조직 원리를 비교합니다. 왼쪽부터 반드시 거쳐야 하는 발달 단계는 아닙니다. Forms는 선정된 언어 항목, form은 의미 활동 안에서의 형태 주목, meaning은 메시지 이해·전달을 전면에 둡니다. 예문에 맥락이 있다는 사실과 수업의 중심이 의미 전달이라는 사실은 다르므로, <u>decontextualized/contextualized라는 보조 라벨만으로 결정하지 않습니다.</u></p>
 <p><strong>Form과 meaning을 왜 함께 보는가?</strong> 문법 형태는 의미와 사용을 조직하는 자원이지만, 문법 규칙을 설명할 수 있다는 것만으로 실제 의사소통이 보장되지는 않는다. 반대로 내용만 통하면 된다고 두면 학습자가 특정 형태를 계속 놓칠 수 있다. 문법 교수의 여러 접근은 형태를 다루는지 여부뿐 아니라 <strong>수업의 중심 목적이 무엇이며 그 안에서 형태를 어떻게 다루는지</strong>에서 갈린다.</p><p>Focus on forms는 선정된 언어 항목들이 수업을 조직하는 중심이다. Focus on form은 의미 중심의 수행을 유지하면서 필요한 언어 요소에 주의를 돌리는 방식이다. Focus on meaning은 그러한 형태 지도가 없이 메시지 이해·전달에 주로 집중한다. 형태를 말로 설명했는지, 자료에 실제 상황이 나오는지만으로 셋을 판정할 수 없다. <u>먼저 활동의 성공 기준을 찾고, 형태에 대한 주의가 그 활동과 어떤 관계인지 본다.</u></p>
 <div class="grammar-depth-body">
 <p>다음은 과거 경험을 다루는 세 가지 수업을 비교하기 위해 만든 예시다. <strong>문법 항목을 다룬다는 사실뿐 아니라 학생이 어떤 목적으로 언어를 사용하는지</strong> 확인한다.</p>
@@ -302,6 +323,14 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 
     <div class="concept">
       <div class="c-title">Planned vs Incidental FonF</div>
+<!-- comparison-summary:grammar-plan-comparison -->
+<div class="grammar-comparison-wrap" role="region" aria-label="판단 기준 1 · 목표 형태의 사전 계획" tabindex="0">
+<table class="grammar-comparison" id="grammar-plan-comparison"><caption>판단 기준 1 · 목표 형태의 사전 계획</caption><thead><tr><th scope="col">구분</th><th scope="col">형태를 미리 정했는가?</th><th scope="col">수업 예시</th></tr></thead><tbody>
+<tr><th scope="row">Planned Focus on Form</th><td><mark>특정 형태를 사전에 선정</mark>하여 의미 중심 활동에 포함</td><td>교사가 비교급 사용을 겨냥해 두 여행지를 비교하는 과제를 준비한다.</td></tr>
+<tr><th scope="row">Incidental Focus on Form</th><td>미리 겨냥하지 않은 형태를 활동 중 다룸</td><td>일정 조율 중 교사가 예상하지 않은 날짜 표현을 학생이 질문한다.</td></tr>
+</tbody></table></div>
+<!-- /comparison-summary:grammar-plan-comparison -->
+
       <div class="grid col2">
         <div class="grid-item">
           <div class="gi-title"><span class='kw3'>Planned Focus on Form</span></div>
@@ -351,7 +380,16 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       </div>
     </div>
 
-    <details class="grammar-depth" id="grammar-timing-case"><summary>자세히 보기 · Planned와 pre-emptive의 분류 기준</summary>
+    
+<!-- comparison-summary:grammar-trigger-comparison -->
+<div class="grammar-comparison-wrap" role="region" aria-label="판단 기준 2 · 형태를 다루게 된 직접적인 계기" tabindex="0">
+<table class="grammar-comparison" id="grammar-trigger-comparison"><caption>판단 기준 2 · 형태를 다루게 된 직접적인 계기</caption><thead><tr><th scope="col">구분</th><th scope="col">문제 발화에 대한 반응인가?</th><th scope="col">활동 중 발화 예시</th></tr></thead><tbody>
+<tr><th scope="row">Reactive Focus on Form</th><td><mark>실제 문제 발화에 반응</mark>하여 형태를 다룸</td><td>S: “She catched the dog.”<br>T: “She caught the dog.”</td></tr>
+<tr><th scope="row">Pre-emptive Focus on Form</th><td><u>실제 문제 발화 없이</u> 교사나 학생이 형태를 화제로 삼음</td><td>일정 조율 중 S: “Do we say ‘on Friday’ or ‘in Friday’?”<br>T: “On Friday.”</td></tr>
+</tbody></table></div>
+<p class="note grammar-comparison-note">Planned / incidental은 <u>계획</u>, reactive / pre-emptive는 <u>해당 발화의 계기</u>를 묻는다. Pre-emptive는 반드시 수업 시작 전을 뜻하지 않는다.</p>
+<!-- /comparison-summary:grammar-trigger-comparison -->
+<details class="grammar-depth" id="grammar-timing-case"><summary>자세히 보기 · Planned와 pre-emptive의 분류 기준</summary>
 <p><strong>계획과 발생 계기는 서로 다른 질문이다.</strong> Planned/incidental은 교사가 특정 형태를 미리 겨냥했는지를 묻는다. Reactive/pre-emptive는 해당 형태를 다루게 된 직접적인 계기가 문제 발화였는지를 묻는다. 따라서 <u>수업 전에 준비한 과제에서도 학생의 실제 오류에 반응하는 feedback이 생길 수 있다.</u> <u>한 활동의 계획과 그 안의 한 발화를 같은 단위로 취급하지 않는다.</u></p><p>또한 pre-emptive의 ‘앞서’는 수업 시작 전이라는 시각이 아니라, 이 분류에서는 <u>문제 발화가 발생하기 전</u>이라는 관계다. 학생이 의미 중심 활동 도중 필요한 표현을 질문할 때도 해당할 수 있다. 시험이 A/B나 하위 범주를 별도로 정의했다면 그 정의를 우선 적용하고, 서로 다른 체계의 이름을 임의로 바꾸지 않는다.</p>
 <div class="grammar-depth-body">
 <p>각 분류가 무엇을 기준으로 하는지 확인한다. <strong>Planned / incidental</strong>은 특정 형태를 사전에 정했는지, <strong>reactive / pre-emptive</strong>는 실제 문제 발화에 반응했는지를 묻는다. 여기서는 2022학년도 전공 B 11번의 분류 기준을 따른다.</p>
@@ -397,7 +435,16 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       </div>
     </div>
 
-    <details class="grammar-depth" id="grammar-integration-case"><summary>자세히 보기 · Isolated FFI와 integrated FFI의 수업 구성</summary><p><strong>FFI의 위치를 비교:</strong> FFI는 형태 지도를 포괄하는 말입니다. 별도 단계로 두는지 의미 중심 수행 안에서 다루는지가 여기의 기준이며, 교사가 규칙을 직접 설명했는지는 다른 축입니다. Spada 등의 연구는 두 조건을 모두 planned/teacher-generated로 설계했습니다. 따라서 이 논문의 배치 비교와, 2022학년도 기출의 오류 반응 여부에 따른 reactive/pre-emptive 구별을 같은 질문으로 읽지 않습니다.</p>
+    
+<!-- comparison-summary:grammar-placement-comparison -->
+<div class="grammar-comparison-wrap" role="region" aria-label="형태 지도 단계가 어디에 놓이는가?" tabindex="0">
+<table class="grammar-comparison" id="grammar-placement-comparison"><caption>형태 지도 단계가 어디에 놓이는가?</caption><thead><tr><th scope="col">구분</th><th scope="col">의사소통 활동과의 관계</th><th scope="col">수업 예시</th></tr></thead><tbody>
+<tr><th scope="row">Isolated FFI</th><td>의사소통 활동 전·후 등의 <mark>별도 단계</mark>에서 형태 지도</td><td>날짜의 전치사를 먼저 별도로 살펴본 뒤 학교 행사 일정을 조율한다.</td></tr>
+<tr><th scope="row">Integrated FFI</th><td>의사소통 활동 <mark>안에서</mark> 형태에 주의 유도</td><td>학교 행사 일정을 조율하다 필요한 날짜 표현을 확인하고 대화를 계속한다.</td></tr>
+</tbody></table></div>
+<p class="note grammar-comparison-note">별도 단계도 뒤의 과제를 준비할 수 있다. <u>Integrated = implicit</u>은 아니며, 배치와 설명의 명시성은 따로 판단한다.</p>
+<!-- /comparison-summary:grammar-placement-comparison -->
+<details class="grammar-depth" id="grammar-integration-case"><summary>자세히 보기 · Isolated FFI와 integrated FFI의 수업 구성</summary><p><strong>FFI의 위치를 비교:</strong> FFI는 형태 지도를 포괄하는 말입니다. 별도 단계로 두는지 의미 중심 수행 안에서 다루는지가 여기의 기준이며, 교사가 규칙을 직접 설명했는지는 다른 축입니다. Spada 등의 연구는 두 조건을 모두 planned/teacher-generated로 설계했습니다. 따라서 이 논문의 배치 비교와, 2022학년도 기출의 오류 반응 여부에 따른 reactive/pre-emptive 구별을 같은 질문으로 읽지 않습니다.</p>
 <p><strong>FFI의 배치가 중요한 이유.</strong> Isolated FFI는 형태를 살피는 별도 단계를 두어 그 특징에 집중할 기회를 제공한다. Integrated FFI는 의미를 이해하거나 전달하는 활동 안에서 형태를 다루므로 그 표현이 필요한 맥락과 연결하기 쉽다. 이 구별은 어느 쪽이 무조건 우수한지 정하는 서열이 아니라 수업에서 형태 지도의 위치를 설명한다.</p><p><u>별도 단계에서 배운 형태를 뒤의 의사소통 과제에 활용할 수 있으므로</u> isolated가 반드시 맥락 없는 암기를 뜻하지 않는다. 반대로 <u>활동 안에서 필요한 규칙을 직접 설명할 수 있으므로 integrated가 반드시 implicit을 뜻하지 않는다.</u> <strong>배치, 설명의 명시성, 목표 형태의 사전 계획을 각기 따로 판단한다.</strong></p>
 <div class="grammar-depth-body">
 <p><strong>Isolated / integrated는 언어 형태를 지도하는 단계를 의사소통 활동과 별도로 두는지, 활동 안에 포함하는지</strong> 살피는 기준이다. 여기서 isolated를 ‘문맥도 목적도 전혀 없음’으로 바꾸어 외우지 않는다.</p>
@@ -512,7 +559,24 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       </div>
     </div>
 
-    <details class="grammar-depth" id="grammar-explicit-case"><summary>자세히 보기 · Inductive·explicit 수업의 분류 기준</summary>
+    
+<!-- comparison-summary:grammar-explicit-comparison -->
+<div class="grammar-comparison-wrap" role="region" aria-label="판단 기준 1 · 의식적인 규칙 이해를 요구하는가?" tabindex="0">
+<table class="grammar-comparison" id="grammar-explicit-comparison"><caption>판단 기준 1 · 의식적인 규칙 이해를 요구하는가?</caption><thead><tr><th scope="col">구분</th><th scope="col">교수 방식</th><th scope="col">수업 예시</th></tr></thead><tbody>
+<tr><th scope="row">Explicit instruction</th><td>규칙을 설명하거나 <mark>의식적으로 규칙을 찾도록</mark> 요구</td><td>현재·과거 문장을 비교하고 공통 규칙을 자신의 말로 쓰게 한다.</td></tr>
+<tr><th scope="row">Implicit instruction</th><td>규칙 설명·규칙 찾기 지시 없이 목표 형태를 접하고 처리하게 함</td><td>목표 형태가 반복되는 일기를 읽고 누가 어디에 갔는지 고르게 한다.</td></tr>
+</tbody></table></div>
+<!-- /comparison-summary:grammar-explicit-comparison -->
+
+<!-- comparison-summary:grammar-procedure-comparison -->
+<div class="grammar-comparison-wrap" role="region" aria-label="판단 기준 2 · 규칙과 예시 중 무엇이 먼저인가?" tabindex="0">
+<table class="grammar-comparison" id="grammar-procedure-comparison"><caption>판단 기준 2 · 규칙과 예시 중 무엇이 먼저인가?</caption><thead><tr><th scope="col">구분</th><th scope="col">진행 방향</th><th scope="col">수업 예시</th></tr></thead><tbody>
+<tr><th scope="row">Deductive approach</th><td><mark>규칙 → 예시</mark></td><td>교사가 regular past tense의 기본 형태를 설명한 뒤 학생이 예문에 적용한다.</td></tr>
+<tr><th scope="row">Inductive approach</th><td><mark>예시 → 규칙</mark></td><td>학생들이 현재·과거 문장을 비교해 공통 규칙을 도출한다.</td></tr>
+</tbody></table></div>
+<p class="note grammar-comparison-note">규칙을 직접 찾고 설명하게 하는 수업은 <u>inductive이면서 explicit</u>일 수 있다. 교수 방식만으로 실제 학습 결과까지 확정하지 않는다.</p>
+<!-- /comparison-summary:grammar-procedure-comparison -->
+<details class="grammar-depth" id="grammar-explicit-case"><summary>자세히 보기 · Inductive·explicit 수업의 분류 기준</summary>
 <p><strong>절차와 의식적 분석을 분리해야 하는 이유.</strong> Deductive/inductive는 규칙을 먼저 받아 사례에 적용하는지, 사례를 검토하여 일반화를 찾는지라는 진행 방향이다. Explicit/implicit instruction은 의식적으로 규칙을 이해하도록 하는지와 관련된다. 학생이 직접 규칙을 찾는다고 해도 <u>규칙을 찾아 설명하라는 요구</u>가 있다면 의식적 분석을 요구한다.</p><p>또한 교수 설계와 학습자에게 생긴 지식은 동일하지 않다. Explicit instruction을 받은 학생도 실시간 사용에는 어려움을 겪을 수 있고, implicit한 자료 처리 중 일부 학생은 규칙을 스스로 알아차릴 수 있다. 따라서 <u>지시문으로 판단할 수 있는 수업 유형과 학습 결과를 구분한다.</u></p>
 <div class="grammar-depth-body">
 <p><strong>Explicit / implicit instruction은 교수 방식, deductive / inductive는 규칙과 예시를 다루는 절차</strong>에 관한 구분이다. 학습 결과로 어떤 지식이 생겼는지는 또 다른 문제다.</p>

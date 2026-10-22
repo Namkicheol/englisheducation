@@ -93,6 +93,17 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 .learning-nav a{flex:1 1 140px;background:#fff;border:1.5px solid #b2dfcc;border-radius:8px;padding:8px 10px;color:#1b5e3a;text-decoration:none;text-align:center;font-size:12px;font-weight:700;line-height:1.4;transition:background .15s,border-color .15s}
 .learning-nav a:hover{background:#f0faf5;border-color:#2e7d52}
 @media(max-width:640px){.learning-nav a{flex-basis:calc(50% - 7px)}}
+
+/* Scoped, keyboard-accessible comparison tables; overflow stays local. */
+.study-comparison{margin:0 0 22px;min-width:0}
+.study-comparison-scroll{max-width:100%;overflow-x:auto;border:1px solid #b2dfcc;border-radius:10px}
+.study-comparison-scroll:focus-visible{outline:3px solid #00796b;outline-offset:3px}
+.study-comparison table{width:100%;min-width:580px;border-collapse:collapse;font-size:15px;line-height:1.7}
+.study-comparison caption{text-align:left;padding:12px;font-weight:700;color:#1b5e3a;background:#eef7f2}
+.study-comparison th,.study-comparison td{padding:11px 12px;border-bottom:1px solid #dce8e0;text-align:left;vertical-align:top;white-space:normal;overflow-wrap:anywhere}
+.study-comparison thead th{background:#f4f8f5;color:#1b5e3a}
+.study-comparison tbody th{font-weight:700;width:24%}
+.study-comparison .comparison-note{font-size:14px;line-height:1.7;margin:8px 2px;color:#365b48}
 </style>
 <link rel="stylesheet" href="./study-return.css">
 <link rel="stylesheet" href="./learning.css">
@@ -203,6 +214,8 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
     <span class="sec-arrow">▼</span>
   </button>
   <div class="sec-body" id="s1-body">
+<section class="study-comparison" aria-label="Content와 Formal schemata"><div class="study-comparison-scroll" role="region" tabindex="0" aria-labelledby="compare-listening-schemata"><table><caption id="compare-listening-schemata">Content와 Formal schemata</caption><thead><tr><th scope="col">지식</th><th scope="col">초점</th><th scope="col">듣기에서의 예</th></tr></thead><tbody><tr><th scope="row">Content schemata</th><td>주제·세상·사회문화에 관한 지식</td><td>check-in과 room을 호텔 상황에 연결</td></tr><tr><th scope="row">Formal schemata</th><td>담화·speech event가 조직되는 방식에 관한 지식</td><td>호텔 check-in 대화가 어떤 순서로 이어질지 예상</td></tr></tbody></table></div><p class="comparison-note">두 지식은 함께 쓰일 수 있습니다. 예상과 실제 단서가 다르면 해석을 수정하며, formal schemata를 글의 형식에만 한정하지 않습니다.</p></section>
+
     <div class="concept">
       <div class="c-title">Core Principle</div>
       <div class="def">관련 <a class="kw1 concept-term" href="https://etwiki.net/concept.html?term=schematic%20knowledge">schematic knowledge</a>는 이해를 도울 수 있다. 다만 기대가 실제 입력과 다르면 해석을 수정해야 한다.</div>
@@ -354,6 +367,8 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
     <span class="sec-arrow">▼</span>
   </button>
   <div class="sec-body" id="s4-body">
+<section class="study-comparison" aria-label="Transactional과 Interactional: 대화의 중심 목적"><div class="study-comparison-scroll" role="region" tabindex="0" aria-labelledby="compare-listening-functions"><table><caption id="compare-listening-functions">Transactional과 Interactional: 대화의 중심 목적</caption><thead><tr><th scope="col">기능</th><th scope="col">판단 기준</th><th scope="col">같은 대화 속 예</th></tr></thead><tbody><tr><th scope="row">Transactional</th><td><u>정보 전달·필요한 일의 성사</u>가 중심</td><td>“회의가 4번 방으로 옮겨졌나요?” → 장소 확인</td></tr><tr><th scope="row">Interactional</th><td><u>관계 형성·유지</u>가 중심</td><td>“다시 만나 반가워요!” → 상대와 관계 이어 가기</td></tr></tbody></table></div><p class="comparison-note">한 대화에 두 기능이 함께 나타날 수 있습니다. 참여자 수나 의문문 형식만으로 구별하지 않으며, confirmation check도 한 기능에만 한정되지 않습니다.</p></section>
+
     <div class="grid col2">
       <div class="grid-item">
         <div class="gi-title"><a class="kw1 concept-term" href="https://etwiki.net/concept.html?term=Transactional%20talk">Transactional function</a> <a class="exam-year" href="https://etwiki.net/index.html?id=education_2015_A04" aria-label="2015학년도 전공 A 4번 원문과 해설">15</a></div>
@@ -551,6 +566,8 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
     <span class="sec-arrow">▼</span>
   </button>
   <div class="sec-body" id="s8-body">
+<section class="study-comparison" aria-label="Product와 Process: 무엇을 살피는가?"><div class="study-comparison-scroll" role="region" tabindex="0" aria-labelledby="compare-listening-orientation"><table><caption id="compare-listening-orientation">Product와 Process: 무엇을 살피는가?</caption><thead><tr><th scope="col">관점</th><th scope="col">수업의 초점</th><th scope="col">장소 변경 안내를 들은 뒤</th></tr></thead><tbody><tr><th scope="row">Product-oriented</th><td><u>무엇을 이해했는가</u> · 이해 결과</td><td>새 장소를 정확하게 적었는지 확인</td></tr><tr><th scope="row">Process-oriented</th><td><u>어떻게 이해했는가</u> · 단서·오해·전략</td><td>놓친 소리나 잘못된 예상을 찾고 다음 듣기 전략을 점검</td></tr></tbody></table></div><p class="comparison-note">요약·보고·발표라는 활동 이름만으로 구별하지 않습니다. 같은 활동에서도 결과를 확인하고 이해 과정을 돌아볼 수 있습니다.</p></section>
+
 
     <div class="stage-wrap" tabindex="0" role="region" aria-label="좌우로 읽는 도식과 비교표"><svg viewBox="0 0 700 80" style="width:100%;margin-bottom:14px;font-family:'JetBrains Mono',monospace" xmlns="http://www.w3.org/2000/svg">
       <rect x="4" y="10" width="210" height="60" rx="8" fill="rgba(124,106,247,.1)" stroke="rgba(124,106,247,.45)" stroke-width="1.5"/>

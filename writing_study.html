@@ -74,6 +74,17 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 .teaching-case summary{cursor:pointer;padding:12px 14px;color:#00695c;font-weight:700;font-size:14px;line-height:1.6}
 .teaching-case .case-body{padding:0 14px 14px;font-size:13px;line-height:1.85}
 .teaching-case p{margin:9px 0}.teaching-case ul{padding-left:20px}.teaching-case li{margin:6px 0}
+
+/* Scoped, keyboard-accessible comparison tables; overflow stays local. */
+.study-comparison{margin:0 0 22px;min-width:0}
+.study-comparison-scroll{max-width:100%;overflow-x:auto;border:1px solid #b2dfcc;border-radius:10px}
+.study-comparison-scroll:focus-visible{outline:3px solid #00796b;outline-offset:3px}
+.study-comparison table{width:100%;min-width:580px;border-collapse:collapse;font-size:15px;line-height:1.7}
+.study-comparison caption{text-align:left;padding:12px;font-weight:700;color:#1b5e3a;background:#eef7f2}
+.study-comparison th,.study-comparison td{padding:11px 12px;border-bottom:1px solid #dce8e0;text-align:left;vertical-align:top;white-space:normal;overflow-wrap:anywhere}
+.study-comparison thead th{background:#f4f8f5;color:#1b5e3a}
+.study-comparison tbody th{font-weight:700;width:24%}
+.study-comparison .comparison-note{font-size:14px;line-height:1.7;margin:8px 2px;color:#365b48}
 </style>
 <link rel="stylesheet" href="./study-return.css">
 <link rel="stylesheet" href="./learning.css">
@@ -293,6 +304,8 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
     <span class="sec-arrow">▼</span>
   </button>
   <div class="sec-body" id="pre-writing">
+<section class="study-comparison" aria-label="Pre-writing: 절차와 산출물 비교"><div class="study-comparison-scroll" role="region" tabindex="0" aria-labelledby="compare-prewriting"><table><caption id="compare-prewriting">Pre-writing: 절차와 산출물 비교</caption><thead><tr><th scope="col">활동</th><th scope="col">핵심 절차 / 산출물</th><th scope="col">점심시간 개선 글의 준비 예</th></tr></thead><tbody><tr><th scope="row">Brainstorming</th><td>즉시 판단하지 않고 아이디어를 많이 모음 · 목록</td><td>긴 줄, 소음, 좌석 부족을 나열</td></tr><tr><th scope="row">Clustering</th><td>key word에서 연상한 항목을 연결 · network</td><td>lunch에서 queue–waiting time을 연결</td></tr><tr><th scope="row">Mind map</th><td>중심 주제에서 아이디어를 발전·확장 · 관계 그림</td><td>점심시간에서 대기·좌석 문제를 가지로 확장</td></tr><tr><th scope="row">Freewriting</th><td>형식 교정을 잠시 유보하고 <u>멈추지 않고 씀</u> · 연속된 글</td><td>3분간 불편했던 경험을 계속 씀</td></tr><tr><th scope="row">Looping</th><td>Freewriting 뒤 <u>핵심 문장을 선택해 다시 씀</u> · 초점이 좁아진 글</td><td>대기 시간에 관한 문장을 골라 해결 방안을 다시 씀</td></tr><tr><th scope="row">Strategic questioning</th><td>who·why·what·where·when·how로 질문 · 필요한 정보</td><td>누가 언제 오래 기다리며 줄을 어떻게 나눌지 질문</td></tr></tbody></table></div><p class="comparison-note">예시는 아래 설명을 압축한 수업 예입니다. Clustering과 mind map은 겹칠 수 있고 활동들을 함께 사용할 수 있습니다. Freewriting과 looping의 결정적 차이는 핵심 선택 후 재작성입니다.</p></section>
+
 
     <div class="concept">
       <div class="c-title">Idea Generation 활동 6종 비교</div>
@@ -465,6 +478,8 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
     <span class="sec-arrow">▼</span>
   </button>
   <div class="sec-body" id="peer-feedback">
+<section class="study-comparison" aria-label="Peer response: 명칭보다 검토 대상 확인"><div class="study-comparison-scroll" role="region" tabindex="0" aria-labelledby="compare-peer-response"><table><caption id="compare-peer-response">Peer response: 명칭보다 검토 대상 확인</caption><thead><tr><th scope="col">용어</th><th scope="col">중심 범위</th><th scope="col">구별할 점</th></tr></thead><tbody><tr><th scope="row">Peer feedback</th><td>동료의 글에 대한 반응·제안</td><td>내용과 언어 형식 모두 포함 가능</td></tr><tr><th scope="row">Peer editing</th><td>내용·목적·독자·언어 형식 등의 검토</td><td>형식 오류만 찾는 활동으로 한정하지 않음</td></tr><tr><th scope="row">Peer correction</th><td>실제 오류 교정</td><td>동료가 주는 모든 반응과 동일하지 않음</td></tr></tbody></table></div><p class="comparison-note">용어의 범위는 수업·문헌에 따라 겹칩니다. Brown의 peer-editing checklist도 main idea·audience·purpose 등을 포함하므로 실제 질문과 수정 대상을 확인합니다.</p></section>
+
 
     <div class="concept">
       <div class="c-title">용어 구분</div>
@@ -580,6 +595,8 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
     <span class="sec-arrow">▼</span>
   </button>
   <div class="sec-body" id="writing-performances">
+<section class="study-comparison" aria-label="쓰기 과제: 받아쓰기와 재구성, 형식 통제와 안내"><div class="study-comparison-scroll" role="region" tabindex="0" aria-labelledby="compare-writing-control"><table><caption id="compare-writing-control">쓰기 과제: 받아쓰기와 재구성, 형식 통제와 안내</caption><thead><tr><th scope="col">활동</th><th scope="col">학습자에게 요구하는 일</th><th scope="col">학교 정원 이야기 예</th></tr></thead><tbody><tr><th scope="row">Dictation</th><td>짧은 구 뒤의 멈춤을 이용해 <u>들은 문구를 정확히 기록</u></td><td>교사가 구 단위로 읽고 멈추면 받아 적음</td></tr><tr><th scope="row">Dicto-comp</th><td>전체 내용을 들은 뒤 <u>기억한 생각을 재구성</u></td><td>이야기를 듣고 사건 순서를 원문 또는 자기 표현으로 씀</td></tr><tr><th scope="row">Controlled transformation</th><td>주어진 내용에서 특정 언어 형식을 변형</td><td>현재형 문단을 과거형으로 바꿈</td></tr><tr><th scope="row">Guided writing</th><td>그림·질문 등의 도움으로 내용·표현을 일부 선택</td><td>그림과 질문을 참고하여 이야기를 씀</td></tr></tbody></table></div><p class="comparison-note">듣기 횟수나 준비의 유무만으로 dictation과 dicto-comp를 구별하지 않습니다. 이 표는 과제 요구의 비교이지, 모든 쓰기 활동을 배타적으로 나눈 분류가 아닙니다.</p></section>
+
 
     <div class="concept">
       <div class="c-title"><span class="kw1">① Imitative Writing</span> (Dictation)</div>
@@ -665,6 +682,10 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
     <span class="sec-arrow">▼</span>
   </button>
   <div class="sec-body" id="writing-concepts">
+<section class="study-comparison" aria-label="Real과 Display writing: 쓰는 목적 비교"><div class="study-comparison-scroll" role="region" tabindex="0" aria-labelledby="compare-real-display"><table><caption id="compare-real-display">Real과 Display writing: 쓰는 목적 비교</caption><thead><tr><th scope="col">목적</th><th scope="col">판단 기준</th><th scope="col">같은 동아리 안내문</th></tr></thead><tbody><tr><th scope="row">Real writing</th><td>독자에게 <u>실제로 필요한 메시지</u> 전달</td><td>신입생에게 배포하여 가입·신청을 도움</td></tr><tr><th scope="row">Display writing</th><td>필자의 <u>지식·쓰기 능력</u>을 보여 줌</td><td>교사가 언어 능력을 평가하는 자료로 사용</td></tr></tbody></table></div><p class="comparison-note">같은 글에 두 목적이 함께 있을 수 있습니다. 교사가 읽거나 평가한다는 이유만으로 real writing의 기능이 사라지지는 않습니다.</p></section>
+
+<section class="study-comparison" aria-label="Cohesion과 Coherence: 연결 장치와 의미 관계"><div class="study-comparison-scroll" role="region" tabindex="0" aria-labelledby="compare-cohesion-coherence"><table><caption id="compare-cohesion-coherence">Cohesion과 Coherence: 연결 장치와 의미 관계</caption><thead><tr><th scope="col">개념</th><th scope="col">확인할 것</th><th scope="col">판단 예</th></tr></thead><tbody><tr><th scope="row">Cohesion</th><td>reference·conjunction·lexical links 등 <u>언어적 연결</u></td><td>us의 지시 대상이나 therefore가 표시하는 관계를 확인</td></tr><tr><th scope="row">Coherence</th><td>독자가 이해할 수 있는 <u>전체 의미와 목적의 연결</u></td><td>모임 안내에 일정·장소 정보가 관련되는지 확인</td></tr></tbody></table></div><p class="comparison-note">무관한 문장 사이에 therefore를 넣어도 의미 관계가 생기지는 않습니다. 연결 장치의 개수만으로 coherence를 판단하지 않습니다.</p></section>
+
 
     <div class="concept">
       <div class="c-title">🔑 Real Writing vs Display Writing (★활동 비교)</div>

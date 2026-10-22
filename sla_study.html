@@ -212,6 +212,16 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 @media(max-width:360px){.sec-header{display:grid;grid-template-columns:auto minmax(0,1fr) auto;column-gap:8px;row-gap:5px}.sec-icon{grid-column:1;grid-row:1}.sec-title{grid-column:2;grid-row:1;min-width:0;overflow-wrap:anywhere}.sec-arrow{grid-column:3;grid-row:1;margin-left:0}.sec-tag{grid-column:2 / 4;grid-row:2;margin-left:0;justify-self:start;max-width:100%}}
 .decision-cue .kw2{border-bottom:0}
 .decision-cue .concept-term-link{text-decoration:none}
+
+/* Local comparison tables: preserve page typography and existing tables. */
+.comparison-scroll{max-width:100%;min-width:0;overflow-x:auto;margin:14px 0;overscroll-behavior-x:contain}
+.comparison-scroll:focus-visible{outline:3px solid #b45309;outline-offset:3px}
+.comparison-table{width:100%;min-width:600px;border-collapse:collapse;font-size:16px;line-height:1.7}
+.comparison-table caption{text-align:left;color:#1b5e3a;font-weight:700;padding:0 0 8px}
+.comparison-table th,.comparison-table td{padding:11px 13px;border:1px solid #b2dfcc;vertical-align:top;overflow-wrap:anywhere}
+.comparison-table thead th{background:#edf6f0;font:inherit;font-weight:700;text-transform:none;letter-spacing:0}
+.comparison-table tbody th{background:#f7fbf8;font:inherit;font-weight:700;text-transform:none;letter-spacing:0;width:25%}
+.comparison-table td{color:#24372b;background:#fff}
 </style>
 <style>
 /* Keep compact overview terms intact; normal prose still wraps. */
@@ -334,6 +344,8 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       <div><b>Rote learning · 기계적 암기</b><span>새 항목이 <u class="decision-cue">기존 지식과 거의 연결되지 않은 채 저장</u>됩니다. 반복 횟수나 정답 재생만으로 의미 있는 학습이라고 판단하지 않습니다.</span></div>
       <div><b>Meaningful learning · 유의미 학습</b><span>새 내용이 <u class="decision-cue">이미 아는 개념이나 구조에 연결</u>됩니다. 연결 고리가 회상과 새로운 맥락의 적용을 돕습니다.</span></div>
     </div>
+
+<div class="comparison-scroll" role="region" aria-label="Rote / Meaningful learning · 기존 지식과의 연결" tabindex="0"><table class="comparison-table" id="sla-learning-comparison"><caption>Rote / Meaningful learning · 기존 지식과의 연결</caption><thead><tr><th scope="col">구분</th><th scope="col">판단 기준</th><th scope="col">학습용 예</th></tr></thead><tbody><tr><th scope="row">Rote learning</th><td>새 내용을 관련 기존 지식과 거의 연결하지 않고 별개 항목으로 저장합니다.</td><td>went라는 형태를 외워 재생하지만 이미 아는 go나 과거 사건과 연결하지 않습니다.</td></tr><tr><th scope="row">Meaningful learning</th><td>새 내용을 이미 아는 개념·구조에 연결하여 이해합니다.</td><td>go와 과거 시간 개념에 went를 연결하고 자신의 어제 경험을 설명합니다.</td></tr></tbody></table></div>
     <h4>두 학습을 가르는 지문 단서</h4>
     <p><b>Went</b>를 “go의 과거형”이라고 여러 번 되풀이하는 것만 보면 기계적 연습의 단서가 강합니다. 반면 이미 아는 <b>go</b>와 과거 사건을 연결하고, <b>went</b>를 자기 경험을 말하는 데 사용하면 새 지식이 기존 개념에 연결되는 단서가 보입니다. 예를 들어 “Yesterday, I went to the library.”처럼 <u class="decision-cue">새 형태를 이미 아는 시간 개념·동사와 연결해 쓰는지</u> 살핍니다.</p>
     <details class="evidence-more"><summary>근거 보기</summary><div class="evidence-body">
@@ -521,6 +533,8 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
           </div>
         </div>
       </div>
+
+<div class="comparison-scroll" role="region" aria-label="Output의 기능 · 한 장면에서 함께 나타날 수 있음" tabindex="0"><table class="comparison-table" id="sla-output-comparison"><caption>Output의 기능 · 한 장면에서 함께 나타날 수 있음</caption><thead><tr><th scope="col">기능</th><th scope="col">판단 단서</th><th scope="col">학습용 예</th></tr></thead><tbody><tr><th scope="row">Noticing / triggering</th><td>말하려는 내용과 현재 말할 수 있는 표현 사이의 부족함을 알아차립니다.</td><td>어제 산 일을 말하려다 buy의 과거형을 모르겠다고 깨닫습니다.</td></tr><tr><th scope="row">Hypothesis testing</th><td>가능하다고 생각한 형태를 써 보고 상대의 반응을 통해 점검합니다.</td><td>과거형일 것이라 생각한 buyed를 시험해 말하고 피드백을 확인합니다.</td></tr><tr><th scope="row">Metalinguistic reflection</th><td>자신이나 타인의 표현을 대상으로 형태·규칙을 비교하고 설명합니다.</td><td>동료와 buyed와 bought를 비교하며 왜 bought를 쓰는지 이야기합니다.</td></tr></tbody></table></div>
       <p class="note" style="margin-top:10px"><a class='kw3 concept-term-link' href="https://etwiki.net/concept.html?term=pushed%20output">Pushed output</a> prompts the learner to express a meaning more precisely or appropriately than an easy, incomplete form allows. More words or a longer sentence alone do not establish pushed output.</p>
       <div class="exam-year-row" aria-label="관련 기출 연도"><span class="exam-years-label">기출 연도</span><a class="exam-year" href="https://etwiki.net/index.html?id=education_2007_S08" aria-label="2007학년도 서울·인천 8번 기출 원문 열기" title="2007학년도 서울·인천 8번 원문 열기">07</a> <a class="exam-year" href="https://etwiki.net/index.html?id=education_2011_X20" aria-label="2011학년도 1차 20번 기출 원문 열기" title="2011학년도 1차 20번 원문 열기">11</a></div>
       <details class="frequent-topic" id="frequent-2011-x20">
@@ -633,6 +647,8 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
       <div class="c-title">Schmidt's Noticing Hypothesis <a class="exam-year" href="https://etwiki.net/index.html?id=education_2024_A02" aria-label="2024학년도 전공 A 2번 원문과 해설" title="2024학년도 전공 A 2번">24</a></div>
       <div class="def"><a class='kw4 concept-term-link' href="https://etwiki.net/concept.html?term=Noticing%20Hypothesis">Noticing Hypothesis</a> argues that <mark class="key-highlight"><u class="decision-cue">consciously registering a language feature</u></mark> is important for it to become available for learning. <span class='kw2'>Noticing</span> is the learner's attention to a feature; it is not the same as the input feature's salience.</div>
       <p class="note"><a class='kw3 concept-term-link' href="https://etwiki.net/concept.html?term=noticing%20the%20gap">Noticing the gap</a> is comparing one's current interlanguage with a target-language form encountered in input. This input-based comparison is distinct from Swain's output function, where a learner notices a gap between the intended message and the language they can currently produce.</p>
+
+<div class="comparison-scroll" role="region" aria-label="Noticing · 무엇을 알아차리거나 비교하는가" tabindex="0"><table class="comparison-table" id="sla-noticing-comparison"><caption>Noticing · 무엇을 알아차리거나 비교하는가</caption><thead><tr><th scope="col">개념</th><th scope="col">주의·비교의 대상</th><th scope="col">학습용 예</th></tr></thead><tbody><tr><th scope="row">Noticing</th><td>입력 속 언어 특징 자체에 주의를 기울입니다.</td><td>들은 문장에서 동사 끝의 -s를 의식적으로 알아차립니다.</td></tr><tr><th scope="row">Noticing the gap</th><td>자신의 interlanguage와 입력에서 만난 목표어 형태의 차이를 비교합니다.</td><td>자신은 “She walk”라고 했는데 입력에는 “She walks”가 있음을 비교합니다.</td></tr><tr><th scope="row">Output의 noticing / triggering</th><td>표현하려는 의미와 현재 산출할 수 있는 언어 사이의 부족함을 알아차립니다.</td><td>과거 일을 말하려다 필요한 동사의 과거형을 모르겠다고 깨닫습니다.</td></tr></tbody></table></div>
       <p class="note">A <span class='kw2'>recast</span>, highlighted form, or <span class='kw2'>dictogloss</span> can create a chance to notice. The teacher's action does not prove that the learner noticed it.</p>
       <div class="exam-year-row" aria-label="관련 기출 연도"><span class="exam-years-label">기출 연도</span><a class="exam-year" href="https://etwiki.net/index.html?id=education_2024_A02" aria-label="2024학년도 전공 A 2번 기출 원문 열기" title="2024학년도 전공 A 2번 원문 열기">24</a></div>
       <details class="frequent-topic" id="frequent-2024-a02">
@@ -988,6 +1004,8 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
     <div class="div"></div>
     <div class="concept">
       <div class="c-title">Regulation <span class="badge-ex">기출 포인트</span></div>
+
+<div class="comparison-scroll" role="region" aria-label="Regulation · 해당 과제에서 수행을 조절하는 근거" tabindex="0"><table class="comparison-table" id="sla-regulation-comparison"><caption>Regulation · 해당 과제에서 수행을 조절하는 근거</caption><thead><tr><th scope="col">구분</th><th scope="col">판단 기준</th><th scope="col">학습용 예</th></tr></thead><tbody><tr><th scope="row">Object-regulation</th><td>외부 사물·자료에 의존해 행동을 조직합니다. 도구가 있다는 사실만으로 판정하지 않습니다.</td><td>매 문장마다 눈앞의 모델 카드를 따라가야 발화를 이어 갑니다.</td></tr><tr><th scope="row">Other-regulation</th><td>타인의 안내·질문·피드백으로 수행을 조절합니다.</td><td>교사가 단계별로 질문해 주면 아직 혼자 완성하지 못하던 설명을 이어 갑니다.</td></tr><tr><th scope="row">Self-regulation</th><td>학습자가 스스로 계획·점검하며 해당 수행을 조절합니다.</td><td>교사의 단계별 안내 없이 설명을 구성하고 스스로 오류를 점검합니다.</td></tr></tbody></table></div>
       <div class="stage-wrap"><svg role="img" aria-label="Ways regulation can shift with support" viewBox="0 0 700 100" style="width:100%;margin-top:12px;font-family:'JetBrains Mono',monospace" xmlns="http://www.w3.org/2000/svg">
         <rect x="4" y="10" width="208" height="80" rx="8" fill="rgba(46,125,82,.1)" stroke="rgba(46,125,82,.4)" stroke-width="1.5"/>
         <text x="108" y="38" text-anchor="middle" fill="#1b5e3a" font-size="12" font-weight="bold">Object-regulation</text>
