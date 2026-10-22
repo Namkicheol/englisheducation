@@ -102,6 +102,14 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 .etwiki-learning .sec-header{width:100%;font:inherit;text-align:left;color:inherit;border:0;border-bottom:1.5px solid #b2dfcc;border-radius:0;flex-wrap:wrap}.etwiki-learning .sec-title{flex:1 1 210px;overflow-wrap:anywhere}.etwiki-learning .sec-tag{white-space:normal}.etwiki-learning .c-title{flex-wrap:wrap}.etwiki-learning .exam-point{margin:12px 0;line-height:1.85;color:#2a5040}.etwiki-learning .exam-source{font-size:14px}
 .etwiki-learning .stage-wrap table{min-width:560px}.etwiki-learning th,.etwiki-learning td{font-size:14px;line-height:1.75}.etwiki-learning button:focus-visible,.etwiki-learning a:focus-visible,.etwiki-learning summary:focus-visible,.etwiki-learning [tabindex]:focus-visible{outline:3px solid #00796b;outline-offset:3px}
 @media(max-width:640px){.etwiki-learning .sec-body{padding:14px}.etwiki-learning .vocabulary-detail{padding:12px}.etwiki-learning .sec-header{padding:14px}.etwiki-learning .sec-tag{margin-left:30px}.etwiki-learning .kw1,.etwiki-learning .kw2,.etwiki-learning .kw3,.etwiki-learning .kw4{white-space:normal;overflow-wrap:anywhere}.etwiki-learning .stage-wrap,.etwiki-learning .diagram-wrap{border:1px solid #c8ead8;border-radius:6px}}
+
+/* Keep the comparison readable; horizontal scrolling stays inside this table. */
+.etwiki-learning #s2 .learning-contrast{max-width:100%;overflow-x:auto;margin:14px 0}
+.etwiki-learning #s2 .learning-contrast table{min-width:600px;table-layout:fixed}
+.etwiki-learning #s2 .learning-contrast caption{text-align:left;font-weight:700;padding:0 0 8px;color:#1b5e3a}
+.etwiki-learning #s2 .learning-contrast th:first-child{width:22%}
+.etwiki-learning #s2 .learning-contrast th:nth-child(2){width:30%}
+.etwiki-learning #s2 .learning-contrast th{font-family:inherit;text-transform:none;letter-spacing:normal}
 </style></head>
 <body class="etwiki-learning">
 <header class="ew-header"><div class="ew-brand-row"><a class="ew-brand" href="https://etwiki.net/index.html">기출 WIKI</a><span class="ew-header-label">학습자료</span><a class="ew-back" href="https://etwiki.net/study.html">전체 자료 ↗</a></div><nav aria-label="학습 영역" class="ew-subjects"><a aria-current="location" href="https://namkicheol.github.io/englisheducation/">영어교육론</a><a href="https://namkicheol.github.io/linguistics/">영어학</a><a href="https://namkicheol.github.io/phonetics-phonology/phonetics.html">음성·음운론</a></nav></header>
@@ -154,7 +162,19 @@ tr:nth-child(even) td{background:rgba(46,125,82,.04)}
 </div>
 <div class="sec" id="s2">
 <button aria-controls="s2-body" aria-expanded="false" class="sec-header" onclick="toggle('s2')" type="button"><span class="sec-icon">🔎</span><span class="sec-title">2 Explicit vs Implicit</span><span class="sec-tag">intention · attention · planning</span><span class="sec-arrow">▼</span></button>
-<div class="sec-body" id="s2-body"><div class="concept"><div class="c-title">구분 기준부터 확인</div><div class="def"><span class="kw3">Intentional / incidental learning</span>은 <u>단어를 배우려는 의도가 있는지</u>에 초점을 둡니다. <span class="kw3">Explicit / implicit</span>은 <u>학습 과정의 awareness</u>와 관련됩니다. 이 두 구분을 자동으로 동일시하지 않습니다.</div><p class="note">Implicit와 incidental은 서로 다른 기준입니다. 읽기 중 우연히 배웠어도 단어를 의식적으로 알아차릴 수 있습니다. Extensive reading/listening은 incidental learning의 기회를 주지만, 모든 단어가 저절로 완전히 습득된다는 보장은 없습니다.</p></div>
+<div class="sec-body" id="s2-body"><div class="concept"><div class="c-title">구분 기준부터 확인</div><div class="def"><span class="kw3">Intentional / incidental learning</span>은 <u>단어를 배우려는 의도가 있는지</u>에 초점을 둡니다. <span class="kw3">Explicit / implicit</span>은 <u>학습 과정의 awareness</u>와 관련됩니다. 이 두 구분을 자동으로 동일시하지 않습니다.</div><div class="stage-wrap learning-contrast" role="region" tabindex="0" aria-label="좌우로 읽는 학습 의도·awareness·수업 계획 비교표">
+<table>
+<caption>비슷해 보여도 서로 다른 세 가지 구분</caption>
+<thead><tr><th scope="col">구분 기준</th><th scope="col">비교할 개념</th><th scope="col">판단 질문과 단서</th></tr></thead>
+<tbody>
+<tr><th scope="row">학습 의도<br/>intention</th><td><strong>Intentional learning</strong><br/>↔ Incidental learning</td><td><u>단어를 기억하려는 목적</u>이 있었는가?<br/>일부러 외우는 활동과, 이야기 이해 등 다른 활동 중 단어를 배우는 경우를 구별합니다.</td></tr>
+<tr><th scope="row">학습 과정<br/>awareness</th><td><strong>Explicit learning</strong><br/>↔ Implicit learning</td><td><u>학습할 때 의식적으로 파악</u>하는가?<br/>Explicit은 학습 시점의 awareness를 수반하고, implicit은 그러한 awareness 없이 이루어집니다. Incidental이어도 단어를 의식적으로 살펴볼 수 있습니다.</td></tr>
+<tr><th scope="row">수업 계획<br/>planning</th><td><strong>Planned teaching</strong><br/>↔ Unplanned teaching</td><td><u>교사가 미리 준비한 설명</u>인가?<br/>수업 중 질문을 받고 즉석에서 뜻과 예를 설명했다면 unplanned여도 explicit instruction일 수 있습니다.</td></tr>
+</tbody>
+</table>
+</div>
+<p class="note">표의 앞 두 행은 <strong>learning</strong>, 마지막 행은 수업 계획을 비교합니다. <u>Instruction은 교수 행동, knowledge는 학습자가 가진 지식</u>에 관한 구분이므로, 교사의 설명만으로 학습 과정이나 학습 결과까지 단정하지 않습니다.</p>
+<p class="note">Implicit와 incidental은 서로 다른 기준입니다. 읽기 중 우연히 배웠어도 단어를 의식적으로 알아차릴 수 있습니다. Extensive reading/listening은 incidental learning의 기회를 주지만, 모든 단어가 저절로 완전히 습득된다는 보장은 없습니다.</p></div>
 <details class="concept vocabulary-detail" id="vocabulary-detail-2-1"><summary class="c-title">계획에 없던 어휘 설명과 explicit instruction</summary><p class="exam-point"><a aria-label="2018학년도 전공 A 1번 원문과 해설" class="exam-year" href="https://etwiki.net/index.html?id=education_2018_A01">18</a> 소설을 읽으며 외우려 하지 않았던 표현을 배우는 사례는 incidental learning을 판단할 근거입니다. 의도 부재를 주의 부재로 바꾸어 읽지 않습니다.</p><p class="note"><strong>학습 의도, 의식적 주목, 수업 계획은 서로 다른 질문입니다.</strong> Intentional/incidental은 단어를 기억하려는 학습 목적이 있었는지를 봅니다. Explicit/implicit을 논할 때는 학습 과정의 awareness를 봅니다. Planned/unplanned는 교사가 그 설명을 수업 전에 준비했는지를 봅니다. 그러므로 “계획하지 않았다”는 단서 하나로 세 질문에 모두 답할 수는 없습니다.</p><p class="note">읽기의 주목적이 이야기 이해라면 incidental learning의 기회가 됩니다. 그 과정에서 낯선 단어를 의식적으로 살펴볼 수 있으므로 incidental을 언제나 무의식적 학습이라고 정의하면 지나치게 좁아집니다. 학생이 이후 그 단어를 외우기로 하고 카드를 만들어 연습하면 그 후속 활동에는 intentional 목적이 생깁니다. <u>활동의 어느 시점을 묻는지도 확인하세요.</u></p><details class="source-note" data-study-details="off"><summary>원서·논문 서지와 적용 범위</summary><p>관련 원서: Hulstijn (2003), §3.4, p.360; Brown (2007), Ch.22, p.437.</p></details><div class="note"><p>이야기를 읽다가 학생이 모르는 단어를 질문하여 교사가 뜻과 예를 짧게 설명했다면 <b>unplanned vocabulary teaching</b>에 해당합니다. 이때 단어에 직접 주목하도록 지도하므로 explicit instruction일 수도 있습니다. 미리 계획하지 않았다는 것과 단어를 의식하지 않고 배운다는 것은 다른 의미입니다.</p><p>교사는 문맥에 필요한 뜻을 간단히 확인한 뒤 읽기로 돌아갈 수 있습니다. 질문 하나 때문에 관련 없는 단어 목록을 길게 가르치면 원래 활동의 목적이 흐려집니다.</p></div><p><strong>Learning과 instruction을 나누기:</strong> 교사가 직접 뜻을 설명했다는 것은 교수 행동의 관찰입니다. 학습자가 그 단어를 외우려 했는지, 실제로 의식했는지, 나중에 기억하는지는 각각 다른 증거가 필요합니다. 따라서 unplanned explanation을 보았다는 이유만으로 학습 결과까지 implicit이라고 정하지 않습니다.</p></details>
 <details class="concept vocabulary-detail" id="vocabulary-detail-2-2"><summary class="c-title">직접적인 어휘 학습과 읽기 활동 연결하기</summary><div class="note"><p>글을 이해하는 데 중요한 단어 몇 개를 학생이 아는지 먼저 확인하고 짧게 가르친 뒤, 수준에 맞는 글에서 다시 접하게 합니다. 이후 뜻을 가리고 떠올리거나 새 문장에 사용하게 합니다. word cards나 dictionary work도 사용할 수 있으며, 이를 문맥 속 이해와 실제 사용으로 연결하는 것이 중요합니다.</p><p>학생 수준에 맞는 graded readers는 같은 표현을 반복해서 접할 기회를 줍니다. 다만 읽는 중에 우연히 접하는 것만으로 모든 학생이 단어를 익힌다고 보장할 수는 없습니다. <u>글을 이해했는지와 나중에 단어를 회상할 수 있는지를 따로 확인합니다.</u></p></div></details>
 </div>
@@ -213,3 +233,4 @@ new MutationObserver(syncSections).observe(document.querySelector('.wrap'),{subt
 <script src="./study-return.js"></script>
 </body>
 </html>
+
