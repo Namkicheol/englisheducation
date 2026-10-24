@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>영어교육론 · 사례 OX</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=JetBrains+Mono:wght@400;600&family=Caveat:wght@600&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans KR',sans-serif;background:#f5f4ee;background-image:repeating-linear-gradient(transparent,transparent 27px,#ddddd0 28px);color:#1a1a1a;min-height:100vh;padding:16px}
+.header-wrap{max-width:720px;margin:0 auto;padding:20px 8px 0}
+.header-topbar{display:flex;justify-content:space-between;align-items:center;border-top:2px solid #1a1a1a;padding-top:8px;margin-bottom:10px}
+.header-no{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;border:2px solid #1a1a1a;padding:3px 10px;border-radius:2px;letter-spacing:.5px;display:flex;align-items:center;gap:6px}
+.header-label{font-family:'JetBrains Mono',monospace;font-size:11px;color:#888;letter-spacing:1px}
+.header-title{font-size:clamp(30px,7vw,46px);font-weight:900;color:#1a1a1a;line-height:1.1;margin-bottom:5px;letter-spacing:-1px}
+.title-hl{background:#3b3f86;color:#fff;padding:1px 6px}
+.header-script{font-family:'Caveat',cursive;font-size:21px;color:#3b3f86;margin-bottom:4px;font-weight:600}
+.header-sub{font-size:13px;color:#555;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#aaa;margin-bottom:14px}
+.header-divider{border:none;border-top:2.5px solid #1a1a1a;margin-bottom:20px}
+.prog-wrap{max-width:720px;margin:0 auto 24px;padding:0 8px}
+.prog-info{display:flex;justify-content:space-between;font-size:12px;color:#4a4d6a;font-family:'JetBrains Mono',monospace;margin-bottom:6px}
+.bar{height:4px;background:#c5c8e8;border-radius:2px;overflow:hidden}
+.bar-fill{height:100%;background:linear-gradient(90deg,#3b3f86,#7c83d9);border-radius:2px;transition:width .5s ease}
+.wrap{max-width:720px;margin:0 auto}
+.card{background:#fff;border:1.5px solid #c5c8e8;border-radius:14px;padding:26px;animation:up .35s ease;box-shadow:0 2px 8px rgba(59,63,134,.08)}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.q-meta{display:flex;align-items:center;gap:7px;margin-bottom:14px;flex-wrap:wrap}
+.q-num{font-family:'JetBrains Mono',monospace;font-size:11px;color:#3b3f86;background:rgba(59,63,134,.1);padding:3px 10px;border-radius:8px;font-weight:700}
+.q-src{font-size:11px;color:#4a4d6a;font-family:'JetBrains Mono',monospace}
+.q-cat{font-size:11px;color:#1f7a8c;background:rgba(31,122,140,.1);padding:3px 10px;border-radius:8px;margin-left:auto;font-weight:600}
+.kw1{background:rgba(59,63,134,.18);color:#2a2e6e;padding:2px 7px;border-radius:4px;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em}
+.kw2{color:#1f7a8c;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:.88em;border-bottom:2px solid rgba(31,122,140,.4)}
+.q-text{font-size:clamp(15px,2.2vw,16.5px);line-height:1.9;margin-bottom:24px;color:#1a1f3a}
+.ox-btns{display:flex;gap:12px}
+.ox-btn{flex:1;padding:20px 10px;border-radius:12px;border:2px solid #c5c8e8;background:#f7f8ff;color:#1a1f3a;font-size:30px;cursor:pointer;transition:all .18s ease;display:flex;flex-direction:column;align-items:center;gap:5px}
+.lb{font-size:11px;font-family:'JetBrains Mono',monospace;color:#4a4d6a;letter-spacing:1px;font-weight:600}
+.ox-btn:hover:not(:disabled){transform:translateY(-2px)}
+.o-btn:hover:not(:disabled){border-color:#3b3f86;background:rgba(59,63,134,.08)}
+.x-btn:hover:not(:disabled){border-color:#c62828;background:rgba(198,40,40,.06)}
+.co,.cx{border-color:#3b3f86!important;background:rgba(59,63,134,.1)!important}
+.wp{border-color:#c62828!important;background:rgba(198,40,40,.08)!important}
+.ox-btn:disabled{cursor:default}
+.badge{display:none;margin-top:14px;padding:9px 16px;border-radius:8px;font-size:14px;font-weight:700;font-family:'JetBrains Mono',monospace}
+.badge.ok{display:inline-block;background:rgba(59,63,134,.1);color:#3b3f86;border:1.5px solid rgba(59,63,134,.3)}
+.badge.ng{display:inline-block;background:rgba(198,40,40,.08);color:#c62828;border:1.5px solid rgba(198,40,40,.25)}
+.exp{display:none;margin-top:18px;border-radius:12px;overflow:hidden;animation:fade .3s ease}
+.exp.show{display:block}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.exp-header{background:linear-gradient(135deg,rgba(59,63,134,.12),rgba(124,131,217,.06));border:1.5px solid rgba(59,63,134,.25);border-bottom:none;padding:11px 16px}
+.exp-header span{font-size:11px;font-family:'JetBrains Mono',monospace;color:#2a2e6e;letter-spacing:1.5px;text-transform:uppercase;font-weight:700}
+.exp-answer{background:rgba(59,63,134,.05);border:1.5px solid rgba(59,63,134,.2);border-top:none;border-bottom:none;padding:14px 16px}
+.ans-label{font-size:11px;font-family:'JetBrains Mono',monospace;color:#4a4d6a;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;font-weight:700}
+.ans-text{font-size:16px;color:#1a1f3a;line-height:1.75;font-weight:500}
+.exp-body{background:rgba(59,63,134,.03);border:1.5px solid rgba(59,63,134,.15);border-top:1px solid rgba(59,63,134,.1);padding:14px 16px}
+.sec-label{font-size:11px;font-family:'JetBrains Mono',monospace;color:#1f7a8c;text-transform:uppercase;letter-spacing:1px;margin-bottom:7px;margin-top:13px;font-weight:700}
+.sec-label:first-child{margin-top:0}
+.exp-body p{font-size:15px;color:#2a2e6e;line-height:1.8;margin-bottom:5px}
+.def-box{background:rgba(124,131,217,.08);border-left:4px solid #7c83d9;padding:10px 14px;border-radius:0 8px 8px 0;margin:8px 0}
+.def-box p{color:#1a1f3a;font-size:14.5px;font-style:italic;line-height:1.75;font-family:'JetBrains Mono',monospace}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.compare.three{grid-template-columns:1fr 1fr 1fr}
+.compare-item{background:#f7f8ff;border:1.5px solid #c5c8e8;border-radius:8px;padding:11px 14px}
+.ci-title{font-size:11px;font-family:'JetBrains Mono',monospace;color:#2a2e6e;font-weight:700;margin-bottom:5px}
+.compare-item p{font-size:14px;color:#3b3f86;line-height:1.65}
+.next-btn{display:none;width:100%;margin-top:16px;padding:14px;background:linear-gradient(135deg,#3b3f86,#7c83d9);border:none;border-radius:10px;color:white;font-family:'Noto Sans KR',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:opacity .2s,transform .2s}
+.next-btn:hover{opacity:.88;transform:translateY(-1px)}
+.next-btn.show{display:block;animation:fade .3s ease}
+.score-card{display:none;text-align:center;padding:48px 24px}
+.score-card.show{display:block;animation:up .5s ease}
+.score-circle{width:130px;height:130px;border-radius:50%;background:linear-gradient(135deg,#3b3f86,#7c83d9);display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 0 40px rgba(59,63,134,.3)}
+.s-num{font-size:42px;font-weight:700;line-height:1;color:#fff}
+.s-total{font-size:14px;opacity:.85;color:#fff}
+.score-card h2{font-size:24px;margin-bottom:7px;color:#1a1f3a}
+.score-card p{color:#4a4d6a;margin-bottom:24px;font-size:15px}
+.restart-btn{padding:13px 32px;background:#f7f8ff;border:2px solid #3b3f86;border-radius:10px;color:#3b3f86;font-family:'Noto Sans KR',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:all .2s}
+.restart-btn:hover{background:rgba(59,63,134,.1)}
+.nd{width:36px;height:36px;border-radius:6px;border:1.5px solid #c5c8e8;background:#f7f8ff;font-size:11px;font-family:'JetBrains Mono',monospace;cursor:pointer;color:#4a4d6a;transition:all .15s;display:inline-flex;align-items:center;justify-content:center;font-weight:600}
+.nd.cur{border-color:#3b3f86;background:#3b3f86;color:white}
+.nd.ok{border-color:#3b3f86;background:rgba(59,63,134,.15);color:#2a2e6e}
+.nd.ng{border-color:#c62828;background:rgba(198,40,40,.1);color:#c62828}
+.nd:hover:not(.cur){opacity:.7}
+#nav{display:flex;flex-wrap:wrap;gap:5px;max-width:720px;margin:0 auto 16px;padding:0 8px}
+.mode-bar{max-width:720px;margin:0 auto 10px;padding:0 8px;display:flex;gap:8px}
+.mode-btn{flex:1;padding:8px 14px;border-radius:8px;border:1.5px solid #c5c8e8;background:#f7f8ff;color:#4a4d6a;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;cursor:pointer;transition:all .18s;letter-spacing:.5px}
+.mode-btn.active{background:#3b3f86;border-color:#3b3f86;color:#fff}
+.quiz-hub-nav{display:flex;align-items:center;gap:6px;max-width:720px;margin:0 auto 18px;padding:0 8px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.quiz-hub-nav::-webkit-scrollbar{display:none}
+.quiz-hub-nav a{flex:0 0 auto;display:inline-flex;align-items:center;min-height:36px;padding:7px 11px;border:1px solid #c5c8e8;border-radius:999px;background:#fff;color:#2a2e6e;font-size:11.5px;font-weight:700;text-decoration:none;white-space:nowrap}
+.quiz-hub-nav a:hover{background:#f0f1ff;border-color:#7c83d9}
+@media(max-width:360px){.compare,.compare.three{grid-template-columns:1fr}}
+.quiz-tools{max-width:720px;margin:0 auto 16px;padding:0 8px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}.quiz-tools select{max-width:100%;min-width:0;flex:1 1 260px;padding:12px;border:1px solid #c5c8e8;border-radius:8px;font:inherit}.quiz-tools p{font-size:13px;line-height:1.7;color:#555}.quiz-tools .restart-btn{padding:10px 14px;font-size:13px}.unit-label{font-size:13px;line-height:1.7;color:#4a4d6a;margin-bottom:14px}.q-text,.exp-body,.ans-text{overflow-wrap:anywhere}.nd{width:40px;height:40px}.quiz-tools button:disabled{opacity:.5;cursor:default}button:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #1f7a8c;outline-offset:3px}@media(max-width:480px){.compare,.compare.three{grid-template-columns:1fr}.card{padding:18px}.header-label{display:none}}@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+/* This bank keeps the shared best-record badge in document flow. */
+#sp-badge{position:static!important;inset:auto!important;max-width:100%;width:fit-content;margin:10px 0;overflow-wrap:anywhere;pointer-events:none}
+.quiz-return{text-align:center;margin:24px auto;max-width:720px}
+.quiz-return a{display:inline-flex;align-items:center;min-height:44px;padding:10px 16px;border:1px solid #c5c8e8;border-radius:10px;background:#fff;color:#2a2e6e;font-weight:700;text-decoration:none}
+
+.scenario{font-size:17px;line-height:1.85;border-left:4px solid #6569a5;background:#f7f7fb;padding:14px 16px;margin-bottom:18px;font-weight:400}.judgment{font-size:19px;line-height:1.8}.exp summary{cursor:pointer;list-style-position:inside}.exp summary:focus-visible{outline:3px solid #1f7a8c;outline-offset:3px}.exp:not([open]){padding-bottom:0}.unit-label{font-weight:400}.q-cat{display:none}
+</style>
+<link rel="stylesheet" href="./learning.css">
+<link rel="stylesheet" href="./mint-learning.css">
+</head>
+<body class="etwiki-learning">
+<header class="ew-header"><div class="ew-brand-row"><a class="ew-brand" href="https://etwiki.net/index.html">기출 WIKI</a><span class="ew-header-label">학습자료</span><a class="ew-back" href="https://etwiki.net/study.html">전체 자료 ↗</a></div><nav class="ew-subjects" aria-label="학습 영역"><a href="https://namkicheol.github.io/englisheducation/" aria-current="page">영어교육론</a><a href="https://namkicheol.github.io/linguistics/">영어학</a><a href="https://namkicheol.github.io/phonetics-phonology/phonetics.html">음성·음운론</a></nav></header>
+<div class="header-wrap">
+  <div class="header-topbar">
+    <span class="header-no">EDUCATION · SCENARIOS</span>
+    <span class="header-label">Practice Notebook</span>
+  </div>
+  <h1 class="header-title">영어교육론 · 사례 OX</h1>
+  <div class="header-script">Read the Case, Find the Cue</div>
+  <p class="header-sub">기출에서 요구한 판별을 연습하는 자체 사례 18문항 · 원문 기출 아님</p>
+  <div id="score-badge-slot" aria-label="전체 문항 최고 기록"></div>
+  <div class="header-divider"></div>
+</div>
+<nav class="quiz-hub-nav" aria-label="영어교육론 학습"><a href="./index.html">영어교육론 허브 · 기존 OX</a><a href="https://etwiki.net/study.html">전체 학습자료</a></nav>
+<div class="prog-wrap">
+  <div class="prog-info"><span id="pt">0 / 18 응답</span><span id="ps">정답 0개</span></div>
+  <div class="bar"><div class="bar-fill" id="bf" style="width:0%"></div></div>
+</div>
+<div id="rb" style="display:none;max-width:720px;margin:0 auto 14px;padding:0 8px">
+  <div style="background:rgba(59,63,134,.08);border:1.5px solid rgba(59,63,134,.3);border-radius:12px;padding:13px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+    <span id="rb-msg" style="font-size:13px;color:#1a1f3a;font-family:'JetBrains Mono',monospace;line-height:1.5"></span>
+    <button onclick="freshStart()" style="padding:10px 22px;background:#c62828;border:none;border-radius:8px;color:#fff;font-size:14px;font-weight:700;font-family:'Noto Sans KR',sans-serif;cursor:pointer;white-space:nowrap;flex-shrink:0">처음부터</button>
+  </div>
+</div>
+<div class="mode-bar">
+  <button class="mode-btn active" id="btn-normal" onclick="setMode('normal')">📋 기본 순서</button>
+  <button class="mode-btn" id="btn-random" onclick="setMode('random')">🔀 랜덤</button>
+</div>
+<div class="quiz-tools"><label for="unit-filter">학습 범위</label><select id="unit-filter" onchange="setUnit(this.value)"><option value="0">전체 · 18문항</option><option value="1">Feedback와 learner 반응 · 6문항</option><option value="2">의미 협상과 전달 전략 · 4문항</option><option value="3">Drill 판별 · 3문항</option><option value="4">평가 절차와 채점 · 3문항</option><option value="5">문항 수정 원리 · 2문항</option></select><button class="restart-btn" onclick="restart()">현재 범위 다시 풀기</button><button class="restart-btn" id="retry-wrong" onclick="retryWrong()" disabled>오답만 다시 풀기</button><p>범위·순서를 바꾸거나 다시 풀면 현재 회차가 새로 시작됩니다. 최고 기록은 전체 18문항 회차만 저장합니다.</p></div><nav id="nav" aria-label="문항 이동"></nav>
+<div class="wrap">
+  <div id="qa"></div>
+  <div class="score-card" id="sc">
+    <div class="score-circle"><span class="s-num" id="fs">0</span><span class="s-total" id="score-total">/18</span></div>
+    <h2 id="rm"></h2><p id="rs"></p>
+    <button class="restart-btn" onclick="restart()">🔄 다시 풀기</button>
+  </div>
+</div>
+<script src="./score-popup.js"></script>
+<script src="./sounds.js"></script>
+<script>
+const UNIT_NAMES=["Feedback와 learner 반응", "의미 협상과 전달 전략", "Drill 판별", "평가 절차와 채점", "문항 수정 원리"];
+const Q=[
+  {
+    "id": "FB01",
+    "unit": 1,
+    "src": "사례 판별",
+    "cat": "Feedback와 learner 반응",
+    "text": "<div class=\"scenario\">교사는 yesterday와 동사 형태를 연결하도록 돕고 있다.<br>S: Yesterday I walk home.<br>T: Yesterday I WALK home? (walk를 강조하여 오류를 그대로 반복)<br>S: Oh, I walked home.</div><p class=\"judgment\">T의 발화는 repetition feedback이다.</p>",
+    "ans": true,
+    "correct": "<strong>결정 단서:</strong> 잘못된 walk를 고치지 않고 그대로 강조했다.",
+    "why": "<p>Teacher가 오류 부분을 반복해 learner의 수정을 유도했다. 정답 형태 walked를 먼저 제공하지 않았다.</p><p><strong>혼동 주의:</strong> Recast는 오류를 제거한 형태로 바꾸어 말한다.</p>",
+    "source": "Brown, H. D. (2014). Principles of Language Learning and Teaching (6th ed.), p.272. 이 원리에 근거해 새로 만든 연습문항이며 원문 기출이 아닙니다.",
+    "study": "./grammar_study.html#s3",
+    "exam": {
+      "url": "https://etwiki.net/index.html?id=education_2016_B08",
+      "label": "2016학년도 전공 B 8번"
+    }
+  },
+  {
+    "id": "FB02",
+    "unit": 1,
+    "src": "사례 판별",
+    "cat": "Feedback와 learner 반응",
+    "text": "<div class=\"scenario\">S: He go to school by bus.<br>T: No, “go” is incorrect here. Say “He goes to school by bus.”</div><p class=\"judgment\">T의 발화는 recast이다.</p>",
+    "ans": false,
+    "correct": "<strong>결정 단서:</strong> 오류임을 명시하고 정답도 제공했다.",
+    "why": "<p>이 발화는 explicit correction이다. 단순히 올바른 형태로 다시 말한 것뿐 아니라 incorrect라고 지적한다.</p><p><strong>혼동 주의:</strong> Recast와 explicit correction 모두 정답 형태를 줄 수 있으므로, 오류를 명시했는지를 본다.</p>",
+    "source": "Brown, H. D. (2014). Principles of Language Learning and Teaching (6th ed.), p.272. 이 원리에 근거해 새로 만든 연습문항이며 원문 기출이 아닙니다.",
+    "study": "./grammar_study.html#s3",
+    "exam": {
+      "url": "https://etwiki.net/index.html?id=education_2016_B08",
+      "label": "2016학년도 전공 B 8번"
+    }
+  },
+  {
+    "id": "FB03",
+    "unit": 1,
+    "src": "사례 판별",
+    "cat": "Feedback와 learner 반응",
+    "text": "<div class=\"scenario\">주말 이야기를 듣던 교사가 문법 설명 없이 학생의 오류만 바로잡아 대화를 이어 간다.<br>S: I buy a new bag yesterday.<br>T: You bought a new bag yesterday. What color is it?</div><p class=\"judgment\">T의 첫 문장은 recast이다.</p>",
+    "ans": true,
+    "correct": "<strong>결정 단서:</strong> buy를 bought로 바꾸되 메시지를 유지했다.",
+    "why": "<p>의미를 유지하면서 오류를 제거한 reformulation이며 오류라는 명시적 설명은 없다.</p><p><strong>혼동 주의:</strong> 오류를 그대로 되풀이하는 repetition feedback이 아니다.</p>",
+    "source": "Brown, H. D. (2014). Principles of Language Learning and Teaching (6th ed.), p.272. 이 원리에 근거해 새로 만든 연습문항이며 원문 기출이 아닙니다.",
+    "study": "./grammar_study.html#s3",
+    "exam": {
+      "url": "https://etwiki.net/index.html?id=education_2011_X20",
+      "label": "2011학년도 20번"
+    }
+  },
+  {
+    "id": "FB04",
+    "unit": 1,
+    "src": "사례 판별",
+    "cat": "Feedback와 learner 반응",
+    "text": "<div class=\"scenario\">이 corrective-feedback 분석에서 uptake는 오류에 주의를 돌리려는 feedback에 대한 learner의 즉각적인 반응이다.<br>S: She go there every day.<br>T: She goes there every day.<br>S: Yes—she go there every day.</div><p class=\"judgment\">마지막 S 발화에는 uptake가 있지만 repair는 없다.</p>",
+    "ans": true,
+    "correct": "<strong>결정 단서:</strong> 반응했지만 go 오류를 그대로 유지했다.",
+    "why": "<p>Feedback에 대한 반응은 나타났으나 target error를 수정하지 않았다. Uptake가 나타났다는 사실만으로 repair까지 인정하지 않는다.</p><p><strong>혼동 주의:</strong> Uptake는 반응 범주이고 repair는 오류가 수정된 결과이다.</p>",
+    "source": "Brown, H. D. (2014). Principles of Language Learning and Teaching (6th ed.), p.273. 이 원리에 근거해 새로 만든 연습문항이며 원문 기출이 아닙니다.",
+    "study": "./grammar_study.html#s3",
+    "exam": {
+      "url": "https://etwiki.net/index.html?id=education_2011_X20",
+      "label": "2011학년도 20번"
+    }
+  },
+  {
+    "id": "FB05",
+    "unit": 1,
+    "src": "사례 판별",
+    "cat": "Feedback와 learner 반응",
+    "text": "<div class=\"scenario\">교사가 학생의 오류 부분을 강조하여 다시 말한다.<br>S: Last night I watch TV.<br>T: Last night I WATCH TV? (watch를 강조)<br>S: I watched TV.</div><p class=\"judgment\">마지막 S 발화에는 repair가 나타난다.</p>",
+    "ans": true,
+    "correct": "<strong>결정 단서:</strong> watch를 watched로 수정했다.",
+    "why": "<p>Teacher가 정답을 제공하지 않은 뒤 learner가 자신의 오류를 수정했으므로 여기서는 self-repair가 관찰된다.</p><p><strong>혼동 주의:</strong> 이번 repair가 장기적인 acquisition을 입증하는 것은 아니다.</p>",
+    "source": "Brown, H. D. (2014). Principles of Language Learning and Teaching (6th ed.), p.273. 이 원리에 근거해 새로 만든 연습문항이며 원문 기출이 아닙니다.",
+    "study": "./grammar_study.html#s3",
+    "exam": {
+      "url": "https://etwiki.net/index.html?id=education_2016_B08",
+      "label": "2016학년도 전공 B 8번"
+    }
+  },
+  {
+    "id": "FB06",
+    "unit": 1,
+    "src": "사례 판별",
+    "cat": "Feedback와 learner 반응",
+    "text": "<div class=\"scenario\">T: What did you do on Saturday?<br>S: I clean my room.<br>T: You cleaned your room.<br>S: Yes, I clean it.</div><p class=\"judgment\">이 대화만으로 학생이 past-tense rule을 습득했다고 판단할 수 있다.</p>",
+    "ans": false,
+    "correct": "<strong>결정 단서:</strong> 학생은 feedback 뒤에도 clean을 그대로 사용했다.",
+    "why": "<p>Teacher가 올바른 input을 제공했다는 사실과 learner의 습득은 다르다. 이 대화에는 target form의 수정된 산출조차 없다.</p><p><strong>혼동 주의:</strong> Recast 제공 자체를 pushed output이나 acquisition의 증거로 삼지 않는다.</p>",
+    "source": "Brown, H. D. (2014). Principles of Language Learning and Teaching (6th ed.), p.273. 이 원리에 근거해 새로 만든 연습문항이며 원문 기출이 아닙니다.",
+    "study": "./sla_study.html#s4",
+    "exam": {
+      "url": "https://etwiki.net/index.html?id=education_2011_X20",
+      "label": "2011학년도 20번"
+    }
+  },
+  {
+    "id": "FB07",
+    "unit": 2,
+    "src": "사례 판별",
+    "cat": "의미 협상과 전달 전략",
+    "text": "<div class=\"scenario\">A: The room is vacant.<br>B: What does “vacant” mean?<br>A: Nobody is using it.<br>B: Ah, so we can use the empty room.</div><p class=\"judgment\">“What does ‘vacant’ mean?”은 이 negotiation routine의 response이다.</p>",
+    "ans": false,
+    "correct": "<strong>결정 단서:</strong> 이해 문제를 알리는 발화이다.",
+    "why": "<p>이 발화는 indicator이다. Trigger를 말한 A가 문제를 해결하려고 하는 Nobody is using it이 response이다.</p><p><strong>혼동 주의:</strong> 일상적인 의미의 응답과 모델의 성분명 response를 구별한다.</p>",
+    "source": "한국교육과정평가원. 2020학년도 중등교사 임용시험 영어 전공 B, 4번, p.3. 이 원리에 근거해 새로 만든 연습문항이며 원문 기출이 아닙니다.",
+    "study": "./sla_study.html#s8",
+    "exam": {
+      "url": "https://etwiki.net/index.html?id=education_2020_B04",
+      "label": "2020학년도 전공 B 4번"
+    }
+  },
+  {
+    "id": "FB08",
+    "unit": 2,
+    "src": "사례 판별",
+    "cat": "의미 협상과 전달 전략",
+    "text": "<div class=\"scenario\">A: The room is vacant.<br>B: What does “vacant” mean?<br>A: Nobody is using it.<br>B: Ah, so we can use the empty room.</div><p class=\"judgment\">“Nobody is using it.”은 이 negotiation routine의 response이다.</p>",
+    "ans": true,
+    "correct": "<strong>결정 단서:</strong> Trigger의 화자 A가 vacant를 풀어 설명했다.",
+    "why": "<p>A는 상대가 이해하지 못한 의미를 더 익숙한 말로 설명하여 breakdown 해소를 시도한다.</p><p><strong>혼동 주의:</strong> 상대가 이해했음을 보여 주는 다음 B의 발화는 reaction to response이다.</p>",
+    "source": "한국교육과정평가원. 2020학년도 중등교사 임용시험 영어 전공 B, 4번, p.3. 이 원리에 근거해 새로 만든 연습문항이며 원문 기출이 아닙니다.",
+    "study": "./sla_study.html#s8",
+    "exam": {
+      "url": "https://etwiki.net/index.html?id=education_2020_B04",
+      "label": "2020학년도 전공 B 4번"
+    }
+  },
+  {
+    "id": "FB09",
+    "unit": 2,
+    "src": "사례 판별",
+    "cat": "의미 협상과 전달 전략",
+    "text": "<div class=\"scenario\">A: The path is steep.<br>B: What does “steep” mean?<br>A: It rises at a sharp angle.<br>B: I still don’t understand.</div><p class=\"judgment\">마지막 B의 reaction to response는 이해 문제가 아직 해결되지 않았음을 보여 준다.</p>",
+    "ans": true,
+    "correct": "<strong>결정 단서:</strong> I still don’t understand가 해소 실패를 명시한다.",
+    "why": "<p>Reaction to response는 이해 문제가 해결되었는지를 드러낸다. 이 사례에서는 해결되지 않았다는 반응이다.</p><p><strong>혼동 주의:</strong> Response가 나왔다고 해서 breakdown이 반드시 해소된 것은 아니다.</p>",
+    "source": "한국교육과정평가원. 2020학년도 중등교사 임용시험 영어 전공 B, 4번, p.3. 이 원리에 근거해 새로 만든 연습문항이며 원문 기출이 아닙니다.",
+    "study": "./sla_study.html#s8",
+    "exam": {
+      "url": "https://etwiki.net/index.html?id=education_2020_B04",
+      "label": "2020학년도 전공 B 4번"
+    }
+  },
+  {
+    "id": "FB10",
+    "unit": 2,
+    "src": "사례 판별",
+    "cat": "의미 협상과 전달 전략",
+    "text": "<div class=\"scenario\">여기서 uptake는 상대의 noncomprehension signal 직후에 나오는 반응을 말한다.<br>S: I need a… a paper holder.<br>T: What do you mean?<br>S: A small metal thing that holds sheets of paper together.</div><p class=\"judgment\">마지막 S 발화는 circumlocution을 사용한 uptake이다.</p>",
+    "ans": true,
+    "correct": "<strong>결정 단서:</strong> noncomprehension signal 다음에 물건의 기능을 풀어 설명했다.",
+    "why": "<p>정확한 단어 대신 모양·기능을 설명하여 메시지를 전달한다. Teacher의 이해 문제 신호 직후 반응이므로 제시된 정의의 uptake이다.</p><p><strong>혼동 주의:</strong> Topic change나 message abandonment처럼 전달하려던 내용을 포기하지 않았다.</p>",
+    "source": "Brown, H. D. (2014). Principles of Language Learning and Teaching (6th ed.), p.129. Uptake의 적용 정의: 한국교육과정평가원, 2015학년도 영어 전공 A 서술형 2번, p.6. 이 원리에 근거해 새로 만든 연습문항이며 원문 기출이 아닙니다.",
+    "study": "./learner_study.html#s3",
+    "exam": {
+      "url": "https://etwiki.net/index.html?id=education_2015_A02_essay",
+      "label": "2015학년도 전공 A 서술형 2번"
+    }
+  },
+  {
+    "id": "IN01",
+    "unit": 3,
+    "src": "사례 판별",
+    "cat": "Drill 판별",
+    "text": "<div class=\"scenario\">2026학년도 전공 A 7번에서 사용한 communicative drill 분류를 적용한다.<br>짝의 실제 방과 후 계획은 아직 모른다. 학생들은 “What are you going to do after school?” / “I’m going to …”를 사용해 서로의 계획을 묻고, 함께 할 수 있는 활동을 찾는다.</div><p class=\"judgment\">이 활동은 communicative drill에 해당한다.</p>",
+    "ans": true,
+    "correct": "<strong>결정 단서:</strong> 정해진 문형으로 상대가 모르는 실제 계획을 교환한다.",
+    "why": "<p>문형은 주어졌지만 답의 내용은 각자가 선택한다. 상대의 답을 이해해야 함께 할 활동을 정할 수 있으므로 단순 형태 반복과 다르다.</p><p><strong>혼동 주의:</strong> 문형이 있다는 사실만으로 mechanical drill이 되지 않는다. 이 문항은 기출의 명칭을 따른다. Brown (2007)은 이런 활동을 form-focused communicative practice로 부른다.</p>",
+    "source": "한국교육과정평가원. 2026학년도 중등교사 임용시험 영어 전공 A, 7번, p.5, design principle 2. 이 원리에 근거해 새로 만든 연습문항이며 원문 기출이 아닙니다.",
+    "study": "./methodology_study.html#s1",
+    "exam": {
+      "url": "https://etwiki.net/index.html?id=education_2026_A07",
+      "label": "2026학년도 전공 A 07번"
+    }
+  },
+  {
+    "id": "IN02",
+    "unit": 3,
+    "src": "사례 판별",
+    "cat": "Drill 판별",
+    "text": "<div class=\"scenario\">교사와 학생 모두 벽의 시간표를 보고 있다. 교사가 “When does art start?”라고 묻자 학생이 시간표를 읽고 “It starts at ten.”이라고 답한다. 답은 시간표에 하나로 정해져 있다.</div><p class=\"judgment\">이 연습은 의미 이해 없이도 수행하는 mechanical drill이다.</p>",
+    "ans": false,
+    "correct": "<strong>결정 단서:</strong> 답하려면 시간표의 의미를 읽어야 한다.",
+    "why": "<p>현실의 시간표와 연결되고 의미를 이해해야 답할 수 있으므로 meaningful drill에 가깝다. 정답이 정해져 있다는 사실만으로 mechanical이라고 판정하지 않는다.</p><p><strong>혼동 주의:</strong> Communicative drill의 열린 개인 정보 교환과도 다르다. 두 사람이 이미 같은 시간표를 보고 있다.</p>",
+    "source": "Brown, H. D. (2007). Teaching by Principles (3rd ed.), pp.182–183. 이 원리에 근거해 새로 만든 연습문항이며 원문 기출이 아닙니다.",
+    "study": "./methodology_study.html#s1",
+    "exam": {
+      "url": "https://etwiki.net/index.html?id=education_2026_A07",
+      "label": "2026학년도 전공 A 07번"
+    }
+  },
+  {
+    "id": "IN03",
+    "unit": 3,
+    "src": "사례 판별",
+    "cat": "Drill 판별",
+    "text": "<div class=\"scenario\">실제 일정은 묻지 않는다. 교사: “I will visit the library. Replace library with museum.” 학생: “I will visit the museum.” 학생은 지시대로 단어만 바꾼다.</div><p class=\"judgment\">이 연습은 mechanical drill이다.</p>",
+    "ans": true,
+    "correct": "<strong>결정 단서:</strong> 실제 뜻이나 계획의 교환 없이 정해진 단어를 대입한다.",
+    "why": "<p>문장의 개인적 진위나 상대의 정보와 무관하게 정해진 답을 만들므로 mechanical substitution drill이다.</p><p><strong>혼동 주의:</strong> 실제 자신의 계획을 선택해 전달하는 communicative drill과 구별한다.</p>",
+    "source": "Brown, H. D. (2007). Teaching by Principles (3rd ed.), pp.182–183. 이 원리에 근거해 새로 만든 연습문항이며 원문 기출이 아닙니다.",
+    "study": "./methodology_study.html#s1",
+    "exam": {
+      "url": "https://etwiki.net/index.html?id=education_2026_A07",
+      "label": "2026학년도 전공 A 07번"
+    }
+  },
+  {
+    "id": "AS01",
+    "unit": 4,
+    "src": "사례 판별",
+    "cat": "평가 절차와 채점",
+    "text": "<div class=\"scenario\">학생은 짧은 안내 방송을 듣고 핵심 내용을 메모한 뒤, 그 정보를 바탕으로 결석한 친구에게 안내 이메일을 쓴다. 평가는 들은 정보를 정확히 전달한 글을 요구한다.</div><p class=\"judgment\">이 평가는 integrative testing의 사례이다.</p>",
+    "ans": true,
+    "correct": "<strong>결정 단서:</strong> 듣기에서 얻은 정보를 쓰기 수행에 연결해야 한다.",
+    "why": "<p>하나의 수행에서 listening과 writing을 함께 사용한다. 문법 요소 하나를 독립적으로 고르는 discrete-point 문항과 다르다.</p><p><strong>혼동 주의:</strong> 통합된 절차라는 사실만으로 채점의 reliability까지 확보되는 것은 아니다.</p>",
+    "source": "Brown, H. D. (2007). Teaching by Principles (3rd ed.), p.456. 이 원리에 근거해 새로 만든 연습문항이며 원문 기출이 아닙니다.",
+    "study": "./assessment_study.html#s6",
+    "exam": {
+      "url": "https://etwiki.net/index.html?id=education_2014_A07",
+      "label": "2014학년도 전공 A 07번"
+    }
+  },
+  {
+    "id": "AS02",
+    "unit": 4,
+    "src": "사례 판별",
+    "cat": "평가 절차와 채점",
+    "text": "<div class=\"scenario\">교사 A와 B가 동일한 학생 글 20편을 같은 rubric으로 각각 채점했다. 같은 글의 점수가 두 교사 사이에서 크게 달랐다.</div><p class=\"judgment\">직접 점검할 문제는 낮은 inter-rater reliability이다.</p>",
+    "ans": true,
+    "correct": "<strong>결정 단서:</strong> 같은 글에 대한 서로 다른 채점자의 점수를 비교한다.",
+    "why": "<p>변하는 것은 채점자이다. 동일 수행을 두 채점자가 얼마나 일관되게 평가하는지의 문제이므로 inter-rater reliability를 점검한다.</p><p><strong>혼동 주의:</strong> 한 채점자가 다시 매긴 점수의 일치도를 보는 intra-rater reliability와 다르다.</p>",
+    "source": "Brown, H. D. (2007). Teaching by Principles (3rd ed.), pp.447–448. 이 원리에 근거해 새로 만든 연습문항이며 원문 기출이 아닙니다.",
+    "study": "./assessment_study.html#s1",
+    "exam": {
+      "url": "https://etwiki.net/index.html?id=education_2014_A07",
+      "label": "2014학년도 전공 A 07번"
+    }
+  },
+  {
+    "id": "AS03",
+    "unit": 4,
+    "src": "사례 판별",
+    "cat": "평가 절차와 채점",
+    "text": "<div class=\"scenario\">교사 한 명이 익명 처리된 동일 글들을 같은 rubric으로 두 번 채점했다. 두 번째 채점에서는 첫 점수를 보지 않았고, 여러 글의 점수가 크게 달랐다.</div><p class=\"judgment\">이 자료가 직접 보여 주는 것은 낮은 inter-rater reliability이다.</p>",
+    "ans": false,
+    "correct": "<strong>결정 단서:</strong> 비교한 것은 같은 채점자의 두 차례 점수이다.",
+    "why": "<p>채점자 간 비교가 없으므로 이 자료는 intra-rater consistency의 문제를 보여 준다. 학생이 시험을 다시 본 것도 아니어서 test-retest 자료와도 다르다.</p><p><strong>혼동 주의:</strong> 동일 글을 두 교사가 채점하면 inter-rater, 한 교사가 재채점하면 intra-rater이다.</p>",
+    "source": "Brown, H. D. (2007). Teaching by Principles (3rd ed.), pp.447–448. 이 원리에 근거해 새로 만든 연습문항이며 원문 기출이 아닙니다.",
+    "study": "./assessment_study.html#s1",
+    "exam": {
+      "url": "https://etwiki.net/index.html?id=education_2014_A07",
+      "label": "2014학년도 전공 A 07번"
+    }
+  },
+  {
+    "id": "IT01",
+    "unit": 5,
+    "src": "사례 판별",
+    "cat": "문항 수정 원리",
+    "text": "<div class=\"scenario\">어휘 선택 문항의 stem 앞에는 정답 선택에 필요 없는 여행 이야기가 세 문장 있었다. 교사는 이 세 문장만 삭제했다. 정답 판단에 필요한 문장과 선택지는 그대로 남겼다.</div><p class=\"judgment\">이 수정은 stem을 간결하고 직접적으로 쓰라는 지침을 적용한 것이다.</p>",
+    "ans": true,
+    "correct": "<strong>결정 단서:</strong> 정답 판단에 불필요한 문장만 삭제했다.",
+    "why": "<p>필요한 정보는 유지하고 군더더기만 줄였다. 따라서 stem을 간결하고 직접적으로 쓰라는 원리에 대응한다.</p><p><strong>혼동 주의:</strong> 글을 줄였다는 이유만으로 목표 능력이 하나로 분리되었다고 결론 내릴 수는 없다.</p>",
+    "source": "한국교육과정평가원. 2023학년도 중등교사 임용시험 영어 전공 B, 11번, p.8, guidelines ②–③. 이 원리에 근거해 새로 만든 연습문항이며 원문 기출이 아닙니다.",
+    "study": "./assessment_study.html#s8",
+    "exam": {
+      "url": "https://etwiki.net/index.html?id=education_2023_B11",
+      "label": "2023학년도 전공 B 11번"
+    }
+  },
+  {
+    "id": "IT02",
+    "unit": 5,
+    "src": "사례 판별",
+    "cat": "문항 수정 원리",
+    "text": "<div class=\"scenario\">목표는 주어와 동사의 agreement 판별이다. 수정 전에는 선택지마다 시제와 agreement가 모두 달랐다. 수정 후에는 시제를 simple present로 통일하고, 주어에 맞는 동사형인지 여부만 다르게 했다.</div><p class=\"judgment\">이 수정의 핵심은 stem과 선택지를 더 짧게 만든 데 있다.</p>",
+    "ans": false,
+    "correct": "<strong>결정 단서:</strong> 길이보다 시제를 고정하고 agreement만 판단하게 한 것이 핵심이다.",
+    "why": "<p>두 가지 판단이 섞이던 문항에서 목표인 agreement만 판별하게 만든 수정이다. 하나의 명확한 문제를 제시하라는 원리에 대응한다.</p><p><strong>혼동 주의:</strong> 간결하게 쓰기와 한 가지 문제만 묻기는 서로 다른 수정 원리이다.</p>",
+    "source": "한국교육과정평가원. 2023학년도 중등교사 임용시험 영어 전공 B, 11번, p.8, guidelines ②–③. 이 원리에 근거해 새로 만든 연습문항이며 원문 기출이 아닙니다.",
+    "study": "./assessment_study.html#s8",
+    "exam": {
+      "url": "https://etwiki.net/index.html?id=education_2023_B11",
+      "label": "2023학년도 전공 B 11번"
+    }
+  }
+];
+const TOTAL=Q.length;
+const SAVE_KEY='ox_education_scenario_v1';
+let answers=Array(TOTAL).fill(null),cur=0,mode='normal',unit=0,order=Q.map((_,i)=>i),retry=false;
+const el=id=>document.getElementById(id);
+function scopedIds(){return Q.map((_,i)=>i).filter(i=>!unit||Q[i].unit===unit);}
+function getScore(){return order.filter(i=>answers[i]!==null&&answers[i]===Q[i].ans).length;}
+function saveProgress(){try{localStorage.setItem(SAVE_KEY,JSON.stringify({v:1,answers,cur,mode,unit,order,retry}));}catch(e){}}
+function clearProgress(){try{localStorage.removeItem(SAVE_KEY);}catch(e){}}
+function start(ids,isRetry=false){
+ order=[...ids]; if(!order.length)return;
+ if(mode==='random'){for(let i=order.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[order[i],order[j]]=[order[j],order[i]];}}else order.sort((a,b)=>a-b);
+ answers=Array(TOTAL).fill(null);cur=0;retry=isRetry;el('rb').style.display='none';saveProgress();render();
+}
+function setMode(m){if(!['normal','random'].includes(m)||m===mode)return;mode=m;start(order,retry);}
+function setUnit(value){unit=Number(value);if(!Number.isInteger(unit)||unit<0||unit>UNIT_NAMES.length)unit=0;start(scopedIds());}
+function freshStart(){mode='normal';unit=0;clearProgress();start(scopedIds());}
+function restart(){start(order,retry);}
+function retryWrong(){const ids=order.filter(i=>answers[i]!==null&&answers[i]!==Q[i].ans);if(ids.length)start(ids,true);}
+function jumpTo(i){if(!Number.isInteger(i)||i<0||i>=order.length)return;cur=i;saveProgress();render();}
+function renderExp(q){const a=answers[order[cur]],ok=a===q.ans;
+ const cmp=q.compare?`<div class="sec-label">혼동 구분</div><div class="compare">${q.compare.map(c=>`<div class="compare-item"><div class="ci-title">${c.title}</div><p>${c.desc}</p></div>`).join('')}</div>`:'';
+ return `<details class="exp show" open><summary class="exp-header"><span>${ok?'✅ 정답':'❌ 오답'} · 정답 ${q.ans?'O':'X'}</span> · 해설 접기/펼치기</summary><div class="exp-answer"><div class="ans-text">${q.correct}</div></div><div class="exp-body"><div>${q.why}</div>${cmp}<div class="sec-label">근거 · 자체 연습문항</div><p>${q.source}</p><p><a href="${q.study}">관련 개념 다시 읽기 →</a></p>${q.exam?`<p><a href="${q.exam.url}">관련 원문 기출: ${q.exam.label} ↗</a></p>`:''}</div></details>`;
+}
+function renderNav(){el('nav').innerHTML=order.map((idx,pos)=>{const a=answers[idx];return `<button class="nd ${pos===cur?'cur':a===null?'':a===Q[idx].ans?'ok':'ng'}" onclick="jumpTo(${pos})" aria-label="${Q[idx].id}${a===null?', 미응답':a===Q[idx].ans?', 정답':', 오답'}" ${pos===cur?'aria-current="step"':''}>${idx+1}</button>`;}).join('');}
+function render(){
+ el('unit-filter').value=String(unit);el('btn-normal').classList.toggle('active',mode==='normal');el('btn-random').classList.toggle('active',mode==='random');
+ const done=order.filter(i=>answers[i]!==null).length,n=order.length,score=getScore();
+ el('pt').textContent=`${retry?'오답 재도전 · ':''}${done} / ${n} 응답`;
+ el('ps').textContent=`정답 ${score}개`;el('bf').style.width=(done/n*100).toFixed(1)+'%';
+ el('retry-wrong').disabled=!order.some(i=>answers[i]!==null&&answers[i]!==Q[i].ans);
+ renderNav();
+ if(cur===n){
+  el('qa').style.display='none';el('sc').classList.add('show');el('fs').textContent=score;el('score-total').textContent='/'+n;
+  el('rm').textContent=score===n?'모두 맞혔습니다!':'해설을 확인하고 다시 도전하세요';
+  el('rs').textContent=`${retry?'오답 재도전':unit?UNIT_NAMES[unit-1]:'전체'} ${n}문제 중 ${score}문제 정답 (${Math.round(score/n*100)}%)`;return;
+ }
+ el('sc').classList.remove('show');el('qa').style.display='block';const idx=order[cur],q=Q[idx],a=answers[idx];
+ el('qa').innerHTML=`<div class="card"><div class="q-meta"><span class="q-num">${q.id}</span><span class="q-src">${cur+1} / ${n}</span><span class="q-cat">${q.cat}</span></div><h2 class="unit-label">${q.src} · ${UNIT_NAMES[q.unit-1]}</h2><div class="q-text">${q.text}</div><div class="ox-btns"><button class="ox-btn o-btn ${a===true?(a===q.ans?'co':'wp'):''}" onclick="pick(true)" ${a!==null?'disabled':''}>O<span class="lb">진술이 맞다</span></button><button class="ox-btn x-btn ${a===false?(a===q.ans?'cx':'wp'):''}" onclick="pick(false)" ${a!==null?'disabled':''}>X<span class="lb">진술이 틀리다</span></button></div><div aria-live="polite">${a!==null?renderExp(q):''}</div>${a!==null?`<button class="next-btn show" onclick="next()">${done===n?'결과 보기 →':'다음 미응답 →'}</button>`:''}</div>`;
+}
+function pick(value){if(typeof value!=='boolean'||cur>=order.length||answers[order[cur]]!==null)return;answers[order[cur]]=value;saveProgress();try{if(value===Q[order[cur]].ans){if(typeof playOk==='function')playOk();}else if(typeof playNg==='function')playNg();}catch(e){}render();}
+function next(){
+ if(cur>=order.length||answers[order[cur]]===null)return;
+ const pending=order.map((_,i)=>(cur+1+i)%order.length).find(pos=>answers[order[pos]]===null);
+ if(pending!==undefined){cur=pending;saveProgress();render();return;}
+ cur=order.length;saveProgress();render();
+ // The shared best-record popup is only comparable for full-bank first attempts.
+ if(!unit&&!retry&&order.length===TOTAL&&typeof window.showScorePopup==='function'){
+  window.showScorePopup(getScore(),TOTAL,{nextText:'해설·오답 다시 보기',onNextClick:()=>{const overlay=el('sp-overlay');if(overlay)overlay.remove();}});
+  const btn=el('sp-retry');if(btn)btn.onclick=()=>{const overlay=el('sp-overlay');if(overlay)overlay.remove();restart();};
+ }
+}
+function validSaved(s){
+ return s&&s.v===1&&Number.isInteger(s.unit)&&s.unit>=0&&s.unit<=UNIT_NAMES.length&&['normal','random'].includes(s.mode)&&typeof s.retry==='boolean'&&Array.isArray(s.answers)&&s.answers.length===TOTAL&&s.answers.every(a=>a===null||typeof a==='boolean')&&Array.isArray(s.order)&&s.order.length>0&&s.order.length<=TOTAL&&new Set(s.order).size===s.order.length&&s.order.every(i=>Number.isInteger(i)&&i>=0&&i<TOTAL&&(!s.unit||Q[i].unit===s.unit))&&(s.retry||s.order.length===Q.filter(q=>!s.unit||q.unit===s.unit).length)&&Number.isInteger(s.cur)&&s.cur>=0&&s.cur<=s.order.length&&(s.cur!==s.order.length||s.order.every(i=>s.answers[i]!==null));
+}
+(function(){
+ let loaded=false;try{const s=JSON.parse(localStorage.getItem(SAVE_KEY)||'null');if(validSaved(s)){({answers,cur,mode,unit,order,retry}=s);loaded=true;}}catch(e){}
+ const requested=new URLSearchParams(location.search).get('unit');
+ if(requested!==null&&/^[1-9]\d*$/.test(requested)&&Number(requested)<=UNIT_NAMES.length&&(!loaded||unit!==Number(requested))){unit=Number(requested);start(scopedIds());return;}
+ if(loaded){el('rb-msg').textContent='저장한 학습을 이어서 보여 드립니다.';el('rb').style.display='block';}render();
+})();
+
+</script>
+<nav class="quiz-return" aria-label="영어교육론 허브"><a id="back-btn" href="./index.html">← 영어교육론 허브로 돌아가기</a></nav>
+<script>document.addEventListener('DOMContentLoaded',function(){const badge=document.getElementById('sp-badge');const slot=document.getElementById('score-badge-slot');if(badge&&slot)slot.appendChild(badge);},{once:true});</script>
+</body></html>
